@@ -1304,3 +1304,70 @@ contacts-crm/
 ---
 
 ## 20. PERFORMANCE
+
+### Loading Targets
+- Initial Page Load: < 1.5s
+- Contact List Render: < 500ms (15 contacts)
+- Search Results: < 300ms (debounced)
+- Filter Application: < 200ms
+- Contact Profile Open: < 400ms
+- Import (1000 contacts): < 30s background job
+- Export (1000 contacts): < 10s
+- Auto-save: < 500ms (debounced 2s)
+
+### Optimization
+- Pagination: 15 rows/page, lazy load
+- Caching: Contact list 5min, profiles 10min, segments 1h
+- Avatars: CDN, WebP format, 32/56/80/200px variants, lazy load
+- Database: Indexes on all FKs, GIN indexes for tags/JSONB, cursor pagination
+- API: gzip compression, return summary objects in list
+- Client: React.memo, virtualized lists (>100 items), debounce search 300ms
+
+---
+
+## 21. FIGMA AI PROMPT
+
+```
+Design a comprehensive Contacts (CRM) module for CHATFLOW with list view, profile panel, import/export, segments, and merge duplicates.
+
+SCREEN 1 - CONTACTS LIST (SCR-CT01):
+Dashboard content area 24px padding. Header: "Kontaktlar" 24px Semibold + "247 kontakt" 14px subtitle + buttons right "+ Kontakt" primary + "Import" + "Export" ghost. Search bar 320px "Ism, email..." with icon + 3 filter dropdowns Tags/Organization/Last Seen + "Tozalash" link + View toggle table/card icons.
+
+Table View: 7 columns (Checkbox 40px / Name: avatar 32px + name 14px Semibold + email 13px gray stacked 300px / Phone 160px / Organization badge primary-50 180px / Tags max 2 badges 200px / Last Seen "2 daqiqa oldin" 140px / Actions 3-dot 60px). Row 72px height, hover bg-gray-50, border-bottom 1px. 15 rows + pagination. Bulk actions bar sticky when selected: primary-600 bg white text "3 kontakt tanlandi" + Delete/Add Tag/Export/Merge buttons.
+
+Card View (toggle): 3-col grid gap 20px, Card 320×180px white border 1px radius 12px shadow-sm hover shadow-md. Avatar 56px + Name 16px Semibold + Email + Phone + Organization badge + Tags max 3 + Last Seen 12px bottom-right + Actions icons hover.
+
+SCREEN 2 - CONTACT PROFILE (SCR-CT02):
+Right panel 800px slide-in. Header: Back arrow + Avatar 80px center + Name 24px + Email 16px + Phone + Actions "Tahrirlash"+"O'chirish" red. Tabs: Overview/Conversations/Notes/Activity with 2px primary border active.
+
+Overview Tab: 3 cards stacked 16px gap. Card 1 "Asosiy ma'lumotlar": fields Name/Email ✓/Phone/Organization badge/Tags/Created/Last Seen 🟢. Card 2 "Maxsus maydonlar" + Qo'shish: editable fields City/Product Interest/Lead Source with pencil hover. Card 3 "So'nggi suhbatlar" + Barchasini ko'rish: 3 items date+agent+duration+rating+preview+"Ochish" button.
+
+Conversations Tab: Timeline reverse chronological, each item: date+duration+agent avatar+rating stars+Open button.
+
+Notes Tab: "+ Eslatma" button + Rich editor (Bold/Italic/Link/Bullets 300px) + Notes list: author avatar 24px + name + timestamp + text expandable + Edit/Delete hover.
+
+Activity Tab: Timeline all events (created/updated/tagged/chat/note/merged) with icons + descriptions + timestamps.
+
+SCREEN 3 - ORGANIZATIONS (SCR-CT03):
+Header + Search + Table 5 columns: Logo 32px+Name / Contacts count clickable / Website link / Created / Actions. Organization detail panel 800px: logo 80px + name + website + info card + contacts mini-table + activity timeline.
+
+SCREEN 4 - IMPORT MODAL (SCR-CT04):
+600px modal 3 steps. Step 1: Drag-drop zone 400×200 upload icon 48px gray "CSV yoki Excel..." + template download link + file preview name+size+Remove X. Step 2: File preview table 5 rows + Column mapping: dropdown per CSV column → CHATFLOW field with checkmarks, Skip checkbox. Step 3: Summary card "247 kontakt import" + "12 yangilanadi" + Options checkboxes Update duplicates/Skip empty + Cancel+Import buttons. Step 4 auto: Progress bar "45/247..." + spinner + Success modal "247 qo'shildi!".
+
+SCREEN 5 - EXPORT MODAL (SCR-CT04-S01):
+500px modal. Format radio CSV/Excel. Fields checkboxes Name/Email/Phone/Organization/Tags/Last Seen/Custom with Select All link. Filter radio: All 247 / Selected 12 / Current filter 47. Cancel+Export buttons.
+
+SCREEN 6 - SEGMENTS (SCR-CT05):
+Header + Grid 2-col. Segment card 400×140: name 16px + count "12 kontakt" + conditions preview + created-by avatar 20px + 3-dot actions. Create modal 700px: Name+Description+Query Builder (Condition dropdowns Field/Operator/Value + AND/OR logic + Add condition link max 5) + Preview "47 mos keladi" live + 3 avatars + Save button.
+
+SCREEN 7 - MERGE DUPLICATES (SCR-CT06):
+Header + Detection toggles Email/Phone/Name fuzzy + Apply button. Duplicate groups list: card "2 takroriy" + avatars preview + Merge+Ignore buttons. Merge modal 800px side-by-side: Left contact vs Right contact, radio per field Name/Email/Phone select which keep + Merge options checkboxes tags/notes/conversations + Cancel+Merge buttons.
+
+EMPTY STATES: Illustration address book 120px gray + "Kontaktlar yo'q" + description + buttons. Search no results: magnifying X 64px + "Hech narsa topilmadi" + query + clear link. Error loading: error icon 48px red + title + "Qayta yuklash".
+
+COMPONENTS: Contact card variants, Organization badge with Building icon 14px primary-50 bg radius 8px, Custom attribute field with type icons, Note item expandable, Activity event with type icons, Segment card, Duplicate group card, Bulk actions bar, Filter dropdown multi-select, Pagination controls.
+
+ANIMATIONS: Card hover elevation scale 1.02 200ms, Row hover bg 150ms, Selected border-left 3px instant, Badge hover scale 1.05 100ms, Note expand max-height 300ms, Bulk bar slide-down 250ms, Progress bar fill 500ms, Online dot pulse 2s infinite, Avatar shimmer 1.5s.
+
+COLORS: Primary #4F46E5, Gray-50 #F9FAFB, Gray-200 #E5E7EB, Gray-600 #6B7280, Gray-900 #111827, Green online #10B981, Red delete #DC2626. Typography: Inter font, 12-24px scale. Spacing: 8px grid. Radius: 8-12px. Shadow: sm/md/lg. All WCAG AA contrast 4.5:1+.
+```

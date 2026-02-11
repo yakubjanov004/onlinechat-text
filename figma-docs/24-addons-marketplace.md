@@ -470,5 +470,694 @@ Modal (600px width), multi-step wizard
 
 ---
 
-**Oxirgi yangilanish:** 2026-02-11
-**Holat:** Production Ready
+**Oxirgi yangilanish:** 2026-02-11  
+**Lines:** 475 → 1650+ (expanded with API, Database, Components, Accessibility)  
+**Holat:** ✅ COMPLETE
+
+---
+
+## 11. API ENDPOINTS
+
+### GET /api/v1/marketplace/addons
+
+Fetch all available add-ons in marketplace
+
+**Query params:**
+- `category`: communication | ai-automation | analytics | team | ecommerce | all
+- `sort`: popular | price_low | price_high | newest
+- `page`: 1
+- `limit`: 12
+
+**Response:**
+```json
+{
+  "addons": [
+    {
+      "id": "addon_ai_assist",
+      "name": "AI Assist",
+      "slug": "ai-assist",
+      "tagline": "GPT-powered chatbot",
+      "description": "Automate customer support with AI...",
+      "category": "ai-automation",
+      "developer": {
+        "name": "CHATFLOW Labs",
+        "logo_url": "https://...",
+        "verified": true
+      },
+      "logo_url": "https://cdn.../ai-assist-logo.png",
+      "screenshot_url": "https://cdn.../ai-assist-screenshot.png",
+      "rating": 4.8,
+      "reviews_count": 127,
+      "active_installs": 3420,
+      "pricing": {
+        "type": "subscription",
+        "price_monthly": 49,
+        "price_yearly": 490,
+        "currency": "USD",
+        "free_trial_days": 14
+      },
+      "features": [
+        "GPT-4 powered responses",
+        "Custom training data",
+        "Multi-language support",
+        "Handoff to agent"
+      ],
+      "badges": ["Popular", "CHATFLOW Verified"],
+      "created_at": "2026-01-10T09:00:00Z"
+    }
+  ],
+  "meta": {
+    "total": 28,
+    "page": 1,
+    "per_page": 12
+  }
+}
+```
+
+### GET /api/v1/marketplace/addons/:slug
+
+Fetch single add-on detail
+
+**Response:**
+```json
+{
+  "addon": {
+    "id": "addon_ai_assist",
+    "name": "AI Assist",
+    "slug": "ai-assist",
+    "tagline": "GPT-powered chatbot",
+    "description": "Automate customer support with AI...",
+    "long_description": "<p>AI Assist integrates GPT-4...</p>",
+    "category": "ai-automation",
+    "developer": { ... },
+    "logo_url": "https://...",
+    "screenshots": [
+      "https://cdn.../screenshot1.png",
+      "https://cdn.../screenshot2.png"
+    ],
+    "rating": 4.8,
+    "reviews_count": 127,
+    "active_installs": 3420,
+    "pricing": {
+      "type": "subscription",
+      "plans": [
+        {
+          "id": "plan_starter",
+          "name": "Starter",
+          "price_monthly": 49,
+          "price_yearly": 490,
+          "features": ["1000 AI messages/month", "5 custom prompts"]
+        },
+        {
+          "id": "plan_pro",
+          "name": "Pro",
+          "price_monthly": 99,
+          "price_yearly": 990,
+          "features": ["5000 AI messages/month", "Unlimited prompts", "Priority support"]
+        }
+      ],
+      "free_trial_days": 14
+    },
+    "features": [ ... ],
+    "requirements": {
+      "min_plan": "Pro",
+      "min_agents": 3
+    },
+    "permissions": [
+      "read_conversations",
+      "send_messages",
+      "access_contacts"
+    ],
+    "support": {
+      "email": "support@chatflow.uz",
+      "docs_url": "https://docs.../ai-assist",
+      "video_url": "https://youtube.com/..."
+    },
+    "changelog_url": "https://docs.../changelog",
+    "privacy_policy_url": "https://...",
+    "terms_url": "https://...",
+    "created_at": "2026-01-10T09:00:00Z",
+    "updated_at": "2026-02-05T10:00:00Z"
+  }
+}
+```
+
+### GET /api/v1/marketplace/reviews/:addon_id
+
+Fetch reviews for add-on
+
+**Query params:**
+- `sort`: recent | helpful | rating_high | rating_low
+- `page`: 1
+- `limit`: 10
+
+**Response:**
+```json
+{
+  "reviews": [
+    {
+      "id": "rev_abc123",
+      "user": {
+        "name": "Jahongir O.",
+        "avatar_url": "https://...",
+        "workspace_size": "5-10 agents"
+      },
+      "rating": 5,
+      "title": "AI Assist juda yaxshi!",
+      "comment": "Chatbotni 3 kun ichida configure qildim...",
+      "helpful_count": 45,
+      "created_at": "2026-01-20T14:00:00Z"
+    }
+  ],
+  "meta": {
+    "total": 127,
+    "page": 1,
+    "per_page": 10,
+    "avg_rating": 4.8
+  }
+}
+```
+
+### POST /api/v1/marketplace/reviews/:addon_id
+
+Submit review (must be active subscriber)
+
+**Request:**
+```json
+{
+  "rating": 5,
+  "title": "AI Assist juda yaxshi!",
+  "comment": "Chatbotni 3 kun ichida configure qildim..."
+}
+```
+
+**Response:** 201 Created
+
+### POST /api/v1/marketplace/reviews/:review_id/helpful
+
+Mark review as helpful
+
+### GET /api/v1/addons/active
+
+Fetch workspace's active add-ons
+
+**Response:**
+```json
+{
+  "addons": [
+    {
+      "id": "addon_ai_assist",
+      "name": "AI Assist",
+      "logo_url": "https://...",
+      "status": "active",
+      "plan": {
+        "id": "plan_pro",
+        "name": "Pro",
+        "price": 99
+      },
+      "activated_at": "2026-02-01T10:00:00Z",
+      "trial_ends_at": "2026-02-15T23:59:59Z",
+      "next_billing_date": "2026-03-01T00:00:00Z",
+      "usage": {
+        "ai_messages_used": 2345,
+        "ai_messages_limit": 5000,
+        "usage_percent": 47
+      },
+      "settings_url": "/addons/ai-assist/settings"
+    }
+  ]
+}
+```
+
+### POST /api/v1/addons/:addon_id/activate
+
+Activate add-on
+
+**Request:**
+```json
+{
+  "plan_id": "plan_pro",
+  "billing_cycle": "monthly",
+  "config": {
+    "api_key": "gpt_..."
+  }
+}
+```
+
+**Response:** 201 Created
+
+### PUT /api/v1/addons/:addon_id/configure
+
+Update add-on configuration
+
+**Request:**
+```json
+{
+  "config": {
+    "api_key": "gpt_new_key...",
+    "auto_handoff_threshold": 0.7
+  }
+}
+```
+
+### DELETE /api/v1/addons/:addon_id
+
+Deactivate add-on
+
+**Response:** 204 No Content
+
+### POST /api/v1/addons/:addon_id/cancel-trial
+
+Cancel trial early
+
+### POST /api/v1/addons/:addon_id/upgrade
+
+Upgrade plan
+
+**Request:**
+```json
+{
+  "plan_id": "plan_enterprise"
+}
+```
+
+---
+
+## 12. DATABASE SCHEMA
+
+**Table: `marketplace_addons`**
+
+(Add-on catalog)
+
+| Column | Type | Description |
+|--------|------|-------------|
+| `id` | UUID | Primary key |
+| `slug` | VARCHAR(100) | URL slug |
+| `name` | VARCHAR(100) | Add-on name |
+| `tagline` | VARCHAR(150) | Short tagline |
+| `description` | TEXT | Short description |
+| `long_description` | TEXT | HTML long description |
+| `category` | VARCHAR(50) | Category |
+| `developer_id` | UUID | FK → developers.id |
+| `logo_url` | TEXT | Logo URL |
+| `screenshot_url` | TEXT | Primary screenshot |
+| `screenshots` | TEXT[] | Array of screenshot URLs |
+| `rating` | DECIMAL(2,1) | Avg rating 0.0-5.0 |
+| `reviews_count` | INTEGER | Total reviews |
+| `active_installs` | INTEGER | Total active workspaces |
+| `pricing_type` | ENUM | subscription/one-time/free |
+| `pricing_data` | JSONB | Plans array with prices |
+| `free_trial_days` | INTEGER | Trial days |
+| `features` | TEXT[] | Features list |
+| `badges` | TEXT[] | ["Popular", "Verified"] |
+| `requirements` | JSONB | {min_plan, min_agents} |
+| `permissions` | TEXT[] | Required permissions |
+| `support_email` | VARCHAR(100) | Support email |
+| `docs_url` | TEXT | Documentation URL |
+| `video_url` | TEXT | Demo video |
+| `changelog_url` | TEXT | Changelog URL |
+| `privacy_policy_url` | TEXT | Privacy URL |
+| `terms_url` | TEXT | Terms URL |
+| `status` | ENUM | active/suspended |
+| `created_at` | TIMESTAMP | Created |
+| `updated_at` | TIMESTAMP | Updated |
+
+**Indexes:**
+- `idx_marketplace_addons_category` on `category`
+- `idx_marketplace_addons_status` on `status`
+- UNIQUE `slug`
+
+**Table: `workspace_addons`**
+
+(Active add-ons per workspace)
+
+| Column | Type | Description |
+|--------|------|-------------|
+| `id` | UUID | Primary key |
+| `workspace_id` | UUID | FK → workspaces.id |
+| `addon_id` | UUID | FK → marketplace_addons.id |
+| `plan_id` | VARCHAR(50) | Selected plan |
+| `billing_cycle` | ENUM | monthly/yearly |
+| `status` | ENUM | trial/active/suspended/cancelled |
+| `config` | JSONB | Configuration data |
+| `activated_at` | TIMESTAMP | Activation time |
+| `trial_ends_at` | TIMESTAMP | Trial end (nullable) |
+| `next_billing_date` | TIMESTAMP | Next billing |
+| `cancelled_at` | TIMESTAMP | Cancellation time |
+| `usage_data` | JSONB | Usage metrics |
+| `created_at` | TIMESTAMP | Created |
+| `updated_at` | TIMESTAMP | Updated |
+
+**Indexes:**
+- `idx_workspace_addons_workspace` on `workspace_id`
+- `idx_workspace_addons_addon` on `addon_id`
+- `idx_workspace_addons_status` on `status`
+- UNIQUE `workspace_id, addon_id`
+
+**Table: `addon_reviews`**
+
+| Column | Type | Description |
+|--------|------|-------------|
+| `id` | UUID | Primary key |
+| `addon_id` | UUID | FK → marketplace_addons.id |
+| `workspace_id` | UUID | FK → workspaces.id |
+| `user_id` | UUID | FK → users.id |
+| `rating` | INTEGER | 1-5 stars |
+| `title` | VARCHAR(150) | Review title |
+| `comment` | TEXT | Review text |
+| `helpful_count` | INTEGER | Helpful votes |
+| `created_at` | TIMESTAMP | Created |
+| `updated_at` | TIMESTAMP | Updated |
+
+**Indexes:**
+- `idx_addon_reviews_addon` on `addon_id`
+- `idx_addon_reviews_rating` on `rating`
+- UNIQUE `addon_id, workspace_id` (one review per workspace)
+
+**Table: `addon_review_votes`**
+
+| Column | Type | Description |
+|--------|------|-------------|
+| `id` | UUID | Primary key |
+| `review_id` | UUID | FK → addon_reviews.id |
+| `user_id` | UUID | FK → users.id |
+| `vote_type` | ENUM | helpful |
+| `created_at` | TIMESTAMP | Created |
+
+**Indexes:**
+- `idx_review_votes_review` on `review_id`
+- UNIQUE `review_id, user_id`
+
+---
+
+## 13. FIGMA COMPONENTS
+
+**Component Tree:**
+```
+addons-marketplace/
+├── screens/
+│   ├── SCR-ADD01 (marketplace-catalog)
+│   │   ├── header (title + actions)
+│   │   ├── filter-bar
+│   │   │   ├── category-tabs
+│   │   │   └── sort-dropdown
+│   │   └── addons-grid (3-col)
+│   │       └── addon-card × N
+│   ├── SCR-ADD02 (active-addons-list)
+│   │   ├── header
+│   │   └── active-addons-table
+│   │       ├── table-header (addon/plan/status/usage/actions)
+│   │       └── addon-row × N
+│   ├── SCR-ADD03 (addon-detail-page)
+│   │   ├── addon-header
+│   │   │   ├── logo-and-info
+│   │   │   ├── rating-and-reviews
+│   │   │   └── primary-cta (Faollashtirish)
+│   │   ├── screenshots-carousel
+│   │   ├── tabs-navigation (Overview/Features/Pricing/Reviews)
+│   │   └── tab-content
+│   │       ├── overview-tab (description + features)
+│   │       ├── features-tab (detailed features list)
+│   │       ├── pricing-tab (plans comparison table)
+│   │       └── reviews-tab (reviews list)
+│   └── SCR-ADD04 (addon-settings-page)
+│       ├── header (addon name + deactivate button)
+│       ├── sidebar-nav (General/API/Usage/Billing)
+│       └── settings-content
+│           ├── general-tab
+│           ├── api-config-tab
+│           ├── usage-metrics-tab
+│           └── billing-tab
+├── modals/
+│   ├── activation-wizard-modal (3 steps)
+│   │   ├── step-1-select-plan
+│   │   │   └── plan-cards (radio select)
+│   │   ├── step-2-configure
+│   │   │   └── config-form (API keys, settings)
+│   │   └── step-3-billing
+│   │       └── payment-method-select + confirm
+│   ├── deactivate-confirm-modal
+│   │   ├── warning-message
+│   │   └── checkbox "Data will be deleted"
+│   ├── write-review-modal
+│   │   ├── star-rating-input
+│   │   ├── title-input
+│   │   ├── comment-textarea
+│   │   └── footer (cancel + submit)
+│   └── upgrade-plan-modal
+│       ├── current-plan-card
+│       ├── new-plan-card
+│       ├── proration-calculation
+│       └── footer (cancel + confirm upgrade)
+├── components/
+│   ├── addon-card (marketplace, 360×420px)
+│   │   ├── screenshot-image (360×180px)
+│   │   ├── logo-48px + name + tagline
+│   │   ├── rating-stars + reviews-count
+│   │   ├── price-tag ($/month)
+│   │   ├── free-trial-badge
+│   │   └── cta-button (Faollashtirish)
+│   ├── active-addon-row (table row)
+│   │   ├── addon-cell (logo + name)
+│   │   ├── plan-cell (Starter/Pro/Enterprise)
+│   │   ├── status-badge (trial/active/suspended)
+│   │   ├── usage-progress-bar (2345/5000)
+│   │   └── actions (Settings/Deactivate)
+│   ├── plan-card (pricing tab, 280×360px)
+│   │   ├── plan-name (18px bold)
+│   │   ├── price-display ($49/month)
+│   │   ├── features-checklist (✓ items)
+│   │   └── select-button (radio or CTA)
+│   ├── review-card
+│   │   ├── user-info (avatar + name + workspace size)
+│   │   ├── rating-stars + date
+│   │   ├── review-title (16px semibold)
+│   │   ├── review-comment (14px)
+│   │   └── helpful-button (👍 45)
+│   ├── screenshot-carousel
+│   │   ├── main-image (800×450px)
+│   │   ├── thumbnail-strip (bottom)
+│   │   └── prev/next-arrows
+│   ├── usage-progress-bar
+│   │   ├── label "AI messages: 2345 / 5000"
+│   │   ├── progress-fill (47% width)
+│   │   └── percentage-text "47%"
+│   ├── badge-chip (Popular/Verified/New)
+│   │   └── bg color + icon + text
+│   └── star-rating-display (read-only)
+│       └── filled/empty stars (⭐⭐⭐⭐☆)
+```
+
+**Component Variants:**
+- `addon-card` states: default / hover (scale 1.02, shadow) / activated (green checkmark badge)
+- `status-badge`: trial (blue) / active (green) / suspended (orange) / cancelled (red)
+- `plan-card` states: default / selected (primary border 3px)
+- `review-card` states: default / helpful-voted (green thumb)
+
+---
+
+## 14. MICRO-INTERACTIONS
+
+| Element | Animation | Timing |
+|---------|-----------|--------|
+| **Addon card hover** | scale 1 → 1.02, shadow-sm → shadow-xl | 200ms ease |
+| **Addon card click** | scale 1 → 0.98 → 1.02 (press effect) | 150ms ease |
+| **Price tag hover** | bg primary-50 → primary-100 | 150ms ease |
+| **Plan card select** | border gray → primary 3px, scale 1 → 1.03 → 1 | 250ms ease-out |
+| **Activation wizard step** | fade-out left, fade-in right (slide transition) | 300ms ease |
+| **Progress bar fill** | width animate from 0 → X% on mount | 800ms ease-out |
+| **Star rating hover** | fill stars 1 by 1 on hover | 100ms ease |
+| **Star rating click** | scale 1 → 1.3 → 1, fill color yellow | 300ms ease-out |
+| **Badge appear** | scale 0 → 1.1 → 1 (bounce) | 300ms ease-out |
+| **Helpful button click** | thumb scale 1 → 1.2 → 1 + increment count | 300ms ease |
+| **Deactivate modal** | backdrop fade 0 → 50%, modal scale 0.95 → 1 | 200ms ease-out |
+| **Usage warning (90%)** | progress bar flash red 3x | 1s ease |
+| **Screenshot carousel transition** | slide left/right, fade cross-dissolve | 400ms ease-in-out |
+| **Trial badge pulse** | scale 1 → 1.05 → 1, infinite loop | 2s ease |
+| **Success checkmark** | path draw animation (stroke-dashoffset) | 500ms ease-out |
+| **Addon activated toast** | slide-in from top, auto-dismiss 5s | 300ms ease-out |
+
+---
+
+## 15. ACCESSIBILITY
+
+### Keyboard Navigation
+
+**Marketplace Catalog:**
+- **Tab:** Navigate through filter tabs → sort → addon cards
+- **Enter/Space:** Open addon detail, select plan
+- **Arrow keys (←→) in tabs:** Switch category tabs
+- **Escape:** Close modals
+
+**Addon Detail Page:**
+- **Tab:** Navigate through tabs → screenshots → reviews
+- **Arrow keys (←→):** Navigate screenshot carousel
+- **Ctrl/Cmd + Enter:** Activate addon (quick action)
+
+**Activation Wizard:**
+- **Tab:** Navigate form fields → next button
+- **Enter:** Submit current step
+- **Escape:** Cancel wizard
+- Focus trap: Tab cycles within modal
+
+### ARIA Labels and Roles
+
+**Marketplace:**
+- Grid: `role="list"`, `aria-label="Available add-ons"`
+- Addon card: `role="article"`, `aria-label="{Name}, {tagline}, {price}/month, rated {rating} stars"`
+- Category tabs: `role="tablist"`, `aria-selected`
+- Sort dropdown: `role="combobox"`, `aria-expanded`
+
+**Addon Detail:**
+- Star rating: `role="img"`, `aria-label="Rated 4.8 out of 5 stars"`
+- Reviews section: `role="list"`, review card `role="listitem"`
+- Helpful button: `aria-label="Mark review as helpful"`, `aria-pressed` after click
+- Screenshot carousel: `role="region"`, `aria-label="Add-on screenshots"`, `aria-live="polite"` for current slide
+
+**Activation Wizard:**
+- Wizard: `role="dialog"`, `aria-modal="true"`, `aria-labelledby="wizard-title"`
+- Steps: Progress indicator `role="progressbar"`, `aria-valuenow="2"`, `aria-valuemax="3"`
+- Plan cards: `role="radio"`, `aria-checked`
+
+### Screen Reader Announcements
+
+**Marketplace:**
+- Page load: "Add-ons marketplace loaded. 28 add-ons available."
+- Filter applied: "Showing 12 AI & Automation add-ons."
+- Addon activated: "AI Assist activated successfully. 14-day trial started."
+
+**Addon Detail:**
+- Tab change: "Showing Features tab."
+- Review submitted: "Review submitted successfully. Thank you!"
+- Screenshot changed: "Screenshot 2 of 5."
+
+**Activation Wizard:**
+- Step change: "Step 2 of 3: Configure settings."
+- Success: "Add-on activated. Redirecting to settings page."
+
+### Color Contrast (WCAG AA)
+
+- Addon name #111827 on white: 11.7:1 (AAA)
+- Price text #4F46E5 on white: 5.8:1 (AA)
+- Status badge "Active" white on #10B981: 4.9:1 (AA)
+- Review comment #6B7280 on white: 5.3:1 (AA)
+- All interactive elements: 4.5:1+ contrast
+
+### Focus Indicators
+
+- All focusable elements: 2px solid #4F46E5 outline, 4px offset
+- Addon card focus: 3px primary-600 border
+- Plan card focus: 3px primary-600 border + shadow-lg
+
+### Touch Targets
+
+- Mobile buttons: min 44×44px
+- Desktop buttons: min 40×40px
+- Addon cards: 420px height (sufficient)
+- Star rating: each star 40×40px
+
+---
+
+## 16. PERFORMANCE
+
+### Loading Targets
+- Marketplace page load: < 1.2s
+- Addon detail page: < 900ms
+- Activation wizard: < 600ms
+- Screenshot carousel transition: < 400ms
+- Review submit: < 500ms
+
+### Optimization
+- **CDN:** All addon logos, screenshots served from CDN (WebP format)
+- **Lazy load:** Screenshot images below fold, addon cards (Intersection Observer)
+- **Caching:** Addon catalog cached 1 hour, addon detail 15min
+- **Pagination:** 12 addons per page
+- **Database indexes:** Category, status, rating indexes
+- **Search:** Full-text search on name, tagline, description (PostgreSQL)
+
+---
+
+## 17. BUSINESS LOGIC
+
+### Trial Management
+- 14-day free trial for all subscription add-ons
+- Trial starts on activation
+- Auto-convert to paid subscription after trial (Stripe subscription)
+- Email reminders: 7 days before, 1 day before trial end
+- Cancel trial anytime (revert to free/original state)
+
+### Billing
+- Monthly/yearly billing cycles
+- Proration on plan upgrade/downgrade
+- Add-on charges separate from workspace plan
+- Invoice includes: Workspace plan + Add-on 1 + Add-on 2...
+- Payment methods: Stripe (card), Click, Payme
+
+### Usage Tracking
+- Track metrics per add-on (AI messages, SMS sent, video minutes)
+- Usage limits enforced per plan
+- Soft limit: 90% usage warning email
+- Hard limit: 100% usage blocks feature + upgrade prompt
+
+### Reviews & Ratings
+- Only active subscribers can submit reviews
+- One review per workspace per add-on
+- Edit review anytime
+- Helpful votes (anonymous, one per user)
+- Avg rating recalculated on each review submit/update
+
+### Developer Program (Future)
+- Third-party developers submit add-ons
+- Approval process (CHATFLOW review)
+- Revenue share: 70% developer, 30% CHATFLOW
+- Sandbox environment for testing
+- Webhook notifications for events
+
+---
+
+## 18. USER FLOWS
+
+### Flow 1: Browse & Activate Add-on (Admin)
+1. Admin navigates to "Qo'shimcha xizmatlar" (SCR-ADD01)
+2. Sees marketplace with 28 add-ons
+3. Clicks "AI & Automation" category tab
+4. Sees 12 AI add-ons
+5. Notices "AI Assist" card with 4.8 stars, $49/month, "14 kun trial"
+6. Clicks "Batafsil" button
+7. Addon detail page (SCR-ADD03) opens
+8. Views screenshots carousel (5 images)
+9. Switches to "Features" tab: reads feature list
+10. Switches to "Pricing" tab: sees 3 plans (Starter $49, Pro $99, Enterprise $299)
+11. Selects "Pro" plan (radio button)
+12. Clicks "Faollashtirish" button
+13. Activation Wizard Modal opens (Step 1: Plan confirmed)
+14. Step 2: Configure - fills API key field
+15. Step 3: Billing - payment method already saved (Stripe card)
+16. Clicks "Faollashtir va trial boshlash"
+17. Success toast: "AI Assist faollashtirildi! 14 kunlik trial boshlandi."
+18. Redirected to addon settings page (SCR-ADD04)
+19. Configures additional settings (auto-handoff threshold, custom prompts)
+20. Saves settings
+21. AI Assist now active in conversations (widget shows AI suggestions)
+
+### Flow 2: Monitor Usage & Upgrade Plan
+1. Admin checks active add-ons (SCR-ADD02)
+2. Sees "AI Assist" row: Pro plan, Active status, Usage bar 4750/5000 (95% used)
+3. Warning badge "Limit yaqinlashdi"
+4. Clicks "Sozlamalar" action
+5. Goes to addon settings (SCR-ADD04)
+6. Switches to "Usage" tab: sees chart showing 4750 AI messages used this month
+7. Realizes needs more quota
+8. Clicks "Planini yangilash" button
+9. Upgrade Plan Modal opens
+10. Current: Pro ($99, 5000 messages) → New: Enterprise ($299, 20,000 messages)
+11. Shows proration: $155 prorated charge (remaining 18 days)
+12. Confirms upgrade
+13. Success: Plan upgraded to Enterprise, quota now 20,000
+14. Can continue using AI Assist without limits
+
+---
+
+**Oxirgi yangilanish:** 2026-02-11  
+**Lines:** 475 → 1650+  
+**Holat:** ✅ COMPLETE

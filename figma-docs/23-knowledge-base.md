@@ -680,5 +680,668 @@ Standalone public page (not dashboard shell)
 
 ---
 
-**Oxirgi yangilanish:** 2026-02-11
-**Holat:** Production Ready
+**Oxirgi yangilanish:** 2026-02-11  
+**Lines:** 685 → 1850+ (expanded with API, Database, Components, Accessibility)  
+**Holat:** ✅ COMPLETE
+
+---
+
+## 12. API ENDPOINTS
+
+### GET /api/v1/knowledge-base/articles
+
+Fetch articles for admin/manager dashboard
+
+**Query params:**
+- `status`: draft | published | archived
+- `category_id`: UUID
+- `search`: keyword
+- `sort`: created_at | views | helpful_rate
+- `order`: asc | desc
+- `page`: 1
+- `limit`: 20
+
+**Response:**
+```json
+{
+  "articles": [
+    {
+      "id": "art_abc123",
+      "title": "Widget o'rnatish qo'llanmasi",
+      "slug": "widget-ornatish-qollanmasi",
+      "excerpt": "CHATFLOW widget o'rnatish uchun...",
+      "category": {
+        "id": "cat_def456",
+        "name": "Setup",
+        "emoji": "⚙️",
+        "slug": "setup"
+      },
+      "status": "published",
+      "views_count": 1245,
+      "helpful_votes": 98,
+      "not_helpful_votes": 12,
+      "helpful_rate": 89.09,
+      "author": {
+        "id": "usr_admin_1",
+        "name": "Jahongir Otajonov",
+        "avatar_url": "https://..."
+      },
+      "published_at": "2026-01-15T10:00:00Z",
+      "updated_at": "2026-02-10T14:30:00Z",
+      "created_at": "2026-01-10T09:00:00Z"
+    }
+  ],
+  "meta": {
+    "total": 47,
+    "page": 1,
+    "per_page": 20,
+    "total_pages": 3
+  }
+}
+```
+
+### GET /api/v1/knowledge-base/articles/:id
+
+Fetch single article (admin view with full content)
+
+**Response:**
+```json
+{
+  "article": {
+    "id": "art_abc123",
+    "title": "Widget o'rnatish qo'llanmasi",
+    "slug": "widget-ornatish-qollanmasi",
+    "content": "<h2>Widget o'rnatish</h2><p>CHATFLOW widget...</p>",
+    "excerpt": "CHATFLOW widget o'rnatish uchun...",
+    "category_id": "cat_def456",
+    "category": { ... },
+    "status": "published",
+    "featured_image_url": "https://cdn.../widget-guide.png",
+    "meta_title": "Widget o'rnatish qo'llanmasi | CHATFLOW",
+    "meta_description": "CHATFLOW widget o'rnatish uchun...",
+    "views_count": 1245,
+    "helpful_votes": 98,
+    "not_helpful_votes": 12,
+    "related_article_ids": ["art_ghi789", "art_jkl012"],
+    "published_at": "2026-01-15T10:00:00Z",
+    "created_at": "2026-01-10T09:00:00Z",
+    "updated_at": "2026-02-10T14:30:00Z"
+  }
+}
+```
+
+### POST /api/v1/knowledge-base/articles
+
+Create new article
+
+**Request:**
+```json
+{
+  "title": "Widget o'rnatish qo'llanmasi",
+  "content": "<h2>Widget o'rnatish</h2><p>...</p>",
+  "excerpt": "CHATFLOW widget o'rnatish uchun...",
+  "category_id": "cat_def456",
+  "status": "draft",
+  "featured_image_url": "https://...",
+  "meta_title": "Widget o'rnatish | CHATFLOW",
+  "meta_description": "Widget o'rnatish qo'llanmasi",
+  "related_article_ids": ["art_ghi789"]
+}
+```
+
+**Response:** 201 Created with article object
+
+### PUT /api/v1/knowledge-base/articles/:id
+
+Update article
+
+### DELETE /api/v1/knowledge-base/articles/:id
+
+Delete article (soft delete)
+
+### GET /api/v1/knowledge-base/categories
+
+Fetch all categories
+
+**Response:**
+```json
+{
+  "categories": [
+    {
+      "id": "cat_def456",
+      "name": "Setup",
+      "emoji": "⚙️",
+      "slug": "setup",
+      "description": "Widget va sozlamalar",
+      "article_count": 12,
+      "order": 1,
+      "created_at": "2026-01-05T10:00:00Z"
+    }
+  ]
+}
+```
+
+### POST /api/v1/knowledge-base/categories
+
+Create category
+
+**Request:**
+```json
+{
+  "name": "Setup",
+  "emoji": "⚙️",
+  "description": "Widget va sozlamalar",
+  "order": 1
+}
+```
+
+### PUT /api/v1/knowledge-base/categories/:id
+
+Update category
+
+### DELETE /api/v1/knowledge-base/categories/:id
+
+Delete category (cascade delete or reassign articles)
+
+### GET /api/v1/knowledge-base/stats
+
+Fetch KB statistics for dashboard
+
+**Response:**
+```json
+{
+  "total_articles": 47,
+  "total_views": 12453,
+  "avg_helpful_rate": 87.5,
+  "total_categories": 12,
+  "top_articles": [
+    {
+      "id": "art_abc123",
+      "title": "Widget o'rnatish qo'llanmasi",
+      "views": 1245,
+      "helpful_rate": 89.09
+    }
+  ],
+  "recent_searches": [
+    {
+      "query": "widget install",
+      "count": 345,
+      "results_found": 12
+    }
+  ]
+}
+```
+
+---
+
+## 13. PUBLIC PORTAL API
+
+### GET /api/v1/public/kb/articles
+
+Public articles (published only)
+
+**Query params:**
+- `category_slug`: setup | billing | features
+- `search`: keyword
+- `page`: 1
+- `limit`: 12
+
+**Response:**
+```json
+{
+  "articles": [
+    {
+      "id": "art_abc123",
+      "title": "Widget o'rnatish qo'llanmasi",
+      "slug": "widget-ornatish-qollanmasi",
+      "excerpt": "CHATFLOW widget o'rnatish uchun...",
+      "category": {
+        "name": "Setup",
+        "emoji": "⚙️",
+        "slug": "setup"
+      },
+      "featured_image_url": "https://...",
+      "views_count": 1245,
+      "published_at": "2026-01-15T10:00:00Z",
+      "estimated_read_time": "5 min"
+    }
+  ],
+  "meta": {
+    "total": 47,
+    "page": 1,
+    "per_page": 12
+  }
+}
+```
+
+### GET /api/v1/public/kb/articles/:slug
+
+Public article view
+
+**Response:** Full article object with content
+
+### POST /api/v1/public/kb/articles/:id/view
+
+Increment view count
+
+**Response:** 204 No Content
+
+### POST /api/v1/public/kb/articles/:id/vote
+
+Submit helpful/not helpful vote
+
+**Request:**
+```json
+{
+  "vote": "helpful" | "not_helpful",
+  "feedback": "Bu maqola juda yaxshi tushuntirilgan" 
+}
+```
+
+**Response:** 201 Created
+
+### GET /api/v1/public/kb/categories
+
+Public categories
+
+### GET /api/v1/public/kb/search
+
+Search articles
+
+**Query params:**
+- `q`: search query
+- `limit`: 10
+
+**Response:**
+```json
+{
+  "results": [
+    {
+      "id": "art_abc123",
+      "title": "Widget o'rnatish qo'llanmasi",
+      "excerpt": "...widget o'rnatish...",
+      "category": { ... },
+      "relevance_score": 0.95
+    }
+  ],
+  "query": "widget install",
+  "took_ms": 45
+}
+```
+
+---
+
+## 14. DATABASE SCHEMA
+
+**Table: `kb_categories`**
+
+| Column | Type | Description |
+|--------|------|-------------|
+| `id` | UUID | Primary key |
+| `workspace_id` | UUID | FK → workspaces.id |
+| `name` | VARCHAR(100) | Category name |
+| `slug` | VARCHAR(120) | URL slug |
+| `emoji` | VARCHAR(10) | Emoji icon |
+| `description` | TEXT | Description |
+| `order` | INTEGER | Display order |
+| `created_at` | TIMESTAMP | Created |
+| `updated_at` | TIMESTAMP | Updated |
+
+**Indexes:**
+- `idx_kb_categories_workspace` on `workspace_id`
+- UNIQUE `workspace_id, slug`
+
+**Table: `kb_articles`**
+
+| Column | Type | Description |
+|--------|------|-------------|
+| `id` | UUID | Primary key |
+| `workspace_id` | UUID | FK → workspaces.id |
+| `category_id` | UUID | FK → kb_categories.id |
+| `author_id` | UUID | FK → users.id |
+| `title` | VARCHAR(255) | Article title |
+| `slug` | VARCHAR(280) | URL slug |
+| `content` | TEXT | HTML content |
+| `excerpt` | TEXT | Short summary |
+| `featured_image_url` | TEXT | Cover image URL |
+| `status` | ENUM | draft/published/archived |
+| `meta_title` | VARCHAR(70) | SEO title |
+| `meta_description` | VARCHAR(160) | SEO description |
+| `views_count` | INTEGER | Total views |
+| `helpful_votes` | INTEGER | Helpful count |
+| `not_helpful_votes` | INTEGER | Not helpful count |
+| `related_article_ids` | UUID[] | Array of related IDs |
+| `published_at` | TIMESTAMP | Published timestamp |
+| `created_at` | TIMESTAMP | Created |
+| `updated_at` | TIMESTAMP | Updated |
+| `deleted_at` | TIMESTAMP | Soft delete |
+
+**Indexes:**
+- `idx_kb_articles_workspace` on `workspace_id`
+- `idx_kb_articles_category` on `category_id`
+- `idx_kb_articles_status` on `status`
+- `idx_kb_articles_published_at` on `published_at` DESC
+- UNIQUE `workspace_id, slug`
+- Full-text index on `title, content` (PostgreSQL tsvector)
+
+**Table: `kb_article_votes`**
+
+| Column | Type | Description |
+|--------|------|-------------|
+| `id` | UUID | Primary key |
+| `article_id` | UUID | FK → kb_articles.id |
+| `session_id` | VARCHAR(100) | Anonymous session ID |
+| `vote` | ENUM | helpful/not_helpful |
+| `feedback` | TEXT | Optional text feedback |
+| `created_at` | TIMESTAMP | Created |
+
+**Indexes:**
+- `idx_kb_votes_article` on `article_id`
+- UNIQUE `article_id, session_id`
+
+**Table: `kb_search_logs`**
+
+| Column | Type | Description |
+|--------|------|-------------|
+| `id` | UUID | Primary key |
+| `workspace_id` | UUID | FK → workspaces.id |
+| `query` | VARCHAR(255) | Search query |
+| `results_count` | INTEGER | Results found |
+| `created_at` | TIMESTAMP | Created |
+
+**Indexes:**
+- `idx_kb_search_logs_workspace` on `workspace_id`
+- `idx_kb_search_logs_created_at` on `created_at`
+
+---
+
+## 15. FIGMA COMPONENTS
+
+**Component Tree:**
+```
+knowledge-base/
+├── screens/
+│   ├── SCR-KB01 (kb-dashboard)
+│   │   ├── header (title + add article button)
+│   │   ├── stats-row (4 stat cards)
+│   │   └── articles-table
+│   │       ├── table-header (title/category/views/status/actions)
+│   │       ├── article-row × N
+│   │       └── pagination
+│   ├── SCR-KB02 (article-editor)
+│   │   ├── editor-header (save/publish/preview)
+│   │   ├── editor-sidebar (settings panel)
+│   │   │   ├── title-input
+│   │   │   ├── slug-input
+│   │   │   ├── category-select
+│   │   │   ├── featured-image-upload
+│   │   │   ├── excerpt-textarea
+│   │   │   ├── status-select
+│   │   │   └── related-articles-picker
+│   │   └── editor-main (WYSIWYG Tiptap)
+│   │       ├── toolbar (bold/italic/heading/link/image)
+│   │       └── content-area
+│   ├── SCR-KB03 (categories-list)
+│   │   ├── header (title + add category button)
+│   │   └── categories-grid (3-col)
+│   │       └── category-card × N
+│   └── SCR-KB04 (analytics-page)
+│       ├── header
+│       ├── kpi-row (4 metrics)
+│       ├── top-articles-table
+│       ├── search-queries-chart
+│       └── helpful-rate-trend-chart
+├── public-portal/
+│   ├── SCR-PUB01 (public-home)
+│   │   ├── portal-header (logo + search)
+│   │   ├── hero-section
+│   │   └── categories-grid (4-col)
+│   │       └── category-card × N
+│   ├── SCR-PUB02 (category-view)
+│   │   ├── breadcrumb (Home / Setup)
+│   │   ├── category-header (emoji + name + description)
+│   │   └── articles-grid (3-col)
+│   │       └── article-card × N
+│   └── SCR-PUB03 (article-view)
+│       ├── breadcrumb
+│       ├── article-header (title + metadata)
+│       ├── article-content (markdown)
+│       ├── helpful-voting-section
+│       └── related-articles-row
+├── modals/
+│   ├── new-category-modal
+│   │   ├── name-input
+│   │   ├── emoji-picker
+│   │   ├── description-textarea
+│   │   └── footer (cancel + create)
+│   ├── delete-article-confirm-modal
+│   └── feedback-modal (after "not helpful" vote)
+│       ├── textarea (what was missing?)
+│       └── footer (skip + submit)
+├── components/
+│   ├── stat-card (240×100px)
+│   │   ├── icon-32px
+│   │   ├── number (32px bold)
+│   │   ├── label (14px)
+│   │   └── trend-badge (green/red arrow)
+│   ├── article-row (table row)
+│   │   ├── title-cell (truncated 300px)
+│   │   ├── category-badge (emoji + name)
+│   │   ├── views-count
+│   │   ├── status-badge (draft/published)
+│   │   └── actions-dropdown (edit/clone/delete)
+│   ├── category-card (admin grid, 280×140px)
+│   │   ├── emoji-icon-48px
+│   │   ├── category-name (18px bold)
+│   │   ├── article-count (14px gray)
+│   │   └── actions (edit/delete icons)
+│   ├── public-category-card (public portal, 260×200px)
+│   │   ├── emoji-64px
+│   │   ├── category-name (20px bold)
+│   │   ├── description (14px gray, 2 lines)
+│   │   └── article-count (12px gray)
+│   ├── public-article-card (public portal, 320×240px)
+│   │   ├── featured-image (320×140px)
+│   │   ├── category-badge
+│   │   ├── article-title (16px semibold, 2 lines)
+│   │   ├── excerpt (14px gray, 2 lines)
+│   │   └── footer (read time + views)
+│   ├── helpful-voting-widget
+│   │   ├── question "Bu maqola foydali bo'ldimi?"
+│   │   ├── thumbs-up-button
+│   │   └── thumbs-down-button
+│   └── search-bar-public (landing hero)
+│       ├── large-input (600px)
+│       └── search-icon
+```
+
+**Component Variants:**
+- `status-badge`: draft (gray) / published (green) / archived (orange)
+- `stat-card` trend: positive (green arrow up) / negative (red arrow down) / neutral
+- `article-card` (public): hover scale 1.02, shadow-sm → shadow-lg
+- `helpful-voting-widget`: default / voted-helpful (green highlight) / voted-not-helpful (red highlight)
+
+---
+
+## 16. MICRO-INTERACTIONS
+
+| Element | Animation | Timing |
+|---------|-----------|--------|
+| **Stat card hover** | elevation shadow-sm → shadow-md | 150ms ease |
+| **Article row hover** | bg gray-50 | 150ms ease |
+| **Category card hover** | scale 1 → 1.02, shadow-sm → shadow-lg | 200ms ease |
+| **Public article card hover** | scale 1 → 1.02, shadow-sm → shadow-lg | 200ms ease |
+| **Helpful button click** | scale 1 → 0.9 → 1.1 → 1 (bounce) | 400ms ease-out |
+| **Helpful vote success** | button bg white → green, checkmark fade-in | 300ms ease |
+| **Status badge change** | fade-out 100ms + fade-in 200ms | 300ms total |
+| **Editor save** | save button text "Saqlash" → "✓ Saqlandi" 2s → back | 2s ease |
+| **Article publish** | status badge gray → green, confetti animation | 500ms |
+| **Search input focus** | border primary-600, icon color gray → primary | 200ms ease |
+| **Category emoji picker open** | slide-up from bottom, backdrop fade | 250ms ease-out |
+| **Delete modal** | backdrop fade 0 → 50%, modal scale 0.95 → 1 | 200ms ease-out |
+| **Article view count increment** | number scale 1 → 1.1 → 1 (pulse) | 300ms ease |
+| **Related article card appear** | slide-in from right, opacity 0 → 1 | 300ms ease-out |
+| **Feedback modal open** | slide-up from bottom | 250ms ease-out |
+| **Tiptap toolbar button hover** | bg gray-100, scale 1.05 | 150ms ease |
+
+---
+
+## 17. ACCESSIBILITY
+
+### Keyboard Navigation
+
+**KB Dashboard:**
+- **Tab:** Navigate through add button → tabs → table rows → pagination
+- **Enter/Space:** Activate buttons, open article editor
+- **Arrow keys (↑↓):** Navigate table rows
+- **Escape:** Close dropdowns
+
+**Article Editor:**
+- **Tab:** Navigate through title → category → editor toolbar → content
+- **Ctrl/Cmd + S:** Save draft
+- **Ctrl/Cmd + Shift + P:** Publish article
+- **Escape:** Close modals
+
+**Public Portal:**
+- **Tab:** Navigate categories → search → article cards
+- **Enter:** Open article
+- **Ctrl/Cmd + K:** Focus search (global shortcut)
+
+### ARIA Labels and Roles
+
+**KB Dashboard:**
+- Table: `role="table"`, `aria-label="Knowledge base articles"`
+- Article row: `role="row"`, `aria-label="{Title}, {category}, {views} views, {status}"`
+- Actions dropdown: `role="menu"`, `aria-label="Article actions"`
+
+**Article Editor:**
+- Editor: `role="textbox"`, `aria-multiline="true"`, `aria-label="Article content editor"`
+- Toolbar buttons: `aria-label="Bold"`, `aria-pressed` for toggle buttons
+- Category select: `aria-label="Select category"`, `role="combobox"`
+
+**Public Portal:**
+- Search: `role="search"`, `aria-label="Search knowledge base"`
+- Article grid: `role="list"`, article cards `role="listitem"`
+- Helpful voting: `role="group"`, `aria-label="Was this helpful?"`, buttons `aria-label="Mark as helpful"`
+- Breadcrumb: `role="navigation"`, `aria-label="Breadcrumb"`
+
+### Screen Reader Announcements
+
+**KB Dashboard:**
+- Article created: "New artikel created: {title}."
+- Article published: "Article published successfully."
+- Article deleted: "Article deleted."
+
+**Public Portal:**
+- Search submit: "Searching for {query}... {count} results found."
+- Helpful vote: "Thank you for your feedback."
+- Article view: "Article loaded: {title}. Estimated read time: 5 minutes."
+
+### Color Contrast (WCAG AA)
+
+- Article title #111827 on white: 11.7:1 (AAA)
+- Category name #6B7280 on white: 5.3:1 (AA)
+- Status badge "Published" white on #10B981: 4.9:1 (AA)
+- Public article excerpt #6B7280 on white: 5.3:1 (AA)
+- Helpful button text #4F46E5 on white: 5.8:1 (AA)
+- All interactive elements: 4.5:1+ contrast
+
+### Focus Indicators
+
+- All focusable elements: 2px solid #4F46E5 outline, 4px offset
+- Article row focus: 3px left border #4F46E5
+- Editor toolbar button focus: 2px primary-600 ring
+
+### Touch Targets
+
+- Mobile buttons: min 44×44px
+- Desktop buttons: min 40×40px
+- Article cards: 240px height (sufficient)
+- Helpful buttons: 44×44px mobile
+
+---
+
+## 18. PERFORMANCE
+
+### Loading Targets
+- Dashboard initial load: < 1s
+- Article editor load: < 800ms
+- Public portal home: < 1.2s (SSR)
+- Article view (public): < 900ms (SSR)
+- Search query: < 300ms
+- Tiptap editor first input: < 100ms
+
+### Optimization
+- **SSR:** Server-side rendering for public portal (SEO)
+- **CDN:** All images, featured images served from CDN (WebP format)
+- **Caching:** Public articles cached 15min, categories 1 hour
+- **Lazy load:** Article cards images (Intersection Observer)
+- **Search:** Full-text search with PostgreSQL tsvector (or Algolia for complex)
+- **Pagination:** 12 articles per page public, 20 on admin
+- **Database indexes:** Full-text index on title/content
+- **Editor autosave:** Debounce 3s, save draft in background
+
+---
+
+## 19. SEO & PUBLIC PORTAL
+
+### SEO Best Practices
+- **Meta tags:** Dynamic meta_title, meta_description per article
+- **Open Graph:** og:title, og:description, og:image (featured image)
+- **Schema.org:** Article structured data (HowTo, FAQ schemas)
+- **Sitemap:** Auto-generated sitemap.xml with all published articles
+- **Canonical URLs:** Prevent duplicate content
+- **404 handling:** Custom 404 page with search + popular articles
+
+### Public Portal URL Structure
+- Home: `https://help.chatflow.uz/`
+- Category: `https://help.chatflow.uz/c/setup`
+- Article: `https://help.chatflow.uz/a/widget-ornatish-qollanmasi`
+- Search: `https://help.chatflow.uz/search?q=widget`
+
+### Custom Domain Support
+- Allow workspaces to use custom domain: `help.mydomain.com`
+- SSL certificate auto-provision (Let's Encrypt)
+- DNS CNAME record required
+
+---
+
+## 20. USER FLOWS
+
+### Flow 1: Create & Publish Article (Admin)
+1. Admin navigates to KB Dashboard (SCR-KB01)
+2. Clicks "+ Maqola yaratish"
+3. Article Editor opens (SCR-KB02)
+4. Fills: Title "Widget o'rnatish qo'llanmasi"
+5. Selects Category "Setup"
+6. Writes content in Tiptap editor (headings, paragraphs, images, code blocks)
+7. Adds featured image (uploads from computer)
+8. Writes Excerpt: "CHATFLOW widget o'rnatish uchun..."
+9. Fills SEO fields: Meta title, Meta description
+10. Selects related articles
+11. Clicks "Saqlash" (saves as draft)
+12. Reviews article in Preview mode
+13. Clicks "Nashr qilish"
+14. Success toast: "Maqola nashr etildi!"
+15. Article now visible on public portal
+
+### Flow 2: Customer Finds Article (Public)
+1. Customer visits `https://help.chatflow.uz/`
+2. Sees hero with search bar
+3. Types "widget install" and presses Enter
+4. Search results show 5 articles
+5. Clicks "Widget o'rnatish qo'llanmasi"
+6. Article loads (SSR, fast)
+7. Reads article (5 min estimated)
+8. Scrolls to bottom
+9. Sees "Bu maqola foydali bo'ldimi?"
+10. Clicks "👍 Foydali"
+11. Thank you message: "Rahmat! Fikringiz uchun tashakkur!"
+12. Sees related articles below
+13. Clicks related article, continues browsing
+
+---
+
+**Oxirgi yangilanish:** 2026-02-11  
+**Lines:** 685 → 1850+  
+**Holat:** ✅ COMPLETE

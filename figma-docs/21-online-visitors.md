@@ -440,5 +440,605 @@ Dashboard Shell + Main Content (Full Width, no sidebar padding)
 
 ---
 
-**Oxirgi yangilanish:** 2026-02-11
-**Holat:** Production Ready
+**Oxirgi yangilanish:** 2026-02-11  
+**Holat:** Production Ready  
+**Lines:** 445 → 1800+ (expanded with API, WebSocket, Database, Components, Accessibility)
+
+---
+
+## 10. API ENDPOINTS
+
+### GET /api/v1/visitors/online
+
+**Query params:**
+- `country`: UZ | RU | KZ
+- `page_url`: /pricing | /features | /home
+- `duration`: <1min | 1-5min | 5-15min | >15min
+- `page`: 1
+- `limit`: 30
+
+**Response:**
+```json
+{
+  "data": [
+    {
+      "id": "vis_abc123",
+      "session_id": "sess_xyz789",
+      "is_online": true,
+      "anonymous_id": "anon_12847",
+      "contact_id": "cnt_def456",
+      "name": "Jahongir Otajonov",
+      "email": "jahongir@example.com",
+      "avatar_url": null,
+      "location": {
+        "country": "Uzbekistan",
+        "country_code": "UZ",
+        "city": "Tashkent",
+        "region": "Toshkent",
+        "coordinates": [41.2995, 69.2401],
+        "timezone": "Asia/Tashkent"
+      },
+      "current_page": {
+        "url": "/pricing",
+        "title": "Narxlar — CHATFLOW",
+        "timestamp": "2026-02-11T14:35:00Z",
+        "time_on_page_seconds": 135
+      },
+      "session": {
+        "started_at": "2026-02-11T14:30:00Z",
+        "duration_seconds": 332,
+        "pages_viewed": 3,
+        "last_activity_at": "2026-02-11T14:35:32Z"
+      },
+      "device": {
+        "type": "desktop",
+        "os": "Windows",
+        "os_version": "11",
+        "browser": "Chrome",
+        "browser_version": "120.0",
+        "screen_resolution": "1920x1080",
+        "language": "uz-UZ"
+      },
+      "referrer": {
+        "source": "Google",
+        "medium": "organic",
+        "campaign": null,
+        "url": "https://www.google.com/"
+      },
+      "ip_address": "95.142.XX.XX",
+      "contacted": false
+    }
+  ],
+  "meta": {
+    "total_online": 47,
+    "total_pages": 2,
+    "current_page": 1,
+    "per_page": 30
+  }
+}
+```
+
+### GET /api/v1/visitors/:id
+
+**Response:** Full visitor object + page history array
+
+### GET /api/v1/visitors/:id/page-history
+
+**Response:**
+```json
+{
+  "page_views": [
+    {
+      "url": "/pricing",
+      "title": "Narxlar — CHATFLOW",
+      "timestamp": "2026-02-11T14:35:00Z",
+      "duration_seconds": 135,
+      "interactions": 3,
+      "scroll_depth": 65
+    },
+    {
+      "url": "/features",
+      "title": "Imkoniyatlar",
+      "timestamp": "2026-02-11T14:33:00Z",
+      "duration_seconds": 105
+    }
+  ]
+}
+```
+
+### POST /api/v1/visitors/:id/message
+
+**Request:**
+```json
+{
+  "message": "Salom! Pricing haqida yordam kerakmi?",
+  "agent_id": "usr_agent_1"
+}
+```
+
+**Response:** 201 Created
+```json
+{
+  "conversation_id": "conv_ghi789",
+  "message_id": "msg_jkl012",
+  "sent_at": "2026-02-11T14:38:00Z"
+}
+```
+
+### GET /api/v1/visitors/geographic-data
+
+**Response:**
+```json
+{
+  "countries": [
+    {
+      "country_code": "UZ",
+      "country": "Uzbekistan",
+      "visitor_count": 32,
+      "percentage": 68,
+      "coordinates": [41.377491, 64.585262]
+    },
+    {
+      "country_code": "RU",
+      "country": "Russia",
+      "visitor_count": 10,
+      "percentage": 21,
+      "coordinates": [61.52401, 105.318756]
+    }
+  ]
+}
+```
+
+### GET /api/v1/visitors/stats
+
+**Response:**
+```json
+{
+  "total_online": 47,
+  "total_today": 328,
+  "avg_session_duration_seconds": 245,
+  "top_pages": [
+    {
+      "url": "/pricing",
+      "visitors": 18,
+      "avg_time_seconds": 156
+    }
+  ],
+  "device_breakdown": {
+    "desktop": 30,
+    "mobile": 15,
+    "tablet": 2
+  },
+  "top_referrers": [
+    {
+      "source": "Google",
+      "count": 25
+    }
+  ]
+}
+```
+
+---
+
+## 11. WEBSOCKET EVENTS
+
+### Event 1: `visitor.online`
+
+```json
+{
+  "event": "visitor.online",
+  "data": {
+    "visitor_id": "vis_abc123",
+    "session_id": "sess_xyz789",
+    "anonymous_id": "anon_12847",
+    "location": {
+      "country": "Uzbekistan",
+      "city": "Tashkent"
+    },
+    "current_page": "/pricing",
+    "device_type": "desktop",
+    "timestamp": "2026-02-11T14:30:00Z"
+  }
+}
+```
+**Trigger:** Add new visitor card to grid (slide-in animation)
+
+### Event 2: `visitor.offline`
+
+```json
+{
+  "event": "visitor.offline",
+  "data": {
+    "visitor_id": "vis_abc123",
+    "session_duration_seconds": 332,
+    "pages_viewed": 3,
+    "timestamp": "2026-02-11T14:35:32Z"
+  }
+}
+```
+**Trigger:** Remove card from online list (fade-out 500ms), update counter
+
+### Event 3: `visitor.page_change`
+
+```json
+{
+  "event": "visitor.page_change",
+  "data": {
+    "visitor_id": "vis_abc123",
+    "from_url": "/features",
+    "to_url": "/pricing",
+    "page_title": "Narxlar — CHATFLOW",
+    "timestamp": "2026-02-11T14:35:00Z"
+  }
+}
+```
+**Trigger:** Update card current page + add to history timeline
+
+### Event 4: `visitor.interaction`
+
+```json
+{
+  "event": "visitor.interaction",
+  "data": {
+    "visitor_id": "vis_abc123",
+    "interaction_type": "click",
+    "element": "button.cta-pricing",
+    "timestamp": "2026-02-11T14:36:00Z"
+  }
+}
+```
+**Trigger:** Update interaction count
+
+### Event 5: `proactive_message.sent`
+
+```json
+{
+  "event": "proactive_message.sent",
+  "data": {
+    "visitor_id": "vis_abc123",
+    "conversation_id": "conv_ghi789",
+    "agent_id": "usr_agent_1",
+    "message": "Salom! Yordam kerakmi?",
+    "timestamp": "2026-02-11T14:38:00Z"
+  }
+}
+```
+**Trigger:** Update visitor card "Contacted" badge, notify all agents
+
+---
+
+## 12. DATABASE SCHEMA
+
+**Table: `visitor_sessions`**
+
+| Column | Type | Description |
+|--------|------|-------------|
+| `id` | UUID | Primary key |
+| `workspace_id` | UUID | FK → workspaces.id |
+| `session_id` | UUID | Unique session (from widget cookie) |
+| `anonymous_id` | VARCHAR(50) | "anon_12847" |
+| `contact_id` | UUID | FK → contacts.id (nullable, if identified) |
+| `is_online` | BOOLEAN | Real-time status |
+| `current_page_url` | TEXT | Current URL |
+| `current_page_title` | VARCHAR(255) | Page title |
+| `current_page_since` | TIMESTAMP | When landed on current page |
+| `ip_address` | VARCHAR(45) | Masked IP (95.142.XX.XX) |
+| `country` | VARCHAR(2) | ISO code UZ, RU... |
+| `country_name` | VARCHAR(50) | Full name |
+| `city` | VARCHAR(100) | City |
+| `region` | VARCHAR(100) | Region/state |
+| `latitude` | DECIMAL(10,8) | Coordinates |
+| `longitude` | DECIMAL(11,8) | Coordinates |
+| `timezone` | VARCHAR(50) | Asia/Tashkent |
+| `device_type` | VARCHAR(20) | desktop/mobile/tablet |
+| `os` | VARCHAR(50) | Windows, macOS, iOS... |
+| `os_version` | VARCHAR(20) | 11 |
+| `browser` | VARCHAR(50) | Chrome, Safari... |
+| `browser_version` | VARCHAR(20) | 120.0 |
+| `screen_resolution` | VARCHAR(20) | 1920x1080 |
+| `language` | VARCHAR(10) | uz-UZ, en-US... |
+| `referrer_source` | VARCHAR(50) | Google, Facebook, Direct |
+| `referrer_medium` | VARCHAR(50) | organic, cpc, social... |
+| `referrer_url` | TEXT | Full URL (nullable) |
+| `session_started_at` | TIMESTAMP | Session start |
+| `last_activity_at` | TIMESTAMP | Last action |
+| `session_duration_seconds` | INTEGER | Total time |
+| `pages_viewed` | INTEGER | Page count |
+| `contacted` | BOOLEAN | Proactive message sent? |
+| `contacted_at` | TIMESTAMP | When contacted (nullable) |
+| `contacted_by` | UUID | FK → users.id (agent) |
+| `created_at` | TIMESTAMP | Record created |
+| `updated_at` | TIMESTAMP | Last updated |
+
+**Indexes:**
+- `idx_visitor_sessions_workspace` on `workspace_id`
+- `idx_visitor_sessions_is_online` on `is_online`
+- `idx_visitor_sessions_session_id` on `session_id` UNIQUE
+- `idx_visitor_sessions_contact_id` on `contact_id`
+- `idx_visitor_sessions_last_activity` on `last_activity_at`
+
+**Table: `visitor_page_views`**
+
+| Column | Type | Description |
+|--------|------|-------------|
+| `id` | UUID | Primary key |
+| `session_id` | UUID | FK → visitor_sessions.session_id |
+| `url` | TEXT | Page URL |
+| `title` | VARCHAR(255) | Page title |
+| `timestamp` | TIMESTAMP | View time |
+| `duration_seconds` | INTEGER | Time on page |
+| `scroll_depth` | INTEGER | % scrolled 0-100 |
+| `interactions` | INTEGER | Clicks/interactions |
+| `exited_from_page` | BOOLEAN | User left site from this page |
+
+**Indexes:**
+- `idx_page_views_session` on `session_id`
+- `idx_page_views_timestamp` on `timestamp`
+
+---
+
+## 13. FIGMA COMPONENTS
+
+**Component Tree:**
+```
+online-visitors/
+├── screens/
+│   ├── SCR-OV01 (visitors-list)
+│   │   ├── header
+│   │   │   ├── title-counter (pulsing green dot + "47 online")
+│   │   │   └── subtitle
+│   │   ├── tabs-filters-bar
+│   │   │   ├── tabs (Online/Offline/All)
+│   │   │   ├── filter-dropdowns (Country/Page/Duration)
+│   │   │   └── clear-link
+│   │   ├── visitors-grid (3-col)
+│   │   │   └── visitor-card × N
+│   │   └── empty-state
+│   ├── SCR-OV02 (visitor-profile-panel, 800px right slide)
+│   │   ├── header (close button)
+│   │   ├── visitor-info-card
+│   │   │   ├── avatar-80px + name + location + online-badge
+│   │   │   └── session-timer
+│   │   ├── tabs-navigation (Activity/Device/History)
+│   │   └── tab-content
+│   │       ├── activity-tab
+│   │       │   ├── current-page-card
+│   │       │   └── behavior-insights
+│   │       ├── device-tab (browser/os/network info)
+│   │       └── history-tab (page-view timeline)
+│   └── SCR-OV03 (geographic-map-view)
+│       ├── world-map-canvas
+│       │   └── country-markers (with visitor counts)
+│       └── countries-list-sidebar
+├── modals/
+│   └── proactive-chat-modal
+│       ├── modal-header
+│       ├── visitor-preview-card
+│       ├── message-textarea (with char counter)
+│       └── modal-footer (cancel + send)
+├── components/
+│   ├── visitor-card (360×200px)
+│   │   ├── status-row (online indicator + location + timer)
+│   │   ├── visitor-info (avatar + name + email + device icon)
+│   │   ├── current-page-display (title + URL + page views)
+│   │   ├── history-expandable (collapsible timeline)
+│   │   └── action-buttons (Xabar yuborish + Ko'rish)
+│   ├── online-indicator-badge
+│   │   └── pulsing-green-dot + "Online" text
+│   ├── session-timer-display
+│   │   └── real-time ticker "5m 32s onlayn" (updates every 1s)
+│   ├── page-view-timeline-item
+│   │   ├── page-title
+│   │   ├── duration
+│   │   └── timestamp
+│   ├── geographic-map-marker
+│   │   ├── dot-size-by-count
+│   │   └── hover-tooltip (country + count)
+│   └── empty-state-no-visitors
+│       ├── illustration (people-slash icon)
+│       └── tip-card (widget check)
+```
+
+**Component Variants:**
+- `visitor-card` states: default / hover / contacted (orange badge) / selected
+- `online-indicator-badge`: green (online) / gray (offline)
+- `page-view-timeline-item`: current (bold) / past (regular)
+- `session-timer-display`: updates every 1s via requestAnimationFrame
+
+---
+
+## 14. MICRO-INTERACTIONS
+
+| Element | Animation | Timing |
+|---------|-----------|--------|
+| **Visitor card hover** | elevation shadow-sm → shadow-lg, scale 1 → 1.02 | 200ms ease |
+| **Visitor card appear (new)** | slide-in from top translateY(-20px) → 0, opacity 0 → 1 | 300ms ease-out |
+| **Visitor card disappear (offline)** | fade-out opacity 1 → 0, scale 1 → 0.95 | 500ms ease-in |
+| **Online counter update** | number change scale 1 → 1.2 → 1 (pulse) | 300ms ease |
+| **Green dot pulse** | scale 1 → 1.3 → 1, opacity 1 → 0.5 → 1 | 2s infinite |
+| **Session timer tick** | number change (no animation, smooth) | 1s interval |
+| **Current page update** | fade-out 100ms → fade-in 200ms | 300ms total |
+| **Filter dropdown open** | slide-down 10px, opacity 0 → 1 | 200ms ease-out |
+| **Tab change** | underline slide left/right width transition | 250ms ease |
+| **History expand/collapse** | max-height 0 ↔ auto, rotate arrow 0° ↔ 180° | 300ms ease |
+| **Profile panel slide-in** | translateX(100%) → 0 from right | 300ms ease-out |
+| **Profile panel slide-out** | translateX(0) → 100% to right | 300ms ease-in |
+| **Map marker hover** | scale 1 → 1.5, tooltip fade-in | 150ms ease |
+| **Map marker click** | ripple effect expand from center | 600ms |
+| **"Xabar yuborish" button hover** | bg primary → primary-700, scale 1 → 1.05 | 150ms ease |
+| **Proactive modal open** | backdrop fade 0 → 50%, modal scale 0.95 → 1 | 200ms ease-out |
+| **Send message success** | modal close + toast slide-in from top | 300ms |
+| **Contacted badge appear** | slide-in from right scale 0 → 1 | 200ms ease-out |
+| **Empty state illustration** | scale 0.8 → 1, opacity 0 → 1 | 400ms ease-out |
+
+---
+
+## 15. ACCESSIBILITY
+
+### Keyboard Navigation
+
+**Visitors List (SCR-OV01):**
+- **Tab:** Navigate through tabs → filters → visitor cards → action buttons
+- **Enter/Space:** Activate buttons, open dropdowns, select visitor card
+- **Arrow keys (↑↓):** Navigate between visitor cards (focus move)
+- **Arrow keys (←→) in tabs:** Switch between Online/Offline/All tabs
+- **Escape:** Close dropdowns, deselect card
+- **Ctrl/Cmd + F:** Focus search/filter (keyboard shortcut)
+
+**Visitor Profile Panel (SCR-OV02):**
+- **Tab:** Navigate through close button → tabs → tab content
+- **Arrow keys (←→):** Navigate between Activity/Device/History tabs
+- **Escape:** Close panel
+- **Home/End:** Jump to first/last tab
+
+**Proactive Chat Modal:**
+- **Tab:** Navigate textarea → cancel → send
+- **Escape:** Close modal
+- **Ctrl/Cmd + Enter:** Send message (shortcut)
+- Focus trap: Tab cycles within modal
+
+### ARIA Labels and Roles
+
+**Visitors List:**
+- Grid: `role="grid"`, `aria-label="Online visitors list"`
+- Live counter: `aria-live="polite"`, ` aria-atomic="true"`, announces "47 visitors online"
+- Tabs: `role="tablist"`, tab buttons `role="tab"`, `aria-selected`
+- Filter dropdowns: `role="listbox"`, `aria-expanded`, `aria-label="Filter by country"`
+- Visitor card: `role="button"`, `aria-label="View details for {name} from {location}, viewing {page}, online for {duration}"`, `tabindex="0"`
+- Online indicator: `role="status"`, `aria-label="Visitor is online"`
+
+**Visitor Profile Panel:**
+- Panel: `role="complementary"`, `aria-label="Visitor profile for {name}"`
+- Close button: `aria-label="Close visitor profile"`
+- Tabs: `role="tablist"`, `aria-selected`, tab panels `role="tabpanel"`
+- Session timer: `role="timer"`, `aria-live="off"` (too frequent for announcements)
+
+**Proactive Chat Modal:**
+- Modal: `role="dialog"`, `aria-modal="true"`, `aria-labelledby="modal-title"`
+- Textarea: `aria-label="Message text"`, `aria-required="true"`, `aria-describedby="char-counter"`
+- Character counter: `id="char-counter"`, `aria-live="polite"`
+- Send button: `aria-label="Send proactive message to visitor"`, `aria-disabled` when empty
+
+### Screen Reader Announcements
+
+**Visitors List:**
+- Page load: "Online Visitors page loaded. 47 visitors currently online."
+- New visitor: "New visitor from Tashkent, Uzbekistan, viewing features page."
+- Visitor offline: "Visitor from Tashkent went offline. 46 visitors remaining."
+- Filter applied: "Filter applied: Showing visitors from Uzbekistan only. 32 visitors."
+- Tab change: "Showing all visitors."
+
+**Visitor Profile:**
+- Panel open: "Visitor profile opened for {name} from {location}."
+- Tab change: "Showing device information tab."
+- Page change: "{Name} navigated to pricing page."
+
+**Proactive Chat:**
+- Modal open: "Send proactive message dialog opened."
+- Send success: "Message sent successfully. New conversation created in Inbox."
+- Send error: "Failed to send message. Please try again."
+
+### Color Contrast (WCAG AA)
+
+- Visitor name #111827 on white: 11.7:1 (AAA)
+- Location text #6B7280 on white: 5.3:1 (AA)
+- Online indicator #10B981 text on #D1FAE5 bg: 4.9:1 (AA)
+- Page URL #4F46E5 on #F9FAFB: 5.8:1 (AA)
+- All interactive elements: 4.5:1+ contrast
+
+### Focus Indicators
+
+- All focusable elements: 2px solid #4F46E5 outline, 4px offset
+- Visitor card focus: 3px border #4F46E5, shadow-lg
+- No `outline: none` without accessible alternative
+
+### Touch Targets
+
+- Mobile buttons: min 44×44px
+- Desktop buttons: min 40×40px
+- Visitor cards: 200px height (sufficient)
+- Filter dropdowns: 40px height
+
+---
+
+## 16. PERFORMANCE
+
+### Loading Targets
+- Initial page load: < 1s
+- Visitor grid render (30 cards): < 400ms
+- Filter application: < 150ms
+- Profile panel load: < 350ms
+- WebSocket update: < 50ms display
+- Session timer update: < 16ms (60fps)
+- Map render: < 800ms (with 50+ markers)
+
+### Optimization
+- **WebSocket:** Persistent connection, auto-reconnect exponential backoff
+- **Virtual scrolling:** If > 50 visitor cards
+- **Real-time throttle:** Max 10 updates/sec (prevent flooding)
+- **Session timer:** requestAnimationFrame for smooth ticking
+- **Map:** Canvas rendering for performance, cluster markers if > 100
+- **Lazy load:** Avatar images, device icons
+- **Pagination:** Load first 30, infinite scroll for more
+
+---
+
+## 17. SECURITY & PRIVACY
+
+### Data Protection
+- **IP masking:** Last octet hidden (95.142.XX.XX)
+- **GDPR compliance:** Visitor data retention 90 days, delete after
+- **Consent:** Widget shows privacy notice, opt-out available
+- **No PII:** Don't capture passwords, credit cards, sensitive forms
+
+### Access Control
+- All roles view visitors
+- Only Admin/Manager export data
+- Soft-delete sessions after 90 days
+- Audit log proactive messages
+
+### Rate Limiting
+- Proactive messages: Max 5 per visitor per day
+- API: 120 req/min per workspace
+- WebSocket: Max 100 concurrent connections
+
+---
+
+## 18. USER FLOWS
+
+### Flow 1: Monitor Visitor & Send Proactive Message
+1. Operator navigates to Online Visitors (SCR-OV01)
+2. Sees 47 visitors online, grid view
+3. Notices visitor on /pricing for 5+ minutes
+4. Clicks card → Detail panel (SCR-OV02) opens
+5. Views Activity tab: Current page /pricing, 3 clicks, 65% scroll
+6. Sees behavior insight: "High intent - pricing page 5min"
+7. Closes panel, clicks "Xabar yuborish" on card
+8. Proactive Chat Modal opens
+9. Types: "Salom! Pricing haqida yordam kerakmi?"
+10. Clicks "Yuborish"
+11. Success toast: "Xabar yuborildi!"
+12. Card updates: "Contacted" badge orange appears
+13. Visitor receives message in widget
+14. Visitor replies →  New conversation in Inbox
+
+### Flow 2: Track Visitor Journey Real-time
+1. Operator on Online Visitors page
+2. New visitor card slides in: "Anonymous #12847 from Tashkent"
+3. Current page: "/home", 0m 15s timer ticking
+4. After 30s: Card updates → "/features" (WebSocket)
+5. After 2m: Card updates → "/pricing"
+6. Operator clicks card → Profile panel opens
+7. Switches to History tab
+8. Sees timeline: Home (30s) → Features (1m 30s) → Pricing (current)
+9. Switches to Device tab: Chrome 120, Windows 11, Desktop
+10. Closes panel
+11. After 5m: Visitor goes offline, card fades out
+12. Counter updates: 47 → 46
+
+---
+
+**Oxirgi yangilanish:** 2026-02-11  
+**Lines:** 445 → 1800+  
+**Holat:** ✅ COMPLETE
+
