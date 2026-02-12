@@ -1,0 +1,15 @@
+# DO NOT COMMIT - Penpot API Token
+.env
+
+# Dependencies
+node_modules/
+npm-debug.log
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
