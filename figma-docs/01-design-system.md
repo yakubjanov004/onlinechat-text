@@ -81,6 +81,124 @@ CHATFLOW dizayni **zamonaviy SaaS** platformalari uslubida — toza, professiona
 | Metric Value | 32px | Bold (700) | 40px |
 | Nav Item | 14px | Medium (500) | 20px |
 
+### 2.1. Font Weight Combinations Matrix
+
+Font og'irligi kontekstga qarab to'g'ri tanlash muhim. Quyida har xil o'lcham uchun qaysi og'irlikni ishlatish kerakligi ko'rsatilgan:
+
+| Font Size | Regular (400) | Medium (500) | Semibold (600) | Bold (700) |
+|-----------|---------------|--------------|----------------|------------|
+| **56px** (H1 Hero) | — | — | — | ✅ Asosiy sarlavha |
+| **40px** (H2) | — | — | — | ✅ Katta bo'lim sarlavha |
+| **32px** (Metric) | — | — | — | ✅ Metrika qiymati |
+| **28px** (H3) | — | — | ✅ Kichik sarlavha | Minimal ishlatish |
+| **24px** (Page Title) | — | — | ✅ Dashboard sahifa nomi | Ta'kid uchun |
+| **20px** (H4) | — | — | ✅ Karta sarlavha | — |
+| **18px** (Section Title) | — | Body Large uchun | ✅ Bo'lim sarlavha | — |
+| **16px** (Body) | ✅ Asosiy matn | Ta'kid/linklar | Kichik sarlavha | — |
+| **14px** (Nav/Body) | ✅ Asosiy matn | ✅ Nav item, label | Form label | — |
+| **12px** (Small/Caption) | ✅ Ikkilamchi ma'lumot | ✅ Badge, Caption, Table header | Minimal ta'kid | — |
+
+**Ishlatish tamoyillari:**
+- **Regular (400):** Asosiy matn, paragraph, description, ikkilamchi ma'lumotlar
+- **Medium (500):** Navigation items, form labels, badge, kichik sarlavha, table header
+- **Semibold (600):** Sarlavhalar (H3-H4), page title, section title, card title
+- **Bold (700):** Katta sarlavhalar (H1-H2), metrika qiymatlari, hero matn
+
+### 2.2. Responsive Typography Scaling
+
+Mobil qurilmalarda shrift o'lchamlarini qisqartirish tavsiya etiladi. Desktop baseline bilan solishtirganda:
+
+| Element | Desktop | Tablet (768px) | Mobile (480px) | Scale Ratio |
+|---------|---------|----------------|----------------|-------------|
+| H1 (Hero) | 56px | 48px (-14%) | 40px (-29%) | 0.71x |
+| H2 (Section) | 40px | 36px (-10%) | 32px (-20%) | 0.80x |
+| H3 | 28px | 24px (-14%) | 22px (-21%) | 0.79x |
+| H4 | 20px | 18px (-10%) | 18px (-10%) | 0.90x |
+| Body Large | 18px | 18px (0%) | 16px (-11%) | 0.89x |
+| Body | 16px | 16px (0%) | 14px (-13%) | 0.88x |
+| Body Small | 14px | 14px (0%) | 13px (-7%) | 0.93x |
+| Caption | 12px | 12px (0%) | 12px (0%) | 1.00x |
+| Page Title | 24px | 22px (-8%) | 20px (-17%) | 0.83x |
+| Metric Value | 32px | 28px (-13%) | 24px (-25%) | 0.75x |
+
+**CSS Media Query Implementation:**
+
+```css
+/* Desktop (default) */
+.hero-title {
+  font-size: 56px;
+  line-height: 64px;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 48px;
+    line-height: 56px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 40px;
+    line-height: 48px;
+  }
+}
+```
+
+**Breakpoint priorities:**
+- **1440px+:** Desktop (full size)
+- **768px-1439px:** Tablet (kichik qisqartirish)
+- **480px-767px:** Mobile landscape (o'rtacha qisqartirish)
+- **<480px:** Mobile portrait (maksimal qisqartirish)
+
+**Line-height scaling:** Line-height ham proporsional qisqartiriladi, lekin minimal readability saqlash uchun ratio 1.2x dan past bo'lmasligi kerak (masalan: 40px font → 48px line-height = 1.2).
+
+### 2.3. Line-Height to Font-Size Ratio Guidelines
+
+Line-height nisbati matn o'qilishini ta'minlaydi. Har xil matn turlari uchun optimal nisbatlar:
+
+| Matn Turi | Ratio | Sabab | Misollar |
+|-----------|-------|-------|----------|
+| **Katta Sarlavhalar** (H1-H2) | 1.14-1.2x | Qat'iy va compact ko'rinish | 56px → 64px (1.14), 40px → 48px (1.2) |
+| **Kichik Sarlavhalar** (H3-H4) | 1.25-1.4x | Muvozanat ko'rinish | 28px → 36px (1.28), 20px → 28px (1.4) |
+| **Body Matn** | 1.5-1.6x | Maksimal o'qilish qulayligi | 16px → 24px (1.5), 14px → 20px (1.43) |
+| **Kichik Matn** | 1.33-1.5x | O'qilish, lekin ixcham | 12px → 16px (1.33) |
+| **Metrika/Raqamlar** | 1.2-1.25x | Compact raqamlar joylashuvi | 32px → 40px (1.25) |
+| **Navigation** | 1.43x | Toza va o'qiladigan | 14px → 20px (1.43) |
+
+**Rationale (sabab):**
+- **Sarlavhalar:** Qisqa matn bo'lgani uchun tight line-height (1.14-1.4x) vizual hierarchiya yaratadi va strong presence beradi.
+- **Body matn:** Uzun paragraph'larda loose line-height (1.5x+) qator orasida havo qoldiradi, ko'z charchamasligini ta'minlaydi.
+- **Kichik matn:** Moderate line-height (1.33-1.5x) joy tejashda lekin o'qilishni saqlaydi.
+
+**Accessibility standard:** WCAG 2.1 Success Criterion 1.4.8 tavsiyasi — Body matn uchun line-height **kamida 1.5x** bo'lishi kerak.
+
+### 2.4. Letter-Spacing (Tracking) Usage Guidelines
+
+Letter-spacing (tracking) shrift o'lchamiga qarab o'zgaradi. Katta shriftlarda negative tracking (siqiq) professional ko'rinadi, kichik shriftlarda positive tracking (keng) esa o'qilishni yaxshilaydi:
+
+| Font Size | Letter-Spacing | Ishlatilishi | Sabab |
+|-----------|----------------|-------------|--------|
+| **56px** (H1) | -0.02em | Hero sarlavha | Katta shriftda toza va premium ko'rinish |
+| **40px** (H2) | -0.01em | Bo'lim sarlavha | Yengil siqilgan, lekin o'qilishi qulay |
+| **28-32px** | -0.005em yoki 0 | Metrika, H3 | Neutral spacing, balansli |
+| **16-24px** | 0 | Body matn, paragraflar | Default spacing ideal o'qilish uchun |
+| **14px** | 0 yoki +0.005em | Nav, form label | Default yoki minimal kenglik |
+| **12px** (Caption, Badge) | +0.01em | Kichik matn, uppercase | Kenglik o'qilishni osonlashtiradi |
+| **11px va kichik** | +0.02em | Juda kichik matn | Zarur agar ishlatilsa |
+| **Uppercase matn** | +0.05em - +0.1em | Buttons, nav, labels | Uppercase siqiq ko'rinadi, tracking kerak |
+
+**Best practices:**
+- Negative tracking faqat **24px+** shriftlar uchun
+- Positive tracking faqat **kichik shriftlar (<14px)** yoki **UPPERCASE matn** uchun
+- Body matn (14-18px) uchun **0em** (default) yetarli
+- Button va badge uppercase textda **+0.05em** minimum
+
+**Figma'da sozlash:**  
+Text → Letter spacing → Percent yoki Pixels (em conversion: 0.01em = 1% = 0.16px for 16px font)
+
 ---
 
 ## 3. Spacing (Bo'shliqlar)
@@ -159,7 +277,61 @@ CHATFLOW dizayni **zamonaviy SaaS** platformalari uslubida — toza, professiona
 **Holatlar:** Default → Hover → Active → Disabled → Loading
 
 **Tugma ichki padding:** 12px 24px (normal), 8px 16px (small), 16px 32px (large)
+#### Button States (Batafsil)
 
+| Holat | Xususiyyat | CSS |
+|-------|------------|-----|
+| **Default** | Normal ko'rinish | — |
+| **Hover** | Background: Primary-500 `#6366F1`<br>Transform: translateY(-1px)<br>Shadow: shadow-md | `transition: 200ms ease` |
+| **Active** | Background: Primary-700 (darker)<br>Transform: scale(0.98) | `transition: 100ms ease` |
+| **Disabled** | Background: `#E5E7EB`<br>Text: `#9CA3AF`<br>Cursor: not-allowed<br>Opacity: 0.6<br>Pointer-events: none | — |
+| **Loading** | Background: Default (but disabled)<br>Text: "Loading..." or hidden<br>Spinner icon: 16px, left of text<br>Opacity: 0.7<br>Cursor: not-allowed<br>Pointer-events: none | Spinner rotates 360deg 600ms infinite |
+
+#### Button Loading State Details
+
+**With Text:**
+```
+[Spinner 16px]  Loading...
+   ↑ gap 8px
+```
+- Spinner: 16px × 16px, Primary-600 color, stroke-width 2px
+- Text: "Loading..." yoki "Yuklanmoqda..."
+- Gap: 8px spinner va text orasida
+- Opacity: 0.7
+- Pointer-events: none (click disabled)
+
+**Icon-only Loading:**
+```
+[Spinner 20px centered]
+```
+- Faqat spinner ko'rsatiladi, text yo'q
+- Spinner 20px × 20px markazda
+- Same opacity and disabled state
+
+#### Button Icon-Only Variant
+
+| O'lcham | Width × Height | Icon Size | Padding | Ishlatilishi |
+|---------|----------------|-----------|---------|-------------|
+| **Small** | 32px × 32px | 16px | 0 (center) | Compact toolbar |
+| **Medium** | 40px × 40px | 20px | 0 (center) | Default actions |
+| **Large** | 48px × 48px | 24px | 0 (center) | Primary actions |
+
+**Xususiyyatlar:**
+- Square shakl (width = height)
+- Icon markazda (flexbox center)
+- Padding yo'q, icon centered
+- Border-radius: 8px (medium) yoki 12px (large)
+- Hover/Active same as regular button
+- Ishlatilishi: Close button, Edit icon, Delete icon, More menu (⋮)
+
+**ASCII Wireframe:**
+```
+┌────────┐
+│        │
+│   ✕    │  40×40px button
+│        │  Icon 20px centered
+└────────┘
+```
 ### Input fieldlar
 
 | Holat | Border | Background |
@@ -175,6 +347,80 @@ CHATFLOW dizayni **zamonaviy SaaS** platformalari uslubida — toza, professiona
 - Border-radius: 8px
 - Padding: 12px 16px
 - Font: 14px Regular
+
+#### Input States (Pixel-Perfect Specs)
+
+| Holat | Border | Background | Box-Shadow | Text Color | Cursor | Pointer-Events |
+|-------|--------|------------|------------|------------|--------|----------------|
+| **Default** | 1px solid `#D1D5DB` | `#FFFFFF` | none | `#111827` | text | auto |
+| **Hover** | 1px solid `#9CA3AF` | `#FFFFFF` | none | `#111827` | text | auto |
+| **Focus** | 2px solid `#4F46E5` | `#FFFFFF` | `0 0 0 2px rgba(79,70,229,0.2)` | `#111827` | text | auto |
+| **Error** | 2px solid `#EF4444` | `#FEF2F2` | `0 0 0 2px rgba(239,68,68,0.1)` | `#111827` | text | auto |
+| **Success** | 2px solid `#10B981` | `#ECFDF5` | `0 0 0 2px rgba(16,185,129,0.1)` | `#111827` | text | auto |
+| **Disabled** | 1px solid `#E5E7EB` | `#F9FAFB` | none | `#9CA3AF` | not-allowed | none |
+
+**Focus Glow Effect (pixel-perfect):**
+```css
+input:focus {
+  border: 2px solid #4F46E5;
+  box-shadow: 0 0 0 2px rgba(79, 70, 229, 0.2); /* Outer glow */
+  outline: none; /* Remove default browser outline */
+}
+```
+
+**Disabled State Details:**
+- Background: `#F9FAFB` (light gray)
+- Text color: `#9CA3AF` (muted)
+- Opacity: 0.5 (agar kerak bo'lsa)
+- Cursor: `not-allowed`
+- Placeholder: `#D1D5DB` (very light)
+- User cannot type or interact
+
+#### Input with Icons
+
+**Left Icon (Info/Search):**
+```
+┌────────────────────────────┐
+│ 🔍  Search...              │  44px height
+│ ↑                          │
+│ Icon 20px, 12px left       │
+└────────────────────────────┘
+```
+- Icon: 20px × 20px
+- Position: 12px from left edge
+- Input padding-left: 40px (12px + 20px + 8px gap)
+- Icon color: `#6B7280` default, `#4F46E5` when focused
+
+**Right Icon (Clear/Show Password):**
+```
+┌────────────────────────────┐
+│ Email Address          ✕   │  44px height
+│                        ↑   │
+│              Icon 20px, 12px right│
+└────────────────────────────┘
+```
+- Icon: 20px × 20px
+- Position: 12px from right edge
+- Input padding-right: 40px
+- Button: 40px × 40px (clickable area)
+- Icon color: `#9CA3AF` default, `#111827` hover
+
+**Error with Icon:**
+```
+┌────────────────────────────┐
+│ ⚠  Invalid email format    │  44px height
+│ ↑                          │
+│ AlertCircle 20px #EF4444   │
+└────────────────────────────┘
+Invalid email format
+↑ Error message 12px Regular #EF4444
+```
+- Icon: AlertCircle 20px × 20px, `#EF4444` color
+- Position: 12px from left edge
+- Input padding-left: 40px
+- Error message below: 12px Regular, `#EF4444`, margin-top 8px
+- Background: `#FEF2F2` (error light)
+- Border: 2px solid `#EF4444`
 
 ### Kartalar (Cards)
 
@@ -196,7 +442,38 @@ CHATFLOW dizayni **zamonaviy SaaS** platformalari uslubida — toza, professiona
 | Warning | `#FFFBEB` | `#D97706` | 4px 8px |
 
 Border-radius: 9999px (pill shape), Font: 12px Medium
+#### Badge Size Variants
 
+| Size | Font Size | Padding | Height | Ishlatilishi |
+|------|-----------|---------|--------|-------------|
+| **SM** | 11px Medium | 4px 6px | ~19px | Compact lists, table cells |
+| **MD** | 12px Medium | 4px 8px | ~20px | Default (current spec) |
+| **LG** | 13px Semibold | 6px 10px | ~25px | Prominent badges, hero sections |
+
+**Calculation:**
+- SM: 11px font + 8px vertical padding = 19px height
+- MD: 12px font + 8px vertical padding = 20px height
+- LG: 13px font + 12px vertical padding = 25px height
+
+**Visual Examples:**
+```
+┌─────────┐
+│  Active │  SM - 11px, compact
+└─────────┘
+
+┌──────────┐
+│  Online  │  MD - 12px, default
+└──────────┘
+
+┌────────────┐
+│  Pro Plan  │  LG - 13px, prominent
+└────────────┘
+```
+
+**Usage guidelines:**
+- **SM:** Table cells, compact dashboards, secondary tags
+- **MD:** Default badge everywhere (status, tags, counts)
+- **LG:** Important status (plan name, primary tags on cards)
 ### Avatar
 
 | O'lcham | Pixel | Ishlatilishi |
@@ -268,15 +545,593 @@ Background: Primary-100, Matn: Primary-600
 
 ---
 
-## 10. Toast / Notification
+## 10. Toast / Notification (Consolidated)
 
-| Variant | Icon | Rang | Misol |
-|---------|------|------|-------|
-| Success | Checkmark | `#10B981` | "Sozlamalar saqlandi" |
-| Error | X circle | `#EF4444` | "Xatolik yuz berdi" |
-| Warning | Alert triangle | `#F59E0B` | "Limit tugayapti" |
-| Info | Info circle | `#3B82F6` | "Yangi xabar keldi" |
+| Variant | Icon | Icon Color | Background | Text Color | Border | Duration | Ishlatilishi |
+|---------|------|------------|------------|------------|--------|----------|-------------|
+| **Success** | CheckCircle 20px | `#10B981` | `#ECFDF5` | `#065F46` | 1px `#A7F3D0` | 3s | "Sozlamalar saqlandi" |
+| **Error** | XCircle 20px | `#EF4444` | `#FEF2F2` | `#991B1B` | 1px `#FECACA` | 5s | "Xatolik yuz berdi" |
+| **Warning** | AlertTriangle 20px | `#F59E0B` | `#FFFBEB` | `#92400E` | 1px `#FDE68A` | 4s | "Limit tugayapti" |
+| **Info** | InfoCircle 20px | `#3B82F6` | `#EFF6FF` | `#1E40AF` | 1px `#BFDBFE` | 3s | "Yangi xabar keldi" |
 
-**Joylashuv:** Yuqori o'ng burchak
-**Animatsiya:** Slide-in o'ngdan, 2-3 soniya ko'rinadi, fade-out
-**O'lcham:** Max-width 400px, padding 16px, radius-lg
+**O'lchamlar:**
+- Max-width: 400px
+- Min-width: 300px
+- Padding: 16px
+- Border-radius: 12px (radius-lg)
+- Height: auto (min 64px)
+- Gap between icon and text: 12px
+
+**Joylashuv:** Top-right corner, 24px margin from edge
+
+**Animatsiya:**
+- **Slide-in:** translateX(100%) → translateX(0), 300ms ease-out
+- **Visible:** 3-5 soniya (variantga qarab)
+- **Slide-out:** opacity 1→0 + translateX(0) → translateX(100%), 200ms ease-in
+
+**Stacking:** Multiple toasts stack vertically, 12px gap
+
+**Close button:**
+- X icon 16px, top-right 12px from edge
+- Color: `#6B7280` default, `#111827` hover
+- Click closes immediately
+- 32×32px clickable area
+
+**ASCII Wireframe:**
+```
+┌─────────────────────────────────┐
+│  ✓  Sozlamalar saqlandi    ✕    │  Success toast
+│     ↑ icon 20px      close↑     │  64px min height
+└─────────────────────────────────┘  400px max-width
+      ↑ 12px gap
+```
+---
+
+## 11. ANIMATION SPECIFICATIONS (BATAFSIL)
+
+### 11.1. Timing Functions (Easing)
+
+| Nom | Cubic-bezier | Ishlatilishi |
+|-----|--------------|-------------|
+| ease-in-out | `cubic-bezier(0.4, 0, 0.2, 1)` | Default, universal |
+| ease-out | `cubic-bezier(0, 0, 0.2, 1)` | Entering elements (modal, dropdown) |
+| ease-in | `cubic-bezier(0.4, 0, 1, 1)` | Exiting elements |
+| ease-spring | `cubic-bezier(0.34, 1.56, 0.64, 1)` | Playful interactions (button click) |
+| ease-smooth | `cubic-bezier(0.25, 0.46, 0.45, 0.94)` | Smooth transitions |
+
+**Figma:** Use "Spring" animation for interactive elements, "Ease Out" for entrances.
+
+### 11.2. Duration Taxonomy
+
+| Duration | Milliseconds | Foydalanish |
+|----------|--------------|-------------|
+| Instant | 0-50ms | Color changes, hover states |
+| Fast | 100ms | Button clicks, checkbox toggles |
+| Base | 150-200ms | Default transitions, fade-in/out |
+| Moderate | 300ms | Modal open/close, slide animations |
+| Slow | 400-500ms | Page transitions, complex animations |
+| Very Slow | 600ms+ | Storytelling animations (confetti, success) |
+
+**Rule:** Shorter = feels responsive. Longer = draws attention.
+
+### 11.3. Core Animation Patterns
+
+#### Pattern 1: Modal / Dialog
+
+```css
+/* Open */
+.modal-enter {
+  opacity: 0;
+  transform: scale(0.95) translateY(-10px);
+}
+.modal-enter-active {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  transition: opacity 200ms ease-out, transform 200ms ease-out;
+}
+
+/* Close */
+.modal-exit {
+  opacity: 1;
+  transform: scale(1);
+}
+.modal-exit-active {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 150ms ease-in, transform 150ms ease-in;
+}
+```
+
+**Figma:** Create 3 frames: Default (scale 0.95, opacity 0%), Active (scale 100%), Exit (scale 95%, opacity 0%). Prototype with "Smart Animate" 200ms Ease Out.
+
+#### Pattern 2: Sidebar Collapse/Expand
+
+```css
+.sidebar {
+  width: 240px;
+  transition: width 300ms ease-in-out;
+}
+
+.sidebar.collapsed {
+  width: 64px;
+}
+
+.sidebar-item-text {
+  opacity: 1;
+  transition: opacity 150ms ease-in-out 50ms; /* Delay 50ms */
+}
+
+.sidebar.collapsed .sidebar-item-text {
+  opacity: 0;
+  transition: opacity 100ms ease-in;
+}
+```
+
+**Stagger:** Text fades out faster (100ms) than sidebar collapses (300ms) to avoid clipping.
+
+#### Pattern 3: Dropdown / Combobox
+
+```css
+.dropdown-enter {
+  opacity: 0;
+  transform: translateY(-5px);
+}
+.dropdown-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 150ms ease-out, transform 150ms ease-out;
+}
+```
+
+**Best Practice:** Always animate from direction of trigger (if button is above, slide down from top).
+
+#### Pattern 4: Toast Notification
+
+```css
+.toast-enter {
+  opacity: 0;
+  transform: translateX(100%);
+}
+.toast-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: all 300ms ease-out;
+}
+
+/* Auto-dismiss after 3s */
+.toast-exit {
+  opacity: 1;
+  height: auto;
+}
+.toast-exit-active {
+  opacity: 0;
+  height: 0;
+  margin-top: 0;
+  transition: opacity 200ms ease-in, height 200ms ease-in 50ms, margin-top 200ms ease-in 50ms;
+}
+```
+
+**Stagger:** Opacity fades first, then height collapses (prevents jump).
+
+#### Pattern 5: Button Click Feedback
+
+```css
+.button {
+  transform: scale(1);
+  transition: transform 100ms ease-spring;
+}
+
+.button:active {
+  transform: scale(0.98);
+}
+
+.button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  transition: transform 150ms ease-out, box-shadow 150ms ease-out;
+}
+```
+
+**Figma:** Prototype with "Spring" animation, 100ms.
+
+#### Pattern 6: Card Hover Lift
+
+```css
+.card {
+  transition: transform 200ms ease-out, box-shadow 200ms ease-out;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+}
+```
+
+#### Pattern 7: Skeleton Loading
+
+```css
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    #f0f0f0 0%,
+    #e0e0e0 20%,
+    #f0f0f0 40%,
+    #f0f0f0 100%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 1.5s infinite linear;
+}
+```
+
+**Figma:** Create gradient background with offset animation, 1.5s loop.
+
+#### Pattern 8: Page Transition
+
+```css
+.page-enter {
+  opacity: 0;
+  transform: translateX(20px);
+}
+.page-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms ease-out, transform 300ms ease-out;
+}
+
+.page-exit {
+  opacity: 1;
+}
+.page-exit-active {
+  opacity: 0;
+  transition: opacity 200ms ease-in;
+}
+```
+
+**Note:** Exiting page fades faster (200ms) to make room for entering page.
+
+#### Pattern 9: Toggle Switch
+
+```css
+.toggle-knob {
+  transform: translateX(0);
+  transition: transform 200ms ease-in-out;
+}
+
+.toggle.checked .toggle-knob {
+  transform: translateX(24px);
+}
+
+.toggle {
+  background-color: #D1D5DB;
+  transition: background-color 200ms ease-in-out;
+}
+
+.toggle.checked {
+  background-color: #4F46E5;
+}
+```
+
+**Figma:** Create 2 variants: Off (knob left, gray bg), On (knob right, primary bg). Smart Animate 200ms.
+
+#### Pattern 10: Accordion Expand/Collapse
+
+```css
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 300ms ease-in-out;
+}
+
+.accordion.expanded .accordion-content {
+  max-height: 500px; /* Approximate max */
+}
+```
+
+**Better Approach (JS):**
+```javascript
+element.style.height = element.scrollHeight + 'px';
+```
+
+#### Pattern 11: Badge Pulse
+
+```css
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+}
+
+.badge-unread {
+  animation: pulse 1s ease-in-out infinite;
+}
+```
+
+**Usage:** Notification badges, new message indicators.
+
+#### Pattern 12: Confetti Success
+
+```javascript
+// Use libraries like canvas-confetti or react-confetti
+confetti({
+  particleCount: 100,
+  spread: 70,
+  origin: { y: 0.6 },
+  duration: 2000,
+});
+```
+
+**Figma:** You can't prototype confetti in Figma, but show a celebratory icon animation (scale bounce).
+
+### 11.4. Micro-interaction Guidelines
+
+| Element | Hover | Active | Focus | Transition |
+|---------|-------|--------|-------|------------|
+| Button Primary | bg darker, lift -1px | scale 0.98 | outline 2px primary | 100ms ease-out |
+| Button Secondary | border primary, bg light | scale 0.98 | outline 2px primary | 100ms ease-out |
+| Input | border primary | - | border primary, shadow | 150ms ease |
+| Checkbox | border primary | scale 0.95 | outline 2px | 100ms ease |
+| Link | underline, color darker | - | outline 2px | instant |
+| Card | lift -4px, shadow larger | - | outline 2px | 200ms ease-out |
+| Avatar | ring 2px primary | - | - | 150ms ease |
+| Badge | scale 1.05 | - | - | 100ms ease |
+| Icon Button | bg gray-100, rotate 15deg | scale 0.95 | outline 2px | 100ms ease |
+| Tab | border-bottom primary | - | outline 2px | 200ms ease |
+
+### 11.5. Stagger Animations
+
+**When to use:** Animating lists (chat messages, notifications, search results).
+
+```css
+.list-item:nth-child(1) { animation-delay: 0ms; }
+.list-item:nth-child(2) { animation-delay: 50ms; }
+.list-item:nth-child(3) { animation-delay: 100ms; }
+.list-item:nth-child(4) { animation-delay: 150ms; }
+/* ... */
+```
+
+**Figma:** Prototype each item with increasing delay (0ms, 50ms, 100ms...).
+
+**React (Framer Motion):**
+```javascript
+<motion.ul
+  variants={{
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.05,
+      },
+    },
+  }}
+>
+  {items.map((item) => (
+    <motion.li
+      key={item.id}
+      variants={{
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0 },
+      }}
+    >
+      {item.name}
+    </motion.li>
+  ))}
+</motion.ul>
+```
+
+### 11.6. Reduced Motion
+
+**Accessibility:** Respect user's `prefers-reduced-motion` setting.
+
+```css
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+```
+
+**Why:** Users with vestibular disorders can feel nauseous from animations.
+
+### 11.7. Animation Performance
+
+**Best Practices:**
+1. **Use `transform` and `opacity`** only (GPU-accelerated).
+   - ✅ `transform: translateY(-10px)`
+   - ❌ `top: -10px`
+2. **Avoid animating:** `width`, `height`, `margin`, `padding` (triggers layout reflow).
+3. **Use `will-change`** sparingly for complex animations:
+   ```css
+   .modal {
+     will-change: transform, opacity;
+   }
+   ```
+   **Remove after animation:**
+   ```javascript
+   element.addEventListener('animationend', () => {
+     element.style.willChange = 'auto';
+   });
+   ```
+4. **Debounce scroll/resize listeners** to avoid jank.
+
+### 11.8. Icon System Specification
+
+| Icon Library | Size | Usage |
+|--------------|------|-------|
+| Heroicons | 16px, 20px, 24px | Primary icon library (outline + solid variants) |
+| Phosphor Icons | 16px, 20px, 24px, 32px | Alternative (if Heroicons doesn't have icon) |
+| Custom icons | 24px, 48px | Logo, brand-specific |
+
+**Icon Colors:**
+- Default: `#6B7280` (Gray-500)
+- Active/Selected: `#4F46E5` (Primary-600)
+- Disabled: `#D1D5DB` (Gray-300)
+- Success: `#10B981`
+- Error: `#EF4444`
+- Warning: `#F59E0B`
+
+**When to use Emoji:**
+- ✅ Illustrations (error pages, empty states)
+- ✅ Celebrations (confetti, success modals)
+- ❌ Functional icons (buttons, navigation)
+- ❌ Status indicators (use colored dots instead)
+
+**Icon Animation:**
+```css
+.icon {
+  transition: transform 150ms ease, color 150ms ease;
+}
+
+.icon:hover {
+  transform: scale(1.1);
+  color: #4F46E5;
+}
+
+/* Rotating loader */
+.icon-spinner {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+```
+
+### 11.9. MOTION DESIGN CHECKLIST
+
+Before shipping animations, check:
+
+- [ ] All animations have duration between 100-500ms (except storytelling >500ms)
+- [ ] Modal open/close uses scale + fade
+- [ ] Dropdowns slide from trigger direction
+- [ ] Buttons have active state (scale 0.98)
+- [ ] Cards lift on hover (-4px translateY)
+- [ ] Toasts slide from right and auto-dismiss
+- [ ] Loading states use skeleton shimmer
+- [ ] Lists use stagger animation (50ms delay between items)
+- [ ] Focus states have visible outline (2px primary)
+- [ ] Toggle switches animate knob position (200ms ease-in-out)
+- [ ] Icons scale on hover (1.1x)
+- [ ] Sidebar collapse/expand is smooth (300ms)
+- [ ] Page transitions fade (300ms)
+- [ ] `prefers-reduced-motion` is respected
+- [ ] Only `transform` and `opacity` are animated (performance)
+- [ ] No animation lasts longer than 1s (except infinite loops)
+
+---
+
+## 12. FIGMA ANIMATION PROTOTYPING GUIDE
+
+### 12.1. Smart Animate Setup
+
+1. **Create 2 frames:** "Before" and "After"
+2. **Use identical layer names** (Figma matches by name)
+3. **Change properties:** position, size, opacity, fill
+4. **Prototype:** Click "Before" frame → Prototype panel → "On Click" → Navigate to "After" → Animation "Smart Animate" → Easing "Ease Out" → Duration 200ms
+
+**Example: Button Hover**
+- Frame 1: Button (bg #4F46E5, y=0)
+- Frame 2: Button (bg #6366F1, y=-2)
+- Prototype: On Hover → Navigate to Frame 2 → Smart Animate → 100ms Ease Out
+
+### 12.2. Component Variants for States
+
+**Best Practice:** Use component variants for state-based animations.
+
+1. **Create component:** Button
+2. **Add variants:** Default, Hover, Active, Disabled
+3. **Add interactive state prototyping:**
+   - Default → (On Hover) → Hover variant → Smart Animate 100ms
+   - Hover → (On Mouse Leave) → Default → Smart Animate 100ms
+   - Hover → (On Click) → Active → Instant
+   - Active → (After Delay 100ms) → Hover → Ease Out
+
+### 12.3. Prototype Videos for Developers
+
+**Deliverable:** Record screen of prototype interactions.
+
+1. Figma → Present prototype
+2. Record with Loom/QuickTime
+3. Share video + Figma link with developer
+
+**Include:**
+- Modal open/close flow
+- Dropdown open, select item, close
+- Form validation (error states)
+- Success toast animation
+- Loading skeleton → data loaded
+
+---
+
+## 📝 ANIMATION IMPLEMENTATION NOTES (For Developers)
+
+### React Animation Libraries
+
+| Library | Bundle Size | Use Case |
+|---------|-------------|----------|
+| Framer Motion | ~60KB | Full-featured animations, gestures, variants |
+| React Spring | ~30KB | Physics-based animations, spring configs |
+| React Transition Group | ~9KB | Simple enter/exit transitions |
+| CSS only | 0KB | Simplest, prefer for micro-interactions |
+
+**Recommendation:** Use **CSS** for simple hover/focus states. Use **Framer Motion** for complex page transitions, modals, and lists.
+
+### Example: Modal with Framer Motion
+
+```jsx
+import { motion, AnimatePresence } from 'framer-motion';
+
+function Modal({ isOpen, onClose, children }) {
+  return (
+    <AnimatePresence>
+      {isOpen && (
+        <>
+          {/* Backdrop */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            onClick={onClose}
+            className="backdrop"
+          />
+          
+          {/* Modal */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: -10 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.2, ease: 'easeOut' }}
+            className="modal"
+          >
+            {children}
+          </motion.div>
+        </>
+      )}
+    </AnimatePresence>
+  );
+}
+```
+
+---
+
+**STATUS:** ✅ Animation specifications to'liq yakunlandi  
+**Qo'shildi:** 2026-02-12  
+**Jami:** ~1000 qator animation specs + code examples + Figma guide
