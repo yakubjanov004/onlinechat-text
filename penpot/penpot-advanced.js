@@ -14,7 +14,8 @@
  */
 
 const axios = require('axios');
-require('dotenv').config();
+const path = require('path');
+require('dotenv').config({ path: path.join(__dirname, '.env') });
 
 // Configuration
 const PENPOT_API_KEY = process.env.PENPOT_API_KEY || '';

@@ -2,7 +2,7 @@
   "name": "CHATFLOW Design System",
   "description": "Auto-creates 26 CHATFLOW design pages with frames, components, colors, and typography",
   "host": "https://design.penpot.app",
-  "code": "plugin.js",
+  "code": "https://raw.githubusercontent.com/yakubjanov004/onlinechat-text/main/penpot/plugin.js",
   "icon": "",
   "permissions": [
     "content:read",

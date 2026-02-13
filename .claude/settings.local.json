@@ -3,7 +3,14 @@
     "allow": [
       "Bash(python:*)",
       "Bash(python3:*)",
-      "Bash(\"C:\\\\Users\\\\User\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python313\\\\python.exe\":*)"
+      "Bash(\"C:\\\\Users\\\\User\\\\AppData\\\\Local\\\\Programs\\\\Python\\\\Python313\\\\python.exe\":*)",
+      "WebSearch",
+      "WebFetch(domain:penpot-plugins-api-doc.pages.dev)",
+      "WebFetch(domain:help.penpot.app)",
+      "WebFetch(domain:doc.plugins.penpot.app)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:community.penpot.app)",
+      "Bash(git clone:*)"
     ]
   }
 }
