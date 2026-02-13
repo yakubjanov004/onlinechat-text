@@ -112,4 +112,3 @@ for (var i = 0; i < PAGES.length; i++) {
 }
 
 console.log('=== DONE: ' + created + '/' + PAGES.length + ' boards created ===');
-

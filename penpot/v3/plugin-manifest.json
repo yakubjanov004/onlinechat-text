@@ -1,0 +1,11 @@
+{
+  "name": "CHATFLOW Design System v3",
+  "description": "Creates 26 CHATFLOW design boards with titles, subtitles, and placeholder areas",
+  "host": "https://design.penpot.app",
+  "code": "https://raw.githubusercontent.com/yakubjanov004/onlinechat-text/main/penpot/v3/plugin.js",
+  "icon": "",
+  "permissions": [
+    "content:read",
+    "content:write"
+  ]
+}
