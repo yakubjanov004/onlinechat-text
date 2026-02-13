@@ -1,8 +1,14 @@
-// CHATFLOW Penpot Plugin v4 - DETAILED PAGE DRAWING
+// CHATFLOW Penpot Plugin v4.1 - DETAILED PAGE DRAWING
 // Draws actual UI elements for Login → Dashboard flow
 // Uses verified Penpot Plugin API: board.resize(), createText(str), fontSize as string
+// FIXED: text property order, shadow format, double-run guard
 
-console.log('=== CHATFLOW Plugin v4 START ===');
+// Prevent double execution
+if (typeof window.__chatflow_v4_running !== 'undefined' && window.__chatflow_v4_running) {
+  console.log('=== CHATFLOW v4 already running, skipping ===');
+} else {
+window.__chatflow_v4_running = true;
+console.log('=== CHATFLOW Plugin v4.1 START ===');
 
 // ─── DESIGN TOKENS ───
 var C = {
@@ -49,14 +55,17 @@ function makeRect(x, y, w, h, fill, radius, strokeColor, strokeWidth) {
 function makeText(content, x, y, size, weight, color) {
   var t = penpot.createText(content);
   if (!t) return null;
+  // CRITICAL: Order matters per official Penpot docs!
+  // 1. growType, 2. fontId (BEFORE fontWeight!), 3. fontFamily,
+  // 4. fontSize, 5. fontWeight, 6. fills, 7. x,y (position LAST)
   t.growType = 'auto-width';
   t.fontId = 'gfont-inter';
   t.fontFamily = 'Inter';
-  t.x = x;
-  t.y = y;
   t.fontSize = String(size || 14);
   t.fontWeight = String(weight || 400);
   t.fills = [{ fillColor: color || C.gray900, fillOpacity: 1 }];
+  t.x = x;
+  t.y = y;
   return t;
 }
 
@@ -83,7 +92,8 @@ function drawLogin(board, bx, by) {
   // Card background
   var card = makeRect(cx, cy, 480, 560, C.white, 12);
   card.name = 'auth-card';
-  card.shadows = [{ color: { r: 0, g: 0, b: 0, a: 0.1 }, offsetX: 0, offsetY: 4, blur: 6, spread: 0 }];
+  card.shadows = [{ style: 'drop-shadow', color: { color: '#000000', opacity: 0.1 }, offsetX: 0, offsetY: 4, blur: 6, spread: 0 }];
+  card.strokes = [{ strokeColor: C.gray200, strokeWidth: 1, strokeStyle: 'solid', strokeAlignment: 'center' }];
   addToBoard(board, card);
 
   // Logo placeholder
@@ -167,6 +177,8 @@ function drawRegister(board, bx, by) {
   // Card
   var card = makeRect(cx, cy, 480, 680, C.white, 12);
   card.name = 'auth-card';
+  card.shadows = [{ style: 'drop-shadow', color: { color: '#000000', opacity: 0.1 }, offsetX: 0, offsetY: 4, blur: 6, spread: 0 }];
+  card.strokes = [{ strokeColor: C.gray200, strokeWidth: 1, strokeStyle: 'solid', strokeAlignment: 'center' }];
   addToBoard(board, card);
 
   // Logo
@@ -258,6 +270,8 @@ function drawEmailVerify(board, bx, by) {
   // Card
   var card = makeRect(cx, cy, 480, 480, C.white, 12);
   card.name = 'auth-card';
+  card.shadows = [{ style: 'drop-shadow', color: { color: '#000000', opacity: 0.1 }, offsetX: 0, offsetY: 4, blur: 6, spread: 0 }];
+  card.strokes = [{ strokeColor: C.gray200, strokeWidth: 1, strokeStyle: 'solid', strokeAlignment: 'center' }];
   addToBoard(board, card);
 
   // Icon circle
@@ -317,6 +331,8 @@ function drawForgotPassword(board, bx, by) {
   // Card
   var card = makeRect(cx, cy, 480, 480, C.white, 12);
   card.name = 'auth-card';
+  card.shadows = [{ style: 'drop-shadow', color: { color: '#000000', opacity: 0.1 }, offsetX: 0, offsetY: 4, blur: 6, spread: 0 }];
+  card.strokes = [{ strokeColor: C.gray200, strokeWidth: 1, strokeStyle: 'solid', strokeAlignment: 'center' }];
   addToBoard(board, card);
 
   // Back link
@@ -371,6 +387,8 @@ function drawWelcome(board, bx, by) {
   // Card
   var card = makeRect(cx, cy, cardW, 640, C.white, 16);
   card.name = 'welcome-card';
+  card.shadows = [{ style: 'drop-shadow', color: { color: '#000000', opacity: 0.1 }, offsetX: 0, offsetY: 4, blur: 6, spread: 0 }];
+  card.strokes = [{ strokeColor: C.gray200, strokeWidth: 1, strokeStyle: 'solid', strokeAlignment: 'center' }];
   addToBoard(board, card);
 
   // Celebration icon
@@ -466,6 +484,8 @@ function drawOnboarding1(board, bx, by) {
   // Card
   var card = makeRect(cx, cy, 560, 500, C.white, 16);
   card.name = 'onboarding-card';
+  card.shadows = [{ style: 'drop-shadow', color: { color: '#000000', opacity: 0.1 }, offsetX: 0, offsetY: 4, blur: 6, spread: 0 }];
+  card.strokes = [{ strokeColor: C.gray200, strokeWidth: 1, strokeStyle: 'solid', strokeAlignment: 'center' }];
   addToBoard(board, card);
 
   // Step label
@@ -902,3 +922,5 @@ for (var i = 0; i < DETAILED_PAGES.length; i++) {
 }
 
 console.log('=== DONE: ' + created + '/' + DETAILED_PAGES.length + ' detailed pages drawn ===');
+window.__chatflow_v4_running = false;
+} // end of double-run guard
