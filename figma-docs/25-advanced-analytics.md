@@ -17,6 +17,7 @@ Dashboard Shell + Main Content Area
 #### Header
 - **Title:** "Analitika" 24px Semibold
 - **Date range selector:** Last 7 days | 30 days | This month | Custom
+- **Date format:** "MMM D, YYYY" standard (masalan: "Jan 15, 2024", range: "Jan 1 - Jan 31, 2024")
 - **Export button:** "Export PDF/CSV" Outline button
 
 #### Quick KPI Cards (4 cards)

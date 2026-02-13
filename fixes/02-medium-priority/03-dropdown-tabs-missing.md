@@ -1,6 +1,6 @@
 # 🟡 Dropdown va Tabs Component Spec Yo'q
 
-**Status:** 🟠 TODO  
+**Status:** ✅ DONE  
 **Prioritet:** 🟡 MEDIUM  
 **Taxminiy vaqt:** 2 soat (har biri 1 soat)  
 **Mas'ul:** UI Designer

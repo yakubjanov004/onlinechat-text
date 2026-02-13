@@ -635,7 +635,29 @@ export function disconnectSocket() {
 }
 ```
 
-### 5.2. WebSocket Event Listeners
+### 5.2. WebSocket Event Naming Convention
+
+**Pattern:** `{resource}.{action}` (singular, dot notation)
+
+| Resource | Event | Format |
+|----------|-------|--------|
+| Message | Yangi | `message.new` |
+| Message | Yuborildi | `message.sent` |
+| Message | O'qildi | `message.read` |
+| Message | O'chirildi | `message.deleted` |
+| Conversation | Yangi | `conversation.new` |
+| Conversation | Assign qilindi | `conversation.assigned` |
+| Conversation | Tugadi | `conversation.closed` |
+| Conversation | Qayta ochildi | `conversation.reopened` |
+| Conversation | Typing | `conversation.typing` |
+| Agent | Online | `agent.online` |
+| Agent | Offline | `agent.offline` |
+| Agent | Typing | `agent.typing` |
+| Visitor | Yangi | `visitor.new` |
+| Visitor | Typing | `visitor.typing` |
+| Notification | Yangi | `notification.new` |
+
+### 5.3. WebSocket Event Listeners
 
 ```typescript
 // src/hooks/useSocketEvents.ts
@@ -654,7 +676,7 @@ export function useSocketEvents() {
     const socket = getSocket();
 
     // Chat events
-    socket.on('conversation.new_message', (data) => {
+    socket.on('message.new', (data) => {
       addMessage(data.conversation_id, data.message);
       
       // Invalidate React Query cache
@@ -694,7 +716,7 @@ export function useSocketEvents() {
 
     // Cleanup
     return () => {
-      socket.off('conversation.new_message');
+      socket.off('message.new');
       socket.off('conversation.assigned');
       socket.off('conversation.typing');
       socket.off('notification.new');

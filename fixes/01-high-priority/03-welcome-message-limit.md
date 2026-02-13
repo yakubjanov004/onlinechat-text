@@ -1,6 +1,6 @@
 # 🔴 Welcome Message Character Limit Nomutanosibligi
 
-**Status:** 🟠 TODO  
+**Status:** ✅ DONE  
 **Prioritet:** 🔴 HIGH (Ma'lumot yo'qolish xavfi!)  
 **Taxminiy vaqt:** 30 daqiqa  
 **Mas'ul:** Product Manager + Hujjat muallifi

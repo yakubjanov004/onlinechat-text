@@ -1,6 +1,6 @@
 # 🔴 Guest Role Permissionlari Aniqlanmagan
 
-**Status:** 🟠 TODO  
+**Status:** ✅ DONE  
 **Prioritet:** 🔴 HIGH  
 **Taxminiy vaqt:** 1 soat  
 **Mas'ul:** Product Manager

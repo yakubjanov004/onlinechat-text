@@ -1,6 +1,6 @@
 # 📦 Tabs Component Spec
 
-**Status:** 🟠 TODO  
+**Status:** ✅ DONE  
 **Prioritet:** 🔴 CRITICAL  
 **Taxminiy vaqt:** 2-3 soat (Design + Figma)  
 **Mas'ul:** UI Designer  

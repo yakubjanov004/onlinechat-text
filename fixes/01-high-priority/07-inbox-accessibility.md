@@ -1,6 +1,6 @@
 # 🔴 11-inbox-chat.md — Accessibility Bo'limi YO'Q
 
-**Status:** 🟠 TODO  
+**Status:** ✅ DONE  
 **Prioritet:** 🔴 HIGH (Eng ko'p ishlatiladigan sahifa!)  
 **Taxminiy vaqt:** 2-3 soat  
 **Mas'ul:** UX Designer

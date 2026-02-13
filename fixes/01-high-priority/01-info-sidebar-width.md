@@ -1,6 +1,6 @@
 # 🔴 Info Sidebar Kengligi Nomutanosibligi
 
-**Status:** 🟠 TODO  
+**Status:** ✅ DONE  
 **Prioritet:** 🔴 HIGH  
 **Taxminiy vaqt:** 30 daqiqa  
 **Mas'ul:** Hujjat muallifi

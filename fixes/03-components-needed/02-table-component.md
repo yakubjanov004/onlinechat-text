@@ -1,6 +1,6 @@
 # 📦 Table Component Spec
 
-**Status:** 🟠 TODO  
+**Status:** ✅ DONE  
 **Prioritet:** 🔴 CRITICAL  
 **Taxminiy vaqt:** 4-5 soat (Design + Figma)  
 **Mas'ul:** UI Designer  

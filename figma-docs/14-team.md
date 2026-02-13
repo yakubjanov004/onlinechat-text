@@ -46,6 +46,12 @@ Team bo'limi workspace'dagi barcha agentlarni boshqarish uchun markaziy joy — 
 | Element | Spec |
 |---------|------|
 | **Search input** | 320px width, "Agent ismi yoki emaili bo'yicha qidirish..." placeholder |
+| **Min characters** | 3 belgi (3 dan kam yozsa — qidirmaydi) |
+| **Debounce** | 300ms (user yozib bo'lgandan keyin) |
+| **Max results** | 50 ta (pagination agar ko'p) |
+| **Case sensitive** | Yo'q (lowercase match) |
+| **Search scope** | Agent full name, email, role (Owner, Admin, Agent) |
+| **Sort** | Relevance → Date (newest first) |
 | **Filter: Role** | Dropdown, "Barcha rollar" default, options: Admin / Manager / Operator |
 | **Filter: Status** | Dropdown, "Barcha status" default, options: Online / Offline / Away / Busy |
 | **Tozalash link** | 14px Medium, Primary-600, "Filtrlarni tozalash" (appears when filters active) |

@@ -177,9 +177,9 @@ Chat widget'ning tashqi ko'rinishi, joylashuvi va xabar shablonlarini sozlash. A
 |---------|-----------|
 | **Label** | "Welcome xabar" — 14px Medium `#374151` |
 | **Textarea** | 3 qator, placeholder: "Salom! Sizga qanday yordam bera olamiz?" |
-| **Max belgilar** | 100 belgi |
-| **Character counter** | O'ng pastda: "24/100" — 12px `#6B7280` |
-| **Counter warning** | 80+ belgida: `#F59E0B`, 100 belgida: `#EF4444` |
+| **Max belgilar** | 200 belgi |
+| **Character counter** | O'ng pastda: "24/200" — 12px `#6B7280` |
+| **Counter warning** | 160+ belgida: `#F59E0B`, 200 belgida: `#EF4444` |
 | **Height** | 88px (3 qator) |
 | **Border** | 1px `#D1D5DB`, focus: 2px `#4F46E5` |
 
@@ -189,8 +189,8 @@ Chat widget'ning tashqi ko'rinishi, joylashuvi va xabar shablonlarini sozlash. A
 |---------|-----------|
 | **Label** | "Offline xabar" — 14px Medium `#374151` |
 | **Textarea** | 3 qator, placeholder: "Hozirda operator mavjud emas. Xabar qoldiring." |
-| **Max belgilar** | 100 belgi |
-| **Character counter** | O'ng pastda: "0/100" — 12px `#6B7280` |
+| **Max belgilar** | 200 belgi |
+| **Character counter** | O'ng pastda: "0/200" — 12px `#6B7280` |
 
 ### Section 2.6 — Input placeholder
 
@@ -254,10 +254,10 @@ Chat widget'ning tashqi ko'rinishi, joylashuvi va xabar shablonlarini sozlash. A
 │  └─────┘  └─────┘  └─────┘                       │
 ├─ Welcome xabar ───────────────────────────────────┤
 │  [ Salom! Sizga qanday yordam bera     ]          │
-│  [ olamiz?                              ]  24/100 │
+│  [ olamiz?                              ]  24/200 │
 ├─ Offline xabar ───────────────────────────────────┤
 │  [ Hozirda operator mavjud emas.       ]          │
-│  [ Xabar qoldiring.                    ]   0/100  │
+│  [ Xabar qoldiring.                    ]   0/200  │
 ├─ Input placeholder ───────────────────────────────┤
 │  [ Xabar yozing...                     ]          │
 ├─ O'rnatish kodi ──────────────────────────────────┤
@@ -766,7 +766,7 @@ settings-page/
 │       │   │   └── radio-card [O'ng o'rta]
 │       │   ├── section-welcome-message
 │       │   │   ├── textarea (88px, 3 rows)
-│       │   │   └── char-counter ("24/100", 12px)
+│       │   │   └── char-counter ("24/200", 12px)
 │       │   ├── section-offline-message
 │       │   │   ├── textarea (88px, 3 rows)
 │       │   │   └── char-counter

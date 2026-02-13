@@ -1,6 +1,6 @@
 # 🟡 Search Funksionallik 7 Sahifada Noaniq
 
-**Status:** 🟠 TODO  
+**Status:** ✅ DONE  
 **Prioritet:** 🟡 MEDIUM  
 **Taxminiy vaqt:** 3-4 soat  
 **Mas'ul:** UX Designer + Product Manager

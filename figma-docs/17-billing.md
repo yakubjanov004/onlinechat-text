@@ -472,6 +472,7 @@ Form fields (same as Click):
 1. **Date Range Picker**
    - Dropdown: 180px kenglik
    - Placeholder: "Oxirgi 30 kun"
+   - **Date format standard:** "MMM D, YYYY" (masalan: "Jan 15, 2024", range: "Jan 1 - Jan 31, 2024")
    - Options: "Oxirgi 7 kun", "Oxirgi 30 kun", "Oxirgi 90 kun", "Oxirgi 1 yil", "Barchasi", "Custom range"
    - Custom range modal: 2 date inputs (From, To) with calendar picker
 

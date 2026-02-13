@@ -27,6 +27,16 @@ Dashboard Shell + Main Content Area (full-width, 24px padding)
   - Width: 320px
   - Placeholder: "Ism, email yoki telefon bo'yicha qidirish..."
   - Icon: Search 20px, left-aligned
+
+| Parametr | Qiymat |
+|----------|--------|
+| **Min characters** | 3 belgi (3 dan kam yozsa — qidirmaydi) |
+| **Debounce** | 300ms (user yozib bo'lgandan keyin) |
+| **Max results** | 50 ta (pagination agar ko'p) |
+| **Case sensitive** | Yo'q (lowercase match) |
+| **Search scope** | Contact name, email, phone, company name, tags |
+| **Sort** | Relevance → Date (newest first) |
+
 - **Filters (inline, button format):**
   - Tags dropdown (multi-select)
   - Organization dropdown

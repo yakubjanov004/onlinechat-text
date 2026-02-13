@@ -1,6 +1,6 @@
 # 🟡 Analytics Date Format Nomutanosibligi
 
-**Status:** 🟠 TODO  
+**Status:** ✅ DONE  
 **Prioritet:** 🟡 MEDIUM  
 **Taxminiy vaqt:** 30 min  
 **Mas'ul:** Hujjat muallifi

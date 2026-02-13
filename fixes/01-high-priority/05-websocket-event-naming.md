@@ -1,6 +1,6 @@
 # 🔴 WebSocket Event Naming Nomutanosibligi
 
-**Status:** 🟠 TODO  
+**Status:** ✅ DONE  
 **Prioritet:** 🔴 HIGH (Real-time funksionallik buziladi!)  
 **Taxminiy vaqt:** 30 daqiqa  
 **Mas'ul:** Backend Lead + Hujjat muallifi

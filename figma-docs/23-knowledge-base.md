@@ -51,6 +51,16 @@ Dashboard Shell + Main Content Area
 
 **Table Controls:**
 - Search: 320px, "Maqola yoki kategoriya nomi..."
+
+| Parametr | Qiymat |
+|----------|--------|
+| **Min characters** | 3 belgi (3 dan kam yozsa — qidirmaydi) |
+| **Debounce** | 300ms (user yozib bo'lgandan keyin) |
+| **Max results** | 50 ta (pagination agar ko'p) |
+| **Case sensitive** | Yo'q (lowercase match) |
+| **Search scope** | Article title, content (full-text), tags, category |
+| **Sort** | Relevance → Date (newest first) |
+
 - Filters:
   - Status: All | Published | Draft
   - Category: Dropdown (multi-select)

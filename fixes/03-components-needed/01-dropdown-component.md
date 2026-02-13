@@ -1,6 +1,6 @@
 # 📦 Dropdown Component Spec
 
-**Status:** 🟠 TODO  
+**Status:** ✅ DONE  
 **Prioritet:** 🔴 CRITICAL  
 **Taxminiy vaqt:** 3-4 soat (Design + Figma)  
 **Mas'ul:** UI Designer  

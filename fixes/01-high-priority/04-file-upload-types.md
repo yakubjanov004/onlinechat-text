@@ -1,6 +1,6 @@
 # 🔴 File Upload Types va Size Limit Nomutanosibligi
 
-**Status:** 🟠 TODO  
+**Status:** ✅ DONE  
 **Prioritet:** 🔴 HIGH  
 **Taxminiy vaqt:** 30 daqiqa  
 **Mas'ul:** Product Manager + Hujjat muallifi

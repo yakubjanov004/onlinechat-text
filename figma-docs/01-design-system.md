@@ -501,6 +501,264 @@ Background: Primary-100, Matn: Primary-600
 - Checked: `#4F46E5` background, white checkmark
 - Border-radius: 4px (checkbox), 50% (radio)
 
+### Dropdown (Select)
+
+**Variants:**
+1. **Single Select** — Language, Role, Timezone tanlash
+2. **Multi-select** — Tags, Filters (checkbox bilan)
+3. **Search Dropdown** — 10+ option bo'lganda (Country, Timezone)
+4. **Grouped Dropdown** — Category bo'yicha guruhlangan
+
+**Anatomy:**
+```
+┌─────────────────────────────┐
+│ Selected option          ▼  │ ← Trigger button
+└─────────────────────────────┘
+            ↓ Click
+┌─────────────────────────────┐
+│ Search...                   │ ← Search input (optional)
+├─────────────────────────────┤
+│ ✓ Option 1 (selected)       │ ← Checkmark (single) / checkbox (multi)
+│   Option 2                  │
+│   Option 3                  │
+│   ─────────────             │ ← Divider
+│   Option 4                  │
+└─────────────────────────────┘
+```
+
+**States:**
+
+| State | Border | Background | Icon |
+|-------|--------|------------|------|
+| Default | 1px `#E5E7EB` | `#FFFFFF` | Chevron `#6B7280` |
+| Hover | 1px `#D1D5DB` | `#F9FAFB` | Chevron `#6B7280` |
+| Focused | 2px `#4F46E5` | `#FFFFFF` | Ring: 4px `primary-100` |
+| Open | 2px `#4F46E5` | `#FFFFFF` | Chevron rotated 180° |
+| Disabled | 1px `#E5E7EB` | `#F3F4F6` | `cursor: not-allowed` |
+| Error | 2px `#EF4444` | `#FFFFFF` | Error text `#EF4444` |
+
+**Trigger Styling:**
+- Height: 40px, min-width: 200px
+- Padding: 10px 14px
+- Border-radius: 8px
+- Font: 14px Regular, `#111827`
+- Transition: all 150ms ease
+
+**Dropdown Panel:**
+- Position: absolute, top: calc(100% + 8px)
+- Min-width: 200px, max-height: 240px (~6 items, scroll)
+- Background: `#FFFFFF`, border: 1px `#E5E7EB`
+- Border-radius: 8px, shadow: shadow-lg
+- Padding: 6px, z-index: 50
+
+**Option Item:**
+- Padding: 10px 14px, border-radius: 6px
+- Hover: `#F3F4F6` background
+- Selected: `#EEF2FF` background + checkmark icon `#4F46E5`
+- Font: 14px Regular, `#111827`
+
+**Behavior:**
+- Click trigger → open/close toggle
+- Click outside → close
+- Escape key → close
+- Arrow Up/Down → navigate options
+- Enter → select option
+- Type to search (agar 10+ option)
+
+**Accessibility:**
+```html
+<button aria-haspopup="listbox" aria-expanded="false" aria-labelledby="label">
+  Selected option
+</button>
+<ul role="listbox" aria-labelledby="label">
+  <li role="option" aria-selected="true">Option 1</li>
+</ul>
+```
+
+**Ishlatilgan joylar:** 11-inbox-chat.md (filter, sort), 12-inbox-advanced.md (assign, tag select), 13-automation.md (trigger/action), 14-team.md (role, filter), 16-settings.md (language, timezone), 20-contacts-crm.md (filter, tag)
+
+---
+
+### Tabs
+
+**Variants:**
+1. **Underline Tabs** (default) — Settings, Analytics, formal sahifalar uchun
+2. **Pill Tabs** — Filters (All/Mine/Unassigned), compact toggle
+3. **Segmented Control** — Binary choice (Active/Inactive, Grid/List)
+
+#### Underline Tabs
+
+```
+┌──────────────────────────────────────────┐
+│ General  |  Team  |  Widget  |  Integ.  │
+  ━━━━━━━                                  ← Active indicator
+```
+
+| State | Style |
+|-------|-------|
+| Active | `color: #4F46E5`, `font-weight: 600`, `border-bottom: 2px solid #4F46E5` |
+| Inactive | `color: #6B7280`, `font-weight: 400` |
+| Hover | `color: #111827` |
+| Disabled | `color: #D1D5DB`, `cursor: not-allowed` |
+
+**Styling:** Gap 24px, border-bottom: 1px `#E5E7EB`, padding: 12px 4px, font: 14px
+
+#### Pill Tabs
+
+```
+┌───────────────────────────────────────┐
+│ [All (12)] [Mine (5)] [Unassigned (3)]│
+  ━━━━━━━   (inactive)   (inactive)
+```
+
+| State | Style |
+|-------|-------|
+| Active | `bg: #4F46E5`, `color: #FFFFFF`, `border-radius: 6px`, `padding: 6px 12px` |
+| Inactive | `bg: #F3F4F6`, `color: #6B7280`, hover: `bg: #E5E7EB` |
+
+#### Tab Badge (Count)
+
+```css
+.tab-badge {
+  margin-left: 8px;
+  padding: 2px 8px;
+  font-size: 12px;
+  font-weight: 600;
+  background: #F3F4F6; /* inactive */
+  border-radius: 12px;
+}
+/* Active tab badge */
+.tab-badge-active {
+  color: #4F46E5;
+  background: #EEF2FF;
+}
+```
+
+**Accessibility:**
+```html
+<div role="tablist" aria-label="Settings tabs">
+  <button role="tab" aria-selected="true" aria-controls="panel-1">General</button>
+  <button role="tab" aria-selected="false" aria-controls="panel-2">Team</button>
+</div>
+<div role="tabpanel" id="panel-1" aria-labelledby="tab-1">Content</div>
+```
+
+**Behavior:**
+- Arrow Left/Right → navigate tabs
+- Enter/Space → activate tab
+- Tab panel: fade transition 200ms
+
+**Ishlatilgan joylar:** 16-settings.md (4 tabs), 15-analytics.md (4 tabs), 11-inbox-chat.md (3 filter tabs), 13-automation.md (3 tabs), 20-contacts-crm.md (3 tabs), 17-billing.md (3 tabs), 23-knowledge-base.md (3 tabs)
+
+---
+
+### Table
+
+**Variants:**
+1. **Simple Table** — Article list, invoice history
+2. **Sortable Table** — Team members (sort by name, role, status)
+3. **Selectable Table** — Bulk actions (checkbox, delete, export)
+4. **Expandable Rows** — Nested data, conversation details
+
+**Anatomy:**
+```
+┌─────────────────────────────────────────────────────────┐
+│ Table Title                    Search     [+ Add]       │
+├─────────────────────────────────────────────────────────┤
+│ ☐ | Name ↑     | Email          | Role    | Status |⋮  │
+├─────────────────────────────────────────────────────────┤
+│ ☐ | John Doe   | john@..        | Admin   | 🟢     |⋮  │
+│ ☐ | Jane Smith | jane@..        | Agent   | 🔴     |⋮  │
+├─────────────────────────────────────────────────────────┤
+│ Showing 1-10 of 245        [< 1 2 3 ... 25 >]          │
+└─────────────────────────────────────────────────────────┘
+```
+
+**States:**
+
+| State | Style |
+|-------|-------|
+| Default row | `bg: white` |
+| Hover row | `bg: #F9FAFB` |
+| Selected row | `bg: #EEF2FF`, checkbox ✓ |
+| Loading | Skeleton loader |
+| Empty | Empty state illustration + "Ma'lumot topilmadi" |
+| Error | Error message + "Qayta urinish" button |
+
+**Styling:**
+- Container: `border: 1px #E5E7EB`, `border-radius: 12px`, `shadow-sm`
+- Header bg: `#F9FAFB`, th: 12px Semibold `#6B7280` uppercase, padding 12px 16px
+- Row: `border-bottom: 1px #E5E7EB`, td padding: 12px 16px
+- Sort icon: `#6B7280` (default), `#4F46E5` (sorted)
+
+**Pagination:**
+- Default: 10 per page, options: 10, 25, 50
+- "Showing 1-10 of 245" — 13px `#6B7280`
+- Page buttons: 32px × 32px, radius 6px
+- Active page: `bg: #4F46E5`, `color: white`
+
+**Ishlatilgan joylar:** 14-team.md, 20-contacts-crm.md, 17-billing.md, 25-advanced-analytics.md, 15-analytics.md, 23-knowledge-base.md, 13-automation.md, 21-online-visitors.md
+
+---
+
+### Date Picker
+
+**Variants:**
+1. **Single Date** — Deadline, specific date
+2. **Date Range** (default) — Analytics filter, report period
+3. **Date + Time** — Automation schedule, event timestamp
+4. **Preset Range** — "Last 7 days", "This month", "Custom"
+
+**Date Format Standard:** "MMM D, YYYY" (masalan: "Jan 15, 2024")
+**Range Format:** "Jan 1 - Jan 31, 2024"
+
+**Anatomy (Date Range):**
+```
+┌─────────────────────────────────────┐
+│ Jan 15, 2024 - Feb 14, 2024     📅 │ ← Trigger input
+└─────────────────────────────────────┘
+               ↓ Click
+┌─────────────────────────────────────────────┐
+│ Presets        │  January 2024              │
+│                │  Su Mo Tu We Th Fr Sa      │
+│ Last 7 days    │   1  2  3  4  5  6  7     │
+│ Last 30 days   │   8  9 10 11 12 13 14     │
+│ This month     │  [15 16 17 18 19 20] 21   │
+│ Last month     │  22 23 24 25 26 27 28     │
+│ Custom range   │  29 30 31                 │
+│                │                            │
+│                │  [Cancel]      [Apply]      │
+└─────────────────────────────────────────────┘
+```
+
+**States:**
+
+| State | Border | Background |
+|-------|--------|------------|
+| Default | 1px `#E5E7EB` | `#FFFFFF` |
+| Hover | 1px `#D1D5DB` | `#F9FAFB` |
+| Focused | 2px `#4F46E5` | `#FFFFFF`, ring 4px |
+| Open | 2px `#4F46E5` | Calendar visible |
+| Disabled | 1px `#E5E7EB` | `#F3F4F6` |
+| Error | 2px `#EF4444` | Helper text red |
+
+**Trigger Input:** Height 40px, min-width 240px, padding 10px 14px, radius 8px
+**Calendar Panel:** radius 12px, shadow-lg, padding 16px
+
+**Calendar Day States:**
+
+| State | Style |
+|-------|-------|
+| Default | `#111827`, hover: `#F3F4F6` bg |
+| Today | `border: 1px #4F46E5`, `font-weight: 600` |
+| Selected | `bg: #4F46E5`, `color: white`, radius 50% |
+| In Range | `bg: #EEF2FF` (primary-50) |
+| Disabled (past) | `color: #D1D5DB`, `cursor: not-allowed` |
+
+**Preset Buttons:** width 140px, padding 8px 12px, font 14px, hover: `bg: #F3F4F6`
+
+**Ishlatilgan joylar:** 15-analytics.md, 25-advanced-analytics.md, 17-billing.md, 13-automation.md, 20-contacts-crm.md, 16-settings.md
+
 ---
 
 ## 7. Ikonlar

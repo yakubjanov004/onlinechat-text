@@ -24,120 +24,126 @@
 - **Cheklovlar:** Jamoa, automation, settings ko'ra olmaydi
 - **Maqsad:** Customer support agent
 
+### 4. Guest
+- **Kirish:** Faqat ko'rish (read-only), hech narsa o'zgartira olmaydi
+- **CRUD:** Faqat o'qish (Read)
+- **Cheklovlar:** Hech qanday settings, billing, yozish, o'chirish yo'q
+- **Maqsad:** Stakeholder, CEO, marketing manager — faqat statistika ko'rish uchun
+
 ---
 
 ## PERMISSION MATRIX — To'liq Jadval
 
-| Module | Action | Admin | Manager | Operator | Izoh |
-|--------|--------|-------|---------|----------|------|
+| Module | Action | Admin | Manager | Operator | Guest | Izoh |
+|--------|--------|-------|---------|----------|-------|------|
 | **INBOX** |
-| View all chats | ✅ | ✅ | ❌ (own only) | Manager assigns chats |
-| View own chats | ✅ | ✅ | ✅ | |
-| Reply to chat | ✅ | ✅ | ✅ | |
-| Assign chat | ✅ | ✅ | ⚠️ (to self) | Manager assigns to anyone |
-| Transfer chat | ✅ | ✅ | ✅ | |
-| Resolve/Close chat | ✅ | ✅ | ✅ | |
-| Reopen chat | ✅ | ✅ | ❌ | Only Admin/Manager |
-| Delete chat | ✅ | ❌ | ❌ | Only Admin |
-| Add tags | ✅ | ✅ | ✅ | |
-| Add notes | ✅ | ✅ | ✅ | |
-| View contact info | ✅ | ✅ | ✅ | |
-| Export chat history | ✅ | ✅ | ⚠️ (own only) | |
+| View all chats | ✅ | ✅ | ❌ (own only) | ✅ | Manager assigns chats |
+| View own chats | ✅ | ✅ | ✅ | ✅ | |
+| Reply to chat | ✅ | ✅ | ✅ | ❌ | |
+| Assign chat | ✅ | ✅ | ⚠️ (to self) | ❌ | Manager assigns to anyone |
+| Transfer chat | ✅ | ✅ | ✅ | ❌ | |
+| Resolve/Close chat | ✅ | ✅ | ✅ | ❌ | |
+| Reopen chat | ✅ | ✅ | ❌ | ❌ | Only Admin/Manager |
+| Delete chat | ✅ | ❌ | ❌ | ❌ | Only Admin |
+| Add tags | ✅ | ✅ | ✅ | ❌ | |
+| Add notes | ✅ | ✅ | ✅ | ❌ | |
+| View contact info | ✅ | ✅ | ✅ | ✅ | |
+| Export chat history | ✅ | ✅ | ⚠️ (own only) | ❌ | |
 | **AUTOMATION** |
-| View rules/settings | ✅ | ✅ | ⚠️ (read-only) | Manager can view |
-| Edit working hours | ✅ | ❌ | ❌ | Only Admin |
-| Edit auto-reply | ✅ | ❌ | ❌ | Only Admin |
-| Create/edit triggers | ✅ | ❌ | ❌ | Only Admin |
-| Edit greetings | ✅ | ❌ | ❌ | Only Admin |
-| Delete automation | ✅ | ❌ | ❌ | Only Admin |
+| View rules/settings | ✅ | ✅ | ⚠️ (read-only) | ⚠️ (read-only) | Manager can view |
+| Edit working hours | ✅ | ❌ | ❌ | ❌ | Only Admin |
+| Edit auto-reply | ✅ | ❌ | ❌ | ❌ | Only Admin |
+| Create/edit triggers | ✅ | ❌ | ❌ | ❌ | Only Admin |
+| Edit greetings | ✅ | ❌ | ❌ | ❌ | Only Admin |
+| Delete automation | ✅ | ❌ | ❌ | ❌ | Only Admin |
 | **TEAM** |
-| View agents list | ✅ | ✅ | ⚠️ (list only) | Operator sees names |
-| Invite agents | ✅ | ✅ | ❌ | Manager can invite |
-| Edit agent profile | ✅ | ⚠️ (operators) | ❌ | Manager: operators only |
-| Suspend agent | ✅ | ❌ | ❌ | Only Admin |
-| Delete agent | ✅ | ❌ | ❌ | Only Admin |
-| Manage roles | ✅ | ❌ | ❌ | Only Admin |
-| View invitations | ✅ | ✅ | ❌ | |
-| Cancel invitation | ✅ | ✅ | ❌ | |
-| View agent stats | ✅ | ✅ | ⚠️ (own only) | |
+| View agents list | ✅ | ✅ | ⚠️ (list only) | ✅ | Operator sees names |
+| Invite agents | ✅ | ✅ | ❌ | ❌ | Manager can invite |
+| Edit agent profile | ✅ | ⚠️ (operators) | ❌ | ❌ | Manager: operators only |
+| Suspend agent | ✅ | ❌ | ❌ | ❌ | Only Admin |
+| Delete agent | ✅ | ❌ | ❌ | ❌ | Only Admin |
+| Manage roles | ✅ | ❌ | ❌ | ❌ | Only Admin |
+| View invitations | ✅ | ✅ | ❌ | ❌ | |
+| Cancel invitation | ✅ | ✅ | ❌ | ❌ | |
+| View agent stats | ✅ | ✅ | ⚠️ (own only) | ❌ | |
 | **ANALYTICS** |
-| View dashboard | ✅ | ✅ | ⚠️ (own stats) | Operator: My Stats tab |
-| View team performance | ✅ | ✅ | ❌ | Manager sees all |
-| View SLA monitoring | ✅ | ✅ | ❌ | |
-| Create custom dashboards | ✅ | ✅ | ❌ | Manager can customize |
-| Export reports | ✅ | ✅ | ⚠️ (own only) | |
-| Schedule reports | ✅ | ✅ | ❌ | Manager can schedule |
-| View segments analytics | ✅ | ✅ | ❌ | |
-| Compare operators | ✅ | ✅ | ❌ | Manager sees comparison |
-| View CSAT | ✅ | ✅ | ⚠️ (own only) | |
+| View dashboard | ✅ | ✅ | ⚠️ (own stats) | ✅ | Operator: My Stats tab |
+| View team performance | ✅ | ✅ | ❌ | ✅ | Manager sees all |
+| View SLA monitoring | ✅ | ✅ | ❌ | ✅ | |
+| Create custom dashboards | ✅ | ✅ | ❌ | ❌ | Manager can customize |
+| Export reports | ✅ | ✅ | ⚠️ (own only) | ❌ | |
+| Schedule reports | ✅ | ✅ | ❌ | ❌ | Manager can schedule |
+| View segments analytics | ✅ | ✅ | ❌ | ❌ | |
+| Compare operators | ✅ | ✅ | ❌ | ❌ | Manager sees comparison |
+| View CSAT | ✅ | ✅ | ⚠️ (own only) | ✅ | |
 | **CONTACTS / CRM** |
-| View all contacts | ✅ | ✅ | ✅ | All see contacts |
-| Create contact | ✅ | ✅ | ✅ | |
-| Edit contact | ✅ | ✅ | ✅ | |
-| Delete contact | ✅ | ✅ | ❌ | Only Admin/Manager |
-| Import contacts | ✅ | ✅ | ❌ | CSV/Excel import |
-| Export contacts | ✅ | ✅ | ❌ | |
-| Merge duplicates | ✅ | ✅ | ❌ | |
-| Create segments | ✅ | ✅ | ❌ | |
-| View segments | ✅ | ✅ | ✅ | Operator read-only |
+| View all contacts | ✅ | ✅ | ✅ | ✅ | All see contacts |
+| Create contact | ✅ | ✅ | ✅ | ❌ | |
+| Edit contact | ✅ | ✅ | ✅ | ❌ | |
+| Delete contact | ✅ | ✅ | ❌ | ❌ | Only Admin/Manager |
+| Import contacts | ✅ | ✅ | ❌ | ❌ | CSV/Excel import |
+| Export contacts | ✅ | ✅ | ❌ | ❌ | |
+| Merge duplicates | ✅ | ✅ | ❌ | ❌ | |
+| Create segments | ✅ | ✅ | ❌ | ❌ | |
+| View segments | ✅ | ✅ | ✅ | ✅ | Operator read-only |
 | **ONLINE VISITORS** |
-| View visitors | ✅ | ✅ | ✅ | All see online visitors |
-| Send proactive message | ✅ | ✅ | ✅ | All can initiate |
-| View visitor details | ✅ | ✅ | ✅ | Page history, location |
-| Track visitor activity | ✅ | ✅ | ⚠️ (own chats) | Manager sees all |
+| View visitors | ✅ | ✅ | ✅ | ✅ | All see online visitors |
+| Send proactive message | ✅ | ✅ | ✅ | ❌ | All can initiate |
+| View visitor details | ✅ | ✅ | ✅ | ✅ | Page history, location |
+| Track visitor activity | ✅ | ✅ | ⚠️ (own chats) | ❌ | Manager sees all |
 | **TEAM CHAT** |
-| Send direct messages | ✅ | ✅ | ✅ | Internal chat |
-| Create public rooms | ✅ | ✅ | ✅ | All can create |
-| Create private rooms | ✅ | ✅ | ❌ | Admin/Manager only |
-| Join public rooms | ✅ | ✅ | ✅ | |
-| Edit room settings | ✅ | ⚠️ (own rooms) | ❌ | Manager: own rooms |
-| Delete rooms | ✅ | ❌ | ❌ | Only Admin |
-| Delete messages | ✅ | ⚠️ (own) | ⚠️ (own) | Own messages only |
-| Create announcements | ✅ | ✅ | ❌ | #announcements channel |
-| Generate invite links | ✅ | ✅ | ❌ | Room invite links |
-| View all rooms | ✅ | ✅ | ⚠️ (joined) | Operator: joined only |
+| Send direct messages | ✅ | ✅ | ✅ | ❌ | Internal chat |
+| Create public rooms | ✅ | ✅ | ✅ | ❌ | All can create |
+| Create private rooms | ✅ | ✅ | ❌ | ❌ | Admin/Manager only |
+| Join public rooms | ✅ | ✅ | ✅ | ❌ | |
+| Edit room settings | ✅ | ⚠️ (own rooms) | ❌ | ❌ | Manager: own rooms |
+| Delete rooms | ✅ | ❌ | ❌ | ❌ | Only Admin |
+| Delete messages | ✅ | ⚠️ (own) | ⚠️ (own) | ❌ | Own messages only |
+| Create announcements | ✅ | ✅ | ❌ | ❌ | #announcements channel |
+| Generate invite links | ✅ | ✅ | ❌ | ❌ | Room invite links |
+| View all rooms | ✅ | ✅ | ⚠️ (joined) | ❌ | Operator: joined only |
 | **KNOWLEDGE BASE** |
-| View articles | ✅ | ✅ | ✅ | Public articles |
-| Create articles | ✅ | ✅ | ⚠️ (draft) | Operator: draft only |
-| Publish articles | ✅ | ✅ | ❌ | Manager can publish |
-| Edit articles | ✅ | ✅ | ⚠️ (own) | |
-| Delete articles | ✅ | ✅ | ❌ | |
-| Manage categories | ✅ | ✅ | ❌ | |
-| View analytics | ✅ | ✅ | ⚠️ (own) | Article views, helpful |
+| View articles | ✅ | ✅ | ✅ | ✅ | Public articles |
+| Create articles | ✅ | ✅ | ⚠️ (draft) | ❌ | Operator: draft only |
+| Publish articles | ✅ | ✅ | ❌ | ❌ | Manager can publish |
+| Edit articles | ✅ | ✅ | ⚠️ (own) | ❌ | |
+| Delete articles | ✅ | ✅ | ❌ | ❌ | |
+| Manage categories | ✅ | ✅ | ❌ | ❌ | |
+| View analytics | ✅ | ✅ | ⚠️ (own) | ❌ | Article views, helpful |
 | **ADD-ONS / MARKETPLACE** |
-| View marketplace | ✅ | ✅ | ✅ | Browse add-ons |
-| Activate add-ons | ✅ | ❌ | ❌ | Only Admin |
-| Deactivate add-ons | ✅ | ❌ | ❌ | Only Admin |
-| Configure add-ons | ✅ | ⚠️ (read-only) | ❌ | Manager: view config |
-| View active add-ons | ✅ | ✅ | ✅ | |
+| View marketplace | ✅ | ✅ | ✅ | ✅ | Browse add-ons |
+| Activate add-ons | ✅ | ❌ | ❌ | ❌ | Only Admin |
+| Deactivate add-ons | ✅ | ❌ | ❌ | ❌ | Only Admin |
+| Configure add-ons | ✅ | ⚠️ (read-only) | ❌ | ❌ | Manager: view config |
+| View active add-ons | ✅ | ✅ | ✅ | ✅ | |
 | **SETTINGS** |
-| Workspace settings | ✅ | ❌ | ❌ | Name, logo, timezone |
-| Widget settings | ✅ | ❌ | ❌ | Color, position, text |
-| Security settings | ✅ | ❌ | ❌ | 2FA, IP whitelist |
-| Notification preferences | ✅ | ✅ | ✅ | Personal settings |
-| Profile settings | ✅ | ✅ | ✅ | Avatar, name, password |
-| Language settings | ✅ | ✅ | ✅ | Interface language |
-| Advanced settings | ✅ | ❌ | ❌ | Data retention, GDPR |
+| Workspace settings | ✅ | ❌ | ❌ | ❌ | Name, logo, timezone |
+| Widget settings | ✅ | ❌ | ❌ | ❌ | Color, position, text |
+| Security settings | ✅ | ❌ | ❌ | ❌ | 2FA, IP whitelist |
+| Notification preferences | ✅ | ✅ | ✅ | ❌ | Personal settings |
+| Profile settings | ✅ | ✅ | ✅ | ❌ | Avatar, name, password |
+| Language settings | ✅ | ✅ | ✅ | ❌ | Interface language |
+| Advanced settings | ✅ | ❌ | ❌ | ❌ | Data retention, GDPR |
 | **BILLING** |
-| View plan | ✅ | ⚠️ (read-only) | ❌ | Manager sees plan |
-| Upgrade/downgrade plan | ✅ | ❌ | ❌ | Only Admin |
-| View invoices | ✅ | ⚠️ (read-only) | ❌ | Manager can view |
-| Download invoices | ✅ | ⚠️ (read-only) | ❌ | |
-| Manage payment methods | ✅ | ❌ | ❌ | Only Admin |
-| View usage stats | ✅ | ✅ | ❌ | API calls, storage |
-| Cancel subscription | ✅ | ❌ | ❌ | Only Admin |
+| View plan | ✅ | ⚠️ (read-only) | ❌ | ⚠️ (read-only) | Manager sees plan |
+| Upgrade/downgrade plan | ✅ | ❌ | ❌ | ❌ | Only Admin |
+| View invoices | ✅ | ⚠️ (read-only) | ❌ | ❌ | Manager can view |
+| Download invoices | ✅ | ⚠️ (read-only) | ❌ | ❌ | |
+| Manage payment methods | ✅ | ❌ | ❌ | ❌ | Only Admin |
+| View usage stats | ✅ | ✅ | ❌ | ❌ | API calls, storage |
+| Cancel subscription | ✅ | ❌ | ❌ | ❌ | Only Admin |
 | **DEVELOPER / API** |
-| View API keys | ✅ | ⚠️ (read-only) | ❌ | Manager sees masked |
-| Create API keys | ✅ | ❌ | ❌ | Only Admin |
-| Regenerate API keys | ✅ | ❌ | ❌ | Only Admin |
-| Delete API keys | ✅ | ❌ | ❌ | Only Admin |
-| View webhooks | ✅ | ⚠️ (read-only) | ❌ | Manager sees list |
-| Create webhooks | ✅ | ❌ | ❌ | Only Admin |
-| Edit webhooks | ✅ | ❌ | ❌ | Only Admin |
-| Delete webhooks | ✅ | ❌ | ❌ | Only Admin |
-| Test webhooks | ✅ | ⚠️ (limited) | ❌ | Manager can test |
-| View webhook logs | ✅ | ✅ | ❌ | Manager monitors |
-| View API documentation | ✅ | ✅ | ✅ | Public docs |
+| View API keys | ✅ | ⚠️ (read-only) | ❌ | ❌ | Manager sees masked |
+| Create API keys | ✅ | ❌ | ❌ | ❌ | Only Admin |
+| Regenerate API keys | ✅ | ❌ | ❌ | ❌ | Only Admin |
+| Delete API keys | ✅ | ❌ | ❌ | ❌ | Only Admin |
+| View webhooks | ✅ | ⚠️ (read-only) | ❌ | ❌ | Manager sees list |
+| Create webhooks | ✅ | ❌ | ❌ | ❌ | Only Admin |
+| Edit webhooks | ✅ | ❌ | ❌ | ❌ | Only Admin |
+| Delete webhooks | ✅ | ❌ | ❌ | ❌ | Only Admin |
+| Test webhooks | ✅ | ⚠️ (limited) | ❌ | ❌ | Manager can test |
+| View webhook logs | ✅ | ✅ | ❌ | ❌ | Manager monitors |
+| View API documentation | ✅ | ✅ | ✅ | ✅ | Public docs |
 
 ---
 

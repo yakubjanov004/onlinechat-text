@@ -1,6 +1,6 @@
 # 🔴 Widget Pozitsiya Variantlari Nomutanosibligi
 
-**Status:** 🟠 TODO  
+**Status:** ✅ DONE  
 **Prioritet:** 🔴 HIGH  
 **Taxminiy vaqt:** 30 daqiqa  
 **Mas'ul:** UX Designer + Hujjat muallifi

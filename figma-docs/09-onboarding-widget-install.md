@@ -66,12 +66,11 @@ Chat vidjeti sozlash ekrani foydalanuvchiga brendiga mos ko'rinishni tanlash imk
 
 **Label:** "Widget joylashuvi" — 14px Medium #374151  
 
-**Radio Buttons:** 4 ta (2×2 grid)
+**Radio Buttons:** 3 ta (1×3 row)
 - Pastki o'ng (default): Icon showing bottom-right corner, label "Pastki o'ng"
 - Pastki chap: Icon bottom-left, label "Pastki chap"
-- Yuqori o'ng: Icon top-right, label "Yuqori o'ng"
-- Yuqori chap: Icon top-left, label "Yuqori chap"
-- Layout: 2-column grid, gap 12px
+- O'ng markaz: Icon right-center, label "O'ng markaz"
+- Layout: 3-column row, gap 12px
 - Each option: 140×80px, padding 12px, border-radius 8px
 - Icon: 48px mini mockup showing position
 - Selected state: border 2px #4F46E5, bg #EEF2FF
@@ -874,8 +873,8 @@ export default function Document() {
 │ │ ◻ Kvadrat  ● Yumaloq  │  │ └─────────┘                           │  │ │
 │ │                       │  │ ┌──────────────────┐                  │  │ │
 │ │ Joylashuv:            │  │ │ Hero Section     │                  │  │ │
-│ │ ◻ Top-left  ◻ Top-right│  │ │                  │                  │  │ │
-│ │ ◻ Bot-left  ● Bot-right│  │ └──────────────────┘                  │  │ │
+│ │ ◻ Bot-left  ● Bot-right│  │ │                  │                  │  │ │
+│ │ ◻ Right-center        │  │ └──────────────────┘                  │  │ │
 │ │                       │  │                                      │  │ │
 │ │ Tugma matni:          │  │                        ┌────────┐    │  │ │
 │ │ [💬 Yordam kerakmi? ] │  │                        │   💬   │    │  │ │
@@ -1002,7 +1001,7 @@ onboarding-step-2-customize/
 ├── color-picker-swatch         # 40px swatch
 ├── color-input-hex             # #4F46E5 input
 ├── shape-radio-option          # Square/Round 120×80
-├── position-radio-grid         # 4 positions 2×2
+├── position-radio-grid         # 3 positions 1×3
 ├── button-text-input           # With character count
 ├── greeting-textarea           # Auto-expand 100-200px
 ├── agent-name-input            # Text input
@@ -1180,7 +1179,7 @@ STEP 2: Widget Customization (Split Screen)
 - Left column 480px: Settings panel with 8 sections
   - Primary color: 8 preset swatches 40×40px + custom hex input #4F46E5
   - Shape: 2 radio options (Square/Round) 120×80px with icon previews
-  - Position: 4 radio options (BR/BL/TR/TL) 2×2 grid 140×80px with mini mockups
+  - Position: 3 radio options (BR/BL/RC) 1×3 row 140×80px with mini mockups
   - Button text: input "Yordam kerakmi?" with 0/30 character count
   - Greeting: textarea "Salom! Sizga qanday yordam bera olamiz?" 100px, 0/200 count
   - Agent name: input "Qo'llab-quvvatlash" 0/50 count

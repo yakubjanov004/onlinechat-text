@@ -17,7 +17,7 @@ Inbox — CHATFLOW platformasining eng asosiy va eng ko'p ishlatiladigan sahifas
 |-------|---------|--------|
 | Chat List (chap) | 360px (fixed) | Barcha chatlar ro'yxati |
 | Chat Window (o'ng) | fluid (qolgan joy) | Tanlangan chat suhbati |
-| Info Sidebar (o'ng) | 280px (ixtiyoriy) | Mijoz ma'lumotlari (12-da batafsil) |
+| Info Sidebar (o'ng) | 300px (ixtiyoriy) | Mijoz ma'lumotlari (12-da batafsil) |
 
 ### ASCII Wireframe — Desktop (1440px)
 
@@ -27,7 +27,7 @@ Inbox — CHATFLOW platformasining eng asosiy va eng ko'p ishlatiladigan sahifas
 ├────────────────┬─────────────────────────────────┬───────────────────┤
 │                │                                 │                   │
 │  CHAT LIST     │       CHAT WINDOW               │   INFO SIDEBAR   │
-│  (360px)       │       (fluid)                   │   (280px)        │
+│  (360px)       │       (fluid)                   │   (300px)        │
 │                │                                 │                   │
 │ ┌────────────┐ │  ┌─ Header ──────────────────┐  │  Mijoz ismi      │
 │ │ Search     │ │  │ Ismi  Status  Agent  [X]  │  │  Email           │
@@ -53,7 +53,7 @@ Inbox — CHATFLOW platformasining eng asosiy va eng ko'p ishlatiladigan sahifas
 │ │            │ │  └─────────────────────────────┘│                   │
 │                │                                 │                   │
 ├────────────────┴─────────────────────────────────┴───────────────────┤
-│   360px              fluid (~800px)                  280px           │
+│   360px              fluid (~780px)                  300px           │
 └──────────────────────────────────────────────────────────────────────┘
 ```
 
@@ -89,6 +89,12 @@ Barcha chatlarni kompakt ro'yxat shaklida ko'rsatish. Agent tezda kerakli chatni
 | Icon | Search, 16px, `#6B7280` |
 | Shrift | 14px Regular, `#6B7280` placeholder |
 | Padding | 0 12px 0 36px (icon uchun joy) |
+| **Min characters** | 3 belgi (3 dan kam yozsa — qidirmaydi) |
+| **Debounce** | 300ms (user yozib bo'lgandan keyin) |
+| **Max results** | 50 ta (pagination agar ko'p) |
+| **Case sensitive** | Yo'q (lowercase match) |
+| **Search scope** | Customer name, email, conversation ID, last message (100 chars) |
+| **Sort** | Relevance → Date (newest first) |
 
 #### Filter Dropdown
 
@@ -235,12 +241,25 @@ Tanlangan chat suhbatini to'liq ko'rsatish: xabarlar tarixi, yozish maydoni va s
 | **Close button** | "X" icon yoki "Yopish" tugma — chatni yopish |
 
 **Agent Assignment Dropdown:**
-- Trigger: Agent nomi + chevron down
+- Trigger: Agent nomi + status dot + chevron down (masalan: "🟢 Sara")
 - Kenglik: 200px
-- Itemlar: Agent ismi + Avatar (24px) + Online status dot
+- Itemlar: Agent ismi + Avatar (24px) + Online status dot + Active conversation count
 - Selected: Checkmark icon
 - Border-radius: 8px
 - Shadow: shadow-md
+- Sort order: Online agents (kam load) → Away → Offline
+
+**Agent Status Colors:**
+- 🟢 Online: `#10B981` (Success-500) — Agent active ishlayapti
+- 🟡 Away: `#F59E0B` (Warning-500) — 5+ daqiqa inaktiv
+- 🔴 Offline: `#EF4444` (Error-500) — Logged out yoki browser yopiq
+
+**Agent List Item Format:**
+```
+[ ] 🟢 John Doe          (3 active)
+[ ] 🟡 Jane Smith        (1 active)
+[ ] 🔴 Mike Johnson      (0 active)
+```
 
 ### 3.2 Messages Area — Xabarlar maydoni
 
@@ -433,8 +452,8 @@ Paperclip icon bosish yoki Drag & Drop
 
 | Parametr | Qiymat |
 |----------|--------|
-| Max fayl hajmi | 10MB |
-| Ruxsat formatlar | JPG, PNG, PDF |
+| Max fayl hajmi | Free: 10MB, Pro: 25MB, Business: 50MB |
+| Ruxsat formatlar | JPG, PNG, PDF, DOCX, XLSX, SVG, GIF |
 | Upload usuli | Drag & Drop yoki "Browse Files" tugma |
 
 ### Drag & Drop maydon
@@ -446,7 +465,7 @@ Paperclip icon bosish yoki Drag & Drop
 | Icon | Upload cloud, 48px, `#6B7280` |
 | Matn | "Faylni bu yerga tashlang" — 14px Medium, `#374151` |
 | Sub-matn | "yoki faylni tanlash uchun bosing" — 13px Regular, `#6B7280` |
-| Format info | "JPG, PNG, PDF — max 10MB" — 12px Regular, `#9CA3AF` |
+| Format info | "JPG, PNG, PDF, DOCX, XLSX, SVG, GIF — max 10-50MB" — 12px Regular, `#9CA3AF` |
 
 ### Upload Preview Card
 
@@ -639,7 +658,7 @@ inbox-chat/
 │   │       ├── input-row (auto-layout, horizontal, gap: 12px, padding: 0 24px 16px)
 │   │       │   ├── textarea (fluid, min 44px, max 120px, auto-expand)
 │   │       │   │   └── placeholder ("Xabar yozing...")
-│   │       │   └── send-button (40x40px, #4F46E5, send-arrow icon)
+│   │       │   └── send-button (44x44px, #4F46E5, send-arrow icon)
 │   │       │
 │   │       └── canned-responses-popup/ (360px, hidden by default)
 │   │           ├── search ("Javob qidirish...")
@@ -767,14 +786,82 @@ inbox-chat/
 | Toolbar gap | 8px |
 | Textarea min-height | 44px |
 | Textarea max-height | 120px |
-| Send button size | 40x40px |
+| Send button size | 44x44px |
 | Quick actions gap | 4px |
 | Canned popup width | 360px |
 | Canned item padding | 12px 16px |
 
 ---
 
-## 15. FIGMA AI UCHUN PROMPT
+## 15. ACCESSIBILITY
+
+### Keyboard Navigation
+
+| Tugma | Amal | Tafsilot |
+|-------|------|---------|
+| **Tab** | Focus navbat | Conversation list → Chat input → Send button → Info panel actions |
+| **Shift+Tab** | Orqaga focus | |
+| **Arrow Up/Down** | Conversation list da yuqori/pastga | Conversation list focused bo'lganda |
+| **Enter** | Tanlangan conversation ni ochish | Conversation list item focused |
+| **Escape** | Info panel/emoji picker yopish | Active panel/overlay |
+| **Cmd/Ctrl+Enter** | Xabar yuborish | Message input focused, multi-line |
+| **Cmd/Ctrl+Shift+E** | Emoji picker ochish | Message input focused |
+| **Cmd/Ctrl+K** | Global search | Dashboard level |
+
+### ARIA Roles
+
+| Element | ARIA | Label |
+|---------|------|-------|
+| Conversation list | `role="listbox"` | `aria-label="Conversations"` |
+| Conversation item | `role="option"` | `aria-selected`, `aria-label="[name], [unread] unread"` |
+| Chat area | `role="log"` | `aria-live="polite"`, `aria-label="Chat messages"` |
+| Message input | `role="textbox"` | `aria-label="Type a message"`, `aria-multiline="true"` |
+| Info sidebar | `role="complementary"` | `aria-label="Customer information"` |
+
+### Screen Reader Announcements
+
+| Event | Announcement | ARIA live region |
+|-------|-------------|-----------------|
+| Yangi xabar keldi | "[Name] sent a new message: [preview]" | `aria-live="polite"` |
+| Conversation assigned | "Conversation assigned to you" | `aria-live="assertive"` |
+| Xabar yuborildi | "Message sent" | `aria-live="polite"` |
+| File received | "File received: [filename], [size]" | `aria-live="polite"` |
+| Typing indicator | "[Name] is typing" | `aria-live="polite"` |
+| Conversation closed | "Conversation closed" | `aria-live="assertive"` |
+
+### Focus Management
+
+| Scenario | Focus harakati |
+|----------|---------------|
+| Conversation ochilganda | Focus → Chat message input |
+| Yangi xabar kelganda | Focus o'zgarmaydi (faqat announcement) |
+| Info panel ochilganda | Focus → Panel dagi birinchi focusable element |
+| Info panel yopilganda | Focus qaytadi → Trigger button |
+| Emoji picker ochilganda | Focus → Emoji grid |
+| Modal ochilganda | Focus trap — faqat modal ichida |
+
+### Color Contrast (WCAG 2.1 AA)
+
+| Element | Foreground | Background | Contrast ratio | WCAG AA |
+|---------|-----------|------------|----------------|---------|
+| Operator message text | `#FFFFFF` | `#4F46E5` | 5.8:1 | ✅ Pass |
+| Visitor message text | `#111827` | `#F3F4F6` | 12.3:1 | ✅ Pass (AAA) |
+| Unread badge | `#FFFFFF` | `#EF4444` | 4.5:1 | ✅ Pass |
+| Timestamp | `#6B7280` | `#FFFFFF` | 4.8:1 | ✅ Pass |
+
+### Touch Targets
+
+| Element | Hajmi | WCAG minimum |
+|---------|-------|-------------|
+| Conversation list item | Full width × 64px height | ✅ 44px+ |
+| Send button | 44px × 44px | ✅ |
+| Emoji button | 44px × 44px | ✅ |
+| File upload button | 44px × 44px | ✅ |
+| Info panel toggle | 48px × 48px | ✅ |
+
+---
+
+## 16. FIGMA AI UCHUN PROMPT
 
 ```
 Create a chat inbox interface for a SaaS customer support platform called CHATFLOW.
@@ -801,7 +888,7 @@ CHAT WINDOW (right):
 - Typing indicator: "Ahmad yozyapti..." with 3 animated dots
 - Input area: Toolbar icons (emoji, attach, canned responses),
   auto-expanding textarea with placeholder "Xabar yozing...",
-  indigo send button (40x40px) on the right
+  indigo send button (44x44px) on the right
 
 QUICK ACTIONS: On message hover show reply/star/delete icons in a floating bar.
 

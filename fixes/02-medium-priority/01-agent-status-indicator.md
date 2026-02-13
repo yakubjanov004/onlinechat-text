@@ -1,6 +1,6 @@
 # 🟡 Agent Status Indicator Desktop-da yo'q
 
-**Status:** 🟠 TODO  
+**Status:** ✅ DONE  
 **Prioritet:** 🟡 MEDIUM  
 **Taxminiy vaqt:** 1 soat  
 **Mas'ul:** UX Designer

@@ -498,10 +498,11 @@ Inbox'ning o'ng tomoni (Info Sidebar) va tezkor amallar chat agent'ga mijoz kont
 
 **Step 1: Select Agent**
 - **Agent dropdown (searchable):**
-  - Shows online agents first (green dot)
-  - Avatar 32px + Name + Role badge
-  - Online status indicator
+  - Shows online agents first (green dot), then away (yellow), then offline (red)
+  - Avatar 32px + Name + Role badge + Status dot + Active chat count
+  - Online status indicator: 🟢 Online (`#10B981`), 🟡 Away (`#F59E0B`), 🔴 Offline (`#EF4444`)
   - Search to filter
+  - Sort: Online (load az→ko'p) → Away → Offline
   - "Hamma agentlar ko'ring" link (shows offline agents too)
 
 **Agent availability indicator:**

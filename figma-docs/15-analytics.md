@@ -43,6 +43,7 @@ Tab specs:
    - Dropdown: 200px kenglik, 44px balandlik
    - Icon: Icon/Calendar 20px chap tomonda
    - Placeholder: "Oxirgi 30 kun" (default)
+   - **Date format standard:** "MMM D, YYYY" (masalan: "Jan 15, 2024", range: "Jan 1 - Jan 31, 2024")
    - Presets: "Bugun", "Kecha", "Oxirgi 7 kun", "Oxirgi 30 kun", "Oxirgi 90 kun", "Bu oy", "O'tgan oy", "Custom range"
    - Custom range modal: 2 date inputs (From, To) with calendar picker, "Qo'llash" button
 
