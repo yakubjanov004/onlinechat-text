@@ -24,18 +24,16 @@ const BORDER = '#E5E7EB';
 
 console.log(`Creating ${PAGES.length} pages...`);
 
-// Create pages
 let count = 0;
+
+// Main plugin function
 for (const pageName of PAGES) {
   try {
     console.log(`[${count + 1}/${PAGES.length}] ${pageName}`);
     
-    // Create page
-    const page = penpot.file.createPage(pageName);
-    
-    // Create board (frame alternative in Penpot)
+    // Create board (frame) directly on current page
     const board = penpot.createBoard();
-    board.name = 'Artboard';
+    board.name = pageName;
     board.x = 0;
     board.y = 0;
     board.width = 1440;
@@ -69,13 +67,10 @@ for (const pageName of PAGES) {
     box.strokes = [{ strokeColor: BORDER, strokeWidth: 2 }];
     box.borderRadius = 8;
     
-    // Append to board (appendChild instead of append)
+    // Append to board
     board.appendChild(title);
     board.appendChild(subtitle);
     board.appendChild(box);
-    
-    // Append board to page
-    page.appendChild(board);
     
     count++;
     
