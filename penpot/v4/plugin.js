@@ -50,6 +50,8 @@ function makeText(content, x, y, size, weight, color) {
   var t = penpot.createText(content);
   if (!t) return null;
   t.growType = 'auto-width';
+  t.fontId = 'gfont-inter';
+  t.fontFamily = 'Inter';
   t.x = x;
   t.y = y;
   t.fontSize = String(size || 14);
@@ -856,14 +858,17 @@ function drawDashboard(board, bx, by) {
 // ═══════════════════════════════════════
 
 // These pages get detailed drawings (mapped to existing board positions)
+// Place detailed boards BELOW all 26 original boards (originals end ~y:6400)
+var DETAIL_START_Y = 7200;
+
 var DETAILED_PAGES = [
-  { name: '02-Login',            col: 1, row: 0, draw: drawLogin },
-  { name: '03-Register',         col: 2, row: 0, draw: drawRegister },
-  { name: '04-Email-Verify',     col: 3, row: 0, draw: drawEmailVerify },
-  { name: '05-Forgot-Password',  col: 4, row: 0, draw: drawForgotPassword },
-  { name: '06-Welcome',          col: 0, row: 1, draw: drawWelcome },
-  { name: '07-Onboarding-1',     col: 1, row: 1, draw: drawOnboarding1 },
-  { name: '11-Dashboard',        col: 0, row: 2, draw: drawDashboard }
+  { name: '02-Login',            col: 0, row: 0, draw: drawLogin },
+  { name: '03-Register',         col: 1, row: 0, draw: drawRegister },
+  { name: '04-Email-Verify',     col: 2, row: 0, draw: drawEmailVerify },
+  { name: '05-Forgot-Password',  col: 3, row: 0, draw: drawForgotPassword },
+  { name: '06-Welcome',          col: 4, row: 0, draw: drawWelcome },
+  { name: '07-Onboarding-1',     col: 0, row: 1, draw: drawOnboarding1 },
+  { name: '11-Dashboard',        col: 1, row: 1, draw: drawDashboard }
 ];
 
 var created = 0;
@@ -876,16 +881,18 @@ for (var i = 0; i < DETAILED_PAGES.length; i++) {
   try {
     console.log('[' + (i + 1) + '/' + DETAILED_PAGES.length + '] Drawing: ' + pg.name);
 
-    // Create board
+    // Create board — placed in separate area below originals
     var board = penpot.createBoard();
     board.name = pg.name + ' [DETAILED]';
-    board.x = bx;
-    board.y = by + BOARD_H + 100; // Place below existing boards
+    var boardX = bx;
+    var boardY = DETAIL_START_Y + pg.row * (BOARD_H + GAP);
+    board.x = boardX;
+    board.y = boardY;
     board.resize(BOARD_W, BOARD_H);
     board.fills = [{ fillColor: C.bg, fillOpacity: 1 }];
 
     // Draw page content
-    pg.draw(board, bx, by + BOARD_H + 100);
+    pg.draw(board, boardX, boardY);
 
     created++;
     console.log('  OK: ' + pg.name);
