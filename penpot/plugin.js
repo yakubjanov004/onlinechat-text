@@ -31,28 +31,29 @@ for (const pageName of PAGES) {
     console.log(`[${count + 1}/${PAGES.length}] ${pageName}`);
     
     // Create page
-    const page = penpot.createPage();
-    page.name = pageName;
+    const page = penpot.file.createPage(pageName);
     
-    // Create frame
-    const frame = penpot.createFrame();
-    frame.name = 'Artboard';
-    frame.x = 0;
-    frame.y = 0;
-    frame.width = 1440;
-    frame.height = 900;
-    frame.fills = [{ fillColor: WHITE, fillOpacity: 1 }];
+    // Create board (frame alternative in Penpot)
+    const board = penpot.createBoard();
+    board.name = 'Artboard';
+    board.x = 0;
+    board.y = 0;
+    board.width = 1440;
+    board.height = 900;
+    board.fills = [{ fillColor: WHITE, fillOpacity: 1 }];
     
     // Add title
-    const title = penpot.createText(pageName);
+    const title = penpot.createText();
+    title.content = pageName;
     title.x = 48;
     title.y = 48;
     title.fontSize = 32;
-    title.fontWeight = '600';
+    title.fontWeight = 600;
     title.fills = [{ fillColor: DARK, fillOpacity: 1 }];
     
     // Add subtitle
-    const subtitle = penpot.createText('Design wireframes and components here');
+    const subtitle = penpot.createText();
+    subtitle.content = 'Design wireframes and components here';
     subtitle.x = 48;
     subtitle.y = 88;
     subtitle.fontSize = 14;
@@ -68,13 +69,13 @@ for (const pageName of PAGES) {
     box.strokes = [{ strokeColor: BORDER, strokeWidth: 2 }];
     box.borderRadius = 8;
     
-    // Append to frame
-    frame.append(title);
-    frame.append(subtitle);
-    frame.append(box);
+    // Append to board (appendChild instead of append)
+    board.appendChild(title);
+    board.appendChild(subtitle);
+    board.appendChild(box);
     
-    // Append frame to page
-    page.append(frame);
+    // Append board to page
+    page.appendChild(board);
     
     count++;
     
