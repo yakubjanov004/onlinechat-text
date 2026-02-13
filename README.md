@@ -8,52 +8,44 @@
 
 ```
 onlinechat/
+├─ README.md                         ← Shu fayl
 ├─ TODO.md                           ← 🎯 START HERE: Master task list
-├─ 📁 docs/                          ← 📚 Project Documentation
-│  ├─ CHATFLOW_FULL_ANALYSIS.md      (1618 lines - comprehensive analysis)
-│  ├─ CHATFLOW_FIGMA_ARCHITECTURE.md (system architecture)
-│  ├─ ANALYSIS_PROMPT.md             (analysis methodology)
-│  ├─ PERMISSION_MATRIX.md           (role-based permissions)
-│  ├─ STATE_MANAGEMENT.md            (state, WebSocket events)
-│  ├─ TESTING_STRATEGY.md            (testing plan)
-│  └─ API_ENDPOINTS_EXTENDED.md      (API documentation)
-├─ 📁 resources/                     ← 🎨 Project Assets
-│  ├─ PNG files (UI mockups)
-│  ├─ chat.txt, chat-clean.txt       (chat flow reference)
-│  └─ chat.docx
-├─ 📁 archive/                       ← 📦 Archived Files
-│  └─ TODO-old.md                    (previous task list)
-├─ 📁 fixes/                         ← ✅ ORGANIZED FIX TASKS
-│  ├─ 01-high-priority/              (7 critical fixes 🔴)
-│  │  ├─ README.md
-│  │  ├─ 01-info-sidebar-width.md
-│  │  ├─ 02-widget-position-conflict.md
-│  │  ├─ 03-welcome-message-limit.md
-│  │  ├─ 04-file-upload-types.md
-│  │  ├─ 05-websocket-event-naming.md
-│  │  ├─ 06-guest-role-permissions.md
-│  │  └─ 07-inbox-accessibility.md
-│  ├─ 02-medium-priority/            (6 UX improvements 🟡)
-│  │  ├─ README.md
-│  │  ├─ 01-agent-status-indicator.md
-│  │  ├─ 02-date-format-inconsistency.md
-│  │  ├─ 03-dropdown-tabs-missing.md
-│  │  ├─ 04-responsive-desktop-only.md
-│  │  ├─ 05-search-functionality-unclear.md
-│  │  └─ 06-dark-mode-incomplete.md
-│  └─ 03-components-needed/          (4 critical components 📦)
-│     ├─ README.md
-│     ├─ 01-dropdown-component.md
-│     ├─ 02-table-component.md
-│     ├─ 03-date-picker-component.md
-│     └─ 04-tabs-component.md
+├─ package.json                      ← npm setup & scripts
+├─ .gitignore                        ← Security (.env ignored)
+│
 ├─ 📁 figma-docs/                    ← 🎨 Figma Specifications (34 files)
+│  ├─ README.md
 │  ├─ 00-loyiha-umumiy.md
 │  ├─ 01-design-system.md
 │  ├─ 02-06: Landing pages
-│  ├─ 07-34: App features
-│  └─ README.md
-├─ 📁 .claude/                       ← Visual context (internal)
+│  └─ 07-34: App features
+│
+├─ 📁 fixes/                         ← ✅ ORGANIZED FIX TASKS
+│  ├─ 01-high-priority/              (7 critical fixes 🔴)
+│  ├─ 02-medium-priority/            (6 UX improvements 🟡)
+│  └─ 03-components-needed/          (4 critical components 📦)
+│
+├─ 📁 penpot/                        ← 🎨 Penpot Automation
+│  ├─ penpot-automation.js           (26 page yaratadi)
+│  ├─ penpot-advanced.js             (design system content)
+│  ├─ .env / .env.example            (token config)
+│  ├─ README.md, WALKTHROUGH.md, ... (guides)
+│  └─ docs/                          (API research + analysis)
+│     ├─ CHATFLOW_FULL_ANALYSIS.md   (1618 lines analysis)
+│     ├─ CHATFLOW_FIGMA_ARCHITECTURE.md
+│     ├─ PERMISSION_MATRIX.md
+│     ├─ STATE_MANAGEMENT.md
+│     ├─ TESTING_STRATEGY.md
+│     ├─ API_ENDPOINTS_EXTENDED.md
+│     └─ PENPOT_API_*.md             (3 API docs)
+│
+├─ 📁 resources/                     ← 🖼️ Project Assets
+│  ├─ PNG files (UI mockups)
+│  ├─ chat.txt, chat-clean.txt
+│  └─ chat.docx
+│
+└─ 📁 archive/                       ← 📦 Archived Files
+   └─ TODO-old.md
 ```
 
 ---
@@ -82,7 +74,7 @@ onlinechat/
 - ~13.5-17 hours
 
 ### 📚 I Want Full Project Analysis
-→ Read: **[docs/CHATFLOW_FULL_ANALYSIS.md](docs/CHATFLOW_FULL_ANALYSIS.md)** (1618 lines)
+→ Read: **[penpot/docs/CHATFLOW_FULL_ANALYSIS.md](penpot/docs/CHATFLOW_FULL_ANALYSIS.md)** (1618 lines)
 - 13 comprehensive sections
 - 17 inconsistencies identified
 - 41 missing elements catalogued
@@ -97,7 +89,13 @@ onlinechat/
 - Landing → Auth → Dashboard → Features
 
 ### 📋 I Want to Understand the System
-→ Read: **[docs/CHATFLOW_FIGMA_ARCHITECTURE.md](docs/CHATFLOW_FIGMA_ARCHITECTURE.md)**
+→ Read: **[penpot/docs/CHATFLOW_FIGMA_ARCHITECTURE.md](penpot/docs/CHATFLOW_FIGMA_ARCHITECTURE.md)**
+
+### 🎨 I Want Penpot Automation
+→ Navigate: **[penpot/](penpot/)**
+- 26 page auto-create
+- Design system automation
+- `npm run penpot:full` to run
 - System architecture
 - Pages overview
 - Design tokens
@@ -162,14 +160,14 @@ Week 3+:
 | **UX Designer** | HIGH #2,7; MEDIUM refactoring; Responsive | [fixes/ overview](fixes/) |
 | **UI Designer** | Components (Dropdown, Table, etc.); Dark mode | [fixes/03-components-needed/](fixes/03-components-needed/) |
 | **Hujjat Muallifi** | Spec updates; Documentation | [docs/](docs/) |
-| **Backend Lead** | HIGH #5,6; WebSocket events; Permissions | [docs/STATE_MANAGEMENT.md](docs/STATE_MANAGEMENT.md) |
+| Backend Lead | HIGH #5,6; WebSocket events; Permissions | [penpot/docs/STATE_MANAGEMENT.md](penpot/docs/STATE_MANAGEMENT.md) |
 | **Frontend Lead** | Component implementation; Accessibility | [fixes/03-components-needed/](fixes/03-components-needed/) |
 
 ---
 
 ## 📖 Documentation Map
 
-### Analysis & Planning
+### Analysis & Planning (penpot/docs/)
 - **CHATFLOW_FULL_ANALYSIS.md** — 1618-line comprehensive analysis (13 sections)
 - **CHATFLOW_FIGMA_ARCHITECTURE.md** — System design & architecture
 - **ANALYSIS_PROMPT.md** — Analysis methodology & prompts
@@ -177,12 +175,18 @@ Week 3+:
 ### Specifications
 - **figma-docs/01-design-system.md** — Design tokens, components, patterns
 - **figma-docs/02-34*** — 32 feature specifications (landing, inbox, analytics, etc.)
-- **docs/API_ENDPOINTS_EXTENDED.md** — API documentation
+- **penpot/docs/API_ENDPOINTS_EXTENDED.md** — API documentation
 
-### Management
+### Management (penpot/docs/)
 - **PERMISSION_MATRIX.md** — Role-based access control
 - **STATE_MANAGEMENT.md** — State machine, WebSocket events
 - **TESTING_STRATEGY.md** — Testing approach (unit, e2e, accessibility)
+
+### Penpot Automation (penpot/)
+- **penpot-automation.js** — 26 page creator script
+- **penpot-advanced.js** — Design system content
+- **WALKTHROUGH.md** — Step-by-step guide
+- **docs/PENPOT_API_RESEARCH.md** — Full API research
 
 ### Task Organization
 - **TODO.md** — Master task list (current status, timelines)
@@ -209,13 +213,13 @@ Week 3+:
 
 **New to project?**
 1. Read [TODO.md](TODO.md) — 10 min
-2. Skim [CHARTFLOW_FULL_ANALYSIS.md](docs/CHATFLOW_FULL_ANALYSIS.md) intro — 15 min
+2. Skim [CHATFLOW_FULL_ANALYSIS.md](penpot/docs/CHATFLOW_FULL_ANALYSIS.md) intro — 15 min
 3. Check your role section in TODO.md — 5 min
 4. Navigate to your task folder → start
 
 **Deep dive?**
-1. Read [CHATFLOW_FULL_ANALYSIS.md](docs/CHATFLOW_FULL_ANALYSIS.md) fully — 2 hours
-2. Review [CHATFLOW_FIGMA_ARCHITECTURE.md](docs/CHATFLOW_FIGMA_ARCHITECTURE.md) — 1 hour
+1. Read [CHATFLOW_FULL_ANALYSIS.md](penpot/docs/CHATFLOW_FULL_ANALYSIS.md) fully — 2 hours
+2. Review [CHATFLOW_FIGMA_ARCHITECTURE.md](penpot/docs/CHATFLOW_FIGMA_ARCHITECTURE.md) — 1 hour
 3. Explore [figma-docs/](figma-docs/) — 3-4 hours
 
 ---
@@ -238,8 +242,9 @@ Week 3+:
 - **Project questions?** → Check [TODO.md](TODO.md) Contacts section
 - **Task details?** → Navigate to specific folder (fixes/01-high-priority/, etc.)
 - **Component specs?** → See [fixes/03-components-needed/](fixes/03-components-needed/)
-- **Full analysis?** → Read [docs/CHATFLOW_FULL_ANALYSIS.md](docs/CHATFLOW_FULL_ANALYSIS.md)
+- **Full analysis?** → Read [penpot/docs/CHATFLOW_FULL_ANALYSIS.md](penpot/docs/CHATFLOW_FULL_ANALYSIS.md)
 - **Figma specs?** → Browse [figma-docs/](figma-docs/)
+- **Penpot automation?** → See [penpot/README.md](penpot/README.md)
 
 ---
 
@@ -259,6 +264,6 @@ Week 3+:
 
 ---
 
-**Last Updated:** February 12, 2026  
+**Last Updated:** February 13, 2026  
 **Status:** Project organized and ready for execution  
 **Estimated Timeline:** 7-10 business days to completion

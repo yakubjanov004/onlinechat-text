@@ -140,35 +140,66 @@ Batafsil ro'yxat: `CHATFLOW_FULL_ANALYSIS.md` (Section 11: Yetishmayotgan Elemen
 
 ```
 onlinechat/
-├─ CHATFLOW_FULL_ANALYSIS.md      ← Comprehensive analysis
+├─ README.md                       ← Loyiha haqida umumiy
 ├─ TODO.md                         ← Ushbu fayl (master task list)
+├─ package.json                    ← npm setup
+├─ .gitignore                      ← Security
+│
 ├─ archive/
 │  └─ TODO-old.md                  ← Eski TODO
+│
+├─ figma-docs/                     ← 34 ta Figma spec fayl
+│  ├─ README.md
+│  ├─ 00-loyiha-umumiy.md
+│  ├─ 01-design-system.md
+│  └─ ... (34 ta spec fayl)
+│
 ├─ fixes/
 │  ├─ 01-high-priority/            ← 7 ta kritik fix
 │  │  ├─ README.md
 │  │  ├─ 01-info-sidebar-width.md
-│  │  ├─ 02-widget-position-conflict.md
-│  │  ├─ 03-welcome-message-limit.md
-│  │  ├─ 04-file-upload-types.md
-│  │  ├─ 05-websocket-event-naming.md
-│  │  ├─ 06-guest-role-permissions.md
-│  │  └─ 07-inbox-accessibility.md
+│  │  └─ ... (7 ta fix fayl)
 │  ├─ 02-medium-priority/          ← 6 ta UX improvement
 │  │  ├─ README.md
-│  │  ├─ 01-agent-status-indicator.md
-│  │  ├─ 02-date-format-inconsistency.md
-│  │  ├─ 03-dropdown-tabs-missing.md
-│  │  ├─ 04-responsive-desktop-only.md
-│  │  ├─ 05-search-functionality-unclear.md
-│  │  └─ 06-dark-mode-incomplete.md
+│  │  └─ ... (6 ta fix fayl)
 │  └─ 03-components-needed/        ← 4 ta critical component
 │     ├─ README.md
-│     ├─ 01-dropdown-component.md
-│     ├─ 02-table-component.md
-│     ├─ 03-date-picker-component.md
-│     └─ 04-tabs-component.md
-└─ figma-docs/                     ← 34 ta Figma spec fayl
+│     └─ ... (4 ta component fayl)
+│
+├─ penpot/                         ← Penpot automation
+│  ├─ penpot-automation.js         ← 26 page yaratadi
+│  ├─ penpot-advanced.js           ← Design system content
+│  ├─ .env                         ← Token (git-ignored)
+│  ├─ .env.example                 ← Template
+│  ├─ .gitignore
+│  ├─ README.md
+│  ├─ WALKTHROUGH.md
+│  ├─ QUICK_START.md
+│  ├─ PENPOT_SETUP.md
+│  ├─ ARCHITECTURE.md
+│  ├─ TROUBLESHOOTING.md
+│  ├─ PENPOT_AUTOMATION_README.md
+│  ├─ GETTING_STARTED.md
+│  ├─ INDEX.md
+│  ├─ COMPLETION_SUMMARY.md
+│  └─ docs/                        ← API documentation
+│     ├─ PENPOT_API_RESEARCH.md
+│     ├─ PENPOT_API_QUICK_REFERENCE.md
+│     ├─ PENPOT_API_CODE_EXAMPLES.md
+│     ├─ CHATFLOW_FULL_ANALYSIS.md
+│     ├─ CHATFLOW_FIGMA_ARCHITECTURE.md
+│     ├─ API_ENDPOINTS_EXTENDED.md
+│     ├─ PERMISSION_MATRIX.md
+│     ├─ STATE_MANAGEMENT.md
+│     ├─ TESTING_STRATEGY.md
+│     └─ ANALYSIS_PROMPT.md
+│
+└─ resources/                      ← Rasm va chat fayllar
+   ├─ admin.png, agent.png, visitor.png
+   ├─ admin-bttns.png, agent-bttns.png
+   ├─ visitor-logic.png
+   ├─ chat.txt, chat-clean.txt
+   └─ chat.docx
 ```
 
 ---
@@ -269,12 +300,13 @@ onlinechat/
 
 ## 🔗 Related Files
 
-- `CHATFLOW_FULL_ANALYSIS.md` — Batafsil tahlil (1618 lines)
+- `penpot/docs/CHATFLOW_FULL_ANALYSIS.md` — Batafsil tahlil (1618 lines)
 - `archive/TODO-old.md` — Eski TODO list
 - `figma-docs/01-design-system.md` — Design System spec
-- `PERMISSION_MATRIX.md` — Role permissions
-- `STATE_MANAGEMENT.md` — WebSocket events
-- `CHATFLOW_FIGMA_ARCHITECTURE.md` — System architecture
+- `penpot/docs/PERMISSION_MATRIX.md` — Role permissions
+- `penpot/docs/STATE_MANAGEMENT.md` — WebSocket events
+- `penpot/docs/CHATFLOW_FIGMA_ARCHITECTURE.md` — System architecture
+- `penpot/docs/API_ENDPOINTS_EXTENDED.md` — API endpoints
 
 ---
 
