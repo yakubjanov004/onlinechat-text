@@ -1,8 +1,8 @@
 {
-  "name": "CHATFLOW Detailed Pages v4",
+  "name": "CHATFLOW Detailed Pages v4.2",
   "description": "Draws detailed UI for Login, Register, Email Verify, Forgot Password, Welcome, Onboarding, Dashboard",
   "host": "https://design.penpot.app",
-  "code": "https://raw.githubusercontent.com/yakubjanov004/onlinechat-text/main/penpot/v4/plugin.js?v=20260214-1716",
+  "code": "https://raw.githubusercontent.com/yakubjanov004/onlinechat-text/main/penpot/v4/plugin-v42.js",
   "icon": "",
   "permissions": [
     "content:read",
