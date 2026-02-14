@@ -1,0 +1,12 @@
+{
+  "name": "CHATFLOW Page Builder",
+  "description": "Draws one page at a time with full colors and details",
+  "host": "https://design.penpot.app",
+  "code": "plugin.js",
+  "icon": "",
+  "permissions": [
+    "content:read",
+    "content:write",
+    "allow:downloads"
+  ]
+}
