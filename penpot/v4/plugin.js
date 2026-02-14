@@ -24,12 +24,12 @@ var C = {
   gray700: '#374151',
   gray900: '#111827',
   green: '#10B981',
-  greenBg: '#D1FAE5',
+  greenBg: '#ECFDF5',
   red: '#EF4444',
   yellow: '#F59E0B',
-  yellowBg: '#FEF3C7',
-  pink: '#EC4899',
-  pinkBg: '#FCE7F3',
+  yellowBg: '#FFFBEB',
+  info: '#3B82F6',
+  infoBg: '#EFF6FF',
   indigoBg: '#EEF2FF'
 };
 
@@ -414,7 +414,7 @@ function drawWelcome(board, bx, by) {
     { icon: C.indigoBg, color: C.primary, title: 'Workspace yaratish', desc: 'Kompaniya ma\'lumotlari', time: '~1 min' },
     { icon: C.yellowBg, color: C.yellow, title: 'Widget o\'rnatish', desc: 'Saytga chat qo\'shish', time: '~2 min' },
     { icon: C.greenBg, color: C.green, title: 'Jamoani taklif qilish', desc: 'Agentlarni qo\'shish', time: '~1 min' },
-    { icon: C.pinkBg, color: C.pink, title: 'Avtomatlashtirishni sozlash', desc: 'Auto-javoblar', time: '~2 min' }
+    { icon: C.infoBg, color: C.info, title: 'Avtomatlashtirishni sozlash', desc: 'Auto-javoblar', time: '~2 min' }
   ];
 
   for (var i = 0; i < steps.length; i++) {
@@ -710,7 +710,7 @@ function drawDashboard(board, bx, by) {
     { icon: C.indigoBg, iconC: C.primary, label: 'Jami chatlar', value: '1,247', trend: '\u2191 12%', trendC: C.green },
     { icon: C.greenBg, iconC: C.green, label: 'Faol chatlar', value: '23', trend: '\u2191 8%', trendC: C.green },
     { icon: C.yellowBg, iconC: C.yellow, label: 'O\'rtacha javob', value: '2m 34s', trend: '\u2193 15%', trendC: C.green },
-    { icon: C.pinkBg, iconC: C.pink, label: 'Mijoz qoniqishi', value: '4.8/5', trend: '\u2191 3%', trendC: C.green }
+    { icon: C.infoBg, iconC: C.info, label: 'Mijoz qoniqishi', value: '4.8/5', trend: '\u2191 3%', trendC: C.green }
   ];
 
   var metricW = 267;
@@ -780,8 +780,8 @@ function drawDashboard(board, bx, by) {
   // Legend
   var channels = [
     { color: C.primary, name: 'Web chat', pct: '55%' },
-    { color: '#3B82F6', name: 'Telegram', pct: '25%' },
-    { color: C.pink, name: 'Instagram', pct: '12%' },
+    { color: C.info, name: 'Telegram', pct: '25%' },
+    { color: C.red, name: 'Instagram', pct: '12%' },
     { color: C.yellow, name: 'Email', pct: '8%' }
   ];
   for (var ci = 0; ci < channels.length; ci++) {
