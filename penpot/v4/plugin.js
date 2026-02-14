@@ -1,18 +1,8 @@
 // CHATFLOW Penpot Plugin v4.1 - DETAILED PAGE DRAWING
 // Draws actual UI elements for Login → Dashboard flow
 // Uses verified Penpot Plugin API: board.resize(), createText(str), fontSize as string
-// FIXED: text property order, shadow format, double-run guard
+// FIXED: text property order, shadow format
 
-// Prevent double execution (Penpot sandbox-safe: no direct window usage)
-var __chatflow_root =
-  (typeof globalThis !== 'undefined' && globalThis) ||
-  (typeof self !== 'undefined' && self) ||
-  {};
-
-if (__chatflow_root.__chatflow_v4_running) {
-  console.log('=== CHATFLOW v4 already running, skipping ===');
-} else {
-__chatflow_root.__chatflow_v4_running = true;
 console.log('=== CHATFLOW Plugin v4.1 START ===');
 
 // ─── DESIGN TOKENS ───
@@ -927,5 +917,3 @@ for (var i = 0; i < DETAILED_PAGES.length; i++) {
 }
 
 console.log('=== DONE: ' + created + '/' + DETAILED_PAGES.length + ' detailed pages drawn ===');
-__chatflow_root.__chatflow_v4_running = false;
-} // end of double-run guard
