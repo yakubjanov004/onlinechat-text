@@ -1,484 +1,565 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="uz">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHATFLOW - Widget Customization</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: #F9FAFB;
-            min-height: 100vh;
-        }
-        /* Progress Bar */
-        .progress-bar {
-            background: white;
-            padding: 24px 40px;
-            border-bottom: 1px solid #E5E7EB;
-            display: flex;
-            justify-content: center;
-        }
-        .progress-indicator {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-        .progress-steps {
-            display: flex;
-            align-items: center;
-        }
-        .step-wrapper {
-            display: flex;
-            align-items: center;
-        }
-        .step-dot {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            font-weight: 600;
-            color: white;
-        }
-        .step-dot.done {
-            background: #4F46E5;
-        }
-        .step-dot.active {
-            background: #4F46E5;
-        }
-        .step-dot.upcoming {
-            background: #D1D5DB;
-        }
-        .step-connector {
-            width: 48px;
-            height: 2px;
-            background: #D1D5DB;
-        }
-        .step-connector.done {
-            background: #4F46E5;
-        }
-        .step-label {
-            font-size: 14px;
-            font-weight: 500;
-            color: #6B7280;
-        }
-        /* Split Layout */
-        .split-container {
-            display: flex;
-            height: calc(100vh - 96px);
-        }
-        /* Left Panel - Settings */
-        .settings-panel {
-            width: 480px;
-            background: white;
-            padding: 32px;
-            overflow-y: auto;
-        }
-        .panel-header {
-            margin-bottom: 32px;
-        }
-        .panel-title {
-            font-size: 24px;
-            font-weight: 600;
-            color: #111827;
-            margin-bottom: 8px;
-        }
-        .panel-subtitle {
-            font-size: 14px;
-            color: #6B7280;
-        }
-        .form-section {
-            margin-bottom: 32px;
-        }
-        .form-label {
-            font-size: 14px;
-            font-weight: 500;
-            color: #374151;
-            margin-bottom: 6px;
-            display: block;
-        }
-        .form-description {
-            font-size: 13px;
-            color: #6B7280;
-            margin-bottom: 12px;
-        }
-        /* Color Picker */
-        .color-swatches {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 8px;
-            margin-bottom: 12px;
-        }
-        .color-swatch {
-            width: 100%;
-            aspect-ratio: 1;
-            border-radius: 8px;
-            border: 2px solid #E5E7EB;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .color-swatch.selected {
-            border: 3px solid #111827;
-        }
-        .color-input {
-            width: 100%;
-            padding: 12px 12px 12px 40px;
-            border: 1px solid #E5E7EB;
-            border-radius: 8px;
-            font-size: 14px;
-        }
-        /* Shape Selector */
-        .shape-options {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 16px;
-        }
-        .shape-option {
-            padding: 16px;
-            border: 1px solid #E5E7EB;
-            border-radius: 8px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .shape-option.selected {
-            border: 2px solid #4F46E5;
-            background: #EEF2FF;
-        }
-        .shape-icon {
-            width: 56px;
-            height: 56px;
-            margin: 0 auto 8px;
-            background: #F3F4F6;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-        }
-        .shape-icon.square {
-            border-radius: 12px;
-        }
-        .shape-icon.round {
-            border-radius: 50%;
-        }
-        .shape-label {
-            font-size: 14px;
-            font-weight: 500;
-            color: #374151;
-        }
-        /* Position Selector */
-        .position-options {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-        }
-        .position-option {
-            padding: 12px;
-            border: 1px solid #E5E7EB;
-            border-radius: 8px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .position-option.selected {
-            border: 2px solid #4F46E5;
-            background: #EEF2FF;
-        }
-        .position-icon {
-            width: 48px;
-            height: 48px;
-            margin: 0 auto 8px;
-            background: #F9FAFB;
-            border: 1px solid #E5E7EB;
-            border-radius: 6px;
-            position: relative;
-        }
-        .position-dot {
-            width: 8px;
-            height: 8px;
-            background: #4F46E5;
-            border-radius: 50%;
-            position: absolute;
-        }
-        .position-dot.bottom-right {
-            bottom: 4px;
-            right: 4px;
-        }
-        .position-dot.bottom-left {
-            bottom: 4px;
-            left: 4px;
-        }
-        .position-dot.right-center {
-            top: 50%;
-            right: 4px;
-            transform: translateY(-50%);
-        }
-        .position-label {
-            font-size: 12px;
-            color: #374151;
-        }
-        /* Text Input */
-        .text-input {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #E5E7EB;
-            border-radius: 8px;
-            font-size: 14px;
-        }
-        .textarea-input {
-            width: 100%;
-            height: 100px;
-            padding: 12px;
-            border: 1px solid #E5E7EB;
-            border-radius: 8px;
-            font-size: 14px;
-            resize: vertical;
-        }
-        .char-counter {
-            font-size: 12px;
-            color: #9CA3AF;
-            text-align: right;
-            margin-top: 4px;
-        }
-        /* Action Buttons */
-        .action-buttons {
-            display: flex;
-            gap: 12px;
-            margin-top: 32px;
-            padding-top: 32px;
-            border-top: 1px solid #E5E7EB;
-        }
-        .btn {
-            flex: 1;
-            padding: 12px 24px;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .btn-secondary {
-            background: white;
-            border: 1px solid #E5E7EB;
-            color: #374151;
-        }
-        .btn-secondary:hover {
-            background: #F9FAFB;
-        }
-        .btn-primary {
-            background: #4F46E5;
-            border: none;
-            color: white;
-        }
-        .btn-primary:hover {
-            background: #4338CA;
-        }
-        /* Right Panel - Preview */
-        .preview-panel {
-            flex: 1;
-            background: #F9FAFB;
-            padding: 32px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        .preview-header {
-            text-align: center;
-            margin-bottom: 32px;
-        }
-        .preview-title {
-            font-size: 20px;
-            font-weight: 600;
-            color: #111827;
-            margin-bottom: 8px;
-        }
-        .preview-subtitle {
-            font-size: 14px;
-            color: #6B7280;
-        }
-        .preview-window {
-            width: 100%;
-            max-width: 480px;
-            height: 600px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
-            position: relative;
-            overflow: hidden;
-        }
-        /* Mock Website */
-        .mock-header {
-            background: #1F2937;
-            color: white;
-            padding: 16px 24px;
-            font-size: 14px;
-            font-weight: 600;
-        }
-        .mock-content {
-            padding: 32px 24px;
-            color: #6B7280;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-        /* Chat Widget Preview */
-        .chat-widget {
-            position: absolute;
-            bottom: 24px;
-            right: 24px;
-            width: 60px;
-            height: 60px;
-            background: #4F46E5;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 28px;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4);
-        }
-        .chat-widget.square {
-            border-radius: 12px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CHATFLOW - Widget Customization</title>
+  <style>
+    :root {
+      --primary: #4f46e5;
+      --primary-dark: #4338ca;
+      --bg: #f9fafb;
+      --white: #ffffff;
+      --gray-900: #111827;
+      --gray-700: #374151;
+      --gray-500: #6b7280;
+      --gray-300: #d1d5db;
+      --gray-200: #e5e7eb;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--gray-900);
+      min-height: 100vh;
+    }
+
+    .progress-bar {
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-200);
+      padding: 24px 40px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .progress-indicator {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .progress-steps {
+      display: flex;
+      align-items: center;
+    }
+
+    .step-wrapper {
+      display: flex;
+      align-items: center;
+    }
+
+    .step-dot {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .step-dot.done,
+    .step-dot.active {
+      background: var(--primary);
+    }
+
+    .step-dot.upcoming {
+      background: var(--gray-300);
+      color: #9ca3af;
+    }
+
+    .step-connector {
+      width: 48px;
+      height: 2px;
+      background: var(--gray-300);
+    }
+
+    .step-connector.done {
+      background: var(--primary);
+    }
+
+    .step-label {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--gray-500);
+    }
+
+    .split-container {
+      display: flex;
+      min-height: calc(100vh - 96px);
+    }
+
+    .settings-panel {
+      width: 480px;
+      background: var(--white);
+      border-right: 1px solid var(--gray-200);
+      padding: 32px;
+      overflow-y: auto;
+    }
+
+    .preview-panel {
+      flex: 1;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg);
+    }
+
+    .panel-title {
+      margin: 0 0 8px;
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    .panel-subtitle {
+      margin: 0 0 28px;
+      font-size: 14px;
+      color: var(--gray-500);
+    }
+
+    .form-section {
+      margin-bottom: 28px;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--gray-700);
+      margin-bottom: 6px;
+    }
+
+    .form-description {
+      margin: 0 0 12px;
+      font-size: 13px;
+      color: var(--gray-500);
+    }
+
+    .color-swatches {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .color-swatch {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 8px;
+      border: 2px solid var(--gray-200);
+      cursor: pointer;
+    }
+
+    .color-swatch.selected {
+      border: 3px solid #111827;
+    }
+
+    .shape-options,
+    .position-options {
+      display: grid;
+      gap: 12px;
+    }
+
+    .shape-options {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .position-options {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .shape-option,
+    .position-option {
+      border: 1px solid var(--gray-200);
+      border-radius: 8px;
+      padding: 12px;
+      text-align: center;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .shape-option.selected,
+    .position-option.selected {
+      border: 2px solid var(--primary);
+      background: #eef2ff;
+    }
+
+    .shape-label,
+    .position-label {
+      font-size: 12px;
+      color: var(--gray-700);
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border: 1px solid var(--gray-200);
+      border-radius: 8px;
+      font-size: 14px;
+      padding: 12px;
+    }
+
+    textarea {
+      min-height: 96px;
+      resize: vertical;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 12px;
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--gray-200);
+    }
+
+    .btn {
+      flex: 1;
+      border-radius: 8px;
+      height: 44px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .btn-secondary {
+      background: #fff;
+      border: 1px solid var(--gray-200);
+      color: var(--gray-700);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      border: none;
+      color: #fff;
+      position: relative;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+    }
+
+    .btn.loading {
+      color: transparent;
+      pointer-events: none;
+    }
+
+    .btn.loading::after {
+      content: "";
+      width: 16px;
+      height: 16px;
+      border-radius: 999px;
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      border-top-color: #fff;
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      margin-left: -8px;
+      margin-top: -8px;
+      animation: spin 0.7s linear infinite;
+    }
+
+    .preview-title {
+      margin: 0 0 8px;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    .preview-subtitle {
+      margin: 0 0 28px;
+      color: var(--gray-500);
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .preview-window {
+      width: min(100%, 480px);
+      height: 600px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .mock-header {
+      background: #1f2937;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 16px 24px;
+    }
+
+    .mock-content {
+      padding: 32px 24px;
+      font-size: 14px;
+      color: var(--gray-500);
+      line-height: 1.6;
+    }
+
+    .chat-widget {
+      position: absolute;
+      right: 24px;
+      bottom: 24px;
+      width: 60px;
+      height: 60px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-size: 24px;
+      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4);
+      background: var(--primary);
+    }
+
+    .chat-widget.square {
+      border-radius: 12px;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
 </head>
 <body>
-    <!-- Progress Bar -->
-    <div class="progress-bar">
-        <div class="progress-indicator">
-            <div class="progress-steps">
-                <div class="step-wrapper">
-                    <div class="step-dot done">✓</div>
-                    <div class="step-connector done"></div>
-                </div>
-                <div class="step-wrapper">
-                    <div class="step-dot active">2</div>
-                    <div class="step-connector"></div>
-                </div>
-                <div class="step-wrapper">
-                    <div class="step-dot upcoming"></div>
-                    <div class="step-connector"></div>
-                </div>
-                <div class="step-wrapper">
-                    <div class="step-dot upcoming"></div>
-                </div>
-            </div>
-            <span class="step-label">2/4</span>
+  <div class="progress-bar">
+    <div class="progress-indicator" aria-label="Onboarding progress 2/4">
+      <div class="progress-steps">
+        <div class="step-wrapper">
+          <div class="step-dot done">✓</div>
+          <div class="step-connector done"></div>
         </div>
+        <div class="step-wrapper">
+          <div class="step-dot active">2</div>
+          <div class="step-connector"></div>
+        </div>
+        <div class="step-wrapper">
+          <div class="step-dot upcoming"></div>
+          <div class="step-connector"></div>
+        </div>
+        <div class="step-wrapper">
+          <div class="step-dot upcoming"></div>
+        </div>
+      </div>
+      <span class="step-label">2/4</span>
     </div>
+  </div>
 
-    <!-- Split Container -->
-    <div class="split-container">
-        <!-- Left Panel - Settings -->
-        <div class="settings-panel">
-            <div class="panel-header">
-                <h1 class="panel-title">Widgetni sozlash</h1>
-                <p class="panel-subtitle">Brendingizga mos ranglar va matnlarni tanlang</p>
-            </div>
+  <div class="split-container">
+    <section class="settings-panel">
+      <h1 class="panel-title">Widgetni sozlash</h1>
+      <p class="panel-subtitle">Brendingizga mos ranglar va matnlarni tanlang.</p>
 
-            <!-- Primary Color -->
-            <div class="form-section">
-                <label class="form-label">Asosiy rang</label>
-                <p class="form-description">Widget header va tugmalarda ishlatiladi</p>
-                <div class="color-swatches">
-                    <div class="color-swatch selected" style="background: #4F46E5;"></div>
-                    <div class="color-swatch" style="background: #10B981;"></div>
-                    <div class="color-swatch" style="background: #F59E0B;"></div>
-                    <div class="color-swatch" style="background: #DC2626;"></div>
-                    <div class="color-swatch" style="background: #8B5CF6;"></div>
-                    <div class="color-swatch" style="background: #EC4899;"></div>
-                    <div class="color-swatch" style="background: #0EA5E9;"></div>
-                    <div class="color-swatch" style="background: #84CC16;"></div>
-                </div>
-                <input type="text" class="color-input" value="#4F46E5" placeholder="HEX kod">
-            </div>
-
-            <!-- Widget Shape -->
-            <div class="form-section">
-                <label class="form-label">Tugma shakli</label>
-                <div class="shape-options">
-                    <div class="shape-option">
-                        <div class="shape-icon square">□</div>
-                        <div class="shape-label">Kvadrat</div>
-                    </div>
-                    <div class="shape-option selected">
-                        <div class="shape-icon round">○</div>
-                        <div class="shape-label">Yumaloq</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Widget Position -->
-            <div class="form-section">
-                <label class="form-label">Widget joylashuvi</label>
-                <div class="position-options">
-                    <div class="position-option selected">
-                        <div class="position-icon">
-                            <div class="position-dot bottom-right"></div>
-                        </div>
-                        <div class="position-label">Pastki o'ng</div>
-                    </div>
-                    <div class="position-option">
-                        <div class="position-icon">
-                            <div class="position-dot bottom-left"></div>
-                        </div>
-                        <div class="position-label">Pastki chap</div>
-                    </div>
-                    <div class="position-option">
-                        <div class="position-icon">
-                            <div class="position-dot right-center"></div>
-                        </div>
-                        <div class="position-label">O'ng markaz</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Button Text -->
-            <div class="form-section">
-                <label class="form-label">Tugma ustidagi matn</label>
-                <p class="form-description">Hover holatda ko'rinadi (ixtiyoriy)</p>
-                <input type="text" class="text-input" placeholder="Yordam kerakmi?" value="">
-                <div class="char-counter">0 / 30</div>
-            </div>
-
-            <!-- Welcome Message -->
-            <div class="form-section">
-                <label class="form-label">Xush kelibsiz xabari</label>
-                <p class="form-description">Chat ochilganda birinchi ko'rinadigan xabar</p>
-                <textarea class="textarea-input" placeholder="Salom! Sizga qanday yordam bera olamiz?"></textarea>
-                <div class="char-counter">0 / 150</div>
-            </div>
-
-            <!-- Action Buttons -->
-            <div class="action-buttons">
-                <button class="btn btn-secondary">← Orqaga</button>
-                <button class="btn btn-primary">Keyingisi →</button>
-            </div>
+      <div class="form-section">
+        <label class="form-label">Asosiy rang</label>
+        <p class="form-description">Widget header va tugmalarda ishlatiladi</p>
+        <div class="color-swatches">
+          <button class="color-swatch selected" data-color="#4F46E5" style="background:#4F46E5;"></button>
+          <button class="color-swatch" data-color="#10B981" style="background:#10B981;"></button>
+          <button class="color-swatch" data-color="#F59E0B" style="background:#F59E0B;"></button>
+          <button class="color-swatch" data-color="#DC2626" style="background:#DC2626;"></button>
+          <button class="color-swatch" data-color="#8B5CF6" style="background:#8B5CF6;"></button>
+          <button class="color-swatch" data-color="#EC4899" style="background:#EC4899;"></button>
+          <button class="color-swatch" data-color="#0EA5E9" style="background:#0EA5E9;"></button>
+          <button class="color-swatch" data-color="#84CC16" style="background:#84CC16;"></button>
         </div>
+        <input id="primary-color" type="text" value="#4F46E5" />
+      </div>
 
-        <!-- Right Panel - Preview -->
-        <div class="preview-panel">
-            <div class="preview-header">
-                <h2 class="preview-title">Jonli ko'rinish</h2>
-                <p class="preview-subtitle">O'zgarishlar darhol ko'rinadi</p>
-            </div>
-            <div class="preview-window">
-                <div class="mock-header">Sizning saytingiz</div>
-                <div class="mock-content">
-                    <p>Bu yerda saytingizning kontenti joylashadi...</p>
-                    <p style="margin-top: 16px;">Chat widgeti o'ng pastki burchakda ko'rinadi.</p>
-                </div>
-                <div class="chat-widget">💬</div>
-            </div>
+      <div class="form-section">
+        <label class="form-label">Tugma shakli</label>
+        <div class="shape-options">
+          <button class="shape-option" data-shape="square"><span class="shape-label">Kvadrat</span></button>
+          <button class="shape-option selected" data-shape="round"><span class="shape-label">Yumaloq</span></button>
         </div>
-    </div>
+      </div>
+
+      <div class="form-section">
+        <label class="form-label">Widget joylashuvi</label>
+        <div class="position-options">
+          <button class="position-option selected" data-position="bottom-right"><span class="position-label">Pastki o'ng</span></button>
+          <button class="position-option" data-position="bottom-left"><span class="position-label">Pastki chap</span></button>
+          <button class="position-option" data-position="right-center"><span class="position-label">O'ng markaz</span></button>
+        </div>
+      </div>
+
+      <div class="form-section">
+        <label class="form-label" for="button-text">Tugma ustidagi matn</label>
+        <input id="button-text" type="text" maxlength="30" placeholder="Yordam kerakmi?" />
+      </div>
+
+      <div class="form-section">
+        <label class="form-label" for="greeting-text">Xush kelibsiz xabari</label>
+        <textarea id="greeting-text" maxlength="200" placeholder="Salom! Sizga qanday yordam bera olamiz?"></textarea>
+      </div>
+
+      <div class="action-buttons">
+        <button class="btn btn-secondary" id="back-btn">Orqaga</button>
+        <button class="btn btn-primary" id="next-btn">Keyingisi</button>
+      </div>
+    </section>
+
+    <section class="preview-panel">
+      <h2 class="preview-title">Jonli ko'rinish</h2>
+      <p class="preview-subtitle">O'zgarishlar darhol ko'rinadi</p>
+      <div class="preview-window">
+        <div class="mock-header">Sizning saytingiz</div>
+        <div class="mock-content">
+          <p>Bu yerda saytingizning kontenti joylashadi...</p>
+          <p style="margin-top:16px;">Chat widget tanlangan joyda ko'rinadi.</p>
+        </div>
+        <div id="chat-widget" class="chat-widget">...</div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    var STATE_KEY = "chatflow_onboarding_state_v1";
+
+    function readState() {
+      try {
+        return JSON.parse(localStorage.getItem(STATE_KEY) || "{}");
+      } catch (_) {
+        return {};
+      }
+    }
+
+    function saveState(patch) {
+      var current = readState();
+      var next = Object.assign({}, current, patch || {}, { updatedAt: new Date().toISOString() });
+      localStorage.setItem(STATE_KEY, JSON.stringify(next));
+      return next;
+    }
+
+    function validHex(value) {
+      return /^#[0-9A-Fa-f]{6}$/.test((value || "").trim());
+    }
+
+    document.addEventListener("DOMContentLoaded", function () {
+      var state = readState();
+      var colorInput = document.getElementById("primary-color");
+      var chatWidget = document.getElementById("chat-widget");
+      var buttonText = document.getElementById("button-text");
+      var greetingText = document.getElementById("greeting-text");
+      var backBtn = document.getElementById("back-btn");
+      var nextBtn = document.getElementById("next-btn");
+      var swatches = Array.from(document.querySelectorAll(".color-swatch"));
+      var shapes = Array.from(document.querySelectorAll(".shape-option"));
+      var positions = Array.from(document.querySelectorAll(".position-option"));
+
+      var selected = {
+        primaryColor: state.primaryColor || "#4F46E5",
+        shape: state.widgetShape || "round",
+        position: state.widgetPosition || "bottom-right",
+        buttonText: state.widgetButtonText || "",
+        greeting: state.widgetGreeting || ""
+      };
+
+      function applyPreview() {
+        chatWidget.style.background = selected.primaryColor;
+        chatWidget.classList.toggle("square", selected.shape === "square");
+        chatWidget.style.left = "";
+        chatWidget.style.right = "";
+        chatWidget.style.top = "";
+        chatWidget.style.bottom = "";
+        chatWidget.style.transform = "";
+
+        if (selected.position === "bottom-right") {
+          chatWidget.style.right = "24px";
+          chatWidget.style.bottom = "24px";
+        } else if (selected.position === "bottom-left") {
+          chatWidget.style.left = "24px";
+          chatWidget.style.bottom = "24px";
+        } else {
+          chatWidget.style.right = "24px";
+          chatWidget.style.top = "50%";
+          chatWidget.style.transform = "translateY(-50%)";
+        }
+      }
+
+      function applySelections() {
+        colorInput.value = selected.primaryColor;
+        buttonText.value = selected.buttonText;
+        greetingText.value = selected.greeting;
+        swatches.forEach(function (el) {
+          el.classList.toggle("selected", el.getAttribute("data-color") === selected.primaryColor);
+        });
+        shapes.forEach(function (el) {
+          el.classList.toggle("selected", el.getAttribute("data-shape") === selected.shape);
+        });
+        positions.forEach(function (el) {
+          el.classList.toggle("selected", el.getAttribute("data-position") === selected.position);
+        });
+        applyPreview();
+      }
+
+      swatches.forEach(function (el) {
+        el.addEventListener("click", function () {
+          selected.primaryColor = el.getAttribute("data-color");
+          applySelections();
+        });
+      });
+
+      colorInput.addEventListener("blur", function () {
+        if (validHex(colorInput.value)) {
+          selected.primaryColor = colorInput.value.toUpperCase();
+          applySelections();
+        } else {
+          colorInput.value = selected.primaryColor;
+        }
+      });
+
+      shapes.forEach(function (el) {
+        el.addEventListener("click", function () {
+          selected.shape = el.getAttribute("data-shape");
+          applySelections();
+        });
+      });
+
+      positions.forEach(function (el) {
+        el.addEventListener("click", function () {
+          selected.position = el.getAttribute("data-position");
+          applySelections();
+        });
+      });
+
+      backBtn.addEventListener("click", function () {
+        window.location.href = "./02-onboarding-setup.html";
+      });
+
+      nextBtn.addEventListener("click", function () {
+        selected.buttonText = buttonText.value.trim();
+        selected.greeting = greetingText.value.trim();
+        saveState({
+          status: "in_progress",
+          currentStep: 3,
+          currentPage: "05-widget-install.html",
+          primaryColor: selected.primaryColor,
+          widgetShape: selected.shape,
+          widgetPosition: selected.position,
+          widgetButtonText: selected.buttonText,
+          widgetGreeting: selected.greeting
+        });
+
+        nextBtn.classList.add("loading");
+        setTimeout(function () {
+          window.location.href = "./05-widget-install.html";
+        }, 220);
+      });
+
+      applySelections();
+    });
+  </script>
 </body>
 </html>

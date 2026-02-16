@@ -1,196 +1,47 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="uz">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHATFLOW - Welcome Onboarding</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: #F9FAFB;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 40px 20px;
-        }
-        .onboarding-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 40px;
-        }
-        /* Progress Indicator */
-        .progress-indicator {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-        .progress-steps {
-            display: flex;
-            align-items: center;
-            gap: 0;
-        }
-        .step-wrapper {
-            display: flex;
-            align-items: center;
-        }
-        .step-dot {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 12px;
-            font-weight: 600;
-            color: white;
-        }
-        .step-dot.done {
-            background: #4F46E5;
-        }
-        .step-dot.active {
-            background: #4F46E5;
-        }
-        .step-dot.upcoming {
-            background: #D1D5DB;
-        }
-        .step-connector {
-            width: 48px;
-            height: 2px;
-            background: #D1D5DB;
-        }
-        .step-connector.done {
-            background: #4F46E5;
-        }
-        .step-label {
-            font-size: 14px;
-            font-weight: 500;
-            color: #6B7280;
-        }
-        /* Welcome Card */
-        .welcome-card {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
-            padding: 48px;
-            width: 600px;
-            text-align: center;
-        }
-        .celebration-icon {
-            width: 64px;
-            height: 64px;
-            margin: 0 auto 24px;
-            font-size: 48px;
-        }
-        .welcome-title {
-            font-size: 32px;
-            font-weight: 600;
-            color: #111827;
-            margin-bottom: 12px;
-        }
-        .welcome-subtitle {
-            font-size: 16px;
-            font-weight: 500;
-            color: #6B7280;
-            margin-bottom: 32px;
-        }
-        .welcome-description {
-            text-align: left;
-            background: #F9FAFB;
-            border-radius: 8px;
-            padding: 24px;
-            margin-bottom: 32px;
-        }
-        .welcome-description p {
-            font-size: 14px;
-            color: #4B5563;
-            line-height: 1.6;
-            margin-bottom: 16px;
-        }
-        .feature-list {
-            list-style: none;
-            margin-top: 16px;
-        }
-        .feature-list li {
-            font-size: 14px;
-            color: #374151;
-            padding: 10px 0;
-            padding-left: 32px;
-            position: relative;
-            text-align: left;
-        }
-        .feature-list li:before {
-            content: "✓";
-            position: absolute;
-            left: 8px;
-            color: #10B981;
-            font-weight: 600;
-            font-size: 16px;
-        }
-        .btn-primary {
-            width: 100%;
-            padding: 14px 24px;
-            background: #4F46E5;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        .btn-primary:hover {
-            background: #4338CA;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CHATFLOW - Redirect</title>
+  <meta http-equiv="refresh" content="0; url=./04-widget-customize.html" />
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f9fafb;
+      color: #374151;
+      padding: 24px;
+      text-align: center;
+    }
+    a {
+      color: #4f46e5;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-    <div class="onboarding-container">
-        <!-- Progress Indicator -->
-        <div class="progress-indicator">
-            <div class="progress-steps">
-                <div class="step-wrapper">
-                    <div class="step-dot active">1</div>
-                    <div class="step-connector"></div>
-                </div>
-                <div class="step-wrapper">
-                    <div class="step-dot upcoming"></div>
-                    <div class="step-connector"></div>
-                </div>
-                <div class="step-wrapper">
-                    <div class="step-dot upcoming"></div>
-                    <div class="step-connector"></div>
-                </div>
-                <div class="step-wrapper">
-                    <div class="step-dot upcoming"></div>
-                </div>
-            </div>
-            <span class="step-label">1/4</span>
-        </div>
-
-        <!-- Welcome Card -->
-        <div class="welcome-card">
-            <div class="celebration-icon">🎉</div>
-            <h1 class="welcome-title">Xush kelibsiz, Jasur!</h1>
-            <p class="welcome-subtitle">Sizni ko'rganimizdan xursandmiz</p>
-            
-            <div class="welcome-description">
-                <p>Keyingi 5 daqiqada biz sizga quyidagilarni o'rnatishga yordam beramiz:</p>
-                <ul class="feature-list">
-                    <li>Workspace yaratish va jamoangizni taklif qilish</li>
-                    <li>Chat widgetni sozlash va saytingizga o'rnatish</li>
-                    <li>Birinchi test xabarni qabul qilish</li>
-                </ul>
-            </div>
-
-            <button class="btn-primary">Boshladik →</button>
-        </div>
-    </div>
+  <main>
+    <p>Sahifa yangilangan. Siz <a id="next-link" href="./04-widget-customize.html">Widget sozlash</a> sahifasiga yo'naltirilasiz.</p>
+  </main>
+  <script>
+    (function () {
+      var query = window.location.search || "";
+      var hash = window.location.hash || "";
+      var destination = "./04-widget-customize.html" + query + hash;
+      var link = document.getElementById("next-link");
+      if (link) {
+        link.href = destination;
+      }
+      window.location.replace(destination);
+    })();
+  </script>
 </body>
 </html>
