@@ -34,3 +34,9 @@ penpot/node_modules/
 # Logs
 logs/
 *.log
+
+# Claude settings (contains tokens)
+.claude/settings.local.json
+
+# Figma Console MCP (external git repo)
+figma-console-mcp/

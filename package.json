@@ -27,6 +27,7 @@
   "homepage": "https://github.com/yakubjanov004/onlinechat-text#readme",
   "dependencies": {
     "axios": "^1.13.5",
-    "dotenv": "^17.2.4"
+    "dotenv": "^17.2.4",
+    "puppeteer-core": "^24.37.3"
   }
 }

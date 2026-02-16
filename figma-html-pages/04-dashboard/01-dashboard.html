@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CHATFLOW - Dashboard</title>
+  <style>
+    :root {
+      --primary: #4F46E5;
+      --bg: #F9FAFB;
+      --white: #FFFFFF;
+      --gray-900: #111827;
+      --gray-700: #374151;
+      --gray-500: #6B7280;
+      --gray-300: #D1D5DB;
+      --gray-200: #E5E7EB;
+      --green: #10B981;
+      --red: #EF4444;
+      --warning: #F59E0B;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--gray-900);
+    }
+    .header {
+      height: 64px;
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-200);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+    }
+    .logo {
+      color: var(--primary);
+      font-weight: 700;
+      letter-spacing: 0.4px;
+    }
+    .search {
+      width: 320px;
+      height: 40px;
+      border-radius: 8px;
+      border: none;
+      background: #F3F4F6;
+      padding: 0 14px;
+      font-size: 14px;
+      color: var(--gray-500);
+    }
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      font-size: 13px;
+    }
+    .layout {
+      display: grid;
+      grid-template-columns: 240px 1fr;
+      min-height: calc(100vh - 64px);
+    }
+    .sidebar {
+      background: var(--white);
+      border-right: 1px solid var(--gray-200);
+      padding: 16px 12px;
+    }
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .5px;
+      color: #9CA3AF;
+      margin: 8px 8px 10px;
+    }
+    .item {
+      height: 40px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 12px;
+      font-size: 14px;
+      color: var(--gray-700);
+      margin-bottom: 4px;
+    }
+    .item.active {
+      background: #E0E7FF;
+      color: var(--primary);
+      font-weight: 600;
+    }
+    .badge {
+      min-width: 20px;
+      height: 20px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: #fff;
+      background: var(--red);
+      padding: 0 6px;
+    }
+    .content {
+      padding: 24px;
+    }
+    .title {
+      font-size: 24px;
+      font-weight: 600;
+      margin: 0 0 4px;
+    }
+    .sub {
+      margin: 0 0 20px;
+      color: var(--gray-500);
+      font-size: 14px;
+    }
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    .card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: 12px;
+      padding: 16px;
+    }
+    .metric-label {
+      color: var(--gray-500);
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+    .metric-value {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .trend {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--green);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .chart {
+      min-height: 240px;
+      background: linear-gradient(180deg, #ffffff, #f8faff);
+      border: 1px solid var(--gray-200);
+      border-radius: 12px;
+      padding: 16px;
+    }
+    .chart h3 {
+      margin: 0 0 6px;
+      font-size: 16px;
+    }
+    .chart p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--gray-500);
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="logo">CHATFLOW</div>
+    <input class="search" value="Qidirish... (Ctrl+K)" />
+    <div class="header-right">
+      <span style="color:#10B981;">Online</span>
+      <span>Bell (3)</span>
+      <span>AK</span>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="section-label">ASOSIY</div>
+      <div class="item active"><span>Dashboard</span></div>
+      <div class="item"><span>Inbox</span><span class="badge">12</span></div>
+      <div class="item"><span>Kontaktlar</span></div>
+      <div class="item"><span>Online Visitors</span></div>
+
+      <div class="section-label" style="margin-top:16px;">VOSITALAR</div>
+      <div class="item"><span>Automation</span></div>
+      <div class="item"><span>Knowledge Base</span></div>
+      <div class="item"><span>Team Chat</span></div>
+      <div class="item"><span>Analytics</span></div>
+    </aside>
+
+    <main class="content">
+      <h1 class="title">Dashboard</h1>
+      <p class="sub">Bugungi umumiy ko'rinish</p>
+
+      <section class="metrics">
+        <article class="card">
+          <div class="metric-label">Jami chatlar</div>
+          <div class="metric-value">1,247</div>
+          <div class="trend">+12%</div>
+        </article>
+        <article class="card">
+          <div class="metric-label">Faol chatlar</div>
+          <div class="metric-value">23</div>
+          <div class="trend">+8%</div>
+        </article>
+        <article class="card">
+          <div class="metric-label">O'rtacha javob</div>
+          <div class="metric-value">2m 34s</div>
+          <div class="trend" style="color:var(--warning);">-15%</div>
+        </article>
+        <article class="card">
+          <div class="metric-label">Mijoz qoniqishi</div>
+          <div class="metric-value">4.8/5</div>
+          <div class="trend">+3%</div>
+        </article>
+      </section>
+
+      <section class="grid">
+        <article class="chart">
+          <h3>Chat faolligi</h3>
+          <p>Oxirgi 7 kun</p>
+        </article>
+        <article class="chart">
+          <h3>Kanallar bo'yicha</h3>
+          <p>Web, Telegram, Instagram, Email</p>
+        </article>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
+

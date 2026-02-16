@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHATFLOW - Inbox</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #F9FAFB;
+            overflow: hidden;
+        }
+        /* Header */
+        .header {
+            height: 64px;
+            background: white;
+            border-bottom: 1px solid #E5E7EB;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 24px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: #4F46E5;
+        }
+        .header-search {
+            width: 400px;
+            height: 40px;
+            background: #F3F4F6;
+            border: none;
+            border-radius: 8px;
+            padding: 0 12px 0 40px;
+            font-size: 14px;
+        }
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .status-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 500;
+        }
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #10B981;
+        }
+        .notification-bell {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            background: #F9FAFB;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+        }
+        .notification-badge {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #EF4444;
+        }
+        .user-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #E0E7FF;
+            color: #4F46E5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        /* Main Container */
+        .main-container {
+            display: flex;
+            height: calc(100vh - 64px);
+        }
+        /* Sidebar */
+        .sidebar {
+            width: 240px;
+            background: white;
+            border-right: 1px solid #E5E7EB;
+            padding: 16px 0;
+        }
+        .sidebar-item {
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            color: #6B7280;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .sidebar-item.active {
+            background: #EEF2FF;
+            color: #4F46E5;
+            border-left: 3px solid #4F46E5;
+        }
+        .sidebar-item:hover {
+            background: #F9FAFB;
+        }
+        .sidebar-icon {
+            font-size: 18px;
+        }
+        .sidebar-divider {
+            height: 1px;
+            background: #E5E7EB;
+            margin: 8px 0;
+        }
+        /* Chat List Panel */
+        .chat-list-panel {
+            width: 360px;
+            background: white;
+            border-right: 1px solid #E5E7EB;
+            display: flex;
+            flex-direction: column;
+        }
+        .chat-list-header {
+            padding: 16px;
+            border-bottom: 1px solid #E5E7EB;
+        }
+        .chat-search {
+            width: 100%;
+            height: 40px;
+            background: #F3F4F6;
+            border: none;
+            border-radius: 8px;
+            padding: 0 12px 0 40px;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+        .chat-tabs {
+            display: flex;
+            gap: 8px;
+        }
+        .chat-tab {
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            background: transparent;
+            color: #6B7280;
+            border: none;
+            transition: all 0.2s;
+        }
+        .chat-tab.active {
+            background: #E0E7FF;
+            color: #4F46E5;
+        }
+        .chat-list {
+            flex: 1;
+            overflow-y: auto;
+        }
+        .chat-card {
+            padding: 16px;
+            border-bottom: 1px solid #F3F4F6;
+            cursor: pointer;
+            transition: all 0.2s;
+            position: relative;
+        }
+        .chat-card:hover {
+            background: #F9FAFB;
+        }
+        .chat-card.active {
+            background: #EEF2FF;
+            border-left: 3px solid #4F46E5;
+        }
+        .chat-card.unread {
+            background: #FFFBEB;
+        }
+        .chat-card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+        .chat-status {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+        .chat-status.online {
+            background: #10B981;
+        }
+        .chat-status.offline {
+            background: #D1D5DB;
+        }
+        .chat-customer-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #111827;
+            flex: 1;
+        }
+        .chat-time {
+            font-size: 12px;
+            color: #9CA3AF;
+        }
+        .chat-last-message {
+            font-size: 13px;
+            color: #6B7280;
+            margin-bottom: 6px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+        .chat-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .chat-agent {
+            font-size: 12px;
+            color: #9CA3AF;
+        }
+        .unread-badge {
+            background: #EF4444;
+            color: white;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 2px 6px;
+            border-radius: 10px;
+        }
+        /* Chat Window */
+        .chat-window {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            background: white;
+        }
+        .chat-header {
+            height: 64px;
+            border-bottom: 1px solid #E5E7EB;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .chat-header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .chat-customer-info {
+            display: flex;
+            flex-direction: column;
+        }
+        .chat-customer-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #111827;
+        }
+        .chat-customer-status {
+            font-size: 13px;
+            color: #10B981;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .chat-header-actions {
+            display: flex;
+            gap: 12px;
+        }
+        .action-btn {
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: 1px solid #E5E7EB;
+            background: white;
+            color: #374151;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .action-btn:hover {
+            background: #F9FAFB;
+        }
+        .action-btn.primary {
+            background: #4F46E5;
+            color: white;
+            border: none;
+        }
+        .action-btn.primary:hover {
+            background: #4338CA;
+        }
+        /* Messages Area */
+        .messages-area {
+            flex: 1;
+            padding: 24px;
+            overflow-y: auto;
+            background: #FFFFFF;
+        }
+        .message-group {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+        .message {
+            display: flex;
+            flex-direction: column;
+            max-width: 70%;
+        }
+        .message.incoming {
+            align-items: flex-start;
+        }
+        .message.outgoing {
+            align-items: flex-end;
+            align-self: flex-end;
+        }
+        .message-bubble {
+            padding: 12px;
+            border-radius: 12px;
+            font-size: 14px;
+            line-height: 20px;
+        }
+        .message.incoming .message-bubble {
+            background: #F3F4F6;
+            color: #111827;
+            border-top-left-radius: 4px;
+        }
+        .message.outgoing .message-bubble {
+            background: #4F46E5;
+            color: white;
+            border-top-right-radius: 4px;
+        }
+        .message-timestamp {
+            font-size: 12px;
+            color: #9CA3AF;
+            margin-top: 4px;
+        }
+        .system-message {
+            text-align: center;
+            font-size: 12px;
+            color: #9CA3AF;
+            font-style: italic;
+            padding: 8px 0;
+        }
+        .typing-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px;
+            background: #F3F4F6;
+            border-radius: 12px;
+            width: fit-content;
+            margin-top: 16px;
+        }
+        .typing-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #9CA3AF;
+            animation: typing 1.4s infinite;
+        }
+        .typing-dot:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        .typing-dot:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+        @keyframes typing {
+            0%, 60%, 100% { transform: translateY(0); }
+            30% { transform: translateY(-8px); }
+        }
+        /* Input Area */
+        .input-area {
+            border-top: 1px solid #E5E7EB;
+            padding: 16px 24px;
+            background: white;
+        }
+        .input-toolbar {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        .toolbar-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            border: none;
+            background: transparent;
+            color: #6B7280;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+        .toolbar-btn:hover {
+            background: #F3F4F6;
+            color: #4F46E5;
+        }
+        .input-container {
+            display: flex;
+            gap: 12px;
+            align-items: flex-end;
+        }
+        .message-input {
+            flex: 1;
+            min-height: 44px;
+            max-height: 120px;
+            padding: 12px;
+            border: 1px solid #E5E7EB;
+            border-radius: 8px;
+            font-size: 14px;
+            font-family: inherit;
+            resize: none;
+            overflow-y: auto;
+        }
+        .message-input:focus {
+            outline: none;
+            border-color: #4F46E5;
+        }
+        .send-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            border: none;
+            background: #4F46E5;
+            color: white;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+        .send-btn:hover {
+            background: #4338CA;
+        }
+        .send-btn:disabled {
+            background: #D1D5DB;
+            cursor: not-allowed;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <div class="logo">CHATFLOW</div>
+        <input type="text" class="header-search" placeholder="Qidirish... (Ctrl+K)">
+        <div class="header-right">
+            <div class="status-badge">
+                <div class="status-dot"></div>
+                <span>Online</span>
+            </div>
+            <div class="notification-bell">
+                🔔
+                <div class="notification-badge"></div>
+            </div>
+            <div class="user-avatar">SA</div>
+        </div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-item active">
+                <span class="sidebar-icon">📥</span>
+                <span>Inbox</span>
+            </div>
+            <div class="sidebar-item">
+                <span class="sidebar-icon">🤖</span>
+                <span>Automation</span>
+            </div>
+            <div class="sidebar-item">
+                <span class="sidebar-icon">👥</span>
+                <span>Team</span>
+            </div>
+            <div class="sidebar-item">
+                <span class="sidebar-icon">📊</span>
+                <span>Analytics</span>
+            </div>
+            <div class="sidebar-divider"></div>
+            <div class="sidebar-item">
+                <span class="sidebar-icon">⚙️</span>
+                <span>Settings</span>
+            </div>
+            <div class="sidebar-item">
+                <span class="sidebar-icon">💳</span>
+                <span>Billing</span>
+            </div>
+        </div>
+
+        <!-- Chat List Panel -->
+        <div class="chat-list-panel">
+            <div class="chat-list-header">
+                <input type="text" class="chat-search" placeholder="Mijoz ismi yoki xabar...">
+                <div class="chat-tabs">
+                    <button class="chat-tab active">Active</button>
+                    <button class="chat-tab">Assigned</button>
+                    <button class="chat-tab">Closed</button>
+                </div>
+            </div>
+            <div class="chat-list">
+                <!-- Chat Card 1 - Active -->
+                <div class="chat-card active">
+                    <div class="chat-card-header">
+                        <div class="chat-status online"></div>
+                        <div class="chat-customer-name">Ahmad Valiyev</div>
+                        <div class="chat-time">2m</div>
+                    </div>
+                    <div class="chat-last-message">Salom, yordam kerak edi...</div>
+                    <div class="chat-meta">
+                        <div class="chat-agent">Sara</div>
+                        <div class="unread-badge">3</div>
+                    </div>
+                </div>
+
+                <!-- Chat Card 2 -->
+                <div class="chat-card unread">
+                    <div class="chat-card-header">
+                        <div class="chat-status offline"></div>
+                        <div class="chat-customer-name">Nodira Rahimova</div>
+                        <div class="chat-time">5m</div>
+                    </div>
+                    <div class="chat-last-message">Narxlar haqida ma'lumot...</div>
+                    <div class="chat-meta">
+                        <div class="chat-agent">Bobur</div>
+                        <div class="unread-badge">1</div>
+                    </div>
+                </div>
+
+                <!-- Chat Card 3 -->
+                <div class="chat-card">
+                    <div class="chat-card-header">
+                        <div class="chat-status offline"></div>
+                        <div class="chat-customer-name">Sardor Tursunov</div>
+                        <div class="chat-time">1h</div>
+                    </div>
+                    <div class="chat-last-message">Rahmat! Hammasi tushunarli</div>
+                    <div class="chat-meta">
+                        <div class="chat-agent">Ali</div>
+                    </div>
+                </div>
+
+                <!-- Chat Card 4 -->
+                <div class="chat-card">
+                    <div class="chat-card-header">
+                        <div class="chat-status online"></div>
+                        <div class="chat-customer-name">Malika Azimova</div>
+                        <div class="chat-time">2h</div>
+                    </div>
+                    <div class="chat-last-message">O'rnatish qanday qilinadi?</div>
+                    <div class="chat-meta">
+                        <div class="chat-agent">Sara</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chat Window -->
+        <div class="chat-window">
+            <!-- Chat Header -->
+            <div class="chat-header">
+                <div class="chat-header-left">
+                    <div class="chat-customer-info">
+                        <div class="chat-customer-title">Ahmad Valiyev</div>
+                        <div class="chat-customer-status">
+                            <div class="status-dot"></div>
+                            Online
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-header-actions">
+                    <button class="action-btn">🏷️ Tag</button>
+                    <button class="action-btn">👤 Transfer</button>
+                    <button class="action-btn primary">✓ Resolve</button>
+                </div>
+            </div>
+
+            <!-- Messages Area -->
+            <div class="messages-area">
+                <div class="system-message">Ahmad chatga qo'shildi — 14:20</div>
+                
+                <div class="message-group">
+                    <div class="message incoming">
+                        <div class="message-bubble">
+                            Salom, yordam kerak edi
+                        </div>
+                        <div class="message-timestamp">Ahmad • 14:20</div>
+                    </div>
+
+                    <div class="message incoming">
+                        <div class="message-bubble">
+                            Chat widgetni qanday qilib o'rnatish mumkin?
+                        </div>
+                        <div class="message-timestamp">Ahmad • 14:21</div>
+                    </div>
+
+                    <div class="message outgoing">
+                        <div class="message-bubble">
+                            Assalomu alaykum! Albatta yordam beraman
+                        </div>
+                        <div class="message-timestamp">Sara • 14:21</div>
+                    </div>
+
+                    <div class="message outgoing">
+                        <div class="message-bubble">
+                            Chat widgetni o'rnatish juda oson. Settings → Widget → Install code dan kod olasiz va saytingiz HTML'iga joylashtiring
+                        </div>
+                        <div class="message-timestamp">Sara • 14:22</div>
+                    </div>
+
+                    <div class="message incoming">
+                        <div class="message-bubble">
+                            Rahmat! Qaysi qismiga joylashtirishim kerak?
+                        </div>
+                        <div class="message-timestamp">Ahmad • 14:23</div>
+                    </div>
+                </div>
+
+                <div class="typing-indicator">
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                    <div class="typing-dot"></div>
+                </div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="input-area">
+                <div class="input-toolbar">
+                    <button class="toolbar-btn" title="Emoji">😊</button>
+                    <button class="toolbar-btn" title="Fayl">📎</button>
+                    <button class="toolbar-btn" title="Tayyor javoblar">💬</button>
+                </div>
+                <div class="input-container">
+                    <textarea class="message-input" placeholder="Xabar yozing..."></textarea>
+                    <button class="send-btn">➤</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

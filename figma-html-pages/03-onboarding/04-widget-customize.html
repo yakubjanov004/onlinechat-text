@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHATFLOW - Widget Customization</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #F9FAFB;
+            min-height: 100vh;
+        }
+        /* Progress Bar */
+        .progress-bar {
+            background: white;
+            padding: 24px 40px;
+            border-bottom: 1px solid #E5E7EB;
+            display: flex;
+            justify-content: center;
+        }
+        .progress-indicator {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .progress-steps {
+            display: flex;
+            align-items: center;
+        }
+        .step-wrapper {
+            display: flex;
+            align-items: center;
+        }
+        .step-dot {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+            color: white;
+        }
+        .step-dot.done {
+            background: #4F46E5;
+        }
+        .step-dot.active {
+            background: #4F46E5;
+        }
+        .step-dot.upcoming {
+            background: #D1D5DB;
+        }
+        .step-connector {
+            width: 48px;
+            height: 2px;
+            background: #D1D5DB;
+        }
+        .step-connector.done {
+            background: #4F46E5;
+        }
+        .step-label {
+            font-size: 14px;
+            font-weight: 500;
+            color: #6B7280;
+        }
+        /* Split Layout */
+        .split-container {
+            display: flex;
+            height: calc(100vh - 96px);
+        }
+        /* Left Panel - Settings */
+        .settings-panel {
+            width: 480px;
+            background: white;
+            padding: 32px;
+            overflow-y: auto;
+        }
+        .panel-header {
+            margin-bottom: 32px;
+        }
+        .panel-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 8px;
+        }
+        .panel-subtitle {
+            font-size: 14px;
+            color: #6B7280;
+        }
+        .form-section {
+            margin-bottom: 32px;
+        }
+        .form-label {
+            font-size: 14px;
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 6px;
+            display: block;
+        }
+        .form-description {
+            font-size: 13px;
+            color: #6B7280;
+            margin-bottom: 12px;
+        }
+        /* Color Picker */
+        .color-swatches {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        .color-swatch {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 8px;
+            border: 2px solid #E5E7EB;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .color-swatch.selected {
+            border: 3px solid #111827;
+        }
+        .color-input {
+            width: 100%;
+            padding: 12px 12px 12px 40px;
+            border: 1px solid #E5E7EB;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        /* Shape Selector */
+        .shape-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+        .shape-option {
+            padding: 16px;
+            border: 1px solid #E5E7EB;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .shape-option.selected {
+            border: 2px solid #4F46E5;
+            background: #EEF2FF;
+        }
+        .shape-icon {
+            width: 56px;
+            height: 56px;
+            margin: 0 auto 8px;
+            background: #F3F4F6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+        .shape-icon.square {
+            border-radius: 12px;
+        }
+        .shape-icon.round {
+            border-radius: 50%;
+        }
+        .shape-label {
+            font-size: 14px;
+            font-weight: 500;
+            color: #374151;
+        }
+        /* Position Selector */
+        .position-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+        }
+        .position-option {
+            padding: 12px;
+            border: 1px solid #E5E7EB;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .position-option.selected {
+            border: 2px solid #4F46E5;
+            background: #EEF2FF;
+        }
+        .position-icon {
+            width: 48px;
+            height: 48px;
+            margin: 0 auto 8px;
+            background: #F9FAFB;
+            border: 1px solid #E5E7EB;
+            border-radius: 6px;
+            position: relative;
+        }
+        .position-dot {
+            width: 8px;
+            height: 8px;
+            background: #4F46E5;
+            border-radius: 50%;
+            position: absolute;
+        }
+        .position-dot.bottom-right {
+            bottom: 4px;
+            right: 4px;
+        }
+        .position-dot.bottom-left {
+            bottom: 4px;
+            left: 4px;
+        }
+        .position-dot.right-center {
+            top: 50%;
+            right: 4px;
+            transform: translateY(-50%);
+        }
+        .position-label {
+            font-size: 12px;
+            color: #374151;
+        }
+        /* Text Input */
+        .text-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #E5E7EB;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        .textarea-input {
+            width: 100%;
+            height: 100px;
+            padding: 12px;
+            border: 1px solid #E5E7EB;
+            border-radius: 8px;
+            font-size: 14px;
+            resize: vertical;
+        }
+        .char-counter {
+            font-size: 12px;
+            color: #9CA3AF;
+            text-align: right;
+            margin-top: 4px;
+        }
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 32px;
+            padding-top: 32px;
+            border-top: 1px solid #E5E7EB;
+        }
+        .btn {
+            flex: 1;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .btn-secondary {
+            background: white;
+            border: 1px solid #E5E7EB;
+            color: #374151;
+        }
+        .btn-secondary:hover {
+            background: #F9FAFB;
+        }
+        .btn-primary {
+            background: #4F46E5;
+            border: none;
+            color: white;
+        }
+        .btn-primary:hover {
+            background: #4338CA;
+        }
+        /* Right Panel - Preview */
+        .preview-panel {
+            flex: 1;
+            background: #F9FAFB;
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .preview-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        .preview-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #111827;
+            margin-bottom: 8px;
+        }
+        .preview-subtitle {
+            font-size: 14px;
+            color: #6B7280;
+        }
+        .preview-window {
+            width: 100%;
+            max-width: 480px;
+            height: 600px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        /* Mock Website */
+        .mock-header {
+            background: #1F2937;
+            color: white;
+            padding: 16px 24px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .mock-content {
+            padding: 32px 24px;
+            color: #6B7280;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        /* Chat Widget Preview */
+        .chat-widget {
+            position: absolute;
+            bottom: 24px;
+            right: 24px;
+            width: 60px;
+            height: 60px;
+            background: #4F46E5;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(79, 70, 229, 0.4);
+        }
+        .chat-widget.square {
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-bar">
+        <div class="progress-indicator">
+            <div class="progress-steps">
+                <div class="step-wrapper">
+                    <div class="step-dot done">✓</div>
+                    <div class="step-connector done"></div>
+                </div>
+                <div class="step-wrapper">
+                    <div class="step-dot active">2</div>
+                    <div class="step-connector"></div>
+                </div>
+                <div class="step-wrapper">
+                    <div class="step-dot upcoming"></div>
+                    <div class="step-connector"></div>
+                </div>
+                <div class="step-wrapper">
+                    <div class="step-dot upcoming"></div>
+                </div>
+            </div>
+            <span class="step-label">2/4</span>
+        </div>
+    </div>
+
+    <!-- Split Container -->
+    <div class="split-container">
+        <!-- Left Panel - Settings -->
+        <div class="settings-panel">
+            <div class="panel-header">
+                <h1 class="panel-title">Widgetni sozlash</h1>
+                <p class="panel-subtitle">Brendingizga mos ranglar va matnlarni tanlang</p>
+            </div>
+
+            <!-- Primary Color -->
+            <div class="form-section">
+                <label class="form-label">Asosiy rang</label>
+                <p class="form-description">Widget header va tugmalarda ishlatiladi</p>
+                <div class="color-swatches">
+                    <div class="color-swatch selected" style="background: #4F46E5;"></div>
+                    <div class="color-swatch" style="background: #10B981;"></div>
+                    <div class="color-swatch" style="background: #F59E0B;"></div>
+                    <div class="color-swatch" style="background: #DC2626;"></div>
+                    <div class="color-swatch" style="background: #8B5CF6;"></div>
+                    <div class="color-swatch" style="background: #EC4899;"></div>
+                    <div class="color-swatch" style="background: #0EA5E9;"></div>
+                    <div class="color-swatch" style="background: #84CC16;"></div>
+                </div>
+                <input type="text" class="color-input" value="#4F46E5" placeholder="HEX kod">
+            </div>
+
+            <!-- Widget Shape -->
+            <div class="form-section">
+                <label class="form-label">Tugma shakli</label>
+                <div class="shape-options">
+                    <div class="shape-option">
+                        <div class="shape-icon square">□</div>
+                        <div class="shape-label">Kvadrat</div>
+                    </div>
+                    <div class="shape-option selected">
+                        <div class="shape-icon round">○</div>
+                        <div class="shape-label">Yumaloq</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Widget Position -->
+            <div class="form-section">
+                <label class="form-label">Widget joylashuvi</label>
+                <div class="position-options">
+                    <div class="position-option selected">
+                        <div class="position-icon">
+                            <div class="position-dot bottom-right"></div>
+                        </div>
+                        <div class="position-label">Pastki o'ng</div>
+                    </div>
+                    <div class="position-option">
+                        <div class="position-icon">
+                            <div class="position-dot bottom-left"></div>
+                        </div>
+                        <div class="position-label">Pastki chap</div>
+                    </div>
+                    <div class="position-option">
+                        <div class="position-icon">
+                            <div class="position-dot right-center"></div>
+                        </div>
+                        <div class="position-label">O'ng markaz</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Button Text -->
+            <div class="form-section">
+                <label class="form-label">Tugma ustidagi matn</label>
+                <p class="form-description">Hover holatda ko'rinadi (ixtiyoriy)</p>
+                <input type="text" class="text-input" placeholder="Yordam kerakmi?" value="">
+                <div class="char-counter">0 / 30</div>
+            </div>
+
+            <!-- Welcome Message -->
+            <div class="form-section">
+                <label class="form-label">Xush kelibsiz xabari</label>
+                <p class="form-description">Chat ochilganda birinchi ko'rinadigan xabar</p>
+                <textarea class="textarea-input" placeholder="Salom! Sizga qanday yordam bera olamiz?"></textarea>
+                <div class="char-counter">0 / 150</div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <button class="btn btn-secondary">← Orqaga</button>
+                <button class="btn btn-primary">Keyingisi →</button>
+            </div>
+        </div>
+
+        <!-- Right Panel - Preview -->
+        <div class="preview-panel">
+            <div class="preview-header">
+                <h2 class="preview-title">Jonli ko'rinish</h2>
+                <p class="preview-subtitle">O'zgarishlar darhol ko'rinadi</p>
+            </div>
+            <div class="preview-window">
+                <div class="mock-header">Sizning saytingiz</div>
+                <div class="mock-content">
+                    <p>Bu yerda saytingizning kontenti joylashadi...</p>
+                    <p style="margin-top: 16px;">Chat widgeti o'ng pastki burchakda ko'rinadi.</p>
+                </div>
+                <div class="chat-widget">💬</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

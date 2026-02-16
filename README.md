@@ -1,269 +1,221 @@
-# 🚀 CHATFLOW — O'zbekiston SaaS Live Chat Platform
+# CHATFLOW — Figma Design System
 
-> **Comprehensive design system, specification, and task organization for CHATFLOW project**
+CHATFLOW loyihasining dizayn tizimi. HTML sahifalar yaratiladi va Figma'da avtomatik chiziladi.
 
 ---
 
-## 📂 Folder Structure
+## Loyiha tuzilishi
 
 ```
 onlinechat/
-├─ README.md                         ← Shu fayl
-├─ TODO.md                           ← 🎯 START HERE: Master task list
-├─ package.json                      ← npm setup & scripts
-├─ .gitignore                        ← Security (.env ignored)
+├── README.md                  ← Shu fayl (qo'llanma)
+├── figma-bridge.js            ← Figma'ga dizayn yuborish skripti
+├── package.json
 │
-├─ 📁 figma-docs/                    ← 🎨 Figma Specifications (34 files)
-│  ├─ README.md
-│  ├─ 00-loyiha-umumiy.md
-│  ├─ 01-design-system.md
-│  ├─ 02-06: Landing pages
-│  └─ 07-34: App features
+├── figma-docs/                ← Dizayn spetsifikatsiyalari (34 sahifa)
+│   ├── 00-loyiha-umumiy.md
+│   ├── 01-design-system.md
+│   ├── 02-06: Landing sahifalari
+│   └── 07-34: App sahifalari
 │
-├─ 📁 fixes/                         ← ✅ ORGANIZED FIX TASKS
-│  ├─ 01-high-priority/              (7 critical fixes 🔴)
-│  ├─ 02-medium-priority/            (6 UX improvements 🟡)
-│  └─ 03-components-needed/          (4 critical components 📦)
+figma-html-pages/
+├── 01-landing/          ← docs 02-06: Landing sahifalar (Hero, Trust, Features, Integration, Pricing)
+├── 02-auth/             ← doc 07: Login, Register, Email Verify, Forgot Password
+├── 03-onboarding/       ← docs 08-09: Welcome, Workspace, Widget, Install
+├── 04-dashboard/        ← doc 10: Dashboard layout
+├── 05-inbox/            ← docs 11-12: Inbox chat, Advanced
+├── 06-automation/       ← doc 13: Automation & Availability
+├── 07-team/             ← doc 14: Team management
+├── 08-analytics/        ← docs 15,25: Analytics, Advanced Analytics
+├── 09-settings/         ← doc 16: Settings
+├── 10-billing/          ← doc 17: Billing
+├── 11-chat-widget/      ← doc 18: Chat widget (mijoz tomoni)
+├── 12-contacts/         ← doc 20: Contacts/CRM
+├── 13-visitors/         ← doc 21: Online visitors
+├── 14-team-chat/        ← doc 22: Team chat (ichki)
+├── 15-knowledge-base/   ← doc 23: Knowledge base
+├── 16-addons/           ← doc 24: Addons marketplace
+├── 17-developer/        ← doc 26: Developer portal
+└── 18-system/           ← docs 27-34: Error, Search, Help, Notifications, Multi-lang, GDPR, Email, Dark mode
 │
-├─ 📁 penpot/                        ← 🎨 Penpot Automation
-│  ├─ penpot-automation.js           (26 page yaratadi)
-│  ├─ penpot-advanced.js             (design system content)
-│  ├─ .env / .env.example            (token config)
-│  ├─ README.md, WALKTHROUGH.md, ... (guides)
-│  └─ docs/                          (API research + analysis)
-│     ├─ CHATFLOW_FULL_ANALYSIS.md   (1618 lines analysis)
-│     ├─ CHATFLOW_FIGMA_ARCHITECTURE.md
-│     ├─ PERMISSION_MATRIX.md
-│     ├─ STATE_MANAGEMENT.md
-│     ├─ TESTING_STRATEGY.md
-│     ├─ API_ENDPOINTS_EXTENDED.md
-│     └─ PENPOT_API_*.md             (3 API docs)
+├── figma-designs/             ← Figma Plugin API kodlari (avtomatik yaratiladi)
+│   ├── 01-login.js
+│   └── ...
 │
-├─ 📁 resources/                     ← 🖼️ Project Assets
-│  ├─ PNG files (UI mockups)
-│  ├─ chat.txt, chat-clean.txt
-│  └─ chat.docx
+├── figma-console-mcp/         ← MCP server (Desktop Bridge plugin)
+│   └── figma-desktop-bridge/  ← Figma plugin fayllari
 │
-└─ 📁 archive/                       ← 📦 Archived Files
-   └─ TODO-old.md
+└── resources/                 ← Rasmlar va resurslar
 ```
 
 ---
 
-## 🎯 Quick Navigation
+## Ish jarayoni (Workflow)
 
-### 📌 I'm Getting Started
-→ Read: **[TODO.md](TODO.md)** (master task list with timeline)
+Har bir sahifa uchun ketma-ketlik:
 
-### 🔴 I Need to Fix Critical Issues (HIGH Priority)
-→ Navigate: **[fixes/01-high-priority/](fixes/01-high-priority/)**
-- 7 issues that MUST be fixed before Figma design
-- ~18-23 hours (~2-3 days)
-- Decisions needed from Product, Design, Backend
+```
+1. figma-docs/ dagi spec o'qiladi
+2. figma-html-pages/ da HTML yaratiladi
+3. figma-designs/ da Figma Plugin API kodi yaratiladi
+4. figma-bridge.js orqali Figma'da chiziladi
+```
 
-### 🟡 I Want to Improve UX (MEDIUM Priority)  
-→ Navigate: **[fixes/02-medium-priority/](fixes/02-medium-priority/)**
-- 6 improvements for v1.0 scope
-- 4 deferred to v1.1 (responsive, dark mode)
-- ~7.5-21 hours depending on v1.0 vs full scope
+### Figma'dagi tuzilish
 
-### 📦 I Need to Design Components (Critical)
-→ Navigate: **[fixes/03-components-needed/](fixes/03-components-needed/)**
-- 4 UI components used in 40+ locations
-- Dropdown, Table, Date Picker, Tabs
-- ~13.5-17 hours
+Figma faylida sahifalar **qatorlar** bo'yicha joylashadi (chapdan o'ngga):
 
-### 📚 I Want Full Project Analysis
-→ Read: **[penpot/docs/CHATFLOW_FULL_ANALYSIS.md](penpot/docs/CHATFLOW_FULL_ANALYSIS.md)** (1618 lines)
-- 13 comprehensive sections
-- 17 inconsistencies identified
-- 41 missing elements catalogued
-- 3 worst-performing pages
-- 41-task Roadmap
+```
+Figma Canvas:
+┌─────────────────────────────────────────────────────────┐
+│                                                         │
+│  [01-Login]  [02-Register]  [03-Email Verify]  ...      │  ← 1-qator: Auth sahifalari
+│                                                         │
+│  [05-Welcome]  [06-Onboarding]  ...                     │  ← 2-qator: Onboarding
+│                                                         │
+│  [07-Dashboard]  [08-Inbox]  [09-Chat]  ...             │  ← 3-qator: App sahifalari
+│                                                         │
+└─────────────────────────────────────────────────────────┘
+```
 
-### 🎨 I Need Figma Specifications
-→ Navigate: **[figma-docs/](figma-docs/)** (34 files)
-- Complete design system
-- 160+ screens
-- All user flows
-- Landing → Auth → Dashboard → Features
-
-### 📋 I Want to Understand the System
-→ Read: **[penpot/docs/CHATFLOW_FIGMA_ARCHITECTURE.md](penpot/docs/CHATFLOW_FIGMA_ARCHITECTURE.md)**
-
-### 🎨 I Want Penpot Automation
-→ Navigate: **[penpot/](penpot/)**
-- 26 page auto-create
-- Design system automation
-- `npm run penpot:full` to run
-- System architecture
-- Pages overview
-- Design tokens
-- Component organization
+Har bir qator — **bitta papka** (folder/section). Figma'da Section yaratiladi va nom beriladi.
 
 ---
 
-## 📊 Project Status
+## Figma Bridge — sozlash va ishlatish
 
-| Metric | Current | Target v1.0 | Target v1.1 |
-|--------|---------|-------------|-------------|
-| **Overall Readiness** | 75/100 | 85/100 | 95/100 |
-| **Critical Issues** | 7 | 0 ✅ | 0 ✅ |
-| **UX Improvements** | 6 | 4 ✅ | 6 ✅ |
-| **Components Ready** | 0 | 4 ✅ | 4 ✅ |
-| **Accessibility** | 68% | 85% | 100% |
-| **Dark Mode** | 56% | 56% | 100% |
-| **Responsive** | 42% | 42% | 95% |
+### 1-qadam: Figma Desktop'ni debug port bilan ochish
 
----
-
-## 🚀 Recommended Start
-
-### Step 1: Understanding (1 hour)
-```
-1. Read TODO.md (overview, timeline)
-2. Read CHATFLOW_FULL_ANALYSIS.md Section 1-2 (executive summary)
-3. Review fixes/README.md overview
+```powershell
+# Avval Figma'ni yoping, keyin:
+"C:\Users\user\AppData\Local\Figma\Figma.exe" --remote-debugging-port=9222
 ```
 
-### Step 2: Planning (2-3 hours)
-```
-1. Review HIGH priority issues (fixes/01-high-priority/README.md)
-2. Get approvals for critical decisions (Task 3, 4, 6)
-3. Assign owners to each task
-```
+### 2-qadam: Desktop Bridge pluginni import qilish (bir martalik)
 
-### Step 3: Execution (2-3 weeks)
-```
-Week 1:
-  - HIGH priority fixes (7 tasks, 18-23 hours)
-  - Component specs review & approval
+1. Figma'da → **Plugins** → **Development** → **Import plugin from manifest...**
+2. Yo'l: `onlinechat/figma-console-mcp/figma-desktop-bridge/manifest.json`
+3. Plugin import bo'lgach → **Plugins** → **Development** → **Figma Desktop Bridge** → ishga tushiring
 
-Week 2-3:
-  - Design System component implementation (Figma)
-  - MEDIUM priority v1.0 fixes (4 tasks)
-  - Architecture refinement
+### 3-qadam: Dizayn yaratish
 
-Week 3+:
-  - Figma design (160+ screens)
-  - Frontend development
-  - Backend development
+```bash
+# Test (bitta frame yaratish)
+node figma-bridge.js --test
+
+# HTML asosidagi dizaynni Figma'ga chizish
+node figma-bridge.js --file figma-designs/01-login.js
+
+# Inline kod
+node figma-bridge.js --code "var f = figma.createFrame(); f.name = 'Test'; f.resize(200,200);"
 ```
 
 ---
 
-## 👥 Roles & Responsibilities
+## Dizaynni tahrirlash (Edit)
 
-| Role | Key Tasks | Files |
-|------|-----------|-------|
-| **Product Manager** | HIGH #3,4,6 decisions; Scope (v1.0 vs v1.1) | [TODO.md](TODO.md) |
-| **UX Designer** | HIGH #2,7; MEDIUM refactoring; Responsive | [fixes/ overview](fixes/) |
-| **UI Designer** | Components (Dropdown, Table, etc.); Dark mode | [fixes/03-components-needed/](fixes/03-components-needed/) |
-| **Hujjat Muallifi** | Spec updates; Documentation | [docs/](docs/) |
-| Backend Lead | HIGH #5,6; WebSocket events; Permissions | [penpot/docs/STATE_MANAGEMENT.md](penpot/docs/STATE_MANAGEMENT.md) |
-| **Frontend Lead** | Component implementation; Accessibility | [fixes/03-components-needed/](fixes/03-components-needed/) |
+Figma'dagi mavjud elementlarni topish va o'zgartirish:
 
----
+```javascript
+// Nom bo'yicha topish
+var node = figma.currentPage.findOne(n => n.name === "Button / Primary");
+if (node) {
+  node.fills = [{type: 'SOLID', color: {r: 1, g: 0, b: 0}}]; // Qizilga o'zgartirish
+}
 
-## 📖 Documentation Map
+// Barcha textlarni topish
+var texts = figma.currentPage.findAll(n => n.type === "TEXT");
 
-### Analysis & Planning (penpot/docs/)
-- **CHATFLOW_FULL_ANALYSIS.md** — 1618-line comprehensive analysis (13 sections)
-- **CHATFLOW_FIGMA_ARCHITECTURE.md** — System design & architecture
-- **ANALYSIS_PROMPT.md** — Analysis methodology & prompts
+// Barcha framelarni topish
+var frames = figma.currentPage.findAll(n => n.type === "FRAME" && n.parent === figma.currentPage);
+```
 
-### Specifications
-- **figma-docs/01-design-system.md** — Design tokens, components, patterns
-- **figma-docs/02-34*** — 32 feature specifications (landing, inbox, analytics, etc.)
-- **penpot/docs/API_ENDPOINTS_EXTENDED.md** — API documentation
-
-### Management (penpot/docs/)
-- **PERMISSION_MATRIX.md** — Role-based access control
-- **STATE_MANAGEMENT.md** — State machine, WebSocket events
-- **TESTING_STRATEGY.md** — Testing approach (unit, e2e, accessibility)
-
-### Penpot Automation (penpot/)
-- **penpot-automation.js** — 26 page creator script
-- **penpot-advanced.js** — Design system content
-- **WALKTHROUGH.md** — Step-by-step guide
-- **docs/PENPOT_API_RESEARCH.md** — Full API research
-
-### Task Organization
-- **TODO.md** — Master task list (current status, timelines)
-- **fixes/01-high-priority/** — 7 critical fixes (must-do)
-- **fixes/02-medium-priority/** — 6 improvements (v1.0 or v1.1)
-- **fixes/03-components-needed/** — 4 UI components (essential)
+Faylga yozib, execute qilish:
+```bash
+node figma-bridge.js --file figma-designs/edit-colors.js
+```
 
 ---
 
-## 🔗 Key Statistics
+## Dizaynni ko'rish (View)
 
-| Item | Count |
-|------|-------|
-| Figma specification files | 34 |
-| Design system screens | 160+ |
-| Critical inconsistencies | 17 |
-| Missing elements | 41 |
-| Fix tasks | 17 (7 HIGH + 6 MEDIUM + 4 COMPONENTS) |
-| Estimated hours | 53-66.5 (~7-10 days) |
+```javascript
+// Sahifadagi barcha top-level framelarni ro'yxatlash
+var frames = figma.currentPage.children.filter(n => n.type === "FRAME");
+return frames.map(f => ({ name: f.name, id: f.id, w: f.width, h: f.height }));
 
----
+// Bitta frameni topib, unga zoom qilish
+var target = figma.currentPage.findOne(n => n.name === "01 - Login");
+if (target) {
+  figma.viewport.scrollAndZoomIntoView([target]);
+  figma.currentPage.selection = [target];
+}
 
-## 🎓 Learning Path
-
-**New to project?**
-1. Read [TODO.md](TODO.md) — 10 min
-2. Skim [CHATFLOW_FULL_ANALYSIS.md](penpot/docs/CHATFLOW_FULL_ANALYSIS.md) intro — 15 min
-3. Check your role section in TODO.md — 5 min
-4. Navigate to your task folder → start
-
-**Deep dive?**
-1. Read [CHATFLOW_FULL_ANALYSIS.md](penpot/docs/CHATFLOW_FULL_ANALYSIS.md) fully — 2 hours
-2. Review [CHATFLOW_FIGMA_ARCHITECTURE.md](penpot/docs/CHATFLOW_FIGMA_ARCHITECTURE.md) — 1 hour
-3. Explore [figma-docs/](figma-docs/) — 3-4 hours
+// Screenshot olish (MCP orqali)
+// MCP server ishlayotgan bo'lsa, screenshot avtomatik saqlanadi
+```
 
 ---
 
-## 💡 MVP Strategy
+## Foydali buyruqlar
 
-**v1.0 Focus:** Desktop-first, Light mode, Core features
-- ✅ HIGH priority fixes (all 7)
-- ✅ Components (all 4: Dropdown, Table, Date Picker, Tabs)
-- ✅ MEDIUM quick wins (4 tasks: status, date format, search, dropdown/tabs)
-- ⏸️ Responsive → v1.1
-- ⏸️ Dark mode → v1.1
+### Yangi sahifa qo'shish
+```javascript
+// Yangi Figma page yaratish
+var page = figma.createPage();
+page.name = "Auth Screens";
+figma.currentPage = page;
+```
 
-**This reduces dev time by 30% and enables faster MVP launch.**
+### Component yaratish
+```javascript
+var comp = figma.createComponent();
+comp.name = "Button/Primary";
+comp.resize(200, 48);
+comp.cornerRadius = 8;
+comp.fills = [{type: 'SOLID', color: {r: 79/255, g: 70/255, b: 229/255}}];
+comp.layoutMode = "HORIZONTAL";
+comp.primaryAxisAlignItems = "CENTER";
+comp.counterAxisAlignItems = "CENTER";
+```
+
+### O'chirish
+```javascript
+// Nom bo'yicha o'chirish
+var node = figma.currentPage.findOne(n => n.name === "Test Frame from Agent");
+if (node) node.remove();
+
+// Barcha "Test" nomli nodelarni o'chirish
+var tests = figma.currentPage.findAll(n => n.name.includes("Test"));
+tests.forEach(n => n.remove());
+```
+
+### Ranglar (RGB 0-1 format)
+```javascript
+// HEX -> Figma RGB
+// #4F46E5 -> {r: 79/255, g: 70/255, b: 229/255}
+// #FFFFFF -> {r: 1, g: 1, b: 1}
+// #111827 -> {r: 17/255, g: 24/255, b: 39/255}
+```
 
 ---
 
-## 📞 Getting Help
+## Texnik ma'lumot
 
-- **Project questions?** → Check [TODO.md](TODO.md) Contacts section
-- **Task details?** → Navigate to specific folder (fixes/01-high-priority/, etc.)
-- **Component specs?** → See [fixes/03-components-needed/](fixes/03-components-needed/)
-- **Full analysis?** → Read [penpot/docs/CHATFLOW_FULL_ANALYSIS.md](penpot/docs/CHATFLOW_FULL_ANALYSIS.md)
-- **Figma specs?** → Browse [figma-docs/](figma-docs/)
-- **Penpot automation?** → See [penpot/README.md](penpot/README.md)
-
----
-
-## ✨ Project Overview
-
-**CHATFLOW** — Modern, secure live chat platform for O'zbekiston businesses.
-
-**What's included:**
-- 🎨 Complete design system (34 Figma docs)
-- 📊 Comprehensive analysis (1618-line report)
-- ✅ Organized fix tasks (17 categorized issues)
-- 📦 Component specifications (4 critical UI components)
-- 📚 Full documentation (7 technical docs)
-- 🎯 Master task list (timeline, owners, progress)
-
-**Next step:** Open [TODO.md](TODO.md) and start! 🚀
+- **Figma API:** Plugin API (sandbox ichida ishlaydi)
+- **Ulanish:** CDP (Chrome DevTools Protocol) port 9222
+- **Bridge:** Desktop Bridge plugin — WebSocket orqali buyruq qabul qiladi
+- **Limitlar:** Yo'q! Bu o'z pluginingiz — cheksiz dizayn yaratish mumkin
+- **Font:** Inter (Figma default) — Regular, Medium, Semi Bold, Bold
 
 ---
 
-**Last Updated:** February 13, 2026  
-**Status:** Project organized and ready for execution  
-**Estimated Timeline:** 7-10 business days to completion
+## Xatoliklar va yechimlar
+
+| Xatolik | Yechim |
+|---------|--------|
+| "Desktop Bridge plugin topilmadi" | Figma'da plugin ishga tushirilmagan. Plugins → Development → Figma Desktop Bridge |
+| "Cannot write to node with unloaded font" | `await figma.loadFontAsync(...)` qo'shing |
+| "FILL can only be set on children of auto-layout" | Elementni avval `appendChild` qiling, keyin `layoutSizingHorizontal = "FILL"` o'rnating |
+| CDP port 9222 ga ulanmayapti | Figma'ni `--remote-debugging-port=9222` bilan qayta oching |
+| "blendMode" xatosi shadow'da | `blendMode: 'NORMAL'` qo'shing: `{type: 'DROP_SHADOW', ..., blendMode: 'NORMAL'}` |
