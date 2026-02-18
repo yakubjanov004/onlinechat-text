@@ -4,7 +4,11 @@
  */
 const puppeteer = require('puppeteer-core');
 
-const FIGMA_CDP_URL = 'http://localhost:9222';
+// Allow overriding the CDP port with an env var or CLI flag (--port <num>)
+const _argv = process.argv.slice(2);
+const _portFlagIndex = _argv.indexOf('--port');
+const FIGMA_CDP_PORT = process.env.FIGMA_CDP_PORT || process.env.FIGMA_CDP || (_portFlagIndex !== -1 ? _argv[_portFlagIndex + 1] : null) || '9229';
+const FIGMA_CDP_URL = `http://localhost:${FIGMA_CDP_PORT}`;
 
 async function connectToFigma() {
   console.log('Figma Desktop ga ulanmoqda...');

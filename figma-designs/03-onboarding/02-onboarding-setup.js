@@ -1,4 +1,4 @@
-// CHATFLOW - Onboarding - 02 Workspace Setup
+// CHATFLOW - Onboarding - 02 Getting Started (Step 1/5)
 // HTML source: figma-html-pages/03-onboarding/02-onboarding-setup.html
 
 function rgb(hex) {
@@ -26,7 +26,7 @@ await figma.loadFontAsync({ family: "Inter", style: "Medium" });
 await figma.loadFontAsync({ family: "Inter", style: "Semi Bold" });
 await figma.loadFontAsync({ family: "Inter", style: "Bold" });
 
-const frameName = "03 - Onboarding - 02 - Workspace Setup";
+const frameName = "03 - Onboarding - 02 - Getting Started (1/5)";
 const existing = figma.currentPage.findOne((n) => n.type === "FRAME" && n.name === frameName);
 if (existing) {
   existing.remove();
@@ -90,8 +90,10 @@ addLine(false);
 addDot("next", "3");
 addLine(false);
 addDot("next", "4");
+addLine(false);
+addDot("next", "5");
 
-const ratio = makeText("Ratio", "1/4", "Medium", 14, "#6B7280");
+const ratio = makeText("Ratio", "1/5", "Medium", 14, "#6B7280");
 ratio.x = progress.width + 8;
 ratio.y = 4;
 progress.appendChild(ratio);
@@ -119,7 +121,7 @@ card.effects = [
 ];
 screen.appendChild(card);
 
-const step = makeText("Step", "1-qadam / 4", "Semi Bold", 13, "#4F46E5");
+const step = makeText("Step", "1-qadam / 5", "Semi Bold", 13, "#4F46E5");
 step.x = 40;
 step.y = 40;
 card.appendChild(step);
@@ -200,11 +202,11 @@ ghost.strokeWeight = 1;
 ghost.layoutMode = "HORIZONTAL";
 ghost.primaryAxisAlignItems = "CENTER";
 ghost.counterAxisAlignItems = "CENTER";
-ghost.setPluginData("destination", "../04-dashboard/01-dashboard.html");
-ghost.setPluginData("analytics_label", "onboarding_workspace_skip");
+ghost.setPluginData("destination", "./03-workspace.html");
+ghost.setPluginData("analytics_label", "onboarding_setup_back");
 actions.appendChild(ghost);
 
-const ghostLabel = makeText("Label", "Keyinroq", "Semi Bold", 14, "#374151");
+const ghostLabel = makeText("Label", "Boshlash", "Semi Bold", 14, "#374151");
 ghost.appendChild(ghostLabel);
 
 const primary = figma.createFrame();
@@ -215,8 +217,8 @@ primary.fills = [{ type: "SOLID", color: rgb("#4F46E5") }];
 primary.layoutMode = "HORIZONTAL";
 primary.primaryAxisAlignItems = "CENTER";
 primary.counterAxisAlignItems = "CENTER";
-primary.setPluginData("destination", "./04-widget-customize.html");
-primary.setPluginData("analytics_label", "onboarding_workspace_continue");
+primary.setPluginData("destination", "./03-workspace.html");
+primary.setPluginData("analytics_label", "onboarding_setup_continue");
 actions.appendChild(primary);
 
 const primaryLabel = makeText("Label", "Davom etish", "Semi Bold", 14, "#FFFFFF");

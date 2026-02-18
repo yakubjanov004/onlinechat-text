@@ -262,7 +262,7 @@
 </head>
 <body>
   <div class="wrap">
-    <div class="progress" role="img" aria-label="Onboarding progress: 1 of 4">
+    <div class="progress" role="img" aria-label="Onboarding progress: 1 of 5">
       <div class="dot active">1</div>
       <div class="line"></div>
       <div class="dot next">2</div>
@@ -270,11 +270,13 @@
       <div class="dot next">3</div>
       <div class="line"></div>
       <div class="dot next">4</div>
-      <span style="margin-left:8px;color:#6b7280;font-size:14px;">1/4</span>
+      <div class="line"></div>
+      <div class="dot next">5</div>
+      <span style="margin-left:8px;color:#6b7280;font-size:14px;">1/5</span>
     </div>
 
     <main class="card">
-      <p class="step">1-qadam / 4</p>
+      <p class="step">1-qadam / 5</p>
       <h1 id="setup-title">Workspace yaratish</h1>
       <p class="sub">Kompaniyangiz uchun ishchi makonni sozlang.</p>
 
@@ -421,7 +423,7 @@
         var payload = {
           status: "in_progress",
           currentStep: 2,
-          currentPage: "04-widget-customize.html",
+          currentPage: "03-workspace.html",
           userName: userName || state.userName || "Ulug'bek",
           workspaceName: workspaceInput.value.trim(),
           websiteUrl: normalizeWebsite(websiteInput.value),
@@ -433,12 +435,12 @@
         continueButton.classList.add("loading");
         sendAnalyticsEvent("onboarding_workspace_continue", {
           step: 1,
-          to: "./04-widget-customize.html",
+          to: "./03-workspace.html",
           team_size: teamSelect.value
         });
 
         setTimeout(function () {
-          var next = "./04-widget-customize.html";
+          var next = "./03-workspace.html";
           var query = "?name=" + encodeURIComponent(payload.userName);
           window.location.href = next + query;
         }, 220);
