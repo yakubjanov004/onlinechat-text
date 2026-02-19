@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CHATFLOW - Auto Reply</title>
+  <style>
+    :root { --bg:#f6f8fb; --surface:#fff; --text:#0f172a; --muted:#64748b; --line:#e2e8f0; --primary:#2563eb; --primary-soft:#dbeafe; --ok:#0f766e; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Inter,"Segoe UI",Arial,sans-serif; background:radial-gradient(circle at 100% 0,#eff6ff 0%,#f8fafc 40%,#f6f8fb 100%); color:var(--text); }
+    .header { height:64px; background:rgba(255,255,255,.92); border-bottom:1px solid var(--line); display:flex; align-items:center; justify-content:space-between; padding:0 16px; position:sticky; top:0; z-index:20; }
+    .brand { font-weight:800; color:var(--primary); text-decoration:none; }
+    .search { width:min(420px,48vw); height:40px; border-radius:999px; border:1px solid var(--line); padding:0 14px; color:var(--muted); background:#fff; }
+    .header-right { display:flex; align-items:center; gap:12px; color:var(--muted); font-size:13px; }
+    .layout { display:grid; grid-template-columns:240px minmax(0,1fr); min-height:calc(100vh - 64px); }
+    .sidebar { background:var(--surface); border-right:1px solid var(--line); padding:14px 10px; }
+    .menu-label { margin:10px 10px 8px; font-size:11px; font-weight:700; color:#94a3b8; text-transform:uppercase; letter-spacing:.6px; }
+    .menu-item { height:40px; border-radius:10px; padding:0 12px; display:flex; align-items:center; justify-content:space-between; color:#334155; text-decoration:none; font-size:14px; margin-bottom:4px; border-left:3px solid transparent; }
+    .menu-item:hover { background:#f1f5f9; }
+    .menu-item.active { background:var(--primary-soft); color:#1d4ed8; border-left-color:#1d4ed8; font-weight:600; }
+    .badge { min-width:22px; height:22px; border-radius:999px; padding:0 7px; display:inline-flex; align-items:center; justify-content:center; font-size:11px; font-weight:700; color:#fff; background:#2563eb; }
+    .content { padding:24px; }
+    .eyebrow { margin:0; color:#1d4ed8; font-size:12px; font-weight:700; text-transform:uppercase; }
+    h1 { margin:8px 0 6px; font-size:clamp(24px,4vw,34px); line-height:1.15; }
+    .sub { margin:0; color:var(--muted); font-size:14px; max-width:900px; }
+    .panel { margin-top:16px; background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:16px; }
+    .panel h2 { margin:0 0 10px; font-size:16px; }
+    .panel ol,.panel ul { margin:0; padding-left:18px; display:grid; gap:8px; color:#334155; font-size:14px; line-height:1.45; }
+    .siblings a { color:#334155; text-decoration:none; }
+    .siblings a.current { color:#1d4ed8; font-weight:700; }
+    .status { margin-top:16px; display:inline-flex; align-items:center; gap:8px; font-size:13px; color:var(--ok); background:#ecfeff; border:1px solid #bae6fd; border-radius:999px; padding:6px 10px; }
+    @media (max-width:1000px) { .layout { grid-template-columns:1fr; } .sidebar { border-right:none; border-bottom:1px solid var(--line); } .search { width:min(240px,44vw); } }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <a class="brand" href="../04-dashboard/01-dashboard.html">CHATFLOW</a>
+    <input class="search" value="Qidiruv... (Ctrl+K)" aria-label="Qidiruv" />
+    <div class="header-right"><span>Online</span><span>Bell (3)</span><span>UA</span></div>
+  </header>
+  <div class="layout">
+    <aside class="sidebar">
+      <p class="menu-label">Main</p>
+        <a class='menu-item' href='../05-inbox/01-inbox-chat.html'><span>Inbox</span><span class='badge'>12</span></a>
+        <a class='menu-item' href='../12-contacts/01-contacts-list.html'><span>Contacts</span></a>
+        <a class='menu-item' href='../13-visitors/01-visitors-list.html'><span>Visitors</span><span class='badge'>5</span></a>
+        <a class='menu-item active' href='../06-automation/01-working-hours.html'><span>Automation</span></a>
+        <a class='menu-item' href='../07-team/01-agents.html'><span>Team</span></a>
+        <a class='menu-item' href='../14-team-chat/01-team-chat.html'><span>Team Chat</span><span class='badge'>3</span></a>
+        <a class='menu-item' href='../08-analytics/01-overview.html'><span>Analytics</span></a>
+        <a class='menu-item' href='../15-knowledge-base/01-kb-dashboard.html'><span>Knowledge Base</span></a>
+        <a class='menu-item' href='../09-settings/01-workspace.html'><span>Settings</span></a>
+        <a class='menu-item' href='../10-billing/01-plan.html'><span>Billing</span></a>
+        <a class='menu-item' href='../16-addons/01-addons-catalog.html'><span>Add-ons</span></a>
+        <a class='menu-item' href='../17-developer/01-api-keys.html'><span>Developer</span></a>
+    </aside>
+    <main class="content">
+      <p class="eyebrow">Automation Module</p>
+      <h1>Auto Reply</h1>
+      <p class="sub">Ushbu sahifa <code>full-pages-v2.md</code> dagi <strong>02-auto-reply.html</strong> tarkibi asosida to'ldirildi.</p>
+      <section class="panel"><h2>Spec Checklist</h2><ol>
+          <li>CONTENT</li>
+          <li>Tab bar: Ish vaqti | [Auto-Reply] | Triggers | Salomlash</li>
+          <li>AUTO-REPLY RULES</li>
+          <li>&quot;Yangi qoida&quot; button</li>
+          <li>Rules table</li>
+          <li>Nomi | Holat (Active/Paused) | Trigger | Action</li>
+          <li>Har bir qator expandable detail</li>
+          <li>Rule builder modal</li>
+          <li>Trigger: Yangi chat | Javob kutish (5/10/15 min) | Offline</li>
+          <li>Shart: Kanal = Web | Telegram | Hammasi</li>
+          <li>Javob: Text input (variables: {name}, {agent})</li>
+          <li>Preview</li>
+          <li>&quot;Saqlash&quot; button</li>
+      </ol></section>
+      <section class="panel"><h2>Flow va Navigatsiya</h2><ul>
+          <li>Tab bar: Ish vaqti | [Auto-Reply] | Triggers | Salomlash</li>
+          <li>&quot;Yangi qoida&quot; button</li>
+          <li>Rules table</li>
+          <li>Rule builder modal</li>
+          <li>&quot;Saqlash&quot; button</li>
+      </ul></section>
+      <section class="panel"><h2>Shu modul sahifalari</h2><ul class="siblings">
+            <li><a class='' href='./01-working-hours.html'>Working Hours</a></li>
+            <li><a class='current' href='./02-auto-reply.html'>Auto Reply</a></li>
+            <li><a class='' href='./03-triggers.html'>Triggers</a></li>
+            <li><a class='' href='./04-greetings.html'>Greetings</a></li>
+      </ul></section>
+      <div class="status">Ready: Spec-based sahifa yaratildi</div>
+    </main>
+  </div>
+</body>
+</html>

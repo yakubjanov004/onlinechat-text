@@ -1,658 +1,418 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="uz">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CHATFLOW - Inbox</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-            background: #F9FAFB;
-            overflow: hidden;
-        }
-        /* Header */
-        .header {
-            height: 64px;
-            background: white;
-            border-bottom: 1px solid #E5E7EB;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0 24px;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-        }
-        .logo {
-            font-size: 20px;
-            font-weight: 700;
-            color: #4F46E5;
-        }
-        .header-search {
-            width: 400px;
-            height: 40px;
-            background: #F3F4F6;
-            border: none;
-            border-radius: 8px;
-            padding: 0 12px 0 40px;
-            font-size: 14px;
-        }
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-        .status-badge {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-size: 13px;
-            font-weight: 500;
-        }
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #10B981;
-        }
-        .notification-bell {
-            width: 40px;
-            height: 40px;
-            border-radius: 8px;
-            background: #F9FAFB;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            position: relative;
-        }
-        .notification-badge {
-            position: absolute;
-            top: 8px;
-            right: 8px;
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #EF4444;
-        }
-        .user-avatar {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            background: #E0E7FF;
-            color: #4F46E5;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-            font-weight: 600;
-        }
-        /* Main Container */
-        .main-container {
-            display: flex;
-            height: calc(100vh - 64px);
-        }
-        /* Sidebar */
-        .sidebar {
-            width: 240px;
-            background: white;
-            border-right: 1px solid #E5E7EB;
-            padding: 16px 0;
-        }
-        .sidebar-item {
-            padding: 12px 24px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            cursor: pointer;
-            color: #6B7280;
-            font-size: 14px;
-            font-weight: 500;
-            transition: all 0.2s;
-        }
-        .sidebar-item.active {
-            background: #EEF2FF;
-            color: #4F46E5;
-            border-left: 3px solid #4F46E5;
-        }
-        .sidebar-item:hover {
-            background: #F9FAFB;
-        }
-        .sidebar-icon {
-            font-size: 18px;
-        }
-        .sidebar-divider {
-            height: 1px;
-            background: #E5E7EB;
-            margin: 8px 0;
-        }
-        /* Chat List Panel */
-        .chat-list-panel {
-            width: 360px;
-            background: white;
-            border-right: 1px solid #E5E7EB;
-            display: flex;
-            flex-direction: column;
-        }
-        .chat-list-header {
-            padding: 16px;
-            border-bottom: 1px solid #E5E7EB;
-        }
-        .chat-search {
-            width: 100%;
-            height: 40px;
-            background: #F3F4F6;
-            border: none;
-            border-radius: 8px;
-            padding: 0 12px 0 40px;
-            font-size: 14px;
-            margin-bottom: 12px;
-        }
-        .chat-tabs {
-            display: flex;
-            gap: 8px;
-        }
-        .chat-tab {
-            padding: 8px 16px;
-            border-radius: 8px;
-            font-size: 14px;
-            font-weight: 500;
-            cursor: pointer;
-            background: transparent;
-            color: #6B7280;
-            border: none;
-            transition: all 0.2s;
-        }
-        .chat-tab.active {
-            background: #E0E7FF;
-            color: #4F46E5;
-        }
-        .chat-list {
-            flex: 1;
-            overflow-y: auto;
-        }
-        .chat-card {
-            padding: 16px;
-            border-bottom: 1px solid #F3F4F6;
-            cursor: pointer;
-            transition: all 0.2s;
-            position: relative;
-        }
-        .chat-card:hover {
-            background: #F9FAFB;
-        }
-        .chat-card.active {
-            background: #EEF2FF;
-            border-left: 3px solid #4F46E5;
-        }
-        .chat-card.unread {
-            background: #FFFBEB;
-        }
-        .chat-card-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 8px;
-        }
-        .chat-status {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-        }
-        .chat-status.online {
-            background: #10B981;
-        }
-        .chat-status.offline {
-            background: #D1D5DB;
-        }
-        .chat-customer-name {
-            font-size: 14px;
-            font-weight: 600;
-            color: #111827;
-            flex: 1;
-        }
-        .chat-time {
-            font-size: 12px;
-            color: #9CA3AF;
-        }
-        .chat-last-message {
-            font-size: 13px;
-            color: #6B7280;
-            margin-bottom: 6px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-        }
-        .chat-meta {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .chat-agent {
-            font-size: 12px;
-            color: #9CA3AF;
-        }
-        .unread-badge {
-            background: #EF4444;
-            color: white;
-            font-size: 11px;
-            font-weight: 600;
-            padding: 2px 6px;
-            border-radius: 10px;
-        }
-        /* Chat Window */
-        .chat-window {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            background: white;
-        }
-        .chat-header {
-            height: 64px;
-            border-bottom: 1px solid #E5E7EB;
-            padding: 0 24px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-        .chat-header-left {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .chat-customer-info {
-            display: flex;
-            flex-direction: column;
-        }
-        .chat-customer-title {
-            font-size: 16px;
-            font-weight: 600;
-            color: #111827;
-        }
-        .chat-customer-status {
-            font-size: 13px;
-            color: #10B981;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .chat-header-actions {
-            display: flex;
-            gap: 12px;
-        }
-        .action-btn {
-            padding: 8px 16px;
-            border-radius: 8px;
-            border: 1px solid #E5E7EB;
-            background: white;
-            color: #374151;
-            font-size: 14px;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.2s;
-        }
-        .action-btn:hover {
-            background: #F9FAFB;
-        }
-        .action-btn.primary {
-            background: #4F46E5;
-            color: white;
-            border: none;
-        }
-        .action-btn.primary:hover {
-            background: #4338CA;
-        }
-        /* Messages Area */
-        .messages-area {
-            flex: 1;
-            padding: 24px;
-            overflow-y: auto;
-            background: #FFFFFF;
-        }
-        .message-group {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-        .message {
-            display: flex;
-            flex-direction: column;
-            max-width: 70%;
-        }
-        .message.incoming {
-            align-items: flex-start;
-        }
-        .message.outgoing {
-            align-items: flex-end;
-            align-self: flex-end;
-        }
-        .message-bubble {
-            padding: 12px;
-            border-radius: 12px;
-            font-size: 14px;
-            line-height: 20px;
-        }
-        .message.incoming .message-bubble {
-            background: #F3F4F6;
-            color: #111827;
-            border-top-left-radius: 4px;
-        }
-        .message.outgoing .message-bubble {
-            background: #4F46E5;
-            color: white;
-            border-top-right-radius: 4px;
-        }
-        .message-timestamp {
-            font-size: 12px;
-            color: #9CA3AF;
-            margin-top: 4px;
-        }
-        .system-message {
-            text-align: center;
-            font-size: 12px;
-            color: #9CA3AF;
-            font-style: italic;
-            padding: 8px 0;
-        }
-        .typing-indicator {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 12px;
-            background: #F3F4F6;
-            border-radius: 12px;
-            width: fit-content;
-            margin-top: 16px;
-        }
-        .typing-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: #9CA3AF;
-            animation: typing 1.4s infinite;
-        }
-        .typing-dot:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-        .typing-dot:nth-child(3) {
-            animation-delay: 0.4s;
-        }
-        @keyframes typing {
-            0%, 60%, 100% { transform: translateY(0); }
-            30% { transform: translateY(-8px); }
-        }
-        /* Input Area */
-        .input-area {
-            border-top: 1px solid #E5E7EB;
-            padding: 16px 24px;
-            background: white;
-        }
-        .input-toolbar {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 12px;
-        }
-        .toolbar-btn {
-            width: 32px;
-            height: 32px;
-            border-radius: 8px;
-            border: none;
-            background: transparent;
-            color: #6B7280;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s;
-        }
-        .toolbar-btn:hover {
-            background: #F3F4F6;
-            color: #4F46E5;
-        }
-        .input-container {
-            display: flex;
-            gap: 12px;
-            align-items: flex-end;
-        }
-        .message-input {
-            flex: 1;
-            min-height: 44px;
-            max-height: 120px;
-            padding: 12px;
-            border: 1px solid #E5E7EB;
-            border-radius: 8px;
-            font-size: 14px;
-            font-family: inherit;
-            resize: none;
-            overflow-y: auto;
-        }
-        .message-input:focus {
-            outline: none;
-            border-color: #4F46E5;
-        }
-        .send-btn {
-            width: 40px;
-            height: 40px;
-            border-radius: 8px;
-            border: none;
-            background: #4F46E5;
-            color: white;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s;
-        }
-        .send-btn:hover {
-            background: #4338CA;
-        }
-        .send-btn:disabled {
-            background: #D1D5DB;
-            cursor: not-allowed;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CHATFLOW - Inbox</title>
+  <style>
+    :root {
+      --p: #4f46e5;
+      --p2: #4338ca;
+      --p50: #eef2ff;
+      --p100: #e0e7ff;
+      --ok: #10b981;
+      --err: #ef4444;
+      --g900: #111827;
+      --g700: #374151;
+      --g500: #6b7280;
+      --g400: #9ca3af;
+      --g300: #d1d5db;
+      --g200: #e5e7eb;
+      --g100: #f3f4f6;
+      --g50: #f9fafb;
+      --w: #fff;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; height: 100%; font-family: Inter, "Segoe UI", sans-serif; background: var(--g50); color: var(--g900); }
+    body { overflow: hidden; }
+    .header {
+      height: 64px; border-bottom: 1px solid var(--g200); background: rgba(255,255,255,.95);
+      display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 0 16px;
+    }
+    .brand { font-weight: 800; font-size: 20px; color: var(--p); text-decoration: none; }
+    .header input {
+      width: min(460px, 45vw); height: 40px; border: 1px solid var(--g200); border-radius: 999px; padding: 0 14px;
+      font-size: 14px; outline: none;
+    }
+    .header input:focus { border-color: var(--p); box-shadow: 0 0 0 2px rgba(79,70,229,.15); }
+    .hdr-right { display: flex; align-items: center; gap: 8px; }
+    .pill { border: 1px solid #bbf7d0; background: #ecfdf5; color: #065f46; border-radius: 999px; padding: 8px 10px; font-size: 12px; font-weight: 700; }
+    .btn-i {
+      border: 1px solid var(--g200); background: var(--w); border-radius: 8px; min-width: 38px; height: 38px;
+      padding: 0 10px; color: var(--g700); font-size: 12px; font-weight: 700; cursor: pointer;
+    }
+    .btn-i:hover { background: var(--g100); }
+
+    .app { height: calc(100vh - 64px); display: grid; grid-template-columns: 240px 360px minmax(0, 1fr); }
+    .side {
+      border-right: 1px solid var(--g200); background: var(--w); padding: 12px 10px; overflow: auto;
+    }
+    .lbl { margin: 10px; font-size: 11px; font-weight: 700; color: var(--g400); text-transform: uppercase; letter-spacing: .6px; }
+    .m {
+      width: 100%; height: 40px; margin-bottom: 4px; border: 0; border-left: 3px solid transparent; border-radius: 8px;
+      background: transparent; color: var(--g700); text-align: left; padding: 0 12px; font-size: 14px; cursor: pointer;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .m:hover { background: var(--g100); }
+    .m.active { border-left-color: var(--p); background: var(--p100); color: var(--p); font-weight: 700; }
+    .bdg { background: var(--err); color: var(--w); border-radius: 999px; min-width: 20px; height: 20px; padding: 0 6px; display: inline-flex; align-items: center; justify-content: center; font-size: 11px; }
+
+    .list {
+      border-right: 1px solid var(--g200); background: var(--w); display: grid; grid-template-rows: auto 1fr auto; min-height: 0;
+    }
+    .top { border-bottom: 1px solid var(--g200); padding: 12px 14px; display: grid; gap: 10px; }
+    .ttl { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .ttl h1 { margin: 0; font-size: 20px; }
+    .metrics { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+    .metric { border: 1px solid var(--g200); border-radius: 8px; background: var(--g50); padding: 8px; }
+    .metric small { color: var(--g500); font-size: 11px; display: block; }
+    .metric strong { font-size: 14px; }
+    .sr {
+      display: grid; grid-template-columns: 1fr 110px; gap: 8px;
+    }
+    .sr input, .sr select {
+      height: 40px; border: 1px solid var(--g200); border-radius: 8px; background: var(--g50); padding: 0 12px; outline: none; font-size: 14px;
+    }
+    .sr input:focus, .sr select:focus { border-color: var(--p); box-shadow: 0 0 0 2px rgba(79,70,229,.15); background: var(--w); }
+    .tabs { display: flex; flex-wrap: wrap; gap: 6px; }
+    .t {
+      border: 1px solid transparent; background: transparent; color: var(--g500); border-radius: 8px; height: 34px; padding: 0 12px; font-size: 13px; font-weight: 700; cursor: pointer;
+    }
+    .t:hover { background: var(--g100); color: var(--g700); }
+    .t.active { border-color: #c7d2fe; background: var(--p100); color: var(--p2); }
+
+    .cards { overflow: auto; min-height: 0; }
+    .card {
+      border: 0; border-bottom: 1px solid var(--g100); border-left: 3px solid transparent; background: var(--w);
+      width: 100%; text-align: left; padding: 12px 14px; display: grid; gap: 6px; cursor: pointer;
+    }
+    .card:hover { background: var(--g50); }
+    .card.sel { border-left-color: var(--p); background: var(--p50); }
+    .card.unread { border-left-color: var(--p); }
+    .row { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-width: 0; }
+    .rowl { display: flex; align-items: center; gap: 10px; min-width: 0; }
+    .dot { width: 10px; height: 10px; border-radius: 999px; }
+    .a { background: var(--ok); } .as { background: var(--g300); } .c { background: var(--g700); }
+    .nm { font-size: 14px; font-weight: 600; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+    .tm { font-size: 12px; color: var(--g400); flex-shrink: 0; }
+    .pr { font-size: 13px; color: var(--g500); overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+    .meta { display: flex; align-items: center; justify-content: space-between; gap: 6px; font-size: 12px; color: var(--g500); }
+    .chn { border: 1px solid var(--g200); background: var(--g100); border-radius: 999px; padding: 2px 8px; font-size: 11px; }
+    .u { background: var(--err); color: var(--w); min-width: 20px; height: 20px; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; padding: 0 6px; }
+    .urg { color: #b91c1c; font-weight: 700; font-size: 11px; }
+    .foot { border-top: 1px solid var(--g200); padding: 10px 14px; display: flex; gap: 8px; }
+    .btn { height: 40px; border-radius: 8px; border: 1px solid var(--g200); background: var(--w); color: var(--g700); padding: 0 12px; font-size: 14px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; cursor: pointer; }
+    .btn:hover { background: var(--g100); }
+    .btn.p { background: var(--p); color: var(--w); border-color: var(--p); }
+    .btn.p:hover { background: var(--p2); }
+
+    .main { background: linear-gradient(160deg,#fff,#f8fafc); display: grid; grid-template-rows: auto 1fr; min-width: 0; }
+    .main-top { border-bottom: 1px solid var(--g200); padding: 12px 16px; display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .main-top h2 { margin: 0; font-size: 18px; }
+    .stack { overflow: auto; min-height: 0; }
+    .state { min-height: 100%; padding: 20px; display: none; align-items: center; justify-content: center; }
+    .state.on { display: flex; }
+    .box {
+      width: min(560px,100%); border: 1px solid var(--g200); border-radius: 14px; background: var(--w); box-shadow: 0 14px 28px rgba(15,23,42,.06); padding: 24px; text-align: center;
+    }
+    .ico { width: 54px; height: 54px; border-radius: 999px; display: grid; place-items: center; margin: 0 auto 12px; background: var(--p100); color: var(--p2); font-weight: 800; }
+    .box h3 { margin: 0 0 8px; font-size: 22px; }
+    .box p { margin: 0; color: var(--g500); line-height: 1.5; font-size: 14px; }
+    .acts { margin-top: 16px; display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; }
+
+    .sk { width: min(620px,100%); display: grid; gap: 10px; }
+    .sk-card { border: 1px solid var(--g200); border-radius: 10px; background: var(--w); padding: 14px; overflow: hidden; position: relative; }
+    .sk-card:after {
+      content: ""; position: absolute; inset: 0; transform: translateX(-100%);
+      background: linear-gradient(90deg, rgba(255,255,255,0), rgba(248,250,252,.95), rgba(255,255,255,0));
+      animation: sh 1.4s linear infinite;
+    }
+    .l { height: 10px; border-radius: 999px; background: var(--g200); margin-bottom: 10px; }
+    .l.w { width: 76%; } .l.m { width: 52%; } .l.s { width: 33%; margin-bottom: 0; }
+    @keyframes sh { 100% { transform: translateX(100%); } }
+
+    .toasts { position: fixed; right: 16px; bottom: 16px; z-index: 100; display: grid; gap: 8px; }
+    .toast {
+      border: 1px solid #86efac; background: #ecfdf5; color: #065f46; border-radius: 10px; padding: 10px 12px;
+      font-size: 13px; font-weight: 700; box-shadow: 0 8px 24px rgba(15,23,42,.1);
+    }
+
+    @media (max-width: 1180px) { .app { grid-template-columns: 72px 320px minmax(0,1fr); } .m { justify-content: center; padding: 0; } .m .bdg { display: none; } }
+    @media (max-width: 930px) { .app { grid-template-columns: 1fr; height: auto; } body { overflow: auto; } .side { display: none; } .list { min-height: 420px; border-right: 0; border-bottom: 1px solid var(--g200); } .main { min-height: 420px; } }
+    @media (max-width: 760px) { .header input { display: none; } .metrics { grid-template-columns: 1fr; } .sr { grid-template-columns: 1fr; } }
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <div class="header">
-        <div class="logo">CHATFLOW</div>
-        <input type="text" class="header-search" placeholder="Qidirish... (Ctrl+K)">
-        <div class="header-right">
-            <div class="status-badge">
-                <div class="status-dot"></div>
-                <span>Online</span>
-            </div>
-            <div class="notification-bell">
-                🔔
-                <div class="notification-badge"></div>
-            </div>
-            <div class="user-avatar">SA</div>
-        </div>
+  <header class="header">
+    <a class="brand" href="../04-dashboard/01-dashboard.html">CHATFLOW</a>
+    <input id="globalSearch" type="search" placeholder="Global qidiruv (Ctrl+K)" aria-label="Global search" />
+    <div class="hdr-right">
+      <span class="pill">Online</span>
+      <button class="btn-i" type="button">Bell 3</button>
+      <button class="btn-i" type="button">SA</button>
     </div>
+  </header>
 
-    <!-- Main Container -->
-    <div class="main-container">
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <div class="sidebar-item active">
-                <span class="sidebar-icon">📥</span>
-                <span>Inbox</span>
-            </div>
-            <div class="sidebar-item">
-                <span class="sidebar-icon">🤖</span>
-                <span>Automation</span>
-            </div>
-            <div class="sidebar-item">
-                <span class="sidebar-icon">👥</span>
-                <span>Team</span>
-            </div>
-            <div class="sidebar-item">
-                <span class="sidebar-icon">📊</span>
-                <span>Analytics</span>
-            </div>
-            <div class="sidebar-divider"></div>
-            <div class="sidebar-item">
-                <span class="sidebar-icon">⚙️</span>
-                <span>Settings</span>
-            </div>
-            <div class="sidebar-item">
-                <span class="sidebar-icon">💳</span>
-                <span>Billing</span>
-            </div>
+  <div class="app">
+    <aside class="side" aria-label="Main menu">
+      <p class="lbl">Asosiy</p>
+      <button class="m active" type="button"><span>Inbox</span><span class="bdg">12</span></button>
+      <button class="m" type="button"><span>Contacts</span></button>
+      <button class="m" type="button"><span>Visitors</span><span class="bdg" style="background:#16a34a;">5</span></button>
+      <button class="m" type="button"><span>Automation</span></button>
+      <button class="m" type="button"><span>Team</span></button>
+      <button class="m" type="button"><span>Team Chat</span><span class="bdg" style="background:#2563eb;">3</span></button>
+      <button class="m" type="button"><span>Analytics</span></button>
+      <button class="m" type="button"><span>Knowledge Base</span></button>
+      <p class="lbl">Sozlamalar</p>
+      <button class="m" type="button"><span>Settings</span></button>
+      <button class="m" type="button"><span>Billing</span></button>
+      <button class="m" type="button"><span>Add-ons</span></button>
+      <button class="m" type="button"><span>Developer</span></button>
+    </aside>
+
+    <section class="list">
+      <div class="top">
+        <div class="ttl">
+          <h1>Inbox</h1>
+          <button id="skeletonBtn" class="btn-i" type="button">Skeleton</button>
         </div>
-
-        <!-- Chat List Panel -->
-        <div class="chat-list-panel">
-            <div class="chat-list-header">
-                <input type="text" class="chat-search" placeholder="Mijoz ismi yoki xabar...">
-                <div class="chat-tabs">
-                    <button class="chat-tab active">Active</button>
-                    <button class="chat-tab">Assigned</button>
-                    <button class="chat-tab">Closed</button>
-                </div>
-            </div>
-            <div class="chat-list">
-                <!-- Chat Card 1 - Active -->
-                <div class="chat-card active">
-                    <div class="chat-card-header">
-                        <div class="chat-status online"></div>
-                        <div class="chat-customer-name">Ahmad Valiyev</div>
-                        <div class="chat-time">2m</div>
-                    </div>
-                    <div class="chat-last-message">Salom, yordam kerak edi...</div>
-                    <div class="chat-meta">
-                        <div class="chat-agent">Sara</div>
-                        <div class="unread-badge">3</div>
-                    </div>
-                </div>
-
-                <!-- Chat Card 2 -->
-                <div class="chat-card unread">
-                    <div class="chat-card-header">
-                        <div class="chat-status offline"></div>
-                        <div class="chat-customer-name">Nodira Rahimova</div>
-                        <div class="chat-time">5m</div>
-                    </div>
-                    <div class="chat-last-message">Narxlar haqida ma'lumot...</div>
-                    <div class="chat-meta">
-                        <div class="chat-agent">Bobur</div>
-                        <div class="unread-badge">1</div>
-                    </div>
-                </div>
-
-                <!-- Chat Card 3 -->
-                <div class="chat-card">
-                    <div class="chat-card-header">
-                        <div class="chat-status offline"></div>
-                        <div class="chat-customer-name">Sardor Tursunov</div>
-                        <div class="chat-time">1h</div>
-                    </div>
-                    <div class="chat-last-message">Rahmat! Hammasi tushunarli</div>
-                    <div class="chat-meta">
-                        <div class="chat-agent">Ali</div>
-                    </div>
-                </div>
-
-                <!-- Chat Card 4 -->
-                <div class="chat-card">
-                    <div class="chat-card-header">
-                        <div class="chat-status online"></div>
-                        <div class="chat-customer-name">Malika Azimova</div>
-                        <div class="chat-time">2h</div>
-                    </div>
-                    <div class="chat-last-message">O'rnatish qanday qilinadi?</div>
-                    <div class="chat-meta">
-                        <div class="chat-agent">Sara</div>
-                    </div>
-                </div>
-            </div>
+        <div class="metrics">
+          <article class="metric"><small>Assigned</small><strong id="mAssigned">8</strong></article>
+          <article class="metric"><small>Unread</small><strong id="mUnread">3</strong></article>
+          <article class="metric"><small>Avg reply</small><strong>2m 15s</strong></article>
         </div>
-
-        <!-- Chat Window -->
-        <div class="chat-window">
-            <!-- Chat Header -->
-            <div class="chat-header">
-                <div class="chat-header-left">
-                    <div class="chat-customer-info">
-                        <div class="chat-customer-title">Ahmad Valiyev</div>
-                        <div class="chat-customer-status">
-                            <div class="status-dot"></div>
-                            Online
-                        </div>
-                    </div>
-                </div>
-                <div class="chat-header-actions">
-                    <button class="action-btn">🏷️ Tag</button>
-                    <button class="action-btn">👤 Transfer</button>
-                    <button class="action-btn primary">✓ Resolve</button>
-                </div>
-            </div>
-
-            <!-- Messages Area -->
-            <div class="messages-area">
-                <div class="system-message">Ahmad chatga qo'shildi — 14:20</div>
-                
-                <div class="message-group">
-                    <div class="message incoming">
-                        <div class="message-bubble">
-                            Salom, yordam kerak edi
-                        </div>
-                        <div class="message-timestamp">Ahmad • 14:20</div>
-                    </div>
-
-                    <div class="message incoming">
-                        <div class="message-bubble">
-                            Chat widgetni qanday qilib o'rnatish mumkin?
-                        </div>
-                        <div class="message-timestamp">Ahmad • 14:21</div>
-                    </div>
-
-                    <div class="message outgoing">
-                        <div class="message-bubble">
-                            Assalomu alaykum! Albatta yordam beraman
-                        </div>
-                        <div class="message-timestamp">Sara • 14:21</div>
-                    </div>
-
-                    <div class="message outgoing">
-                        <div class="message-bubble">
-                            Chat widgetni o'rnatish juda oson. Settings → Widget → Install code dan kod olasiz va saytingiz HTML'iga joylashtiring
-                        </div>
-                        <div class="message-timestamp">Sara • 14:22</div>
-                    </div>
-
-                    <div class="message incoming">
-                        <div class="message-bubble">
-                            Rahmat! Qaysi qismiga joylashtirishim kerak?
-                        </div>
-                        <div class="message-timestamp">Ahmad • 14:23</div>
-                    </div>
-                </div>
-
-                <div class="typing-indicator">
-                    <div class="typing-dot"></div>
-                    <div class="typing-dot"></div>
-                    <div class="typing-dot"></div>
-                </div>
-            </div>
-
-            <!-- Input Area -->
-            <div class="input-area">
-                <div class="input-toolbar">
-                    <button class="toolbar-btn" title="Emoji">😊</button>
-                    <button class="toolbar-btn" title="Fayl">📎</button>
-                    <button class="toolbar-btn" title="Tayyor javoblar">💬</button>
-                </div>
-                <div class="input-container">
-                    <textarea class="message-input" placeholder="Xabar yozing..."></textarea>
-                    <button class="send-btn">➤</button>
-                </div>
-            </div>
+        <div class="sr">
+          <input id="searchInput" type="search" placeholder="Mijoz ismi yoki xabar..." aria-label="Conversation search" />
+          <select id="filterSelect" aria-label="Additional filter">
+            <option value="all">All</option>
+            <option value="today">Bugun</option>
+            <option value="yesterday">Kecha</option>
+            <option value="week">Oxirgi 7 kun</option>
+            <option value="urgent">Urgent</option>
+          </select>
         </div>
-    </div>
+        <div class="tabs" role="tablist" aria-label="Conversation tabs">
+          <button class="t active" type="button" data-tab="active" role="tab" aria-selected="true">Active</button>
+          <button class="t" type="button" data-tab="assigned" role="tab" aria-selected="false">Assigned</button>
+          <button class="t" type="button" data-tab="unread" role="tab" aria-selected="false">Unread</button>
+          <button class="t" type="button" data-tab="waiting" role="tab" aria-selected="false">Waiting</button>
+          <button class="t" type="button" data-tab="closed" role="tab" aria-selected="false">Closed</button>
+        </div>
+      </div>
+
+      <div id="cards" class="cards" role="listbox" aria-label="Conversations"></div>
+
+      <footer class="foot">
+        <a class="btn p" href="./02-chat-open.html">Open chat</a>
+        <a class="btn" href="./03-info-sidebar.html">Info panel</a>
+      </footer>
+    </section>
+
+    <main class="main" aria-label="Chat preview area">
+      <div class="main-top">
+        <h2>Chat Preview</h2>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <button id="sNo" class="btn" type="button">No selected</button>
+          <button id="sEmpty" class="btn" type="button">Empty inbox</button>
+          <button id="sClosed" class="btn" type="button">All closed</button>
+        </div>
+      </div>
+      <div class="stack">
+        <section id="stNo" class="state on" aria-live="polite">
+          <article class="box">
+            <div class="ico">I</div>
+            <h3>Chat tanlanmagan</h3>
+            <p>Chap tarafdan chat tanlang. Tez qidiruv uchun <strong>Ctrl/Cmd + K</strong> ishlating.</p>
+            <div class="acts"><a class="btn p" href="./02-chat-open.html">02-chat-open sahifasiga o'tish</a></div>
+          </article>
+        </section>
+        <section id="stEmpty" class="state" aria-live="polite">
+          <article class="box">
+            <div class="ico">0</div>
+            <h3>Chatlar yo'q</h3>
+            <p>Hali birorta mijoz yozmagan. Widget sozlamalarini tekshiring yoki test xabar yuboring.</p>
+            <div class="acts">
+              <button class="btn" type="button">Widget sozlamalarini tekshirish</button>
+              <button class="btn p" type="button">Test xabar yuborish</button>
+            </div>
+          </article>
+        </section>
+        <section id="stClosed" class="state" aria-live="polite">
+          <article class="box">
+            <div class="ico">OK</div>
+            <h3>Barcha chatlar yopiq</h3>
+            <p>Yopilgan chatlarni ko'rish uchun tabni <strong>Closed</strong> holatida qoldiring.</p>
+            <div class="acts"><button id="goClosed" class="btn p" type="button">Closed tabga o'tish</button></div>
+          </article>
+        </section>
+        <section id="stLoad" class="state" aria-live="polite">
+          <div class="sk" aria-label="Loading skeleton">
+            <div class="sk-card"><div class="l w"></div><div class="l m"></div><div class="l s"></div></div>
+            <div class="sk-card"><div class="l w"></div><div class="l m"></div><div class="l s"></div></div>
+            <div class="sk-card"><div class="l w"></div><div class="l m"></div><div class="l s"></div></div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <div id="toasts" class="toasts" aria-live="polite"></div>
+
+  <script>
+    (function () {
+      var data = [
+        { id: "c-1001", name: "Ahmad Valiyev", status: "active", unread: 3, msg: "Salom, mahsulot narxlari haqida savol bor.", time: "2 min oldin", agent: "Me", channel: "Web", day: "today", wait: 1, urgent: false },
+        { id: "c-1002", name: "Dilnoza Rahimova", status: "assigned", unread: 1, msg: "Telegram integratsiyasi ishlamayapti.", time: "5 min oldin", agent: "Me", channel: "Telegram", day: "today", wait: 7, urgent: true },
+        { id: "c-1003", name: "Rustam Karimov", status: "assigned", unread: 0, msg: "Yetkazib berish qachon bo'ladi?", time: "15 min oldin", agent: "Me", channel: "WhatsApp", day: "today", wait: 15, urgent: false },
+        { id: "c-1004", name: "Nodira Turgunova", status: "active", unread: 0, msg: "Akkountimga kira olmayapman.", time: "Kecha 21:10", agent: "Unassigned", channel: "Web", day: "yesterday", wait: 0, urgent: false },
+        { id: "c-1005", name: "Olimjon Ergashev", status: "closed", unread: 0, msg: "Rahmat, muammo hal bo'ldi.", time: "Kecha 15:42", agent: "Sara", channel: "Web", day: "yesterday", wait: 0, urgent: false },
+        { id: "c-1006", name: "Malika Orifova", status: "closed", unread: 0, msg: "Invoice faylini oldim.", time: "2 kun oldin", agent: "Ali", channel: "Email", day: "week", wait: 0, urgent: false }
+      ];
+
+      var st = { tab: "active", filter: "all", q: "", selected: null, load: false, forced: "no" };
+      var cards = document.getElementById("cards");
+      var tabs = [].slice.call(document.querySelectorAll(".t"));
+      var sInput = document.getElementById("searchInput");
+      var fSel = document.getElementById("filterSelect");
+      var mAssigned = document.getElementById("mAssigned");
+      var mUnread = document.getElementById("mUnread");
+      var toasts = document.getElementById("toasts");
+      var states = { no: document.getElementById("stNo"), empty: document.getElementById("stEmpty"), closed: document.getElementById("stClosed"), load: document.getElementById("stLoad") };
+
+      function toast(msg) {
+        var d = document.createElement("div");
+        d.className = "toast";
+        d.textContent = msg;
+        toasts.appendChild(d);
+        setTimeout(function () { d.remove(); }, 2600);
+      }
+
+      function showState(k) { Object.keys(states).forEach(function (x) { states[x].classList.toggle("on", x === k); }); }
+
+      function byTab(list) {
+        if (st.tab === "active") return list.filter(function (x) { return x.status === "active" || x.status === "assigned"; });
+        if (st.tab === "assigned") return list.filter(function (x) { return x.status === "assigned"; });
+        if (st.tab === "unread") return list.filter(function (x) { return x.unread > 0; });
+        if (st.tab === "waiting") return list.filter(function (x) { return x.wait >= 5 && x.status !== "closed"; });
+        if (st.tab === "closed") return list.filter(function (x) { return x.status === "closed"; });
+        return list;
+      }
+
+      function byFilter(list) {
+        if (st.filter === "all") return list;
+        if (st.filter === "urgent") return list.filter(function (x) { return x.urgent; });
+        return list.filter(function (x) { return x.day === st.filter; });
+      }
+
+      function bySearch(list) {
+        var q = st.q.trim().toLowerCase();
+        if (q.length < 3) return list;
+        return list.filter(function (x) {
+          return x.name.toLowerCase().indexOf(q) !== -1 || x.msg.toLowerCase().indexOf(q) !== -1 || x.id.toLowerCase().indexOf(q) !== -1;
+        });
+      }
+
+      function visible() { return bySearch(byFilter(byTab(data))); }
+      function sCls(x) { return x.status === "closed" ? "c" : (x.status === "assigned" ? "as" : "a"); }
+
+      function drawMetrics() {
+        var assigned = data.filter(function (x) { return x.status === "assigned" || x.status === "active"; }).length;
+        var unread = data.reduce(function (sum, x) { return sum + x.unread; }, 0);
+        mAssigned.textContent = String(assigned);
+        mUnread.textContent = String(unread);
+        document.title = unread ? "(" + unread + ") CHATFLOW - Inbox" : "CHATFLOW - Inbox";
+      }
+
+      function drawCards() {
+        var list = visible();
+        cards.innerHTML = "";
+
+        if (!list.length) {
+          var e = document.createElement("div");
+          e.style.padding = "22px 14px";
+          e.style.color = "#6b7280";
+          e.style.fontSize = "14px";
+          e.textContent = "Tanlangan filtr bo'yicha chat topilmadi.";
+          cards.appendChild(e);
+        }
+
+        list.forEach(function (x) {
+          var b = document.createElement("button");
+          b.type = "button";
+          b.className = "card" + (st.selected === x.id ? " sel" : "") + (x.unread > 0 ? " unread" : "");
+          b.dataset.id = x.id;
+          b.setAttribute("role", "option");
+          b.setAttribute("aria-selected", st.selected === x.id ? "true" : "false");
+          b.innerHTML =
+            '<div class="row"><div class="rowl"><span class="dot ' + sCls(x) + '"></span><span class="nm">' + x.name + '</span></div><span class="tm">' + x.time + '</span></div>' +
+            '<div class="pr">' + x.msg + '</div>' +
+            '<div class="meta"><span>Agent: ' + x.agent + '</span><span style="display:flex;align-items:center;gap:8px;">' +
+            (x.urgent ? '<span class="urg">URGENT</span>' : '') + '<span class="chn">' + x.channel + '</span>' + (x.unread ? '<span class="u">' + x.unread + '</span>' : '') +
+            '</span></div>';
+          cards.appendChild(b);
+        });
+
+        if (st.load) { showState("load"); return; }
+        if (st.forced === "empty") { showState("empty"); return; }
+        if (st.forced === "closed") { showState("closed"); return; }
+        if (!list.length) { showState(st.tab === "closed" ? "closed" : "empty"); return; }
+        showState("no");
+      }
+
+      function setTab(v) {
+        st.tab = v;
+        st.forced = "no";
+        tabs.forEach(function (t) {
+          var on = t.dataset.tab === v;
+          t.classList.toggle("active", on);
+          t.setAttribute("aria-selected", on ? "true" : "false");
+        });
+        drawCards();
+      }
+
+      cards.addEventListener("click", function (e) {
+        var c = e.target.closest(".card");
+        if (!c) return;
+        st.selected = c.dataset.id;
+        st.forced = "no";
+        drawCards();
+        toast("Chat tanlandi. Endi Open chat tugmasi orqali 02-sahifaga o'ting.");
+      });
+
+      tabs.forEach(function (t) { t.addEventListener("click", function () { setTab(t.dataset.tab); }); });
+      fSel.addEventListener("change", function () { st.filter = fSel.value; st.forced = "no"; drawCards(); });
+
+      var timer = null;
+      sInput.addEventListener("input", function () {
+        clearTimeout(timer);
+        timer = setTimeout(function () { st.q = sInput.value; st.forced = "no"; drawCards(); }, 300);
+      });
+
+      document.getElementById("skeletonBtn").addEventListener("click", function () {
+        if (st.load) return;
+        st.load = true;
+        drawCards();
+        setTimeout(function () { st.load = false; drawCards(); toast("Skeleton loading yakunlandi."); }, 1400);
+      });
+      document.getElementById("sNo").addEventListener("click", function () { st.forced = "no"; drawCards(); });
+      document.getElementById("sEmpty").addEventListener("click", function () { st.forced = "empty"; drawCards(); });
+      document.getElementById("sClosed").addEventListener("click", function () { st.forced = "closed"; drawCards(); });
+      document.getElementById("goClosed").addEventListener("click", function () { st.forced = "no"; setTab("closed"); });
+
+      document.addEventListener("keydown", function (e) {
+        var isMac = navigator.platform.toUpperCase().indexOf("MAC") >= 0;
+        var cmd = isMac ? e.metaKey : e.ctrlKey;
+        if (cmd && e.key.toLowerCase() === "k") {
+          e.preventDefault();
+          sInput.focus();
+          sInput.select();
+        }
+      });
+
+      drawMetrics();
+      drawCards();
+    })();
+  </script>
 </body>
 </html>
