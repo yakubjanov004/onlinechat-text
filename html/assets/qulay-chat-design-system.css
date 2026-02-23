@@ -2463,6 +2463,17 @@ small {
     resize: none
 }
 
+.inbox-send-row .btn-primary.is-sent {
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, .18);
+    background: #10B981;
+    border-color: #10B981;
+}
+
+.modal .list-item.active {
+    border-color: #C7D2FE;
+    background: #EEF2FF;
+}
+
 .inbox-info-scroll {
     padding: 14px;
     display: grid;
