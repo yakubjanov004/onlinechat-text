@@ -1,4 +1,4 @@
-# CHATFLOW — Landing Page: Integratsiyalar + Nega Aynan Biz
+# QULAY CHAT — Landing Page: Integratsiyalar + Nega Aynan Biz
 
 ## Umumiy yondashuv
 Bu ikki bo'lim Asosiy Imkoniyatlar bo'limidan keyin keladi. Integratsiyalar bo'limi platformaning qaysi kanallar bilan ishlashini ko'rsatadi va "yagona inbox" konsepsiyasini mustahkamlaydi. Nega Aynan Biz bo'limi esa raqobatchilardan farqlarni 6 ta aniq afzallik orqali ko'rsatib, foydalanuvchini platformaga ishontiradi.
@@ -299,7 +299,7 @@ integration-section/
 ### Integratsiyalar — Figma AI uchun prompt
 
 ```
-Create an "Integrations" section for a SaaS customer support platform called CHATFLOW.
+Create an "Integrations" section for a SaaS customer support platform called QULAY CHAT.
 Centered title: "Istalgan kanaldan xabar qabul qiling" (H2, 40px Bold, #111827).
 Subtitle: "Barcha kanallardan kelgan xabarlar yagona inbox'da" (18px, #6B7280).
 
@@ -328,7 +328,7 @@ White section background, 96px vertical padding.
 ## 2. NEGA AYNAN BIZ — Raqobat afzalliklari
 
 ### Vazifasi
-Boshqa yechimlardan farqni aniq ko'rsatish va platforma tanlash sabablarini mustahkamlash. 6 ta afzallikni 2 ustunli toza layoutda ko'rsatish orqali foydalanuvchiga "nimaga aynan CHATFLOW" savoliga javob berish.
+Boshqa yechimlardan farqni aniq ko'rsatish va platforma tanlash sabablarini mustahkamlash. 6 ta afzallikni 2 ustunli toza layoutda ko'rsatish orqali foydalanuvchiga "nimaga aynan QULAY CHAT" savoliga javob berish.
 
 ### Layout va o'lchamlar
 - **Joylashuv:** Integratsiyalar bo'limidan keyin
@@ -341,7 +341,7 @@ Boshqa yechimlardan farqni aniq ko'rsatish va platforma tanlash sabablarini must
 
 **Sarlavha matni:**
 ```
-Nega CHATFLOW ni tanlash kerak?
+Nega QULAY CHAT ni tanlash kerak?
 ```
 - **Shrift:** 40px, Bold (700), `#111827` (Gray-900)
 - **Line-height:** 48px
@@ -491,7 +491,7 @@ Enterprise darajadagi imkoniyatlar, lekin adolatli va tushunarli narx siyosati.
 
 ### ASCII wireframe (Desktop)
 ```
-              [ Nega CHATFLOW ni tanlash kerak? ]
+              [ Nega QULAY CHAT ni tanlash kerak? ]
            [ Oddiy, tezkor va operatorlar uchun qulay ]
 
 ┌─────────────────────────────┐  ┌─────────────────────────────┐
@@ -515,7 +515,7 @@ Enterprise darajadagi imkoniyatlar, lekin adolatli va tushunarli narx siyosati.
 
 ### ASCII wireframe (Mobile)
 ```
-[ Nega CHATFLOW ni tanlash kerak? ]
+[ Nega QULAY CHAT ni tanlash kerak? ]
 [ Oddiy, tezkor va ... ]
 
 ┌──────────────────────────────┐
@@ -580,7 +580,7 @@ why-us-section/
 ├── section-wrapper (auto-layout, vertical, center aligned, padding: 96px 24px, bg: #F9FAFB)
 │   │
 │   ├── section-header (auto-layout, vertical, center aligned, gap: 16px)
-│   │   ├── title (text: "Nega CHATFLOW ni tanlash kerak?", H2: 40px Bold, #111827, center)
+│   │   ├── title (text: "Nega QULAY CHAT ni tanlash kerak?", H2: 40px Bold, #111827, center)
 │   │   └── subtitle (text: "Oddiy, tezkor va operatorlar uchun qulay...", 18px Regular, #6B7280, center)
 │   │
 │   └── benefits-grid (auto-layout, wrap, 2 columns, gap: 24px, margin-top: 64px)
@@ -624,9 +624,9 @@ why-us-section/
 ### Nega Aynan Biz — Figma AI uchun prompt
 
 ```
-Create a "Why Choose Us" section for a SaaS customer support platform called CHATFLOW.
+Create a "Why Choose Us" section for a SaaS customer support platform called QULAY CHAT.
 Light gray background (#F9FAFB).
-Centered title: "Nega CHATFLOW ni tanlash kerak?" (H2, 40px Bold, #111827).
+Centered title: "Nega QULAY CHAT ni tanlash kerak?" (H2, 40px Bold, #111827).
 Subtitle: "Oddiy, tezkor va operatorlar uchun qulay" (18px, #6B7280).
 
 Below the title, show 6 benefit items in a 2-column grid (3 rows x 2 columns), 24px gap.

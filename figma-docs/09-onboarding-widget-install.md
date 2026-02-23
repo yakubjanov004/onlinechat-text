@@ -1,4 +1,4 @@
-﻿# CHATFLOW — Onboarding: Widget Customization + Installation
+﻿# QULAY CHAT — Onboarding: Widget Customization + Installation
 
 **Step:** 2/5 (Customization), 3/5 (Installation), 4/5 (Verification)  
 **Ekran ID:** `SCR-ON02`, `SCR-ON03`, `SCR-ON04`  
@@ -272,15 +272,15 @@ Chat vidjeti sozlash ekrani foydalanuvchiga brendiga mos ko'rinishni tanlash imk
 
 **Code:**
 ```html
-<!-- CHATFLOW Widget -->
+<!-- QULAY CHAT Widget -->
 <script>
   (function(w,d,s,o,f,js,fjs){
-    w['ChatflowWidget']=o;w[o]=w[o]||function(){(w[o].q=w[o].q||[]).push(arguments)};
+    w['Qulay chatWidget']=o;w[o]=w[o]||function(){(w[o].q=w[o].q||[]).push(arguments)};
     js=d.createElement(s),fjs=d.getElementsByTagName(s)[0];
     js.id=o;js.src=f;js.async=1;fjs.parentNode.insertBefore(js,fjs);
-  }(window,document,'script','chatflow','https://cdn.chatflow.uz/widget.js'));
+  }(window,document,'script','qulaychat','https://cdn.qulaychat.uz/widget.js'));
   
-  chatflow('init', {
+  qulaychat('init', {
     workspaceId: 'ws_abc123def456',
     position: 'bottom-right',
     primaryColor: '#4F46E5',
@@ -309,9 +309,9 @@ Chat vidjeti sozlash ekrani foydalanuvchiga brendiga mos ko'rinishni tanlash imk
 
 **Variant 1: Plugin orqali (tavsiya etiladi)**
 1. WordPress Admin paneliga kiring
-2. Plugins → Add New → "CHATFLOW" qidiring
+2. Plugins → Add New → "QULAY CHAT" qidiring
 3. "Install Now" → "Activate"
-4. Settings → CHATFLOW → Workspace ID'ni kiriting: `ws_abc123def456`
+4. Settings → QULAY CHAT → Workspace ID'ni kiriting: `ws_abc123def456`
 5. Saqlang
 
 **Variant 2: Manual kod orqali**
@@ -322,14 +322,14 @@ Chat vidjeti sozlash ekrani foydalanuvchiga brendiga mos ko'rinishni tanlash imk
 
 **Code:**
 ```php
-<!-- CHATFLOW Widget -->
+<!-- QULAY CHAT Widget -->
 <script>
   (function(w,d,s,o,f,js,fjs){
-    w['ChatflowWidget']=o;w[o]=w[o]||function(){(w[o].q=w[o].q||[]).push(arguments)};
+    w['Qulay chatWidget']=o;w[o]=w[o]||function(){(w[o].q=w[o].q||[]).push(arguments)};
     js=d.createElement(s),fjs=d.getElementsByTagName(s)[0];
     js.id=o;js.src=f;js.async=1;fjs.parentNode.insertBefore(js,fjs);
-  }(window,document,'script','chatflow','https://cdn.chatflow.uz/widget.js'));
-  chatflow('init', {workspaceId: 'ws_abc123def456'});
+  }(window,document,'script','qulaychat','https://cdn.qulaychat.uz/widget.js'));
+  qulaychat('init', {workspaceId: 'ws_abc123def456'});
 </script>
 ```
 
@@ -353,14 +353,14 @@ Chat vidjeti sozlash ekrani foydalanuvchiga brendiga mos ko'rinishni tanlash imk
 
 **Code:**
 ```liquid
-<!-- CHATFLOW Widget -->
+<!-- QULAY CHAT Widget -->
 <script>
   (function(w,d,s,o,f,js,fjs){
-    w['ChatflowWidget']=o;w[o]=w[o]||function(){(w[o].q=w[o].q||[]).push(arguments)};
+    w['Qulay chatWidget']=o;w[o]=w[o]||function(){(w[o].q=w[o].q||[]).push(arguments)};
     js=d.createElement(s),fjs=d.getElementsByTagName(s)[0];
     js.id=o;js.src=f;js.async=1;fjs.parentNode.insertBefore(js,fjs);
-  }(window,document,'script','chatflow','https://cdn.chatflow.uz/widget.js'));
-  chatflow('init', {workspaceId: 'ws_abc123def456'});
+  }(window,document,'script','qulaychat','https://cdn.qulaychat.uz/widget.js'));
+  qulaychat('init', {workspaceId: 'ws_abc123def456'});
 </script>
 ```
 
@@ -378,14 +378,14 @@ Chat vidjeti sozlash ekrani foydalanuvchiga brendiga mos ko'rinishni tanlash imk
 
 **Code (index.html):**
 ```html
-<!-- CHATFLOW Widget -->
+<!-- QULAY CHAT Widget -->
 <script>
   (function(w,d,s,o,f,js,fjs){
-    w['ChatflowWidget']=o;w[o]=w[o]||function(){(w[o].q=w[o].q||[]).push(arguments)};
+    w['Qulay chatWidget']=o;w[o]=w[o]||function(){(w[o].q=w[o].q||[]).push(arguments)};
     js=d.createElement(s),fjs=d.getElementsByTagName(s)[0];
     js.id=o;js.src=f;js.async=1;fjs.parentNode.insertBefore(js,fjs);
-  }(window,document,'script','chatflow','https://cdn.chatflow.uz/widget.js'));
-  chatflow('init', {workspaceId: 'ws_abc123def456'});
+  }(window,document,'script','qulaychat','https://cdn.qulaychat.uz/widget.js'));
+  qulaychat('init', {workspaceId: 'ws_abc123def456'});
 </script>
 ```
 
@@ -398,12 +398,12 @@ import { useEffect } from 'react';
 export default function ChatWidget() {
   useEffect(() => {
     (function(w,d,s,o,f,js,fjs){
-      w['ChatflowWidget']=o;w[o]=w[o]||function(){(w[o].q=w[o].q||[]).push(arguments)};
+      w['Qulay chatWidget']=o;w[o]=w[o]||function(){(w[o].q=w[o].q||[]).push(arguments)};
       js=d.createElement(s),fjs=d.getElementsByTagName(s)[0];
       js.id=o;js.src=f;js.async=1;fjs.parentNode.insertBefore(js,fjs);
-    }(window,document,'script','chatflow','https://cdn.chatflow.uz/widget.js'));
+    }(window,document,'script','qulaychat','https://cdn.qulaychat.uz/widget.js'));
     
-    window.chatflow('init', {
+    window.qulaychat('init', {
       workspaceId: 'ws_abc123def456',
       position: 'bottom-right',
       primaryColor: '#4F46E5'
@@ -452,16 +452,16 @@ export default function Document() {
         <Main />
         <NextScript />
         
-        {/* CHATFLOW Widget */}
+        {/* QULAY CHAT Widget */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
               (function(w,d,s,o,f,js,fjs){
-                w['ChatflowWidget']=o;w[o]=w[o]||function(){(w[o].q=w[o].q||[]).push(arguments)};
+                w['Qulay chatWidget']=o;w[o]=w[o]||function(){(w[o].q=w[o].q||[]).push(arguments)};
                 js=d.createElement(s),fjs=d.getElementsByTagName(s)[0];
                 js.id=o;js.src=f;js.async=1;fjs.parentNode.insertBefore(js,fjs);
-              }(window,document,'script','chatflow','https://cdn.chatflow.uz/widget.js'));
-              chatflow('init', {workspaceId: 'ws_abc123def456'});
+              }(window,document,'script','qulaychat','https://cdn.qulaychat.uz/widget.js'));
+              qulaychat('init', {workspaceId: 'ws_abc123def456'});
             `,
           }}
         />
@@ -481,7 +481,7 @@ export default function Document() {
 1. Wix Editor'ni oching
 2. Settings (chapda) → Tracking & Analytics
 3. "+ New Tool" → "Custom Code"
-4. Name: "CHATFLOW Widget"
+4. Name: "QULAY CHAT Widget"
 5. Paste code below
 6. "Add Code to Pages" → "All pages"
 7. "Load code on: Page load"
@@ -489,14 +489,14 @@ export default function Document() {
 
 **Code:**
 ```html
-<!-- CHATFLOW Widget -->
+<!-- QULAY CHAT Widget -->
 <script>
   (function(w,d,s,o,f,js,fjs){
-    w['ChatflowWidget']=o;w[o]=w[o]||function(){(w[o].q=w[o].q||[]).push(arguments)};
+    w['Qulay chatWidget']=o;w[o]=w[o]||function(){(w[o].q=w[o].q||[]).push(arguments)};
     js=d.createElement(s),fjs=d.getElementsByTagName(s)[0];
     js.id=o;js.src=f;js.async=1;fjs.parentNode.insertBefore(js,fjs);
-  }(window,document,'script','chatflow','https://cdn.chatflow.uz/widget.js'));
-  chatflow('init', {workspaceId: 'ws_abc123def456'});
+  }(window,document,'script','qulaychat','https://cdn.qulaychat.uz/widget.js'));
+  qulaychat('init', {workspaceId: 'ws_abc123def456'});
 </script>
 ```
 
@@ -513,14 +513,14 @@ export default function Document() {
 
 **Code:**
 ```html
-<!-- CHATFLOW Widget -->
+<!-- QULAY CHAT Widget -->
 <script>
   (function(w,d,s,o,f,js,fjs){
-    w['ChatflowWidget']=o;w[o]=w[o]||function(){(w[o].q=w[o].q||[]).push(arguments)};
+    w['Qulay chatWidget']=o;w[o]=w[o]||function(){(w[o].q=w[o].q||[]).push(arguments)};
     js=d.createElement(s),fjs=d.getElementsByTagName(s)[0];
     js.id=o;js.src=f;js.async=1;fjs.parentNode.insertBefore(js,fjs);
-  }(window,document,'script','chatflow','https://cdn.chatflow.uz/widget.js'));
-  chatflow('init', {workspaceId: 'ws_abc123def456'});
+  }(window,document,'script','qulaychat','https://cdn.qulaychat.uz/widget.js'));
+  qulaychat('init', {workspaceId: 'ws_abc123def456'});
 </script>
 ```
 
@@ -539,14 +539,14 @@ export default function Document() {
 
 **Code:**
 ```html
-<!-- CHATFLOW Widget -->
+<!-- QULAY CHAT Widget -->
 <script>
   (function(w,d,s,o,f,js,fjs){
-    w['ChatflowWidget']=o;w[o]=w[o]||function(){(w[o].q=w[o].q||[]).push(arguments)};
+    w['Qulay chatWidget']=o;w[o]=w[o]||function(){(w[o].q=w[o].q||[]).push(arguments)};
     js=d.createElement(s),fjs=d.getElementsByTagName(s)[0];
     js.id=o;js.src=f;js.async=1;fjs.parentNode.insertBefore(js,fjs);
-  }(window,document,'script','chatflow','https://cdn.chatflow.uz/widget.js'));
-  chatflow('init', {workspaceId: 'ws_abc123def456'});
+  }(window,document,'script','qulaychat','https://cdn.qulaychat.uz/widget.js'));
+  qulaychat('init', {workspaceId: 'ws_abc123def456'});
 </script>
 ```
 
@@ -724,7 +724,7 @@ export default function Document() {
      - Sahifa cache tozalanganchizmi? (Ctrl+Shift+R)
      - Browser console'da xatolik bormi? (F12 tugmasini bosing)
      - Firewall yoki ad blocker widget'ni bloklaganmi?
-     Agar muammo davom etsa, [qo'llab-quvvatlash](mailto:support@chatflow.uz)ga murojaat qiling."
+     Agar muammo davom etsa, [qo'llab-quvvatlash](mailto:support@qulaychat.uz)ga murojaat qiling."
 
 2. **Widget ko'rinadi, lekin xabar yuborganda xatolik**
    - Answer: "Workspace ID to'g'riligini tekshiring. Kod ichida `workspaceId: 'ws_abc123def456'` qatori sizning haqiqiy workspace ID'ngiz bilan mos kelishi kerak. Settings → Developer → Workspace ID da topishingiz mumkin."
@@ -736,7 +736,7 @@ export default function Document() {
    - Answer: "Widget avtomatik responsive bo'ladi va mobile'da to'liq ekranga aylanadi. Agar muammo bo'lsa, viewport meta tegi mavjudligini tekshiring: `<meta name='viewport' content='width=device-width, initial-scale=1'>`"
 
 5. **Widget boshqa pluginlar bilan konflikt qilmoqda**
-   - Answer: "JavaScript xatolarini browser console'da tekshiring (F12). Agar boshqa chat widget yoki livechat plugin o'rnatilgan bo'lsa, ularni o'chiring. CHATFLOW jQuery yoki boshqa kutubxonalarga bog'liq emas."
+   - Answer: "JavaScript xatolarini browser console'da tekshiring (F12). Agar boshqa chat widget yoki livechat plugin o'rnatilgan bo'lsa, ularni o'chiring. QULAY CHAT jQuery yoki boshqa kutubxonalarga bog'liq emas."
 
 6. **Widget Google Tag Manager orqali o'rnatish muml mumkinmi?**
    - Answer: "Ha! GTM'da yangi tag yarating (Custom HTML), kodni joylashtiring, trigger'ni 'All Pages' qilib belgilang va publish qiling. Diqqat: GTM konteyner yuklanishi kerak, shuning uchun widget biroz kech ko'rinishi mumkin."
@@ -916,20 +916,20 @@ export default function Document() {
 │                                                                           │
 │ Quyidagi kodni nusxalang:                                                │
 │ ┌───────────────────────────────────────────────────────────────────┐   │
-│ │ <!-- CHATFLOW Widget -->                        [📋 Nusxalash]   │   │
+│ │ <!-- QULAY CHAT Widget -->                        [📋 Nusxalash]   │   │
 │ │ <script>                                                          │   │
 │ │   (function(w,d,s,o,f,js,fjs){                                   │   │
-│ │     w['ChatflowWidget']=o;w[o]=w[o]||function(){                 │   │
+│ │     w['Qulay chatWidget']=o;w[o]=w[o]||function(){                 │   │
 │ │       (w[o].q=w[o].q||[]).push(arguments)                         │   │
 │ │     };                                                            │   │
 │ │     js=d.createElement(s);                                        │   │
 │ │     fjs=d.getElementsByTagName(s)[0];                             │   │
 │ │     js.id=o; js.src=f; js.async=1;                                │   │
 │ │     fjs.parentNode.insertBefore(js,fjs);                          │   │
-│ │   }(window,document,'script','chatflow',                          │   │
-│ │     'https://cdn.chatflow.uz/widget.js'));                        │   │
+│ │   }(window,document,'script','qulaychat',                          │   │
+│ │     'https://cdn.qulaychat.uz/widget.js'));                        │   │
 │ │                                                                    │   │
-│ │   chatflow('init', {                                              │   │
+│ │   qulaychat('init', {                                              │   │
 │ │     workspaceId: 'ws_abc123def456',                               │   │
 │ │     position: 'bottom-right',                                     │   │
 │ │     primaryColor: '#4F46E5',                                      │   │
@@ -1130,7 +1130,7 @@ User sees test checklist
 - Minified for production, human-readable for onboarding
 
 **CDN:**
-- Widget script hosted at `https://cdn.chatflow.uz/widget.js`
+- Widget script hosted at `https://cdn.qulaychat.uz/widget.js`
 - Versioned: `widget.v2.3.js` (optional versioning)
 - Gzip compressed: ~40KB → ~12KB
 - Cache: 1 year (immutable)
@@ -1141,8 +1141,8 @@ User sees test checklist
 1. User submits domain: `example.com`
 2. Backend spawns headless browser (Puppeteer/Playwright)
 3. Loads: `https://example.com`
-4. Checks for: `window.ChatflowWidget` global object
-5. Checks for: Widget script `<script src="https://cdn.chatflow.uz/widget.js">`
+4. Checks for: `window.Qulay chatWidget` global object
+5. Checks for: Widget script `<script src="https://cdn.qulaychat.uz/widget.js">`
 6. Checks for: Widget button element in DOM
 7. Returns: `found` or `not_found` with details
 8. Timeout: 30s (if not found, return not_found)

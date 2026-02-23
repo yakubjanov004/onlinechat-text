@@ -1,4 +1,4 @@
-// CHATFLOW - Onboarding - 04 Widget Customize (Step 2/4)
+// QULAY CHAT - Onboarding - 04 Widget Customize (Step 2/4)
 // HTML source: figma-html-pages/03-onboarding/04-widget-customize.html
 
 function rgb(hex) {

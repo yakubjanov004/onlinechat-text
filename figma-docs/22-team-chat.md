@@ -1,4 +1,4 @@
-# CHATFLOW — Team Chat (Jamoa Chat)
+# QULAY CHAT — Team Chat (Jamoa Chat)
 
 ## Modul maqsadi
 Team Chat — agentlar o'rtasida ichki muloqot uchun yaratil gan real vaqtdagi chat tizimi. Operatorlar bu yerda savollar so'raydi, tajriba almashadi, murakkab holatlarni muhokama qiladi va tezroq qarorlar qabul qiladi.
@@ -378,7 +378,7 @@ Modal (600px width)
 - Title: "Taklifnoma havolasi" 14px Semibold
 - If no link: "Havolani yaratish" button
 - If link exists:
-  - URL display: `https://chatflow.uz/team/invite/abc123`
+  - URL display: `https://qulaychat.uz/team/invite/abc123`
   - "Nusxalash" button (copies to clipboard)
   - "Havolani o'chirish" Ghost button (danger)
   - Expires: "7 kun ichida" or "Muddatsiz" setting
@@ -619,7 +619,7 @@ Fetch both DMs and rooms
       "participant": {
         "id": "usr_def456",
         "name": "Jahongir Otajonov",
-        "email": "jahongir@chatflow.uz",
+        "email": "jahongir@qulaychat.uz",
         "avatar_url": "https://cdn...",
         "role": "manager",
         "is_online": true,
@@ -709,7 +709,7 @@ Fetch both DMs and rooms
           "file_name": "screenshot.png",
           "file_size": 245680,
           "file_type": "image/png",
-          "url": "https://cdn.chatflow.uz/..."
+          "url": "https://cdn.qulaychat.uz/..."
         }
       ],
       "created_at": "2026-02-11T14:32:00Z"

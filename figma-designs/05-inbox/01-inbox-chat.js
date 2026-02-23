@@ -1,4 +1,4 @@
-// CHATFLOW - Inbox sahifasini Figma'da yaratish
+// QULAY CHAT - Inbox sahifasini Figma'da yaratish
 
 async function createInboxScreen() {
   // Fontlarni yuklash
@@ -31,7 +31,7 @@ async function createInboxScreen() {
   logo.name = "Logo";
   logo.x = 24;
   logo.y = 20;
-  logo.characters = "CHATFLOW";
+  logo.characters = "QULAY CHAT";
   logo.fontSize = 20;
   logo.fontName = { family: "Inter", style: "Bold" };
   logo.fills = [{ type: 'SOLID', color: { r: 79/255, g: 70/255, b: 229/255 } }];

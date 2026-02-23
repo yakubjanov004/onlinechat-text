@@ -1,7 +1,7 @@
-# CHATFLOW — Dizayn Tizimi (Design System)
+# QULAY CHAT — Dizayn Tizimi (Design System)
 
 ## Umumiy uslub
-CHATFLOW dizayni **zamonaviy SaaS** platformalari uslubida — toza, professional va minimal. Asosiy ilhom: Crisp.chat, Intercom, Linear.
+QULAY CHAT dizayni **zamonaviy SaaS** platformalari uslubida — toza, professional va minimal. Asosiy ilhom: Crisp.chat, Intercom, Linear.
 
 ---
 

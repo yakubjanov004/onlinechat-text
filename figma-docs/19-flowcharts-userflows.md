@@ -1,4 +1,4 @@
-﻿# CHATFLOW — User Flows & Flowcharts
+﻿# QULAY CHAT — User Flows & Flowcharts
 
 **Purpose:** Comprehensive user flow diagrams for all major features  
 **Ekran ID:** `FLOW-*`  
@@ -255,7 +255,7 @@ ONBOARDING FLOW (5 Steps):
 ```
 
 ### Decision Points
-1. **Widget found?** Headless browser checks: `window.ChatflowWidget` + script tag in DOM, timeout 30s
+1. **Widget found?** Headless browser checks: `window.Qulay chatWidget` + script tag in DOM, timeout 30s
 2. **Test message delivered?** WebSocket receives `conversation:new` event within 2s
 
 ### Error Paths
@@ -1114,7 +1114,7 @@ KNOWLEDGE BASE SEARCH FLOW:
 - **Rate Limiting:** 60 requests/min per user (authenticated), 20 requests/min per IP (anonymous)
 
 ### WebSocket Events
-- **Connection:** `wss://api.chatflow.uz/ws` with JWT token in query param
+- **Connection:** `wss://api.qulaychat.uz/ws` with JWT token in query param
 - **Event Format:** `{type: "event_name", data: {}, timestamp: ISO8601}`
 - **Reconnection:** Exponential backoff (1s, 2s, 4s, 8s, max 30s), max 10 attempts
 

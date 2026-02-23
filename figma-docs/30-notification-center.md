@@ -1,4 +1,4 @@
-# CHATFLOW — Notification Center (Bildirishnomalar Markazi)
+# QULAY CHAT — Notification Center (Bildirishnomalar Markazi)
 
 **Module ID:** SCR-D01-S04 (Dashboard Shell component)  
 **Yaratilgan:** 2026-02-11  
@@ -9,7 +9,7 @@
 
 ## Umumiy Yondashuv
 
-Notification Center — CHATFLOW'dagi barcha real-time bildirishnomalarni bir joyda ko'rish va boshqarish uchun dropdown panel. Header'dagi 🔔 bell icon'dan ochiladi va foydalanuvchiga yangi chatlar, mention'lar, team messages, system updates va billing alerts haqida xabar beradi.
+Notification Center — QULAY CHAT'dagi barcha real-time bildirishnomalarni bir joyda ko'rish va boshqarish uchun dropdown panel. Header'dagi 🔔 bell icon'dan ochiladi va foydalanuvchiga yangi chatlar, mention'lar, team messages, system updates va billing alerts haqida xabar beradi.
 
 **Key Features:**
 - 🔴 Unread badge counter
@@ -223,7 +223,7 @@ Click bell icon in header
   "id": "notif_jkl012",
   "type": "system",
   "title": "Tizim yangilandi",
-  "description": "CHATFLOW v2.5 chiqdi! Yangi funksiyalar: Team Chat, Knowledge Base.",
+  "description": "QULAY CHAT v2.5 chiqdi! Yangi funksiyalar: Team Chat, Knowledge Base.",
   "icon": "settings",
   "icon_color": "#6B7280",
   "icon_bg": "#F3F4F6",
@@ -409,7 +409,7 @@ Dashboard Shell + Main Content (800px max-width center)
 ### Connection
 ```javascript
 // Client connects to WebSocket
-const ws = new WebSocket('wss://api.chatflow.uz/ws');
+const ws = new WebSocket('wss://api.qulaychat.uz/ws');
 
 ws.onopen = () => {
   ws.send(JSON.stringify({
@@ -696,7 +696,7 @@ workspace.members.forEach(user => {
     user_id: user.id,
     type: 'system',
     title: 'Tizim yangilandi',
-    description: 'CHATFLOW v2.5 chiqdi! Yangi funksiyalar...',
+    description: 'QULAY CHAT v2.5 chiqdi! Yangi funksiyalar...',
     action_url: '/changelog',
     metadata: { version: '2.5.0' }
   });
@@ -789,8 +789,8 @@ function showDesktopNotification(notification) {
   
   const n = new Notification(notification.title, {
     body: notification.description,
-    icon: '/chatflow-icon.png',
-    badge: '/chatflow-badge.png',
+    icon: '/qulay-chat-icon.png',
+    badge: '/qulay-chat-badge.png',
     tag: notification.id, // Replaces old notification with same tag
     requireInteraction: false, // Auto-close after 5s
     silent: false // Play system sound (or we play custom sound separately)
@@ -815,8 +815,8 @@ self.addEventListener('push', (event) => {
   
   const options = {
     body: data.description,
-    icon: '/chatflow-icon.png',
-    badge: '/chatflow-badge.png',
+    icon: '/qulay-chat-icon.png',
+    badge: '/qulay-chat-badge.png',
     tag: data.id,
     data: { url: data.action_url }
   };
@@ -868,7 +868,7 @@ if (settings.sound_enabled) {
 
 ```
 ┌────────────────────────────────────────────────────────────┐
-│ CHATFLOW Header                       🔔(3)  [Avatar ▼]   │
+│ QULAY CHAT Header                       🔔(3)  [Avatar ▼]   │
 └────────────────────────────────────────┬───────────────────┘
                                          │
                      ┌───────────────────▼───────────────────┐
@@ -891,7 +891,7 @@ if (settings.sound_enabled) {
                      │    ⏱️ Kecha                           │
                      │───────────────────────────────────────│
                      │ ⚙️ Tizim yangilandi             • X  │
-                     │    CHATFLOW v2.5 chiqdi! Yangi...    │
+                     │    QULAY CHAT v2.5 chiqdi! Yangi...    │
                      │    ⏱️ 2 kun oldin                     │
                      │───────────────────────────────────────│
                      │ 💳 To'lov muddati tugaydi       • X  │

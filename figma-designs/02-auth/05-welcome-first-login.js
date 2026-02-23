@@ -1,4 +1,4 @@
-// CHATFLOW - Auth - Welcome / First Login
+// QULAY CHAT - Auth - Welcome / First Login
 // HTML source: figma-html-pages/02-auth/05-welcome-first-login.html
 
 function rgb(hex) {
@@ -178,7 +178,7 @@ card.appendChild(title);
 
 const subtitle = createText(
   "Subtitle",
-  "Akkauntingiz tayyor. Endi qisqa onboarding orqali CHATFLOW'ni ishga tushiramiz.",
+  "Akkauntingiz tayyor. Endi qisqa onboarding orqali QULAY CHAT'ni ishga tushiramiz.",
   "Regular",
   15,
   "#4B5563"

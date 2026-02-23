@@ -22,9 +22,9 @@ let touched = 0;
 for (const file of walk(htmlRoot)) {
   let raw = fs.readFileSync(file, "utf8");
 
-  raw = raw.replace(/\s*<script\s+src=["'][^"']*chatflow-runtime\.js["']><\/script>\s*/gi, "\n");
+  raw = raw.replace(/\s*<script\s+src=["'][^"']*qulay-chat-runtime\.js["']><\/script>\s*/gi, "\n");
 
-  const rel = path.relative(path.dirname(file), path.join(htmlRoot, "assets", "chatflow-runtime.js")).replace(/\\/g, "/");
+  const rel = path.relative(path.dirname(file), path.join(htmlRoot, "assets", "qulay-chat-runtime.js")).replace(/\\/g, "/");
   const href = rel.startsWith(".") ? rel : `./${rel}`;
   const tag = `  <script src="${href}"></script>`;
 

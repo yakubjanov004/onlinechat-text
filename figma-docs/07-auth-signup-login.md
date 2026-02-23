@@ -1,4 +1,4 @@
-# CHATFLOW — Auth: Sign Up, Login, Email Verification, Forgot Password
+# QULAY CHAT — Auth: Sign Up, Login, Email Verification, Forgot Password
 
 ## Umumiy yondashuv
 Auth sahifalari butunlay alohida — header va footer ko'rinmaydi. Foydalanuvchi faqat bitta markaziy karta bilan ishlaydi. Dizayn SaaS standartlariga mos, Crisp/Chatwoot/Jivo uslubida toza va minimal. Sahifa foni yengil kulrang, karta oq va soyali. Foydalanuvchi diqqati faqat formaga qaratilgan.
@@ -149,7 +149,7 @@ Akkauntingiz bormi? Kirish
 |                                                    |
 |  ┌──────────────────────────────────────────────┐  |
 |  │                                              │  |
-|  │            [ CHATFLOW Logo ]                 │  |
+|  │            [ QULAY CHAT Logo ]                 │  |
 |  │                                              │  |
 |  │          Ro'yxatdan o'tish                   │  |
 |  │                                              │  |
@@ -247,7 +247,7 @@ user@example.com
 ```
 ┌──────────────────────────────────────────────┐
 │                                              │
-│            [ CHATFLOW Logo ]                 │
+│            [ QULAY CHAT Logo ]                 │
 │                                              │
 │              [ Mail Icon ]                   │
 │                                              │
@@ -334,7 +334,7 @@ Akkauntingiz yo'qmi? Ro'yxatdan o'tish
 ```
 ┌──────────────────────────────────────────────┐
 │                                              │
-│            [ CHATFLOW Logo ]                 │
+│            [ QULAY CHAT Logo ]                 │
 │                                              │
 │                 Kirish                        │
 │                                              │
@@ -416,7 +416,7 @@ Email manzilingizni kiriting. Parolni tiklash havolasini yuboramiz.
 ```
 ┌──────────────────────────────────────────────┐
 │                                              │
-│            [ CHATFLOW Logo ]                 │
+│            [ QULAY CHAT Logo ]                 │
 │                                              │
 │  ← Kirish sahifasiga qaytish                │
 │                                              │
@@ -481,7 +481,7 @@ Akkauntingiz tayyor. Keling, platformani sozlaymiz.
 ```
 ┌──────────────────────────────────────────────┐
 │                                              │
-│            [ CHATFLOW Logo ]                 │
+│            [ QULAY CHAT Logo ]                 │
 │                                              │
 │              [ Party Icon ]                  │
 │                                              │
@@ -628,9 +628,9 @@ auth/
 ## Figma AI uchun prompt
 
 ```
-Create a set of clean, minimal SaaS authentication screens for a platform called CHATFLOW.
+Create a set of clean, minimal SaaS authentication screens for a platform called QULAY CHAT.
 All screens share the same layout: light gray page background (#F9FAFB), a centered white
-card (480px wide, 12px border-radius, medium shadow, 40px padding), and the CHATFLOW logo
+card (480px wide, 12px border-radius, medium shadow, 40px padding), and the QULAY CHAT logo
 centered at the top of the card. No header or footer — just the logo and the card.
 
 Screen 1 — Sign Up:

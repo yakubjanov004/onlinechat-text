@@ -1,4 +1,4 @@
-# CHATFLOW — 04-dashboard: To'liq Sahifalar Rejasi
+# QULAY CHAT — 04-dashboard: To'liq Sahifalar Rejasi
 
 > **Maqsad:** 04-dashboard papkasi ichida Admin va Agent (Operator) rollari uchun barcha kerakli HTML sahifalarni ko'rsatish.
 > **Manba:** Figma docs (10–30), sidebar navigatsiya, role access matrix.
@@ -1460,7 +1460,7 @@ QO'SHIMCHA:
 
 **Ichida nima bo'ladi:**
 - Centered layout (640px max-width)
-- CHATFLOW logo (top center)
+- QULAY CHAT logo (top center)
 - Illustration (240×240px, friendly, minimalist)
 - "404" badge (48px Bold, warning colors)
 - Title: "Sahifa topilmadi" 32px Bold

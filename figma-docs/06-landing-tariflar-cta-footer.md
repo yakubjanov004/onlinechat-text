@@ -1,4 +1,4 @@
-# CHATFLOW — Landing Page: Tariflar + Final CTA + Footer
+# QULAY CHAT — Landing Page: Tariflar + Final CTA + Footer
 
 ## Umumiy yondashuv
 Bu uchta bo'lim landing sahifaning yakuniy qismini tashkil etadi. Tariflar bo'limi foydalanuvchiga mos rejani tanlashga yordam beradi. Final CTA — butun sahifaning mantiqiy yakuni, harakatga undovchi blok. Footer esa qo'shimcha havolalar va huquqiy ma'lumotlarni o'z ichiga oladi. Uchala bo'lim birgalikda "tushundim, boshlayman" hissini yaratishi kerak.
@@ -548,7 +548,7 @@ pricing-section/
 ### Tariflar — Figma AI uchun prompt
 
 ```
-Create a pricing section for a SaaS customer support platform called CHATFLOW.
+Create a pricing section for a SaaS customer support platform called QULAY CHAT.
 White background, 96px vertical padding.
 Centered title: "Sizga mos tarif rejasini tanlang" (H2, 40px Bold, #111827).
 Subtitle: "Barcha rejalarda 14 kunlik bepul sinov. Kredit karta talab qilinmaydi." (18px, #6B7280).
@@ -745,7 +745,7 @@ final-cta-section/
 ### Final CTA — Figma AI uchun prompt
 
 ```
-Create a bold CTA (Call to Action) section for a SaaS platform called CHATFLOW.
+Create a bold CTA (Call to Action) section for a SaaS platform called QULAY CHAT.
 Full-width gradient background from #4F46E5 to #7C3AED (135 degrees).
 96px vertical padding.
 
@@ -789,7 +789,7 @@ Qo'shimcha navigatsiya havolalari, huquqiy ma'lumotlar va kompaniya haqida asosi
 #### Ustun 1: Brend + tavsif
 
 **Logo:**
-- CHATFLOW logo (oq variant)
+- QULAY CHAT logo (oq variant)
 - **O'lcham:** ~140px kenglik, 32px balandlik
 - **Margin-bottom:** 16px
 
@@ -885,7 +885,7 @@ Yordam
 **Linklar:**
 ```
 - Support markazi
-- Email: help@chatflow.uz
+- Email: help@qulaychat.uz
 - Telegram kanal
 - Status sahifa
 ```
@@ -906,7 +906,7 @@ Yordam
 
 **Chap tomon:**
 ```
-© 2026 CHATFLOW. Barcha huquqlar himoyalangan.
+© 2026 QULAY CHAT. Barcha huquqlar himoyalangan.
 ```
 - **Shrift:** 14px, Regular (400), `#6B7280` (Gray-500)
 
@@ -926,7 +926,7 @@ Foydalanish shartlari  •  Maxfiylik siyosati  •  Cookie sozlamalari
 ┌══════════════════════════════════════════════════════════════════════┐
 │                        DARK BACKGROUND (#111827)                     │
 │                                                                      │
-│  CHATFLOW (logo)     Mahsulot      Resurslar     Kompaniya   Yordam │
+│  QULAY CHAT (logo)     Mahsulot      Resurslar     Kompaniya   Yordam │
 │                                                                      │
 │  Mijozlar bilan      Imkoniyatlar  Dokumentatsiya Biz haqimizda  Support │
 │  aloqani             Integratsiya  API docs      Bog'lanish   markazi │
@@ -938,7 +938,7 @@ Foydalanish shartlari  •  Maxfiylik siyosati  •  Cookie sozlamalari
 │                                                                      │
 │ ──────────────────────────────────────────────────────────────────── │
 │                                                                      │
-│  © 2026 CHATFLOW.            Foydalanish shartlari • Maxfiylik •     │
+│  © 2026 QULAY CHAT.            Foydalanish shartlari • Maxfiylik •     │
 │  Barcha huquqlar             Cookie sozlamalari                      │
 │  himoyalangan.                                                       │
 │                                                                      │
@@ -950,7 +950,7 @@ Foydalanish shartlari  •  Maxfiylik siyosati  •  Cookie sozlamalari
 ┌══════════════════════════════╗
 │     DARK BG (#111827)        │
 │                              │
-│  CHATFLOW (logo)             │
+│  QULAY CHAT (logo)             │
 │  Mijozlar bilan aloqani...   │
 │  [Social icons]              │
 │                              │
@@ -982,7 +982,7 @@ Foydalanish shartlari  •  Maxfiylik siyosati  •  Cookie sozlamalari
 │                              │
 │ ─────────────────────────── │
 │                              │
-│  © 2026 CHATFLOW.            │
+│  © 2026 QULAY CHAT.            │
 │  Barcha huquqlar himoya-     │
 │  langan.                     │
 │                              │
@@ -1028,7 +1028,7 @@ footer-section/
 │   ├── footer-content (max-width: 1200px, center, auto-layout horizontal, gap: 40px)
 │   │   │
 │   │   ├── brand-column (auto-layout, vertical, gap: 16px, flex: 1.5)
-│   │   │   ├── logo (CHATFLOW, white variant, ~140x32px)
+│   │   │   ├── logo (QULAY CHAT, white variant, ~140x32px)
 │   │   │   ├── description (text: "Mijozlar bilan aloqani...", 14px Regular, #9CA3AF)
 │   │   │   └── social-icons (auto-layout, horizontal, gap: 16px, margin-top: 24px)
 │   │   │       ├── icon-twitter (20px, #9CA3AF, hover: #FFFFFF)
@@ -1062,14 +1062,14 @@ footer-section/
 │   │   └── links-column-4 [Yordam] (auto-layout, vertical, gap: 12px, flex: 1)
 │   │       ├── column-title (text: "YORDAM", 14px Semibold, #FFFFFF, uppercase)
 │   │       ├── link (text: "Support markazi")
-│   │       ├── link (text: "Email: help@chatflow.uz")
+│   │       ├── link (text: "Email: help@qulaychat.uz")
 │   │       ├── link (text: "Telegram kanal")
 │   │       └── link (text: "Status sahifa")
 │   │
 │   ├── divider (1px, #374151, full-width, margin-top: 48px)
 │   │
 │   └── bottom-bar (auto-layout, horizontal, space-between, padding: 32px 0)
-│       ├── copyright (text: "© 2026 CHATFLOW. Barcha huquqlar himoyalangan.", 14px Regular, #6B7280)
+│       ├── copyright (text: "© 2026 QULAY CHAT. Barcha huquqlar himoyalangan.", 14px Regular, #6B7280)
 │       └── legal-links (auto-layout, horizontal, gap: 24px)
 │           ├── link (text: "Foydalanish shartlari", 14px Regular, #6B7280)
 │           ├── separator (text: "•", #4B5563)
@@ -1081,12 +1081,12 @@ footer-section/
 ### Footer — Figma AI uchun prompt
 
 ```
-Create a dark footer section for a SaaS platform called CHATFLOW.
+Create a dark footer section for a SaaS platform called QULAY CHAT.
 Background: #111827 (dark navy/gray). Padding: 64px vertical.
 
 Layout: horizontal grid with 5 columns (brand column wider):
 
-Column 1 (Brand): CHATFLOW logo in white, short description in #9CA3AF,
+Column 1 (Brand): QULAY CHAT logo in white, short description in #9CA3AF,
 social media icons (Twitter, LinkedIn, GitHub, Telegram) in #9CA3AF.
 
 Column 2 (Mahsulot): Links - Imkoniyatlar, Integratsiyalar, Tariflar, Changelog, Roadmap.
@@ -1098,7 +1098,7 @@ Column titles: 14px Semibold, white, UPPERCASE, letter-spacing 0.05em.
 Links: 14px Regular, #9CA3AF, hover: white.
 
 Divider line below columns: 1px #374151.
-Bottom bar: "© 2026 CHATFLOW" on left, legal links on right
+Bottom bar: "© 2026 QULAY CHAT" on left, legal links on right
 (Foydalanish shartlari, Maxfiylik siyosati, Cookie sozlamalari) in #6B7280.
 
 Style: Clean, dark, professional. Font: Inter. Width: 1200px max content, full-width background.

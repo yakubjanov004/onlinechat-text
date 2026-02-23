@@ -1,4 +1,4 @@
-# CHATFLOW — Landing Page: Qanday Ishlaydi + Asosiy Imkoniyatlar
+# QULAY CHAT — Landing Page: Qanday Ishlaydi + Asosiy Imkoniyatlar
 
 ## Umumiy yondashuv
 Bu ikki bo'lim Kimlar Uchun bo'limidan keyin keladi. Foydalanuvchiga platforma qanday ishlashini 4 qadamda tushuntiradi va keyin 6 ta asosiy funksiyani ko'rsatadi. Har bir bo'lim oldingi bo'limdan mantiqiy davom etadi.
@@ -454,7 +454,7 @@ landing-features/
 
 ### Figma AI uchun prompt
 ```
-Create two landing page sections for a SaaS customer support platform called CHATFLOW.
+Create two landing page sections for a SaaS customer support platform called QULAY CHAT.
 
 Section 1 - "Qanday ishlaydi?": Show 4 step cards in a horizontal timeline with connecting
 lines and chevron arrows. Each card has a numbered badge (1-4), outline icon, title and

@@ -1,4 +1,4 @@
-# CHATFLOW — Landing Page: Header + Hero Section
+# QULAY CHAT — Landing Page: Header + Hero Section
 
 ## Umumiy yondashuv
 Landing page — bitta uzun scroll sahifa. Yuqoridan pastga tabiiy oqimda qurilgan. Foydalanuvchi sahifani o'qib turib, o'z-o'zidan platformani tushunib boradi. Har bir bo'lim oldingi bo'limdan mantiqiy davom etadi.
@@ -25,7 +25,7 @@ Sahifani boshqarish, lekin e'tiborni o'ziga tortmaslik. Toza, minimal dizayn.
 #### Chap tomon
 | Element | Tavsif |
 |---------|--------|
-| **Logo** | CHATFLOW brend logotipi, bosh sahifaga qaytish uchun link. O'lcham: ~140px kenglik, 32px balandlik |
+| **Logo** | QULAY CHAT brend logotipi, bosh sahifaga qaytish uchun link. O'lcham: ~140px kenglik, 32px balandlik |
 
 #### O'rta qism (Navigatsiya)
 | Link | Bosilganda |
@@ -95,7 +95,7 @@ bitta joyda boshqaring
 
 #### Qisqa tavsif (subtitle)
 ```
-CHATFLOW — mijozlar bilan aloqani markazlashtiruvchi platforma.
+QULAY CHAT — mijozlar bilan aloqani markazlashtiruvchi platforma.
 Saytingizdagi chat, email va boshqa kanallar bitta inbox'da.
 ```
 - **Shrift:** 18px, Regular (400), `#6B7280`
@@ -179,7 +179,7 @@ hero-section/
 
 ### Figma AI uchun prompt ko'rsatmasi
 ```
-Create a SaaS hero section for a customer support platform called CHATFLOW.
+Create a SaaS hero section for a customer support platform called QULAY CHAT.
 Left side: Large heading "Barcha mijoz yozishmalarini bitta joyda boshqaring",
 subtitle text, two CTA buttons (primary "Bepul boshlash" and outline "Demo ko'rish"),
 and trust checkmarks below.

@@ -1,5 +1,5 @@
 ﻿
-CHATFLOW — bu Enterprise SaaS formatidagi mijozlar bilan aloqa va texnik qo'llab-quvvatlashni boshqarish platformasi. Platformaning asosiy vazifasi kompaniya va uning mijozlari o'rtasidagi barcha yozishmalarni bitta markazlashtirilgan tizimda qabul qilish, samarali taqsimlash va to'liq nazorat qilishdir.
+QULAY CHAT — bu Enterprise SaaS formatidagi mijozlar bilan aloqa va texnik qo'llab-quvvatlashni boshqarish platformasi. Platformaning asosiy vazifasi kompaniya va uning mijozlari o'rtasidagi barcha yozishmalarni bitta markazlashtirilgan tizimda qabul qilish, samarali taqsimlash va to'liq nazorat qilishdir.
 
 Foydalanuvchilar va rollar
 Bu platforma mijozlar uchun emas — u ichki ishchi panel bo'lib, faqat quyidagi rollar tomonidan foydalaniladi:
@@ -101,7 +101,7 @@ Chap tomon (matn):
 Asosiy sarlavha (H1):
 Barcha mijoz yozishmalarini bitta joyda boshqaring
 Qisqa tavsif (1-2 jumla):
-CHATFLOW — mijozlar bilan aloqani markazlashtiruvchi platforma. Saytingizdagi chat, email va boshqa kanallar bitta inbox'da.
+QULAY CHAT — mijozlar bilan aloqani markazlashtiruvchi platforma. Saytingizdagi chat, email va boshqa kanallar bitta inbox'da.
 CTA tugmalar:
 Bepul boshlash (primary button) — 14 kunlik trial ga olib boradi
 Demo ko'rish (secondary button) — video yoki interaktiv demo
@@ -129,7 +129,7 @@ Variant 1: Faktlar va raqamlar
 📊 98% mijoz qoniqishi
 ⏱️ O'rtacha javob vaqti: 2 daqiqa
 Variant 2: Social proof
-"CHATFLOW bizning support jamoamiz samaradorligini 3 baravarga oshirdi"
+"QULAY CHAT bizning support jamoamiz samaradorligini 3 baravarga oshirdi"
 — Ahmad Valiyev, CEO, TechStart
 Variant 3: Kompaniyalar
 4-6 ta taniqli brendlar logotipi
@@ -269,7 +269,7 @@ Nomi
 8. Nega Aynan Biz — Raqobat afzalliklari
 Vazifasi: Boshqa yechimlardan farqni ko'rsatish va ishonchni mustahkamlash.
 Sarlavha:
-Nega CHATFLOW ni tanlash kerak?
+Nega QULAY CHAT ni tanlash kerak?
 Afzalliklar ro'yxati:
 ✓ Tez ishga tushadi
 2 daqiqada sozlang va ishlatishni boshlang. Murakkab o'rnatish yoki texnik bilim shart emas.
@@ -368,7 +368,7 @@ Email:
 Telegram kanal
 Status sahifa
 Pastki qator:
-© 2026 CHATFLOW. Barcha huquqlar himoyalangan
+© 2026 QULAY CHAT. Barcha huquqlar himoyalangan
 Foydalanish shartlari
 Maxfiylik siyosati
 Cookie sozlamalari
@@ -1268,7 +1268,7 @@ Help Resources
 Har bir ekranda:
 Yordam kerak?
 💬 Live chat
-📧 Email: support@chatflow.uz
+📧 Email: support@qulaychat.uz
 📚 Documentation
 🎥 Video qo'llanma
 
@@ -1303,7 +1303,7 @@ Main Content — tanlangan bo'lim
 
 Header (Yuqori Panel)
 ┌────────────────────────────────────────────────┐
-│ [CHATFLOW]  🔔 3  [Ulug'bek ▾]                │
+│ [QULAY CHAT]  🔔 3  [Ulug'bek ▾]                │
 └────────────────────────────────────────────────┘
 Elementlar:
 Chap:
@@ -1992,7 +1992,7 @@ Notifications
 Yangi xabar kelganda:
 Browser notification:
 ┌────────────────────────┐
-│ 💬 CHATFLOW            │
+│ 💬 QULAY CHAT            │
 │ Ahmad Valiyev          │
 │ Yangi xabar yubordi    │
 └────────────────────────┘
@@ -4166,7 +4166,7 @@ TAB 2: WIDGET (Chat Vidjeti)
 │ │ │ &lt;script&gt;                                 │││
 │ │ │   (function(){                           │││
 │ │ │     var s=document.createElement('s...   │││
-│ │ │     s.src='&lt;https://cdn.chatflow.uz/&gt;...   │││
+│ │ │     s.src='&lt;https://cdn.qulaychat.uz/&gt;...   │││
 │ │ │     s.dataset.workspaceId='ws_abc123...  │││
 │ │ │     document.head.appendChild(s);        │││
 │ │ │   })();                                  │││
@@ -4539,7 +4539,7 @@ Test Notification
 [Test Notification] bosilganda:
 Browser notification:
 ┌────────────────────────┐
-│ 💬 CHATFLOW            │
+│ 💬 QULAY CHAT            │
 │ Test bildirishnoma     │
 │ Bu test xabaridir      │
 └────────────────────────┘
@@ -5188,12 +5188,12 @@ Invoice Detail Modal
 │ Invoice #1234                               [×] │
 ├─────────────────────────────────────────────────┤
 │                                                 │
-│ [CHATFLOW Logo]                                 │
+│ [QULAY CHAT Logo]                                 │
 │                                                 │
 │ From:                          To:              │
-│ CHATFLOW LLC                   TechStart        │
+│ QULAY CHAT LLC                   TechStart        │
 │ Tashkent, Uzbekistan           Tashkent, UZ     │
-│ support@chatflow.uz            admin@tech...    │
+│ support@qulaychat.uz            admin@tech...    │
 │                                                 │
 │ ───────────────────────────────────────────     │
 │                                                 │
@@ -5468,7 +5468,7 @@ TAB 1: API KEYS (API Kalitlar)
 │ │                                              │ │
 │ │ cURL example:                                │ │
 │ │ ┌──────────────────────────────────────────┐│ │
-│ │ │ curl &lt;https://api.chatflow.uz/v1/chats&gt; \\\\  ││ │
+│ │ │ curl &lt;https://api.qulaychat.uz/v1/chats&gt; \\\\  ││ │
 │ │ │   -H "Authorization: Bearer YOUR_KEY" \\\\  ││ │
 │ │ │   -H "Content-Type: application/json"    ││ │
 │ │ │                                    [📋]  ││ │
@@ -5761,7 +5761,7 @@ Test Webhook
 │ │ Request:                       │ │
 │ │ POST /webhooks                 │ │
 │ │ Headers:                       │ │
-│ │   X-Chatflow-Signature: ...    │ │
+│ │   X-Qulay chat-Signature: ...    │ │
 │ │                                │ │
 │ │ Body:                          │ │
 │ │ {                              │ │
@@ -6049,11 +6049,11 @@ TAB 4: DOCS (Hujjatlar)
 │ │ Send a message:                              ││
 │ │                                              ││
 │ │ ┌──────────────────────────────────────────┐││
-│ │ │ const chatflow = require('chatflow');    │││
+│ │ │ const qulaychat = require('qulaychat');    │││
 │ │ │                                          │││
-│ │ │ chatflow.init('YOUR_API_KEY');           │││
+│ │ │ qulaychat.init('YOUR_API_KEY');           │││
 │ │ │                                          │││
-│ │ │ await chatflow.messages.send({           │││
+│ │ │ await qulaychat.messages.send({           │││
 │ │ │   chat_id: 'ch_123',                     │││
 │ │ │   text: 'Hello from API!'                │││
 │ │ │ });                                      │││
@@ -6063,7 +6063,7 @@ TAB 4: DOCS (Hujjatlar)
 │ │ List all chats:                              ││
 │ │                                              ││
 │ │ ┌──────────────────────────────────────────┐││
-│ │ │ const chats = await chatflow.chats.list({│││
+│ │ │ const chats = await qulaychat.chats.list({│││
 │ │ │   status: 'open',                        │││
 │ │ │   limit: 20                              │││
 │ │ │ });                                      │││
@@ -6076,7 +6076,7 @@ TAB 4: DOCS (Hujjatlar)
 │                                                 │
 │ ┌─ API Endpoints ─────────────────────────────┐│
 │ │                                              ││
-│ │ Base URL: &lt;https://api.chatflow.uz/v1&gt;         ││
+│ │ Base URL: &lt;https://api.qulaychat.uz/v1&gt;         ││
 │ │                                              ││
 │ │ Chats:                                       ││
 │ │ GET    /chats          - List chats          ││
@@ -6102,15 +6102,15 @@ TAB 4: DOCS (Hujjatlar)
 │ │ Official SDKs:                               ││
 │ │                                              ││
 │ │ 🟨 JavaScript/Node.js                        ││
-│ │ npm install chatflow-js                      ││
+│ │ npm install qulay-chat-js                      ││
 │ │ [GitHub] [Docs]                              ││
 │ │                                              ││
 │ │ 🐍 Python                                    ││
-│ │ pip install chatflow-python                  ││
+│ │ pip install qulay-chat-python                  ││
 │ │ [GitHub] [Docs]                              ││
 │ │                                              ││
 │ │ 🐘 PHP                                       ││
-│ │ composer require chatflow/chatflow-php       ││
+│ │ composer require qulaychat/qulay-chat-php       ││
 │ │ [GitHub] [Docs]                              ││
 │ │                                              ││
 │ │ ☕ Java (Community)                          ││
@@ -6122,9 +6122,9 @@ TAB 4: DOCS (Hujjatlar)
 │ │                                              ││
 │ │ Need help?                                   ││
 │ │                                              ││
-│ │ 📧 Email: developers@chatflow.uz             ││
-│ │ 💬 Community: forum.chatflow.uz              ││
-│ │ 📚 Full Docs: docs.chatflow.uz               ││
+│ │ 📧 Email: developers@qulaychat.uz             ││
+│ │ 💬 Community: forum.qulaychat.uz              ││
+│ │ 📚 Full Docs: docs.qulaychat.uz               ││
 │ │                                              ││
 │ └──────────────────────────────────────────────┘│
 │                                                 │
@@ -6135,20 +6135,20 @@ Code Language Tabs
 │ [JavaScript] [Python] [PHP] [cURL] │
 └────────────────────────────────────┘
 JavaScript selected:
-const chatflow = require('chatflow');
+const qulaychat = require('qulaychat');
 
-chatflow.init('YOUR_API_KEY');
+qulaychat.init('YOUR_API_KEY');
 
-await chatflow.messages.send({
+await qulaychat.messages.send({
   chat_id: 'ch_123',
   text: 'Hello from API!'
 });
 Python:
-import chatflow
+import qulaychat
 
-chatflow.api_key = 'YOUR_API_KEY'
+qulaychat.api_key = 'YOUR_API_KEY'
 
-chatflow.Messages.send(
+qulaychat.Messages.send(
   chat_id='ch_123',
   text='Hello from API!'
 )
@@ -6198,7 +6198,7 @@ A. ONBOARDING FLOW
 ┌─────────────────────────────────────────────────┐
 │                                                 │
 │                                                 │
-│              [CHATFLOW Logo]                    │
+│              [QULAY CHAT Logo]                    │
 │                                                 │
 │         Xush kelibsiz! 👋                       │
 │                                                 │
@@ -6318,7 +6318,7 @@ A. ONBOARDING FLOW
 │ │ &lt;script&gt;                                    │ │
 │ │   (function(){                              │ │
 │ │     var s=document.createElement('scri...   │ │
-│ │     s.src='&lt;https://cdn.chatflow.uz/widg&gt;...  │ │
+│ │     s.src='&lt;https://cdn.qulaychat.uz/widg&gt;...  │ │
 │ │     s.dataset.workspaceId='ws_abc123';      │ │
 │ │     document.head.appendChild(s);           │ │
 │ │   })();                                     │ │
@@ -6590,7 +6590,7 @@ B. EMPTY STATES (Bo'sh Holatlar)
 │                                                 │
 │         API kalitlar yo'q                       │
 │                                                 │
-│    API orqali CHATFLOW'ga ulanish uchun         │
+│    API orqali QULAY CHAT'ga ulanish uchun         │
 │    birinchi kalitni yarating                    │
 │                                                 │
 │                                                 │
@@ -6649,7 +6649,7 @@ B. EMPTY STATES (Bo'sh Holatlar)
 │                                                 │
 │      Ulangan integratsiyalar yo'q               │
 │                                                 │
-│    CHATFLOW'ni sevimli ilovalaringiz            │
+│    QULAY CHAT'ni sevimli ilovalaringiz            │
 │    bilan ulang                                  │
 │                                                 │
 │                                                 │
@@ -6751,7 +6751,7 @@ B. EMPTY STATES (Bo'sh Holatlar)
 
 13. 404 - Page Not Found
 ┌─────────────────────────────────────────────────┐
-│ [CHATFLOW Logo]                     [User Menu] │
+│ [QULAY CHAT Logo]                     [User Menu] │
 ├─────────────────────────────────────────────────┤
 │                                                 │
 │                                                 │
@@ -6783,7 +6783,7 @@ B. EMPTY STATES (Bo'sh Holatlar)
 │                                                 │
 │                                                 │
 │                                                 │
-│              [CHATFLOW Logo]                    │
+│              [QULAY CHAT Logo]                    │
 │                                                 │
 │                  🔧                             │
 │                                                 │
@@ -6796,8 +6796,8 @@ B. EMPTY STATES (Bo'sh Holatlar)
 │                                                 │
 │                                                 │
 │    Yangilanishlar uchun:                        │
-│    🐦 Twitter: @chatflow_uz                     │
-│    📧 Email: support@chatflow.uz                │
+│    🐦 Twitter: @qulaychat_uz                     │
+│    📧 Email: support@qulaychat.uz                │
 │                                                 │
 │                                                 │
 │    ┌──────────────────────────────────────┐    │
@@ -6813,7 +6813,7 @@ C. LOADING STATES (Yuklanish Holatlari)
 │                                                 │
 │                                                 │
 │                                                 │
-│              [CHATFLOW Logo]                    │
+│              [QULAY CHAT Logo]                    │
 │                                                 │
 │                                                 │
 │                  ⟳                              │
@@ -6979,13 +6979,13 @@ Completion Screen
 
 YAKUNLANDI! 🎉
 Barcha asosiy sahifalar, komponentlar, empty states, loading states va onboarding flow tayyor!
-Endi sizda to'liq CHATFLOW platformasi uchun Figma dizayni uchun kerakli barcha ma'lumotlar mavjud:
+Endi sizda to'liq QULAY CHAT platformasi uchun Figma dizayni uchun kerakli barcha ma'lumotlar mavjud:
 ✅ 8 ta asosiy bo'lim (Inbox, Analytics, Team, Settings, Billing, Developer, Onboarding) ✅ Barcha UI komponentlari ✅ Empty states ✅ Loading states
 ✅ Error handling ✅ Responsive layout ✅ Micro-interactions
 Figma'da ishni boshlashingiz mumkin! 🚀
 
 
-Bu sahifa CHATFLOW platformasining Agent (Operator) tomonidan barcha jarayonlarni to'liq tavsiflaydi.
+Bu sahifa QULAY CHAT platformasining Agent (Operator) tomonidan barcha jarayonlarni to'liq tavsiflaydi.
 
 🎯 Agent Nima Qiladi?
 Agent (Operator) - bu mijozlar bilan to'g'ridan-to'g'ri muloqot qiladigan xodim.
@@ -7055,7 +7055,7 @@ Agent login qilgandan keyin ko'radigan asosiy sahifa.
 
 🎯 Dashboard Layout
 ┌──────────────────────────────────────────────────────┐
-│ [CHATFLOW]    Agent Dashboard         [🔔 3] [User▾]│ Header
+│ [QULAY CHAT]    Agent Dashboard         [🔔 3] [User▾]│ Header
 ├────────┬─────────────────────────────────────────────┤
 │        │                                             │
 │  [📷]  │  Welcome back, Sardor! 👋                   │
@@ -7089,10 +7089,10 @@ Agent login qilgandan keyin ko'radigan asosiy sahifa.
 📊 Dashboard Bo'limlari
 1. Header (Yuqori Panel)
 ┌────────────────────────────────────────────┐
-│ [CHATFLOW]  Agent Dashboard  [🔔 3] [User▾]│
+│ [QULAY CHAT]  Agent Dashboard  [🔔 3] [User▾]│
 └────────────────────────────────────────────┘
 Elementlar:
-Logo: CHATFLOW (click → dashboard)
+Logo: QULAY CHAT (click → dashboard)
 Title: "Agent Dashboard"
 Notifications: 🔔 badge (yangi chatlar)
 User Menu: Avatar + dropdown
@@ -7296,17 +7296,17 @@ Admin Tomonidan:
 📧 Email Ko'rinishi
 Agent qabul qiladigan email:
 ──────────────────────────────────────
-From: CHATFLOW &lt;noreply@chatflow.uz&gt;
+From: QULAY CHAT &lt;noreply@qulaychat.uz&gt;
 To: sardor@company.com
-Subject: You've been invited to join CHATFLOW
+Subject: You've been invited to join QULAY CHAT
 ──────────────────────────────────────
 
 Hi Sardor,
 
 You've been invited by Ulug'bek Yoqubjonov 
-to join their CHATFLOW workspace as an Agent.
+to join their QULAY CHAT workspace as an Agent.
 
-CHATFLOW is a customer support platform where 
+QULAY CHAT is a customer support platform where 
 you'll be able to chat with customers and help 
 them with their questions.
 
@@ -7315,17 +7315,17 @@ them with their questions.
 └────────────────────────────┘
 
 Or copy and paste this link:
-&lt;https://app.chatflow.uz/invite/abc123def456&gt;
+&lt;https://app.qulaychat.uz/invite/abc123def456&gt;
 
 This invitation expires in 7 days.
 
 ──────────────────────────────────────
-CHATFLOW Team
+QULAY CHAT Team
 ──────────────────────────────────────
 
 🔗 Invite Link
 Link formati:
-&lt;https://app.chatflow.uz/invite/{token}&gt;
+&lt;https://app.qulaychat.uz/invite/{token}&gt;
 Token:
 Unique token har bir invite uchun
 Expires: 7 kun
@@ -7380,7 +7380,7 @@ Agent endi qo'shila olmaydi
 
 🎨 Email Design
 Branding:
-CHATFLOW logosi
+QULAY CHAT logosi
 Brand colors
 Professional layout
 CTA Button:
@@ -7419,16 +7419,16 @@ Agent email'dagi linkni bosgandan keyin sign up/login sahifasiga tushadi.
 1. Invite Link Bosiladi
 Agent emaildagi "Accept Invitation" tugmasini bosadi.
 Redirect:
-&lt;https://app.chatflow.uz/invite/abc123def456&gt;
+&lt;https://app.qulaychat.uz/invite/abc123def456&gt;
   ↓
-&lt;https://app.chatflow.uz/agent/signup?token=abc123def456&gt;
+&lt;https://app.qulaychat.uz/agent/signup?token=abc123def456&gt;
 
 2. Sign Up Sahifasi
 ┌────────────────────────────────────────┐
 │                                        │
-│         [CHATFLOW Logo]                │
+│         [QULAY CHAT Logo]                │
 │                                        │
-│    Join CHATFLOW as an Agent           │
+│    Join QULAY CHAT as an Agent           │
 │                                        │
 │    You've been invited by              │
 │    Ulug'bek Yoqubjonov's workspace     │
@@ -7493,22 +7493,22 @@ Password Strength Indicator:
 ┌────────────────────────────┐
 │ ✅ Account Created!        │
 │                            │
-│ Welcome to CHATFLOW!       │
+│ Welcome to QULAY CHAT!       │
 │                            │
 │ Redirecting to dashboard...│
 │                            │
 │ [Loading animation]        │
 └────────────────────────────┘
 2. Redirect to Dashboard
-&lt;https://app.chatflow.uz/agent/signup&gt;
+&lt;https://app.qulaychat.uz/agent/signup&gt;
   ↓
-&lt;https://app.chatflow.uz/agent/dashboard&gt;
+&lt;https://app.qulaychat.uz/agent/dashboard&gt;
 
 🔑 Agent Login (Keyingi safar)
 Login Sahifasi:
 ┌────────────────────────────────────────┐
 │                                        │
-│         [CHATFLOW Logo]                │
+│         [QULAY CHAT Logo]                │
 │                                        │
 │         Agent Login                    │
 │                                        │
@@ -8232,7 +8232,7 @@ Platform Support:
 
 🏠 Mobile Dashboard
 ┌──────────────────────────┐
-│  ☰  CHATFLOW      🔔 [3]│ Header
+│  ☰  QULAY CHAT      🔔 [3]│ Header
 ├──────────────────────────┤
 │                          │
 │  Welcome, Sardor! 👋     │
@@ -8355,7 +8355,7 @@ Long press on chat card:
 🔔 Push Notifications
 Notification Format
 ┌──────────────────────────┐
-│ 💬 CHATFLOW              │
+│ 💬 QULAY CHAT              │
 │                          │
 │ New chat from Ahmad      │
 │ "Salom, yordam kerak"    │
@@ -8437,7 +8437,7 @@ Tap "Reply":
 🟢 Status Quick Change
 Swipe Down Notification Panel
 ┌──────────────────────────┐
-│ CHATFLOW Status          │
+│ QULAY CHAT Status          │
 ├──────────────────────────┤
 │                          │
 │ ● 🟢 Online              │

@@ -1,4 +1,4 @@
-﻿# CHATFLOW — Team: Agentlar, Rollar, Takliflar
+﻿# QULAY CHAT — Team: Agentlar, Rollar, Takliflar
 
 ## Umumiy yondashuv
 Team bo'limi workspace'dagi barcha agentlarni boshqarish uchun markaziy joy — agentlarni qo'shish, rollarini boshqarish, faoliyatini kuzatish va takliflarni nazorat qilish. Admin va Manager rollari uchun to'liq CRUD operatsiyalari, Operator uchun faqat read-only ko'rish imkoniyati. Professional SaaS tool sifatida, bu bo'lim minimal, lekin kuchli bo'lishi kerak — ortiqcha detallar emas, balki tezkor harakatlar.
@@ -387,7 +387,7 @@ Team bo'limi workspace'dagi barcha agentlarni boshqarish uchun markaziy joy — 
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────────────┐
-│ CHATFLOW                    [Ctrl+K Qidirish...]         🔔(3)  [Avatar ▼]     │ Header
+│ QULAY CHAT                    [Ctrl+K Qidirish...]         🔔(3)  [Avatar ▼]     │ Header
 ├─────────────────────────────────────────────────────────────────────────────────┤
 │ [≡]│ Inbox (12)                                                                 │
 │    │ Automation                                                                  │

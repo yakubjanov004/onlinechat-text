@@ -1,7 +1,7 @@
-# CHATFLOW — Advanced Analytics (Kengaytirilgan Analitika)
+# QULAY CHAT — Advanced Analytics (Kengaytirilgan Analitika)
 
 ## Modul maqsadi
-Advanced Analytics — CHATFLOW platformasida operatorlar va jamoa faoliyatini chuqur tahlil qilish uchun professional analitika moduli. Bu yerda Admin va Manager real-time metriklar, custom dashboardlar, SLA monitoring, va export funksiyalaridan foydalanadi.
+Advanced Analytics — QULAY CHAT platformasida operatorlar va jamoa faoliyatini chuqur tahlil qilish uchun professional analitika moduli. Bu yerda Admin va Manager real-time metriklar, custom dashboardlar, SLA monitoring, va export funksiyalaridan foydalanadi.
 
 **Kirish:** Admin (to'liq), Manager (to'liq), Operator (faqat o'z statistikasi)
 

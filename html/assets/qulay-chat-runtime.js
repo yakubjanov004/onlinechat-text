@@ -1,6 +1,6 @@
 (function () {
   "use strict";
-  var ROLE_KEY = "chatflow_role";
+  var ROLE_KEY = "qulaychat_role";
   var ROLES = ["admin","agent","client"];
   var ROLE_LABELS = {admin:"Admin",agent:"Agent",client:"Client"};
 
@@ -155,6 +155,6 @@
     }
   });
 
-  document.addEventListener("chatflow:shell-mounted", function(){ applyRole(); initTabs(); refreshIcons(); });
+  document.addEventListener("qulaychat:shell-mounted", function(){ applyRole(); initTabs(); refreshIcons(); });
   document.addEventListener("DOMContentLoaded", function(){ applyRole(); initTabs(); refreshIcons(); });
 })();

@@ -1,4 +1,4 @@
-# CHATFLOW — Knowledge Base (Bilimlar Bazasi)
+# QULAY CHAT — Knowledge Base (Bilimlar Bazasi)
 
 ## Modul maqsadi
 Knowledge Base — mijozlar uchun self-service qo'llab-quvvatlash portali. Admin va menejerlar bu yerda maqolalar yozadi, kategoriyalarga ajratadi va public portal orqali nashr etadi. Mijozlar esa masalalarni mustaqil hal qilish uchun maqolalarni qidiradi va o'qiydi.
@@ -271,7 +271,7 @@ Dashboard Shell + Main Content Area
 #### General Tab
 
 **Knowledge Base Name:**
-- Input: "CHATFLOW Yordam Markazi" (shown on public portal)
+- Input: "QULAY CHAT Yordam Markazi" (shown on public portal)
 
 **Default Language:**
 - Dropdown: O'zbek | Русский | English
@@ -308,12 +308,12 @@ Dashboard Shell + Main Content Area
 #### Public Portal Tab
 
 **Domain:**
-- Default: `kb.chatflow.uz/workspace-name`
+- Default: `kb.qulaychat.uz/workspace-name`
 - Custom domain: Input "docs.mysite.com" + DNS setup instructions
 - ☑ "Maxsus domen ulash" checkbox
 
 **SEO:**
-- Site title: "CHATFLOW Yordam Markazi"
+- Site title: "QULAY CHAT Yordam Markazi"
 - Meta description: Textarea (160 chars)
 - og:image: Upload (1200×630px)
 
@@ -424,9 +424,9 @@ Dashboard Shell + Main Content Area
 Standalone public page (not dashboard shell)
 
 ### URL Structure
-- Homepage: `kb.chatflow.uz/workspace-name`
-- Category: `kb.chatflow.uz/workspace-name/category-slug`
-- Article: `kb.chatflow.uz/workspace-name/category-slug/article-slug`
+- Homepage: `kb.qulaychat.uz/workspace-name`
+- Category: `kb.qulaychat.uz/workspace-name/category-slug`
+- Article: `kb.qulaychat.uz/workspace-name/category-slug/article-slug`
 
 ### Homepage UI
 
@@ -438,7 +438,7 @@ Standalone public page (not dashboard shell)
 
 #### Hero Section
 - **Background:** Primary gradient or solid Primary-50
-- **Title:** "CHATFLOW Yordam Markazi" 48px Bold, Gray-900
+- **Title:** "QULAY CHAT Yordam Markazi" 48px Bold, Gray-900
 - **Subtitle:** "Savollaringizga javob toping" 20px Regular, Gray-700
 
 **Search Bar (prominent):**
@@ -487,7 +487,7 @@ Standalone public page (not dashboard shell)
 
 #### Footer
 - **Links:** Privacy, Terms, Social icons
-- **Copyright:** "© 2026 CHATFLOW. Barcha huquqlar himoyalangan."
+- **Copyright:** "© 2026 QULAY CHAT. Barcha huquqlar himoyalangan."
 
 ---
 
@@ -632,7 +632,7 @@ Standalone public page (not dashboard shell)
 ## 9. User Flow — Public Visitor
 
 ```
-[Visitor] → [Public KB URL: kb.chatflow.uz/workspace]
+[Visitor] → [Public KB URL: kb.qulaychat.uz/workspace]
                         ↓
                 [KB Home Page]
                         ↓
@@ -719,7 +719,7 @@ Fetch articles for admin/manager dashboard
       "id": "art_abc123",
       "title": "Widget o'rnatish qo'llanmasi",
       "slug": "widget-ornatish-qollanmasi",
-      "excerpt": "CHATFLOW widget o'rnatish uchun...",
+      "excerpt": "QULAY CHAT widget o'rnatish uchun...",
       "category": {
         "id": "cat_def456",
         "name": "Setup",
@@ -761,14 +761,14 @@ Fetch single article (admin view with full content)
     "id": "art_abc123",
     "title": "Widget o'rnatish qo'llanmasi",
     "slug": "widget-ornatish-qollanmasi",
-    "content": "<h2>Widget o'rnatish</h2><p>CHATFLOW widget...</p>",
-    "excerpt": "CHATFLOW widget o'rnatish uchun...",
+    "content": "<h2>Widget o'rnatish</h2><p>QULAY CHAT widget...</p>",
+    "excerpt": "QULAY CHAT widget o'rnatish uchun...",
     "category_id": "cat_def456",
     "category": { ... },
     "status": "published",
     "featured_image_url": "https://cdn.../widget-guide.png",
-    "meta_title": "Widget o'rnatish qo'llanmasi | CHATFLOW",
-    "meta_description": "CHATFLOW widget o'rnatish uchun...",
+    "meta_title": "Widget o'rnatish qo'llanmasi | QULAY CHAT",
+    "meta_description": "QULAY CHAT widget o'rnatish uchun...",
     "views_count": 1245,
     "helpful_votes": 98,
     "not_helpful_votes": 12,
@@ -789,11 +789,11 @@ Create new article
 {
   "title": "Widget o'rnatish qo'llanmasi",
   "content": "<h2>Widget o'rnatish</h2><p>...</p>",
-  "excerpt": "CHATFLOW widget o'rnatish uchun...",
+  "excerpt": "QULAY CHAT widget o'rnatish uchun...",
   "category_id": "cat_def456",
   "status": "draft",
   "featured_image_url": "https://...",
-  "meta_title": "Widget o'rnatish | CHATFLOW",
+  "meta_title": "Widget o'rnatish | QULAY CHAT",
   "meta_description": "Widget o'rnatish qo'llanmasi",
   "related_article_ids": ["art_ghi789"]
 }
@@ -904,7 +904,7 @@ Public articles (published only)
       "id": "art_abc123",
       "title": "Widget o'rnatish qo'llanmasi",
       "slug": "widget-ornatish-qollanmasi",
-      "excerpt": "CHATFLOW widget o'rnatish uchun...",
+      "excerpt": "QULAY CHAT widget o'rnatish uchun...",
       "category": {
         "name": "Setup",
         "emoji": "⚙️",
@@ -1304,10 +1304,10 @@ knowledge-base/
 - **404 handling:** Custom 404 page with search + popular articles
 
 ### Public Portal URL Structure
-- Home: `https://help.chatflow.uz/`
-- Category: `https://help.chatflow.uz/c/setup`
-- Article: `https://help.chatflow.uz/a/widget-ornatish-qollanmasi`
-- Search: `https://help.chatflow.uz/search?q=widget`
+- Home: `https://help.qulaychat.uz/`
+- Category: `https://help.qulaychat.uz/c/setup`
+- Article: `https://help.qulaychat.uz/a/widget-ornatish-qollanmasi`
+- Search: `https://help.qulaychat.uz/search?q=widget`
 
 ### Custom Domain Support
 - Allow workspaces to use custom domain: `help.mydomain.com`
@@ -1326,7 +1326,7 @@ knowledge-base/
 5. Selects Category "Setup"
 6. Writes content in Tiptap editor (headings, paragraphs, images, code blocks)
 7. Adds featured image (uploads from computer)
-8. Writes Excerpt: "CHATFLOW widget o'rnatish uchun..."
+8. Writes Excerpt: "QULAY CHAT widget o'rnatish uchun..."
 9. Fills SEO fields: Meta title, Meta description
 10. Selects related articles
 11. Clicks "Saqlash" (saves as draft)
@@ -1336,7 +1336,7 @@ knowledge-base/
 15. Article now visible on public portal
 
 ### Flow 2: Customer Finds Article (Public)
-1. Customer visits `https://help.chatflow.uz/`
+1. Customer visits `https://help.qulaychat.uz/`
 2. Sees hero with search bar
 3. Types "widget install" and presses Enter
 4. Search results show 5 articles

@@ -1,4 +1,4 @@
-# CHATFLOW — Automation & Availability (Avtomatlashtirish va Mavjudlik)
+# QULAY CHAT — Automation & Availability (Avtomatlashtirish va Mavjudlik)
 
 ## Umumiy yondashuv
 Automation bo'limi — ish vaqtini, avtomatik javoblarni, triggerlarni va kutib olish xabarlarini boshqarish uchun yagona markaz. Dashboard shell ichida joylashgan, 4 ta tab bilan navigatsiya qilinadi. Har bir tab alohida funksional sohani boshqaradi: ish jadvalidan tortib, foydalanuvchi harakatiga asoslangan trigger mexanizmlarigacha.
@@ -326,7 +326,7 @@ Kechikish: [ 3 ] soniya
 ┌──────────────────────────┐
 │  📱 Vidjet Preview        │
 │ ┌────────────────────────┐│
-│ │ CHATFLOW              ││
+│ │ QULAY CHAT              ││
 │ │ ─────────────────     ││
 │ │                       ││
 │ │  🤖 Hozir ish vaqtidan││
@@ -555,7 +555,7 @@ Chat vidjetining ko'rinishi va kutib olish xabarlarini sozlash. Bu tab vidjetnin
 
 - **Label:** "Chat oyna sarlavhasi", 14px, Medium, `#374151`
 - **Input:** text, to'liq kenglik, height 40px
-- **Default:** "CHATFLOW Support"
+- **Default:** "QULAY CHAT Support"
 - **Max:** 40 belgi
 
 ### 4.3 Welcome Message
@@ -592,7 +592,7 @@ Chat vidjetining ko'rinishi va kutib olish xabarlarini sozlash. Bu tab vidjetnin
 │   LIVE PREVIEW            │
 │                           │
 │   ┌─────────────────────┐ │
-│   │ CHATFLOW Support    │ │
+│   │ QULAY CHAT Support    │ │
 │   │ ─────────────────── │ │
 │   │                     │ │
 │   │  Salom! Sizga       │ │
@@ -634,8 +634,8 @@ Chat vidjetining ko'rinishi va kutib olish xabarlarini sozlash. Bu tab vidjetnin
 │  Vidjet tugma matni             │  LIVE PREVIEW        │
 │  [Yordam kerakmi?           ]   │                      │
 │                                 │  ┌────────────────┐  │
-│  Chat oyna sarlavhasi           │  │ CHATFLOW       │  │
-│  [CHATFLOW Support          ]   │  │ Support        │  │
+│  Chat oyna sarlavhasi           │  │ QULAY CHAT       │  │
+│  [QULAY CHAT Support          ]   │  │ Support        │  │
 │                                 │  │                │  │
 │  Kutib olish xabari             │  │ Salom! Sizga   │  │
 │  ┌─────────────────────────┐    │  │ qanday yordam  │  │
@@ -940,7 +940,7 @@ preview-widget/
 
 ### Ish Vaqti Tab Prompt
 ```
-Create a working hours settings page for a SaaS customer support platform called CHATFLOW.
+Create a working hours settings page for a SaaS customer support platform called QULAY CHAT.
 Layout: Split view — left side 60% for settings, right side 40% for preview sidebar.
 
 Left side contains:
@@ -974,7 +974,7 @@ Primary #4F46E5, clean SaaS style, Inter font, 1200px max width.
 
 ### Triggers Tab Prompt
 ```
-Create a triggers management page for CHATFLOW. Header with "Triggerlar" title
+Create a triggers management page for QULAY CHAT. Header with "Triggerlar" title
 and "+ Yangi trigger" primary button. Below, show trigger cards in a vertical list.
 
 Each trigger card contains: name with active toggle, trigger name input,
@@ -993,7 +993,7 @@ Style: White cards with #E5E7EB border, 12px radius. Primary #4F46E5. Inter font
 Create a greetings/widget customization page with split layout.
 Left side 60%: Form with 5 inputs stacked vertically:
 - Widget Button Text input (default: "Yordam kerakmi?")
-- Chat Window Title input (default: "CHATFLOW Support")
+- Chat Window Title input (default: "QULAY CHAT Support")
 - Welcome Message textarea with 0/200 character counter
 - Input Placeholder input (default: "Xabaringizni yozing...")
 - Agent Typing Indicator input (default: "Agent yozmoqda...")

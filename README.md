@@ -1,6 +1,6 @@
-# CHATFLOW — Figma Design System
+# QULAY CHAT — Figma Design System
 
-CHATFLOW loyihasining dizayn tizimi. Har bir ekran uchun: HTML → Figma Plugin API kodi → Figma canvas.
+QULAY CHAT loyihasining dizayn tizimi. Har bir ekran uchun: HTML → Figma Plugin API kodi → Figma canvas.
 
 ---
 

@@ -1,4 +1,4 @@
-# CHATFLOW — To'liq Sahifalar Ro'yxati (figma-html-pages + figma-designs)
+# QULAY CHAT — To'liq Sahifalar Ro'yxati (figma-html-pages + figma-designs)
 
 > **Maqsad:** 18 papka uchun barcha HTML sahifalar + Figma JS fayllar, har bir page ning maqsadi va button navigatsiyalari.
 > **Manba:** figma-docs/ (00–34), figma-html-pages/, figma-designs/

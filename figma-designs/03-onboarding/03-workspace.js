@@ -1,4 +1,4 @@
-// CHATFLOW - Onboarding - 03 Workspace Setup (Step 2/5)
+// QULAY CHAT - Onboarding - 03 Workspace Setup (Step 2/5)
 // HTML source: figma-html-pages/03-onboarding/03-workspace.html
 
 function rgb(hex) {

@@ -69,7 +69,7 @@
     header.innerHTML =
       '<div class="app-header-left">' +
       '  <button class="icon-btn" type="button" data-action="toggle-sidebar" aria-label="Sidebar toggle"><i data-lucide="panel-left-close"></i></button>' +
-      '  <a class="shell-brand" href="../04-dashboard/01-dashboard.html"><span class="shell-brand-mark">CF</span><span>CHATFLOW</span></a>' +
+      '  <a class="shell-brand" href="../04-dashboard/01-dashboard.html"><span class="shell-brand-mark">QC</span><span>QULAY CHAT</span></a>' +
       '</div>' +
       '<label class="shell-search" aria-label="Global qidiruv">' +
       '  <i data-lucide="search"></i>' +
@@ -120,7 +120,7 @@
     body.insertBefore(shell, body.firstChild);
 
     if (window.lucide && window.lucide.createIcons) window.lucide.createIcons();
-    document.dispatchEvent(new CustomEvent("chatflow:shell-mounted"));
+    document.dispatchEvent(new CustomEvent("qulaychat:shell-mounted"));
   }
 
   document.addEventListener("DOMContentLoaded", mountShell);

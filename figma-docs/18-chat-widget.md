@@ -1,4 +1,4 @@
-﻿# CHATFLOW — Chat Widget: Mijoz Tomoni Interfeys
+﻿# QULAY CHAT — Chat Widget: Mijoz Tomoni Interfeys
 
 **Widget ID:** `WIDGET-01`  
 **Fayl nomi:** `widget-chat.fig`  
@@ -441,8 +441,8 @@ Visitor interfeysi sodda va ishonchli bo'lishi kerak. Chat ochish, yozish, fayl 
 
 **Content:**
 - Text: "Powered by" — 11px Regular #9CA3AF
-- Logo: "CHATFLOW" — 11px Semibold #4F46E5
-- Link: Opens chatflow.uz in new tab
+- Logo: "QULAY CHAT" — 11px Semibold #4F46E5
+- Link: Opens qulaychat.uz in new tab
 - Layout: Center-aligned, inline
 
 **Hide Option:**
@@ -511,7 +511,7 @@ Widget can be positioned at 4 corners:
 **Permission:** Request on first visitor message sent  
 
 **Content:**
-- Title: "CHATFLOW — Yangi xabar"
+- Title: "QULAY CHAT — Yangi xabar"
 - Body: "Dilshod: Salom, sizga qanday yordam..." (first 50 chars)
 - Icon: Agent avatar 64px or workspace logo
 - Click action: Open/focus chat window
@@ -692,7 +692,7 @@ Widget can be positioned at 4 corners:
                                          │ └──────────────────────────┘ │
                                          │ [😊] [📎]         [Yuborish] │ Actions
                                          │                              │ Footer (100px)
-                                         │   Powered by CHATFLOW        │ Branding
+                                         │   Powered by QULAY CHAT        │ Branding
                                          └──────────────────────────────┘
                                                 (360×520px)
 ```
@@ -852,7 +852,7 @@ widget/
 
 ## User Flows
 
-### 1. First-time Visitor Chat Flow
+### 1. First-time Visitor Qulay Chat
 ```
 1. Visitor lands on website
 2. Widget launcher appears (bottom-right, pulse animation)
@@ -951,11 +951,11 @@ widget/
 ```html
 <script>
   (function(w,d,s,o,f,js,fjs){
-    w['ChatflowWidget']=o;w[o]=w[o]||function(){(w[o].q=w[o].q||[]).push(arguments)};
+    w['Qulay chatWidget']=o;w[o]=w[o]||function(){(w[o].q=w[o].q||[]).push(arguments)};
     js=d.createElement(s),fjs=d.getElementsByTagName(s)[0];
     js.id=o;js.src=f;js.async=1;fjs.parentNode.insertBefore(js,fjs);
-  }(window,document,'script','chatflow','https://cdn.chatflow.uz/widget.js'));
-  chatflow('init', {
+  }(window,document,'script','qulaychat','https://cdn.qulaychat.uz/widget.js'));
+  qulaychat('init', {
     workspaceId: 'ws_abc123',
     position: 'bottom-right',
     primaryColor: '#4F46E5',
@@ -983,11 +983,11 @@ widget/
 - `connection:lost` — WebSocket disconnected
 
 ### LocalStorage Keys
-- `chatflow_session_id` — Unique session ID (UUID)
-- `chatflow_conversation_id` — Current conversation ID
-- `chatflow_visitor_info` — Cached name/email from pre-chat
-- `chatflow_unread_count` — Unread messages count
-- `chatflow_settings` — User preferences (sound on/off, etc.)
+- `qulaychat_session_id` — Unique session ID (UUID)
+- `qulaychat_conversation_id` — Current conversation ID
+- `qulaychat_visitor_info` — Cached name/email from pre-chat
+- `qulaychat_unread_count` — Unread messages count
+- `qulaychat_settings` — User preferences (sound on/off, etc.)
 
 ### Performance
 
@@ -1038,7 +1038,7 @@ Chat Window (Desktop):
 - Footer (100px): White background, top border #E5E7EB
   - Textarea: expandable, border #D1D5DB, placeholder "Xabar yozing...", border-radius 8px
   - Actions bar: emoji button (smile icon), file upload (paperclip), Send button (Primary, 80px width "Yuborish")
-  - Powered by CHATFLOW: small text at bottom
+  - Powered by QULAY CHAT: small text at bottom
 
 Message Types:
 - Text bubble: standard specs above

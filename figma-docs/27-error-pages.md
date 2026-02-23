@@ -1,4 +1,4 @@
-# CHATFLOW — Xato Sahifalari (Error Pages)
+# QULAY CHAT — Xato Sahifalari (Error Pages)
 
 ## Umumiy Ma'lumot
 
@@ -128,7 +128,7 @@ Foydalanuvchi mavjud bo'lmagan URL'ga kirganida ko'rsatiladi. Masalan: `/dashboa
 ```
 ┌────────────────────────────────────────────────────────────┐
 │                                                            │
-│                      [CHATFLOW Logo]                       │
+│                      [QULAY CHAT Logo]                       │
 │                                                            │
 │                      ┌──────────────┐                      │
 │                      │              │                      │
@@ -294,7 +294,7 @@ Agar tizim status monitoring mavjud bo'lsa, qo'shimcha ma'lumot ko'rsatish mumki
 ```
 ┌────────────────────────────────────────────────────────────┐
 │                                                            │
-│                      [CHATFLOW Logo]                       │
+│                      [QULAY CHAT Logo]                       │
 │                                                            │
 │                      ┌──────────────┐                      │
 │                      │              │                      │
@@ -465,7 +465,7 @@ Agar foydalanuvchi tizimga kirgan bo'lsa, qo'shimcha kontekst ma'lumoti.
 ```
 ┌────────────────────────────────────────────────────────────┐
 │                                                            │
-│                      [CHATFLOW Logo]                       │
+│                      [QULAY CHAT Logo]                       │
 │                                                            │
 │                      ┌──────────────┐                      │
 │                      │              │                      │
@@ -716,7 +716,7 @@ export async function getServerSideProps(context) {
 **404 Page:**
 ```html
 <head>
-  <title>404 — Sahifa topilmadi | CHATFLOW</title>
+  <title>404 — Sahifa topilmadi | QULAY CHAT</title>
   <meta name="robots" content="noindex, nofollow" />
   <meta name="description" content="The page you are looking for could not be found." />
 </head>
@@ -725,7 +725,7 @@ export async function getServerSideProps(context) {
 **500 Page:**
 ```html
 <head>
-  <title>500 — Server xatosi | CHATFLOW</title>
+  <title>500 — Server xatosi | QULAY CHAT</title>
   <meta name="robots" content="noindex, nofollow" />
 </head>
 ```
@@ -733,7 +733,7 @@ export async function getServerSideProps(context) {
 **403 Page:**
 ```html
 <head>
-  <title>403 — Kirish taqiqlangan | CHATFLOW</title>
+  <title>403 — Kirish taqiqlangan | QULAY CHAT</title>
   <meta name="robots" content="noindex, nofollow" />
 </head>
 ```
@@ -832,7 +832,7 @@ error-pages/
 
 **Prompt for AI (Figma Plugin yoki ChatGPT/Claude):**
 
-"Create three error page designs for CHATFLOW enterprise SaaS platform. Design system: Primary color #4F46E5 (Indigo-600), Error #EF4444, Warning #F59E0B, Gray scale from #111827 to #F9FAFB. Typography: Inter font family. Layout: 640px max-width container, center-aligned vertically and horizontally on #F9FAFB background, 24px padding.
+"Create three error page designs for QULAY CHAT enterprise SaaS platform. Design system: Primary color #4F46E5 (Indigo-600), Error #EF4444, Warning #F59E0B, Gray scale from #111827 to #F9FAFB. Typography: Inter font family. Layout: 640px max-width container, center-aligned vertically and horizontally on #F9FAFB background, 24px padding.
 
 **Page 1: 404 Not Found**
 - Illustration: 240×240px, minimalist SVG style, magnifying glass with large '404' numbers, use Primary #4F46E5 and Gray #9CA3AF colors, friendly and not alarming
@@ -865,7 +865,7 @@ error-pages/
 - Contact link: 'Administrator bilan bog'laning →', 14px Medium, #6B7280 (#F59E0B hover), 24px margin-top
 
 **General specs for all three pages:**
-- CHATFLOW logo top center, 120×28px, links to home
+- QULAY CHAT logo top center, 120×28px, links to home
 - Desktop layout: all elements center-aligned in 640px container
 - Responsive: Mobile 375px width, illustration 160×160px, title 24px, description 14px, buttons stacked full-width 48px height, 16px padding
 - Accessibility: WCAG AA contrast ratios (all text 4.5:1 minimum), focus outlines 2px solid #4F46E5 with 4px offset, keyboard navigation support
@@ -960,9 +960,9 @@ Error sahifalari — foydalanuvchi tajribasining muhim qismi. Professional dizay
 **Asosiy printsiplar:**
 1. **Aniq va tushunarli:** Texnik jargon yo'q, oddiy til
 2. **Yordam beruvchi:** Keyingi qadamni ko'rsatish (qaytish, yangilash, bog'lanish)
-3. **Brend identifikatsiyasi:** Logo, ranglar, uslub — CHATFLOW brand bilan mos
+3. **Brend identifikatsiyasi:** Logo, ranglar, uslub — QULAY CHAT brand bilan mos
 4. **Accessibility:** Barcha foydalanuvchilar uchun qulay (keyboard, screen reader, contrast)
 5. **Performance:** Tez yuklanadi (<500ms), optimizatsiya qilingan
 6. **Professional:** Chalg'ituvchi, qo'rqituvchi yoki amatorlik ko'rinishi yo'q
 
-Ushbu spec bo'yicha dizayn va implementation amalga oshirilgandan so'ng, CHATFLOW error pages industry-standard sifatida baholanadi va foydalanuvchi tajribasini sezilarli darajada yaxshilaydi.
+Ushbu spec bo'yicha dizayn va implementation amalga oshirilgandan so'ng, QULAY CHAT error pages industry-standard sifatida baholanadi va foydalanuvchi tajribasini sezilarli darajada yaxshilaydi.

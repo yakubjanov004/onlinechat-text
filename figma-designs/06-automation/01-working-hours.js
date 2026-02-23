@@ -1,4 +1,4 @@
-// CHATFLOW - Automation (Working Hours) sahifasini Figma'da yaratish
+// QULAY CHAT - Automation (Working Hours) sahifasini Figma'da yaratish
 
 async function createAutomationScreen() {
   await figma.loadFontAsync({ family: "Inter", style: "Regular" });
@@ -26,7 +26,7 @@ async function createAutomationScreen() {
   logo.name = "Logo";
   logo.x = 24;
   logo.y = 20;
-  logo.characters = "CHATFLOW";
+  logo.characters = "QULAY CHAT";
   logo.fontSize = 20;
   logo.fontName = { family: "Inter", style: "Bold" };
   logo.fills = [{ type: 'SOLID', color: { r: 79/255, g: 70/255, b: 229/255 } }];

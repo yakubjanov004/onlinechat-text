@@ -1,7 +1,7 @@
-# CHATFLOW — Add-ons & Marketplace (Qo'shimcha Xizmatlar)
+# QULAY CHAT — Add-ons & Marketplace (Qo'shimcha Xizmatlar)
 
 ## Modul maqsadi
-Add-ons Marketplace — CHATFLOW platformasiga qo'shimcha funksiyalar va xizmatlar sotib olish uchun yaratilgan marketplace. Admin bu yerda platform imkoniyatlarini kengaytiruvchi premium add-onlarni ko'radi, sinab ko'radi va faollashtiradi.
+Add-ons Marketplace — QULAY CHAT platformasiga qo'shimcha funksiyalar va xizmatlar sotib olish uchun yaratilgan marketplace. Admin bu yerda platform imkoniyatlarini kengaytiruvchi premium add-onlarni ko'radi, sinab ko'radi va faollashtiradi.
 
 **Kirish:** Admin, Manager (ko'rish, aktivatsiya qilish)
 
@@ -192,7 +192,7 @@ Modal (900px width), centered overlay
 **Technical Requirements:**
 - Title: "Requirements" 18px Semibold
 - List:
-  - CHATFLOW Plan: Pro or higher
+  - QULAY CHAT Plan: Pro or higher
   - API access: Required
   - Usage limits: 500 chats/month included
 
@@ -298,7 +298,7 @@ Modal (600px width), multi-step wizard
 - Title: "Train your AI" 24px Semibold
 - Options:
   - Upload docs: PDF, DOCX, TXT (max 10MB each)
-  - Connect Knowledge Base: ☑ "Use CHATFLOW KB articles"
+  - Connect Knowledge Base: ☑ "Use QULAY CHAT KB articles"
   - Import from URL: Textarea (list of URLs to scrape)
 - "Ma'lumotlar yuklandi: 5 hujjat, 1,240 sahifa" status
 - "Davom etish" Primary (disabled until docs uploaded)
@@ -326,7 +326,7 @@ Modal (600px width), multi-step wizard
 
 ### SCR-RB01: Remove Branding
 - **Layout:** Settings page
-- **Toggle:** ☑ "Remove 'Powered by CHATFLOW' branding"
+- **Toggle:** ☑ "Remove 'Powered by QULAY CHAT' branding"
 - **Preview:** Before/After screenshots
 - **Price:** "$19/month or included in Pro plan"
 - "Faollashtirish" Primary button
@@ -371,7 +371,7 @@ Modal (600px width), multi-step wizard
 7. **Advanced Analytics** — $29/month
    - Custom reports, data export, advanced metrics
 8. **Remove Branding** — $19/month
-   - Remove "Powered by CHATFLOW" footer
+   - Remove "Powered by QULAY CHAT" footer
 9. **Multi-workspace** — $39/month
    - Manage multiple workspaces from one account
 
@@ -450,7 +450,7 @@ Modal (600px width), multi-step wizard
 - **Trial Management:** 14-day free trial, auto-convert to paid
 - **Usage Tracking:** Track add-on usage (chats, minutes, SMS, etc.)
 - **Webhooks:** Notify add-ons of events (chat started, message received)
-- **API Access:** Add-ons can access CHATFLOW API
+- **API Access:** Add-ons can access QULAY CHAT API
 - **Sandbox Mode:** Test add-ons before going live
 - **Marketplace API:** Third-party developers can submit add-ons (future)
 
@@ -500,7 +500,7 @@ Fetch all available add-ons in marketplace
       "description": "Automate customer support with AI...",
       "category": "ai-automation",
       "developer": {
-        "name": "CHATFLOW Labs",
+        "name": "QULAY CHAT Labs",
         "logo_url": "https://...",
         "verified": true
       },
@@ -522,7 +522,7 @@ Fetch all available add-ons in marketplace
         "Multi-language support",
         "Handoff to agent"
       ],
-      "badges": ["Popular", "CHATFLOW Verified"],
+      "badges": ["Popular", "QULAY CHAT Verified"],
       "created_at": "2026-01-10T09:00:00Z"
     }
   ],
@@ -589,7 +589,7 @@ Fetch single add-on detail
       "access_contacts"
     ],
     "support": {
-      "email": "support@chatflow.uz",
+      "email": "support@qulaychat.uz",
       "docs_url": "https://docs.../ai-assist",
       "video_url": "https://youtube.com/..."
     },
@@ -1108,8 +1108,8 @@ addons-marketplace/
 
 ### Developer Program (Future)
 - Third-party developers submit add-ons
-- Approval process (CHATFLOW review)
-- Revenue share: 70% developer, 30% CHATFLOW
+- Approval process (QULAY CHAT review)
+- Revenue share: 70% developer, 30% QULAY CHAT
 - Sandbox environment for testing
 - Webhook notifications for events
 

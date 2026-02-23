@@ -1,8 +1,8 @@
-# CHATFLOW — Global Search (CMD+K)
+# QULAY CHAT — Global Search (CMD+K)
 
 ## Umumiy Ma'lumot
 
-Global Search — CHATFLOW platformasining barcha qismlarida mavjud bo'lgan tezkor qidiruv xususiyati. Foydalanuvchi istalgan vaqtda `Ctrl+K` (Windows/Linux) yoki `Cmd+K` (Mac) tugmasini bosib, qidiruv modalini ochishi va platformaning har qanday bo'limida tezkor qidirish mumkin.
+Global Search — QULAY CHAT platformasining barcha qismlarida mavjud bo'lgan tezkor qidiruv xususiyati. Foydalanuvchi istalgan vaqtda `Ctrl+K` (Windows/Linux) yoki `Cmd+K` (Mac) tugmasini bosib, qidiruv modalini ochishi va platformaning har qanday bo'limida tezkor qidirish mumkin.
 
 **Ilhom:** Notion, Linear, Raycast, Spotlight kabi zamonaviy command palette dizaynlari
 
@@ -873,7 +873,7 @@ global-search/
 
 **Prompt for AI (Figma Plugin yoki ChatGPT/Claude):**
 
-"Create a global search modal design for CHATFLOW enterprise SaaS dashboard. Design system: Primary #4F46E5 (Indigo-600), Success #10B981, Warning #F59E0B, Gray scale #111827 to #F9FAFB. Typography: Inter font. Layout: 640px width × auto height (max 600px), center-aligned with 80px margin-top, white background, 12px border-radius, large shadow (0 20px 25px -5px rgba(0,0,0,0.1)).
+"Create a global search modal design for QULAY CHAT enterprise SaaS dashboard. Design system: Primary #4F46E5 (Indigo-600), Success #10B981, Warning #F59E0B, Gray scale #111827 to #F9FAFB. Typography: Inter font. Layout: 640px width × auto height (max 600px), center-aligned with 80px margin-top, white background, 12px border-radius, large shadow (0 20px 25px -5px rgba(0,0,0,0.1)).
 
 **Section 1: Search Input (padding 20px, border-bottom 1px #E5E7EB)**
 - Search icon magnifying glass 20px #6B7280 on left with 12px padding-right
@@ -1099,7 +1099,7 @@ export default async function handler(req, res) {
 
 ## XULOSA
 
-Global Search (CMD+K) — CHATFLOW platformasining eng muhim foydalanuvchi tajribasi xususiyatlaridan biri. Professional, tez va intuitiv qidiruv interfeysiga ega bo'lish platformaning sifatini sezilarli darajada oshiradi.
+Global Search (CMD+K) — QULAY CHAT platformasining eng muhim foydalanuvchi tajribasi xususiyatlaridan biri. Professional, tez va intuitiv qidiruv interfeysiga ega bo'lish platformaning sifatini sezilarli darajada oshiradi.
 
 **Asosiy afzalliklar:**
 1. **Keyboard-first workflow:** Minimal mouse ishlatish, maksimum samaradorlik
@@ -1109,4 +1109,4 @@ Global Search (CMD+K) — CHATFLOW platformasining eng muhim foydalanuvchi tajri
 5. **Recent searches:** Tez-tez ishlatiladigan qidiruvlarga tezkor kirish
 6. **Full accessibility:** WCAG AA compliant, keyboard va screen reader support
 
-Ushbu spec bo'yicha implementation qilingandan so'ng, CHATFLOW foydalanuvchilari Notion, Linear, Raycast kabi zamonaviy platformalardagi tajribaga o'xshash professional qidiruv imkoniyatiga ega bo'lishadi.
+Ushbu spec bo'yicha implementation qilingandan so'ng, QULAY CHAT foydalanuvchilari Notion, Linear, Raycast kabi zamonaviy platformalardagi tajribaga o'xshash professional qidiruv imkoniyatiga ega bo'lishadi.

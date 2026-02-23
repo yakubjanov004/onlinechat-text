@@ -1,15 +1,15 @@
-# 34. DARK MODE VARIANTLARI — CHATFLOW
+# 34. DARK MODE VARIANTLARI — QULAY CHAT
 
 **Modul:** Dark Mode Design System va Ekran Varianti  
 **Holat:** ✅ TUGALLANDI  
-**Sanasi va Muallif:** 2026-02-11 — ChatFlow Design Team  
+**Sanasi va Muallif:** 2026-02-11 — Qulay Chat Design Team  
 **Bog'liq Modullar:** `01-design-system.md`, `10-dashboard-layout.md`, `11-inbox-chat.md`, `20-contacts-crm.md`, `16-settings.md`
 
 ---
 
 ## MUNDARIJA
 
-- [34. DARK MODE VARIANTLARI — CHATFLOW](#34-dark-mode-variantlari--chatflow)
+- [34. DARK MODE VARIANTLARI — QULAY CHAT](#34-dark-mode-variantlari--qulaychat)
   - [MUNDARIJA](#mundarija)
   - [1. DARK MODE DESIGN SYSTEM](#1-dark-mode-design-system)
     - [1.1. Dark Mode Ranglar Tizimi](#11-dark-mode-ranglar-tizimi)
@@ -1961,7 +1961,7 @@ Keyingi qismga o'tish (Ekranlar 7-10)...
 │ │ bg-elevated #1F2937                    │ │
 │ │ border-top 1px #374151                 │ │
 │ │ padding 10px, border-radius 12px btm   │ │
-│ │ text-center "Powered by ChatFlow"      │ │
+│ │ text-center "Powered by Qulay Chat"      │ │
 │ │ 11px #9CA3AF, link underline hover     │ │
 │ └────────────────────────────────────────┘ │
 └────────────────────────────────────────────┘
@@ -2095,7 +2095,7 @@ Keyingi qismga o'tish (Ekranlar 7-10)...
 - Border-radius: 0 0 12px 12px
 - Padding: 10px
 - Text-align: center
-- **Text:** "Powered by ChatFlow" 11px #9CA3AF, link hover underline
+- **Text:** "Powered by Qulay Chat" 11px #9CA3AF, link hover underline
 
 ---
 
@@ -2376,7 +2376,7 @@ Keyingi qismga o'tish (Ekranlar 7-10)...
 │          │ │ │   Semibold #F9FAFB, hover #6366F1         │     │  │
 │          │ │ │                                           │     │  │
 │          │ │ │ ○ Excerpt 14px #9CA3AF, line-clamp 2      │     │  │
-│          │ │ │   "Learn how to add ChatFlow widget..."   │     │  │
+│          │ │ │   "Learn how to add Qulay Chat widget..."   │     │  │
 │          │ │ │                                           │     │  │
 │          │ │ │ ○ Meta: Views 1.2k + Helpful 95% + Updated│     │  │
 │          │ │ │   13px #6B7280, flex gap 16px             │     │  │
@@ -2963,7 +2963,7 @@ export default App;
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ChatFlow</title>
+  <title>Qulay Chat</title>
   
   <!-- Theme script (blocking, runs before React) -->
   <script>
@@ -3282,7 +3282,7 @@ function Logo() {
   return (
     <img 
       src={resolvedTheme === 'dark' ? logoDark : logoLight} 
-      alt="ChatFlow Logo"
+      alt="Qulay Chat Logo"
       width={120}
       height={32}
     />
@@ -3788,5 +3788,5 @@ Benchmark: Theme toggle <16ms (1 frame 60fps).
 
 **Status:** ✅ YAKUNLANDI  
 **Sana:** 2026-02-11  
-**Muallif:** ChatFlow Design & Development Team  
+**Muallif:** Qulay Chat Design & Development Team  
 **Fayl:** `figma-docs/34-dark-mode.md` (~20,000+ qator)

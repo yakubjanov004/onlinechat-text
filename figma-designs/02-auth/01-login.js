@@ -1,4 +1,4 @@
-// CHATFLOW Login Page - Figma Design
+// QULAY CHAT Login Page - Figma Design
 var PRIMARY = {r: 79/255, g: 70/255, b: 229/255};
 var BG = {r: 249/255, g: 250/255, b: 251/255};
 var WHITE = {r: 1, g: 1, b: 1};
@@ -63,7 +63,7 @@ logo.primaryAxisAlignItems = "CENTER";
 logo.counterAxisAlignItems = "CENTER";
 var logoText = figma.createText();
 logoText.fontName = {family: "Inter", style: "Bold"};
-logoText.characters = "CHATFLOW";
+logoText.characters = "QULAY CHAT";
 logoText.fontSize = 14;
 logoText.letterSpacing = {value: 0.4, unit: "PIXELS"};
 logoText.fills = [{type: 'SOLID', color: WHITE}];

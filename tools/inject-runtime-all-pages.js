@@ -21,11 +21,11 @@ function walk(dir) {
 let updated = 0;
 for (const file of walk(htmlRoot)) {
   let raw = fs.readFileSync(file, "utf8");
-  if (raw.includes("chatflow-runtime.js")) {
+  if (raw.includes("qulay-chat-runtime.js")) {
     continue;
   }
 
-  const scriptRel = path.relative(path.dirname(file), path.join(htmlRoot, "assets", "chatflow-runtime.js")).replace(/\\/g, "/");
+  const scriptRel = path.relative(path.dirname(file), path.join(htmlRoot, "assets", "qulay-chat-runtime.js")).replace(/\\/g, "/");
   const href = scriptRel.startsWith(".") ? scriptRel : `./${scriptRel}`;
   const tag = `  <script src="${href}"></script>`;
 

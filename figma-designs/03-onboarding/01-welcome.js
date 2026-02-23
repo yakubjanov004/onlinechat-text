@@ -1,4 +1,4 @@
-// CHATFLOW - Onboarding - Welcome (Step 1/4)
+// QULAY CHAT - Onboarding - Welcome (Step 1/4)
 // HTML source: figma-html-pages/03-onboarding/01-welcome.html
 
 function rgb(hex) {

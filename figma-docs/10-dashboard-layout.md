@@ -1,7 +1,7 @@
-# CHATFLOW — Dashboard: Umumiy Layout va Navigatsiya
+# QULAY CHAT — Dashboard: Umumiy Layout va Navigatsiya
 
 ## Umumiy konsepsiya
-Dashboard — CHATFLOW platformasining asosiy ishchi muhiti. Admin, menejer va agentlar bu yerda chatlarni boshqaradi, sozlamalarni o'zgartiradi, jamoani nazorat qiladi va barcha operatsion jarayonlarni amalga oshiradi. Default ochiladigan sahifa: **Inbox (Live Chats)**.
+Dashboard — QULAY CHAT platformasining asosiy ishchi muhiti. Admin, menejer va agentlar bu yerda chatlarni boshqaradi, sozlamalarni o'zgartiradi, jamoani nazorat qiladi va barcha operatsion jarayonlarni amalga oshiradi. Default ochiladigan sahifa: **Inbox (Live Chats)**.
 
 **Muhim:** Dashboard funksional va aniq bo'lishi shart. Har bir modulga maksimum 1-2 klikda kirish mumkin. Chalg'ituvchi dekorativ elementlar bo'lmasin — bu marketing sahifasi emas, real ishchi vosita.
 
@@ -101,7 +101,7 @@ Tezkor amallar va global boshqaruv. Har doim ekranning yuqorisida qotib turadi.
 #### Chap tomon — Logo
 | Element | Tavsif |
 |---------|--------|
-| **Logo** | CHATFLOW brend logotipi, bosh sahifaga (Inbox) qaytish uchun link |
+| **Logo** | QULAY CHAT brend logotipi, bosh sahifaga (Inbox) qaytish uchun link |
 | O'lcham | ~120px kenglik, 28px balandlik |
 | Holat | Cursor: pointer |
 
@@ -586,7 +586,7 @@ dashboard-layout/
 ## 14. FIGMA AI UCHUN PROMPT
 
 ```
-Create a SaaS dashboard application shell for a customer support platform called CHATFLOW.
+Create a SaaS dashboard application shell for a customer support platform called QULAY CHAT.
 
 LAYOUT:
 - Fixed top header: 64px height, white background, bottom border
@@ -594,7 +594,7 @@ LAYOUT:
 - Fluid main content area: light gray background (#F9FAFB)
 
 HEADER (left to right):
-- CHATFLOW logo on the left
+- QULAY CHAT logo on the left
 - Search input in the center with placeholder "Qidirish... (Ctrl+K)", gray background (#F3F4F6), rounded
 - Right side: Status indicator (green dot + "Online"), notification bell icon with red badge showing "3", user avatar (32px circle) with name and dropdown chevron
 

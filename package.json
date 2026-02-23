@@ -1,7 +1,7 @@
 {
   "name": "onlinechat",
   "version": "1.0.0",
-  "description": "> **Comprehensive design system, specification, and task organization for CHATFLOW project**",
+  "description": "> **Comprehensive design system, specification, and task organization for QULAY CHAT project**",
   "main": "index.js",
   "directories": {
     "doc": "docs"

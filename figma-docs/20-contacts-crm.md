@@ -1,4 +1,4 @@
-# CHATFLOW — Contacts (CRM)
+# QULAY CHAT — Contacts (CRM)
 
 ## Modul maqsadi
 Contacts (CRM) moduli — mijozlar ma'lumotlarini yig'ish, saqlash, tashkil qilish va tahlil qilish uchun yaratilgan to'liq CRM tizimi. Operator va menejerlar bu yerda har bir mijoz tarixini ko'radi, segmentlar yaratadi, import/export qiladi va takroriy kontaktlarni birlashtiradi.
@@ -247,7 +247,7 @@ After file selected:
 #### Step 2: Map Fields
 - File preview: First 5 rows in table
 - Column mapping:
-  - Dropdown for each CSV column → CHATFLOW field
+  - Dropdown for each CSV column → QULAY CHAT field
   - E.g., "Name" → Name (required) ✓
   - "Email Address" → Primary Email (required) ✓
   - "Phone" → Primary Phone
@@ -601,7 +601,7 @@ After merge: Toast "Kontaktlar birlashtirildi" + Opens merged contact SCR-CT02
 ┌──────────────────────────────────────────────────────────┐
 │ Import Contacts                         [Step 2 / 3]     │
 │                                                           │
-│ Map CSV Columns to CHATFLOW Fields                        │
+│ Map CSV Columns to QULAY CHAT Fields                        │
 │                                                           │
 │ File preview (first 5 rows):                              │
 │ ┌────────────────────────────────────────────────────┐  │
@@ -644,7 +644,7 @@ After merge: Toast "Kontaktlar birlashtirildi" + Opens merged contact SCR-CT02
       "email": "jahongir@example.com",
       "email_verified": true,
       "primary_phone": "+998901234567",
-      "avatar_url": "https://cdn.chatflow.uz/avatars/abc123.jpg",
+      "avatar_url": "https://cdn.qulaychat.uz/avatars/abc123.jpg",
       "organization": {
         "id": "org_xyz789",
         "name": "Workio",
@@ -1277,7 +1277,7 @@ contacts-crm/
 - Online status: "{Name} is online" (when indicator changes)
 
 **Import:**
-- Step change: "Step 2 of 3: Map CSV columns to CHATFLOW fields."
+- Step change: "Step 2 of 3: Map CSV columns to QULAY CHAT fields."
 - Progress: "Importing contacts. 45 of 247 contacts imported."
 - Complete: "Import successful. 235 new contacts added, 12 updated."
 
@@ -1338,7 +1338,7 @@ contacts-crm/
 ## 21. FIGMA AI PROMPT
 
 ```
-Design a comprehensive Contacts (CRM) module for CHATFLOW with list view, profile panel, import/export, segments, and merge duplicates.
+Design a comprehensive Contacts (CRM) module for QULAY CHAT with list view, profile panel, import/export, segments, and merge duplicates.
 
 SCREEN 1 - CONTACTS LIST (SCR-CT01):
 Dashboard content area 24px padding. Header: "Kontaktlar" 24px Semibold + "247 kontakt" 14px subtitle + buttons right "+ Kontakt" primary + "Import" + "Export" ghost. Search bar 320px "Ism, email..." with icon + 3 filter dropdowns Tags/Organization/Last Seen + "Tozalash" link + View toggle table/card icons.
@@ -1362,7 +1362,7 @@ SCREEN 3 - ORGANIZATIONS (SCR-CT03):
 Header + Search + Table 5 columns: Logo 32px+Name / Contacts count clickable / Website link / Created / Actions. Organization detail panel 800px: logo 80px + name + website + info card + contacts mini-table + activity timeline.
 
 SCREEN 4 - IMPORT MODAL (SCR-CT04):
-600px modal 3 steps. Step 1: Drag-drop zone 400×200 upload icon 48px gray "CSV yoki Excel..." + template download link + file preview name+size+Remove X. Step 2: File preview table 5 rows + Column mapping: dropdown per CSV column → CHATFLOW field with checkmarks, Skip checkbox. Step 3: Summary card "247 kontakt import" + "12 yangilanadi" + Options checkboxes Update duplicates/Skip empty + Cancel+Import buttons. Step 4 auto: Progress bar "45/247..." + spinner + Success modal "247 qo'shildi!".
+600px modal 3 steps. Step 1: Drag-drop zone 400×200 upload icon 48px gray "CSV yoki Excel..." + template download link + file preview name+size+Remove X. Step 2: File preview table 5 rows + Column mapping: dropdown per CSV column → QULAY CHAT field with checkmarks, Skip checkbox. Step 3: Summary card "247 kontakt import" + "12 yangilanadi" + Options checkboxes Update duplicates/Skip empty + Cancel+Import buttons. Step 4 auto: Progress bar "45/247..." + spinner + Success modal "247 qo'shildi!".
 
 SCREEN 5 - EXPORT MODAL (SCR-CT04-S01):
 500px modal. Format radio CSV/Excel. Fields checkboxes Name/Email/Phone/Organization/Tags/Last Seen/Custom with Select All link. Filter radio: All 247 / Selected 12 / Current filter 47. Cancel+Export buttons.

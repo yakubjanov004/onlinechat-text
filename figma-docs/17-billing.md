@@ -1,4 +1,4 @@
-﻿# CHATFLOW — Billing: Tariflar, To'lov, Fakturalar, Foydalanish
+﻿# QULAY CHAT — Billing: Tariflar, To'lov, Fakturalar, Foydalanish
 
 **Ekran ID:** `SCR-B01`, `SCR-B02`, `SCR-B03`, `SCR-B04`  
 **Fayl nomi:** `screen-billing-plan.fig`, `screen-billing-payment.fig`, `screen-billing-invoices.fig`, `screen-billing-usage.fig`  
@@ -549,7 +549,7 @@ Form fields (same as Click):
 
 2. **Company Info**
    - Logo: 48px
-   - Name: "CHATFLOW LLC" — 16px Semibold
+   - Name: "QULAY CHAT LLC" — 16px Semibold
    - Address: "Toshkent, O'zbekiston" — 14px Regular #6B7280
    - INN: "123456789" — 14px Regular #6B7280
 
@@ -710,7 +710,7 @@ Form fields (same as Click):
 - Icon: Icon/FileText 64px #D1D5DB
 
 **Usage tab:**
-- "Foydalanish ma'lumotlari yo'q. Chatflow'dan foydalanishni boshlang."
+- "Foydalanish ma'lumotlari yo'q. Qulay chat'dan foydalanishni boshlang."
 - Icon: Icon/BarChart 64px #D1D5DB
 
 ### Loading States

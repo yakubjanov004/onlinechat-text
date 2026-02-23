@@ -131,9 +131,9 @@ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica
 
 ### Subject Line
 
-**O'zbek:** "ChatFlow hisobingizni tasdiqlang ✓"  
-**English:** "Verify your ChatFlow account ✓"  
-**Русский:** "Подтвердите вашу учетную запись ChatFlow ✓"  
+**O'zbek:** "Qulay Chat hisobingizni tasdiqlang ✓"  
+**English:** "Verify your Qulay Chat account ✓"  
+**Русский:** "Подтвердите вашу учетную запись Qulay Chat ✓"  
 
 ### Preview Text
 
@@ -317,21 +317,21 @@ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica
     <div class="email-container">
         <!-- Header -->
         <div class="header">
-            <img src="https://cdn.chatflow.uz/email/logo-white.png" alt="ChatFlow Logo" />
+            <img src="https://cdn.qulaychat.uz/email/logo-white.png" alt="Qulay Chat Logo" />
         </div>
         
         <!-- Hero Section -->
         <div class="hero">
             <div class="hero-icon">✉️</div>
             <h1>Email manzilingizni tasdiqlang</h1>
-            <p>ChatFlow hisobingizni yakunlash uchun bir qadam qoldi!</p>
+            <p>Qulay Chat hisobingizni yakunlash uchun bir qadam qoldi!</p>
         </div>
         
         <!-- Content -->
         <div class="content">
             <p>Salom <strong>{{user_name}}</strong>,</p>
             
-            <p>ChatFlow'ga xush kelibsiz! 🎉 Hisobingizni yaratganingiz uchun rahmat. Davom etish uchun email manzilingizni tasdiqlashingiz kerak.</p>
+            <p>Qulay Chat'ga xush kelibsiz! 🎉 Hisobingizni yaratganingiz uchun rahmat. Davom etish uchun email manzilingizni tasdiqlashingiz kerak.</p>
             
             <p style="text-align: center;">
                 <a href="{{verification_url}}" class="cta-button">Email'ni tasdiqlash</a>
@@ -347,24 +347,24 @@ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica
                 <p><strong>⏰ Muhim:</strong> Bu havola 24 soat ichida amal qiladi. Agar siz bu hisobni yaratmagan bo'lsangiz, bu xabarni e'tiborsiz qoldiring.</p>
             </div>
             
-            <p>Savollar bo'lsa, <a href="mailto:support@chatflow.uz" style="color: #4F46E5; text-decoration: none;">support@chatflow.uz</a> orqali biz bilan bog'laning.</p>
+            <p>Savollar bo'lsa, <a href="mailto:support@qulaychat.uz" style="color: #4F46E5; text-decoration: none;">support@qulaychat.uz</a> orqali biz bilan bog'laning.</p>
             
-            <p style="margin-top: 32px;">Hurmat bilan,<br><strong>ChatFlow Jamoasi</strong></p>
+            <p style="margin-top: 32px;">Hurmat bilan,<br><strong>Qulay Chat Jamoasi</strong></p>
         </div>
         
         <!-- Footer -->
         <div class="footer">
             <div class="footer-links">
-                <a href="https://chatflow.uz">Bosh sahifa</a>
-                <a href="https://chatflow.uz/help">Yordam</a>
-                <a href="https://chatflow.uz/contact">Bog'lanish</a>
+                <a href="https://qulaychat.uz">Bosh sahifa</a>
+                <a href="https://qulaychat.uz/help">Yordam</a>
+                <a href="https://qulaychat.uz/contact">Bog'lanish</a>
             </div>
-            <p>© 2026 ChatFlow. Barcha huquqlar himoyalangan.</p>
+            <p>© 2026 Qulay Chat. Barcha huquqlar himoyalangan.</p>
             <p class="company-info">
-                ChatFlow Technologies LLC<br>
+                Qulay Chat Technologies LLC<br>
                 Toshkent, O'zbekiston<br>
-                <a href="https://chatflow.uz/privacy" style="color: #9CA3AF; text-decoration: underline;">Maxfiylik siyosati</a> • 
-                <a href="https://chatflow.uz/terms" style="color: #9CA3AF; text-decoration: underline;">Foydalanish shartlari</a>
+                <a href="https://qulaychat.uz/privacy" style="color: #9CA3AF; text-decoration: underline;">Maxfiylik siyosati</a> • 
+                <a href="https://qulaychat.uz/terms" style="color: #9CA3AF; text-decoration: underline;">Foydalanish shartlari</a>
             </p>
         </div>
     </div>
@@ -375,11 +375,11 @@ font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica
 ### Plain Text Version
 
 ```
-CHATFLOW - EMAIL VERIFICATION
+QULAY CHAT - EMAIL VERIFICATION
 
 Salom {{user_name}},
 
-ChatFlow'ga xush kelibsiz! 🎉 Hisobingizni yaratganingiz uchun rahmat.
+Qulay Chat'ga xush kelibsiz! 🎉 Hisobingizni yaratganingiz uchun rahmat.
 
 Email manzilingizni tasdiqlash uchun quyidagi havolani bosing:
 
@@ -389,15 +389,15 @@ Email manzilingizni tasdiqlash uchun quyidagi havolani bosing:
 
 Agar siz bu hisobni yaratmagan bo'lsangiz, bu xabarni e'tiborsiz qoldiring.
 
-Savollar bo'lsa, support@chatflow.uz orqali biz bilan bog'laning.
+Savollar bo'lsa, support@qulaychat.uz orqali biz bilan bog'laning.
 
 Hurmat bilan,
-ChatFlow Jamoasi
+Qulay Chat Jamoasi
 
 ---
-© 2026 ChatFlow. Barcha huquqlar himoyalangan.
-Maxfiylik siyosati: https://chatflow.uz/privacy
-Foydalanish shartlari: https://chatflow.uz/terms
+© 2026 Qulay Chat. Barcha huquqlar himoyalangan.
+Maxfiylik siyosati: https://qulaychat.uz/privacy
+Foydalanish shartlari: https://qulaychat.uz/terms
 ```
 
 ### Variables / Placeholders
@@ -406,9 +406,9 @@ Foydalanish shartlari: https://chatflow.uz/terms
 {
   "user_name": "Sardor Azimov",
   "user_email": "sardor@example.com",
-  "verification_url": "https://chatflow.uz/auth/verify-email?token=abc123xyz...",
+  "verification_url": "https://qulaychat.uz/auth/verify-email?token=abc123xyz...",
   "token_expiry": "24 soat",
-  "support_email": "support@chatflow.uz"
+  "support_email": "support@qulaychat.uz"
 }
 ```
 
@@ -418,22 +418,22 @@ Foydalanish shartlari: https://chatflow.uz/terms
 1. **Trigger:** User completes signup form → POST `/api/auth/register`
 2. **Generate Token:** Create JWT token with payload `{ userId, email, type: 'email_verification' }`, expires in 24h
 3. **Save to DB:** Store token in `email_verification_tokens` table with `user_id`, `token`, `expires_at`, `is_used=false`
-4. **Construct URL:** `https://chatflow.uz/auth/verify-email?token={token}`
+4. **Construct URL:** `https://qulaychat.uz/auth/verify-email?token={token}`
 5. **Queue Email Job:** Add to email queue (Bull/BullMQ) with template `EMAIL_VERIFICATION` and variables
 6. **Send Email:** Email service (Mailgun/SendGrid) sends both HTML and plain text versions
 7. **User Clicks Link:** GET `/auth/verify-email?token={token}` → Verify token → Update `users.email_verified=true` → Redirect to onboarding
 
 **Email Service API Call (Mailgun example):**
 ```javascript
-const mailgun = require('mailgun-js')({ apiKey: process.env.MAILGUN_API_KEY, domain: 'mg.chatflow.uz' });
+const mailgun = require('mailgun-js')({ apiKey: process.env.MAILGUN_API_KEY, domain: 'mg.qulaychat.uz' });
 
 const emailData = {
-  from: 'ChatFlow <noreply@chatflow.uz>',
+  from: 'Qulay Chat <noreply@qulaychat.uz>',
   to: user.email,
-  subject: 'ChatFlow hisobingizni tasdiqlang ✓',
+  subject: 'Qulay Chat hisobingizni tasdiqlang ✓',
   html: renderTemplate('EMAIL_VERIFICATION', variables),
   text: renderPlainText('EMAIL_VERIFICATION', variables),
-  'h:Reply-To': 'support@chatflow.uz',
+  'h:Reply-To': 'support@qulaychat.uz',
   'o:tracking': true,
   'o:tracking-clicks': true,
   'o:tracking-opens': true,
@@ -519,7 +519,7 @@ await mailgun.messages().send(emailData);
     <div class="email-container">
         <!-- Header -->
         <div class="header">
-            <img src="https://cdn.chatflow.uz/email/logo-white.png" alt="ChatFlow Logo" />
+            <img src="https://cdn.qulaychat.uz/email/logo-white.png" alt="Qulay Chat Logo" />
         </div>
         
         <!-- Hero -->
@@ -546,7 +546,7 @@ await mailgun.messages().send(emailData);
             </div>
             
             <div class="security-notice">
-                <p><strong>🔒 Xavfsizlik:</strong> Bu havola 1 soat ichida amal qiladi va faqat bir marta ishlatilishi mumkin. Agar siz bu so'rovni yubormaganlar bo'lsangiz, bu xabarni e'tiborsiz qoldiring va darhol <a href="mailto:security@chatflow.uz" style="color: #991B1B; text-decoration: underline;">security@chatflow.uz</a> ga xabar bering.</p>
+                <p><strong>🔒 Xavfsizlik:</strong> Bu havola 1 soat ichida amal qiladi va faqat bir marta ishlatilishi mumkin. Agar siz bu so'rovni yubormaganlar bo'lsangiz, bu xabarni e'tiborsiz qoldiring va darhol <a href="mailto:security@qulaychat.uz" style="color: #991B1B; text-decoration: underline;">security@qulaychat.uz</a> ga xabar bering.</p>
             </div>
             
             <p><strong>Parol xavfsizligi bo'yicha maslahatlar:</strong></p>
@@ -557,21 +557,21 @@ await mailgun.messages().send(emailData);
                 <li>Boshqa saytlardagi parolni qayta ishlatmang</li>
             </ul>
             
-            <p style="margin-top: 32px;">Hurmat bilan,<br><strong>ChatFlow Jamoasi</strong></p>
+            <p style="margin-top: 32px;">Hurmat bilan,<br><strong>Qulay Chat Jamoasi</strong></p>
         </div>
         
         <!-- Footer -->
         <div class="footer">
             <div class="footer-links">
-                <a href="https://chatflow.uz">Bosh sahifa</a>
-                <a href="https://chatflow.uz/help">Yordam</a>
-                <a href="https://chatflow.uz/security">Xavfsizlik</a>
+                <a href="https://qulaychat.uz">Bosh sahifa</a>
+                <a href="https://qulaychat.uz/help">Yordam</a>
+                <a href="https://qulaychat.uz/security">Xavfsizlik</a>
             </div>
-            <p>© 2026 ChatFlow. Barcha huquqlar himoyalangan.</p>
+            <p>© 2026 Qulay Chat. Barcha huquqlar himoyalangan.</p>
             <p class="company-info">
-                ChatFlow Technologies LLC<br>
+                Qulay Chat Technologies LLC<br>
                 Toshkent, O'zbekiston<br>
-                <a href="https://chatflow.uz/privacy" style="color: #9CA3AF; text-decoration: underline;">Maxfiylik siyosati</a>
+                <a href="https://qulaychat.uz/privacy" style="color: #9CA3AF; text-decoration: underline;">Maxfiylik siyosati</a>
             </p>
         </div>
     </div>
@@ -582,7 +582,7 @@ await mailgun.messages().send(emailData);
 ### Plain Text Version
 
 ```
-CHATFLOW - PAROLNI TIKLASH
+QULAY CHAT - PAROLNI TIKLASH
 
 Salom {{user_name}},
 
@@ -595,7 +595,7 @@ Yangi parol o'rnatish uchun quyidagi havolani bosing:
 🔒 XAVFSIZLIK: 
 - Bu havola 1 soat ichida amal qiladi
 - Faqat bir marta ishlatilishi mumkin
-- Agar siz bu so'rovni yubormaganlar bo'lsangiz, security@chatflow.uz ga xabar bering
+- Agar siz bu so'rovni yubormaganlar bo'lsangiz, security@qulaychat.uz ga xabar bering
 
 PAROL XAVFSIZLIGI:
 • Kamida 8 ta belgidan foydalaning
@@ -604,12 +604,12 @@ PAROL XAVFSIZLIGI:
 • Boshqa saytlardagi parolni qayta ishlatmang
 
 Hurmat bilan,
-ChatFlow Jamoasi
+Qulay Chat Jamoasi
 
 ---
-© 2026 ChatFlow
-Yordam: https://chatflow.uz/help
-Xavfsizlik: https://chatflow.uz/security
+© 2026 Qulay Chat
+Yordam: https://qulaychat.uz/help
+Xavfsizlik: https://qulaychat.uz/security
 ```
 
 ### Variables / Placeholders
@@ -618,11 +618,11 @@ Xavfsizlik: https://chatflow.uz/security
 {
   "user_name": "Sardor Azimov",
   "user_email": "sardor@example.com",
-  "reset_url": "https://chatflow.uz/auth/reset-password?token=xyz789abc...",
+  "reset_url": "https://qulaychat.uz/auth/reset-password?token=xyz789abc...",
   "token_expiry": "1 soat",
   "request_ip": "89.236.xxx.xxx",
   "request_time": "2026-02-11 14:30:42",
-  "security_email": "security@chatflow.uz"
+  "security_email": "security@qulaychat.uz"
 }
 ```
 
@@ -634,7 +634,7 @@ Xavfsizlik: https://chatflow.uz/security
 3. **Generate Token:** Create JWT token `{ userId, email, type: 'password_reset' }`, expires in 1 hour
 4. **Save to DB:** `password_reset_tokens` table (user_id, token, expires_at, is_used=false, request_ip, request_time)
 5. **Rate Limit:** Max 3 password reset requests per email per hour (prevent abuse)
-6. **Construct URL:** `https://chatflow.uz/auth/reset-password?token={token}`
+6. **Construct URL:** `https://qulaychat.uz/auth/reset-password?token={token}`
 7. **Queue Email:** Template `PASSWORD_RESET` with variables
 8. **Send Email:** Mailgun/SendGrid
 9. **User Clicks Link:** GET `/auth/reset-password?token={token}` → Validate token (not expired, not used) → Show reset password form
@@ -721,14 +721,14 @@ Xavfsizlik: https://chatflow.uz/security
     <div class="email-container">
         <!-- Header -->
         <div class="header">
-            <img src="https://cdn.chatflow.uz/email/logo-white.png" alt="ChatFlow Logo" />
+            <img src="https://cdn.qulaychat.uz/email/logo-white.png" alt="Qulay Chat Logo" />
         </div>
         
         <!-- Hero -->
         <div class="hero">
             <div class="hero-icon">👥</div>
             <h1>Jamoa taklifnoma</h1>
-            <p>Sizni ChatFlow workspace'iga taklif qilishdi!</p>
+            <p>Sizni Qulay Chat workspace'iga taklif qilishdi!</p>
         </div>
         
         <!-- Content -->
@@ -767,7 +767,7 @@ Xavfsizlik: https://chatflow.uz/security
             </div>
             
             <p style="font-size: 14px; color: #6B7280; line-height: 1.6;">
-                ChatFlow - bu mijozlar bilan muloqot uchun zamonaviy live chat platforma. Jamoangiz bilan birgalikda mijozlarga yordam bering, chatlarni boshqaring va statistikani tahlil qiling.
+                Qulay Chat - bu mijozlar bilan muloqot uchun zamonaviy live chat platforma. Jamoangiz bilan birgalikda mijozlarga yordam bering, chatlarni boshqaring va statistikani tahlil qiling.
             </p>
             
             <p style="font-size: 14px; color: #9CA3AF; margin-top: 32px;">
@@ -778,11 +778,11 @@ Xavfsizlik: https://chatflow.uz/security
         <!-- Footer -->
         <div class="footer">
             <div class="footer-links">
-                <a href="https://chatflow.uz">Bosh sahifa</a>
-                <a href="https://chatflow.uz/features">Imkoniyatlar</a>
-                <a href="https://chatflow.uz/help">Yordam</a>
+                <a href="https://qulaychat.uz">Bosh sahifa</a>
+                <a href="https://qulaychat.uz/features">Imkoniyatlar</a>
+                <a href="https://qulaychat.uz/help">Yordam</a>
             </div>
-            <p>© 2026 ChatFlow. Barcha huquqlar himoyalangan.</p>
+            <p>© 2026 Qulay Chat. Barcha huquqlar himoyalangan.</p>
         </div>
     </div>
 </body>
@@ -792,7 +792,7 @@ Xavfsizlik: https://chatflow.uz/security
 ### Plain Text Version
 
 ```
-CHATFLOW - JAMOA TAKLIF
+QULAY CHAT - JAMOA TAKLIF
 
 Assalomu alaykum!
 
@@ -815,13 +815,13 @@ TAKLIF QABUL QILISH:
 • {{this}}
 {{/each}}
 
-ChatFlow - bu mijozlar bilan muloqot uchun zamonaviy live chat platforma.
+Qulay Chat - bu mijozlar bilan muloqot uchun zamonaviy live chat platforma.
 
 Agar siz bu taklif ni kutmagan bo'lsangiz, bu xabarni e'tiborsiz qoldiring.
 
 ---
-© 2026 ChatFlow
-Yordam: https://chatflow.uz/help
+© 2026 Qulay Chat
+Yordam: https://qulaychat.uz/help
 ```
 
 ### Variables / Placeholders
@@ -834,7 +834,7 @@ Yordam: https://chatflow.uz/help
   "inviter_initials": "AK",
   "invitee_email": "sardor@example.com",
   "role_name": "Operator",
-  "invitation_url": "https://chatflow.uz/accept-invitation?token=inv_abc123xyz...",
+  "invitation_url": "https://qulaychat.uz/accept-invitation?token=inv_abc123xyz...",
   "expiry_date": "2026-02-18 (7 kun)",
   "permissions": [
     "✓ Chat'larni ko'rish va javob berish",
@@ -854,7 +854,7 @@ Yordam: https://chatflow.uz/help
 2. **Validate:** Check if email already exists in workspace (return error if yes)
 3. **Generate Token:** Create invitation token `{ workspaceId, email, role, invitedBy, type: 'team_invitation' }`, expires in 7 days
 4. **Save to DB:** `team_invitations` table (workspace_id, invitee_email, role, invited_by_user_id, token, expires_at, status='pending')
-5. **Construct URL:** `https://chatflow.uz/accept-invitation?token={token}`
+5. **Construct URL:** `https://qulaychat.uz/accept-invitation?token={token}`
 6. **Queue Email:** Template `TEAM_INVITATION` with variables (including permissions list based on role)
 7. **Send Email:** Mailgun/SendGrid
 8. **User Clicks Link:** GET `/accept-invitation?token={token}` → Validate token → Check if user has account:
@@ -936,7 +936,7 @@ Yordam: https://chatflow.uz/help
     <div class="email-container">
         <!-- Header -->
         <div class="header">
-            <img src="https://cdn.chatflow.uz/email/logo-white.png" alt="ChatFlow" />
+            <img src="https://cdn.qulaychat.uz/email/logo-white.png" alt="Qulay Chat" />
         </div>
         
         <!-- Hero -->
@@ -995,7 +995,7 @@ Yordam: https://chatflow.uz/help
                 Email bildirishnomalarini sozlash: 
                 <a href="{{settings_url}}">Sozlamalar</a>
             </p>
-            <p>© 2026 ChatFlow • <a href="{{unsubscribe_url}}">Unsubscribe</a></p>
+            <p>© 2026 Qulay Chat • <a href="{{unsubscribe_url}}">Unsubscribe</a></p>
         </div>
     </div>
 </body>
@@ -1005,7 +1005,7 @@ Yordam: https://chatflow.uz/help
 ### Plain Text Version
 
 ```
-CHATFLOW - YANGI CHAT TAYINLANDI
+QULAY CHAT - YANGI CHAT TAYINLANDI
 
 Salom {{agent_name}},
 
@@ -1046,10 +1046,10 @@ Unsubscribe: {{unsubscribe_url}}
   "channel": "Website Widget",
   "time_ago": "2 daqiqa oldin",
   "tags": "Savol, Narx",
-  "chat_url": "https://app.chatflow.uz/inbox/conv_abc123",
-  "inbox_url": "https://app.chatflow.uz/inbox",
-  "settings_url": "https://app.chatflow.uz/settings/notifications",
-  "unsubscribe_url": "https://app.chatflow.uz/unsubscribe?token=..."
+  "chat_url": "https://app.qulaychat.uz/inbox/conv_abc123",
+  "inbox_url": "https://app.qulaychat.uz/inbox",
+  "settings_url": "https://app.qulaychat.uz/settings/notifications",
+  "unsubscribe_url": "https://app.qulaychat.uz/unsubscribe?token=..."
 }
 ```
 
@@ -1195,7 +1195,7 @@ Unsubscribe: {{unsubscribe_url}}
         
         <!-- Footer -->
         <div class="footer">
-            <p>© 2026 ChatFlow • <a href="{{unsubscribe_url}}">Unsubscribe</a></p>
+            <p>© 2026 Qulay Chat • <a href="{{unsubscribe_url}}">Unsubscribe</a></p>
         </div>
     </div>
 </body>
@@ -1205,7 +1205,7 @@ Unsubscribe: {{unsubscribe_url}}
 ### Plain Text Version
 
 ```
-CHATFLOW - HAFTALIK HISOBOT
+QULAY CHAT - HAFTALIK HISOBOT
 {{week_range}}
 
 Salom {{recipient_name}},
@@ -1264,9 +1264,9 @@ Sozlamalar: {{unsubscribe_url}}
     { "icon": "📱", "name": "Telegram", "count": 68, "percentage": 28 },
     { "icon": "📧", "name": "Email", "count": 37, "percentage": 15 }
   ],
-  "analytics_url": "https://app.chatflow.uz/analytics?range=last_week",
+  "analytics_url": "https://app.qulaychat.uz/analytics?range=last_week",
   "next_report_date": "18 Fevral, 2026 (Dushanba)",
-  "unsubscribe_url": "https://app.chatflow.uz/settings/notifications"
+  "unsubscribe_url": "https://app.qulaychat.uz/settings/notifications"
 }
 ```
 
@@ -1281,8 +1281,8 @@ Sozlamalar: {{unsubscribe_url}}
 
 ### Subject Line
 
-**O'zbek:** "To'lov cheki #{{invoice_number}} - ChatFlow 💳"  
-**English:** "Payment Receipt #{{invoice_number}} - ChatFlow 💳"  
+**O'zbek:** "To'lov cheki #{{invoice_number}} - Qulay Chat 💳"  
+**English:** "Payment Receipt #{{invoice_number}} - Qulay Chat 💳"  
 
 ### Preview Text
 
@@ -1357,7 +1357,7 @@ Sozlamalar: {{unsubscribe_url}}
         <div class="content">
             <p>Salom <strong>{{customer_name}}</strong>,</p>
             
-            <p>ChatFlow xizmatlari uchun to'lovingiz muvaffaqiyatli amalga oshirildi.</p>
+            <p>Qulay Chat xizmatlari uchun to'lovingiz muvaffaqiyatli amalga oshirildi.</p>
             
             <div style="text-align: center;">
                 <span class="success-badge">✓ To'lov qabul qilindi</span>
@@ -1372,7 +1372,7 @@ Sozlamalar: {{unsubscribe_url}}
                         <p class="invoice-date">{{invoice_date}}</p>
                     </div>
                     <div style="text-align: right;">
-                        <img src="https://cdn.chatflow.uz/email/logo-color.png" alt="ChatFlow" width="100" />
+                        <img src="https://cdn.qulaychat.uz/email/logo-color.png" alt="Qulay Chat" width="100" />
                     </div>
                 </div>
                 
@@ -1387,10 +1387,10 @@ Sozlamalar: {{unsubscribe_url}}
                     
                     <div class="billing-info">
                         <h3>Kimdan:</h3>
-                        <p><strong>ChatFlow Technologies LLC</strong></p>
+                        <p><strong>Qulay Chat Technologies LLC</strong></p>
                         <p>Toshkent, O'zbekiston</p>
                         <p>INN: 123456789</p>
-                        <p>support@chatflow.uz</p>
+                        <p>support@qulaychat.uz</p>
                     </div>
                 </div>
                 
@@ -1447,14 +1447,14 @@ Sozlamalar: {{unsubscribe_url}}
             
             <p style="font-size: 14px; color: #6B7280; margin-top: 32px; line-height: 1.6;">
                 Keyingi to'lov: <strong>{{next_billing_date}}</strong> ({{plan_name}} rejasi)<br>
-                Agar savollaringiz bo'lsa, <a href="mailto:billing@chatflow.uz" style="color: #4F46E5;">billing@chatflow.uz</a> ga murojaat qiling.
+                Agar savollaringiz bo'lsa, <a href="mailto:billing@qulaychat.uz" style="color: #4F46E5;">billing@qulaychat.uz</a> ga murojaat qiling.
             </p>
         </div>
         
         <!-- Footer -->
         <div class="footer">
-            <p>© 2026 ChatFlow Technologies LLC • INN: 123456789</p>
-            <p>Toshkent, O'zbekiston • <a href="https://chatflow.uz">chatflow.uz</a></p>
+            <p>© 2026 Qulay Chat Technologies LLC • INN: 123456789</p>
+            <p>Toshkent, O'zbekiston • <a href="https://qulaychat.uz">qulaychat.uz</a></p>
             <p>
                 <a href="{{billing_settings_url}}">Billing sozlamalari</a> • 
                 <a href="{{terms_url}}">Foydalanish shartlari</a>
@@ -1479,7 +1479,7 @@ Sozlamalar: {{unsubscribe_url}}
   "transaction_id": "TXN_abc123xyz...",
   "line_items": [
     {
-      "name": "ChatFlow Pro Plan",
+      "name": "Qulay Chat Pro Plan",
       "details": "Oylik obuna • 5 agent • 1,000 chat/oy",
       "amount": "$29.00"
     }
@@ -1492,10 +1492,10 @@ Sozlamalar: {{unsubscribe_url}}
   "total": "$28.80",
   "plan_name": "Pro",
   "next_billing_date": "11 Mart, 2026",
-  "invoice_pdf_url": "https://app.chatflow.uz/invoices/INV-2026-00247.pdf",
-  "billing_portal_url": "https://app.chatflow.uz/billing",
-  "billing_settings_url": "https://app.chatflow.uz/billing/settings",
-  "terms_url": "https://chatflow.uz/terms"
+  "invoice_pdf_url": "https://app.qulaychat.uz/invoices/INV-2026-00247.pdf",
+  "billing_portal_url": "https://app.qulaychat.uz/billing",
+  "billing_settings_url": "https://app.qulaychat.uz/billing/settings",
+  "terms_url": "https://qulaychat.uz/terms"
 }
 ```
 
@@ -1576,7 +1576,7 @@ Sozlamalar: {{unsubscribe_url}}
     <div class="email-container">
         <!-- Header -->
         <div class="header">
-            <img src="https://cdn.chatflow.uz/email/logo-white.png" alt="ChatFlow" />
+            <img src="https://cdn.qulaychat.uz/email/logo-white.png" alt="Qulay Chat" />
         </div>
         
         <!-- Hero -->
@@ -1635,7 +1635,7 @@ Sozlamalar: {{unsubscribe_url}}
                 Email bildirishnomalarini sozlash: 
                 <a href="{{settings_url}}">Sozlamalar</a>
             </p>
-            <p>© 2026 ChatFlow • <a href="{{unsubscribe_url}}">Unsubscribe</a></p>
+            <p>© 2026 Qulay Chat • <a href="{{unsubscribe_url}}">Unsubscribe</a></p>
         </div>
     </div>
 </body>
@@ -1645,7 +1645,7 @@ Sozlamalar: {{unsubscribe_url}}
 ### Plain Text Version
 
 ```
-CHATFLOW - YANGI CHAT TAYINLANDI
+QULAY CHAT - YANGI CHAT TAYINLANDI
 
 Salom {{agent_name}},
 
@@ -1686,10 +1686,10 @@ Unsubscribe: {{unsubscribe_url}}
   "channel": "Website Widget",
   "time_ago": "2 daqiqa oldin",
   "tags": "Savol, Narx",
-  "chat_url": "https://app.chatflow.uz/inbox/conv_abc123",
-  "inbox_url": "https://app.chatflow.uz/inbox",
-  "settings_url": "https://app.chatflow.uz/settings/notifications",
-  "unsubscribe_url": "https://app.chatflow.uz/unsubscribe?token=..."
+  "chat_url": "https://app.qulaychat.uz/inbox/conv_abc123",
+  "inbox_url": "https://app.qulaychat.uz/inbox",
+  "settings_url": "https://app.qulaychat.uz/settings/notifications",
+  "unsubscribe_url": "https://app.qulaychat.uz/unsubscribe?token=..."
 }
 ```
 
@@ -1835,7 +1835,7 @@ Unsubscribe: {{unsubscribe_url}}
         
         <!-- Footer -->
         <div class="footer">
-            <p>© 2026 ChatFlow • <a href="{{unsubscribe_url}}">Unsubscribe</a></p>
+            <p>© 2026 Qulay Chat • <a href="{{unsubscribe_url}}">Unsubscribe</a></p>
         </div>
     </div>
 </body>
@@ -1845,7 +1845,7 @@ Unsubscribe: {{unsubscribe_url}}
 ### Plain Text Version
 
 ```
-CHATFLOW - HAFTALIK HISOBOT
+QULAY CHAT - HAFTALIK HISOBOT
 {{week_range}}
 
 Salom {{recipient_name}},
@@ -1904,9 +1904,9 @@ Sozlamalar: {{unsubscribe_url}}
     { "icon": "📱", "name": "Telegram", "count": 68, "percentage": 28 },
     { "icon": "📧", "name": "Email", "count": 37, "percentage": 15 }
   ],
-  "analytics_url": "https://app.chatflow.uz/analytics?range=last_week",
+  "analytics_url": "https://app.qulaychat.uz/analytics?range=last_week",
   "next_report_date": "18 Fevral, 2026 (Dushanba)",
-  "unsubscribe_url": "https://app.chatflow.uz/settings/notifications"
+  "unsubscribe_url": "https://app.qulaychat.uz/settings/notifications"
 }
 ```
 
@@ -1921,8 +1921,8 @@ Sozlamalar: {{unsubscribe_url}}
 
 ### Subject Line
 
-**O'zbek:** "To'lov cheki #{{invoice_number}} - ChatFlow 💳"  
-**English:** "Payment Receipt #{{invoice_number}} - ChatFlow 💳"  
+**O'zbek:** "To'lov cheki #{{invoice_number}} - Qulay Chat 💳"  
+**English:** "Payment Receipt #{{invoice_number}} - Qulay Chat 💳"  
 
 ### Preview Text
 
@@ -1997,7 +1997,7 @@ Sozlamalar: {{unsubscribe_url}}
         <div class="content">
             <p>Salom <strong>{{customer_name}}</strong>,</p>
             
-            <p>ChatFlow xizmatlari uchun to'lovingiz muvaffaqiyatli amalga oshirildi.</p>
+            <p>Qulay Chat xizmatlari uchun to'lovingiz muvaffaqiyatli amalga oshirildi.</p>
             
             <div style="text-align: center;">
                 <span class="success-badge">✓ To'lov qabul qilindi</span>
@@ -2012,7 +2012,7 @@ Sozlamalar: {{unsubscribe_url}}
                         <p class="invoice-date">{{invoice_date}}</p>
                     </div>
                     <div style="text-align: right;">
-                        <img src="https://cdn.chatflow.uz/email/logo-color.png" alt="ChatFlow" width="100" />
+                        <img src="https://cdn.qulaychat.uz/email/logo-color.png" alt="Qulay Chat" width="100" />
                     </div>
                 </div>
                 
@@ -2027,10 +2027,10 @@ Sozlamalar: {{unsubscribe_url}}
                     
                     <div class="billing-info">
                         <h3>Kimdan:</h3>
-                        <p><strong>ChatFlow Technologies LLC</strong></p>
+                        <p><strong>Qulay Chat Technologies LLC</strong></p>
                         <p>Toshkent, O'zbekiston</p>
                         <p>INN: 123456789</p>
-                        <p>support@chatflow.uz</p>
+                        <p>support@qulaychat.uz</p>
                     </div>
                 </div>
                 
@@ -2087,14 +2087,14 @@ Sozlamalar: {{unsubscribe_url}}
             
             <p style="font-size: 14px; color: #6B7280; margin-top: 32px; line-height: 1.6;">
                 Keyingi to'lov: <strong>{{next_billing_date}}</strong> ({{plan_name}} rejasi)<br>
-                Agar savollaringiz bo'lsa, <a href="mailto:billing@chatflow.uz" style="color: #4F46E5;">billing@chatflow.uz</a> ga murojaat qiling.
+                Agar savollaringiz bo'lsa, <a href="mailto:billing@qulaychat.uz" style="color: #4F46E5;">billing@qulaychat.uz</a> ga murojaat qiling.
             </p>
         </div>
         
         <!-- Footer -->
         <div class="footer">
-            <p>© 2026 ChatFlow Technologies LLC • INN: 123456789</p>
-            <p>Toshkent, O'zbekiston • <a href="https://chatflow.uz">chatflow.uz</a></p>
+            <p>© 2026 Qulay Chat Technologies LLC • INN: 123456789</p>
+            <p>Toshkent, O'zbekiston • <a href="https://qulaychat.uz">qulaychat.uz</a></p>
             <p>
                 <a href="{{billing_settings_url}}">Billing sozlamalari</a> • 
                 <a href="{{terms_url}}">Foydalanish shartlari</a>
@@ -2119,7 +2119,7 @@ Sozlamalar: {{unsubscribe_url}}
   "transaction_id": "TXN_abc123xyz...",
   "line_items": [
     {
-      "name": "ChatFlow Pro Plan",
+      "name": "Qulay Chat Pro Plan",
       "details": "Oylik obuna • 5 agent • 1,000 chat/oy",
       "amount": "$29.00"
     }
@@ -2132,10 +2132,10 @@ Sozlamalar: {{unsubscribe_url}}
   "total": "$28.80",
   "plan_name": "Pro",
   "next_billing_date": "11 Mart, 2026",
-  "invoice_pdf_url": "https://app.chatflow.uz/invoices/INV-2026-00247.pdf",
-  "billing_portal_url": "https://app.chatflow.uz/billing",
-  "billing_settings_url": "https://app.chatflow.uz/billing/settings",
-  "terms_url": "https://chatflow.uz/terms"
+  "invoice_pdf_url": "https://app.qulaychat.uz/invoices/INV-2026-00247.pdf",
+  "billing_portal_url": "https://app.qulaychat.uz/billing",
+  "billing_settings_url": "https://app.qulaychat.uz/billing/settings",
+  "terms_url": "https://qulaychat.uz/terms"
 }
 ```
 
@@ -2150,8 +2150,8 @@ Sozlamalar: {{unsubscribe_url}}
 
 ### Subject Line
 
-**O'zbek:** "⚠️ To'lov amalga oshmadi - ChatFlow"  
-**English:** "⚠️ Payment Failed - ChatFlow"  
+**O'zbek:** "⚠️ To'lov amalga oshmadi - Qulay Chat"  
+**English:** "⚠️ Payment Failed - Qulay Chat"  
 
 ### Preview Text
 
@@ -2210,7 +2210,7 @@ Sozlamalar: {{unsubscribe_url}}
         <div class="content">
             <p>Salom <strong>{{customer_name}}</strong>,</p>
             
-            <p>ChatFlow obuna to'lovingiz qabul qilinmadi. Xizmatlardan foydalanishni davom ettirish uchun to'lov usulini yangilang.</p>
+            <p>Qulay Chat obuna to'lovingiz qabul qilinmadi. Xizmatlardan foydalanishni davom ettirish uchun to'lov usulini yangilang.</p>
             
             <!-- Alert Box -->
             <div class="alert-box">
@@ -2245,13 +2245,13 @@ Sozlamalar: {{unsubscribe_url}}
             </div>
             
             <p style="font-size: 14px; color: #6B7280; margin-top: 32px; line-height: 1.6;">
-                Yordam kerakmi? <a href="mailto:billing@chatflow.uz" style="color: #4F46E5;">billing@chatflow.uz</a> ga yoki <a href="{{support_url}}" style="color: #4F46E5;">support chat</a> orqali murojaat qiling.
+                Yordam kerakmi? <a href="mailto:billing@qulaychat.uz" style="color: #4F46E5;">billing@qulaychat.uz</a> ga yoki <a href="{{support_url}}" style="color: #4F46E5;">support chat</a> orqali murojaat qiling.
             </p>
         </div>
         
         <!-- Footer -->
         <div class="footer">
-            <p>© 2026 ChatFlow • <a href="{{billing_url}}">Billing sozlamalari</a></p>
+            <p>© 2026 Qulay Chat • <a href="{{billing_url}}">Billing sozlamalari</a></p>
         </div>
     </div>
 </body>
@@ -2263,16 +2263,16 @@ Sozlamalar: {{unsubscribe_url}}
 ```json
 {
   "customer_name": "Aziza Karimova",
-  "plan_name": "ChatFlow Pro Plan",
+  "plan_name": "Qulay Chat Pro Plan",
   "payment_method": "Click **** 1234",
   "amount": "$29.00",
   "error_reason": "Kartada yetarlicha mablag' yo'q",
   "attempt_date": "11 Fevral, 2026 03:15:00",
   "days_until_suspension": "7",
   "days_until_deletion": "30",
-  "update_payment_url": "https://app.chatflow.uz/billing/payment-method",
-  "support_url": "https://app.chatflow.uz/support",
-  "billing_url": "https://app.chatflow.uz/billing"
+  "update_payment_url": "https://app.qulaychat.uz/billing/payment-method",
+  "support_url": "https://app.qulaychat.uz/support",
+  "billing_url": "https://app.qulaychat.uz/billing"
 }
 ```
 
@@ -2287,8 +2287,8 @@ Sozlamalar: {{unsubscribe_url}}
 
 ### Subject Line
 
-**O'zbek:** "🎯 Sinov muddati 3 kundan keyin tugaydi - ChatFlow"  
-**English:** "🎯 Your trial ends in 3 days - ChatFlow"  
+**O'zbek:** "🎯 Sinov muddati 3 kundan keyin tugaydi - Qulay Chat"  
+**English:** "🎯 Your trial ends in 3 days - Qulay Chat"  
 
 ### Preview Text
 
@@ -2339,7 +2339,7 @@ Sozlamalar: {{unsubscribe_url}}
         <!-- Header -->
         <div class="header">
             <h1>🎯 Sinov muddati tugayapti!</h1>
-            <p>ChatFlow obunasini davom ettiring</p>
+            <p>Qulay Chat obunasini davom ettiring</p>
             
             <div class="countdown">
                 <div class="countdown-number">{{days_remaining}}</div>
@@ -2351,7 +2351,7 @@ Sozlamalar: {{unsubscribe_url}}
         <div class="content">
             <p>Salom <strong>{{customer_name}}</strong>,</p>
             
-            <p>ChatFlow sinov muddatingiz {{trial_end_date}} kuniga tugaydi.</p>
+            <p>Qulay Chat sinov muddatingiz {{trial_end_date}} kuniga tugaydi.</p>
             
             <!-- Discount Offer -->
             <div class="highlight-box">
@@ -2398,7 +2398,7 @@ Sozlamalar: {{unsubscribe_url}}
         
         <!-- Footer -->
         <div class="footer">
-            <p>© 2026 ChatFlow • <a href="{{upgrade_url}}">Upgrade</a></p>
+            <p>© 2026 Qulay Chat • <a href="{{upgrade_url}}">Upgrade</a></p>
         </div>
     </div>
 </body>
@@ -2416,9 +2416,9 @@ Sozlamalar: {{unsubscribe_url}}
   "total_contacts": "52",
   "avg_response_time": "3m 12s",
   "csat_score": "4.7",
-  "upgrade_url": "https://app.chatflow.uz/billing/upgrade?promo=TRIAL20",
-  "pricing_url": "https://chatflow.uz/pricing",
-  "support_url": "https://chatflow.uz/support"
+  "upgrade_url": "https://app.qulaychat.uz/billing/upgrade?promo=TRIAL20",
+  "pricing_url": "https://qulaychat.uz/pricing",
+  "support_url": "https://qulaychat.uz/support"
 }
 ```
 
@@ -2499,7 +2499,7 @@ Sozlamalar: {{unsubscribe_url}}
     <div class="email-container">
         <!-- Header -->
         <div class="header">
-            <img src="https://cdn.chatflow.uz/email/logo-white.png" alt="ChatFlow" />
+            <img src="https://cdn.qulaychat.uz/email/logo-white.png" alt="Qulay Chat" />
         </div>
         
         <!-- Hero -->
@@ -2558,7 +2558,7 @@ Sozlamalar: {{unsubscribe_url}}
                 Email bildirishnomalarini sozlash: 
                 <a href="{{settings_url}}">Sozlamalar</a>
             </p>
-            <p>© 2026 ChatFlow • <a href="{{unsubscribe_url}}">Unsubscribe</a></p>
+            <p>© 2026 Qulay Chat • <a href="{{unsubscribe_url}}">Unsubscribe</a></p>
         </div>
     </div>
 </body>
@@ -2568,7 +2568,7 @@ Sozlamalar: {{unsubscribe_url}}
 ### Plain Text Version
 
 ```
-CHATFLOW - YANGI CHAT TAYINLANDI
+QULAY CHAT - YANGI CHAT TAYINLANDI
 
 Salom {{agent_name}},
 
@@ -2609,10 +2609,10 @@ Unsubscribe: {{unsubscribe_url}}
   "channel": "Website Widget",
   "time_ago": "2 daqiqa oldin",
   "tags": "Savol, Narx",
-  "chat_url": "https://app.chatflow.uz/inbox/conv_abc123",
-  "inbox_url": "https://app.chatflow.uz/inbox",
-  "settings_url": "https://app.chatflow.uz/settings/notifications",
-  "unsubscribe_url": "https://app.chatflow.uz/unsubscribe?token=..."
+  "chat_url": "https://app.qulaychat.uz/inbox/conv_abc123",
+  "inbox_url": "https://app.qulaychat.uz/inbox",
+  "settings_url": "https://app.qulaychat.uz/settings/notifications",
+  "unsubscribe_url": "https://app.qulaychat.uz/unsubscribe?token=..."
 }
 ```
 
@@ -2758,7 +2758,7 @@ Unsubscribe: {{unsubscribe_url}}
         
         <!-- Footer -->
         <div class="footer">
-            <p>© 2026 ChatFlow • <a href="{{unsubscribe_url}}">Unsubscribe</a></p>
+            <p>© 2026 Qulay Chat • <a href="{{unsubscribe_url}}">Unsubscribe</a></p>
         </div>
     </div>
 </body>
@@ -2768,7 +2768,7 @@ Unsubscribe: {{unsubscribe_url}}
 ### Plain Text Version
 
 ```
-CHATFLOW - HAFTALIK HISOBOT
+QULAY CHAT - HAFTALIK HISOBOT
 {{week_range}}
 
 Salom {{recipient_name}},
@@ -2827,9 +2827,9 @@ Sozlamalar: {{unsubscribe_url}}
     { "icon": "📱", "name": "Telegram", "count": 68, "percentage": 28 },
     { "icon": "📧", "name": "Email", "count": 37, "percentage": 15 }
   ],
-  "analytics_url": "https://app.chatflow.uz/analytics?range=last_week",
+  "analytics_url": "https://app.qulaychat.uz/analytics?range=last_week",
   "next_report_date": "18 Fevral, 2026 (Dushanba)",
-  "unsubscribe_url": "https://app.chatflow.uz/settings/notifications"
+  "unsubscribe_url": "https://app.qulaychat.uz/settings/notifications"
 }
 ```
 
@@ -2844,8 +2844,8 @@ Sozlamalar: {{unsubscribe_url}}
 
 ### Subject Line
 
-**O'zbek:** "To'lov cheki #{{invoice_number}} - ChatFlow 💳"  
-**English:** "Payment Receipt #{{invoice_number}} - ChatFlow 💳"  
+**O'zbek:** "To'lov cheki #{{invoice_number}} - Qulay Chat 💳"  
+**English:** "Payment Receipt #{{invoice_number}} - Qulay Chat 💳"  
 
 ### Preview Text
 
@@ -2920,7 +2920,7 @@ Sozlamalar: {{unsubscribe_url}}
         <div class="content">
             <p>Salom <strong>{{customer_name}}</strong>,</p>
             
-            <p>ChatFlow xizmatlari uchun to'lovingiz muvaffaqiyatli amalga oshirildi.</p>
+            <p>Qulay Chat xizmatlari uchun to'lovingiz muvaffaqiyatli amalga oshirildi.</p>
             
             <div style="text-align: center;">
                 <span class="success-badge">✓ To'lov qabul qilindi</span>
@@ -2935,7 +2935,7 @@ Sozlamalar: {{unsubscribe_url}}
                         <p class="invoice-date">{{invoice_date}}</p>
                     </div>
                     <div style="text-align: right;">
-                        <img src="https://cdn.chatflow.uz/email/logo-color.png" alt="ChatFlow" width="100" />
+                        <img src="https://cdn.qulaychat.uz/email/logo-color.png" alt="Qulay Chat" width="100" />
                     </div>
                 </div>
                 
@@ -2950,10 +2950,10 @@ Sozlamalar: {{unsubscribe_url}}
                     
                     <div class="billing-info">
                         <h3>Kimdan:</h3>
-                        <p><strong>ChatFlow Technologies LLC</strong></p>
+                        <p><strong>Qulay Chat Technologies LLC</strong></p>
                         <p>Toshkent, O'zbekiston</p>
                         <p>INN: 123456789</p>
-                        <p>support@chatflow.uz</p>
+                        <p>support@qulaychat.uz</p>
                     </div>
                 </div>
                 
@@ -3010,14 +3010,14 @@ Sozlamalar: {{unsubscribe_url}}
             
             <p style="font-size: 14px; color: #6B7280; margin-top: 32px; line-height: 1.6;">
                 Keyingi to'lov: <strong>{{next_billing_date}}</strong> ({{plan_name}} rejasi)<br>
-                Agar savollaringiz bo'lsa, <a href="mailto:billing@chatflow.uz" style="color: #4F46E5;">billing@chatflow.uz</a> ga murojaat qiling.
+                Agar savollaringiz bo'lsa, <a href="mailto:billing@qulaychat.uz" style="color: #4F46E5;">billing@qulaychat.uz</a> ga murojaat qiling.
             </p>
         </div>
         
         <!-- Footer -->
         <div class="footer">
-            <p>© 2026 ChatFlow Technologies LLC • INN: 123456789</p>
-            <p>Toshkent, O'zbekiston • <a href="https://chatflow.uz">chatflow.uz</a></p>
+            <p>© 2026 Qulay Chat Technologies LLC • INN: 123456789</p>
+            <p>Toshkent, O'zbekiston • <a href="https://qulaychat.uz">qulaychat.uz</a></p>
             <p>
                 <a href="{{billing_settings_url}}">Billing sozlamalari</a> • 
                 <a href="{{terms_url}}">Foydalanish shartlari</a>
@@ -3042,7 +3042,7 @@ Sozlamalar: {{unsubscribe_url}}
   "transaction_id": "TXN_abc123xyz...",
   "line_items": [
     {
-      "name": "ChatFlow Pro Plan",
+      "name": "Qulay Chat Pro Plan",
       "details": "Oylik obuna • 5 agent • 1,000 chat/oy",
       "amount": "$29.00"
     }
@@ -3055,10 +3055,10 @@ Sozlamalar: {{unsubscribe_url}}
   "total": "$28.80",
   "plan_name": "Pro",
   "next_billing_date": "11 Mart, 2026",
-  "invoice_pdf_url": "https://app.chatflow.uz/invoices/INV-2026-00247.pdf",
-  "billing_portal_url": "https://app.chatflow.uz/billing",
-  "billing_settings_url": "https://app.chatflow.uz/billing/settings",
-  "terms_url": "https://chatflow.uz/terms"
+  "invoice_pdf_url": "https://app.qulaychat.uz/invoices/INV-2026-00247.pdf",
+  "billing_portal_url": "https://app.qulaychat.uz/billing",
+  "billing_settings_url": "https://app.qulaychat.uz/billing/settings",
+  "terms_url": "https://qulaychat.uz/terms"
 }
 ```
 
@@ -3073,8 +3073,8 @@ Sozlamalar: {{unsubscribe_url}}
 
 ### Subject Line
 
-**O'zbek:** "⚠️ To'lov amalga oshmadi - ChatFlow"  
-**English:** "⚠️ Payment Failed - ChatFlow"  
+**O'zbek:** "⚠️ To'lov amalga oshmadi - Qulay Chat"  
+**English:** "⚠️ Payment Failed - Qulay Chat"  
 
 ### Preview Text
 
@@ -3133,7 +3133,7 @@ Sozlamalar: {{unsubscribe_url}}
         <div class="content">
             <p>Salom <strong>{{customer_name}}</strong>,</p>
             
-            <p>ChatFlow obuna to'lovingiz qabul qilinmadi. Xizmatlardan foydalanishni davom ettirish uchun to'lov usulini yangilang.</p>
+            <p>Qulay Chat obuna to'lovingiz qabul qilinmadi. Xizmatlardan foydalanishni davom ettirish uchun to'lov usulini yangilang.</p>
             
             <!-- Alert Box -->
             <div class="alert-box">
@@ -3168,13 +3168,13 @@ Sozlamalar: {{unsubscribe_url}}
             </div>
             
             <p style="font-size: 14px; color: #6B7280; margin-top: 32px; line-height: 1.6;">
-                Yordam kerakmi? <a href="mailto:billing@chatflow.uz" style="color: #4F46E5;">billing@chatflow.uz</a> ga yoki <a href="{{support_url}}" style="color: #4F46E5;">support chat</a> orqali murojaat qiling.
+                Yordam kerakmi? <a href="mailto:billing@qulaychat.uz" style="color: #4F46E5;">billing@qulaychat.uz</a> ga yoki <a href="{{support_url}}" style="color: #4F46E5;">support chat</a> orqali murojaat qiling.
             </p>
         </div>
         
         <!-- Footer -->
         <div class="footer">
-            <p>© 2026 ChatFlow • <a href="{{billing_url}}">Billing sozlamalari</a></p>
+            <p>© 2026 Qulay Chat • <a href="{{billing_url}}">Billing sozlamalari</a></p>
         </div>
     </div>
 </body>
@@ -3186,16 +3186,16 @@ Sozlamalar: {{unsubscribe_url}}
 ```json
 {
   "customer_name": "Aziza Karimova",
-  "plan_name": "ChatFlow Pro Plan",
+  "plan_name": "Qulay Chat Pro Plan",
   "payment_method": "Click **** 1234",
   "amount": "$29.00",
   "error_reason": "Kartada yetarlicha mablag' yo'q",
   "attempt_date": "11 Fevral, 2026 03:15:00",
   "days_until_suspension": "7",
   "days_until_deletion": "30",
-  "update_payment_url": "https://app.chatflow.uz/billing/payment-method",
-  "support_url": "https://app.chatflow.uz/support",
-  "billing_url": "https://app.chatflow.uz/billing"
+  "update_payment_url": "https://app.qulaychat.uz/billing/payment-method",
+  "support_url": "https://app.qulaychat.uz/support",
+  "billing_url": "https://app.qulaychat.uz/billing"
 }
 ```
 
@@ -3210,8 +3210,8 @@ Sozlamalar: {{unsubscribe_url}}
 
 ### Subject Line
 
-**O'zbek:** "🎯 Sinov muddati 3 kundan keyin tugaydi - ChatFlow"  
-**English:** "🎯 Your trial ends in 3 days - ChatFlow"  
+**O'zbek:** "🎯 Sinov muddati 3 kundan keyin tugaydi - Qulay Chat"  
+**English:** "🎯 Your trial ends in 3 days - Qulay Chat"  
 
 ### Preview Text
 
@@ -3262,7 +3262,7 @@ Sozlamalar: {{unsubscribe_url}}
         <!-- Header -->
         <div class="header">
             <h1>🎯 Sinov muddati tugayapti!</h1>
-            <p>ChatFlow obunasini davom ettiring</p>
+            <p>Qulay Chat obunasini davom ettiring</p>
             
             <div class="countdown">
                 <div class="countdown-number">{{days_remaining}}</div>
@@ -3274,7 +3274,7 @@ Sozlamalar: {{unsubscribe_url}}
         <div class="content">
             <p>Salom <strong>{{customer_name}}</strong>,</p>
             
-            <p>ChatFlow sinov muddatingiz {{trial_end_date}} kuniga tugaydi.</p>
+            <p>Qulay Chat sinov muddatingiz {{trial_end_date}} kuniga tugaydi.</p>
             
             <!-- Discount Offer -->
             <div class="highlight-box">
@@ -3321,7 +3321,7 @@ Sozlamalar: {{unsubscribe_url}}
         
         <!-- Footer -->
         <div class="footer">
-            <p>© 2026 ChatFlow • <a href="{{upgrade_url}}">Upgrade</a></p>
+            <p>© 2026 Qulay Chat • <a href="{{upgrade_url}}">Upgrade</a></p>
         </div>
     </div>
 </body>
@@ -3339,9 +3339,9 @@ Sozlamalar: {{unsubscribe_url}}
   "total_contacts": "52",
   "avg_response_time": "3m 12s",
   "csat_score": "4.7",
-  "upgrade_url": "https://app.chatflow.uz/billing/upgrade?promo=TRIAL20",
-  "pricing_url": "https://chatflow.uz/pricing",
-  "support_url": "https://chatflow.uz/support"
+  "upgrade_url": "https://app.qulaychat.uz/billing/upgrade?promo=TRIAL20",
+  "pricing_url": "https://qulaychat.uz/pricing",
+  "support_url": "https://qulaychat.uz/support"
 }
 ```
 
@@ -3411,7 +3411,7 @@ Sozlamalar: {{unsubscribe_url}}
         <div class="content">
             <p>Salom <strong>{{customer_name}}</strong>,</p>
             
-            <p>ChatFlow orqali chat xizmatimizdan foydalanganingiz uchun rahmat!</p>
+            <p>Qulay Chat orqali chat xizmatimizdan foydalanganingiz uchun rahmat!</p>
             
             <!-- Chat Summary -->
             <div class="chat-summary">
@@ -3446,7 +3446,7 @@ Sozlamalar: {{unsubscribe_url}}
         
         <!-- Footer -->
         <div class="footer">
-            <p>© 2026 ChatFlow • <a href="{{company_url}}">{{company_name}}</a></p>
+            <p>© 2026 Qulay Chat • <a href="{{company_url}}">{{company_name}}</a></p>
         </div>
     </div>
 </body>
@@ -3461,11 +3461,11 @@ Sozlamalar: {{unsubscribe_url}}
   "agent_name": "Sardor Azimov",
   "chat_date": "11 Fevral, 2026 15:42",
   "chat_duration": "8 daqiqa",
-  "rating_url_1": "https://app.chatflow.uz/feedback/conv_abc123?rating=1",
-  "rating_url_2": "https://app.chatflow.uz/feedback/conv_abc123?rating=2",
-  "rating_url_3": "https://app.chatflow.uz/feedback/conv_abc123?rating=3",
-  "rating_url_4": "https://app.chatflow.uz/feedback/conv_abc123?rating=4",
-  "rating_url_5": "https://app.chatflow.uz/feedback/conv_abc123?rating=5",
+  "rating_url_1": "https://app.qulaychat.uz/feedback/conv_abc123?rating=1",
+  "rating_url_2": "https://app.qulaychat.uz/feedback/conv_abc123?rating=2",
+  "rating_url_3": "https://app.qulaychat.uz/feedback/conv_abc123?rating=3",
+  "rating_url_4": "https://app.qulaychat.uz/feedback/conv_abc123?rating=4",
+  "rating_url_5": "https://app.qulaychat.uz/feedback/conv_abc123?rating=5",
   "company_name": "Acme Corp",
   "company_url": "https://acmecorp.uz"
 }
@@ -3579,13 +3579,13 @@ Sozlamalar: {{unsubscribe_url}}
             </div>
             
             <p style="font-size: 14px; color: #6B7280; margin-top: 32px; line-height: 1.6;">
-                Savollaringiz bormi? <a href="mailto:privacy@chatflow.uz" style="color: #4F46E5;">privacy@chatflow.uz</a> ga murojaat qiling yoki <a href="{{gdpr_help_url}}" style="color: #4F46E5;">GDPR Yordam Markazi</a>ni ko'ring.
+                Savollaringiz bormi? <a href="mailto:privacy@qulaychat.uz" style="color: #4F46E5;">privacy@qulaychat.uz</a> ga murojaat qiling yoki <a href="{{gdpr_help_url}}" style="color: #4F46E5;">GDPR Yordam Markazi</a>ni ko'ring.
             </p>
         </div>
         
         <!-- Footer -->
         <div class="footer">
-            <p>© 2026 ChatFlow • <a href="{{privacy_url}}">Maxfiylik Siyosati</a></p>
+            <p>© 2026 Qulay Chat • <a href="{{privacy_url}}">Maxfiylik Siyosati</a></p>
         </div>
     </div>
 </body>
@@ -3597,17 +3597,17 @@ Sozlamalar: {{unsubscribe_url}}
 ```json
 {
   "customer_name": "Aziza Karimova",
-  "file_name": "chatflow_export_2026-02-11.zip",
+  "file_name": "qulaychat_export_2026-02-11.zip",
   "file_size": "23.4 MB",
   "file_format": "ZIP (JSON + PDF)",
   "created_date": "11 Fevral, 2026 16:30",
-  "download_url": "https://cdn.chatflow.uz/exports/signed_url_abc123xyz...",
+  "download_url": "https://cdn.qulaychat.uz/exports/signed_url_abc123xyz...",
   "expiry_date": "18 Fevral, 2026",
   "expiry_days": "7",
   "days_remaining": "7",
   "chat_count": "247",
-  "gdpr_help_url": "https://chatflow.uz/help/gdpr",
-  "privacy_url": "https://chatflow.uz/privacy"
+  "gdpr_help_url": "https://qulaychat.uz/help/gdpr",
+  "privacy_url": "https://qulaychat.uz/privacy"
 }
 ```
 
@@ -3622,8 +3622,8 @@ Sozlamalar: {{unsubscribe_url}}
 
 ### Subject Line
 
-**O'zbek:** "ChatFlow akkauntingiz o'chirildi"  
-**English:** "Your ChatFlow account has been deleted"  
+**O'zbek:** "Qulay Chat akkauntingiz o'chirildi"  
+**English:** "Your Qulay Chat account has been deleted"  
 
 ### Preview Text
 
@@ -3680,7 +3680,7 @@ Sozlamalar: {{unsubscribe_url}}
         <div class="content">
             <p>Salom <strong>{{customer_name}}</strong>,</p>
             
-            <p>ChatFlow akkauntingiz muvaffaqiyatli o'chirildi. Xizmatimizdan foydalanganingiz uchun rahmat.</p>
+            <p>Qulay Chat akkauntingiz muvaffaqiyatli o'chirildi. Xizmatimizdan foydalanganingiz uchun rahmat.</p>
             
             <!-- Deletion Details -->
             <div class="deletion-box">
@@ -3717,13 +3717,13 @@ Sozlamalar: {{unsubscribe_url}}
             
             <p style="font-size: 14px; color: #6B7280; margin-top: 32px; line-height: 1.6;">
                 <strong>Eslatma:</strong> Qonuniy talablar bo'yicha, billing va audit ma'lumotlari {{retention_period}} yil davomida saqlanadi (GDPR Art. 1 7(3)(b)).<br><br>
-                Keyinchalik yana foydalanmoqchi bo'lsangiz, yangi akkount yaratishingiz mumkin: <a href="{{signup_url}}" style="color: #4F46E5;">chatflow.uz/signup</a>
+                Keyinchalik yana foydalanmoqchi bo'lsangiz, yangi akkount yaratishingiz mumkin: <a href="{{signup_url}}" style="color: #4F46E5;">qulaychat.uz/signup</a>
             </p>
         </div>
         
         <!-- Footer -->
         <div class="footer">
-            <p>© 2026 ChatFlow • <a href="{{privacy_url}}">Maxfiylik Siyosati</a></p>
+            <p>© 2026 Qulay Chat • <a href="{{privacy_url}}">Maxfiylik Siyosati</a></p>
         </div>
     </div>
 </body>
@@ -3742,10 +3742,10 @@ Sozlamalar: {{unsubscribe_url}}
   "can_restore": true,
   "restore_deadline": "25 Fevral, 2026",
   "restore_days_left": "14",
-  "restore_url": "https://app.chatflow.uz/restore?token=...",
+  "restore_url": "https://app.qulaychat.uz/restore?token=...",
   "retention_period": "7",
-  "signup_url": "https://chatflow.uz/signup",
-  "privacy_url": "https://chatflow.uz/privacy"
+  "signup_url": "https://qulaychat.uz/signup",
+  "privacy_url": "https://qulaychat.uz/privacy"
 }
 ```
 
@@ -3760,8 +3760,8 @@ Sozlamalar: {{unsubscribe_url}}
 
 ### Subject Line
 
-**O'zbek:** "🔧 Texnik ishlar: {{maintenance_date}} - ChatFlow"  
-**English:** "🔧 Scheduled Maintenance: {{maintenance_date}} - ChatFlow"  
+**O'zbek:** "🔧 Texnik ishlar: {{maintenance_date}} - Qulay Chat"  
+**English:** "🔧 Scheduled Maintenance: {{maintenance_date}} - Qulay Chat"  
 
 ### Preview Text
 
@@ -3818,7 +3818,7 @@ Sozlamalar: {{unsubscribe_url}}
         <div class="content">
             <p>Salom <strong>{{customer_name}}</strong>,</p>
             
-            <p>ChatFlow platformasida rejalashtirilgan texnik ishlar o'tkaziladi. Quyidagi vaqt oralig'ida xizmatdan foydalanib bo'lmaydi:</p>
+            <p>Qulay Chat platformasida rejalashtirilgan texnik ishlar o'tkaziladi. Quyidagi vaqt oralig'ida xizmatdan foydalanib bo'lmaydi:</p>
             
             <!-- Maintenance Schedule -->
             <div class="maintenance-box">
@@ -3853,14 +3853,14 @@ Sozlamalar: {{unsubscribe_url}}
             
             <p style="font-size: 14px; color: #6B7280; margin-top: 32px; line-height: 1.6;">
                 <strong>Qo'shimcha ma'lumot:</strong><br>
-                Texnik ishlar statusini <a href="{{status_page_url}}" style="color: #4F46E5;">status.chatflow.uz</a> sahifasidan kuzatib boring.<br>
-                Savollaringiz bormi? <a href="mailto:support@chatflow.uz" style="color: #4F46E5;">support@chatflow.uz</a> ga murojaat qiling.
+                Texnik ishlar statusini <a href="{{status_page_url}}" style="color: #4F46E5;">status.qulaychat.uz</a> sahifasidan kuzatib boring.<br>
+                Savollaringiz bormi? <a href="mailto:support@qulaychat.uz" style="color: #4F46E5;">support@qulaychat.uz</a> ga murojaat qiling.
             </p>
         </div>
         
         <!-- Footer -->
         <div class="footer">
-            <p>© 2026 ChatFlow • <a href="{{status_page_url}}">Status Page</a></p>
+            <p>© 2026 Qulay Chat • <a href="{{status_page_url}}">Status Page</a></p>
         </div>
     </div>
 </body>
@@ -3882,7 +3882,7 @@ Sozlamalar: {{unsubscribe_url}}
     "Xavfsizlik yangilanishlarini o'rnatish",
     "Server infratuzilmasini kengaytirish"
   ],
-  "status_page_url": "https://status.chatflow.uz"
+  "status_page_url": "https://status.qulaychat.uz"
 }
 ```
 
@@ -3897,12 +3897,12 @@ Sozlamalar: {{unsubscribe_url}}
 
 ### Subject Line
 
-**O'zbek:** "🎉 Yangi xususiyat: {{feature_name}} - ChatFlow"  
-**English:** "🎉 New Feature: {{feature_name}} - ChatFlow"  
+**O'zbek:** "🎉 Yangi xususiyat: {{feature_name}} - Qulay Chat"  
+**English:** "🎉 New Feature: {{feature_name}} - Qulay Chat"  
 
 ### Preview Text
 
-**O'zbek:** "{{feature_name}} endi ChatFlow'da mavjud! {{feature_summary}}"  
+**O'zbek:** "{{feature_name}} endi Qulay Chat'da mavjud! {{feature_summary}}"  
 
 ### HTML Version
 
@@ -3956,7 +3956,7 @@ Sozlamalar: {{unsubscribe_url}}
         <div class="content">
             <p>Salom <strong>{{customer_name}}</strong>,</p>
             
-            <p>Xushxabar! ChatFlow'da yangi qo'llay qo'yilgan xususiyatni taqdim etishdan xursandmiz.</p>
+            <p>Xushxabar! Qulay Chat'da yangi qo'llay qo'yilgan xususiyatni taqdim etishdan xursandmiz.</p>
             
             <!-- Feature Hero Image -->
             <div class="feature-hero">
@@ -3995,7 +3995,7 @@ Sozlamalar: {{unsubscribe_url}}
         
         <!-- Footer -->
         <div class="footer">
-            <p>© 2026 ChatFlow • <a href="{{changelog_url}}">Changelog</a> • <a href="{{roadmap_url}}">Roadmap</a></p>
+            <p>© 2026 Qulay Chat • <a href="{{changelog_url}}">Changelog</a> • <a href="{{roadmap_url}}">Roadmap</a></p>
         </div>
     </div>
 </body>
@@ -4010,7 +4010,7 @@ Sozlamalar: {{unsubscribe_url}}
   "feature_name": "AI-powered Auto-Replies",
   "feature_summary": "Sun'iy intellekt yordamida avtomatik javoblar",
   "feature_description": "AI Auto-Replies xususiyati orqali endi chatlaringizda sun'iy intellekt yordamida to'liq avtomatik javoblar berishingiz mumkin. GPT-4 asosida ishlovchi tizim ko'p uchraydigan savollarga tezkor va aniq javob beradi.",
-  "feature_image_url": "https://cdn.chatflow.uz/features/ai-auto-replies-hero.png",
+  "feature_image_url": "https://cdn.qulaychat.uz/features/ai-auto-replies-hero.png",
   "benefits": [
     {
       "icon": "⚡",
@@ -4033,11 +4033,11 @@ Sozlamalar: {{unsubscribe_url}}
       "description": "O'zbek, Rus, Ingliz tillarida ishlaydi"
     }
   ],
-  "feature_url": "https://app.chatflow.uz/automation/ai-replies?onboarding=true",
-  "tutorial_url": "https://chatflow.uz/help/ai-auto-replies",
-  "support_url": "https://app.chatflow.uz/support",
-  "changelog_url": "https://chatflow.uz/changelog",
-  "roadmap_url": "https://chatflow.uz/roadmap"
+  "feature_url": "https://app.qulaychat.uz/automation/ai-replies?onboarding=true",
+  "tutorial_url": "https://qulaychat.uz/help/ai-auto-replies",
+  "support_url": "https://app.qulaychat.uz/support",
+  "changelog_url": "https://qulaychat.uz/changelog",
+  "roadmap_url": "https://qulaychat.uz/roadmap"
 }
 ```
 
@@ -4051,7 +4051,7 @@ Sozlamalar: {{unsubscribe_url}}
 
 ###  Backend API Endpoints
 
-**Base URL:** `https://api.chatflow.uz/v1`
+**Base URL:** `https://api.qulaychat.uz/v1`
 
 #### 1. Send Email
 
@@ -4114,7 +4114,7 @@ Authorization: Bearer {API_KEY}
     {
       "event": "clicked",
       "timestamp": "2026-02-11T14:33:10Z",
-      "link": "https://app.chatflow.uz/verify?token=..."
+      "link": "https://app.qulaychat.uz/verify?token=..."
     }
   ]
 }
@@ -4129,7 +4129,7 @@ Content-Type: application/json
 
 {
   "template_id": "WEEKLY_DIGEST",
-  "to": "test@chatflow.uz",
+  "to": "test@qulaychat.uz",
   "variables": { ... }
 }
 ```
@@ -4276,17 +4276,17 @@ CREATE TABLE email_unsubscribes (
 // config/email.js
 const mailgun = require('mailgun-js')({
   apiKey: process.env.MAILGUN_API_KEY,
-  domain: process.env.MAILGUN_DOMAIN, // 'mg.chatflow.uz'
+  domain: process.env.MAILGUN_DOMAIN, // 'mg.qulaychat.uz'
   host: 'api.eu.mailgun.net' // EU region
 });
 
 module.exports = {
   mailgun,
   from: {
-    default: 'ChatFlow <noreply@chatflow.uz>',
-    support: 'ChatFlow Support <support@chatflow.uz>',
-    billing: 'ChatFlow Billing <billing@chatflow.uz>',
-    notifications: 'ChatFlow Notifications <notify@chatflow.uz>'
+    default: 'Qulay Chat <noreply@qulaychat.uz>',
+    support: 'Qulay Chat Support <support@qulaychat.uz>',
+    billing: 'Qulay Chat Billing <billing@qulaychat.uz>',
+    notifications: 'Qulay Chat Notifications <notify@qulaychat.uz>'
   }
 };
 ```
@@ -4521,12 +4521,12 @@ describe('EmailService', () => {
   describe('getFromAddress', () => {
     it('should return billing address for invoice emails', () => {
       const result = EmailService.getFromAddress('INVOICE_RECEIPT');
-      expect(result).toContain('billing@chatflow.uz');
+      expect(result).toContain('billing@qulaychat.uz');
     });
     
     it('should return default address for unknown templates', () => {
       const result = EmailService.getFromAddress('UNKNOWN_TEMPLATE');
-      expect(result).toContain('noreply@chatflow.uz');
+      expect(result).toContain('noreply@qulaychat.uz');
     });
   });
 });
@@ -4547,7 +4547,7 @@ describe('Email API', () => {
         .set('Authorization', `Bearer ${TEST_API_KEY}`)
         .send({
           template_id: 'EMAIL_VERIFICATION',
-          to: 'test@chatflow.uz',
+          to: 'test@qulaychat.uz',
           variables: {
             user_name: 'Test User',
             verification_url: 'https://test',
@@ -4567,7 +4567,7 @@ describe('Email API', () => {
         .set('Authorization', `Bearer ${TEST_API_KEY}`)
         .send({
           template_id: 'INVALID_TEMPLATE',
-          to: 'test@chatflow.uz',
+          to: 'test@qulaychat.uz',
           variables: {}
         });
       
@@ -4603,7 +4603,7 @@ function getMockVariables(templateId) {
   const mocks = {
     'EMAIL_VERIFICATION': {
       user_name: 'Aziza Karimova',
-      verification_url: 'https://app.chatflow.uz/verify?token=abc123',
+      verification_url: 'https://app.qulaychat.uz/verify?token=abc123',
       token_expiry: '24 soat'
     },
     'WEEKLY_DIGEST': {
@@ -4940,7 +4940,7 @@ function verifyUnsubscribeToken(token) {
 
 function buildUnsubscribeUrl(email, workspaceId) {
   const token = generateUnsubscribeToken(email, workspaceId);
-  return `https://app.chatflow.uz/unsubscribe?token=${token}`;
+  return `https://app.qulaychat.uz/unsubscribe?token=${token}`;
 }
 
 module.exports = {
@@ -4986,9 +4986,9 @@ module.exports = {
 - [ ] Accessibility (WCAG AA) verified
 - [ ] Links functional and tracked
 - [ ] Unsubscribe links working
-- [ ] SPF, DKIM, DMARC DNS records configured for `chatflow.uz`
+- [ ] SPF, DKIM, DMARC DNS records configured for `qulaychat.uz`
 - [ ] Mailgun domain verified and active
-- [ ] Webhook endpoint (webhook.chatflow.uz/mailgun) configured
+- [ ] Webhook endpoint (webhook.qulaychat.uz/mailgun) configured
 - [ ] Rate limiting tested
 - [ ] Queue system operational
 - [ ] Database migrations run

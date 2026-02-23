@@ -1,4 +1,4 @@
-// CHATFLOW - Onboarding - 05 Widget Install (Step 3/4)
+// QULAY CHAT - Onboarding - 05 Widget Install (Step 3/4)
 // HTML source: figma-html-pages/03-onboarding/05-widget-install.html
 
 function rgb(hex) {
@@ -167,12 +167,12 @@ card.appendChild(copyText);
 
 const codeLines = [
   "<script>",
-  "  window.CHATFLOW_CONFIG = {",
+  "  window.QULAY CHAT_CONFIG = {",
   "    workspace: \"TechUz Support\",",
   "    primaryColor: \"#4F46E5\"",
   "  };",
   "</script>",
-  "<script src=\"https://cdn.chatflow.uz/widget.js\" async></script>"
+  "<script src=\"https://cdn.qulaychat.uz/widget.js\" async></script>"
 ];
 for (let i = 0; i < codeLines.length; i += 1) {
   const line = textNode("Code", codeLines[i], "Regular", 13, "#CBD5E1");

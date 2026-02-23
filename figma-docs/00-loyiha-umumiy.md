@@ -1,12 +1,12 @@
-# CHATFLOW — Loyiha Umumiy Ma'lumoti
+# QULAY CHAT — Loyiha Umumiy Ma'lumoti
 
 ## Loyiha nomi
-**CHATFLOW** — Enterprise SaaS formatidagi mijozlar bilan aloqa va texnik qo'llab-quvvatlashni boshqarish platformasi.
+**QULAY CHAT** — Enterprise SaaS formatidagi mijozlar bilan aloqa va texnik qo'llab-quvvatlashni boshqarish platformasi.
 
 ---
 
 ## Platforma mohiyati
-CHATFLOW — kompaniya va uning mijozlari o'rtasidagi barcha yozishmalarni bitta markazlashtirilgan tizimda qabul qilish, samarali taqsimlash va to'liq nazorat qilish uchun yaratilgan professional ishchi panel.
+QULAY CHAT — kompaniya va uning mijozlari o'rtasidagi barcha yozishmalarni bitta markazlashtirilgan tizimda qabul qilish, samarali taqsimlash va to'liq nazorat qilish uchun yaratilgan professional ishchi panel.
 
 Bu platforma **mijozlar uchun emas** — bu **ichki ishchi panel** bo'lib, faqat kompaniya xodimlari (operatorlar, menejerlar, administratorlar) tomonidan foydalaniladi.
 
@@ -122,7 +122,7 @@ Asosiy maqsad — murakkab va ortiqcha funksiyalarni olib tashlab, faqat real is
 ## Sahifalar xaritasi (Sitemap)
 
 ```
-CHATFLOW
+QULAY CHAT
 ├── Landing Page (Marketing sahifa)
 │   ├── Header (sticky)
 │   ├── Hero Section
@@ -189,7 +189,7 @@ CHATFLOW
 ## Figma loyiha tuzilishi (tavsiya)
 
 ```
-CHATFLOW Figma Project
+QULAY CHAT Figma Project
 ├── 📄 Cover Page
 ├── 🎨 Design System (ranglar, tipografiya, komponentlar)
 ├── 📱 Landing Page

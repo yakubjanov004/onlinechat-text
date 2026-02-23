@@ -1,4 +1,4 @@
-# CHATFLOW — Developer & API Management Module
+# QULAY CHAT — Developer & API Management Module
 
 **Module ID:** M-15  
 **Ekran ID:** `SCR-DEV01`, `SCR-DEV02`, `SCR-DEV03`  
@@ -8,7 +8,7 @@
 ## Umumiy konsepsiya
 Developer moduli texnik foydalanuvchilar uchun API boshqaruvi, webhook'lar, integratsiyalar va developer tools'ni taqdim etadi. API keys yaratish, regenerate qilish, webhook'larni sozlash, so'rovlar loglarini ko'rish.
 
-**Maqsad:** Dasturchilar CHATFLOW API'ni o'z ilovalariga integratsiya qilishda ishlatish uchun boshqaruv interfeysi.
+**Maqsad:** Dasturchilar QULAY CHAT API'ni o'z ilovalariga integratsiya qilishda ishlatish uchun boshqaruv interfeysi.
 
 **Role Access:** Admin (full access), Manager (read-only)
 
@@ -44,10 +44,10 @@ Developer moduli texnik foydalanuvchilar uchun API boshqaruvi, webhook'lar, inte
 **Background:** Gradient #EEF2FF to #E0E7FF, border-radius 12px, padding 24px  
 **Icon:** Icon/Code 48px #4F46E5, left  
 **Title:** "API bilan ishlashni boshlang" — 18px Semibold #111827  
-**Description:** "API key yaratib, CHATFLOW'ni o'z ilovangizga integratsiya qiling. To'liq hujjat va misollar bilan." — 14px Regular #6B7280  
+**Description:** "API key yaratib, QULAY CHAT'ni o'z ilovangizga integratsiya qiling. To'liq hujjat va misollar bilan." — 14px Regular #6B7280  
 **CTA Button:** 
 - "API Hujjatini ko'rish →" — 140px × 40px, border 1px #4F46E5, text #4F46E5, hover bg #F5F3FF
-- Click → Opens external link `https://docs.chatflow.uz/api` in new tab
+- Click → Opens external link `https://docs.qulaychat.uz/api` in new tab
 
 **Collapse Toggle:** 
 - Icon/ChevronUp 20px top-right, click → collapses card to 60px height (title only), saves state in localStorage
@@ -105,7 +105,7 @@ Developer moduli texnik foydalanuvchilar uchun API boshqaruvi, webhook'lar, inte
 **Column 1: Name & Key (60% width)**
 - **Name:** 15px Semibold #111827, e.g. "Production API Key"
 - **Key:** Monospace 'Fira Code' 13px #6B7280, masked format:
-  - Display: `chatflow_live_pk_abc123••••••••••••••xyz789` (first 20 chars + 14 dots + last 6 chars)
+  - Display: `qulaychat_live_pk_abc123••••••••••••••xyz789` (first 20 chars + 14 dots + last 6 chars)
   - Copy icon: Icon/Copy 18px #9CA3AF right of key, click → copies full key to clipboard
   - Tooltip: "Copy full key" on hover
 - **Created:** 12px Regular #9CA3AF, "Yaratilgan: 15 yanvar 2026, 14:30"
@@ -139,7 +139,7 @@ Developer moduli texnik foydalanuvchilar uchun API boshqaruvi, webhook'lar, inte
 ```
 ┌──────────────────────────────────────────────────────────────────────────────┐
 │ Production API Key                         Production   2 min ago   ● Active │
-│ chatflow_live_pk_abc123••••••••••••••xyz  [Copy]                        [⋮] │
+│ qulaychat_live_pk_abc123••••••••••••••xyz  [Copy]                        [⋮] │
 │ Yaratilgan: 15 yanvar 2026, 14:30                                            │
 └──────────────────────────────────────────────────────────────────────────────┘
 ```
@@ -219,7 +219,7 @@ Developer moduli texnik foydalanuvchilar uchun API boshqaruvi, webhook'lar, inte
 - Label: "Sizning API key:" — 13px Medium #9CA3AF, above
 - Key: Monospace 'Fira Code' 14px #E5E7EB, word-break all
   ```
-  chatflow_live_pk_1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s0t1u2v3w4x5y6z
+  qulaychat_live_pk_1a2b3c4d5e6f7g8h9i0j1k2l3m4n5o6p7q8r9s0t1u2v3w4x5y6z
   ```
 - Copy button: 120px × 40px, bg rgba(255,255,255,0.1), text white, Icon/Copy 18px, top-right absolute
   - Click states: "Nusxalash" → "Nusxalandi ✓" (2s) → revert
@@ -229,10 +229,10 @@ Developer moduli texnik foydalanuvchilar uchun API boshqaruvi, webhook'lar, inte
 - Code block: JavaScript example
   ```javascript
   // Node.js misoli
-  const chatflow = require('chatflow-sdk');
+  const qulaychat = require('qulay-chat-sdk');
   
-  const client = new chatflow.Client({
-    apiKey: 'chatflow_live_pk_...'
+  const client = new qulaychat.Client({
+    apiKey: 'qulaychat_live_pk_...'
   });
   
   // Barcha suhbatlarni olish
@@ -265,7 +265,7 @@ Developer moduli texnik foydalanuvchilar uchun API boshqaruvi, webhook'lar, inte
 
 **Key Info:**
 - Name: "Production API Key" — 16px Medium #111827
-- Current key (masked): `chatflow_live_pk_abc123••••••••••••••xyz` — 14px Mono #6B7280
+- Current key (masked): `qulaychat_live_pk_abc123••••••••••••••xyz` — 14px Mono #6B7280
 - Last used: "2 daqiqa oldin" — 13px Regular #9CA3AF
 
 **Confirmation Checkbox:**
@@ -294,7 +294,7 @@ Developer moduli texnik foydalanuvchilar uchun API boshqaruvi, webhook'lar, inte
 
 **Key Info:**
 - Name: "Development API Key" — 16px Medium #111827
-- Key (masked): `chatflow_test_pk_abc123••••••••••••••xyz` — 14px Mono #6B7280
+- Key (masked): `qulaychat_test_pk_abc123••••••••••••••xyz` — 14px Mono #6B7280
 - Created: "30 kun oldin" — 13px Regular #9CA3AF
 - Last used: "15 kun oldin" — 13px Regular #9CA3AF
 
@@ -326,7 +326,7 @@ Developer moduli texnik foydalanuvchilar uchun API boshqaruvi, webhook'lar, inte
 **Background:** #F0FDF4 (light green), border-left 4px #10B981, padding 20px  
 **Icon:** Icon/Webhook 32px #10B981, left  
 **Title:** "Webhook'lar nima?" — 16px Semibold #065F46  
-**Description:** "Webhook'lar CHATFLOW'da event yuz berganda avtomatik HTTP POST so'rovi yuboradi. Masalan: yangi chat kelganda, xabar jo'natilganda, CSAT qabul qilinganda." — 14px Regular #166534  
+**Description:** "Webhook'lar QULAY CHAT'da event yuz berganda avtomatik HTTP POST so'rovi yuboradi. Masalan: yangi chat kelganda, xabar jo'natilganda, CSAT qabul qilinganda." — 14px Regular #166534  
 **Link:** "Webhook hujjatini o'qish →" — 14px Medium #10B981, underline  
 **Collapse:** Icon/ChevronUp top-right
 
@@ -360,7 +360,7 @@ Developer moduli texnik foydalanuvchilar uchun API boshqaruvi, webhook'lar, inte
 
 **1. URL:**
 - Label: "Endpoint URL" — 12px Medium #6B7280
-- URL: 14px Regular #111827, word-break, `https://example.com/webhooks/chatflow`
+- URL: 14px Regular #111827, word-break, `https://example.com/webhooks/qulaychat`
 - Copy icon: Icon/Copy 16px #9CA3AF, inline, click → copy URL
 
 **2. Events:**
@@ -388,7 +388,7 @@ Developer moduli texnik foydalanuvchilar uchun API boshqaruvi, webhook'lar, inte
 │ ● Active                                         [⋮] │
 │                                                      │
 │ Endpoint URL                                         │
-│ https://example.com/webhooks/chatflow       [Copy]  │
+│ https://example.com/webhooks/qulaychat       [Copy]  │
 │                                                      │
 │ Event'lar                                            │
 │ [conversation.created] [message.sent] [csat] [+2]   │
@@ -438,7 +438,7 @@ Developer moduli texnik foydalanuvchilar uchun API boshqaruvi, webhook'lar, inte
 - Input: 100% width, 44px height, type password, placeholder "••••••••••••••••"
 - Helper: "Webhook imzosini tekshirish uchun. Tavsiya etiladi." — 12px Regular #9CA3AF
 - Link: "Secret key nima?" — 13px Medium #4F46E5, inline, opens tooltip
-  - Tooltip: "CHATFLOW har bir webhook POST so'roviga X-Chatflow-Signature header qo'shadi. Secret key bilan HMAC SHA256 imzoni tekshirishingiz mumkin."
+  - Tooltip: "QULAY CHAT har bir webhook POST so'roviga X-Qulay chat-Signature header qo'shadi. Secret key bilan HMAC SHA256 imzoni tekshirishingiz mumkin."
 
 **Generate Button:** "Tasodifiy key yaratish" — 160px × 36px, border 1px #4F46E5, text #4F46E5
 - Click → generates random 32-char key, fills input
@@ -496,7 +496,7 @@ Developer moduli texnik foydalanuvchilar uchun API boshqaruvi, webhook'lar, inte
 **Content:**
 
 **Endpoint Info:**
-- URL: `https://example.com/webhooks/chatflow` — 14px Mono #6B7280
+- URL: `https://example.com/webhooks/qulaychat` — 14px Mono #6B7280
 - Status: Badge "Active" green
 
 **Test Configuration:**
@@ -740,17 +740,17 @@ Developer moduli texnik foydalanuvchilar uchun API boshqaruvi, webhook'lar, inte
 
 **Subsection: Request URL**
 - Label: "URL" — 13px Medium #6B7280
-- Value: `https://example.com/webhooks/chatflow` — 13px Mono #111827, copy icon
+- Value: `https://example.com/webhooks/qulaychat` — 13px Mono #111827, copy icon
 
 **Subsection: Request Headers**
 - Label: "Headers" — 13px Medium #6B7280
 - Code block: 100% width, bg #F9FAFB, padding 12px, border-radius 8px, Monospace 12px
   ```
-  POST /webhooks/chatflow HTTP/1.1
+  POST /webhooks/qulaychat HTTP/1.1
   Host: example.com
   Content-Type: application/json
-  X-Chatflow-Signature: sha256=abc123...
-  User-Agent: Chatflow-Webhooks/1.0
+  X-Qulay chat-Signature: sha256=abc123...
+  User-Agent: Qulay chat-Webhooks/1.0
   ```
 
 **Subsection: Request Body (Payload)**
@@ -910,7 +910,7 @@ Developer moduli texnik foydalanuvchilar uchun API boshqaruvi, webhook'lar, inte
 ├─────────────────────────────────────────────────────────────────────────┤
 │ ┌──────────────────────────────────────────────────────────────────┐   │
 │ │ 💻 API bilan ishlashni boshlang           [API Hujjatini ko'rish]│   │
-│ │ API key yaratib, CHATFLOW'ni o'z ilovangizga integratsiya qiling │   │
+│ │ API key yaratib, QULAY CHAT'ni o'z ilovangizga integratsiya qiling │   │
 │ └──────────────────────────────────────────────────────────────────┘   │
 │                                                                         │
 │ ┌──────────────────────────────────────────────────────────────────┐   │
@@ -921,11 +921,11 @@ Developer moduli texnik foydalanuvchilar uchun API boshqaruvi, webhook'lar, inte
 │ API Keys (2)                                  [Yangi key yaratish]     │
 │ ┌──────────────────────────────────────────────────────────────────┐   │
 │ │ Production API Key                    [Production] 2 min  ●Active│   │
-│ │ chatflow_live_pk_abc123••••••••••xyz [Copy]                  [⋮]│   │
+│ │ qulaychat_live_pk_abc123••••••••••xyz [Copy]                  [⋮]│   │
 │ │ Yaratilgan: 15 yanvar 2026, 14:30                               │   │
 │ ├──────────────────────────────────────────────────────────────────┤   │
 │ │ Development API Key                  [Development] 15 kun  ●Active│   │
-│ │ chatflow_test_pk_def456••••••••••123 [Copy]                  [⋮]│   │
+│ │ qulaychat_test_pk_def456••••••••••123 [Copy]                  [⋮]│   │
 │ │ Yaratilgan: 1 yanvar 2026, 10:20                                │   │
 │ └──────────────────────────────────────────────────────────────────┘   │
 └─────────────────────────────────────────────────────────────────────────┘
@@ -940,7 +940,7 @@ Developer moduli texnik foydalanuvchilar uchun API boshqaruvi, webhook'lar, inte
 │ │ ● Active                 [⋮] │  │ ⚠ Error                  [⋮] │     │
 │ │                              │  │                              │     │
 │ │ Endpoint URL                 │  │ Endpoint URL                 │     │
-│ │ https://example.com/webhook  │  │ https://app.com/chatflow     │     │
+│ │ https://example.com/webhook  │  │ https://app.com/qulaychat     │     │
 │ │ [Copy]                       │  │ [Copy]                       │     │
 │ │                              │  │                              │     │
 │ │ Event'lar                    │  │ Event'lar                    │     │
@@ -1117,7 +1117,7 @@ Developer moduli texnik foydalanuvchilar uchun API boshqaruvi, webhook'lar, inte
      "data": { ... event-specific data ... }
    }
    ```
-4. Add signature header: `X-Chatflow-Signature: sha256=HMAC_SHA256(payload, secret)`
+4. Add signature header: `X-Qulay chat-Signature: sha256=HMAC_SHA256(payload, secret)`
 5. Send POST request to webhook URL
 6. Log request + response
 7. If failed (status 4xx/5xx or timeout):
@@ -1204,7 +1204,7 @@ Design a comprehensive Developer API Management module for a SaaS customer suppo
 SCREEN 1: API KEYS
 - Quick Start Card: gradient #EEF2FF, 160px height, icon Code 48px, title + description + "API Hujjatini ko'rish" button, collapsible
 - Plan Limits Card: white border, 100px, 3 columns (API Requests 8,247/50,000 with progress bar 16.5% orange, Webhook Endpoints 3/10, Rate Limit 100 req/min Pro badge)
-- Keys Table: rows 72px, 5 columns (Name+Key masked `chatflow_live_pk_abc123••••••xyz` with Copy icon, Environment badge Production green/Development yellow/Test blue, Last Used "2 min ago" with green dot, Status Active/Revoked, Actions dropdown)
+- Keys Table: rows 72px, 5 columns (Name+Key masked `qulaychat_live_pk_abc123••••••xyz` with Copy icon, Environment badge Production green/Development yellow/Test blue, Last Used "2 min ago" with green dot, Status Active/Revoked, Actions dropdown)
 - Create Modal 560px: form (Name* input, Environment 3 radio options horizontal 160×56, Permissions checkboxes 2-col grid 6 items, Expiration dropdown), footer "Key yaratish" primary
 - Success Modal 600px: CheckCircle 48px green center, warning alert yellow "faqat bir marta ko'rasiz", Key display card dark bg #1E1E1E mono font with copy button, usage example code block JavaScript syntax highlighted
 - Regenerate Modal 480px: AlertTriangle 48px orange, warning "eski key bekor qilinadi", confirmation checkbox required, "Regenerate qilish" button orange

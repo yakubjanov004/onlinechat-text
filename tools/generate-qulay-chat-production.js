@@ -66,7 +66,7 @@ function titleCase(input) {
 }
 
 const TITLE_OVERRIDES = {
-  "01-landing/01-landing.html": "CHATFLOW",
+  "01-landing/01-landing.html": "QULAY CHAT",
   "02-auth/01-login.html": "Kirish",
   "02-auth/02-register.html": "Ro'yxatdan o'tish",
   "02-auth/03-email-verify.html": "Email Tasdiqlash",
@@ -178,7 +178,7 @@ function initials(name) {
 }
 
 function baseHead(options) {
-  const title = options.title || "CHATFLOW";
+  const title = options.title || "QULAY CHAT";
   const prefix = options.prefix || "..";
   const includeShell = !!options.includeShell;
   const robots = options.robots ? `\n  <meta name="robots" content="${esc(options.robots)}">` : "";
@@ -188,9 +188,9 @@ function baseHead(options) {
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="${prefix}/assets/chatflow-design-system.css">
-  <script src="https://unpkg.com/lucide@latest" defer></script>${includeShell ? `\n  <script src="${prefix}/assets/chatflow-shell.js" defer></script>` : ""}
-  <script src="${prefix}/assets/chatflow-runtime.js" defer></script>`;
+  <link rel="stylesheet" href="${prefix}/assets/qulay-chat-design-system.css">
+  <script src="https://unpkg.com/lucide@latest" defer></script>${includeShell ? `\n  <script src="${prefix}/assets/qulay-chat-shell.js" defer></script>` : ""}
+  <script src="${prefix}/assets/qulay-chat-runtime.js" defer></script>`;
 }
 
 function iconInitScript() {
@@ -202,7 +202,7 @@ function shellPage({ title, activeNav, content, bodyClass = "", pageAttrs = "" }
   return `<!doctype html>
 <html lang="uz">
 <head>
-${baseHead({ title: `CHATFLOW - ${title}`, includeShell: true })}
+${baseHead({ title: `QULAY CHAT - ${title}`, includeShell: true })}
 </head>
 <body ${attrs} class="${["dashboard-shell-page", bodyClass].filter(Boolean).join(" ")}">
   <main class="app-content">
@@ -587,7 +587,7 @@ SHELL_SOURCE = `(function () {
     header.innerHTML =
       '<div class="app-header-left">' +
       '  <button class="icon-btn" type="button" data-action="toggle-sidebar" aria-label="Sidebar toggle"><i data-lucide="panel-left-close"></i></button>' +
-      '  <a class="shell-brand" href="../04-dashboard/01-dashboard.html"><span class="shell-brand-mark">CF</span><span>CHATFLOW</span></a>' +
+      '  <a class="shell-brand" href="../04-dashboard/01-dashboard.html"><span class="shell-brand-mark">CF</span><span>QULAY CHAT</span></a>' +
       '</div>' +
       '<label class="shell-search" aria-label="Global qidiruv">' +
       '  <i data-lucide="search"></i>' +
@@ -638,7 +638,7 @@ SHELL_SOURCE = `(function () {
     body.insertBefore(shell, body.firstChild);
 
     if (window.lucide && window.lucide.createIcons) window.lucide.createIcons();
-    document.dispatchEvent(new CustomEvent("chatflow:shell-mounted"));
+    document.dispatchEvent(new CustomEvent("qulaychat:shell-mounted"));
   }
 
   document.addEventListener("DOMContentLoaded", mountShell);
@@ -646,7 +646,7 @@ SHELL_SOURCE = `(function () {
 
 RUNTIME_SOURCE = `(function () {
   "use strict";
-  var ROLE_KEY = "chatflow_role";
+  var ROLE_KEY = "qulaychat_role";
   var ROLES = ["admin","agent","client"];
   var ROLE_LABELS = {admin:"Admin",agent:"Agent",client:"Client"};
 
@@ -801,7 +801,7 @@ RUNTIME_SOURCE = `(function () {
     }
   });
 
-  document.addEventListener("chatflow:shell-mounted", function(){ applyRole(); initTabs(); refreshIcons(); });
+  document.addEventListener("qulaychat:shell-mounted", function(){ applyRole(); initTabs(); refreshIcons(); });
   document.addEventListener("DOMContentLoaded", function(){ applyRole(); initTabs(); refreshIcons(); });
 })();`;
 
@@ -846,7 +846,7 @@ function renderIndexPage(folderMap) {
 
   const content = `  <main class="marketing-shell">
     <header class="marketing-header">
-      <a class="shell-brand" href="./index.html"><span class="shell-brand-mark">CF</span><span>CHATFLOW Frontend</span></a>
+      <a class="shell-brand" href="./index.html"><span class="shell-brand-mark">CF</span><span>QULAY CHAT Frontend</span></a>
       <div class="flex gap-2 wrap" id="docs">
         ${linkBtn("Landing", "./01-landing/01-landing.html", "secondary")}
         ${linkBtn("Auth", "./02-auth/01-login.html", "secondary")}
@@ -857,7 +857,7 @@ function renderIndexPage(folderMap) {
       <section class="hero-grid">
         <div class="hero-panel">
           <span class="badge badge-primary">Production Preview</span>
-          <h1 style="margin-top:12px">CHATFLOW HTML sahifalari yagona SaaS dizayn tizimida</h1>
+          <h1 style="margin-top:12px">QULAY CHAT HTML sahifalari yagona SaaS dizayn tizimida</h1>
           <p class="lead">` +
           `Barcha 18 modul, auth/onboarding, inbox, widget va system sahifalari bir xil dizayn tokenlar, shell va komponentlar asosida qayta generatsiya qilindi.` +
           `</p>
@@ -907,7 +907,7 @@ function renderIndexPage(folderMap) {
       </section>
     </section>
   </main>`;
-  return standalonePage({ title: "CHATFLOW Frontend Preview", prefix: ".", bodyClass: "marketing-page", content });
+  return standalonePage({ title: "QULAY CHAT Frontend Preview", prefix: ".", bodyClass: "marketing-page", content });
 }
 
 function renderLandingPage() {
@@ -924,7 +924,7 @@ function renderLandingPage() {
   ];
   const content = `  <div class="marketing-shell">
     <header class="marketing-header">
-      <a class="shell-brand" href="../index.html"><span class="shell-brand-mark">CF</span><span>CHATFLOW</span></a>
+      <a class="shell-brand" href="../index.html"><span class="shell-brand-mark">CF</span><span>QULAY CHAT</span></a>
       <nav class="marketing-nav">
         <a href="#imkoniyatlar">Imkoniyatlar</a>
         <a href="#tariflar">Tariflar</a>
@@ -940,7 +940,7 @@ function renderLandingPage() {
         <div class="hero-panel">
           <span class="badge badge-primary">Mijoz support platformasi</span>
           <h1 style="margin-top:12px">Mijozlaringiz bilan suhbatni yangi bosqichga olib chiqing</h1>
-          <p class="lead">CHATFLOW yordamida barcha kanallardagi xabarlarni yagona inbox'da boshqaring, operatorlar ishini tezlashtiring va real vaqt analytics bilan nazorat qiling.</p>
+          <p class="lead">QULAY CHAT yordamida barcha kanallardagi xabarlarni yagona inbox'da boshqaring, operatorlar ishini tezlashtiring va real vaqt analytics bilan nazorat qiling.</p>
           <div class="hero-cta">
             ${linkBtn("Bepul boshlash", "../02-auth/02-register.html", "primary")}
             ${linkBtn("Demo ko'rish", "../04-dashboard/01-dashboard.html", "secondary")}
@@ -961,9 +961,9 @@ function renderLandingPage() {
       </section>
       <section class="cta-banner"><div><h2 style="color:#fff">Hoziroq boshlang</h2><p style="opacity:.9;margin-top:4px">Bir necha daqiqada widgetni o'rnating va birinchi chatni qabul qiling.</p></div><div class="flex gap-2">${linkBtn("Ro'yxatdan o'tish", "../02-auth/02-register.html", "secondary")} ${linkBtn("Dashboard preview", "../04-dashboard/01-dashboard.html", "ghost")}</div></section>
     </main>
-    <footer class="marketing-footer"><div class="shell-brand"><span class="shell-brand-mark">CF</span><span>CHATFLOW</span></div><div class="flex gap-3 wrap"><a href="#imkoniyatlar">Imkoniyatlar</a><a href="#tariflar">Tariflar</a><a href="../index.html">Docs</a><a href="../index.html#support">Support</a></div><div>&copy; 2026 CHATFLOW</div></footer>
+    <footer class="marketing-footer"><div class="shell-brand"><span class="shell-brand-mark">CF</span><span>QULAY CHAT</span></div><div class="flex gap-3 wrap"><a href="#imkoniyatlar">Imkoniyatlar</a><a href="#tariflar">Tariflar</a><a href="../index.html">Docs</a><a href="../index.html#support">Support</a></div><div>&copy; 2026 QULAY CHAT</div></footer>
   </div>`;
-  return standalonePage({ title: "CHATFLOW - Landing", bodyClass: "marketing-page", content });
+  return standalonePage({ title: "QULAY CHAT - Landing", bodyClass: "marketing-page", content });
 }
 
 function renderAuthPage(relPath) {
@@ -984,10 +984,10 @@ function renderAuthPage(relPath) {
     "05-welcome-first-login.html": { title: "Xush kelibsiz!", subtitle: "Akkaunt tayyor. Endi widget va workspace sozlamalarini yakunlaymiz.", primary: "Onboardingni boshlash", primaryHref: "../03-onboarding/01-welcome.html", alt: "Yoki darhol", altLink: "../04-dashboard/01-dashboard.html", altLabel: "Dashboardga o'tish", success: true, fields: [] }
   };
   const cfg = map[path.basename(relPath)] || map["01-login.html"];
-  const formInner = cfg.fields.length ? `<form class="auth-form" data-auto-submit data-submit-message="${esc(cfg.primary)} bajarildi">${cfg.fields.join("")}<button class="btn btn-primary w-full" type="submit">${cfg.primary}</button></form>` : `<div class="stack">${cfg.info ? `<div class="alert alert-info">${icon("mail-check")}<div>Tasdiqlash xati <strong>sardor@chatflow.uz</strong> manziliga yuborildi.</div></div>` : ""}${cfg.success ? `<div class="alert alert-success">${icon("badge-check")}<div>Trial workspace yaratildi. Endi onboarding bosqichlarini yakunlashingiz mumkin.</div></div>` : ""}${linkBtn(cfg.primary, cfg.primaryHref || "../03-onboarding/01-welcome.html", "primary", 'style="width:100%"')}</div>`;
+  const formInner = cfg.fields.length ? `<form class="auth-form" data-auto-submit data-submit-message="${esc(cfg.primary)} bajarildi">${cfg.fields.join("")}<button class="btn btn-primary w-full" type="submit">${cfg.primary}</button></form>` : `<div class="stack">${cfg.info ? `<div class="alert alert-info">${icon("mail-check")}<div>Tasdiqlash xati <strong>sardor@qulaychat.uz</strong> manziliga yuborildi.</div></div>` : ""}${cfg.success ? `<div class="alert alert-success">${icon("badge-check")}<div>Trial workspace yaratildi. Endi onboarding bosqichlarini yakunlashingiz mumkin.</div></div>` : ""}${linkBtn(cfg.primary, cfg.primaryHref || "../03-onboarding/01-welcome.html", "primary", 'style="width:100%"')}</div>`;
   const content = `  <main class="auth-page">
     <section class="auth-card">
-      <div class="auth-logo"><span class="shell-brand-mark">CF</span><span>CHATFLOW</span></div>
+      <div class="auth-logo"><span class="shell-brand-mark">CF</span><span>QULAY CHAT</span></div>
       <div class="auth-title"><h1>${esc(cfg.title)}</h1><p>${esc(cfg.subtitle)}</p></div>
       ${formInner}
       <div class="auth-divider">yoki</div>
@@ -995,16 +995,16 @@ function renderAuthPage(relPath) {
       <div class="auth-footer">${esc(cfg.alt)} <a href="${esc(cfg.altLink)}" style="color:var(--primary);font-weight:600">${esc(cfg.altLabel)}</a></div>
     </section>
   </main>`;
-  return standalonePage({ title: `CHATFLOW - ${cfg.title}`, bodyClass: "auth-page", content });
+  return standalonePage({ title: `QULAY CHAT - ${cfg.title}`, bodyClass: "auth-page", content });
 }
 
 function onboardingStepConfig(file) {
   const list = {
-    "01-welcome.html": { step: 1, title: "CHATFLOW'ga xush kelibsiz", subtitle: "6 qadamda workspace, widget va inbox'ni ishga tushiramiz.", body: `<div class="alert alert-success">${icon("sparkles")}<div>Setup taxminan 4-6 daqiqa davom etadi. Xohlasangiz keyin ham davom ettirishingiz mumkin.</div></div><div class="two-col"><div class="card"><div class="card-body"><h3>1. Workspace</h3><p class="text-muted">Nom, domen, timezone</p></div></div><div class="card"><div class="card-body"><h3>2. Widget</h3><p class="text-muted">Rang, welcome xabar, install kod</p></div></div></div>`, back: "../02-auth/05-welcome-first-login.html", next: "./02-onboarding-setup.html" },
-    "02-onboarding-setup.html": { step: 2, title: "Boshlang'ich sozlash", subtitle: "Workspace yaratish uchun asosiy ma'lumotlarni kiriting.", body: `<div class="form-grid">${formField("Workspace nomi", input("CHATFLOW Support", "ACME Support"))}${formField("Veb-sayt", `<input class="input" type="url" placeholder="https://example.uz">`)}${formField("Til", select(["O'zbek", "English", "Р СѓСЃСЃРєРёР№"], "O'zbek"))}${formField("Timezone", select(["GMT+5 Toshkent","GMT+6 Almaty","GMT+3 Istanbul"], "GMT+5 Toshkent"))}</div>`, back: "./01-welcome.html", next: "./03-workspace.html" },
-    "03-workspace.html": { step: 3, title: "Jamoa va kanallar", subtitle: "Qaysi kanallarni yoqishni va birinchi operatorlarni belgilang.", body: `<div class="form-row"><div class="row-copy"><div class="form-label">Kanallar</div><p class="text-muted" style="font-size:13px">Dastlabki qabul kanallarini tanlang</p></div><div class="three-col"><label class="checkbox"><input type="checkbox" checked>Web Widget</label><label class="checkbox"><input type="checkbox" checked>Telegram</label><label class="checkbox"><input type="checkbox">Email</label></div></div><div class="form-grid">${formField("Birinchi operator", input("Sardor Aliyev"))}${formField("Support email", `<input class="input" type="email" value="support@chatflow.uz">`)}</div>`, back: "./02-onboarding-setup.html", next: "./04-widget-customize.html" },
-    "04-widget-customize.html": { step: 4, title: "Widget ko'rinishini moslang", subtitle: "Asosiy rang, joylashuv va welcome xabarni tanlang.", body: `<div class="settings-section"><div class="form-label">Asosiy rang</div><div class="preset-colors"><span class="color-swatch active" style="background:#4F46E5"></span><span class="color-swatch" style="background:#2563EB"></span><span class="color-swatch" style="background:#059669"></span><span class="color-swatch" style="background:#DC2626"></span><span class="color-swatch" style="background:#F59E0B"></span></div></div><div class="two-col"><div>${formField("Welcome xabar", textarea("Salom! Sizga qanday yordam bera olamiz?", "", 3))}</div><div class="widget-mini-preview"><div class="text-muted" style="font-size:13px">Preview</div><div class="widget-mini-window"><div class="widget-mini-head"><span>CHATFLOW</span><span>Online</span></div><div class="widget-mini-body"><div class="widget-msg">Salom! Sizga qanday yordam bera olamiz?</div><div class="widget-msg agent">Narxlar haqida aytib bera olaman.</div></div></div></div></div>`, back: "./03-workspace.html", next: "./05-widget-install.html" },
-    "05-widget-install.html": { step: 5, title: "Widget o'rnatish", subtitle: "Saytingizga kod snippetni qo'shing va test qiling.", body: `${codeBlock(`<script src="https://cdn.chatflow.uz/widget.js" data-id="cf_demo_01"></script>`, "onboard-widget-code")}<div class="alert alert-info">${icon("terminal")}<div>Snippetni <strong>&lt;/body&gt;</strong> tegi oldidan joylashtirish tavsiya etiladi.</div></div>`, back: "./04-widget-customize.html", next: "./06-widget-verify.html" },
+    "01-welcome.html": { step: 1, title: "QULAY CHAT'ga xush kelibsiz", subtitle: "6 qadamda workspace, widget va inbox'ni ishga tushiramiz.", body: `<div class="alert alert-success">${icon("sparkles")}<div>Setup taxminan 4-6 daqiqa davom etadi. Xohlasangiz keyin ham davom ettirishingiz mumkin.</div></div><div class="two-col"><div class="card"><div class="card-body"><h3>1. Workspace</h3><p class="text-muted">Nom, domen, timezone</p></div></div><div class="card"><div class="card-body"><h3>2. Widget</h3><p class="text-muted">Rang, welcome xabar, install kod</p></div></div></div>`, back: "../02-auth/05-welcome-first-login.html", next: "./02-onboarding-setup.html" },
+    "02-onboarding-setup.html": { step: 2, title: "Boshlang'ich sozlash", subtitle: "Workspace yaratish uchun asosiy ma'lumotlarni kiriting.", body: `<div class="form-grid">${formField("Workspace nomi", input("QULAY CHAT Support", "ACME Support"))}${formField("Veb-sayt", `<input class="input" type="url" placeholder="https://example.uz">`)}${formField("Til", select(["O'zbek", "English", "Р СѓСЃСЃРєРёР№"], "O'zbek"))}${formField("Timezone", select(["GMT+5 Toshkent","GMT+6 Almaty","GMT+3 Istanbul"], "GMT+5 Toshkent"))}</div>`, back: "./01-welcome.html", next: "./03-workspace.html" },
+    "03-workspace.html": { step: 3, title: "Jamoa va kanallar", subtitle: "Qaysi kanallarni yoqishni va birinchi operatorlarni belgilang.", body: `<div class="form-row"><div class="row-copy"><div class="form-label">Kanallar</div><p class="text-muted" style="font-size:13px">Dastlabki qabul kanallarini tanlang</p></div><div class="three-col"><label class="checkbox"><input type="checkbox" checked>Web Widget</label><label class="checkbox"><input type="checkbox" checked>Telegram</label><label class="checkbox"><input type="checkbox">Email</label></div></div><div class="form-grid">${formField("Birinchi operator", input("Sardor Aliyev"))}${formField("Support email", `<input class="input" type="email" value="support@qulaychat.uz">`)}</div>`, back: "./02-onboarding-setup.html", next: "./04-widget-customize.html" },
+    "04-widget-customize.html": { step: 4, title: "Widget ko'rinishini moslang", subtitle: "Asosiy rang, joylashuv va welcome xabarni tanlang.", body: `<div class="settings-section"><div class="form-label">Asosiy rang</div><div class="preset-colors"><span class="color-swatch active" style="background:#4F46E5"></span><span class="color-swatch" style="background:#2563EB"></span><span class="color-swatch" style="background:#059669"></span><span class="color-swatch" style="background:#DC2626"></span><span class="color-swatch" style="background:#F59E0B"></span></div></div><div class="two-col"><div>${formField("Welcome xabar", textarea("Salom! Sizga qanday yordam bera olamiz?", "", 3))}</div><div class="widget-mini-preview"><div class="text-muted" style="font-size:13px">Preview</div><div class="widget-mini-window"><div class="widget-mini-head"><span>QULAY CHAT</span><span>Online</span></div><div class="widget-mini-body"><div class="widget-msg">Salom! Sizga qanday yordam bera olamiz?</div><div class="widget-msg agent">Narxlar haqida aytib bera olaman.</div></div></div></div></div>`, back: "./03-workspace.html", next: "./05-widget-install.html" },
+    "05-widget-install.html": { step: 5, title: "Widget o'rnatish", subtitle: "Saytingizga kod snippetni qo'shing va test qiling.", body: `${codeBlock(`<script src="https://cdn.qulaychat.uz/widget.js" data-id="cf_demo_01"></script>`, "onboard-widget-code")}<div class="alert alert-info">${icon("terminal")}<div>Snippetni <strong>&lt;/body&gt;</strong> tegi oldidan joylashtirish tavsiya etiladi.</div></div>`, back: "./04-widget-customize.html", next: "./06-widget-verify.html" },
     "06-widget-verify.html": { step: 6, title: "Hammasi tayyor", subtitle: "Widget ulandi va birinchi test chat qabul qilindi.", body: `<div class="text-center" style="padding:8px 0 4px"><div class="avatar avatar-xxl" style="margin:0 auto;background:var(--success-light);color:#059669">${icon("badge-check")}</div><h2 style="margin-top:12px">Widget muvaffaqiyatli ulandi</h2><p class="text-muted" style="margin-top:8px">Endi dashboard va inbox orqali mijoz xabarlarini boshqarishingiz mumkin.</p></div><div class="two-col"><div class="card"><div class="card-body"><h3>Test Chat</h3><p class="text-muted">Bugun 1 ta test chat qabul qilindi</p></div></div><div class="card"><div class="card-body"><h3>Keyingi qadam</h3><p class="text-muted">Automation va team sozlamalarini yakunlang</p></div></div></div>`, back: "./05-widget-install.html", next: "../04-dashboard/01-dashboard.html" }
   };
   return list[file];
@@ -1016,7 +1016,7 @@ function renderOnboardingPage(relPath) {
   const content = `  <main class="onboarding-page">
     <div class="onboarding-shell">
       <div class="onboarding-top">
-        <a class="shell-brand" href="../index.html"><span class="shell-brand-mark">CF</span><span>CHATFLOW</span></a>
+        <a class="shell-brand" href="../index.html"><span class="shell-brand-mark">CF</span><span>QULAY CHAT</span></a>
         <span class="badge badge-primary">Step ${cfg.step}/6</span>
       </div>
       <div class="onboarding-progress"><div class="flex justify-between items-center"><strong>Onboarding</strong><span class="text-muted" style="font-size:13px">${cfg.step} / 6</span></div><div class="step-dots">${dots}</div><div class="progress"><div class="progress-bar" style="width:${Math.round((cfg.step/6)*100)}%"></div></div></div>
@@ -1030,17 +1030,17 @@ function renderOnboardingPage(relPath) {
       </section>
     </div>
   </main>`;
-  return standalonePage({ title: `CHATFLOW - ${cfg.title}`, bodyClass: "onboarding-page", content });
+  return standalonePage({ title: `QULAY CHAT - ${cfg.title}`, bodyClass: "onboarding-page", content });
 }
 
 function widgetStateWindow(kind) {
   if (kind === "offline") {
-    return `<div class="widget-window"><div class="widget-window-header"><div><strong>CHATFLOW</strong><div class="mini">Offline</div></div><button class="icon-btn" type="button" data-action="log">${icon("x")}</button></div><div class="widget-window-body"><div class="alert alert-info">${icon("clock-3")}<div>Operatorlar hozir offline. Xabar qoldiring.</div></div>${formField("Ism", `<input class="input" type="text" placeholder="Sardor">`)}${formField("Email", `<input class="input" type="email" placeholder="you@example.com">`)}${formField("Xabar", `<textarea class="textarea" rows="4" placeholder="Savolingizni yozing..."></textarea>`)}</div><div class="widget-window-footer">${btn("Yuborish", "primary")}</div></div>`;
+    return `<div class="widget-window"><div class="widget-window-header"><div><strong>QULAY CHAT</strong><div class="mini">Offline</div></div><button class="icon-btn" type="button" data-action="log">${icon("x")}</button></div><div class="widget-window-body"><div class="alert alert-info">${icon("clock-3")}<div>Operatorlar hozir offline. Xabar qoldiring.</div></div>${formField("Ism", `<input class="input" type="text" placeholder="Sardor">`)}${formField("Email", `<input class="input" type="email" placeholder="you@example.com">`)}${formField("Xabar", `<textarea class="textarea" rows="4" placeholder="Savolingizni yozing..."></textarea>`)}</div><div class="widget-window-footer">${btn("Yuborish", "primary")}</div></div>`;
   }
   if (kind === "csat") {
-    return `<div class="widget-window"><div class="widget-window-header"><div><strong>CHATFLOW</strong><div class="mini">CSAT</div></div><button class="icon-btn" type="button" data-action="log">${icon("x")}</button></div><div class="widget-window-body"><h3>Yordamingiz foydali bo'ldimi?</h3><div class="flex gap-2">${["star","star","star","star","star"].map((s, i)=>`<button class="btn ${i<4?"btn-primary":"btn-secondary"} btn-sm" type="button" data-action="log">${icon(s)}</button>`).join("")}</div>${formField("Izoh", `<textarea class="textarea" rows="4" placeholder="Qo'shimcha fikringiz..."></textarea>`)}</div><div class="widget-window-footer">${btn("Baholashni yuborish", "primary")}</div></div>`;
+    return `<div class="widget-window"><div class="widget-window-header"><div><strong>QULAY CHAT</strong><div class="mini">CSAT</div></div><button class="icon-btn" type="button" data-action="log">${icon("x")}</button></div><div class="widget-window-body"><h3>Yordamingiz foydali bo'ldimi?</h3><div class="flex gap-2">${["star","star","star","star","star"].map((s, i)=>`<button class="btn ${i<4?"btn-primary":"btn-secondary"} btn-sm" type="button" data-action="log">${icon(s)}</button>`).join("")}</div>${formField("Izoh", `<textarea class="textarea" rows="4" placeholder="Qo'shimcha fikringiz..."></textarea>`)}</div><div class="widget-window-footer">${btn("Baholashni yuborish", "primary")}</div></div>`;
   }
-  return `<div class="widget-window"><div class="widget-window-header"><div><strong>CHATFLOW</strong><div class="mini">Online вЂў Javob 2m ichida</div></div><div class="flex gap-1"><button class="icon-btn" type="button" data-action="log">${icon("minus")}</button><button class="icon-btn" type="button" data-action="log">${icon("x")}</button></div></div><div class="widget-window-body"><div class="widget-msg">Salom! Sizga qanday yordam bera olamiz?</div><div class="widget-msg agent">Assalomu alaykum, narxlar yoki status bo'yicha yordam bera olaman.</div><div class="widget-msg">Rahmat, tariflar haqida yozing.</div><div class="widget-msg center"><span class="typing-dots"><span></span><span></span><span></span></span> Agent yozmoqda...</div></div><div class="widget-window-footer"><button class="icon-btn" type="button" data-action="log">${icon("paperclip")}</button><textarea class="textarea" rows="1" placeholder="Xabar yozing..."></textarea><button class="btn btn-primary btn-sm" type="button" data-action="log">${icon("send")}</button></div></div>`;
+  return `<div class="widget-window"><div class="widget-window-header"><div><strong>QULAY CHAT</strong><div class="mini">Online вЂў Javob 2m ichida</div></div><div class="flex gap-1"><button class="icon-btn" type="button" data-action="log">${icon("minus")}</button><button class="icon-btn" type="button" data-action="log">${icon("x")}</button></div></div><div class="widget-window-body"><div class="widget-msg">Salom! Sizga qanday yordam bera olamiz?</div><div class="widget-msg agent">Assalomu alaykum, narxlar yoki status bo'yicha yordam bera olaman.</div><div class="widget-msg">Rahmat, tariflar haqida yozing.</div><div class="widget-msg center"><span class="typing-dots"><span></span><span></span><span></span></span> Agent yozmoqda...</div></div><div class="widget-window-footer"><button class="icon-btn" type="button" data-action="log">${icon("paperclip")}</button><textarea class="textarea" rows="1" placeholder="Xabar yozing..."></textarea><button class="btn btn-primary btn-sm" type="button" data-action="log">${icon("send")}</button></div></div>`;
 }
 
 function renderWidgetPage(relPath, folderMap) {
@@ -1051,7 +1051,7 @@ function renderWidgetPage(relPath, folderMap) {
   if (file === "01-widget-launcher.html") {
     mainContent = `<div class="widget-canvas"><div class="two-col"><div class="card"><div class="card-header"><div><h3>Website Preview</h3><p class="card-description">Visitor tomoni landing sahifasi simulatsiyasi</p></div></div><div class="card-body"><div class="placeholder-line" style="width:70%"></div><div class="placeholder-line" style="width:95%"></div><div class="placeholder-line" style="width:88%"></div><div class="placeholder-line" style="width:76%"></div><div class="placeholder-line" style="width:92%;height:120px;border-radius:14px"></div></div></div><div class="card"><div class="card-header"><div><h3>Launcher Settings</h3><p class="card-description">Floating button primary rangda ko'rinadi</p></div></div><div class="card-body">${keyValueList([{key:"Size",value:"60x60px"},{key:"Position",value:"Bottom Right"},{key:"Icon",value:"Message Circle"},{key:"Color",value:"#4F46E5"}])}</div></div></div><button class="widget-floating-launcher" aria-label="Open widget">${icon("message-circle")}</button></div>`;
   } else if (file === "05-widget-states.html") {
-    mainContent = `<div class="widget-canvas"><div class="widget-gallery"><div class="widget-state-card"><h3>Online</h3>${widgetStateWindow("chat")}</div><div class="widget-state-card"><h3>Offline</h3>${widgetStateWindow("offline")}</div><div class="widget-state-card"><h3>CSAT</h3>${widgetStateWindow("csat")}</div><div class="widget-state-card"><h3>Loading</h3><div class="widget-window"><div class="widget-window-header"><strong>CHATFLOW</strong><span class="mini">Loading...</span></div><div class="widget-window-body"><div class="empty-state">${icon("loader-circle")}<div>Yuklanmoqda...</div></div></div><div class="widget-window-footer"><button class="btn btn-secondary btn-sm" disabled>...</button></div></div></div></div></div>`;
+    mainContent = `<div class="widget-canvas"><div class="widget-gallery"><div class="widget-state-card"><h3>Online</h3>${widgetStateWindow("chat")}</div><div class="widget-state-card"><h3>Offline</h3>${widgetStateWindow("offline")}</div><div class="widget-state-card"><h3>CSAT</h3>${widgetStateWindow("csat")}</div><div class="widget-state-card"><h3>Loading</h3><div class="widget-window"><div class="widget-window-header"><strong>QULAY CHAT</strong><span class="mini">Loading...</span></div><div class="widget-window-body"><div class="empty-state">${icon("loader-circle")}<div>Yuklanmoqda...</div></div></div><div class="widget-window-footer"><button class="btn btn-secondary btn-sm" disabled>...</button></div></div></div></div></div>`;
   } else {
     const kind = file === "03-widget-offline.html" ? "offline" : (file === "04-widget-csat.html" ? "csat" : "chat");
     mainContent = `<div class="widget-canvas"><div class="widget-site-content"><div class="card"><div class="card-header"><div><h3>Visitor Sahifasi</h3><p class="card-description">Widget demo holati: ${esc(title)}</p></div></div><div class="card-body"><div class="placeholder-line" style="width:72%"></div><div class="placeholder-line" style="width:94%"></div><div class="placeholder-line" style="width:88%"></div><div class="placeholder-line" style="width:90%;height:220px;border-radius:14px"></div></div></div><div style="justify-self:end">${widgetStateWindow(kind)}</div></div></div>`;
@@ -1065,7 +1065,7 @@ function renderWidgetPage(relPath, folderMap) {
       ${mainContent}
     </div>
   </main>`;
-  return standalonePage({ title: `CHATFLOW - ${title}`, bodyClass: "widget-page", content });
+  return standalonePage({ title: `QULAY CHAT - ${title}`, bodyClass: "widget-page", content });
 }
 
 function systemConfig(file) {
@@ -1083,7 +1083,7 @@ function renderSystemPage(relPath) {
   const cfg = systemConfig(path.basename(relPath));
   const content = `  <main class="system-page">
     <div class="system-shell">
-      <div class="system-brand"><a class="shell-brand" href="../index.html"><span class="shell-brand-mark">CF</span><span>CHATFLOW</span></a></div>
+      <div class="system-brand"><a class="shell-brand" href="../index.html"><span class="shell-brand-mark">CF</span><span>QULAY CHAT</span></a></div>
       <section class="system-card">
         <div class="system-illustration">${icon(cfg.iconName)}</div>
         <div class="error-code ${cfg.codeClass}">${esc(cfg.code)}</div>
@@ -1093,7 +1093,7 @@ function renderSystemPage(relPath) {
       </section>
     </div>
   </main>`;
-  return standalonePage({ title: `CHATFLOW - ${cfg.title}`, bodyClass: "system-page", content, robots: "noindex, nofollow" });
+  return standalonePage({ title: `QULAY CHAT - ${cfg.title}`, bodyClass: "system-page", content, robots: "noindex, nofollow" });
 }
 
 function shellHeaderBlock(relPath, folderMap, title, subtitle, actionsHtml) {
@@ -1225,13 +1225,13 @@ function renderTeamPage(relPath, folderMap) {
   let body = "";
   if (file === "01-agents.html") {
     body = card("Agentlar", simpleTable(["Agent","Email","Role","Status","Oxirgi faollik","Actions"], [
-      [`<div class='flex gap-2 items-center'>${avatar("Sardor A.")}<span class='cell-strong'>Sardor A.</span></div>`,"sardor@chatflow.uz",badge("Admin","badge-primary"),"<span class='status-dot online'></span> Online","2m","<span class='text-muted'>Edit вЂў Delete</span>"],
-      [`<div class='flex gap-2 items-center'>${avatar("Sara M.")}<span class='cell-strong'>Sara M.</span></div>`,"sara@chatflow.uz",badge("Manager","badge-info"),"<span class='status-dot away'></span> Away","6m","<span class='text-muted'>Edit вЂў Delete</span>"],
-      [`<div class='flex gap-2 items-center'>${avatar("Ali K.")}<span class='cell-strong'>Ali K.</span></div>`,"ali@chatflow.uz",badge("Operator"),"<span class='status-dot offline'></span> Offline","1h","<span class='text-muted'>Edit вЂў Delete</span>"]
+      [`<div class='flex gap-2 items-center'>${avatar("Sardor A.")}<span class='cell-strong'>Sardor A.</span></div>`,"sardor@qulaychat.uz",badge("Admin","badge-primary"),"<span class='status-dot online'></span> Online","2m","<span class='text-muted'>Edit вЂў Delete</span>"],
+      [`<div class='flex gap-2 items-center'>${avatar("Sara M.")}<span class='cell-strong'>Sara M.</span></div>`,"sara@qulaychat.uz",badge("Manager","badge-info"),"<span class='status-dot away'></span> Away","6m","<span class='text-muted'>Edit вЂў Delete</span>"],
+      [`<div class='flex gap-2 items-center'>${avatar("Ali K.")}<span class='cell-strong'>Ali K.</span></div>`,"ali@qulaychat.uz",badge("Operator"),"<span class='status-dot offline'></span> Offline","1h","<span class='text-muted'>Edit вЂў Delete</span>"]
     ]), { actions: linkBtn("Taklif yuborish", "./04-invitations.html", "primary") });
   } else if (file === "02-agent-profile.html") {
     body = `<div class="split-grid">
-${card("Agent profili", `<div class="flex gap-4 items-center">${avatar("Sardor A.","avatar-xl")}<div><h3>Sardor A.</h3><p class="text-muted">Senior Support Admin</p><div class="flex gap-2 mt-2">${badge("Admin","badge-primary")}${badge("Online","badge-success")}</div></div></div><div class="divider"></div>${keyValueList([{key:"Email",value:"sardor@chatflow.uz"},{key:"Phone",value:"+998 90 123 45 67"},{key:"Shift",value:"09:00 - 18:00"},{key:"Language",value:"UZ / EN"}])}`)}
+${card("Agent profili", `<div class="flex gap-4 items-center">${avatar("Sardor A.","avatar-xl")}<div><h3>Sardor A.</h3><p class="text-muted">Senior Support Admin</p><div class="flex gap-2 mt-2">${badge("Admin","badge-primary")}${badge("Online","badge-success")}</div></div></div><div class="divider"></div>${keyValueList([{key:"Email",value:"sardor@qulaychat.uz"},{key:"Phone",value:"+998 90 123 45 67"},{key:"Shift",value:"09:00 - 18:00"},{key:"Language",value:"UZ / EN"}])}`)}
 ${card("Statistika", `${metricGrid([{label:"Handled chats",value:"1,204",trend:"+9%"},{label:"Avg response",value:"1m 42s",trend:"+4%"},{label:"CSAT",value:"4.9",trend:"+0.2"},{label:"SLA",value:"97%",trend:"+1%"}]).replace('metrics-grid','metrics-grid')}${card("Activity", `<div class="timeline"><div class="timeline-item"><span class="timeline-dot"></span><div class="timeline-card"><strong>VIP chat assigned</strong><span class="timeline-time">10:12</span></div></div><div class="timeline-item"><span class="timeline-dot"></span><div class="timeline-card"><strong>Closed #CH-2192</strong><span class="timeline-time">09:48</span></div></div></div>`).replace(/^\s*<section class="card">|<\/section>$/g,'')}`)}
 </div>`;
   } else if (file === "03-roles.html") {
@@ -1262,8 +1262,8 @@ function renderBillingPage(relPath, folderMap) {
     </div>`;
   } else if (file === "02-payment.html") {
     body = `${card("Saved cards", simpleTable(["Card","Owner","Expires","Default","Actions"], [
-      ["Visa вЂўвЂўвЂўвЂў 4242","CHATFLOW LLC","12/27",badge("Default","badge-success"),"Edit вЂў Remove"],
-      ["Mastercard вЂўвЂўвЂўвЂў 9071","CHATFLOW LLC","09/26","вЂ”","Set default вЂў Remove"]
+      ["Visa вЂўвЂўвЂўвЂў 4242","QULAY CHAT LLC","12/27",badge("Default","badge-success"),"Edit вЂў Remove"],
+      ["Mastercard вЂўвЂўвЂўвЂў 9071","QULAY CHAT LLC","09/26","вЂ”","Set default вЂў Remove"]
     ]), { actions: btn("Karta qo'shish","primary",'data-modal-open="add-card"') })}${modalMarkup("add-card","Karta qo'shish", `<div class="form-grid one">${formField("Card number", `<input class="input" placeholder="4242 4242 4242 4242">`)}<div class="two-col">${formField("Expiry", `<input class="input" placeholder="12/27">`)}${formField("CVC", `<input class="input" placeholder="123">`)}</div></div>`, `${btn("Bekor qilish","secondary",'data-modal-close')} ${btn("Saqlash","primary",'data-modal-close data-action="save"')}`)}`;
   } else if (file === "03-invoices.html") {
     body = card("Invoices", simpleTable(["Sana","Invoice ID","Summa","Status","Download"], [
@@ -1318,19 +1318,19 @@ function renderSettingsPage(relPath, folderMap) {
   const title = prettyTitleFromRel(relPath);
   let body = "";
   if (file === "01-workspace.html") {
-    body = `<section class="settings-section"><h3>Workspace</h3><p class="section-desc">Workspace nomi, domen va locale sozlamalari</p><div class="form-grid"><div>${formField("Workspace nomi", input("CHATFLOW Support"))}</div><div>${formField("URL", `<input class="input" value="support.chatflow.uz">`)}</div><div>${formField("Timezone", select(["GMT+5 Toshkent","GMT+3 Istanbul","GMT+6 Almaty"], "GMT+5 Toshkent"))}</div><div>${formField("Til", select(["O'zbek","English","Р СѓСЃСЃРєРёР№"], "O'zbek"))}</div></div><div class="two-col"><div class="dropzone">${icon("upload-cloud")}<div>Logo yuklash</div><small>PNG / JPG / SVG</small></div><div>${formField("Workspace description", textarea("Mijoz support va sales chatlari uchun umumiy workspace.", "", 5))}</div></div></section>`;
+    body = `<section class="settings-section"><h3>Workspace</h3><p class="section-desc">Workspace nomi, domen va locale sozlamalari</p><div class="form-grid"><div>${formField("Workspace nomi", input("QULAY CHAT Support"))}</div><div>${formField("URL", `<input class="input" value="support.qulaychat.uz">`)}</div><div>${formField("Timezone", select(["GMT+5 Toshkent","GMT+3 Istanbul","GMT+6 Almaty"], "GMT+5 Toshkent"))}</div><div>${formField("Til", select(["O'zbek","English","Р СѓСЃСЃРєРёР№"], "O'zbek"))}</div></div><div class="two-col"><div class="dropzone">${icon("upload-cloud")}<div>Logo yuklash</div><small>PNG / JPG / SVG</small></div><div>${formField("Workspace description", textarea("Mijoz support va sales chatlari uchun umumiy workspace.", "", 5))}</div></div></section>`;
   } else if (file === "02-widget-settings.html") {
-    body = `<section class="settings-section"><h3>Widget Preview</h3><p class="section-desc">Color, position va welcome message</p><div class="two-col"><div><div class="form-grid one"><div class="form-field"><span class="form-label">Asosiy rang</span><div class="preset-colors"><span class="color-swatch active" style="background:#4F46E5"></span><span class="color-swatch" style="background:#2563EB"></span><span class="color-swatch" style="background:#059669"></span><span class="color-swatch" style="background:#DC2626"></span></div></div>${formField("Position", select(["Bottom right","Bottom left","Right center"], "Bottom right"))}${formField("Welcome xabar", textarea("Salom! Sizga qanday yordam bera olamiz?", "", 3))}${formField("Offline xabar", textarea("Hozir operator mavjud emas. Xabar qoldiring.", "", 3))}</div>${codeBlock(`<script src="https://cdn.chatflow.uz/widget.js" data-id="cf_demo_01"></script>`, "widget-settings-code")}</div><div>${widgetStateWindow("chat")}</div></div></section>`;
+    body = `<section class="settings-section"><h3>Widget Preview</h3><p class="section-desc">Color, position va welcome message</p><div class="two-col"><div><div class="form-grid one"><div class="form-field"><span class="form-label">Asosiy rang</span><div class="preset-colors"><span class="color-swatch active" style="background:#4F46E5"></span><span class="color-swatch" style="background:#2563EB"></span><span class="color-swatch" style="background:#059669"></span><span class="color-swatch" style="background:#DC2626"></span></div></div>${formField("Position", select(["Bottom right","Bottom left","Right center"], "Bottom right"))}${formField("Welcome xabar", textarea("Salom! Sizga qanday yordam bera olamiz?", "", 3))}${formField("Offline xabar", textarea("Hozir operator mavjud emas. Xabar qoldiring.", "", 3))}</div>${codeBlock(`<script src="https://cdn.qulaychat.uz/widget.js" data-id="cf_demo_01"></script>`, "widget-settings-code")}</div><div>${widgetStateWindow("chat")}</div></div></section>`;
   } else if (file === "03-security.html") {
     body = `<section class="settings-section"><h3>Security</h3><p class="section-desc">Parol, 2FA va session boshqaruvi</p><div class="form-grid"><div>${formField("Current password", `<input class="input" type="password" placeholder="вЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂў">`)}</div><div>${formField("New password", `<input class="input" type="password" placeholder="вЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂў">`)}</div></div><div class="form-row"><div class="row-copy"><div class="form-label">2FA</div><p class="text-muted" style="font-size:13px">Login paytida qo'shimcha kod talab qilinadi</p></div>${toggle(true)}</div>${simpleTable(["Device","Location","Last active","Action"], [["Chrome вЂў macOS","Toshkent","Now","Revoke"],["Safari вЂў iPhone","Samarkand","Yesterday","Revoke"]])}</section>`;
   } else if (file === "04-notifications.html") {
     body = `<section class="settings-section"><h3>Notifications</h3><p class="section-desc">Email, push va sound kanallari</p><div class="form-grid three">${[["New chat","Push",true],["New message","Push",true],["Urgent chat","Push",true],["Weekly digest","Email",true],["SLA breach","Email",true],["Billing updates","Email",false],["Sound alerts","Sound",true],["Mentions","Sound",true],["Team chat","Sound",false]].map((n)=>`<div class="card"><div class="card-body"><div class="flex justify-between items-center"><div><div class="item-title">${n[0]}</div><div class="item-sub">${n[1]}</div></div>${toggle(n[2])}</div></div></div>`).join("")}</div></section>`;
   } else if (file === "05-profile.html") {
-    body = `<section class="settings-section"><h3>Profile</h3><p class="section-desc">Avatar va shaxsiy ma'lumotlar</p><div class="two-col"><div class="flex gap-4 items-center">${avatar("Sardor A.","avatar-xxl")}<div><button class="btn btn-secondary">Avatar yuklash</button><p class="text-muted" style="font-size:12px;margin-top:6px">PNG/JPG, max 2MB</p></div></div><div class="form-grid one">${formField("Ism", input("Sardor Aliyev"))}${formField("Email", `<input class="input" type="email" value="sardor@chatflow.uz" readonly>`)}${formField("Telefon", `<input class="input" value="+998 90 123 45 67">`)}</div></div></section>`;
+    body = `<section class="settings-section"><h3>Profile</h3><p class="section-desc">Avatar va shaxsiy ma'lumotlar</p><div class="two-col"><div class="flex gap-4 items-center">${avatar("Sardor A.","avatar-xxl")}<div><button class="btn btn-secondary">Avatar yuklash</button><p class="text-muted" style="font-size:12px;margin-top:6px">PNG/JPG, max 2MB</p></div></div><div class="form-grid one">${formField("Ism", input("Sardor Aliyev"))}${formField("Email", `<input class="input" type="email" value="sardor@qulaychat.uz" readonly>`)}${formField("Telefon", `<input class="input" value="+998 90 123 45 67">`)}</div></div></section>`;
   } else if (file === "06-privacy-export.html") {
     body = `<section class="settings-section"><h3>Data export</h3><p class="section-desc">Foydalanuvchi ma'lumotlarini eksport qilish</p><div class="form-grid"><div>${formField("Format", select(["JSON","CSV","ZIP"], "ZIP"))}</div><div>${formField("Date range", `<div class="date-range">${icon("calendar")}Last 90 days</div>`)}</div></div><div class="alert alert-info">${icon("shield-check")}<div>Export tayyor bo'lgach email orqali yuboriladi.</div></div><div>${btn("Exportni boshlash","primary",'data-action="export"')}</div></section>`;
   } else if (file === "07-privacy-delete.html") {
-    body = `<section class="settings-section"><h3>Delete data</h3><p class="section-desc">Xavfli amal: workspace yoki account ma'lumotlarini o'chirish</p><div class="alert alert-danger">${icon("triangle-alert")}<div>Bu amal qaytarilmaydi. Davom etishdan oldin barcha exportlarni yuklab oling.</div></div>${formField("Tasdiqlash uchun workspace nomini kiriting", `<input class="input" placeholder="CHATFLOW Support">`)}<div class="flex gap-2">${btn("Delete request", "danger", 'data-modal-open="delete-confirm"')}</div></section>${modalMarkup("delete-confirm","Delete confirmation", `<p class="text-muted">Haqiqatan ham delete request yuborilsinmi?</p>`, `${btn("Bekor qilish","secondary",'data-modal-close')} ${btn("Tasdiqlash","danger",'data-modal-close data-action="log" data-message="Delete request yuborildi"')}`)}`;
+    body = `<section class="settings-section"><h3>Delete data</h3><p class="section-desc">Xavfli amal: workspace yoki account ma'lumotlarini o'chirish</p><div class="alert alert-danger">${icon("triangle-alert")}<div>Bu amal qaytarilmaydi. Davom etishdan oldin barcha exportlarni yuklab oling.</div></div>${formField("Tasdiqlash uchun workspace nomini kiriting", `<input class="input" placeholder="QULAY CHAT Support">`)}<div class="flex gap-2">${btn("Delete request", "danger", 'data-modal-open="delete-confirm"')}</div></section>${modalMarkup("delete-confirm","Delete confirmation", `<p class="text-muted">Haqiqatan ham delete request yuborilsinmi?</p>`, `${btn("Bekor qilish","secondary",'data-modal-close')} ${btn("Tasdiqlash","danger",'data-modal-close data-action="log" data-message="Delete request yuborildi"')}`)}`;
   } else {
     body = `<section class="settings-section"><h3>Privacy settings</h3><p class="section-desc">Retention, cookie va data sharing boshqaruvi</p><div class="form-row"><div class="row-copy"><div class="form-label">Cookie analytics</div><p class="text-muted" style="font-size:13px">Anonim usage statistikalarini yig'ish</p></div>${toggle(true)}</div><div class="form-row"><div class="row-copy"><div class="form-label">Marketing emails</div><p class="text-muted" style="font-size:13px">Yangilik va feature email xabarlari</p></div>${toggle(false)}</div><div class="form-grid"><div>${formField("Data retention", select(["30 days","90 days","180 days","1 year"], "180 days"))}</div><div>${formField("Download logs", select(["Enabled","Disabled"], "Enabled"))}</div></div></section>`;
   }
@@ -1393,11 +1393,11 @@ function renderKnowledgeBasePage(relPath, folderMap) {
   if (file === "01-kb-dashboard.html") {
     body = `${metricGrid([{label:"Articles",value:"248",trend:"+12"},{label:"Views",value:"18.2k",trend:"+9%"},{label:"Searches",value:"4.1k",trend:"+4%"},{label:"Helpfulness",value:"92%",trend:"+2%"}])}${card("Recent articles", `<div class="kb-article-grid">${["Widget o'rnatish","API key yaratish","Billing invoice yuklash","SLA sozlash"].map((t)=>`<a class="article-card" href="./02-article-editor.html"><strong>${t}</strong><span class="text-muted" style="font-size:13px">Updated 2 days ago</span>${badge("Published","badge-success")}</a>`).join("")}</div>`)}`;
   } else if (file === "02-article-editor.html") {
-    body = `${card("Article editor", `<div class="editor-shell"><div class="editor-toolbar">${["bold","italic","underline","list","list-ordered","link","image","quote"].map((i)=>`<button class="btn btn-secondary btn-sm">${icon(i)}</button>`).join("")}${btn("Publish","primary","style='margin-left:auto'")}</div><div class="editor-canvas"><h2 style="font-size:22px">Widget o'rnatish bo'yicha qo'llanma</h2><p class="text-muted" style="margin-top:8px">CHATFLOW widget snippetni saytingizga qo'shish bosqichlari...</p><div class="placeholder-line" style="width:88%;margin-top:16px"></div><div class="placeholder-line" style="width:94%"></div><div class="placeholder-line" style="width:86%"></div><div class="placeholder-line" style="width:90%;height:140px;border-radius:14px"></div></div></div>`)}`;
+    body = `${card("Article editor", `<div class="editor-shell"><div class="editor-toolbar">${["bold","italic","underline","list","list-ordered","link","image","quote"].map((i)=>`<button class="btn btn-secondary btn-sm">${icon(i)}</button>`).join("")}${btn("Publish","primary","style='margin-left:auto'")}</div><div class="editor-canvas"><h2 style="font-size:22px">Widget o'rnatish bo'yicha qo'llanma</h2><p class="text-muted" style="margin-top:8px">QULAY CHAT widget snippetni saytingizga qo'shish bosqichlari...</p><div class="placeholder-line" style="width:88%;margin-top:16px"></div><div class="placeholder-line" style="width:94%"></div><div class="placeholder-line" style="width:86%"></div><div class="placeholder-line" style="width:90%;height:140px;border-radius:14px"></div></div></div>`)}`;
   } else if (file === "03-categories.html") {
     body = `${card("Categories", `<div class="list-stack">${["Getting Started","Inbox & Chat","Automation","Analytics","Billing","Developer API"].map((c,i)=>`<div class="list-item"><div class="item-main"><div class="item-title">${c}</div><div class="item-sub">${14+i*3} articles</div></div><div class="flex gap-2">${icon("grip-vertical")}${btn("Edit","secondary")}</div></div>`).join("")}</div>`)}`;
   } else if (file === "04-kb-settings.html") {
-    body = `${card("KB Settings", `<div class="form-grid"><div>${formField("Knowledge Base domain", `<input class="input" value="help.chatflow.uz">`)}</div><div>${formField("Theme", select(["Light","Brand","Minimal"], "Brand"))}</div><div>${formField("SEO title", input("CHATFLOW Yordam Markazi"))}</div><div>${formField("Default language", select(["O'zbek","English","Р СѓСЃСЃРєРёР№"], "O'zbek"))}</div></div>${formField("SEO description", textarea("CHATFLOW platformasi bo'yicha qo'llanmalar va savollarga javoblar.", "", 3))}`)}`;
+    body = `${card("KB Settings", `<div class="form-grid"><div>${formField("Knowledge Base domain", `<input class="input" value="help.qulaychat.uz">`)}</div><div>${formField("Theme", select(["Light","Brand","Minimal"], "Brand"))}</div><div>${formField("SEO title", input("QULAY CHAT Yordam Markazi"))}</div><div>${formField("Default language", select(["O'zbek","English","Р СѓСЃСЃРєРёР№"], "O'zbek"))}</div></div>${formField("SEO description", textarea("QULAY CHAT platformasi bo'yicha qo'llanmalar va savollarga javoblar.", "", 3))}`)}`;
   } else {
     body = `${card("KB analytics", simpleTable(["Article","Views","Search hits","Helpful"], [["Widget install","4,221","802","93%"],["API keys","2,118","441","89%"],["Billing invoices","1,590","215","90%"]]))}${card("Search terms", simpleTable(["Term","Count","Result rate"], [["widget install","221","96%"],["telegram integration","180","88%"],["invoice","133","92%"]]))}`;
   }
@@ -1411,11 +1411,11 @@ function renderAddonsPage(relPath, folderMap) {
   if (file === "01-addons-catalog.html") {
     body = `<div class="addon-grid">${[["Telegram Bot","Live chatlarni Telegram kanaliga yo'naltirish","$9/mo","bot"],["CRM Sync","Kontaktlarni tashqi CRM bilan sinxronlash","$19/mo","refresh-cw"],["Slack Alerts","Urgent chatlar uchun Slack notification","Free","bell"],["AI Summary","Chat summary va tag tavsiyalari","$29/mo","sparkles"]].map((a)=>`<div class="addon-card"><div class="addon-icon">${icon(a[3])}</div><h3>${a[0]}</h3><p class="text-muted" style="font-size:13px">${a[1]}</p><div class="flex justify-between items-center"><strong>${a[2]}</strong>${linkBtn("Install","./03-addon-detail.html","primary")}</div></div>`).join("")}</div>`;
   } else if (file === "02-active-addons.html") {
-    body = `${card("Active add-ons", `<div class="list-stack">${[["Telegram Bot","Connected to @chatflow_support",true],["Slack Alerts","Channel #support-alerts",true],["CRM Sync","Sync paused due token expiry",false]].map((a)=>`<div class="list-item"><div class="item-main"><div class="item-title">${a[0]}</div><div class="item-sub">${a[1]}</div></div>${toggle(a[2])}</div>`).join("")}</div>`)}`;
+    body = `${card("Active add-ons", `<div class="list-stack">${[["Telegram Bot","Connected to @qulaychat_support",true],["Slack Alerts","Channel #support-alerts",true],["CRM Sync","Sync paused due token expiry",false]].map((a)=>`<div class="list-item"><div class="item-main"><div class="item-title">${a[0]}</div><div class="item-sub">${a[1]}</div></div>${toggle(a[2])}</div>`).join("")}</div>`)}`;
   } else if (file === "03-addon-detail.html") {
     body = `${card("Add-on detail", `<div class="split-grid"><div><h3>Telegram Bot</h3><p class="text-muted" style="margin-top:6px">Telegram orqali operatorga notification yuborish va reply sync qilish.</p><div class="mini-bars" style="margin-top:14px;height:220px"><div class="mini-bar-col"><div class="mini-bar" style="height:160px"></div><span>Screenshot</span></div><div class="mini-bar-col"><div class="mini-bar" style="height:120px"></div><span>Preview</span></div><div class="mini-bar-col"><div class="mini-bar" style="height:180px"></div><span>Flow</span></div></div></div><div>${keyValueList([{key:"Price",value:"$9/mo"},{key:"Version",value:"1.4.2"},{key:"Installs",value:"1,248"},{key:"Category",value:"Messaging"}])}<div class="mt-4">${btn("Install add-on","primary")}</div></div></div><div class="divider"></div><ul class="pricing-list"><li>${icon("check")}Incoming message sync</li><li>${icon("check")}Reply from Telegram</li><li>${icon("check")}Agent assignment alerts</li></ul>`)}`;
   } else {
-    body = `${card("Add-on settings", `<div class="form-grid one">${formField("Bot token", `<input class="input" value="123456:ABCвЂўвЂўвЂўвЂў">`)}${formField("Target channel", `<input class="input" value="@chatflow_support">`)}${formField("Events", select(["All events","Urgent only","Assigned chats"], "All events"))}<div class="form-row"><div class="row-copy"><div class="form-label">Send full transcript</div><p class="text-muted" style="font-size:13px">Har bir close holatida transcript yuborish</p></div>${toggle(true)}</div></div>`)}`;
+    body = `${card("Add-on settings", `<div class="form-grid one">${formField("Bot token", `<input class="input" value="123456:ABCвЂўвЂўвЂўвЂў">`)}${formField("Target channel", `<input class="input" value="@qulaychat_support">`)}${formField("Events", select(["All events","Urgent only","Assigned chats"], "All events"))}<div class="form-row"><div class="row-copy"><div class="form-label">Send full transcript</div><p class="text-muted" style="font-size:13px">Har bir close holatida transcript yuborish</p></div>${toggle(true)}</div></div>`)}`;
   }
   return shellPage({ title, activeNav: "addons", content: `${shellHeaderBlock(relPath, folderMap, title, "Add-on katalogi va konfiguratsiya", "")}${body}` });
 }
@@ -1427,7 +1427,7 @@ function renderDeveloperPage(relPath, folderMap) {
   if (file === "01-api-keys.html") {
     body = `${card("API keys", simpleTable(["Key name","API key","Created","Last used","Actions"], [["Backend Prod","cf_live_вЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўc1a2","2026-01-11","2h ago","Revoke"],["Internal Tools","cf_live_вЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂўd9f3","2025-12-20","Yesterday","Revoke"]]), { actions: btn("Generate new key","primary",'data-modal-open="new-key"') })}${modalMarkup("new-key","Generate API key", `<div class="form-grid one">${formField("Key name", input("Backend Prod"))}${formField("Permissions", select(["Read + Write","Read only","Webhook scope"], "Read + Write"))}</div>`, `${btn("Bekor qilish","secondary",'data-modal-close')} ${btn("Generate","primary",'data-modal-close data-action="save"')}`)}`;
   } else if (file === "02-webhooks.html") {
-    body = `${card("Webhooks", simpleTable(["URL","Events","Status","Last triggered","Actions"], [["https://api.client.uz/chatflow/webhook","chat.created, chat.closed",badge("Active","badge-success"),"5m ago","Edit вЂў Disable"],["https://n8n.client.uz/hooks/chatflow","contact.updated",badge("Paused","badge-warning"),"2d ago","Edit вЂў Enable"]]), { actions: btn("Add webhook","primary") })}`;
+    body = `${card("Webhooks", simpleTable(["URL","Events","Status","Last triggered","Actions"], [["https://api.client.uz/qulaychat/webhook","chat.created, chat.closed",badge("Active","badge-success"),"5m ago","Edit вЂў Disable"],["https://n8n.client.uz/hooks/qulaychat","contact.updated",badge("Paused","badge-warning"),"2d ago","Edit вЂў Enable"]]), { actions: btn("Add webhook","primary") })}`;
   } else {
     body = `${card("API logs", `<div class="table-wrap"><table class="table mono"><thead><tr><th>Timestamp</th><th>Method</th><th>Endpoint</th><th>Status</th><th>RT</th></tr></thead><tbody>${[["2026-02-22 14:21:11","POST","/v1/chats","201","124ms"],["2026-02-22 14:20:55","GET","/v1/contacts/123","200","62ms"],["2026-02-22 14:20:03","POST","/v1/webhooks/test","500","488ms"],["2026-02-22 14:19:41","GET","/v1/analytics/overview","200","211ms"]].map((r)=>`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td><td>${r[3]==="500"?`<span class="badge badge-danger">${r[3]}</span>`:`<span class="badge badge-success">${r[3]}</span>`}</td><td>${r[4]}</td></tr>`).join("")}</tbody></table></div>`, { description: "API request tracing va troubleshooting" })}`;
   }
@@ -1447,13 +1447,13 @@ function renderLandingPageV2() {
     { name: "Enterprise", price: "Custom", subtitle: "Korporativ jamoalar", items: ["SSO", "Advanced security", "Priority SLA", "Custom onboarding", "Dedicated CSM"], cta: "Sales bilan bog'lanish", href: "../02-auth/02-register.html" }
   ];
   const testimonials = [
-    ["Madina Yoqubova", "Nexa Market", "CHATFLOW bilan first response time 38% ga tushdi. Operatorlar endi Telegram va web chatni alohida tekshirmaydi."],
+    ["Madina Yoqubova", "Nexa Market", "QULAY CHAT bilan first response time 38% ga tushdi. Operatorlar endi Telegram va web chatni alohida tekshirmaydi."],
     ["Bekzod Karimov", "EduPro", "Onboarding juda tez: widgetni 10 daqiqada ishga tushirdik va ertasi kuni analytics hisobot tayyor bo'ldi."],
     ["Sarvinoz T.", "LogiHub", "Automation triggerlar yordamida VIP leadlar to'g'ridan-to'g'ri senior agentlarga tushmoqda."]
   ];
   const content = `  <div class="marketing-shell">
     <header class="marketing-header">
-      <a class="shell-brand" href="../index.html"><span class="shell-brand-mark">CF</span><span>CHATFLOW</span></a>
+      <a class="shell-brand" href="../index.html"><span class="shell-brand-mark">CF</span><span>QULAY CHAT</span></a>
       <nav class="marketing-nav">
         <a href="#imkoniyatlar">Imkoniyatlar</a>
         <a href="#qanday-ishlaydi">Qanday ishlaydi</a>
@@ -1470,7 +1470,7 @@ function renderLandingPageV2() {
         <div class="hero-panel">
           <span class="badge badge-primary">Omnichannel support platformasi</span>
           <h1 style="margin-top:12px">Mijoz suhbatlarini Intercom darajasidagi boshqaruv panelida boshqaring</h1>
-          <p class="lead">CHATFLOW web widget, Telegram, WhatsApp, Instagram va Email xabarlarini yagona inbox'da birlashtiradi. Jamoangiz javob vaqtini qisqartiradi, automation bilan yuklamani kamaytiradi va analytics orqali aniq nazorat qiladi.</p>
+          <p class="lead">QULAY CHAT web widget, Telegram, WhatsApp, Instagram va Email xabarlarini yagona inbox'da birlashtiradi. Jamoangiz javob vaqtini qisqartiradi, automation bilan yuklamani kamaytiradi va analytics orqali aniq nazorat qiladi.</p>
           <div class="hero-cta">
             ${linkBtn("Bepul boshlash", "../02-auth/02-register.html", "primary")}
             ${linkBtn("Demo ko'rish", "../04-dashboard/01-dashboard.html", "secondary")}
@@ -1507,7 +1507,7 @@ function renderLandingPageV2() {
       <section class="trust-bar">
         <div>
           <div class="text-muted" style="font-size:13px">Ishonchli support operatsiyalari uchun tanlangan platforma</div>
-          <strong style="font-size:18px">1,000+ kompaniya CHATFLOW orqali suhbatlarni boshqaradi</strong>
+          <strong style="font-size:18px">1,000+ kompaniya QULAY CHAT orqali suhbatlarni boshqaradi</strong>
         </div>
         <div class="logo-strip">
           <div class="logo-pill">ACME</div>
@@ -1553,7 +1553,7 @@ function renderLandingPageV2() {
       </section>
 
       <section class="card">
-        <div class="card-header"><div><h3>Mijozlar fikri</h3><p class="card-description">Jamoalar CHATFLOW bilan qanday natija olmoqda</p></div></div>
+        <div class="card-header"><div><h3>Mijozlar fikri</h3><p class="card-description">Jamoalar QULAY CHAT bilan qanday natija olmoqda</p></div></div>
         <div class="card-body">
           <div class="three-col testimonial-grid">
             ${testimonials.map((t) => `<article class="feature-card"><div class="flex gap-3 items-center">${avatar(t[0], "avatar-lg")}<div><strong>${esc(t[0])}</strong><div class="text-muted" style="font-size:12px">${esc(t[1])}</div></div></div><p class="text-muted" style="font-size:13px">"${esc(t[2])}"</p></article>`).join("")}
@@ -1578,25 +1578,25 @@ function renderLandingPageV2() {
     </main>
     <footer class="marketing-footer marketing-footer-grid">
       <div>
-        <div class="shell-brand"><span class="shell-brand-mark">CF</span><span>CHATFLOW</span></div>
+        <div class="shell-brand"><span class="shell-brand-mark">CF</span><span>QULAY CHAT</span></div>
         <p class="text-muted" style="font-size:13px;margin-top:8px">Omnichannel support va inbox platformasi.</p>
       </div>
       <div class="footer-col"><strong>Mahsulot</strong><div class="list-stack"><a href="#imkoniyatlar">Imkoniyatlar</a><a href="#integrations">Integratsiyalar</a><a href="#tariflar">Tariflar</a><a href="../04-dashboard/01-dashboard.html">Demo</a></div></div>
       <div class="footer-col"><strong>Kompaniya</strong><div class="list-stack"><a href="../index.html">Docs</a><a href="../index.html#support">Support</a><a href="../02-auth/01-login.html">Kirish</a><a href="../02-auth/02-register.html">Ro'yxatdan o'tish</a></div></div>
       <div class="footer-col"><strong>Ijtimoiy</strong><div class="list-stack"><a href="../index.html">Telegram</a><a href="../index.html">LinkedIn</a><a href="../index.html">YouTube</a><a href="../index.html">Status</a></div></div>
-      <div class="text-muted" style="font-size:12px;align-self:end">&copy; 2026 CHATFLOW. Barcha huquqlar himoyalangan.</div>
+      <div class="text-muted" style="font-size:12px;align-self:end">&copy; 2026 QULAY CHAT. Barcha huquqlar himoyalangan.</div>
     </footer>
   </div>`;
-  return standalonePage({ title: "CHATFLOW - Landing", bodyClass: "marketing-page", content });
+  return standalonePage({ title: "QULAY CHAT - Landing", bodyClass: "marketing-page", content });
 }
 
 function authCardShellV2(pageTitle, cardInner) {
   return standalonePage({
-    title: `CHATFLOW - ${pageTitle}`,
+    title: `QULAY CHAT - ${pageTitle}`,
     bodyClass: "auth-page",
     content: `  <main class="auth-page">
     <section class="auth-card auth-card-lg">
-      <div class="auth-logo"><span class="shell-brand-mark">CF</span><span>CHATFLOW</span></div>
+      <div class="auth-logo"><span class="shell-brand-mark">CF</span><span>QULAY CHAT</span></div>
       ${cardInner}
     </section>
   </main>`
@@ -1682,7 +1682,7 @@ function onboardingStepConfigV2(file) {
   const steps = {
     "01-welcome.html": {
       step: 1,
-      title: "CHATFLOW'ga xush kelibsiz",
+      title: "QULAY CHAT'ga xush kelibsiz",
       subtitle: "6 qadamda workspace, widget va inbox'ni ishga tushiramiz.",
       body: `<div class="alert alert-success">${icon("sparkles")}<div>Setup odatda 4-6 daqiqa oladi. Istalgan vaqtda dashboarddan onboarding'ga qayta olasiz.</div></div>
         <div class="four-col">
@@ -1699,7 +1699,7 @@ function onboardingStepConfigV2(file) {
       title: "Boshlang'ich sozlash",
       subtitle: "Workspace yaratish uchun asosiy ma'lumotlarni kiriting.",
       body: `<div class="form-grid">
-        ${formField("Workspace nomi", `<input class="input" value="CHATFLOW Support" required>`)}
+        ${formField("Workspace nomi", `<input class="input" value="QULAY CHAT Support" required>`)}
         ${formField("Business type", select(["SaaS","E-commerce","Education","Banking","Services"], "SaaS"))}
         ${formField("Country", select(["Uzbekistan","Kazakhstan","Turkey","UAE"], "Uzbekistan"))}
         ${formField("Timezone", select(["GMT+5 Toshkent","GMT+6 Almaty","GMT+3 Istanbul"], "GMT+5 Toshkent"))}
@@ -1716,7 +1716,7 @@ function onboardingStepConfigV2(file) {
         <div class="card"><div class="card-body">
           <h3>Workspace URL</h3>
           <p class="text-muted" style="font-size:13px;margin-top:4px">Subdomain keyinroq ham o'zgartirilishi mumkin.</p>
-          <div class="input-group" style="margin-top:10px"><span class="text-muted">https://</span><input class="input" value="sardor" aria-label="Workspace slug"><span class="text-muted">.chatflow.uz</span></div>
+          <div class="input-group" style="margin-top:10px"><span class="text-muted">https://</span><input class="input" value="sardor" aria-label="Workspace slug"><span class="text-muted">.qulaychat.uz</span></div>
           <div class="divider"></div>
           ${formField("Tashkilot turi", select(["Startup","SMB","Enterprise","Agency"], "Startup"))}
           ${formField("Jamoa kattaligi", select(["1-5","6-20","21-50","50+"], "6-20"))}
@@ -1760,7 +1760,7 @@ function onboardingStepConfigV2(file) {
         <div class="widget-mini-preview" data-widget-preview>
           <div class="text-muted" style="font-size:13px">Live preview</div>
           <div class="widget-mini-window" data-widget-preview-window>
-            <div class="widget-mini-head" data-widget-preview-head><span>CHATFLOW</span><span>Online</span></div>
+            <div class="widget-mini-head" data-widget-preview-head><span>QULAY CHAT</span><span>Online</span></div>
             <div class="widget-mini-body">
               <div class="widget-msg" data-widget-preview-message>Salom! Sizga qanday yordam bera olamiz?</div>
               <div class="widget-msg agent">Pro plan va demo haqida ma'lumot bera olaman.</div>
@@ -1782,15 +1782,15 @@ function onboardingStepConfigV2(file) {
           <button class="tab" type="button" data-tab-group="install-code" data-tab="react">React</button>
         </div>
         <div data-tab-group="install-code" data-tab-panel="html">
-          ${codeBlock(`<script src="https://cdn.chatflow.uz/widget.js" data-id="cf_demo_01"></script>`, "install-code-html")}
+          ${codeBlock(`<script src="https://cdn.qulaychat.uz/widget.js" data-id="cf_demo_01"></script>`, "install-code-html")}
           <div class="alert alert-info">${icon("terminal")}<div>Bu kodni saytingizning <strong>&lt;/body&gt;</strong> tagidan oldin joylashtiring.</div></div>
         </div>
         <div data-tab-group="install-code" data-tab-panel="wp" hidden>
-          ${codeBlock(`add_action('wp_footer', function(){ echo '<script src=\"https://cdn.chatflow.uz/widget.js\" data-id=\"cf_demo_01\"></script>'; });`, "install-code-wp")}
+          ${codeBlock(`add_action('wp_footer', function(){ echo '<script src=\"https://cdn.qulaychat.uz/widget.js\" data-id=\"cf_demo_01\"></script>'; });`, "install-code-wp")}
           <div class="alert alert-info">${icon("plug")}<div>Code Snippets yoki theme footer orqali qo'shing.</div></div>
         </div>
         <div data-tab-group="install-code" data-tab-panel="react" hidden>
-          ${codeBlock(`useEffect(() => { const s = document.createElement('script'); s.src='https://cdn.chatflow.uz/widget.js'; s.dataset.id='cf_demo_01'; document.body.appendChild(s); }, []);`, "install-code-react")}
+          ${codeBlock(`useEffect(() => { const s = document.createElement('script'); s.src='https://cdn.qulaychat.uz/widget.js'; s.dataset.id='cf_demo_01'; document.body.appendChild(s); }, []);`, "install-code-react")}
           <div class="alert alert-info">${icon("code")}<div>App-level layout yoki root page ichida bir marta ishga tushiring.</div></div>
         </div>`,
       back: "./04-widget-customize.html",
@@ -1826,7 +1826,7 @@ function renderOnboardingPageV2(relPath) {
   const content = `  <main class="onboarding-page">
     <div class="onboarding-shell">
       <div class="onboarding-top">
-        <a class="shell-brand" href="../index.html"><span class="shell-brand-mark">CF</span><span>CHATFLOW</span></a>
+        <a class="shell-brand" href="../index.html"><span class="shell-brand-mark">CF</span><span>QULAY CHAT</span></a>
         <span class="badge badge-primary">Step ${cfg.step}/6</span>
       </div>
       <div class="onboarding-progress">
@@ -1844,7 +1844,7 @@ function renderOnboardingPageV2(relPath) {
       </section>
     </div>
   </main>`;
-  return standalonePage({ title: `CHATFLOW - ${cfg.title}`, bodyClass: "onboarding-page", content });
+  return standalonePage({ title: `QULAY CHAT - ${cfg.title}`, bodyClass: "onboarding-page", content });
 }
 
 function renderDashboardHomePageV2(relPath, folderMap) {
@@ -2113,9 +2113,9 @@ function listHtmlPages() {
 function run() {
   ensureDir(ASSETS_DIR);
 
-  writeFileSafe("assets/chatflow-design-system.css", designSystemCss());
-  writeFileSafe("assets/chatflow-shell.js", shellJs());
-  writeFileSafe("assets/chatflow-runtime.js", runtimeJs());
+  writeFileSafe("assets/qulay-chat-design-system.css", designSystemCss());
+  writeFileSafe("assets/qulay-chat-shell.js", shellJs());
+  writeFileSafe("assets/qulay-chat-runtime.js", runtimeJs());
 
   const folderMap = folderFilesMap();
   const htmlFiles = listHtmlPages();
@@ -2247,14 +2247,14 @@ function renderTeamPageV2(relPath, folderMap) {
 
   if (file === "01-agents.html") {
     const agents = [
-      ["Sardor A.", "sardor@chatflow.uz", "Admin", "online", "2m"],
-      ["Sara M.", "sara@chatflow.uz", "Manager", "online", "5m"],
-      ["Ali K.", "ali@chatflow.uz", "Agent", "away", "11m"],
-      ["Bobur R.", "bobur@chatflow.uz", "Agent", "offline", "1h"],
-      ["Malika T.", "malika@chatflow.uz", "Agent", "online", "3m"],
-      ["Dilshod N.", "dilshod@chatflow.uz", "Agent", "away", "22m"],
-      ["Nodira A.", "nodira@chatflow.uz", "Agent", "offline", "3h"],
-      ["Jasur P.", "jasur@chatflow.uz", "Agent", "online", "1m"]
+      ["Sardor A.", "sardor@qulaychat.uz", "Admin", "online", "2m"],
+      ["Sara M.", "sara@qulaychat.uz", "Manager", "online", "5m"],
+      ["Ali K.", "ali@qulaychat.uz", "Agent", "away", "11m"],
+      ["Bobur R.", "bobur@qulaychat.uz", "Agent", "offline", "1h"],
+      ["Malika T.", "malika@qulaychat.uz", "Agent", "online", "3m"],
+      ["Dilshod N.", "dilshod@qulaychat.uz", "Agent", "away", "22m"],
+      ["Nodira A.", "nodira@qulaychat.uz", "Agent", "offline", "3h"],
+      ["Jasur P.", "jasur@qulaychat.uz", "Agent", "online", "1m"]
     ];
     const roleBadge = (role) => role === "Admin" ? badge(role, "badge-primary") : role === "Manager" ? badge(role, "badge-info") : badge(role);
     const statusLabel = { online: "Online", away: "Away", offline: "Offline" };
@@ -2274,7 +2274,7 @@ ${card("Qidiruv va taklif", `<div class="form-grid" style="grid-template-columns
 ${card("Agentlar ro'yxati", simpleTable(["Agent", "Email", "Role", "Status", "Oxirgi faollik", "Actions"], rows))}`;
   } else if (file === "02-agent-profile.html") {
     body = `<div class="split-grid">
-${card("Agent profili", `<div class="flex gap-4 items-center">${avatar("Sardor A.", "avatar-xl")}<div><h3>Sardor A.</h3><p class="text-muted">Senior Support Admin</p><div class="flex gap-2 mt-2">${badge("Admin", "badge-primary")}${badge("Online", "badge-success")}</div></div></div><div class="divider"></div>${keyValueList([{ key: "Email", value: "sardor@chatflow.uz" }, { key: "Phone", value: "+998 90 123 45 67" }, { key: "Shift", value: "09:00 - 18:00" }, { key: "Language", value: "UZ / EN / RU" }])}`)}
+${card("Agent profili", `<div class="flex gap-4 items-center">${avatar("Sardor A.", "avatar-xl")}<div><h3>Sardor A.</h3><p class="text-muted">Senior Support Admin</p><div class="flex gap-2 mt-2">${badge("Admin", "badge-primary")}${badge("Online", "badge-success")}</div></div></div><div class="divider"></div>${keyValueList([{ key: "Email", value: "sardor@qulaychat.uz" }, { key: "Phone", value: "+998 90 123 45 67" }, { key: "Shift", value: "09:00 - 18:00" }, { key: "Language", value: "UZ / EN / RU" }])}`)}
 ${card("Statistika", `${metricGrid([{ label: "Handled chats", value: "1,204", trend: "+9%" }, { label: "Avg response", value: "1m 42s", trend: "+4%" }, { label: "CSAT", value: "4.9", trend: "+0.2" }, { label: "SLA", value: "97%", trend: "+1%" }])}`)}
 </div>
 ${card("Oxirgi chatlar", simpleTable(["Chat ID", "Visitor", "Kanal", "Status", "Vaqt"], [
@@ -2523,16 +2523,16 @@ function renderSettingsPageV2(relPath, folderMap) {
   let body = "";
 
   if (file === "01-workspace.html") {
-    body = `<section class="settings-section"><h3>Workspace</h3><p class="section-desc">Workspace nomi, domen va locale sozlamalari</p><div class="form-grid"><div>${formField("Workspace nomi", input("CHATFLOW Support"))}</div><div>${formField("URL", '<input class="input" value="support.chatflow.uz">')}</div><div>${formField("Timezone", select(["GMT+5 Toshkent", "GMT+3 Istanbul", "GMT+6 Almaty"], "GMT+5 Toshkent"))}</div><div>${formField("Til", select(["O'zbek", "English", "Р СѓСЃСЃРєРёР№"], "O'zbek"))}</div></div><div class="two-col"><div class="dropzone">${icon("upload-cloud")}<div>Logo yuklash</div><small>PNG / JPG / SVG</small></div><div>${formField("Workspace description", textarea("Mijoz support va sales chatlari uchun umumiy workspace.", "", 5))}</div></div></section>
+    body = `<section class="settings-section"><h3>Workspace</h3><p class="section-desc">Workspace nomi, domen va locale sozlamalari</p><div class="form-grid"><div>${formField("Workspace nomi", input("QULAY CHAT Support"))}</div><div>${formField("URL", '<input class="input" value="support.qulaychat.uz">')}</div><div>${formField("Timezone", select(["GMT+5 Toshkent", "GMT+3 Istanbul", "GMT+6 Almaty"], "GMT+5 Toshkent"))}</div><div>${formField("Til", select(["O'zbek", "English", "Р СѓСЃСЃРєРёР№"], "O'zbek"))}</div></div><div class="two-col"><div class="dropzone">${icon("upload-cloud")}<div>Logo yuklash</div><small>PNG / JPG / SVG</small></div><div>${formField("Workspace description", textarea("Mijoz support va sales chatlari uchun umumiy workspace.", "", 5))}</div></div></section>
 <section class="card" style="border-color:#FCA5A5;background:#FFF7F7">
   <div class="card-header"><div><h3 style="color:#B91C1C">Danger zone</h3><p class="card-description">Workspace o'chirilsa barcha ma'lumotlar yo'qoladi.</p></div>${badge("Xavfli", "badge-danger")}</div>
   <div class="card-body"><div class="flex justify-between items-center gap-3 wrap"><div><div class="item-title">Workspace o'chirish</div><div class="item-sub">Delete amalidan oldin export oling.</div></div>${btn("Workspace o'chirish", "danger", 'data-modal-open="workspace-delete"')}</div></div>
 </section>
-${modalMarkup("workspace-delete", "Workspace o'chirish", `${formField("Tasdiqlash", '<input class="input" placeholder="CHATFLOW Support">')}`, `${btn("Bekor qilish", "secondary", 'data-modal-close')} ${btn("O'chirishni tasdiqlash", "danger", 'data-modal-close data-action="log"')}`)}`;
+${modalMarkup("workspace-delete", "Workspace o'chirish", `${formField("Tasdiqlash", '<input class="input" placeholder="QULAY CHAT Support">')}`, `${btn("Bekor qilish", "secondary", 'data-modal-close')} ${btn("O'chirishni tasdiqlash", "danger", 'data-modal-close data-action="log"')}`)}`;
   } else if (file === "03-security.html") {
     body = `<section class="settings-section"><h3>Security</h3><p class="section-desc">Parol, 2FA va session boshqaruvi</p><div class="form-grid"><div>${formField("Current password", '<input class="input" type="password" placeholder="вЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂў">')}</div><div>${formField("New password", '<input class="input" type="password" placeholder="вЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂў">')}</div></div><div class="form-row"><div class="row-copy"><div class="form-label">2FA</div><p class="text-muted" style="font-size:13px">Login paytida qo'shimcha kod talab qilinadi</p></div>${toggle(true)}</div>${simpleTable(["Device", "Location", "Last active", "Action"], [["Chrome вЂў macOS", "Toshkent", "Now", btn("Revoke", "secondary", 'data-action="log"')], ["Safari вЂў iPhone", "Samarqand", "Yesterday", btn("Revoke", "secondary", 'data-action="log"')], ["Edge вЂў Windows", "Buxoro", "2d ago", btn("Revoke", "secondary", 'data-action="log"')]])}<div class="divider"></div><div class="flex justify-between items-center gap-2 wrap"><div><div class="item-title">Barcha sessiyalarni tugatish</div><div class="item-sub">Joriy qurilmadan tashqari barcha sessionlar yopiladi.</div></div>${btn("Barcha sessiyalarni tugatish", "danger", 'data-action="log"')}</div></section>`;
   } else if (file === "05-profile.html") {
-    body = `<section class="settings-section"><h3>Profile</h3><p class="section-desc">Avatar va shaxsiy ma'lumotlar</p><div class="two-col"><div class="flex gap-4 items-center">${avatar("Sardor A.", "avatar-xxl")}<div><button class="btn btn-secondary" type="button" data-action="log" data-message="Avatar yuklash oynasi ochildi">Avatar yuklash</button><p class="text-muted" style="font-size:12px;margin-top:6px">PNG/JPG, max 2MB</p></div></div><div class="form-grid one">${formField("Ism", input("Sardor Aliyev"))}${formField("Email", '<input class="input" type="email" value="sardor@chatflow.uz" readonly>')}${formField("Telefon", '<input class="input" value="+998 90 123 45 67">')}${formField("Lavozim", input("Support Lead"))}</div></div></section>`;
+    body = `<section class="settings-section"><h3>Profile</h3><p class="section-desc">Avatar va shaxsiy ma'lumotlar</p><div class="two-col"><div class="flex gap-4 items-center">${avatar("Sardor A.", "avatar-xxl")}<div><button class="btn btn-secondary" type="button" data-action="log" data-message="Avatar yuklash oynasi ochildi">Avatar yuklash</button><p class="text-muted" style="font-size:12px;margin-top:6px">PNG/JPG, max 2MB</p></div></div><div class="form-grid one">${formField("Ism", input("Sardor Aliyev"))}${formField("Email", '<input class="input" type="email" value="sardor@qulaychat.uz" readonly>')}${formField("Telefon", '<input class="input" value="+998 90 123 45 67">')}${formField("Lavozim", input("Support Lead"))}</div></div></section>`;
   } else if (file === "06-privacy-export.html") {
     body = `<section class="settings-section"><h3>Data export</h3><p class="section-desc">Foydalanuvchi ma'lumotlarini eksport qilish</p><div class="form-grid"><div>${formField("Format", select(["JSON", "CSV", "ZIP"], "ZIP"))}</div><div>${formField("Date range", `<div class="date-range">${icon("calendar")}Last 90 days</div>`)}</div></div><div class="alert alert-info">${icon("shield-check")}<div>Export tayyor bo'lgach email orqali yuboriladi.</div></div><div>${btn("Exportni boshlash", "primary", 'data-action="export"')}</div><div class="divider"></div><h4>Oldingi exportlar</h4>${simpleTable(["Sana", "Format", "Range", "Status", "File"], [["2026-02-18 10:12", "ZIP", "90 kun", badge("Ready", "badge-success"), btn("Yuklash", "secondary", 'data-action="export"')], ["2026-01-20 14:40", "CSV", "30 kun", badge("Ready", "badge-success"), btn("Yuklash", "secondary", 'data-action="export"')], ["2025-12-28 09:05", "JSON", "Custom", badge("Expired", "badge-warning"), btn("Qayta yaratish", "secondary", 'data-action="export"')]])}</section>`;
   }
@@ -2547,14 +2547,14 @@ function widgetWindowChatV2(options = {}) {
   const attrs = options.attrs || "";
   return `<div class="widget-window" ${attrs}>
   <div class="widget-window-header">
-    <div><strong>CHATFLOW</strong><div class="mini">${esc(titleMini)}</div></div>
+    <div><strong>QULAY CHAT</strong><div class="mini">${esc(titleMini)}</div></div>
     <div class="flex gap-1">
       <button class="icon-btn" type="button" data-action="log">${icon("minus")}</button>
       <button class="icon-btn" type="button" data-action="log">${icon("x")}</button>
     </div>
   </div>
   <div class="widget-window-body">
-    <div class="widget-msg">Salom! CHATFLOW supportga xush kelibsiz.</div>
+    <div class="widget-msg">Salom! QULAY CHAT supportga xush kelibsiz.</div>
     <div class="widget-msg agent">Assalomu alaykum, qanday yordam kerak?</div>
     <div class="widget-msg">Pro plan narxi va agent limiti qancha?</div>
     <div class="widget-msg agent">Pro plan $29, 5 agentgacha. Enterprise ham mavjud.</div>
@@ -2576,7 +2576,7 @@ function widgetWindowOfflineV2(options = {}) {
   const attrs = options.attrs || "";
   return `<div class="widget-window" ${attrs}>
   <div class="widget-window-header">
-    <div><strong>CHATFLOW</strong><div class="mini">Offline</div></div>
+    <div><strong>QULAY CHAT</strong><div class="mini">Offline</div></div>
     <button class="icon-btn" type="button" data-action="log">${icon("x")}</button>
   </div>
   <form class="widget-window-body" data-submit-message="Offline xabar yuborildi">
@@ -2593,7 +2593,7 @@ function widgetWindowCsatV2(options = {}) {
   const attrs = options.attrs || "";
   return `<div class="widget-window" ${attrs}>
   <div class="widget-window-header">
-    <div><strong>CHATFLOW</strong><div class="mini">CSAT</div></div>
+    <div><strong>QULAY CHAT</strong><div class="mini">CSAT</div></div>
     <button class="icon-btn" type="button" data-action="log">${icon("x")}</button>
   </div>
   <div class="widget-window-body">
@@ -2616,7 +2616,7 @@ function widgetWindowCsatV2(options = {}) {
 
 function widgetWindowLoadingV2() {
   return `<div class="widget-window">
-  <div class="widget-window-header"><div><strong>CHATFLOW</strong><div class="mini">Loading</div></div><button class="icon-btn" type="button" data-action="log">${icon("x")}</button></div>
+  <div class="widget-window-header"><div><strong>QULAY CHAT</strong><div class="mini">Loading</div></div><button class="icon-btn" type="button" data-action="log">${icon("x")}</button></div>
   <div class="widget-window-body">
     <div class="empty-state">${icon("loader-circle")}<div>Yuklanmoqda...</div><p class="text-muted" style="font-size:13px">Widget komponentlari yuklanmoqda</p></div>
   </div>
@@ -2687,7 +2687,7 @@ function renderWidgetPageV2(relPath, folderMap) {
       ${mainContent}
     </div>
   </main>`;
-  return standalonePage({ title: `CHATFLOW - ${title}`, bodyClass: "widget-page", content });
+  return standalonePage({ title: `QULAY CHAT - ${title}`, bodyClass: "widget-page", content });
 }
 
 function renderContactsPageV2(relPath, folderMap) {
@@ -2881,7 +2881,7 @@ ${card("Recent articles", `<div class="kb-article-grid">${["Widget o'rnatish", "
       <div class="editor-toolbar">${["bold", "italic", "underline", "list", "list-ordered", "link", "image", "quote"].map((i) => `<button class="btn btn-secondary btn-sm" type="button" data-action="log">${icon(i)}</button>`).join("")}</div>
       <div class="editor-canvas">
         <h2 style="font-size:22px">Widget o'rnatish bo'yicha qo'llanma</h2>
-        <p class="text-muted" style="margin-top:8px">CHATFLOW widget snippetni saytingizga qo'shish bosqichlari...</p>
+        <p class="text-muted" style="margin-top:8px">QULAY CHAT widget snippetni saytingizga qo'shish bosqichlari...</p>
         <div class="placeholder-line" style="width:88%;margin-top:16px"></div>
         <div class="placeholder-line" style="width:94%"></div>
         <div class="placeholder-line" style="width:86%"></div>
@@ -2956,7 +2956,7 @@ ${addons.map((a) => `  <div class="addon-card">
     body = `${card("Add-on detail", `<div class="split-grid">
   <div>
     <h3>WhatsApp Integration</h3>
-    <p class="text-muted" style="margin-top:6px">WhatsApp Business xabarlarini CHATFLOW inbox bilan sinxronlashtiradi.</p>
+    <p class="text-muted" style="margin-top:6px">WhatsApp Business xabarlarini QULAY CHAT inbox bilan sinxronlashtiradi.</p>
     <div class="mini-bars" style="margin-top:14px;height:220px">
       <div class="mini-bar-col"><div class="mini-bar" style="height:160px"></div><span>Screenshot 1</span></div>
       <div class="mini-bar-col"><div class="mini-bar" style="height:120px"></div><span>Screenshot 2</span></div>
@@ -2997,9 +2997,9 @@ function renderDeveloperPageV2(relPath, folderMap) {
   }
   if (file === "02-webhooks.html") {
     body = `${card("Webhooks", simpleTable(["URL", "Events", "Status", "Last triggered", "Actions"], [
-  ["https://api.client.uz/chatflow/webhook", "chat.created, chat.closed", badge("Active", "badge-success"), "5m ago", `<div class="flex gap-2">${btn("Edit", "secondary", 'data-action="log"')}${btn("Disable", "secondary", 'data-action="log"')}</div>`],
-  ["https://n8n.client.uz/hooks/chatflow", "contact.updated", badge("Paused", "badge-warning"), "2d ago", `<div class="flex gap-2">${btn("Edit", "secondary", 'data-action="log"')}${btn("Enable", "secondary", 'data-action="log"')}</div>`],
-  ["https://erp.client.uz/webhooks/chatflow", "invoice.paid", badge("Active", "badge-success"), "1h ago", `<div class="flex gap-2">${btn("Edit", "secondary", 'data-action="log"')}${btn("Disable", "secondary", 'data-action="log"')}</div>`]
+  ["https://api.client.uz/qulaychat/webhook", "chat.created, chat.closed", badge("Active", "badge-success"), "5m ago", `<div class="flex gap-2">${btn("Edit", "secondary", 'data-action="log"')}${btn("Disable", "secondary", 'data-action="log"')}</div>`],
+  ["https://n8n.client.uz/hooks/qulaychat", "contact.updated", badge("Paused", "badge-warning"), "2d ago", `<div class="flex gap-2">${btn("Edit", "secondary", 'data-action="log"')}${btn("Enable", "secondary", 'data-action="log"')}</div>`],
+  ["https://erp.client.uz/webhooks/qulaychat", "invoice.paid", badge("Active", "badge-success"), "1h ago", `<div class="flex gap-2">${btn("Edit", "secondary", 'data-action="log"')}${btn("Disable", "secondary", 'data-action="log"')}</div>`]
 ]), { actions: btn("Add webhook", "primary", 'data-modal-open="add-webhook"') })}
 ${modalMarkup("add-webhook", "Add webhook", `<div class="form-grid one">
   ${formField("URL", '<input class="input" type="url" placeholder="https://example.com/webhook">')}
@@ -3076,7 +3076,7 @@ function renderSystemPageV2(relPath) {
 
   const content = `  <main class="system-page">
     <div class="system-shell">
-      <div class="system-brand"><a class="shell-brand" href="../index.html"><span class="shell-brand-mark">CF</span><span>CHATFLOW</span></a></div>
+      <div class="system-brand"><a class="shell-brand" href="../index.html"><span class="shell-brand-mark">CF</span><span>QULAY CHAT</span></a></div>
       <section class="system-card">
         <div class="system-illustration">${icon(cfg.iconName)}</div>
         <div class="error-code ${cfg.codeClass}">${esc(cfg.code)}</div>
@@ -3087,7 +3087,7 @@ function renderSystemPageV2(relPath) {
       </section>
     </div>
   </main>`;
-  return standalonePage({ title: `CHATFLOW - ${cfg.title}`, bodyClass: "system-page", content, robots: "noindex, nofollow" });
+  return standalonePage({ title: `QULAY CHAT - ${cfg.title}`, bodyClass: "system-page", content, robots: "noindex, nofollow" });
 }
 
 if (require.main === module) {

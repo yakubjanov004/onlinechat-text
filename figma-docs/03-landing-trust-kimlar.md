@@ -1,4 +1,4 @@
-# CHATFLOW — Landing Page: Trust Bar + Kimlar Uchun
+# QULAY CHAT — Landing Page: Trust Bar + Kimlar Uchun
 
 ## Umumiy yondashuv
 Bu ikki bo'lim Hero sectiondan keyin keladi va foydalanuvchiga ishonch uyg'otish hamda platformaning kim uchun yaratilganligini aniq tushuntirish vazifasini bajaradi. Trust Bar — qisqa, faktlarga asoslangan blok. Kimlar Uchun — platformaning maqsadli foydalanuvchilarini aniq belgilab beruvchi bo'lim.
@@ -72,7 +72,7 @@ trust-bar-variant-a/
 
 | Iqtibos | Muallif | Lavozim |
 |---------|---------|---------|
-| "CHATFLOW operatorlar ishini 2 barobar tezlashtirdi. Endi mijozlarga javob berish juda oson." | Aziz Karimov | Support Lead, TechUz |
+| "QULAY CHAT operatorlar ishini 2 barobar tezlashtirdi. Endi mijozlarga javob berish juda oson." | Aziz Karimov | Support Lead, TechUz |
 | "Bitta inbox'da barcha kanallarni boshqarish — bu biz kutgan yechim edi." | Nodira Rahimova | Operations Manager, ShopExpress |
 | "Sozlash 5 daqiqa oldi. Jamoamiz bir kunda o'rgandi." | Sardor Toshmatov | CEO, StartupHub |
 
@@ -162,7 +162,7 @@ trust-bar-variant-c/
 ### Trust Bar — Figma AI uchun prompt
 
 ```
-Create a trust bar / social proof section for a SaaS platform called CHATFLOW.
+Create a trust bar / social proof section for a SaaS platform called QULAY CHAT.
 Show 4 key metrics in a horizontal row: "500+" active companies, "50,000+" daily messages,
 "98%" customer satisfaction, "2 min" average response time.
 Each metric: large bold number on top, small gray description below.
@@ -200,7 +200,7 @@ Kim uchun yaratilgan?
 
 **Qo'shimcha tavsif (subtitle):**
 ```
-CHATFLOW ichki ishchi panel bo'lib, faqat kompaniya jamoasi a'zolari tomonidan ishlatiladi
+QULAY CHAT ichki ishchi panel bo'lib, faqat kompaniya jamoasi a'zolari tomonidan ishlatiladi
 ```
 - **Shrift:** 18px, Regular (400), `#6B7280` (Gray-500)
 - **Line-height:** 28px
@@ -358,7 +358,7 @@ DIQQAT
 ```
 Bu platforma mijozlar uchun EMAS. Oddiy foydalanuvchilar platformaga kirmaydi.
 Ular faqat saytingizga o'rnatilgan CHAT VIDJETI orqali yozadi.
-CHATFLOW — bu faqat sizning ichki jamoangiz (operatorlar, menejerlar, administratorlar) uchun ishchi panel.
+QULAY CHAT — bu faqat sizning ichki jamoangiz (operatorlar, menejerlar, administratorlar) uchun ishchi panel.
 ```
 - **Shrift:** 14px, Regular (400), `#92400E`
 - **Line-height:** 22px
@@ -385,7 +385,7 @@ kimlar-uchun-section/
 │   │
 │   ├── section-header (auto-layout, vertical, center aligned, gap: 16px)
 │   │   ├── title (text: "Kim uchun yaratilgan?", H2: 40px Bold, #111827, center)
-│   │   └── subtitle (text: "CHATFLOW ichki ishchi panel...", 18px Regular, #6B7280, center)
+│   │   └── subtitle (text: "QULAY CHAT ichki ishchi panel...", 18px Regular, #6B7280, center)
 │   │
 │   ├── cards-row (auto-layout, horizontal, gap: 32px, margin-top: 64px)
 │   │   ├── role-card-1 [Operatorlar]
@@ -455,9 +455,9 @@ kimlar-uchun-section/
 ### Kimlar Uchun — Figma AI uchun prompt
 
 ```
-Create a "Who is it for?" section for a SaaS customer support platform called CHATFLOW.
+Create a "Who is it for?" section for a SaaS customer support platform called QULAY CHAT.
 Centered title: "Kim uchun yaratilgan?" (H2, 40px Bold, #111827).
-Subtitle: "CHATFLOW ichki ishchi panel bo'lib, faqat kompaniya jamoasi a'zolari tomonidan ishlatiladi" (18px, #6B7280).
+Subtitle: "QULAY CHAT ichki ishchi panel bo'lib, faqat kompaniya jamoasi a'zolari tomonidan ishlatiladi" (18px, #6B7280).
 
 Below the title, show 3 role cards side by side with equal width:
 

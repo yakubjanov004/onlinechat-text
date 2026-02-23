@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CHATFLOW - Inbox</title>
+  <title>QULAY CHAT - Inbox</title>
   <style>
     :root {
       --p: #4f46e5;
@@ -144,7 +144,7 @@
 </head>
 <body>
   <header class="header">
-    <a class="brand" href="../04-dashboard/01-dashboard.html">CHATFLOW</a>
+    <a class="brand" href="../04-dashboard/01-dashboard.html">QULAY CHAT</a>
     <input id="globalSearch" type="search" placeholder="Global qidiruv (Ctrl+K)" aria-label="Global search" />
     <div class="hdr-right">
       <span class="pill">Online</span>
@@ -321,7 +321,7 @@
         var unread = data.reduce(function (sum, x) { return sum + x.unread; }, 0);
         mAssigned.textContent = String(assigned);
         mUnread.textContent = String(unread);
-        document.title = unread ? "(" + unread + ") CHATFLOW - Inbox" : "CHATFLOW - Inbox";
+        document.title = unread ? "(" + unread + ") QULAY CHAT - Inbox" : "QULAY CHAT - Inbox";
       }
 
       function drawCards() {

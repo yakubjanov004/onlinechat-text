@@ -1,4 +1,4 @@
-// CHATFLOW - Onboarding - 06 Widget Verify (Step 4/4)
+// QULAY CHAT - Onboarding - 06 Widget Verify (Step 4/4)
 // HTML source: figma-html-pages/03-onboarding/06-widget-verify.html
 
 function rgb(hex) {

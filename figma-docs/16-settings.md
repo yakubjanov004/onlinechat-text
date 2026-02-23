@@ -1,4 +1,4 @@
-# CHATFLOW — Settings: Workspace, Widget, Security, Notifications, Profile
+# QULAY CHAT — Settings: Workspace, Widget, Security, Notifications, Profile
 
 ## Umumiy yondashuv
 Settings bo'limi platformaning barcha sozlamalarini boshqarish uchun markaziy joy. 5 ta asosiy tab bilan tashkil etilgan: Workspace, Widget, Security, Notifications, Profile. Har bir tab o'z ichida form seksiyalari, toggle'lar, inputlar va vizual ko'rsatmalarni o'z ichiga oladi. Qo'shimcha ravishda Advanced sozlamalar ham mavjud.
@@ -214,7 +214,7 @@ Chat widget'ning tashqi ko'rinishi, joylashuvi va xabar shablonlarini sozlash. A
 | **Copy button** | O'ng yuqori burchak, "Nusxalash" + clipboard icon |
 | **Copy button** | 36px height, ghost style, `#9CA3AF` |
 | **Copied state** | "Nusxalandi ✓" yashil matn, 2 soniya keyin qaytadi |
-| **Code content** | `<script src="https://cdn.chatflow.uz/widget.js" data-id="abc123"></script>` |
+| **Code content** | `<script src="https://cdn.qulaychat.uz/widget.js" data-id="abc123"></script>` |
 
 ### Section 2.8 — Domain whitelist
 
@@ -262,7 +262,7 @@ Chat widget'ning tashqi ko'rinishi, joylashuvi va xabar shablonlarini sozlash. A
 │  [ Xabar yozing...                     ]          │
 ├─ O'rnatish kodi ──────────────────────────────────┤
 │  ┌──────────────────────────────── [Nusxalash]──┐ │
-│  │ <script src="https://cdn.chatflow.uz/...     │ │
+│  │ <script src="https://cdn.qulaychat.uz/...     │ │
 │  │   data-id="abc123"></script>                  │ │
 │  └──────────────────────────────────────────────┘ │
 ├─ Ruxsat etilgan domenlar ─────────────────────────┤
@@ -925,7 +925,7 @@ settings-page/
 ## Figma AI uchun prompt
 
 ```
-Create a comprehensive Settings page for a SaaS customer support platform called CHATFLOW.
+Create a comprehensive Settings page for a SaaS customer support platform called QULAY CHAT.
 
 Layout: Dashboard shell with sidebar (Settings active). Page title "Sozlamalar" at top.
 White content card with 5 horizontal tabs: Workspace, Widget, Security, Notifications, Profile.

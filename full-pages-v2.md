@@ -1,4 +1,4 @@
-# CHATFLOW — Full Pages V2 (18 Papka · 3 Rol · Sidebar Sinxronlashtirilgan)
+# QULAY CHAT — Full Pages V2 (18 Papka · 3 Rol · Sidebar Sinxronlashtirilgan)
 
 > **Versiya:** 2.1 | **Sana:** 2026-02-18
 > **Maqsad:** 18 papka uchun barcha HTML sahifalar, Figma JS fayllar, **3 rol variant** (Admin, Agent, Client) va **sidebar sinxronizatsiyasi** standartlashtirilgan holda.
@@ -65,7 +65,7 @@
 
 ```
 ┌──────────────────────────────┐
-│  🟣 CHATFLOW (Logo)          │  ← Logo click → Inbox
+│  🟣 QULAY CHAT (Logo)          │  ← Logo click → Inbox
 │                              │
 │  ─── ASOSIY ───────────────  │
 │  📥 Inbox           [12]     │  ← Badge: unread count (qizil)
@@ -197,7 +197,7 @@ Height: 64px | bg: #FFFFFF | border-bottom: 1px #E5E7EB
 
 ```
 📌 HEADER (sticky, 72px, white, shadow-sm)
-├── Logo (CHATFLOW)
+├── Logo (QULAY CHAT)
 ├── Nav: Imkoniyatlar | Integratsiyalar | Tariflar | Haqimizda | Bog'lanish
 ├── "Kirish" (ghost button) → 02-auth/01-login.html
 └── "Boshlash" (primary button) → 02-auth/02-register.html
@@ -287,7 +287,7 @@ Height: 64px | bg: #FFFFFF | border-bottom: 1px #E5E7EB
 🖼 Layout: 50/50 split (chap: form, o'ng: illustration)
 
 📋 LOGIN FORM (max-width: 400px, centered)
-├── Logo (CHATFLOW)
+├── Logo (QULAY CHAT)
 ├── H2: "Hisobingizga kiring"
 ├── Subtitle: "Davom etish uchun ma'lumotlaringizni kiriting"
 │
@@ -483,7 +483,7 @@ STEP 2: Yangi parol (email link orqali)
 ├── Subtitle: "Quyidagi kodni </body> tagidan oldin joylashtiring"
 │
 ├── 📋 Code snippet block (dark bg, mono font):
-│   └── <script src="https://chatflow.uz/widget/xxx.js"></script>
+│   └── <script src="https://qulaychat.uz/widget/xxx.js"></script>
 │   └── "📋 Nusxalash" button
 │
 ├── 🔧 Platformalar (tab):
@@ -525,7 +525,7 @@ STEP 2: Yangi parol (email link orqali)
 
 ```
 ┌──────────────────────────┐
-│  🟣 CHATFLOW              │
+│  🟣 QULAY CHAT              │
 │                           │
 │  ─── ASOSIY ────────────  │
 │  ▶ Dashboard  ← ACTIVE   │  ← Faqat shu sahifada
@@ -596,7 +596,7 @@ STEP 2: Yangi parol (email link orqali)
 
 ```
 ┌──────────────────────────┐
-│  🟣 CHATFLOW              │
+│  🟣 QULAY CHAT              │
 │  ─── ASOSIY ────────────  │
 │  📥 Inbox        [12] ◀━━│━━ ACTIVE (ko'k bg, 3px chap border)
 │  👥 Kontaktlar            │
@@ -2282,7 +2282,7 @@ STEP 2: Yangi parol (email link orqali)
 │
 ├── 🌐 Public URL:
 │   ├── Custom domain: help.yourdomain.com
-│   └── Default: chatflow.uz/kb/your-workspace
+│   └── Default: qulaychat.uz/kb/your-workspace
 │
 ├── 🎨 Branding:
 │   ├── Logo upload
@@ -2660,7 +2660,7 @@ STEP 2: Yangi parol (email link orqali)
 │   ├── "📩 Muammoni xabar qilish" → help tickets
 │   └── "🏠 Bosh sahifaga" → dashboard
 │
-└── Status page link: "Tizim holati" → status.chatflow.uz
+└── Status page link: "Tizim holati" → status.qulaychat.uz
 ```
 
 ### 03-error-403.html — Tarkibi
@@ -2706,8 +2706,8 @@ STEP 2: Yangi parol (email link orqali)
 ├── 📧 "Tayyor bo'lganda xabar bering" → email input + subscribe
 │
 └── 🔗 Links:
-    ├── Status page: status.chatflow.uz
-    └── Twitter: @chatflow_uz
+    ├── Status page: status.qulaychat.uz
+    └── Twitter: @qulaychat_uz
 ```
 
 ### 05-offline.html — Tarkibi

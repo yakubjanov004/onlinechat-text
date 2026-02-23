@@ -351,12 +351,12 @@ function dashboardHtml(ctx) {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CHATFLOW - ${escapeHtml(ctx.title)}</title>
-  <link rel="stylesheet" href="../assets/chatflow-pages.css" />
+  <title>QULAY CHAT - ${escapeHtml(ctx.title)}</title>
+  <link rel="stylesheet" href="../assets/qulay-chat-pages.css" />
 </head>
 <body class="cf-body" data-page="${escapeHtml(ctx.relPath)}" data-page-roles="${escapeHtml(ctx.pageRoles)}">
   <header class="cf-header">
-    <a class="cf-brand" href="../04-dashboard/01-dashboard.html">CHATFLOW</a>
+    <a class="cf-brand" href="../04-dashboard/01-dashboard.html">QULAY CHAT</a>
     <input class="cf-search" type="search" aria-label="Global qidiruv" placeholder="Global qidiruv (Ctrl+K)" />
     <div class="cf-header-right">
       ${roleSwitchHtml()}
@@ -439,7 +439,7 @@ function dashboardHtml(ctx) {
       </section>
     </main>
   </div>
-  <script src="../assets/chatflow-runtime.js"></script>
+  <script src="../assets/qulay-chat-runtime.js"></script>
 </body>
 </html>`;
 }
@@ -459,13 +459,13 @@ function widgetHtml(ctx) {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CHATFLOW Widget - ${escapeHtml(ctx.title)}</title>
-  <link rel="stylesheet" href="../assets/chatflow-pages.css" />
+  <title>QULAY CHAT Widget - ${escapeHtml(ctx.title)}</title>
+  <link rel="stylesheet" href="../assets/qulay-chat-pages.css" />
 </head>
 <body class="cf-body cf-widget-page" data-page="${escapeHtml(ctx.relPath)}" data-page-roles="${escapeHtml(ctx.pageRoles)}">
   <main class="cf-widget-shell">
     <header class="cf-widget-top">
-      <a class="cf-brand" href="../index.html">CHATFLOW Widget</a>
+      <a class="cf-brand" href="../index.html">QULAY CHAT Widget</a>
       ${roleSwitchHtml()}
     </header>
 
@@ -520,7 +520,7 @@ function widgetHtml(ctx) {
       </section>
     </section>
   </main>
-  <script src="../assets/chatflow-runtime.js"></script>
+  <script src="../assets/qulay-chat-runtime.js"></script>
 </body>
 </html>`;
 }
@@ -534,13 +534,13 @@ function systemHtml(ctx, raw) {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CHATFLOW System - ${escapeHtml(ctx.title)}</title>
-  <link rel="stylesheet" href="../assets/chatflow-pages.css" />
+  <title>QULAY CHAT System - ${escapeHtml(ctx.title)}</title>
+  <link rel="stylesheet" href="../assets/qulay-chat-pages.css" />
 </head>
 <body class="cf-body cf-system-page" data-page="${escapeHtml(ctx.relPath)}" data-page-roles="${escapeHtml(ctx.pageRoles)}">
   <main class="cf-system-shell">
     <header class="cf-system-top">
-      <a class="cf-brand" href="../index.html">CHATFLOW System</a>
+      <a class="cf-brand" href="../index.html">QULAY CHAT System</a>
       ${roleSwitchHtml()}
     </header>
     <section class="cf-system-content">
@@ -584,7 +584,7 @@ function systemHtml(ctx, raw) {
       </section>
     </section>
   </main>
-  <script src="../assets/chatflow-runtime.js"></script>
+  <script src="../assets/qulay-chat-runtime.js"></script>
 </body>
 </html>`;
 }
@@ -595,13 +595,13 @@ function publicHtml(ctx) {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CHATFLOW - ${escapeHtml(ctx.title)}</title>
-  <link rel="stylesheet" href="../assets/chatflow-pages.css" />
+  <title>QULAY CHAT - ${escapeHtml(ctx.title)}</title>
+  <link rel="stylesheet" href="../assets/qulay-chat-pages.css" />
 </head>
 <body class="cf-body cf-public-page" data-page="${escapeHtml(ctx.relPath)}" data-page-roles="${escapeHtml(ctx.pageRoles)}">
   <main class="cf-public-shell">
     <header class="cf-public-top">
-      <a class="cf-brand" href="../index.html">CHATFLOW</a>
+      <a class="cf-brand" href="../index.html">QULAY CHAT</a>
       <div class="cf-header-right">
         ${roleSwitchHtml()}
         <a class="cf-btn cf-btn--subtle" href="../02-auth/01-login.html">Kirish</a>
@@ -645,7 +645,7 @@ function publicHtml(ctx) {
       </section>
     </section>
   </main>
-  <script src="../assets/chatflow-runtime.js"></script>
+  <script src="../assets/qulay-chat-runtime.js"></script>
 </body>
 </html>`;
 }

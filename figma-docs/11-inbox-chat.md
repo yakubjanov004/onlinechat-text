@@ -1,7 +1,7 @@
-# CHATFLOW — Inbox: Chat List + Chat Window
+# QULAY CHAT — Inbox: Chat List + Chat Window
 
 ## Umumiy yondashuv
-Inbox — CHATFLOW platformasining eng asosiy va eng ko'p ishlatiladigan sahifasi. Agent bu yerda barcha mijoz chatlarini real vaqtda ko'radi, javob beradi, boshqaradi va yopadi. Layout 2 panelli: chap tomonda chat ro'yxati, o'ng tomonda ochiq suhbat oynasi. Ixtiyoriy ravishda o'ng tomonda Info Sidebar ham ko'rinadi (12-inbox-advanced.md da batafsil).
+Inbox — QULAY CHAT platformasining eng asosiy va eng ko'p ishlatiladigan sahifasi. Agent bu yerda barcha mijoz chatlarini real vaqtda ko'radi, javob beradi, boshqaradi va yopadi. Layout 2 panelli: chap tomonda chat ro'yxati, o'ng tomonda ochiq suhbat oynasi. Ixtiyoriy ravishda o'ng tomonda Info Sidebar ham ko'rinadi (12-inbox-advanced.md da batafsil).
 
 **Maqsad:** Chatlarni tez topish, tez javob berish, holatni nazorat qilish. Har bir amal minimal klik bilan bajarilishi shart.
 
@@ -533,7 +533,7 @@ Paperclip icon bosish yoki Drag & Drop
 |-----|--------|
 | **Browser notification** | Yangi xabar kelganda desktop notification |
 | **Sound** | Qisqa notification ovozi |
-| **Badge update** | Browser tab title: "(3) CHATFLOW — Inbox", Inbox sidebar badge yangilanadi |
+| **Badge update** | Browser tab title: "(3) QULAY CHAT — Inbox", Inbox sidebar badge yangilanadi |
 
 ---
 
@@ -864,7 +864,7 @@ inbox-chat/
 ## 16. FIGMA AI UCHUN PROMPT
 
 ```
-Create a chat inbox interface for a SaaS customer support platform called CHATFLOW.
+Create a chat inbox interface for a SaaS customer support platform called QULAY CHAT.
 
 LAYOUT: Two-panel design.
 - Left panel (360px): Chat list with search bar, filter tabs (Active/Assigned/Closed), and conversation cards.

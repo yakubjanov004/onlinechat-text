@@ -1,22 +1,22 @@
-# CHATFLOW — Help & Support Module
+# QULAY CHAT — Help & Support Module
 
 **Modul ID:** M-13  
 **Yaratilgan:** 2026-02-11  
 **Kirish:** All roles (Admin, Manager, Operator)  
-**Maqsad:** Foydalanuvchilarga CHATFLOW platformasidan foydalanishda yordam berish, hujjatlar, video darsliklari va support ticket tizimi orqali.
+**Maqsad:** Foydalanuvchilarga QULAY CHAT platformasidan foydalanishda yordam berish, hujjatlar, video darsliklari va support ticket tizimi orqali.
 
 ---
 
 ## Umumiy Yondashuv
 
-Help & Support moduli — CHATFLOW platformasidagi self-service yordam markazi. Foydalanuvchilar FAQ, video tutoriallar, documentation va to'g'ridan-to'g'ri support ticket system orqali yordam oladilar. Maqsad: operator va adminlarga platformadan samarali foydalanish uchun resurslar taqdim etish va muammolar yuzaga kelganda tez yordam olish.
+Help & Support moduli — QULAY CHAT platformasidagi self-service yordam markazi. Foydalanuvchilar FAQ, video tutoriallar, documentation va to'g'ridan-to'g'ri support ticket system orqali yordam oladilar. Maqsad: operator va adminlarga platformadan samarali foydalanish uchun resurslar taqdim etish va muammolar yuzaga kelganda tez yordam olish.
 
 **Key Features:**
 - 📚 Knowledge Base (FAQs, How-tos, Guides)
 - 🎥 Video Tutorials (Getting started, Advanced features)
 - 📄 Documentation (API docs, Integration guides)
 - 🎫 Support Tickets (Submit va track tickets)
-- 💬 Live Chat with CHATFLOW Support Team
+- 💬 Live Chat with QULAY CHAT Support Team
 - 🔍 Contextual Help (tooltips, onboarding tour)
 
 ---
@@ -30,7 +30,7 @@ Dashboard Shell (240px sidebar + 64px header) + Main Content
 
 #### Header Section
 - **Title:** "Yordam Markazi" 32px Bold #111827
-- **Subtitle:** "CHATFLOW platformasidan foydalanish bo'yicha barcha ma'lumotlar" 16px Regular #6B7280
+- **Subtitle:** "QULAY CHAT platformasidan foydalanish bo'yicha barcha ma'lumotlar" 16px Regular #6B7280
 - **Search bar:** 600px width, center
   - Placeholder: "Savol yoki mavzu qidiring..." #9CA3AF
   - Search icon: 20px left, #6B7280
@@ -97,13 +97,13 @@ Dashboard Shell (240px sidebar + 64px header) + Main Content
 
 **3 ta video card horizontal (360×200px each):**
 - Thumbnail: 360×180px with play button overlay (48px circle, white, center)
-- Title: "CHATFLOW bilan Boshlash" 16px Semibold below thumbnail
+- Title: "QULAY CHAT bilan Boshlash" 16px Semibold below thumbnail
 - Duration: "5:30" badge top-right 12px #111827 bg rgba(0,0,0,0.7)
 - Views: "👁 1,247 ko'rish" 13px #6B7280
 - Hover: Play button scale 1→1.1, shadow-lg
 
 **Videos:**
-1. "CHATFLOW bilan Boshlash (5:30)"
+1. "QULAY CHAT bilan Boshlash (5:30)"
 2. "Widget O'rnatish va Sozlash (8:45)"
 3. "Automation va Triggerlar (12:15)"
 
@@ -215,7 +215,7 @@ Article content center, 800px max-width
 - Title: "Chatni qanday assign qilish?" 32px Bold #111827
 - Meta row:
   - Last updated: "Feb 8, 2026" 14px #6B7280
-  - Author: "CHATFLOW Jamoasi" 14px #6B7280
+  - Author: "QULAY CHAT Jamoasi" 14px #6B7280
   - Reading time: "⏱️ 3 daqiqa" 14px #6B7280
   - Views: "👁 245" 14px #9CA3AF
 
@@ -321,7 +321,7 @@ Grid view, 3 columns
 **Grid:** 3 columns, gap 20px, auto rows
 
 **Videos list:**
-1. "CHATFLOW bilan Boshlash" (5:30) — Getting Started
+1. "QULAY CHAT bilan Boshlash" (5:30) — Getting Started
 2. "Widget O'rnatish va Sozlash" (8:45) — Getting Started
 3. "Automation va Triggerlar" (12:15) — Advanced
 4. "API Integratsiyalar" (15:30) — Advanced
@@ -357,7 +357,7 @@ Grid view, 3 columns
   - Duration: "⏱️ 8:45" 14px #6B7280
 - Description: 16px Regular #374151
   ```
-  Bu videoda CHATFLOW widget'ini qanday o'rnatish va sozlashni ko'rsatamiz. 
+  Bu videoda QULAY CHAT widget'ini qanday o'rnatish va sozlashni ko'rsatamiz. 
   Siz web-saytingizga 5 daqiqada widget qo'shishni o'rganasiz.
   
   Mavzular:
@@ -482,7 +482,7 @@ Tabs: "My Tickets | Create New"
 - **Category:** "Technical"
 - **Created:** "Feb 8, 2026, 14:35"
 - **Last Updated:** "2 soat oldin"
-- **Assigned to:** Avatar + "CHATFLOW Support" (or "Unassigned")
+- **Assigned to:** Avatar + "QULAY CHAT Support" (or "Unassigned")
 
 ### Messages Thread (Main content 800px)
 
@@ -496,8 +496,8 @@ Tabs: "My Tickets | Create New"
   - Attachments: File cards if any (icon + name + size + download)
 
 **Reply Message (Support team):**
-- Avatar: 48px, CHATFLOW logo
-- Name: "CHATFLOW Support" 16px Semibold
+- Avatar: 48px, QULAY CHAT logo
+- Name: "QULAY CHAT Support" 16px Semibold
 - Badge: "Support Agent" 12px bg #4F46E5
 - Time: "Feb 8, 2026, 15:10" 13px #6B7280
 - Message bubble: bg #EEF2FF (primary light)
@@ -513,18 +513,18 @@ Tabs: "My Tickets | Create New"
 ## 8. LIVE CHAT SUPPORT (Widget Integration)
 
 ### Trigger
-- "💬 Live Chat" button floating bottom-right (similar to main CHATFLOW widget)
+- "💬 Live Chat" button floating bottom-right (similar to main QULAY CHAT widget)
 - Or "Contact Support → Live Chat" from Help Center
 
 ### Widget
-- Opens CHATFLOW chat widget
+- Opens QULAY CHAT chat widget
 - Pre-filled: User's name, email from account
-- Chat routed to: CHATFLOW Support Team workspace
+- Chat routed to: QULAY CHAT Support Team workspace
 - Operator sees: User's workspace ID, plan, recent activity
 
 **Chat window:**
-- Standard CHATFLOW widget (360×520px)
-- Header: "CHATFLOW Support" + status "Online"
+- Standard QULAY CHAT widget (360×520px)
+- Header: "QULAY CHAT Support" + status "Online"
 - Message: "Salom! Sizga qanday yordam bera olamiz?" auto-greeting
 
 ---
@@ -544,7 +544,7 @@ Tabs: "My Tickets | Create New"
 - **Webhook** (Developer): "Hodisalar yuz berganda HTTP POST so'rovi yuborish."
 
 ### Onboarding Tour
-- First login: "CHATFLOW ga xush kelibsiz! 5 daqiqada platformani o'rganing" banner top
+- First login: "QULAY CHAT ga xush kelibsiz! 5 daqiqada platformani o'rganing" banner top
 - "Start Tour" button → Step-by-step overlay
 - Steps (7):
   1. Dashboard overview
@@ -573,11 +573,11 @@ Tabs: "My Tickets | Create New"
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
-│ CHATFLOW                      [Ctrl+K Qidirish...]      🔔(3) [Avatar ▼]│
+│ QULAY CHAT                      [Ctrl+K Qidirish...]      🔔(3) [Avatar ▼]│
 ├──────────────────────────────────────────────────────────────────────────┤
 │[≡]│                                                                       │
 │   │    Yordam Markazi                                                    │
-│ S │    CHATFLOW platformasidan foydalanish bo'yicha barcha ma'lumotlar  │
+│ S │    QULAY CHAT platformasidan foydalanish bo'yicha barcha ma'lumotlar  │
 │ i │                                                                       │
 │ d │    [          🔍 Savol yoki mavzu qidiring...                    ]  │
 │ e │                                                                       │
@@ -612,7 +612,7 @@ Tabs: "My Tickets | Create New"
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
-│ CHATFLOW                                              🔔(3)  [Avatar ▼]  │
+│ QULAY CHAT                                              🔔(3)  [Avatar ▼]  │
 ├──────────────────────────────────────────────────────────────────────────┤
 │                Yordam Markazi / Chatlar / Suhbatlarni Boshqarish        │
 ├───────────────┬──────────────────────────────────────────────────────────┤
@@ -647,7 +647,7 @@ Tabs: "My Tickets | Create New"
 
 ```
 ┌──────────────────────────────────────────────────────────────────────────┐
-│ CHATFLOW                                              🔔(3)  [Avatar ▼]  │
+│ QULAY CHAT                                              🔔(3)  [Avatar ▼]  │
 ├──────────────────────────────────────────────────────────────────────────┤
 │                                                                           │
 │  [ My Tickets | Create New ]                      [+ New Ticket]         │
@@ -727,7 +727,7 @@ help-support/
 ## Figma AI Prompt
 
 ```
-Design a comprehensive Help & Support module for CHATFLOW SaaS platform with multiple screens:
+Design a comprehensive Help & Support module for QULAY CHAT SaaS platform with multiple screens:
 
 Screen 1: Help Center Home
 - Large search bar 600px center with icon

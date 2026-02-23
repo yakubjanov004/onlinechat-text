@@ -1,4 +1,4 @@
-﻿# CHATFLOW — Inbox Advanced: Info Sidebar, Quick Actions, Modals
+﻿# QULAY CHAT — Inbox Advanced: Info Sidebar, Quick Actions, Modals
 
 ## Umumiy yondashuv
 Inbox'ning o'ng tomoni (Info Sidebar) va tezkor amallar chat agent'ga mijoz kontekstini bir joyda beradi — kim bu odam, qanday tarix bor, qanday teglar, shaxsiy eslatmalar, va hozirgi web sahifada nima qilayapti. Quick Actions esa chatni boshqarish uchun asosiy tugmalar — transfer, resolve, tag, star, note. Bu bo'lim 11-inbox-chat.md'dagi asosiy chat oynasining to'ldiruvchi qismidir.

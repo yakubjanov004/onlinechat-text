@@ -208,7 +208,7 @@ Modal transitions to success state when processing completes (all 4 steps ✅).
 
 - File icon: DocumentArrowDown 32px #059669 (green-600) left
 - Right side content:
-  - File name: "chatflow-data-export-2026-02-11.json" — 15px Semibold #065F46 (green-900)
+  - File name: "qulay-chat-data-export-2026-02-11.json" — 15px Semibold #065F46 (green-900)
   - File size: "2.47 MB" — 13px Regular #059669, 4px top gap
   - Expiry warning: "Havola 7 kun ichida amal qiladi" — 13px Medium #92400E (yellow-900), Clock icon 16px left, #FFFBEB bg inline padding 4px/8px, 24px radius, 8px top gap
 - Download button: "Yuklab olish" — 160×44px, #10B981 bg, #FFFFFF text 14px Semibold, hover #059669, Download icon 18px left, absolute right 16px
@@ -447,7 +447,7 @@ Modal appears after successful deletion (immediately or after processing).
 - Icon: CheckCircle 64px #10B981 center, fade-in + scale animation 0.8→1.2→1, 400ms
 - Title: "Hisobingiz o'chirildi" — 24px Semibold #111827 center, 20px top gap
 - Description: "Barcha ma'lumotlaringiz tizimdan o'chirildi. Bizdan foydalanganingiz uchun rahmat." — 15px Regular #6B7280 center, max-width 400px, 12px top gap
-- Farewell message: "ChatFlow jamoasi sizga omad tiilaydi! 👋" — 14px Regular #9CA3AF center, 16px top gap
+- Farewell message: "Qulay Chat jamoasi sizga omad tiilaydi! 👋" — 14px Regular #9CA3AF center, 16px top gap
 - Redirect notice: "5 soniyadan keyin bosh sahifaga yo'naltirilasiz..." — 13px Medium #4F46E5 center, 20px top gap
   - Countdown: "5" → "4" → ... → "1" — updates every second
 
@@ -861,7 +861,7 @@ Timeline vertical, gap 12px, each step:
 Card 672px width (720-48px), 16px padding, #F0FDF4 bg (green-50), 8px radius, 1px #86EFAC border.
 
 - File icon: DocumentArrowDown 32px #059669 left
-- File name: "chatflow-data-export-2026-02-10-req1024.json" — 15px Semibold #065F46, 40px left margin
+- File name: "qulay-chat-data-export-2026-02-10-req1024.json" — 15px Semibold #065F46, 40px left margin
 - File size + expiry: "2.47 MB • Amal qilish: 6 kun 14 soat" — 13px Medium #059669, 4px top gap, 40px left margin
 - Download button: "Yuklab olish" — 140×40px, #10B981 bg, #FFFFFF text 14px Semibold, hover #059669, Download icon 18px left, absolute right 16px top 50%
 
@@ -1669,7 +1669,7 @@ gdpr-data-deletion/
    - Email confirmation box: "Yuklab olish havolasi emailingizga ham yuborildi"
 9. User clicks "Yuklab olish" button (140×44px green)
    - Opens signed URL in new tab: `/api/gdpr/data-export/{requestId}/download?token=...`
-   - Browser downloads file: `chatflow-data-export-2026-02-11.json`
+   - Browser downloads file: `qulay-chat-data-export-2026-02-11.json`
 10. User clicks "Yopish" button
     - Modal closes with scale 1→0.95, opacity 1→0, 150ms
 11. **End:** User has data export file, modal closed
@@ -1754,7 +1754,7 @@ gdpr-data-deletion/
       - ✓ CheckCircle 64px green, bounce animation
       - "Hisobingiz o'chirildi"
       - "Barcha ma'lumotlaringiz tizimdan o'chirildi..."
-      - "ChatFlow jamoasi sizga omad tilaydi! 👋"
+      - "Qulay Chat jamoasi sizga omad tilaydi! 👋"
       - Countdown: "5 soniyadan keyin bosh sahifaga yo'naltirilasiz..." → "5" → "4" → ...
 15. After 5 seconds:
     - Frontend: Clears localStorage, sessionStorage, cookies
@@ -2067,7 +2067,7 @@ gdpr-data-deletion/
 
 ## FIGMA AI PROMPT (COMPREHENSIVE)
 
-"Create a comprehensive GDPR and Data Deletion module for CHATFLOW SaaS platform with 5 screens, 8 modals, and a cookie banner. Use a clean, professional design language with primary color #4F46E5 (indigo), danger #DC2626 (red), success #10B981 (green), and warning #F59E0B (amber).
+"Create a comprehensive GDPR and Data Deletion module for QULAY CHAT SaaS platform with 5 screens, 8 modals, and a cookie banner. Use a clean, professional design language with primary color #4F46E5 (indigo), danger #DC2626 (red), success #10B981 (green), and warning #F59E0B (amber).
 
 **SCREEN 1: Data Export (SCR-GDPR01)**
 720px centered container. Page header: title 'Ma'lumotlarimni yuklab olish' 32px Bold #111827, description 15px Regular #6B7280 max-width 640px. Info card: 720×auto, #EEF2FF bg, 8px radius, 1px #C7D2FE border, 16px padding, InfoCircle 24px #4F46E5 left, title 16px Semibold #1E1B4B, bullet list 12 items 14px Regular #312E81. Format selector: 2 radio cards 352×140px grid gap 16px, Card 1 JSON selected 2px #4F46E5 border, CodeBracket 40px top-left, CheckCircle 24px green top-right, title 'JSON' 18px Semibold, description 14px #6B7280, badge 'Tavsiya etiladi' #ECFDF5 bg bottom-right, file size '~2.5 MB' bottom-left 13px #9CA3AF. Card 2 PDF unselected 2px #E5E7EB border, DocumentText 40px #6B7280, hover shadow-md. Date range filter: checkbox + collapsible date picker 2 inputs 200px each with calendar icon. Processing info card: 16px padding #FFFBEB bg Clock 20px #F59E0B. Export button: 240×52px #4F46E5 bg, Download icon 20px left, 'Ma'lumotlarni yuklab olish' 15px Semibold white, hover #4338CA shadow-md, loading state spinner.

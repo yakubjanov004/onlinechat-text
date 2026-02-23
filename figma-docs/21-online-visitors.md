@@ -1,4 +1,4 @@
-# CHATFLOW — Online Visitors (Onlayn Tashrif Buyuruvchilar)
+# QULAY CHAT — Online Visitors (Onlayn Tashrif Buyuruvchilar)
 
 ## Modul maqsadi
 Online Visitors moduli — saytga hozir tashrif buyurayotgan real vaqtdagi foydalanuvchilarni kuzatish, ularning harakatlarini monitoring qilish va proaktiv chat boshlash imkoniyatini beradi. Bu orqali agentlar mijozlarga eng to'g'ri vaqtda yordam taklif qiladi.
@@ -55,7 +55,7 @@ Dashboard Shell + Main Content Area (full-width, 24px padding)
 │                jahongir@example.com  │
 │                💻 Desktop · Chrome   │
 │                                      │
-│ 📄 Narxlar — CHATFLOW                │  ← Current page
+│ 📄 Narxlar — QULAY CHAT                │  ← Current page
 │    /pricing                          │
 │    3 sahifa ko'rdi                   │
 │                                      │
@@ -85,7 +85,7 @@ Dashboard Shell + Main Content Area (full-width, 24px padding)
 - Device: 💻 Desktop / 📱 Mobile / 📲 Tablet icon 14px + Browser: Chrome icon + "Chrome 120" 13px Gray-500
 
 **Current Activity:**
-- Page title: "Narxlar — CHATFLOW" 14px Medium Primary-600, truncated with ellipsis
+- Page title: "Narxlar — QULAY CHAT" 14px Medium Primary-600, truncated with ellipsis
 - Page URL: "/pricing" 13px Gray-500, monospace font
 - Page views: "3 sahifa ko'rdi" 12px Gray-500
 
@@ -161,7 +161,7 @@ Right Panel (800px width), slides from right
 **Each Page Entry:**
 ```
 ┌─────────────────────────────────┐
-│ 📄 Narxlar — CHATFLOW          │
+│ 📄 Narxlar — QULAY CHAT          │
 │    /pricing                    │
 │    ⏱ 2m 15s · 🕐 14:32        │
 │    [Thumbnail 120×80px]        │ (optional)
@@ -480,7 +480,7 @@ Dashboard Shell + Main Content (Full Width, no sidebar padding)
       },
       "current_page": {
         "url": "/pricing",
-        "title": "Narxlar — CHATFLOW",
+        "title": "Narxlar — QULAY CHAT",
         "timestamp": "2026-02-11T14:35:00Z",
         "time_on_page_seconds": 135
       },
@@ -530,7 +530,7 @@ Dashboard Shell + Main Content (Full Width, no sidebar padding)
   "page_views": [
     {
       "url": "/pricing",
-      "title": "Narxlar — CHATFLOW",
+      "title": "Narxlar — QULAY CHAT",
       "timestamp": "2026-02-11T14:35:00Z",
       "duration_seconds": 135,
       "interactions": 3,
@@ -667,7 +667,7 @@ Dashboard Shell + Main Content (Full Width, no sidebar padding)
     "visitor_id": "vis_abc123",
     "from_url": "/features",
     "to_url": "/pricing",
-    "page_title": "Narxlar — CHATFLOW",
+    "page_title": "Narxlar — QULAY CHAT",
     "timestamp": "2026-02-11T14:35:00Z"
   }
 }

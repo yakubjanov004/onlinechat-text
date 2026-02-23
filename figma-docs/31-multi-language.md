@@ -1,15 +1,15 @@
-# CHATFLOW — Multi-Language Support (Ko'p Tillilik)
+# QULAY CHAT — Multi-Language Support (Ko'p Tillilik)
 
 **Module ID:** Settings → Language  
 **Yaratilgan:** 2026-02-11  
 **Kirish:** All roles (Admin, Manager, Operator)  
-**Maqsad:** CHATFLOW platformasini har xil tillarda foydalanish, interface va widget tilini sozlash
+**Maqsad:** QULAY CHAT platformasini har xil tillarda foydalanish, interface va widget tilini sozlash
 
 ---
 
 ## Umumiy Yondashuv
 
-Multi-Language Support — CHATFLOW'ni global miqyosda foydalanish uchun zarur funksiya. Foydalanuvchilar o'z interface tilini tanlashlari mumkin, shuningdek chat widget uchun har xil tillarni sozlash mumkin. Bu modul faqat UI tilini o'zgartirish emas, balki to'liq i18n (internationalization) va l10n (localization) tizimini o'z ichiga oladi.
+Multi-Language Support — QULAY CHAT'ni global miqyosda foydalanish uchun zarur funksiya. Foydalanuvchilar o'z interface tilini tanlashlari mumkin, shuningdek chat widget uchun har xil tillarni sozlash mumkin. Bu modul faqat UI tilini o'zgartirish emas, balki to'liq i18n (internationalization) va l10n (localization) tizimini o'z ichiga oladi.
 
 **Key Features:**
 - 🌍 10+ til qo'llab-quvvatlash
@@ -631,7 +631,7 @@ formatCurrency(99.99, 'UZS', 'uz');  // "99,99 soʻm" (if supported)
 - Button: "Export Translations" outline
 - Format: JSON or CSV
 - Options: All languages or specific language
-- Download: `chatflow-translations-uz-2026-02-11.json`
+- Download: `qulay-chat-translations-uz-2026-02-11.json`
 
 **Import:**
 - Button: "Import Translations" outline
@@ -654,7 +654,7 @@ function detectLanguage() {
   if (userLang) return userLang;
   
   // 2. Check localStorage (previous selection)
-  const storedLang = localStorage.getItem('chatflow_language');
+  const storedLang = localStorage.getItem('qulaychat_language');
   if (storedLang) return storedLang;
   
   // 3. Check browser language
@@ -712,7 +712,7 @@ function LanguageSelector() {
     document.documentElement.setAttribute('dir', isRTL(lang) ? 'rtl' : 'ltr');
     
     // 3. Save to localStorage
-    localStorage.setItem('chatflow_language', lang);
+    localStorage.setItem('qulaychat_language', lang);
     
     // 4. Save to backend (async)
     await fetch('/api/users/settings', {
@@ -750,14 +750,14 @@ function LanguageSelector() {
 ```javascript
 // Widget embed code
 <script>
-  window.ChatflowConfig = {
+  window.Qulay chatConfig = {
     workspaceId: 'ws_abc123',
     language: 'uz', // or 'auto' for detection
     multiLanguage: true, // Enable language switcher in widget
     availableLanguages: ['uz', 'ru', 'en']
   };
 </script>
-<script src="https://cdn.chatflow.uz/widget.js"></script>
+<script src="https://cdn.qulaychat.uz/widget.js"></script>
 ```
 
 ### Widget Language Detection
@@ -765,7 +765,7 @@ function LanguageSelector() {
 ```javascript
 // In widget.js
 function detectWidgetLanguage() {
-  const config = window.ChatflowConfig;
+  const config = window.Qulay chatConfig;
   
   // 1. Check explicit config
   if (config.language && config.language !== 'auto') {
@@ -788,7 +788,7 @@ function detectWidgetLanguage() {
 
 ```html
 <!-- Widget with language switcher -->
-<div class="chatflow-widget">
+<div class="qulay-chat-widget">
   <div class="widget-header">
     <span class="agent-name">Operator</span>
     <div class="language-switcher">

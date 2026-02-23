@@ -1,4 +1,4 @@
-# CHATFLOW — Onboarding: Welcome Screen + Workspace Setup
+# QULAY CHAT — Onboarding: Welcome Screen + Workspace Setup
 
 ## Umumiy yondashuv
 Onboarding jarayoni foydalanuvchini 5-10 daqiqada platformani to'liq ishlatishga tayyorlaydi. Bu jarayon 5 ta qadamdan iborat: Welcome, Workspace Setup, Widget Customization, Widget Installation, Test Message. Har bir qadamda progress indicator doim yuqorida ko'rinib turadi. Maqsad — foydalanuvchi hech qachon "men qayerdaman?" deb o'ylamasligi.
@@ -785,7 +785,7 @@ interface OnboardingContext {
 
 #### LocalStorage Backup
 
-**Key:** `chatflow_onboarding_progress`
+**Key:** `qulaychat_onboarding_progress`
 **Value:** JSON object (progress state)
 **Purpose:** Saqlanadi agar backend request fail bo'lsa, keyingi sync uchun
 
@@ -875,7 +875,7 @@ interface OnboardingContext {
 ## Figma AI uchun prompt
 
 ```
-Create two onboarding step screens for a SaaS platform called CHATFLOW.
+Create two onboarding step screens for a SaaS platform called QULAY CHAT.
 Both screens share a light gray (#F9FAFB) page background and a centered white card
 (600px wide, 12px radius, medium shadow). Above the card is a horizontal progress
 indicator showing 4 dots connected by lines — first dot is active (filled, #4F46E5),
