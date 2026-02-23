@@ -1490,20 +1490,36 @@ small {
 }
 
 .code-block-wrap {
-    display: grid;
-    gap: 8px
+    position: relative;
+    margin-bottom: 8px;
+}
+
+.code-block-wrap .btn-ghost {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(4px);
+}
+
+.code-block-wrap .btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.15);
 }
 
 .code-block {
     margin: 0;
-    background: var(--gray-900);
-    color: var(--gray-100);
-    border-radius: 12px;
-    border: 1px solid #111827;
-    padding: 14px;
+    background: #0f172a;
+    color: #e2e8f0;
+    border-radius: 14px;
+    border: 1px solid #1e293b;
+    padding: 24px;
     overflow: auto;
-    line-height: 1.45;
-    font-size: 12px
+    line-height: 1.6;
+    font-size: 14px;
+    box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
 .dropzone {
@@ -2721,8 +2737,10 @@ small {
     justify-content: center
 }
 
-.settings-shell {
-    max-width: 1000px
+.settings-shell .app-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 100%;
 }
 
 .settings-card {
