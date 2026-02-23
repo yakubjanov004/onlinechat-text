@@ -11,9 +11,10 @@
 <script src="https://unpkg.com/lucide@latest" defer></script>
 <script src="../assets/qulay-chat-shell.js" defer></script>
 <script src="../assets/qulay-chat-runtime.js" defer></script>
+<script src="../assets/automation-greetings.js" defer></script>
 </head>
 <body data-active-nav="automation" class="dashboard-shell-page">
-<main class="app-content">
+<main class="app-content" data-automation-greetings>
 <div class="subnav-scroll">
 <div class="subnav-tabs">
 <a class="subnav-tab " href="./01-working-hours.html">Working Hours</a><a class="subnav-tab " href="./02-auto-reply.html">Auto Reply</a><a class="subnav-tab " href="./03-triggers.html">Triggers</a><a class="subnav-tab active" href="./04-greetings.html">Greetings</a>
@@ -24,8 +25,8 @@
 <h1>Greetings</h1>
 <p class="text-muted">Automation qoidalari va schedule konfiguratsiyasi</p>
 </div>
-<div class="page-header-actions"><button type="button" class="btn btn-primary" data-action="save">Saqlash</button>
-<button type="button" class="btn btn-secondary" data-action="reset-form">Reset</button></div>
+<div class="page-header-actions"><button type="button" class="btn btn-primary" data-greeting-action="save">Saqlash</button>
+<button type="button" class="btn btn-secondary" data-greeting-action="preview-random">Preview test</button></div>
 </div>
 <section class="card">
 <div class="card-header">
@@ -133,6 +134,10 @@
 </div>
 </div>
 </div>
+</section>
+<section class="card">
+<div class="card-header"><div><h3>Greeting preview</h3><p class="card-description">Active greetinglardan random preview</p></div><div class="card-actions"><button type="button" class="btn btn-primary" data-greeting-action="preview-random">Generate</button></div></div>
+<div class="card-body"><div class="widget-msg" data-greeting-preview>Salom! Sizga qanday yordam bera olamiz?</div></div>
 </section>
 <div class="modal-overlay" data-modal="new-greeting" hidden>
 <div class="modal" role="dialog" aria-modal="true" aria-labelledby="new-greeting-title">

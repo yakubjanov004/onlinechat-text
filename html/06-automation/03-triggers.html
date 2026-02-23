@@ -11,9 +11,10 @@
 <script src="https://unpkg.com/lucide@latest" defer></script>
 <script src="../assets/qulay-chat-shell.js" defer></script>
 <script src="../assets/qulay-chat-runtime.js" defer></script>
+<script src="../assets/automation-triggers.js" defer></script>
 </head>
 <body data-active-nav="automation" class="dashboard-shell-page">
-<main class="app-content">
+<main class="app-content" data-automation-triggers>
 <div class="subnav-scroll">
 <div class="subnav-tabs">
 <a class="subnav-tab " href="./01-working-hours.html">Working Hours</a><a class="subnav-tab " href="./02-auto-reply.html">Auto Reply</a><a class="subnav-tab active" href="./03-triggers.html">Triggers</a><a class="subnav-tab " href="./04-greetings.html">Greetings</a>
@@ -32,7 +33,7 @@
 <div>
 <h3>Trigger ro&#39;yxati</h3>
 </div>
-<div class="card-actions"><button type="button" class="btn btn-primary" data-modal-open="new-trigger">Yangi trigger</button></div>
+<div class="card-actions"><button type="button" class="btn btn-secondary" data-trigger-action="simulate">Simulate</button><button type="button" class="btn btn-primary" data-trigger-action="add-row">Yangi trigger</button></div>
 </div>
 <div class="card-body">
 <div class="table-wrap">
@@ -47,6 +48,13 @@
 </tbody>
 </table>
 </div>
+</div>
+</section>
+<section class="card">
+<div class="card-header"><div><h3>Trigger test-lab</h3><p class="card-description">Keyword bo'yicha qaysi trigger ishlashini tekshirish</p></div><div class="card-actions"><button type="button" class="btn btn-primary" data-trigger-action="simulate">Test run</button><button type="button" class="btn btn-secondary" data-trigger-action="clear-log">Log tozalash</button><button type="button" class="btn btn-secondary" data-trigger-action="save">Saqlash</button></div></div>
+<div class="card-body">
+<div class="form-grid"><label class="form-field"><span class="form-label">Test keyword</span><input class="input" type="text" value="vip" data-trigger-test="keyword"></label></div>
+<div class="table-wrap" style="margin-top:12px"><table class="table"><thead><tr class="table-header"><th>Vaqt</th><th>Rule</th><th>Natija</th><th>Status</th></tr></thead><tbody data-trigger-log-body></tbody></table></div>
 </div>
 </section>
 <div class="modal-overlay" data-modal="new-trigger" hidden>
