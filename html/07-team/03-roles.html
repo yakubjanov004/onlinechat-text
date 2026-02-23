@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="uz">
 <head>
 <meta charset="UTF-8">
@@ -11,9 +11,10 @@
 <script src="https://unpkg.com/lucide@latest" defer></script>
 <script src="../assets/qulay-chat-shell.js" defer></script>
 <script src="../assets/qulay-chat-runtime.js" defer></script>
+<script src="../assets/team-management.js" defer></script>
 </head>
 <body data-active-nav="team" class="dashboard-shell-page">
-<main class="app-content">
+<main class="app-content" data-team-page="roles">
 <div class="subnav-scroll">
 <div class="subnav-tabs">
 <a class="subnav-tab " href="./01-agents.html">Agents</a><a class="subnav-tab " href="./02-agent-profile.html">Agent Profile</a><a class="subnav-tab active" href="./03-roles.html">Roles</a><a class="subnav-tab " href="./04-invitations.html">Invitations</a>
@@ -24,39 +25,33 @@
 <h1>Roles</h1>
 <p class="text-muted">Jamoa, rollar va takliflarni boshqarish</p>
 </div>
-<div class="page-header-actions"><button type="button" class="btn btn-secondary" data-action="save">Saqlash</button></div>
+<div class="page-header-actions"><button type="button" class="btn btn-secondary" data-team-action="save-roles">Saqlash</button></div>
 </div><div class="three-col">
-<div class="card">
-<div class="card-header">
-<div><h3>Admin</h3><p class="card-description">To'liq boshqaruv</p></div>
+<div class="card" data-role-card="Admin">`r`n<div class="card-header">`r`n<div><h3>Admin</h3><p class="card-description">To'liq boshqaruv</p></div>
 <span class="badge badge-primary">Admin</span>
 </div>
 <div class="card-body">
 <div class="list-stack"><label class="checkbox"><input type="checkbox" checked>Inbox access</label><label class="checkbox"><input type="checkbox" checked>Team management</label><label class="checkbox"><input type="checkbox" checked>Analytics</label><label class="checkbox"><input type="checkbox" checked>Settings</label><label class="checkbox"><input type="checkbox" checked>Billing</label><label class="checkbox"><input type="checkbox" checked>Automation</label></div>
 <div class="divider"></div>
-<button type="button" class="btn btn-primary" data-action="save">Saqlash</button>
+<button type="button" class="btn btn-primary" data-team-action="save-roles">Saqlash</button>
 </div>
 </div>
-<div class="card">
-<div class="card-header">
-<div><h3>Manager</h3><p class="card-description">Team va analytics nazorati</p></div>
+<div class="card" data-role-card="Manager">`r`n<div class="card-header">`r`n<div><h3>Manager</h3><p class="card-description">Team va analytics nazorati</p></div>
 <span class="badge badge-info">Manager</span>
 </div>
 <div class="card-body">
 <div class="list-stack"><label class="checkbox"><input type="checkbox" checked>Inbox access</label><label class="checkbox"><input type="checkbox" checked>Team management</label><label class="checkbox"><input type="checkbox" checked>Analytics</label><label class="checkbox"><input type="checkbox" >Settings</label><label class="checkbox"><input type="checkbox" >Billing</label><label class="checkbox"><input type="checkbox" checked>Automation</label></div>
 <div class="divider"></div>
-<button type="button" class="btn btn-primary" data-action="save">Saqlash</button>
+<button type="button" class="btn btn-primary" data-team-action="save-roles">Saqlash</button>
 </div>
 </div>
-<div class="card">
-<div class="card-header">
-<div><h3>Operator</h3><p class="card-description">Operatsion ishlash uchun minimum ruxsatlar</p></div>
+<div class="card" data-role-card="Operator">`r`n<div class="card-header">`r`n<div><h3>Operator</h3><p class="card-description">Operatsion ishlash uchun minimum ruxsatlar</p></div>
 <span class="badge">Operator</span>
 </div>
 <div class="card-body">
 <div class="list-stack"><label class="checkbox"><input type="checkbox" checked>Inbox access</label><label class="checkbox"><input type="checkbox" >Team management</label><label class="checkbox"><input type="checkbox" checked>Analytics</label><label class="checkbox"><input type="checkbox" >Settings</label><label class="checkbox"><input type="checkbox" >Billing</label><label class="checkbox"><input type="checkbox" >Automation</label></div>
 <div class="divider"></div>
-<button type="button" class="btn btn-primary" data-action="save">Saqlash</button>
+<button type="button" class="btn btn-primary" data-team-action="save-roles">Saqlash</button>
 </div>
 </div>
 </div>
