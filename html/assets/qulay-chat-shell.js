@@ -1,30 +1,52 @@
 (function () {
   "use strict";
-  var NAV_SECTIONS = [
-    { label: "Asosiy", items: [
-      { key: "dashboard", label: "Dashboard", icon: "layout-dashboard", href: "../04-dashboard/01-dashboard.html" },
-      { key: "inbox", label: "Inbox", icon: "inbox", href: "../05-inbox/01-inbox-chat.html", badge: "12", badgeClass: "badge-danger" },
-      { key: "contacts", label: "Kontaktlar", icon: "users", href: "../12-contacts/01-contacts-list.html" },
-      { key: "visitors", label: "Online Visitors", icon: "eye", href: "../13-visitors/01-visitors-list.html", badge: "5", badgeClass: "badge-success" }
-    ]},
-    { label: "Vositalar", items: [
-      { key: "automation", label: "Automation", icon: "zap", href: "../06-automation/01-working-hours.html" },
-      { key: "team", label: "Team", icon: "user-round", href: "../07-team/01-agents.html" },
-      { key: "team-chat", label: "Team Chat", icon: "message-square", href: "../14-team-chat/01-team-chat.html", badge: "3", badgeClass: "badge-primary" },
-      { key: "analytics", label: "Analytics", icon: "bar-chart-3", href: "../08-analytics/01-overview.html" },
-      { key: "knowledge-base", label: "Knowledge Base", icon: "book-open", href: "../15-knowledge-base/01-kb-dashboard.html" }
-    ]},
-    { label: "Sozlamalar", items: [
-      { key: "settings", label: "Settings", icon: "settings", href: "../09-settings/01-workspace.html" },
-      { key: "billing", label: "Billing", icon: "credit-card", href: "../10-billing/01-plan.html" },
-      { key: "addons", label: "Add-ons", icon: "puzzle", href: "../16-addons/01-addons-catalog.html" },
-      { key: "developer", label: "Developer", icon: "code", href: "../17-developer/01-api-keys.html" }
-    ]},
-    { label: "Yordam", items: [
-      { key: "docs", label: "Docs", icon: "file-text", href: "../index.html#docs" },
-      { key: "support", label: "Support", icon: "help-circle", href: "../index.html#support" }
-    ]}
-  ];
+  var NAV_SECTIONS_BY_ROLE = {
+    admin: [
+      { label: "Asosiy", items: [
+        { key: "dashboard", label: "Dashboard", icon: "layout-dashboard", href: "../04-dashboard/01-dashboard.html" },
+        { key: "inbox", label: "Inbox", icon: "inbox", href: "../05-inbox/01-inbox-chat.html", badge: "12", badgeClass: "badge-danger" },
+        { key: "contacts", label: "Kontaktlar", icon: "users", href: "../12-contacts/01-contacts-list.html" },
+        { key: "visitors", label: "Online Visitors", icon: "eye", href: "../13-visitors/01-visitors-list.html", badge: "5", badgeClass: "badge-success" }
+      ]},
+      { label: "Vositalar", items: [
+        { key: "automation", label: "Automation", icon: "zap", href: "../06-automation/01-working-hours.html" },
+        { key: "team", label: "Team", icon: "user-round", href: "../07-team/01-agents.html" },
+        { key: "team-chat", label: "Team Chat", icon: "message-square", href: "../14-team-chat/01-team-chat.html", badge: "3", badgeClass: "badge-primary" },
+        { key: "analytics", label: "Analytics", icon: "bar-chart-3", href: "../08-analytics/01-overview.html" },
+        { key: "knowledge-base", label: "Knowledge Base", icon: "book-open", href: "../15-knowledge-base/01-kb-dashboard.html" }
+      ]},
+      { label: "Sozlamalar", items: [
+        { key: "settings", label: "Settings", icon: "settings", href: "../09-settings/01-workspace.html" },
+        { key: "billing", label: "Billing", icon: "credit-card", href: "../10-billing/01-plan.html" },
+        { key: "addons", label: "Add-ons", icon: "puzzle", href: "../16-addons/01-addons-catalog.html" },
+        { key: "developer", label: "Developer", icon: "code", href: "../17-developer/01-api-keys.html" }
+      ]},
+      { label: "Yordam", items: [
+        { key: "docs", label: "Docs", icon: "file-text", href: "../index.html#docs" },
+        { key: "support", label: "Support", icon: "help-circle", href: "../index.html#support" }
+      ]}
+    ],
+    agent: [
+      { label: "Asosiy", items: [
+        { key: "dashboard", label: "Dashboard", icon: "layout-dashboard", href: "../04-dashboard/02-dashboard-agent.html" },
+        { key: "inbox", label: "Inbox", icon: "inbox", href: "../05-inbox/01-inbox-chat.html", badge: "4", badgeClass: "badge-danger" },
+        { key: "contacts", label: "Kontaktlar", icon: "users", href: "../12-contacts/01-contacts-list.html" }
+      ]},
+      { label: "Ish", items: [
+        { key: "team-chat", label: "Team Chat", icon: "message-square", href: "../14-team-chat/01-team-chat.html", badge: "2", badgeClass: "badge-primary" },
+        { key: "knowledge-base", label: "Knowledge Base", icon: "book-open", href: "../15-knowledge-base/01-kb-dashboard.html" },
+        { key: "analytics", label: "My Stats", icon: "bar-chart-3", href: "../08-analytics/11-my-stats.html" }
+      ]},
+      { label: "Hisob", items: [
+        { key: "settings", label: "Profil va sozlamalar", icon: "settings", href: "../09-settings/05-profile.html" },
+        { key: "support", label: "Yordam", icon: "help-circle", href: "../index.html#support" }
+      ]}
+    ]
+  };
+
+  function getNavSections(role) {
+    return NAV_SECTIONS_BY_ROLE[role] || NAV_SECTIONS_BY_ROLE.admin;
+  }
 
   function el(tag, cls, html) {
     var n = document.createElement(tag);
@@ -33,9 +55,9 @@
     return n;
   }
 
-  function buildSidebar(active) {
+  function buildSidebar(active, role) {
     var aside = el("aside", "app-sidebar");
-    NAV_SECTIONS.forEach(function (section) {
+    getNavSections(role).forEach(function (section) {
       aside.appendChild(el("div", "nav-section-label", section.label));
       section.items.forEach(function (item) {
         var a = el("a", "nav-link" + (item.key === active ? " active" : ""));
@@ -111,9 +133,10 @@
     var shell = el("div", "app-shell");
     var layout = el("div", "app-layout");
     var appMain = el("div", "app-main");
+    var shellRole = (body.getAttribute("data-shell-role") || "admin").trim().toLowerCase();
     main.id = main.id || "main-content";
     appMain.appendChild(main);
-    layout.appendChild(buildSidebar((body.getAttribute("data-active-nav") || "").trim()));
+    layout.appendChild(buildSidebar((body.getAttribute("data-active-nav") || "").trim(), shellRole));
     layout.appendChild(appMain);
     shell.appendChild(buildHeader());
     shell.appendChild(layout);
