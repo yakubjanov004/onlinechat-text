@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHATFLOW - Widget Settings</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/chatflow-design-system.css">
+<script src="https://unpkg.com/lucide@latest" defer></script>
+<script src="../assets/chatflow-shell.js" defer></script>
+<script src="../assets/chatflow-runtime.js" defer></script>
+</head>
+<body data-active-nav="settings" class="dashboard-shell-page settings-shell">
+<main class="app-content">
+<div class="subnav-scroll">
+<div class="subnav-tabs">
+<a class="subnav-tab " href="./01-workspace.html">Workspace Settings</a><a class="subnav-tab active" href="./02-widget-settings.html">Widget Settings</a><a class="subnav-tab " href="./03-security.html">Security</a><a class="subnav-tab " href="./04-notifications.html">Notifications</a><a class="subnav-tab " href="./05-profile.html">Profile</a><a class="subnav-tab " href="./06-privacy-export.html">Privacy Export</a><a class="subnav-tab " href="./07-privacy-delete.html">Privacy Delete</a><a class="subnav-tab " href="./08-privacy-settings.html">Privacy Settings</a>
+</div>
+</div>
+<div class="page-header">
+<div>
+<h1>Sozlamalar</h1>
+<p class="text-muted">Workspace, widget, security va privacy boshqaruvi</p>
+</div>
+</div><section class="settings-card"><div class="settings-tabs"><a href="./01-workspace.html" class="">Workspace</a><a href="./02-widget-settings.html" class="active">Widget</a><a href="./03-security.html" class="">Security</a><a href="./04-notifications.html" class="">Notifications</a><a href="./05-profile.html" class="">Profile</a><a href="./06-privacy-export.html" class="">Privacy</a></div><div class="settings-body"><section class="settings-section"><h3>Widget Preview</h3><p class="section-desc">Color, position va welcome message</p><div class="two-col"><div><div class="form-grid one"><div class="form-field"><span class="form-label">Asosiy rang</span><div class="preset-colors"><span class="color-swatch active" style="background:#4F46E5"></span><span class="color-swatch" style="background:#2563EB"></span><span class="color-swatch" style="background:#059669"></span><span class="color-swatch" style="background:#DC2626"></span></div></div><label class="form-field">
+<span class="form-label">Position</span>
+<select class="select"><option selected>Bottom right</option><option >Bottom left</option><option >Right center</option></select>
+</label><label class="form-field">
+<span class="form-label">Welcome xabar</span>
+<textarea class="textarea" rows="3" placeholder="">Salom! Sizga qanday yordam bera olamiz?</textarea>
+</label><label class="form-field">
+<span class="form-label">Offline xabar</span>
+<textarea class="textarea" rows="3" placeholder="">Hozir operator mavjud emas. Xabar qoldiring.</textarea>
+</label></div><div class="code-block-wrap">
+<button class="btn btn-ghost btn-sm" type="button" data-action="copy" data-target="#widget-settings-code"><i data-lucide="copy"></i> Nusxalash</button>
+<pre class="code-block" id="widget-settings-code"><code>&lt;script src=&quot;https://cdn.chatflow.uz/widget.js&quot; data-id=&quot;cf_demo_01&quot;&gt;&lt;/script&gt;</code></pre>
+</div></div><div><div class="widget-window"><div class="widget-window-header"><div><strong>CHATFLOW</strong><div class="mini">Online вЂў Javob 2m ichida</div></div><div class="flex gap-1"><button class="icon-btn" type="button" data-action="log"><i data-lucide="minus"></i></button><button class="icon-btn" type="button" data-action="log"><i data-lucide="x"></i></button></div></div><div class="widget-window-body"><div class="widget-msg">Salom! Sizga qanday yordam bera olamiz?</div><div class="widget-msg agent">Assalomu alaykum, narxlar yoki status bo'yicha yordam bera olaman.</div><div class="widget-msg">Rahmat, tariflar haqida yozing.</div><div class="widget-msg center"><span class="typing-dots"><span></span><span></span><span></span></span> Agent yozmoqda...</div></div><div class="widget-window-footer"><button class="icon-btn" type="button" data-action="log"><i data-lucide="paperclip"></i></button><textarea class="textarea" rows="1" placeholder="Xabar yozing..."></textarea><button class="btn btn-primary btn-sm" type="button" data-action="log"><i data-lucide="send"></i></button></div></div></div></div></section></div><div class="sticky-save-bar"><button type="button" class="btn btn-secondary" data-action="reset-form">Bekor qilish</button>
+<button type="button" class="btn btn-primary" data-action="save">Saqlash</button></div></section>
+</main>
+<script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
+</body>
+</html>

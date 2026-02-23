@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHATFLOW - Agent Profile</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/chatflow-design-system.css">
+<script src="https://unpkg.com/lucide@latest" defer></script>
+<script src="../assets/chatflow-shell.js" defer></script>
+<script src="../assets/chatflow-runtime.js" defer></script>
+</head>
+<body data-active-nav="team" class="dashboard-shell-page">
+<main class="app-content">
+<div class="subnav-scroll">
+<div class="subnav-tabs">
+<a class="subnav-tab " href="./01-agents.html">Agents</a><a class="subnav-tab active" href="./02-agent-profile.html">Agent Profile</a><a class="subnav-tab " href="./03-roles.html">Roles</a><a class="subnav-tab " href="./04-invitations.html">Invitations</a>
+</div>
+</div>
+<div class="page-header">
+<div>
+<h1>Agent Profile</h1>
+<p class="text-muted">Jamoa, rollar va takliflarni boshqarish</p>
+</div>
+<div class="page-header-actions"><button type="button" class="btn btn-secondary" data-action="save">Saqlash</button></div>
+</div><div class="split-grid">
+<section class="card">
+<div class="card-header">
+<div>
+<h3>Agent profili</h3>
+</div>
+</div>
+<div class="card-body">
+<div class="flex gap-4 items-center"><span class="avatar avatar-xl">SA</span><div><h3>Sardor A.</h3><p class="text-muted">Senior Support Admin</p><div class="flex gap-2 mt-2"><span class="badge badge-primary">Admin</span><span class="badge badge-success">Online</span></div></div></div><div class="divider"></div><div class="kv-list">
+<div class="kv-row"><span>Email</span><strong>sardor@chatflow.uz</strong></div><div class="kv-row"><span>Phone</span><strong>+998 90 123 45 67</strong></div><div class="kv-row"><span>Shift</span><strong>09:00 - 18:00</strong></div><div class="kv-row"><span>Language</span><strong>UZ / EN / RU</strong></div>
+</div>
+</div>
+</section>
+<section class="card">
+<div class="card-header">
+<div>
+<h3>Statistika</h3>
+</div>
+</div>
+<div class="card-body">
+<div class="metrics-grid">
+<div class="metric-card">
+<div class="metric-label">Handled chats</div>
+<div class="metric-value">1,204</div>
+<div class="metric-trend ">+9%</div>
+</div>
+<div class="metric-card">
+<div class="metric-label">Avg response</div>
+<div class="metric-value">1m 42s</div>
+<div class="metric-trend ">+4%</div>
+</div>
+<div class="metric-card">
+<div class="metric-label">CSAT</div>
+<div class="metric-value">4.9</div>
+<div class="metric-trend ">+0.2</div>
+</div>
+<div class="metric-card">
+<div class="metric-label">SLA</div>
+<div class="metric-value">97%</div>
+<div class="metric-trend ">+1%</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<section class="card">
+<div class="card-header">
+<div>
+<h3>Oxirgi chatlar</h3>
+</div>
+</div>
+<div class="card-body">
+<div class="table-wrap">
+<table class="table">
+<thead>
+<tr class="table-header">
+<th>Chat ID</th><th>Visitor</th><th>Kanal</th><th>Status</th><th>Vaqt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="table-row"><td>#CH-2192</td><td>Ahmad V.</td><td>Web</td><td><span class="badge badge-success">Closed</span></td><td>10:12</td></tr><tr class="table-row"><td>#CH-2188</td><td>Dilnoza R.</td><td>Telegram</td><td><span class="badge badge-info">Resolved</span></td><td>09:48</td></tr><tr class="table-row"><td>#CH-2179</td><td>Malika O.</td><td>WhatsApp</td><td><span class="badge badge-success">Closed</span></td><td>08:56</td></tr><tr class="table-row"><td>#CH-2173</td><td>Rustam K.</td><td>Email</td><td><span class="badge badge-warning">Escalated</span></td><td>Yesterday</td></tr><tr class="table-row"><td>#CH-2161</td><td>Nodira T.</td><td>Web</td><td><span class="badge badge-success">Closed</span></td><td>Yesterday</td></tr><tr class="table-row"><td>#CH-2158</td><td>Jasur P.</td><td>Web</td><td><span class="badge badge-success">Closed</span></td><td>2d ago</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</main>
+<script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
+</body>
+</html>

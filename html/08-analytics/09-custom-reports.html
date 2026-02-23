@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHATFLOW - Custom Reports</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/chatflow-design-system.css">
+<script src="https://unpkg.com/lucide@latest" defer></script>
+<script src="../assets/chatflow-shell.js" defer></script>
+<script src="../assets/chatflow-runtime.js" defer></script>
+</head>
+<body data-active-nav="analytics" class="dashboard-shell-page">
+<main class="app-content">
+<div class="subnav-scroll">
+<div class="subnav-tabs">
+<a class="subnav-tab " href="./01-overview.html">Analytics Overview</a><a class="subnav-tab " href="./02-response-times.html">Response Times</a><a class="subnav-tab " href="./03-operators.html">Operatorlar</a><a class="subnav-tab " href="./04-operator-detail.html">Operator Profili</a><a class="subnav-tab " href="./05-sla.html">SLA Monitoring</a><a class="subnav-tab " href="./06-channels.html">Kanallar</a><a class="subnav-tab " href="./07-segments.html">Segmentlar</a><a class="subnav-tab " href="./08-tags.html">Tag Analytics</a><a class="subnav-tab active" href="./09-custom-reports.html">Custom Reports</a><a class="subnav-tab " href="./10-export.html">Analytics Export</a><a class="subnav-tab " href="./11-my-stats.html">Mening Statistikam</a>
+</div>
+</div>
+<div class="page-header">
+<div>
+<h1>Custom Reports</h1>
+<p class="text-muted">Analytics dashboard va reportlar</p>
+</div>
+<div class="page-header-actions"><div class="analytics-topbar">
+<div class="date-range"><i data-lucide="calendar"></i>Oxirgi 7 kun</div>
+<button class="btn btn-secondary" type="button" data-action="export"><i data-lucide="download"></i> Export</button>
+</div></div>
+</div>
+<section class="card">
+<div class="card-header">
+<div>
+<h3>Report builder</h3>
+</div>
+<div class="card-actions"><button type="button" class="btn btn-secondary" data-action="log">Preview</button>
+<button type="button" class="btn btn-primary" data-action="save">Saqlash</button></div>
+</div>
+<div class="card-body">
+<div class="split-grid">
+<div>
+<h4 style="margin-bottom:10px">Metrics</h4>
+<div class="list-stack">
+<label class="checkbox"><input type="checkbox" checked> Chats count</label>
+<label class="checkbox"><input type="checkbox" checked> First response time</label>
+<label class="checkbox"><input type="checkbox"> Resolution time</label>
+<label class="checkbox"><input type="checkbox" checked> CSAT</label>
+<label class="checkbox"><input type="checkbox"> SLA breach count</label>
+<label class="checkbox"><input type="checkbox"> Reopen rate</label>
+</div>
+</div>
+<div>
+<label class="form-field">
+<span class="form-label">Group by</span>
+<select class="select"><option selected>Day</option><option >Week</option><option >Operator</option><option >Channel</option><option >Segment</option></select>
+</label>
+<label class="form-field">
+<span class="form-label">Date range</span>
+<div class="date-range"><i data-lucide="calendar"></i>Oxirgi 30 kun</div>
+</label>
+<label class="form-field">
+<span class="form-label">Filter</span>
+<select class="select"><option selected>All channels</option><option >Web only</option><option >Telegram only</option><option >VIP only</option></select>
+</label>
+</div>
+</div>
+<div class="divider"></div>
+<div class="card" style="border-style:dashed">
+<div class="card-header"><div><h3>Preview</h3><p class="card-description">Report preview area</p></div></div>
+<div class="card-body"><div class="chart-placeholder line">
+<div class="chart-gridlines"></div>
+<svg viewBox="0 0 600 240" preserveAspectRatio="none" aria-hidden="true">
+<defs>
+<linearGradient id="chartFill" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="rgba(79,70,229,0.24)"></stop>
+<stop offset="100%" stop-color="rgba(79,70,229,0.02)"></stop>
+</linearGradient>
+</defs>
+<path d="M0,180 C60,130 90,160 140,120 C190,80 230,100 280,90 C330,80 360,130 410,110 C460,90 500,30 600,45 L600,240 L0,240 Z" fill="url(#chartFill)"></path>
+<path d="M0,180 C60,130 90,160 140,120 C190,80 230,100 280,90 C330,80 360,130 410,110 C460,90 500,30 600,45" fill="none" stroke="#4F46E5" stroke-width="3" stroke-linecap="round"></path>
+</svg>
+</div><div class="chart-axis-labels"><span>D1</span><span>D2</span><span>D3</span><span>D4</span><span>D5</span><span>D6</span><span>D7</span></div></div>
+</div>
+</div>
+</section>
+<section class="card">
+<div class="card-header">
+<div>
+<h3>Saved reports</h3>
+</div>
+</div>
+<div class="card-body">
+<div class="table-wrap">
+<table class="table">
+<thead>
+<tr class="table-header">
+<th>Nomi</th><th>Group by</th><th>Range</th><th>Owner</th><th>Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="table-row"><td>Daily Support KPI</td><td>Day</td><td>30 kun</td><td>Sardor</td><td><button type="button" class="btn btn-secondary" data-action="log">Open</button></td></tr><tr class="table-row"><td>Operator QA</td><td>Operator</td><td>7 kun</td><td>Sara</td><td><button type="button" class="btn btn-secondary" data-action="log">Open</button></td></tr><tr class="table-row"><td>Channel Mix</td><td>Channel</td><td>30 kun</td><td>Ali</td><td><button type="button" class="btn btn-secondary" data-action="log">Open</button></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</main>
+<script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
+</body>
+</html>

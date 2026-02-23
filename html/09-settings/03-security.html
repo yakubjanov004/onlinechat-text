@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHATFLOW - Security</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/chatflow-design-system.css">
+<script src="https://unpkg.com/lucide@latest" defer></script>
+<script src="../assets/chatflow-shell.js" defer></script>
+<script src="../assets/chatflow-runtime.js" defer></script>
+</head>
+<body data-active-nav="settings" class="dashboard-shell-page settings-shell">
+<main class="app-content">
+<div class="subnav-scroll">
+<div class="subnav-tabs">
+<a class="subnav-tab " href="./01-workspace.html">Workspace Settings</a><a class="subnav-tab " href="./02-widget-settings.html">Widget Settings</a><a class="subnav-tab active" href="./03-security.html">Security</a><a class="subnav-tab " href="./04-notifications.html">Notifications</a><a class="subnav-tab " href="./05-profile.html">Profile</a><a class="subnav-tab " href="./06-privacy-export.html">Privacy Export</a><a class="subnav-tab " href="./07-privacy-delete.html">Privacy Delete</a><a class="subnav-tab " href="./08-privacy-settings.html">Privacy Settings</a>
+</div>
+</div>
+<div class="page-header">
+<div>
+<h1>Sozlamalar</h1>
+<p class="text-muted">Workspace, widget, security va privacy boshqaruvi</p>
+</div>
+</div><section class="settings-card"><div class="settings-tabs"><a href="./01-workspace.html" class="">Workspace</a><a href="./02-widget-settings.html" class="">Widget</a><a href="./03-security.html" class="active">Security</a><a href="./04-notifications.html" class="">Notifications</a><a href="./05-profile.html" class="">Profile</a><a href="./06-privacy-export.html" class="">Privacy</a></div><div class="settings-body"><section class="settings-section"><h3>Security</h3><p class="section-desc">Parol, 2FA va session boshqaruvi</p><div class="form-grid"><div><label class="form-field">
+<span class="form-label">Current password</span>
+<input class="input" type="password" placeholder="вЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂў">
+</label></div><div><label class="form-field">
+<span class="form-label">New password</span>
+<input class="input" type="password" placeholder="вЂўвЂўвЂўвЂўвЂўвЂўвЂўвЂў">
+</label></div></div><div class="form-row"><div class="row-copy"><div class="form-label">2FA</div><p class="text-muted" style="font-size:13px">Login paytida qo'shimcha kod talab qilinadi</p></div><label class="toggle-switch ">
+<input type="checkbox" checked>
+<span class="toggle-track"><span class="toggle-thumb"></span></span>
+</label></div><div class="table-wrap">
+<table class="table">
+<thead>
+<tr class="table-header">
+<th>Device</th><th>Location</th><th>Last active</th><th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="table-row"><td>Chrome вЂў macOS</td><td>Toshkent</td><td>Now</td><td><button type="button" class="btn btn-secondary" data-action="log">Revoke</button></td></tr><tr class="table-row"><td>Safari вЂў iPhone</td><td>Samarqand</td><td>Yesterday</td><td><button type="button" class="btn btn-secondary" data-action="log">Revoke</button></td></tr><tr class="table-row"><td>Edge вЂў Windows</td><td>Buxoro</td><td>2d ago</td><td><button type="button" class="btn btn-secondary" data-action="log">Revoke</button></td></tr>
+</tbody>
+</table>
+</div><div class="divider"></div><div class="flex justify-between items-center gap-2 wrap"><div><div class="item-title">Barcha sessiyalarni tugatish</div><div class="item-sub">Joriy qurilmadan tashqari barcha sessionlar yopiladi.</div></div><button type="button" class="btn btn-danger" data-action="log">Barcha sessiyalarni tugatish</button></div></section></div><div class="sticky-save-bar"><button type="button" class="btn btn-secondary" data-action="reset-form">Bekor qilish</button>
+<button type="button" class="btn btn-primary" data-action="save">Saqlash</button></div></section>
+</main>
+<script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHATFLOW - Payment Methods</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/chatflow-design-system.css">
+<script src="https://unpkg.com/lucide@latest" defer></script>
+<script src="../assets/chatflow-shell.js" defer></script>
+<script src="../assets/chatflow-runtime.js" defer></script>
+</head>
+<body data-active-nav="billing" class="dashboard-shell-page">
+<main class="app-content">
+<div class="subnav-scroll">
+<div class="subnav-tabs">
+<a class="subnav-tab " href="./01-plan.html">Billing Plan</a><a class="subnav-tab active" href="./02-payment.html">Payment Methods</a><a class="subnav-tab " href="./03-invoices.html">Invoices</a><a class="subnav-tab " href="./04-usage.html">Usage</a>
+</div>
+</div>
+<div class="page-header">
+<div>
+<h1>Payment Methods</h1>
+<p class="text-muted">Plan, to&#39;lov va invoice boshqaruvi</p>
+</div>
+<div class="page-header-actions"><button type="button" class="btn btn-primary" data-action="log" data-message="Manage plan" >Manage plan</button></div>
+</div>
+<section class="card">
+<div class="card-header">
+<div>
+<h3>Saved cards</h3>
+</div>
+<div class="card-actions"><button type="button" class="btn btn-primary" data-modal-open="add-card">Karta qo'shish</button></div>
+</div>
+<div class="card-body">
+<div class="table-wrap">
+<table class="table">
+<thead>
+<tr class="table-header">
+<th>Card</th><th>Owner</th><th>Expires</th><th>Default</th><th>Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="table-row"><td>Visa вЂўвЂўвЂўвЂў 4242</td><td>CHATFLOW LLC</td><td>12/27</td><td><span class="badge badge-success">Default</span></td><td>Edit вЂў Remove</td></tr><tr class="table-row"><td>Mastercard вЂўвЂўвЂўвЂў 9071</td><td>CHATFLOW LLC</td><td>09/26</td><td>вЂ”</td><td>Set default вЂў Remove</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<div class="modal-overlay" data-modal="add-card" hidden>
+<div class="modal" role="dialog" aria-modal="true" aria-labelledby="add-card-title">
+<div class="modal-header">
+<h3 id="add-card-title">Karta qo&#39;shish</h3>
+<button class="btn btn-ghost btn-sm" type="button" data-modal-close><i data-lucide="x"></i></button>
+</div>
+<div class="modal-body"><div class="form-grid one"><label class="form-field">
+<span class="form-label">Card number</span>
+<input class="input" placeholder="4242 4242 4242 4242">
+</label><div class="two-col"><label class="form-field">
+<span class="form-label">Expiry</span>
+<input class="input" placeholder="12/27">
+</label><label class="form-field">
+<span class="form-label">CVC</span>
+<input class="input" placeholder="123">
+</label></div></div></div>
+<div class="modal-footer"><button type="button" class="btn btn-secondary" data-action="log" data-message="Bekor qilish" data-modal-close>Bekor qilish</button>
+<button type="button" class="btn btn-primary" data-modal-close data-action="save">Saqlash</button></div>
+</div>
+</div>
+</main>
+<script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
+</body>
+</html>

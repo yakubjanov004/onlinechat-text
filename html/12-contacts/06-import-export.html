@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHATFLOW - Import &amp; Export</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/chatflow-design-system.css">
+<script src="https://unpkg.com/lucide@latest" defer></script>
+<script src="../assets/chatflow-shell.js" defer></script>
+<script src="../assets/chatflow-runtime.js" defer></script>
+</head>
+<body data-active-nav="contacts" class="dashboard-shell-page">
+<main class="app-content">
+<div class="subnav-scroll">
+<div class="subnav-tabs">
+<a class="subnav-tab " href="./01-contacts-list.html">Kontaktlar</a><a class="subnav-tab " href="./02-contact-profile.html">Kontakt Profili</a><a class="subnav-tab " href="./03-organizations.html">Tashkilotlar</a><a class="subnav-tab " href="./04-org-detail.html">Tashkilot Profili</a><a class="subnav-tab " href="./05-segments.html">CRM Segmentlar</a><a class="subnav-tab active" href="./06-import-export.html">Import &amp; Export</a>
+</div>
+</div>
+<div class="page-header">
+<div>
+<h1>Import &amp; Export</h1>
+<p class="text-muted">CRM kontaktlar, tashkilotlar va segmentlar</p>
+</div>
+</div><div class="two-col">
+<section class="card">
+<div class="card-header">
+<div>
+<h3>Import CSV</h3>
+</div>
+</div>
+<div class="card-body">
+<div class="dropzone"><i data-lucide="upload-cloud"></i><div>CSV faylni tortib tashlang</div><small>Contact import template</small></div><div style="margin-top:12px"><button type="button" class="btn btn-primary" data-action="log">Importni boshlash</button></div>
+</div>
+</section>
+<section class="card">
+<div class="card-header">
+<div>
+<h3>Export contacts</h3>
+</div>
+</div>
+<div class="card-body">
+<div class="form-grid one"><label class="form-field">
+<span class="form-label">Format</span>
+<select class="select"><option selected>CSV</option><option >XLSX</option><option >JSON</option></select>
+</label><label class="form-field">
+<span class="form-label">Segment</span>
+<select class="select"><option selected>All contacts</option><option >VIP Customers</option><option >Pricing Leads</option></select>
+</label><div class="flex gap-2"><button type="button" class="btn btn-primary" data-action="export">Download</button><button type="button" class="btn btn-secondary" data-action="log">Schedule export</button></div></div>
+</div>
+</section>
+</div>
+<section class="card">
+<div class="card-header">
+<div>
+<h3>Import history</h3>
+</div>
+</div>
+<div class="card-body">
+<div class="table-wrap">
+<table class="table">
+<thead>
+<tr class="table-header">
+<th>Sana</th><th>Fayl</th><th>Rows</th><th>Status</th><th>By</th>
+</tr>
+</thead>
+<tbody>
+<tr class="table-row"><td>2026-02-20 09:14</td><td>contacts-feb.csv</td><td>324</td><td><span class="badge badge-success">Completed</span></td><td>Sardor</td></tr><tr class="table-row"><td>2026-02-11 18:02</td><td>vip-leads.xlsx</td><td>41</td><td><span class="badge badge-success">Completed</span></td><td>Sara</td></tr><tr class="table-row"><td>2026-02-03 12:30</td><td>legacy-import.csv</td><td>912</td><td><span class="badge badge-warning">Warning</span></td><td>Ali</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</main>
+<script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
+</body>
+</html>

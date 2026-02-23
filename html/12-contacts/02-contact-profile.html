@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHATFLOW - Kontakt Profili</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/chatflow-design-system.css">
+<script src="https://unpkg.com/lucide@latest" defer></script>
+<script src="../assets/chatflow-shell.js" defer></script>
+<script src="../assets/chatflow-runtime.js" defer></script>
+</head>
+<body data-active-nav="contacts" class="dashboard-shell-page">
+<main class="app-content">
+<div class="subnav-scroll">
+<div class="subnav-tabs">
+<a class="subnav-tab " href="./01-contacts-list.html">Kontaktlar</a><a class="subnav-tab active" href="./02-contact-profile.html">Kontakt Profili</a><a class="subnav-tab " href="./03-organizations.html">Tashkilotlar</a><a class="subnav-tab " href="./04-org-detail.html">Tashkilot Profili</a><a class="subnav-tab " href="./05-segments.html">CRM Segmentlar</a><a class="subnav-tab " href="./06-import-export.html">Import &amp; Export</a>
+</div>
+</div>
+<div class="page-header">
+<div>
+<h1>Kontakt Profili</h1>
+<p class="text-muted">CRM kontaktlar, tashkilotlar va segmentlar</p>
+</div>
+</div><div class="split-grid">
+<section class="card">
+<div class="card-header">
+<div>
+<h3>Kontakt ma&#39;lumotlari</h3>
+</div>
+</div>
+<div class="card-body">
+<div class="flex gap-3 items-center"><span class="avatar avatar-xl">AV</span><div><h3>Ahmad Valiyev</h3><p class="text-muted">ACME вЂў ahmad@example.com</p></div></div><div class="kv-list">
+<div class="kv-row"><span>Phone</span><strong>+998 90 222 33 44</strong></div><div class="kv-row"><span>Status</span><strong>Lead</strong></div><div class="kv-row"><span>Owner</span><strong>Sardor A.</strong></div><div class="kv-row"><span>Last seen</span><strong>2h ago</strong></div>
+</div>
+</div>
+</section>
+<section class="card">
+<div class="card-header">
+<div>
+<h3>Chat tarixi</h3>
+</div>
+</div>
+<div class="card-body">
+<div class="timeline"><div class="timeline-item"><span class="timeline-dot"></span><div class="timeline-card"><strong>Pricing chat</strong><span class="timeline-time">Today</span></div></div><div class="timeline-item"><span class="timeline-dot"></span><div class="timeline-card"><strong>Demo follow-up</strong><span class="timeline-time">Yesterday</span></div></div></div>
+</div>
+</section>
+</div>
+<section class="card">
+<div class="card-header">
+<div>
+<h3>Notes &amp; Tags</h3>
+</div>
+</div>
+<div class="card-body">
+<div class="tag-cloud"><span class="badge badge-info">Lead</span><span class="badge badge-primary">Pricing</span><span class="badge badge-warning">Demo</span></div><div class="mt-3"><textarea class="textarea" rows="4" placeholder="">Qiziqish yuqori. Pro plan demo talab qilishi mumkin.</textarea></div>
+</div>
+</section>
+</main>
+<script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
+</body>
+</html>

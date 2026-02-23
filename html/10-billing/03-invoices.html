@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHATFLOW - Invoices</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/chatflow-design-system.css">
+<script src="https://unpkg.com/lucide@latest" defer></script>
+<script src="../assets/chatflow-shell.js" defer></script>
+<script src="../assets/chatflow-runtime.js" defer></script>
+</head>
+<body data-active-nav="billing" class="dashboard-shell-page">
+<main class="app-content">
+<div class="subnav-scroll">
+<div class="subnav-tabs">
+<a class="subnav-tab " href="./01-plan.html">Billing Plan</a><a class="subnav-tab " href="./02-payment.html">Payment Methods</a><a class="subnav-tab active" href="./03-invoices.html">Invoices</a><a class="subnav-tab " href="./04-usage.html">Usage</a>
+</div>
+</div>
+<div class="page-header">
+<div>
+<h1>Invoices</h1>
+<p class="text-muted">Plan, to&#39;lov va invoice boshqaruvi</p>
+</div>
+<div class="page-header-actions"><button type="button" class="btn btn-primary" data-action="log">Manage plan</button></div>
+</div>
+<section class="card">
+<div class="card-header">
+<div>
+<h3>Filters</h3>
+</div>
+</div>
+<div class="card-body">
+<div class="form-grid three">
+<div><label class="form-field">
+<span class="form-label">Status</span>
+<select class="select"><option selected>All</option><option >Paid</option><option >Failed</option><option >Pending</option></select>
+</label></div>
+<div><label class="form-field">
+<span class="form-label">Date range</span>
+<div class="date-range"><i data-lucide="calendar"></i>Oxirgi 12 oy</div>
+</label></div>
+<div class="flex items-end"><button type="button" class="btn btn-secondary" data-action="log">Filter</button></div>
+</div>
+</div>
+</section>
+<section class="card">
+<div class="card-header">
+<div>
+<h3>Invoices</h3>
+</div>
+</div>
+<div class="card-body">
+<div class="table-wrap">
+<table class="table">
+<thead>
+<tr class="table-header">
+<th>Sana</th><th>Invoice ID</th><th>Summa</th><th>Status</th><th>Cycle</th><th>Download</th>
+</tr>
+</thead>
+<tbody>
+<tr class="table-row"><td>2026-02-01</td><td>#INV-2026-021</td><td>$29.00</td><td><span class="badge badge-success">Paid</span></td><td>Monthly</td><td><button type="button" class="btn btn-secondary" data-action="export">PDF</button></td></tr><tr class="table-row"><td>2026-01-01</td><td>#INV-2026-011</td><td>$29.00</td><td><span class="badge badge-success">Paid</span></td><td>Monthly</td><td><button type="button" class="btn btn-secondary" data-action="export">PDF</button></td></tr><tr class="table-row"><td>2025-12-01</td><td>#INV-2025-121</td><td>$29.00</td><td><span class="badge badge-success">Paid</span></td><td>Monthly</td><td><button type="button" class="btn btn-secondary" data-action="export">PDF</button></td></tr><tr class="table-row"><td>2025-11-01</td><td>#INV-2025-111</td><td>$29.00</td><td><span class="badge badge-success">Paid</span></td><td>Monthly</td><td><button type="button" class="btn btn-secondary" data-action="export">PDF</button></td></tr><tr class="table-row"><td>2025-10-01</td><td>#INV-2025-101</td><td>$29.00</td><td><span class="badge badge-success">Paid</span></td><td>Monthly</td><td><button type="button" class="btn btn-secondary" data-action="export">PDF</button></td></tr><tr class="table-row"><td>2025-09-01</td><td>#INV-2025-091</td><td>$29.00</td><td><span class="badge badge-danger">Failed</span></td><td>Monthly</td><td><button type="button" class="btn btn-secondary" data-action="log">Retry</button></td></tr><tr class="table-row"><td>2025-08-01</td><td>#INV-2025-081</td><td>$0.00</td><td><span class="badge badge-info">Trial</span></td><td>Starter</td><td><button type="button" class="btn btn-secondary" data-action="log">View</button></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</main>
+<script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
+</body>
+</html>

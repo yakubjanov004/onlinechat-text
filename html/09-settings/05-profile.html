@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHATFLOW - Profile</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/chatflow-design-system.css">
+<script src="https://unpkg.com/lucide@latest" defer></script>
+<script src="../assets/chatflow-shell.js" defer></script>
+<script src="../assets/chatflow-runtime.js" defer></script>
+</head>
+<body data-active-nav="settings" class="dashboard-shell-page settings-shell">
+<main class="app-content">
+<div class="subnav-scroll">
+<div class="subnav-tabs">
+<a class="subnav-tab " href="./01-workspace.html">Workspace Settings</a><a class="subnav-tab " href="./02-widget-settings.html">Widget Settings</a><a class="subnav-tab " href="./03-security.html">Security</a><a class="subnav-tab " href="./04-notifications.html">Notifications</a><a class="subnav-tab active" href="./05-profile.html">Profile</a><a class="subnav-tab " href="./06-privacy-export.html">Privacy Export</a><a class="subnav-tab " href="./07-privacy-delete.html">Privacy Delete</a><a class="subnav-tab " href="./08-privacy-settings.html">Privacy Settings</a>
+</div>
+</div>
+<div class="page-header">
+<div>
+<h1>Sozlamalar</h1>
+<p class="text-muted">Workspace, widget, security va privacy boshqaruvi</p>
+</div>
+</div><section class="settings-card"><div class="settings-tabs"><a href="./01-workspace.html" class="">Workspace</a><a href="./02-widget-settings.html" class="">Widget</a><a href="./03-security.html" class="">Security</a><a href="./04-notifications.html" class="">Notifications</a><a href="./05-profile.html" class="active">Profile</a><a href="./06-privacy-export.html" class="">Privacy</a></div><div class="settings-body"><section class="settings-section"><h3>Profile</h3><p class="section-desc">Avatar va shaxsiy ma'lumotlar</p><div class="two-col"><div class="flex gap-4 items-center"><span class="avatar avatar-xxl">SA</span><div><button class="btn btn-secondary" type="button" data-action="log" data-message="Avatar yuklash oynasi ochildi">Avatar yuklash</button><p class="text-muted" style="font-size:12px;margin-top:6px">PNG/JPG, max 2MB</p></div></div><div class="form-grid one"><label class="form-field">
+<span class="form-label">Ism</span>
+<input class="input" type="text" value="Sardor Aliyev" placeholder="">
+</label><label class="form-field">
+<span class="form-label">Email</span>
+<input class="input" type="email" value="sardor@chatflow.uz" readonly>
+</label><label class="form-field">
+<span class="form-label">Telefon</span>
+<input class="input" value="+998 90 123 45 67">
+</label><label class="form-field">
+<span class="form-label">Lavozim</span>
+<input class="input" type="text" value="Support Lead" placeholder="">
+</label></div></div></section></div><div class="sticky-save-bar"><button type="button" class="btn btn-secondary" data-action="reset-form">Bekor qilish</button>
+<button type="button" class="btn btn-primary" data-action="save">Saqlash</button></div></section>
+</main>
+<script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
+</body>
+</html>

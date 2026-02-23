@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHATFLOW - Greetings</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/chatflow-design-system.css">
+<script src="https://unpkg.com/lucide@latest" defer></script>
+<script src="../assets/chatflow-shell.js" defer></script>
+<script src="../assets/chatflow-runtime.js" defer></script>
+</head>
+<body data-active-nav="automation" class="dashboard-shell-page">
+<main class="app-content">
+<div class="subnav-scroll">
+<div class="subnav-tabs">
+<a class="subnav-tab " href="./01-working-hours.html">Working Hours</a><a class="subnav-tab " href="./02-auto-reply.html">Auto Reply</a><a class="subnav-tab " href="./03-triggers.html">Triggers</a><a class="subnav-tab active" href="./04-greetings.html">Greetings</a>
+</div>
+</div>
+<div class="page-header">
+<div>
+<h1>Greetings</h1>
+<p class="text-muted">Automation qoidalari va schedule konfiguratsiyasi</p>
+</div>
+<div class="page-header-actions"><button type="button" class="btn btn-primary" data-action="save">Saqlash</button>
+<button type="button" class="btn btn-secondary" data-action="reset-form">Reset</button></div>
+</div>
+<section class="card">
+<div class="card-header">
+<div>
+<h3>Greeting xabarlari</h3>
+</div>
+<div class="card-actions"><button type="button" class="btn btn-primary" data-modal-open="new-greeting">Yangi greeting qo'shish</button></div>
+</div>
+<div class="card-body">
+<div class="two-col">
+<div class="card">
+<div class="card-header">
+<div>
+<h3>Home page welcome</h3>
+<p class="card-description">Salom! Mahsulot haqida savolingiz bormi?</p>
+</div>
+<label class="toggle-switch ">
+<input type="checkbox" checked>
+<span class="toggle-track"><span class="toggle-thumb"></span></span>
+</label>
+</div>
+<div class="card-body">
+<div class="flex justify-between items-center gap-2 wrap">
+<span class="text-muted" style="font-size:13px">Yangi visitor</span>
+<span class="badge badge-info">Primary</span>
+</div>
+<div style="margin-top:12px"><button type="button" class="btn btn-secondary" data-action="log">Edit</button></div>
+</div>
+</div>
+<div class="card">
+<div class="card-header">
+<div>
+<h3>Pricing helper</h3>
+<p class="card-description">Tariflarni tanlashda yordam bera olaman.</p>
+</div>
+<label class="toggle-switch ">
+<input type="checkbox" checked>
+<span class="toggle-track"><span class="toggle-thumb"></span></span>
+</label>
+</div>
+<div class="card-body">
+<div class="flex justify-between items-center gap-2 wrap">
+<span class="text-muted" style="font-size:13px">/pricing sahifasi</span>
+<span class="badge badge-info">Pricing</span>
+</div>
+<div style="margin-top:12px"><button type="button" class="btn btn-secondary" data-action="log">Edit</button></div>
+</div>
+</div>
+<div class="card">
+<div class="card-header">
+<div>
+<h3>Returning visitor</h3>
+<p class="card-description">Qaytganingizdan xursandmiz. Nima qidiryapsiz?</p>
+</div>
+<label class="toggle-switch ">
+<input type="checkbox" checked>
+<span class="toggle-track"><span class="toggle-thumb"></span></span>
+</label>
+</div>
+<div class="card-body">
+<div class="flex justify-between items-center gap-2 wrap">
+<span class="text-muted" style="font-size:13px">2+ tashrif</span>
+<span class="badge badge-info">Retention</span>
+</div>
+<div style="margin-top:12px"><button type="button" class="btn btn-secondary" data-action="log">Edit</button></div>
+</div>
+</div>
+<div class="card">
+<div class="card-header">
+<div>
+<h3>Exit intent</h3>
+<p class="card-description">Ketishdan oldin savolingiz bormi?</p>
+</div>
+<label class="toggle-switch ">
+<input type="checkbox" >
+<span class="toggle-track"><span class="toggle-thumb"></span></span>
+</label>
+</div>
+<div class="card-body">
+<div class="flex justify-between items-center gap-2 wrap">
+<span class="text-muted" style="font-size:13px">Cursor exit intent</span>
+<span class="badge badge-warning">Exit</span>
+</div>
+<div style="margin-top:12px"><button type="button" class="btn btn-secondary" data-action="log">Edit</button></div>
+</div>
+</div>
+<div class="card">
+<div class="card-header">
+<div>
+<h3>Late night</h3>
+<p class="card-description">Operatorlar offline, xabar qoldiring.</p>
+</div>
+<label class="toggle-switch ">
+<input type="checkbox" checked>
+<span class="toggle-track"><span class="toggle-thumb"></span></span>
+</label>
+</div>
+<div class="card-body">
+<div class="flex justify-between items-center gap-2 wrap">
+<span class="text-muted" style="font-size:13px">18:00 dan keyin</span>
+<span class="badge badge-info">After hours</span>
+</div>
+<div style="margin-top:12px"><button type="button" class="btn btn-secondary" data-action="log">Edit</button></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="modal-overlay" data-modal="new-greeting" hidden>
+<div class="modal" role="dialog" aria-modal="true" aria-labelledby="new-greeting-title">
+<div class="modal-header">
+<h3 id="new-greeting-title">Yangi greeting qo&#39;shish</h3>
+<button class="btn btn-ghost btn-sm" type="button" data-modal-close><i data-lucide="x"></i></button>
+</div>
+<div class="modal-body"><div class="form-grid one">
+<label class="form-field">
+<span class="form-label">Greeting nomi</span>
+<input class="input" type="text" value="Yangi greeting" placeholder="">
+</label>
+<label class="form-field">
+<span class="form-label">Condition</span>
+<select class="select"><option selected>New visitor</option><option >/pricing sahifasi</option><option >Exit intent</option><option >18:00 dan keyin</option></select>
+</label>
+<label class="form-field">
+<span class="form-label">Xabar matni</span>
+<textarea class="textarea" rows="4" placeholder="">Salom! Sizga qanday yordam bera olamiz?</textarea>
+</label>
+</div></div>
+<div class="modal-footer"><button type="button" class="btn btn-secondary" data-action="log" data-message="Bekor qilish" data-modal-close>Bekor qilish</button>
+<button type="button" class="btn btn-primary" data-modal-close data-action="save">Saqlash</button></div>
+</div>
+</div>
+</main>
+<script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
+</body>
+</html>

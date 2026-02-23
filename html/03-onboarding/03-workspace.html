@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHATFLOW - Workspace sozlash</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/chatflow-design-system.css">
+<script src="https://unpkg.com/lucide@latest" defer></script>
+<script src="../assets/chatflow-runtime.js" defer></script>
+</head>
+<body class="onboarding-page">
+<main class="onboarding-page">
+<div class="onboarding-shell">
+<div class="onboarding-top">
+<a class="shell-brand" href="../index.html"><span class="shell-brand-mark">CF</span><span>CHATFLOW</span></a>
+<span class="badge badge-primary">Step 3/6</span>
+</div>
+<div class="onboarding-progress">
+<div class="justify-between"><strong>Onboarding progress</strong><span class="text-muted" style="font-size:13px">Step 3 / 6</span></div>
+<div class="progress"><div class="progress-bar" style="width:50%"></div></div>
+<div class="step-dots"><span class="done"></span><span class="done"></span><span class="active"></span><span class=""></span><span class=""></span><span class=""></span></div>
+</div>
+<section class="onboarding-card">
+<div><h1>Workspace sozlash</h1><p class="text-muted" style="margin-top:6px">Domen, tashkilot turi va jamoa hajmini belgilang.</p></div>
+<div class="two-col">
+<div class="card"><div class="card-body">
+<h3>Workspace URL</h3>
+<p class="text-muted" style="font-size:13px;margin-top:4px">Subdomain keyinroq ham o'zgartirilishi mumkin.</p>
+<div class="input-group" style="margin-top:10px"><span class="text-muted">https://</span><input class="input" value="sardor" aria-label="Workspace slug"><span class="text-muted">.chatflow.uz</span></div>
+<div class="divider"></div>
+<label class="form-field">
+<span class="form-label">Tashkilot turi</span>
+<select class="select"><option selected>Startup</option><option >SMB</option><option >Enterprise</option><option >Agency</option></select>
+</label>
+<label class="form-field">
+<span class="form-label">Jamoa kattaligi</span>
+<select class="select"><option >1-5</option><option selected>6-20</option><option >21-50</option><option >50+</option></select>
+</label>
+</div></div>
+<div class="card"><div class="card-body">
+<h3>Kanallar reja</h3>
+<div class="list-stack" style="margin-top:10px">
+<label class="list-item"><div class="item-main"><div class="item-title">Web Widget</div><div class="item-sub">Asosiy live support kanal</div></div><input type="checkbox" checked></label>
+<label class="list-item"><div class="item-main"><div class="item-title">Telegram</div><div class="item-sub">Operator notification va reply sync</div></div><input type="checkbox" checked></label>
+<label class="list-item"><div class="item-main"><div class="item-title">Email</div><div class="item-sub">Offline form va support email</div></div><input type="checkbox"></label>
+<label class="list-item"><div class="item-main"><div class="item-title">Instagram</div><div class="item-sub">Social DMs ingest</div></div><input type="checkbox"></label>
+</div>
+</div></div>
+</div>
+<div class="onboarding-actions">
+<div class="flex gap-2 wrap"><a class="btn btn-secondary" href="./02-onboarding-setup.html" >Orqaga</a>
+<a class="btn btn-ghost" href="../04-dashboard/01-dashboard.html" >Skip</a></div>
+<a class="btn btn-primary" href="./04-widget-customize.html" >Keyingi</a>
+</div>
+</section>
+</div>
+</main>
+<script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
+</body>
+</html>

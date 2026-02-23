@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHATFLOW - Add-on Detail</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/chatflow-design-system.css">
+<script src="https://unpkg.com/lucide@latest" defer></script>
+<script src="../assets/chatflow-shell.js" defer></script>
+<script src="../assets/chatflow-runtime.js" defer></script>
+</head>
+<body data-active-nav="addons" class="dashboard-shell-page">
+<main class="app-content">
+<div class="subnav-scroll">
+<div class="subnav-tabs">
+<a class="subnav-tab " href="./01-addons-catalog.html">Add-ons Catalog</a><a class="subnav-tab " href="./02-active-addons.html">Active Add-ons</a><a class="subnav-tab active" href="./03-addon-detail.html">Add-on Detail</a><a class="subnav-tab " href="./04-addon-settings.html">Add-on Settings</a>
+</div>
+</div>
+<div class="page-header">
+<div>
+<h1>Add-on Detail</h1>
+<p class="text-muted">Add-on katalogi va konfiguratsiya</p>
+</div>
+</div>
+<section class="card">
+<div class="card-header">
+<div>
+<h3>Add-on detail</h3>
+</div>
+</div>
+<div class="card-body">
+<div class="split-grid">
+<div>
+<h3>WhatsApp Integration</h3>
+<p class="text-muted" style="margin-top:6px">WhatsApp Business xabarlarini CHATFLOW inbox bilan sinxronlashtiradi.</p>
+<div class="mini-bars" style="margin-top:14px;height:220px">
+<div class="mini-bar-col"><div class="mini-bar" style="height:160px"></div><span>Screenshot 1</span></div>
+<div class="mini-bar-col"><div class="mini-bar" style="height:120px"></div><span>Screenshot 2</span></div>
+<div class="mini-bar-col"><div class="mini-bar" style="height:180px"></div><span>Flow</span></div>
+</div>
+</div>
+<div><div class="kv-list">
+<div class="kv-row"><span>Price</span><strong>$25/mo</strong></div><div class="kv-row"><span>Version</span><strong>2.1.0</strong></div><div class="kv-row"><span>Installs</span><strong>3,248</strong></div><div class="kv-row"><span>Category</span><strong>Integration</strong></div>
+</div><div class="mt-4"><button type="button" class="btn btn-primary" data-action="save">Install add-on</button></div></div>
+</div>
+<div class="divider"></div>
+<h4>Features</h4>
+<ul class="pricing-list">
+<li><i data-lucide="check"></i> Incoming/outgoing message sync</li>
+<li><i data-lucide="check"></i> Media attachments support</li>
+<li><i data-lucide="check"></i> Agent assignment alerts</li>
+<li><i data-lucide="check"></i> Conversation tags passthrough</li>
+</ul>
+<div class="divider"></div>
+<h4>Reviews</h4>
+<div class="list-stack">
+<div class="list-item"><div class="item-main"><div class="item-title">Madina Y. вЂў 5/5</div><div class="item-sub">Setup oson va message sync barqaror ishlayapti.</div></div></div>
+<div class="list-item"><div class="item-main"><div class="item-title">Bekzod K. вЂў 4/5</div><div class="item-sub">Webhook docs yaxshi, lekin media limitni oshirish kerak.</div></div></div>
+<div class="list-item"><div class="item-main"><div class="item-title">Sara M. вЂў 5/5</div><div class="item-sub">Support team uchun eng foydali integratsiyalardan biri.</div></div></div>
+</div>
+</div>
+</section>
+</main>
+<script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
+</body>
+</html>

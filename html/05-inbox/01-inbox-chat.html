@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHATFLOW - Inbox</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/chatflow-design-system.css">
+<script src="https://unpkg.com/lucide@latest" defer></script>
+<script src="../assets/chatflow-shell.js" defer></script>
+<script src="../assets/chatflow-runtime.js" defer></script>
+</head>
+<body data-active-nav="inbox" class="dashboard-shell-page">
+<main class="app-content">
+<div class="subnav-scroll">
+<div class="subnav-tabs">
+<a class="subnav-tab active" href="./01-inbox-chat.html">Inbox</a><a class="subnav-tab " href="./02-chat-open.html">Chat Ochiq Holat</a><a class="subnav-tab " href="./03-info-sidebar.html">Inbox Info Panel</a>
+</div>
+</div>
+<div class="page-header">
+<div>
+<h1>Inbox</h1>
+<p class="text-muted">Live chats uchun 3 ustunli operator interfeysi</p>
+</div>
+<div class="page-header-actions"><button type="button" class="btn btn-primary" data-action="log" data-message="Yangi chat oynasi ochildi">Yangi chat</button>
+<button type="button" class="btn btn-secondary" data-action="log" data-message="Filter panel ochildi">Filter</button></div>
+</div>
+<section class="inbox-layout">
+<aside class="inbox-panel">
+<div class="inbox-list-top">
+<div class="input-group"><i data-lucide="search"></i><input class="input" type="search" placeholder="Mijoz ismi yoki xabar..." style="width:100%" data-inbox-search></div>
+<div class="inbox-tabs" role="tablist" aria-label="Chat tabs">
+<button class="tab active" type="button" data-tab-group="inbox-list" data-tab="all">Hammasi</button>
+<button class="tab" type="button" data-tab-group="inbox-list" data-tab="active">Faol</button>
+<button class="tab" type="button" data-tab-group="inbox-list" data-tab="unread">Javobsiz</button>
+<button class="tab" type="button" data-tab-group="inbox-list" data-tab="closed">Yopilgan</button>
+</div>
+</div>
+<div class="inbox-list-scroll" role="listbox" aria-label="Conversations" data-inbox-list><div class="inbox-chat-item " role="option" aria-selected="false" data-chat-id="chat-101" data-status="active unread urgent" data-href="./02-chat-open.html" data-name="Ahmad Valiyev" data-channel="Web" data-agent="Sardor">
+<span class="status-dot online"></span>
+<div class="inbox-chat-main">
+<div class="name-row"><strong class="truncate">Ahmad Valiyev</strong></div>
+<div class="preview truncate">Salom, tariflar haqida savol bor.</div>
+<div class="text-muted" style="font-size:12px">Agent: Sardor</div>
+</div>
+<div class="inbox-chat-meta"><span class="time">2m</span><span class="channel-pill">Web</span><span class="badge badge-danger">3</span></div>
+</div><div class="inbox-chat-item " role="option" aria-selected="false" data-chat-id="chat-102" data-status="active unread" data-href="./02-chat-open.html" data-name="Dilnoza Rahimova" data-channel="Telegram" data-agent="Sara">
+<span class="status-dot away"></span>
+<div class="inbox-chat-main">
+<div class="name-row"><strong class="truncate">Dilnoza Rahimova</strong></div>
+<div class="preview truncate">Telegram integratsiyasi ishlamayapti.</div>
+<div class="text-muted" style="font-size:12px">Agent: Sara</div>
+</div>
+<div class="inbox-chat-meta"><span class="time">5m</span><span class="channel-pill">Telegram</span><span class="badge badge-danger">1</span></div>
+</div><div class="inbox-chat-item " role="option" aria-selected="false" data-chat-id="chat-103" data-status="closed" data-href="./02-chat-open.html" data-name="Rustam Karimov" data-channel="WhatsApp" data-agent="Ali">
+<span class="status-dot offline"></span>
+<div class="inbox-chat-main">
+<div class="name-row"><strong class="truncate">Rustam Karimov</strong></div>
+<div class="preview truncate">Buyurtma statusini tekshira olasizmi?</div>
+<div class="text-muted" style="font-size:12px">Agent: Ali</div>
+</div>
+<div class="inbox-chat-meta"><span class="time">11m</span><span class="channel-pill">WhatsApp</span></div>
+</div><div class="inbox-chat-item " role="option" aria-selected="false" data-chat-id="chat-104" data-status="closed" data-href="./02-chat-open.html" data-name="Malika Orifova" data-channel="Email" data-agent="Bobur">
+<span class="status-dot offline"></span>
+<div class="inbox-chat-main">
+<div class="name-row"><strong class="truncate">Malika Orifova</strong></div>
+<div class="preview truncate">Rahmat, hammasi tushunarli bo&#39;ldi.</div>
+<div class="text-muted" style="font-size:12px">Agent: Bobur</div>
+</div>
+<div class="inbox-chat-meta"><span class="time">32m</span><span class="channel-pill">Email</span></div>
+</div><div class="inbox-chat-item " role="option" aria-selected="false" data-chat-id="chat-105" data-status="active" data-href="./02-chat-open.html" data-name="Olim Ergashev" data-channel="Web" data-agent="Unassigned">
+<span class="status-dot online"></span>
+<div class="inbox-chat-main">
+<div class="name-row"><strong class="truncate">Olim Ergashev</strong><span class="badge badge-warning">Unassigned</span></div>
+<div class="preview truncate">Demo so&#39;rovi yubordim.</div>
+<div class="text-muted" style="font-size:12px">Agent: Unassigned</div>
+</div>
+<div class="inbox-chat-meta"><span class="time">1h</span><span class="channel-pill">Web</span></div>
+</div><div class="inbox-chat-item " role="option" aria-selected="false" data-chat-id="chat-106" data-status="active unread urgent" data-href="./02-chat-open.html" data-name="Zarina N." data-channel="Email" data-agent="Sara">
+<span class="status-dot busy"></span>
+<div class="inbox-chat-main">
+<div class="name-row"><strong class="truncate">Zarina N.</strong></div>
+<div class="preview truncate">Invoice PDF yuklanmayapti</div>
+<div class="text-muted" style="font-size:12px">Agent: Sara</div>
+</div>
+<div class="inbox-chat-meta"><span class="time">3m</span><span class="channel-pill">Email</span><span class="badge badge-danger">2</span></div>
+</div><div class="inbox-chat-item " role="option" aria-selected="false" data-chat-id="chat-107" data-status="active" data-href="./02-chat-open.html" data-name="Farrux K." data-channel="Web" data-agent="Ali">
+<span class="status-dot away"></span>
+<div class="inbox-chat-main">
+<div class="name-row"><strong class="truncate">Farrux K.</strong></div>
+<div class="preview truncate">Widget rangi o&#39;zgarmadi</div>
+<div class="text-muted" style="font-size:12px">Agent: Ali</div>
+</div>
+<div class="inbox-chat-meta"><span class="time">8m</span><span class="channel-pill">Web</span></div>
+</div><div class="inbox-chat-item " role="option" aria-selected="false" data-chat-id="chat-108" data-status="active unread" data-href="./02-chat-open.html" data-name="Madina T." data-channel="Instagram" data-agent="Sardor">
+<span class="status-dot online"></span>
+<div class="inbox-chat-main">
+<div class="name-row"><strong class="truncate">Madina T.</strong></div>
+<div class="preview truncate">Pro plan bo&#39;yicha demo xohlayman</div>
+<div class="text-muted" style="font-size:12px">Agent: Sardor</div>
+</div>
+<div class="inbox-chat-meta"><span class="time">14m</span><span class="channel-pill">Instagram</span><span class="badge badge-danger">1</span></div>
+</div><div class="inbox-chat-item " role="option" aria-selected="false" data-chat-id="chat-109" data-status="active" data-href="./02-chat-open.html" data-name="Sherzod R." data-channel="Email" data-agent="Bobur">
+<span class="status-dot away"></span>
+<div class="inbox-chat-main">
+<div class="name-row"><strong class="truncate">Sherzod R.</strong></div>
+<div class="preview truncate">Support emailga javob kelmadi</div>
+<div class="text-muted" style="font-size:12px">Agent: Bobur</div>
+</div>
+<div class="inbox-chat-meta"><span class="time">22m</span><span class="channel-pill">Email</span></div>
+</div><div class="inbox-chat-item " role="option" aria-selected="false" data-chat-id="chat-110" data-status="closed" data-href="./02-chat-open.html" data-name="Nargiza A." data-channel="Telegram" data-agent="Sara">
+<span class="status-dot offline"></span>
+<div class="inbox-chat-main">
+<div class="name-row"><strong class="truncate">Nargiza A.</strong></div>
+<div class="preview truncate">Muammo hal bo&#39;ldi, rahmat</div>
+<div class="text-muted" style="font-size:12px">Agent: Sara</div>
+</div>
+<div class="inbox-chat-meta"><span class="time">2h</span><span class="channel-pill">Telegram</span></div>
+</div></div>
+</aside>
+<section class="inbox-panel" data-inbox-chat-panel><div class="empty-state" data-inbox-empty style="margin:14px;height:calc(100% - 28px)"><i data-lucide="message-square-dashed"></i><strong>Chat tanlang</strong><p class="text-muted" style="font-size:13px">Chap ro'yxatdan suhbat tanlang yoki yangi chat boshlang.</p></div></section>
+<aside class="inbox-panel"><div class="inbox-info-scroll">
+<div class="inbox-info-card">
+<div class="flex gap-3 items-center"><span class="avatar avatar-lg">AV</span><div><strong>Ahmad Valiyev</strong><div class="text-muted" style="font-size:13px">ahmad@example.com</div></div></div>
+<div class="kv-list">
+<div class="kv-row"><span>Phone</span><strong>+998 90 111 22 33</strong></div><div class="kv-row"><span>Location</span><strong>Toshkent, UZ</strong></div><div class="kv-row"><span>Browser</span><strong>Chrome 122</strong></div><div class="kv-row"><span>OS</span><strong>macOS Sonoma</strong></div><div class="kv-row"><span>Current page</span><strong>/pricing</strong></div><div class="kv-row"><span>IP</span><strong>185.8.212.34</strong></div>
+</div>
+</div>
+<div class="inbox-info-card"><div class="justify-between"><h3>Tags</h3><button type="button" class="btn btn-ghost" data-action="log" data-message="Tag qo'shish oynasi ochildi">Tag qo'shish</button></div><div class="tag-cloud"><span class="badge badge-primary">Pricing</span><span class="badge badge-info">Lead</span><span class="badge badge-warning">Enterprise</span><span class="badge badge-danger">VIP</span></div></div>
+<div class="inbox-info-card"><h3>Notes</h3><textarea class="textarea" rows="4" placeholder="Ichki eslatma yozing...">Demo uchun qiziqmoqda. Ertaga follow-up yuborish tavsiya etiladi.</textarea><button class="btn btn-primary" type="button" data-action="save">Saqlash</button></div>
+<div class="inbox-info-card"><h3>Previous chats</h3><div class="list-stack">
+<a class="list-item" href="./02-chat-open.html"><div class="item-main"><div class="item-title">2026-02-18 вЂў Pricing question</div><div class="item-sub">Sara вЂў 18 xabar</div></div><span class="badge badge-success">Closed</span></a>
+<a class="list-item" href="./02-chat-open.html"><div class="item-main"><div class="item-title">2026-02-11 вЂў Feature comparison</div><div class="item-sub">Ali вЂў 9 xabar</div></div><span class="badge badge-success">Closed</span></a>
+<a class="list-item" href="./02-chat-open.html"><div class="item-main"><div class="item-title">2026-01-28 вЂў Demo request</div><div class="item-sub">Sardor вЂў 12 xabar</div></div><span class="badge badge-primary">Won</span></a>
+<a class="list-item" href="./02-chat-open.html"><div class="item-main"><div class="item-title">2026-01-19 вЂў Invoice issue</div><div class="item-sub">Bobur вЂў 6 xabar</div></div><span class="badge badge-info">Resolved</span></a>
+</div></div>
+<div class="inbox-info-card"><h3>Custom fields</h3><div class="kv-list">
+<div class="kv-row"><span>Plan</span><strong>Pro Trial</strong></div><div class="kv-row"><span>Lead source</span><strong>Pricing page</strong></div><div class="kv-row"><span>Company</span><strong>ACME LLC</strong></div>
+</div></div>
+</div></aside>
+</section>
+<div class="modal-overlay" data-modal="assign-agent" hidden>
+<div class="modal" role="dialog" aria-modal="true" aria-labelledby="assign-agent-title">
+<div class="modal-header">
+<h3 id="assign-agent-title">Agent tayinlash</h3>
+<button class="btn btn-ghost btn-sm" type="button" data-modal-close><i data-lucide="x"></i></button>
+</div>
+<div class="modal-body"><div class="list-stack"><button class="list-item" type="button" data-action="log" data-message="Chat Sardor ga tayinlandi"><div class="item-main"><div class="item-title">Sardor A.</div><div class="item-sub">3 ta active chat</div></div><span class="status-dot online"></span></button><button class="list-item" type="button" data-action="log" data-message="Chat Sara ga tayinlandi"><div class="item-main"><div class="item-title">Sara M.</div><div class="item-sub">5 ta active chat</div></div><span class="status-dot online"></span></button><button class="list-item" type="button" data-action="log" data-message="Chat Ali ga tayinlandi"><div class="item-main"><div class="item-title">Ali K.</div><div class="item-sub">2 ta active chat</div></div><span class="status-dot away"></span></button><button class="list-item" type="button" data-action="log" data-message="Chat Bobur ga tayinlandi"><div class="item-main"><div class="item-title">Bobur R.</div><div class="item-sub">1 ta active chat</div></div><span class="status-dot offline"></span></button></div></div>
+<div class="modal-footer"><button type="button" class="btn btn-secondary" data-action="log" data-message="Bekor qilish" data-modal-close>Bekor qilish</button>
+<button type="button" class="btn btn-primary" data-modal-close data-action="save">Saqlash</button></div>
+</div>
+</div>
+</main>
+<script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
+</body>
+</html>

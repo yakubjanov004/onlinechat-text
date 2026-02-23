@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHATFLOW - Add-on Settings</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/chatflow-design-system.css">
+<script src="https://unpkg.com/lucide@latest" defer></script>
+<script src="../assets/chatflow-shell.js" defer></script>
+<script src="../assets/chatflow-runtime.js" defer></script>
+</head>
+<body data-active-nav="addons" class="dashboard-shell-page">
+<main class="app-content">
+<div class="subnav-scroll">
+<div class="subnav-tabs">
+<a class="subnav-tab " href="./01-addons-catalog.html">Add-ons Catalog</a><a class="subnav-tab " href="./02-active-addons.html">Active Add-ons</a><a class="subnav-tab " href="./03-addon-detail.html">Add-on Detail</a><a class="subnav-tab active" href="./04-addon-settings.html">Add-on Settings</a>
+</div>
+</div>
+<div class="page-header">
+<div>
+<h1>Add-on Settings</h1>
+<p class="text-muted">Add-on katalogi va konfiguratsiya</p>
+</div>
+</div>
+<section class="card">
+<div class="card-header">
+<div>
+<h3>Add-on settings</h3>
+</div>
+</div>
+<div class="card-body">
+<div class="form-grid one"><label class="form-field">
+<span class="form-label">Bot token</span>
+<input class="input" value="123456:ABCвЂўвЂўвЂўвЂў">
+</label><label class="form-field">
+<span class="form-label">Target channel</span>
+<input class="input" value="@chatflow_support">
+</label><label class="form-field">
+<span class="form-label">Events</span>
+<select class="select"><option selected>All events</option><option >Urgent only</option><option >Assigned chats</option></select>
+</label><div class="form-row"><div class="row-copy"><div class="form-label">Send full transcript</div><p class="text-muted" style="font-size:13px">Har bir close holatida transcript yuborish</p></div><label class="toggle-switch ">
+<input type="checkbox" checked>
+<span class="toggle-track"><span class="toggle-thumb"></span></span>
+</label></div></div>
+</div>
+</section>
+</main>
+<script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHATFLOW - Active Add-ons</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/chatflow-design-system.css">
+<script src="https://unpkg.com/lucide@latest" defer></script>
+<script src="../assets/chatflow-shell.js" defer></script>
+<script src="../assets/chatflow-runtime.js" defer></script>
+</head>
+<body data-active-nav="addons" class="dashboard-shell-page">
+<main class="app-content">
+<div class="subnav-scroll">
+<div class="subnav-tabs">
+<a class="subnav-tab " href="./01-addons-catalog.html">Add-ons Catalog</a><a class="subnav-tab active" href="./02-active-addons.html">Active Add-ons</a><a class="subnav-tab " href="./03-addon-detail.html">Add-on Detail</a><a class="subnav-tab " href="./04-addon-settings.html">Add-on Settings</a>
+</div>
+</div>
+<div class="page-header">
+<div>
+<h1>Active Add-ons</h1>
+<p class="text-muted">Add-on katalogi va konfiguratsiya</p>
+</div>
+</div>
+<section class="card">
+<div class="card-header">
+<div>
+<h3>Active add-ons</h3>
+</div>
+</div>
+<div class="card-body">
+<div class="list-stack">
+<div class="list-item"><div class="item-main"><div class="item-title">WhatsApp</div><div class="item-sub">Business API connected</div></div><div class="flex gap-2 items-center"><label class="toggle-switch ">
+<input type="checkbox" checked>
+<span class="toggle-track"><span class="toggle-thumb"></span></span>
+</label><button type="button" class="btn btn-secondary" data-nav="./04-addon-settings.html">Settings</button><button type="button" class="btn btn-danger" data-action="log">Uninstall</button></div></div><div class="list-item"><div class="item-main"><div class="item-title">AI Chatbot</div><div class="item-sub">Draft mode enabled</div></div><div class="flex gap-2 items-center"><label class="toggle-switch ">
+<input type="checkbox" checked>
+<span class="toggle-track"><span class="toggle-thumb"></span></span>
+</label><button type="button" class="btn btn-secondary" data-nav="./04-addon-settings.html">Settings</button><button type="button" class="btn btn-danger" data-action="log">Uninstall</button></div></div><div class="list-item"><div class="item-main"><div class="item-title">Slack Integration</div><div class="item-sub">Channel #support-alerts</div></div><div class="flex gap-2 items-center"><label class="toggle-switch ">
+<input type="checkbox" checked>
+<span class="toggle-track"><span class="toggle-thumb"></span></span>
+</label><button type="button" class="btn btn-secondary" data-nav="./04-addon-settings.html">Settings</button><button type="button" class="btn btn-danger" data-action="log">Uninstall</button></div></div><div class="list-item"><div class="item-main"><div class="item-title">SMS</div><div class="item-sub">Provider token expiring soon</div></div><div class="flex gap-2 items-center"><label class="toggle-switch ">
+<input type="checkbox" >
+<span class="toggle-track"><span class="toggle-thumb"></span></span>
+</label><button type="button" class="btn btn-secondary" data-nav="./04-addon-settings.html">Settings</button><button type="button" class="btn btn-danger" data-action="log">Uninstall</button></div></div>
+</div>
+</div>
+</section>
+</main>
+<script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHATFLOW - Widget ko&#39;rinishini moslang</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/chatflow-design-system.css">
+<script src="https://unpkg.com/lucide@latest" defer></script>
+<script src="../assets/chatflow-runtime.js" defer></script>
+</head>
+<body class="onboarding-page">
+<main class="onboarding-page">
+<div class="onboarding-shell">
+<div class="onboarding-top">
+<a class="shell-brand" href="../index.html"><span class="shell-brand-mark">CF</span><span>CHATFLOW</span></a>
+<span class="badge badge-primary">Step 4/6</span>
+</div>
+<div class="onboarding-progress">
+<div class="justify-between"><strong>Onboarding progress</strong><span class="text-muted" style="font-size:13px">Step 4 / 6</span></div>
+<div class="progress"><div class="progress-bar" style="width:67%"></div></div>
+<div class="step-dots"><span class="done"></span><span class="done"></span><span class="done"></span><span class="active"></span><span class=""></span><span class=""></span></div>
+</div>
+<section class="onboarding-card">
+<div><h1>Widget ko&#39;rinishini moslang</h1><p class="text-muted" style="margin-top:6px">Rang, joylashuv va welcome xabarni tanlang. Preview real vaqt yangilanadi.</p></div>
+<div class="split-grid">
+<div class="stack">
+<section class="settings-section">
+<h3>Asosiy rang</h3>
+<div class="preset-colors">
+<label class="color-swatch active" style="background:#4F46E5"><input type="radio" name="widget-color" value="#4F46E5" checked data-widget-color hidden></label><label class="color-swatch " style="background:#2563EB"><input type="radio" name="widget-color" value="#2563EB"  data-widget-color hidden></label><label class="color-swatch " style="background:#059669"><input type="radio" name="widget-color" value="#059669"  data-widget-color hidden></label><label class="color-swatch " style="background:#DC2626"><input type="radio" name="widget-color" value="#DC2626"  data-widget-color hidden></label><label class="color-swatch " style="background:#F59E0B"><input type="radio" name="widget-color" value="#F59E0B"  data-widget-color hidden></label><label class="color-swatch " style="background:#0EA5E9"><input type="radio" name="widget-color" value="#0EA5E9"  data-widget-color hidden></label>
+</div>
+</section>
+<section class="settings-section">
+<h3>Widget position</h3>
+<div class="flex gap-4 wrap">
+<label class="checkbox"><input type="radio" name="widget-position" value="right" checked> Right</label>
+<label class="checkbox"><input type="radio" name="widget-position" value="left"> Left</label>
+</div>
+</section>
+<section class="settings-section">
+<label class="form-field">
+<span class="form-label">Welcome xabar</span>
+<textarea class="textarea" rows="4" data-widget-welcome-input>Salom! Sizga qanday yordam bera olamiz?</textarea>
+</label>
+</section>
+</div>
+<div class="widget-mini-preview" data-widget-preview>
+<div class="text-muted" style="font-size:13px">Live preview</div>
+<div class="widget-mini-window" data-widget-preview-window>
+<div class="widget-mini-head" data-widget-preview-head><span>CHATFLOW</span><span>Online</span></div>
+<div class="widget-mini-body">
+<div class="widget-msg" data-widget-preview-message>Salom! Sizga qanday yordam bera olamiz?</div>
+<div class="widget-msg agent">Pro plan va demo haqida ma'lumot bera olaman.</div>
+<div class="widget-msg">Rahmat, pricing sahifasidan keldim.</div>
+</div>
+</div>
+</div>
+</div>
+<div class="onboarding-actions">
+<div class="flex gap-2 wrap"><a class="btn btn-secondary" href="./03-workspace.html" >Orqaga</a>
+<a class="btn btn-ghost" href="../04-dashboard/01-dashboard.html" >Skip</a></div>
+<a class="btn btn-primary" href="./05-widget-install.html" >Keyingi</a>
+</div>
+</section>
+</div>
+</main>
+<script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
+</body>
+</html>

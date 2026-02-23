@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHATFLOW - CRM Segmentlar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/chatflow-design-system.css">
+<script src="https://unpkg.com/lucide@latest" defer></script>
+<script src="../assets/chatflow-shell.js" defer></script>
+<script src="../assets/chatflow-runtime.js" defer></script>
+</head>
+<body data-active-nav="contacts" class="dashboard-shell-page">
+<main class="app-content">
+<div class="subnav-scroll">
+<div class="subnav-tabs">
+<a class="subnav-tab " href="./01-contacts-list.html">Kontaktlar</a><a class="subnav-tab " href="./02-contact-profile.html">Kontakt Profili</a><a class="subnav-tab " href="./03-organizations.html">Tashkilotlar</a><a class="subnav-tab " href="./04-org-detail.html">Tashkilot Profili</a><a class="subnav-tab active" href="./05-segments.html">CRM Segmentlar</a><a class="subnav-tab " href="./06-import-export.html">Import &amp; Export</a>
+</div>
+</div>
+<div class="page-header">
+<div>
+<h1>CRM Segmentlar</h1>
+<p class="text-muted">CRM kontaktlar, tashkilotlar va segmentlar</p>
+</div>
+</div><div class="two-col">
+<section class="card">
+<div class="card-header">
+<div>
+<h3>Segmentlar</h3>
+</div>
+<div class="card-actions"><button type="button" class="btn btn-primary" data-modal-open="new-contact-segment">Yangi segment</button></div>
+</div>
+<div class="card-body">
+<div class="list-stack">
+<div class="list-item"><div class="item-main"><div class="item-title">VIP Customers</div><div class="item-sub">42 contacts вЂў CSAT 4.9</div></div><span class="badge badge-success">Active</span></div>
+<div class="list-item"><div class="item-main"><div class="item-title">Pricing Leads</div><div class="item-sub">318 contacts вЂў Last 30 days</div></div><span class="badge badge-info">Dynamic</span></div>
+<div class="list-item"><div class="item-main"><div class="item-title">Dormant Users</div><div class="item-sub">91 contacts вЂў 60+ kun faol emas</div></div><span class="badge badge-warning">Saved</span></div>
+</div>
+</div>
+</section>
+<section class="card">
+<div class="card-header">
+<div>
+<h3>Filter builder</h3>
+</div>
+</div>
+<div class="card-body">
+<div class="kanban"><div class="kanban-col"><h4>Fields</h4><div class="kanban-card">Country</div><div class="kanban-card">Tag</div><div class="kanban-card">Last contact</div></div><div class="kanban-col"><h4>Conditions</h4><div class="kanban-card">Country = UZ</div><div class="kanban-card">Tag contains VIP</div></div><div class="kanban-col"><h4>Output</h4><div class="kanban-card">Preview 42 contacts</div></div></div>
+</div>
+</section>
+</div>
+<div class="modal-overlay" data-modal="new-contact-segment" hidden>
+<div class="modal" role="dialog" aria-modal="true" aria-labelledby="new-contact-segment-title">
+<div class="modal-header">
+<h3 id="new-contact-segment-title">Yangi segment</h3>
+<button class="btn btn-ghost btn-sm" type="button" data-modal-close><i data-lucide="x"></i></button>
+</div>
+<div class="modal-body"><div class="form-grid one"><label class="form-field">
+<span class="form-label">Nomi</span>
+<input class="input" type="text" value="High intent leads" placeholder="">
+</label><label class="form-field">
+<span class="form-label">Rule</span>
+<textarea class="textarea" rows="3" placeholder="">Visited /pricing OR /demo in last 7 days</textarea>
+</label></div></div>
+<div class="modal-footer"><button type="button" class="btn btn-secondary" data-action="log" data-message="Bekor qilish" data-modal-close>Bekor qilish</button>
+<button type="button" class="btn btn-primary" data-modal-close data-action="save">Saqlash</button></div>
+</div>
+</div>
+</main>
+<script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
+</body>
+</html>

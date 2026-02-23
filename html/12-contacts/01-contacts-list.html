@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHATFLOW - Kontaktlar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/chatflow-design-system.css">
+<script src="https://unpkg.com/lucide@latest" defer></script>
+<script src="../assets/chatflow-shell.js" defer></script>
+<script src="../assets/chatflow-runtime.js" defer></script>
+</head>
+<body data-active-nav="contacts" class="dashboard-shell-page">
+<main class="app-content">
+<div class="subnav-scroll">
+<div class="subnav-tabs">
+<a class="subnav-tab active" href="./01-contacts-list.html">Kontaktlar</a><a class="subnav-tab " href="./02-contact-profile.html">Kontakt Profili</a><a class="subnav-tab " href="./03-organizations.html">Tashkilotlar</a><a class="subnav-tab " href="./04-org-detail.html">Tashkilot Profili</a><a class="subnav-tab " href="./05-segments.html">CRM Segmentlar</a><a class="subnav-tab " href="./06-import-export.html">Import &amp; Export</a>
+</div>
+</div>
+<div class="page-header">
+<div>
+<h1>Kontaktlar</h1>
+<p class="text-muted">CRM kontaktlar, tashkilotlar va segmentlar</p>
+</div>
+</div>
+<section class="card">
+<div class="card-header">
+<div>
+<h3>Filters</h3>
+</div>
+</div>
+<div class="card-body">
+<div class="form-grid three">
+<div class="input-group"><i data-lucide="search"></i><input class="input" type="search" placeholder="Kontakt qidirish"></div>
+<div class="flex gap-2 wrap">
+<button type="button" class="btn btn-secondary" data-action="log">All</button>
+<button type="button" class="btn btn-secondary" data-action="log">VIP</button>
+<button type="button" class="btn btn-secondary" data-action="log">Leads</button>
+<button type="button" class="btn btn-secondary" data-action="log">Customers</button>
+</div>
+<div><button type="button" class="btn btn-secondary" data-action="export">Bulk export</button></div>
+</div>
+</div>
+</section>
+<section class="card">
+<div class="card-header">
+<div>
+<h3>Kontaktlar ro&#39;yxati</h3>
+</div>
+</div>
+<div class="card-body">
+<div class="table-wrap">
+<table class="table">
+<thead>
+<tr class="table-header">
+<th></th><th>Kontakt</th><th>Email</th><th>Company</th><th>Last contact</th><th>Tags</th>
+</tr>
+</thead>
+<tbody>
+<tr class="table-row"><td><input type="checkbox" aria-label="Select row"></td><td><div class="flex gap-2 items-center"><span class="avatar ">AV</span><a href="./02-contact-profile.html" style="color:var(--primary)">Ahmad Valiyev</a></div></td><td>ahmad@example.com</td><td>ACME</td><td>2h ago</td><td><span class="badge badge-info">Lead</span><span class="badge badge-primary">Pricing</span></td></tr><tr class="table-row"><td><input type="checkbox" aria-label="Select row"></td><td><div class="flex gap-2 items-center"><span class="avatar ">NT</span><a href="./02-contact-profile.html" style="color:var(--primary)">Nodira Tursunova</a></div></td><td>nodira@nexa.uz</td><td>Nexa</td><td>Yesterday</td><td><span class="badge badge-warning">VIP</span></td></tr><tr class="table-row"><td><input type="checkbox" aria-label="Select row"></td><td><div class="flex gap-2 items-center"><span class="avatar ">RK</span><a href="./02-contact-profile.html" style="color:var(--primary)">Rustam Karimov</a></div></td><td>rustam@logi.uz</td><td>Logi Group</td><td>3d ago</td><td><span class="badge">Support</span></td></tr><tr class="table-row"><td><input type="checkbox" aria-label="Select row"></td><td><div class="flex gap-2 items-center"><span class="avatar ">MO</span><a href="./02-contact-profile.html" style="color:var(--primary)">Malika Orifova</a></div></td><td>malika@shop.uz</td><td>Shoply</td><td>20m ago</td><td><span class="badge badge-success">Customer</span></td></tr><tr class="table-row"><td><input type="checkbox" aria-label="Select row"></td><td><div class="flex gap-2 items-center"><span class="avatar ">DN</span><a href="./02-contact-profile.html" style="color:var(--primary)">Dilshod Nazarov</a></div></td><td>dilshod@edu.uz</td><td>EduPro</td><td>1h ago</td><td><span class="badge badge-info">Lead</span></td></tr><tr class="table-row"><td><input type="checkbox" aria-label="Select row"></td><td><div class="flex gap-2 items-center"><span class="avatar ">JP</span><a href="./02-contact-profile.html" style="color:var(--primary)">Jasur P.</a></div></td><td>jasur@fin.uz</td><td>FinCore</td><td>4h ago</td><td><span class="badge badge-warning">Billing</span></td></tr><tr class="table-row"><td><input type="checkbox" aria-label="Select row"></td><td><div class="flex gap-2 items-center"><span class="avatar ">ST</span><a href="./02-contact-profile.html" style="color:var(--primary)">Sarvinoz T.</a></div></td><td>sarvinoz@hub.uz</td><td>LogiHub</td><td>2d ago</td><td><span class="badge badge-success">Customer</span></td></tr><tr class="table-row"><td><input type="checkbox" aria-label="Select row"></td><td><div class="flex gap-2 items-center"><span class="avatar ">BR</span><a href="./02-contact-profile.html" style="color:var(--primary)">Bobur R.</a></div></td><td>bobur@retail.uz</td><td>RetailX</td><td>5d ago</td><td><span class="badge">Inactive</span></td></tr><tr class="table-row"><td><input type="checkbox" aria-label="Select row"></td><td><div class="flex gap-2 items-center"><span class="avatar ">ZM</span><a href="./02-contact-profile.html" style="color:var(--primary)">Zuhra M.</a></div></td><td>zuhra@acme.uz</td><td>ACME</td><td>6h ago</td><td><span class="badge badge-warning">VIP</span><span class="badge badge-primary">Enterprise</span></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</main>
+<script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
+</body>
+</html>

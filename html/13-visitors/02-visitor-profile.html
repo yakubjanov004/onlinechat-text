@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHATFLOW - Visitor Profile</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/chatflow-design-system.css">
+<script src="https://unpkg.com/lucide@latest" defer></script>
+<script src="../assets/chatflow-shell.js" defer></script>
+<script src="../assets/chatflow-runtime.js" defer></script>
+</head>
+<body data-active-nav="visitors" class="dashboard-shell-page">
+<main class="app-content">
+<div class="subnav-scroll">
+<div class="subnav-tabs">
+<a class="subnav-tab " href="./01-visitors-list.html">Online Visitors</a><a class="subnav-tab active" href="./02-visitor-profile.html">Visitor Profile</a><a class="subnav-tab " href="./03-visitors-map.html">Visitors Map</a>
+</div>
+</div>
+<div class="page-header">
+<div>
+<h1>Visitor Profile</h1>
+<p class="text-muted">Online visitor kuzatuvi va profiling</p>
+</div>
+</div><div class="split-grid">
+<section class="card">
+<div class="card-header">
+<div>
+<h3>Visitor profile</h3>
+</div>
+</div>
+<div class="card-body">
+<div class="kv-list">
+<div class="kv-row"><span>IP</span><strong>185.8.212.34</strong></div><div class="kv-row"><span>Location</span><strong>Toshkent, UZ</strong></div><div class="kv-row"><span>Browser</span><strong>Chrome 122 / Windows</strong></div><div class="kv-row"><span>Session</span><strong>07m 12s</strong></div>
+</div><div class="divider"></div><div class="flex gap-2 wrap"><button type="button" class="btn btn-primary" data-action="log" data-message="Chat boshlandi">Start chat</button><button type="button" class="btn btn-secondary" data-action="log">Add to contacts</button></div>
+</div>
+</section>
+<section class="card">
+<div class="card-header">
+<div>
+<h3>Pages visited</h3>
+</div>
+</div>
+<div class="card-body">
+<div class="timeline"><div class="timeline-item"><span class="timeline-dot"></span><div class="timeline-card"><strong>/landing</strong><span class="timeline-time">14:18</span></div></div><div class="timeline-item"><span class="timeline-dot"></span><div class="timeline-card"><strong>/pricing</strong><span class="timeline-time">14:20</span></div></div><div class="timeline-item"><span class="timeline-dot"></span><div class="timeline-card"><strong>Widget opened</strong><span class="timeline-time">14:21</span></div></div><div class="timeline-item"><span class="timeline-dot"></span><div class="timeline-card"><strong>Viewed /enterprise</strong><span class="timeline-time">14:24</span></div></div></div>
+</div>
+</section>
+</div>
+</main>
+<script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
+</body>
+</html>

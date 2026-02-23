@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHATFLOW - Workspace Settings</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/chatflow-design-system.css">
+<script src="https://unpkg.com/lucide@latest" defer></script>
+<script src="../assets/chatflow-shell.js" defer></script>
+<script src="../assets/chatflow-runtime.js" defer></script>
+</head>
+<body data-active-nav="settings" class="dashboard-shell-page settings-shell">
+<main class="app-content">
+<div class="subnav-scroll">
+<div class="subnav-tabs">
+<a class="subnav-tab active" href="./01-workspace.html">Workspace Settings</a><a class="subnav-tab " href="./02-widget-settings.html">Widget Settings</a><a class="subnav-tab " href="./03-security.html">Security</a><a class="subnav-tab " href="./04-notifications.html">Notifications</a><a class="subnav-tab " href="./05-profile.html">Profile</a><a class="subnav-tab " href="./06-privacy-export.html">Privacy Export</a><a class="subnav-tab " href="./07-privacy-delete.html">Privacy Delete</a><a class="subnav-tab " href="./08-privacy-settings.html">Privacy Settings</a>
+</div>
+</div>
+<div class="page-header">
+<div>
+<h1>Sozlamalar</h1>
+<p class="text-muted">Workspace, widget, security va privacy boshqaruvi</p>
+</div>
+</div><section class="settings-card"><div class="settings-tabs"><a href="./01-workspace.html" class="active">Workspace</a><a href="./02-widget-settings.html" class="">Widget</a><a href="./03-security.html" class="">Security</a><a href="./04-notifications.html" class="">Notifications</a><a href="./05-profile.html" class="">Profile</a><a href="./06-privacy-export.html" class="">Privacy</a></div><div class="settings-body"><section class="settings-section"><h3>Workspace</h3><p class="section-desc">Workspace nomi, domen va locale sozlamalari</p><div class="form-grid"><div><label class="form-field">
+<span class="form-label">Workspace nomi</span>
+<input class="input" type="text" value="CHATFLOW Support" placeholder="">
+</label></div><div><label class="form-field">
+<span class="form-label">URL</span>
+<input class="input" value="support.chatflow.uz">
+</label></div><div><label class="form-field">
+<span class="form-label">Timezone</span>
+<select class="select"><option selected>GMT+5 Toshkent</option><option >GMT+3 Istanbul</option><option >GMT+6 Almaty</option></select>
+</label></div><div><label class="form-field">
+<span class="form-label">Til</span>
+<select class="select"><option selected>O&#39;zbek</option><option >English</option><option >Р СѓСЃСЃРєРёР№</option></select>
+</label></div></div><div class="two-col"><div class="dropzone"><i data-lucide="upload-cloud"></i><div>Logo yuklash</div><small>PNG / JPG / SVG</small></div><div><label class="form-field">
+<span class="form-label">Workspace description</span>
+<textarea class="textarea" rows="5" placeholder="">Mijoz support va sales chatlari uchun umumiy workspace.</textarea>
+</label></div></div></section>
+<section class="card" style="border-color:#FCA5A5;background:#FFF7F7">
+<div class="card-header"><div><h3 style="color:#B91C1C">Danger zone</h3><p class="card-description">Workspace o'chirilsa barcha ma'lumotlar yo'qoladi.</p></div><span class="badge badge-danger">Xavfli</span></div>
+<div class="card-body"><div class="flex justify-between items-center gap-3 wrap"><div><div class="item-title">Workspace o'chirish</div><div class="item-sub">Delete amalidan oldin export oling.</div></div><button type="button" class="btn btn-danger" data-modal-open="workspace-delete">Workspace o'chirish</button></div></div>
+</section>
+<div class="modal-overlay" data-modal="workspace-delete" hidden>
+<div class="modal" role="dialog" aria-modal="true" aria-labelledby="workspace-delete-title">
+<div class="modal-header">
+<h3 id="workspace-delete-title">Workspace o&#39;chirish</h3>
+<button class="btn btn-ghost btn-sm" type="button" data-modal-close><i data-lucide="x"></i></button>
+</div>
+<div class="modal-body"><label class="form-field">
+<span class="form-label">Tasdiqlash</span>
+<input class="input" placeholder="CHATFLOW Support">
+</label></div>
+<div class="modal-footer"><button type="button" class="btn btn-secondary" data-action="log" data-message="Bekor qilish" data-modal-close>Bekor qilish</button>
+<button type="button" class="btn btn-danger" data-modal-close data-action="log">O'chirishni tasdiqlash</button></div>
+</div>
+</div></div><div class="sticky-save-bar"><button type="button" class="btn btn-secondary" data-action="reset-form">Bekor qilish</button>
+<button type="button" class="btn btn-primary" data-action="save">Saqlash</button></div></section>
+</main>
+<script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHATFLOW - Notifications</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/chatflow-design-system.css">
+<script src="https://unpkg.com/lucide@latest" defer></script>
+<script src="../assets/chatflow-shell.js" defer></script>
+<script src="../assets/chatflow-runtime.js" defer></script>
+</head>
+<body data-active-nav="settings" class="dashboard-shell-page settings-shell">
+<main class="app-content">
+<div class="subnav-scroll">
+<div class="subnav-tabs">
+<a class="subnav-tab " href="./01-workspace.html">Workspace Settings</a><a class="subnav-tab " href="./02-widget-settings.html">Widget Settings</a><a class="subnav-tab " href="./03-security.html">Security</a><a class="subnav-tab active" href="./04-notifications.html">Notifications</a><a class="subnav-tab " href="./05-profile.html">Profile</a><a class="subnav-tab " href="./06-privacy-export.html">Privacy Export</a><a class="subnav-tab " href="./07-privacy-delete.html">Privacy Delete</a><a class="subnav-tab " href="./08-privacy-settings.html">Privacy Settings</a>
+</div>
+</div>
+<div class="page-header">
+<div>
+<h1>Sozlamalar</h1>
+<p class="text-muted">Workspace, widget, security va privacy boshqaruvi</p>
+</div>
+</div><section class="settings-card"><div class="settings-tabs"><a href="./01-workspace.html" class="">Workspace</a><a href="./02-widget-settings.html" class="">Widget</a><a href="./03-security.html" class="">Security</a><a href="./04-notifications.html" class="active">Notifications</a><a href="./05-profile.html" class="">Profile</a><a href="./06-privacy-export.html" class="">Privacy</a></div><div class="settings-body"><section class="settings-section"><h3>Notifications</h3><p class="section-desc">Email, push va sound kanallari</p><div class="form-grid three"><div class="card"><div class="card-body"><div class="flex justify-between items-center"><div><div class="item-title">New chat</div><div class="item-sub">Push</div></div><label class="toggle-switch ">
+<input type="checkbox" checked>
+<span class="toggle-track"><span class="toggle-thumb"></span></span>
+</label></div></div></div><div class="card"><div class="card-body"><div class="flex justify-between items-center"><div><div class="item-title">New message</div><div class="item-sub">Push</div></div><label class="toggle-switch ">
+<input type="checkbox" checked>
+<span class="toggle-track"><span class="toggle-thumb"></span></span>
+</label></div></div></div><div class="card"><div class="card-body"><div class="flex justify-between items-center"><div><div class="item-title">Urgent chat</div><div class="item-sub">Push</div></div><label class="toggle-switch ">
+<input type="checkbox" checked>
+<span class="toggle-track"><span class="toggle-thumb"></span></span>
+</label></div></div></div><div class="card"><div class="card-body"><div class="flex justify-between items-center"><div><div class="item-title">Weekly digest</div><div class="item-sub">Email</div></div><label class="toggle-switch ">
+<input type="checkbox" checked>
+<span class="toggle-track"><span class="toggle-thumb"></span></span>
+</label></div></div></div><div class="card"><div class="card-body"><div class="flex justify-between items-center"><div><div class="item-title">SLA breach</div><div class="item-sub">Email</div></div><label class="toggle-switch ">
+<input type="checkbox" checked>
+<span class="toggle-track"><span class="toggle-thumb"></span></span>
+</label></div></div></div><div class="card"><div class="card-body"><div class="flex justify-between items-center"><div><div class="item-title">Billing updates</div><div class="item-sub">Email</div></div><label class="toggle-switch ">
+<input type="checkbox" >
+<span class="toggle-track"><span class="toggle-thumb"></span></span>
+</label></div></div></div><div class="card"><div class="card-body"><div class="flex justify-between items-center"><div><div class="item-title">Sound alerts</div><div class="item-sub">Sound</div></div><label class="toggle-switch ">
+<input type="checkbox" checked>
+<span class="toggle-track"><span class="toggle-thumb"></span></span>
+</label></div></div></div><div class="card"><div class="card-body"><div class="flex justify-between items-center"><div><div class="item-title">Mentions</div><div class="item-sub">Sound</div></div><label class="toggle-switch ">
+<input type="checkbox" checked>
+<span class="toggle-track"><span class="toggle-thumb"></span></span>
+</label></div></div></div><div class="card"><div class="card-body"><div class="flex justify-between items-center"><div><div class="item-title">Team chat</div><div class="item-sub">Sound</div></div><label class="toggle-switch ">
+<input type="checkbox" >
+<span class="toggle-track"><span class="toggle-thumb"></span></span>
+</label></div></div></div></div></section></div><div class="sticky-save-bar"><button type="button" class="btn btn-secondary" data-action="reset-form">Bekor qilish</button>
+<button type="button" class="btn btn-primary" data-action="save">Saqlash</button></div></section>
+</main>
+<script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
+</body>
+</html>

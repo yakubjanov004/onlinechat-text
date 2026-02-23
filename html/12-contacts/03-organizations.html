@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHATFLOW - Tashkilotlar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/chatflow-design-system.css">
+<script src="https://unpkg.com/lucide@latest" defer></script>
+<script src="../assets/chatflow-shell.js" defer></script>
+<script src="../assets/chatflow-runtime.js" defer></script>
+</head>
+<body data-active-nav="contacts" class="dashboard-shell-page">
+<main class="app-content">
+<div class="subnav-scroll">
+<div class="subnav-tabs">
+<a class="subnav-tab " href="./01-contacts-list.html">Kontaktlar</a><a class="subnav-tab " href="./02-contact-profile.html">Kontakt Profili</a><a class="subnav-tab active" href="./03-organizations.html">Tashkilotlar</a><a class="subnav-tab " href="./04-org-detail.html">Tashkilot Profili</a><a class="subnav-tab " href="./05-segments.html">CRM Segmentlar</a><a class="subnav-tab " href="./06-import-export.html">Import &amp; Export</a>
+</div>
+</div>
+<div class="page-header">
+<div>
+<h1>Tashkilotlar</h1>
+<p class="text-muted">CRM kontaktlar, tashkilotlar va segmentlar</p>
+</div>
+</div>
+<section class="card">
+<div class="card-header">
+<div>
+<h3>Organizations</h3>
+</div>
+</div>
+<div class="card-body">
+<div class="table-wrap">
+<table class="table">
+<thead>
+<tr class="table-header">
+<th>Org</th><th>Website</th><th>Industry</th><th>Contacts</th><th>Last activity</th><th>Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="table-row"><td>ACME</td><td>acme.uz</td><td>Retail</td><td>42</td><td>10m ago</td><td><a class="btn btn-secondary" href="./04-org-detail.html" >Open</a></td></tr><tr class="table-row"><td>Nexa Market</td><td>nexa.uz</td><td>Marketplace</td><td>19</td><td>2h ago</td><td><a class="btn btn-secondary" href="./04-org-detail.html" >Open</a></td></tr><tr class="table-row"><td>Logi Group</td><td>logi.uz</td><td>Logistics</td><td>7</td><td>Yesterday</td><td><a class="btn btn-secondary" href="./04-org-detail.html" >Open</a></td></tr><tr class="table-row"><td>EduPro</td><td>edu.uz</td><td>Education</td><td>24</td><td>3h ago</td><td><a class="btn btn-secondary" href="./04-org-detail.html" >Open</a></td></tr><tr class="table-row"><td>FinCore</td><td>fincore.uz</td><td>Finance</td><td>13</td><td>2d ago</td><td><a class="btn btn-secondary" href="./04-org-detail.html" >Open</a></td></tr><tr class="table-row"><td>RetailX</td><td>retailx.uz</td><td>Retail</td><td>31</td><td>5h ago</td><td><a class="btn btn-secondary" href="./04-org-detail.html" >Open</a></td></tr><tr class="table-row"><td>Shoply</td><td>shoply.uz</td><td>E-commerce</td><td>11</td><td>1d ago</td><td><a class="btn btn-secondary" href="./04-org-detail.html" >Open</a></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</main>
+<script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
+</body>
+</html>

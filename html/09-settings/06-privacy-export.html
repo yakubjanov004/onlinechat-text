@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHATFLOW - Privacy Export</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/chatflow-design-system.css">
+<script src="https://unpkg.com/lucide@latest" defer></script>
+<script src="../assets/chatflow-shell.js" defer></script>
+<script src="../assets/chatflow-runtime.js" defer></script>
+</head>
+<body data-active-nav="settings" class="dashboard-shell-page settings-shell">
+<main class="app-content">
+<div class="subnav-scroll">
+<div class="subnav-tabs">
+<a class="subnav-tab " href="./01-workspace.html">Workspace Settings</a><a class="subnav-tab " href="./02-widget-settings.html">Widget Settings</a><a class="subnav-tab " href="./03-security.html">Security</a><a class="subnav-tab " href="./04-notifications.html">Notifications</a><a class="subnav-tab " href="./05-profile.html">Profile</a><a class="subnav-tab active" href="./06-privacy-export.html">Privacy Export</a><a class="subnav-tab " href="./07-privacy-delete.html">Privacy Delete</a><a class="subnav-tab " href="./08-privacy-settings.html">Privacy Settings</a>
+</div>
+</div>
+<div class="page-header">
+<div>
+<h1>Sozlamalar</h1>
+<p class="text-muted">Workspace, widget, security va privacy boshqaruvi</p>
+</div>
+</div><section class="settings-card"><div class="settings-tabs"><a href="./01-workspace.html" class="">Workspace</a><a href="./02-widget-settings.html" class="">Widget</a><a href="./03-security.html" class="">Security</a><a href="./04-notifications.html" class="">Notifications</a><a href="./05-profile.html" class="">Profile</a><a href="./06-privacy-export.html" class="active">Privacy</a></div><div class="settings-body"><section class="settings-section"><h3>Data export</h3><p class="section-desc">Foydalanuvchi ma'lumotlarini eksport qilish</p><div class="form-grid"><div><label class="form-field">
+<span class="form-label">Format</span>
+<select class="select"><option >JSON</option><option >CSV</option><option selected>ZIP</option></select>
+</label></div><div><label class="form-field">
+<span class="form-label">Date range</span>
+<div class="date-range"><i data-lucide="calendar"></i>Last 90 days</div>
+</label></div></div><div class="alert alert-info"><i data-lucide="shield-check"></i><div>Export tayyor bo'lgach email orqali yuboriladi.</div></div><div><button type="button" class="btn btn-primary" data-action="export">Exportni boshlash</button></div><div class="divider"></div><h4>Oldingi exportlar</h4><div class="table-wrap">
+<table class="table">
+<thead>
+<tr class="table-header">
+<th>Sana</th><th>Format</th><th>Range</th><th>Status</th><th>File</th>
+</tr>
+</thead>
+<tbody>
+<tr class="table-row"><td>2026-02-18 10:12</td><td>ZIP</td><td>90 kun</td><td><span class="badge badge-success">Ready</span></td><td><button type="button" class="btn btn-secondary" data-action="export">Yuklash</button></td></tr><tr class="table-row"><td>2026-01-20 14:40</td><td>CSV</td><td>30 kun</td><td><span class="badge badge-success">Ready</span></td><td><button type="button" class="btn btn-secondary" data-action="export">Yuklash</button></td></tr><tr class="table-row"><td>2025-12-28 09:05</td><td>JSON</td><td>Custom</td><td><span class="badge badge-warning">Expired</span></td><td><button type="button" class="btn btn-secondary" data-action="export">Qayta yaratish</button></td></tr>
+</tbody>
+</table>
+</div></section></div><div class="sticky-save-bar"><button type="button" class="btn btn-secondary" data-action="reset-form">Bekor qilish</button>
+<button type="button" class="btn btn-primary" data-action="save">Saqlash</button></div></section>
+</main>
+<script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
+</body>
+</html>

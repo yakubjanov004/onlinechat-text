@@ -1,0 +1,165 @@
+﻿:root {
+  --pl-bg: #f2f6fb;
+  --pl-surface: #ffffff;
+  --pl-line: #d5e1ef;
+  --pl-text: #132033;
+  --pl-muted: #5c6e86;
+  --pl-primary: #0d6efd;
+  --pl-primary-strong: #0b57c7;
+  --pl-soft: #e8f2ff;
+  --pl-shadow: 0 10px 26px rgba(19, 45, 85, 0.09);
+}
+
+html,
+body {
+  font-family: "DM Sans", "Manrope", "Segoe UI", sans-serif;
+}
+
+body:not(.cf-body) {
+  color: var(--pl-text);
+}
+
+body:not(.cf-body) .header,
+body:not(.cf-body) .top,
+body:not(.cf-body) .topbar {
+  border-bottom-color: var(--pl-line) !important;
+  background: rgba(255, 255, 255, 0.93) !important;
+  backdrop-filter: blur(6px);
+}
+
+body:not(.cf-body) .logo,
+body:not(.cf-body) .brand {
+  color: var(--pl-primary) !important;
+  font-weight: 900 !important;
+  letter-spacing: 0.2px;
+}
+
+body:not(.cf-body) .layout,
+body:not(.cf-body) .app {
+  background: transparent;
+}
+
+body:not(.cf-body) .sidebar,
+body:not(.cf-body) .side,
+body:not(.cf-body) .left-panel {
+  border-right-color: var(--pl-line) !important;
+  background: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%) !important;
+}
+
+body:not(.cf-body) .item.active,
+body:not(.cf-body) .m.active,
+body:not(.cf-body) .menu-item.active,
+body:not(.cf-body) .tab.active,
+body:not(.cf-body) .t.active {
+  background: var(--pl-soft) !important;
+  color: var(--pl-primary-strong) !important;
+  border-left-color: var(--pl-primary-strong) !important;
+}
+
+body:not(.cf-body) .card,
+body:not(.cf-body) .panel,
+body:not(.cf-body) .box,
+body:not(.cf-body) .chart,
+body:not(.cf-body) .metric,
+body:not(.cf-body) .table-wrap,
+body:not(.cf-body) .widget,
+body:not(.cf-body) .main,
+body:not(.cf-body) .list,
+body:not(.cf-body) .right-panel,
+body:not(.cf-body) .content-card {
+  border-color: var(--pl-line) !important;
+  box-shadow: var(--pl-shadow);
+  border-radius: 12px;
+}
+
+body:not(.cf-body) .card,
+body:not(.cf-body) .panel,
+body:not(.cf-body) .box,
+body:not(.cf-body) .metric,
+body:not(.cf-body) .content-card {
+  background: var(--pl-surface) !important;
+}
+
+body:not(.cf-body) .title,
+body:not(.cf-body) h1,
+body:not(.cf-body) h2,
+body:not(.cf-body) h3 {
+  color: #102038;
+}
+
+body:not(.cf-body) .sub,
+body:not(.cf-body) p,
+body:not(.cf-body) .muted,
+body:not(.cf-body) .metric-label,
+body:not(.cf-body) .section-label,
+body:not(.cf-body) .lbl {
+  color: var(--pl-muted);
+}
+
+body:not(.cf-body) .btn,
+body:not(.cf-body) .btn-i,
+body:not(.cf-body) button,
+body:not(.cf-body) .action,
+body:not(.cf-body) .mini,
+body:not(.cf-body) .pager-btn {
+  border-radius: 9px;
+  border-color: #c9d8eb;
+}
+
+body:not(.cf-body) .btn.p,
+body:not(.cf-body) .btn-primary,
+body:not(.cf-body) .primary,
+body:not(.cf-body) button.primary,
+body:not(.cf-body) .action.primary {
+  background: linear-gradient(135deg, #0d6efd 0%, #0a59cd 100%) !important;
+  color: #fff !important;
+  border-color: #0b57c7 !important;
+}
+
+body:not(.cf-body) .btn:not(.p):not(.primary):not(.btn-primary),
+body:not(.cf-body) .btn-i,
+body:not(.cf-body) .pager-btn,
+body:not(.cf-body) .mini,
+body:not(.cf-body) button:not(.primary):not(.btn-primary) {
+  background: #fff;
+  color: #2e4761;
+}
+
+body:not(.cf-body) input,
+body:not(.cf-body) select,
+body:not(.cf-body) textarea,
+body:not(.cf-body) .search,
+body:not(.cf-body) .field {
+  border-color: #c8d7ea !important;
+  border-radius: 9px;
+  background: #fff !important;
+  color: var(--pl-text);
+}
+
+body:not(.cf-body) input:focus,
+body:not(.cf-body) select:focus,
+body:not(.cf-body) textarea:focus,
+body:not(.cf-body) .search:focus,
+body:not(.cf-body) .field:focus {
+  outline: none;
+  border-color: #7ab0ff !important;
+  box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.14);
+}
+
+body:not(.cf-body) table,
+body:not(.cf-body) .table {
+  border-color: var(--pl-line);
+}
+
+body:not(.cf-body) th,
+body:not(.cf-body) td {
+  border-color: #e4edf8;
+}
+
+@media (max-width: 900px) {
+  body:not(.cf-body) .header,
+  body:not(.cf-body) .top,
+  body:not(.cf-body) .topbar {
+    backdrop-filter: none;
+  }
+}

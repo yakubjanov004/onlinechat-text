@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHATFLOW - Online Visitors</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/chatflow-design-system.css">
+<script src="https://unpkg.com/lucide@latest" defer></script>
+<script src="../assets/chatflow-shell.js" defer></script>
+<script src="../assets/chatflow-runtime.js" defer></script>
+</head>
+<body data-active-nav="visitors" class="dashboard-shell-page">
+<main class="app-content">
+<div class="subnav-scroll">
+<div class="subnav-tabs">
+<a class="subnav-tab active" href="./01-visitors-list.html">Online Visitors</a><a class="subnav-tab " href="./02-visitor-profile.html">Visitor Profile</a><a class="subnav-tab " href="./03-visitors-map.html">Visitors Map</a>
+</div>
+</div>
+<div class="page-header">
+<div>
+<h1>Online Visitors</h1>
+<p class="text-muted">Online visitor kuzatuvi va profiling</p>
+</div>
+</div>
+<section class="card">
+<div class="card-header">
+<div>
+<h3>Live visitors</h3>
+</div>
+</div>
+<div class="card-body">
+<div class="flex justify-between items-center wrap gap-2"><div class="badge badge-success">Live вЂў 5 visitors online</div><div class="text-muted" style="font-size:13px">Real-time session stream</div></div>
+</div>
+</section>
+<section class="card">
+<div class="card-header">
+<div>
+<h3>Real-time visitors</h3>
+</div>
+</div>
+<div class="card-body">
+<div class="table-wrap">
+<table class="table">
+<thead>
+<tr class="table-header">
+<th>IP</th><th>Location</th><th>Current page</th><th>Duration</th><th>Status</th><th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr class="table-row"><td>185.8.212.34</td><td>UZ вЂў Toshkent</td><td>/pricing</td><td>03:14</td><td><span class="flex gap-2 items-center"><span class="status-dot online"></span>Active</span></td><td><div class="flex gap-2"><button type="button" class="btn btn-primary" data-action="log" data-message="Chat boshlandi">Start chat</button></div></td></tr><tr class="table-row"><td>91.204.155.1</td><td>KZ вЂў Almaty</td><td>/features</td><td>01:02</td><td><span class="flex gap-2 items-center"><span class="status-dot away"></span>Idle</span></td><td><div class="flex gap-2"><button type="button" class="btn btn-primary" data-action="log" data-message="Chat boshlandi">Start chat</button></div></td></tr><tr class="table-row"><td>37.110.214.8</td><td>TR вЂў Istanbul</td><td>/contact</td><td>00:31</td><td><span class="flex gap-2 items-center"><span class="status-dot online"></span>Active</span></td><td><div class="flex gap-2"><button type="button" class="btn btn-primary" data-action="log" data-message="Chat boshlandi">Start chat</button></div></td></tr><tr class="table-row"><td>104.28.12.3</td><td>US вЂў New York</td><td>/demo</td><td>04:18</td><td><span class="flex gap-2 items-center"><span class="status-dot online"></span>Active</span></td><td><div class="flex gap-2"><button type="button" class="btn btn-primary" data-action="log" data-message="Chat boshlandi">Start chat</button></div></td></tr><tr class="table-row"><td>62.122.90.12</td><td>UZ вЂў Samarqand</td><td>/pricing</td><td>02:11</td><td><span class="flex gap-2 items-center"><span class="status-dot away"></span>Idle</span></td><td><div class="flex gap-2"><button type="button" class="btn btn-primary" data-action="log" data-message="Chat boshlandi">Start chat</button></div></td></tr><tr class="table-row"><td>88.218.11.7</td><td>AE вЂў Dubai</td><td>/enterprise</td><td>06:03</td><td><span class="flex gap-2 items-center"><span class="status-dot online"></span>Active</span></td><td><div class="flex gap-2"><button type="button" class="btn btn-primary" data-action="log" data-message="Chat boshlandi">Start chat</button></div></td></tr><tr class="table-row"><td>45.77.19.40</td><td>DE вЂў Berlin</td><td>/help</td><td>00:54</td><td><span class="flex gap-2 items-center"><span class="status-dot offline"></span>Left</span></td><td><div class="flex gap-2"><button type="button" class="btn btn-primary" data-action="log" data-message="Chat boshlandi">Start chat</button></div></td></tr><tr class="table-row"><td>103.11.4.26</td><td>IN вЂў Delhi</td><td>/api</td><td>01:26</td><td><span class="flex gap-2 items-center"><span class="status-dot online"></span>Active</span></td><td><div class="flex gap-2"><button type="button" class="btn btn-primary" data-action="log" data-message="Chat boshlandi">Start chat</button></div></td></tr><tr class="table-row"><td>79.110.2.91</td><td>RU вЂў Moscow</td><td>/contact</td><td>02:48</td><td><span class="flex gap-2 items-center"><span class="status-dot away"></span>Idle</span></td><td><div class="flex gap-2"><button type="button" class="btn btn-primary" data-action="log" data-message="Chat boshlandi">Start chat</button></div></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</main>
+<script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
+</body>
+</html>

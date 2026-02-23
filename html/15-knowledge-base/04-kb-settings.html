@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHATFLOW - KB Settings</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/chatflow-design-system.css">
+<script src="https://unpkg.com/lucide@latest" defer></script>
+<script src="../assets/chatflow-shell.js" defer></script>
+<script src="../assets/chatflow-runtime.js" defer></script>
+</head>
+<body data-active-nav="knowledge-base" class="dashboard-shell-page">
+<main class="app-content">
+<div class="subnav-scroll">
+<div class="subnav-tabs">
+<a class="subnav-tab " href="./01-kb-dashboard.html">Knowledge Base</a><a class="subnav-tab " href="./02-article-editor.html">Article Editor</a><a class="subnav-tab " href="./03-categories.html">KB Categories</a><a class="subnav-tab active" href="./04-kb-settings.html">KB Settings</a><a class="subnav-tab " href="./05-kb-analytics.html">KB Analytics</a>
+</div>
+</div>
+<div class="page-header">
+<div>
+<h1>KB Settings</h1>
+<p class="text-muted">Knowledge base kontenti va analytics</p>
+</div>
+</div>
+<section class="card">
+<div class="card-header">
+<div>
+<h3>KB Settings</h3>
+</div>
+</div>
+<div class="card-body">
+<div class="form-grid"><div><label class="form-field">
+<span class="form-label">Knowledge Base domain</span>
+<input class="input" value="help.chatflow.uz">
+</label></div><div><label class="form-field">
+<span class="form-label">Theme</span>
+<select class="select"><option >Light</option><option selected>Brand</option><option >Minimal</option></select>
+</label></div><div><label class="form-field">
+<span class="form-label">SEO title</span>
+<input class="input" type="text" value="CHATFLOW Yordam Markazi" placeholder="">
+</label></div><div><label class="form-field">
+<span class="form-label">Default language</span>
+<select class="select"><option selected>O&#39;zbek</option><option >English</option><option >Р СѓСЃСЃРєРёР№</option></select>
+</label></div></div><label class="form-field">
+<span class="form-label">SEO description</span>
+<textarea class="textarea" rows="3" placeholder="">CHATFLOW platformasi bo&#39;yicha qo&#39;llanmalar va savollarga javoblar.</textarea>
+</label>
+</div>
+</section>
+</main>
+<script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
+</body>
+</html>

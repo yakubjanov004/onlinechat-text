@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHATFLOW - Add-ons Catalog</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/chatflow-design-system.css">
+<script src="https://unpkg.com/lucide@latest" defer></script>
+<script src="../assets/chatflow-shell.js" defer></script>
+<script src="../assets/chatflow-runtime.js" defer></script>
+</head>
+<body data-active-nav="addons" class="dashboard-shell-page">
+<main class="app-content">
+<div class="subnav-scroll">
+<div class="subnav-tabs">
+<a class="subnav-tab active" href="./01-addons-catalog.html">Add-ons Catalog</a><a class="subnav-tab " href="./02-active-addons.html">Active Add-ons</a><a class="subnav-tab " href="./03-addon-detail.html">Add-on Detail</a><a class="subnav-tab " href="./04-addon-settings.html">Add-on Settings</a>
+</div>
+</div>
+<div class="page-header">
+<div>
+<h1>Add-ons Catalog</h1>
+<p class="text-muted">Add-on katalogi va konfiguratsiya</p>
+</div>
+</div>
+<section class="card">
+<div class="card-header">
+<div>
+<h3>Katalog filterlari</h3>
+</div>
+</div>
+<div class="card-body">
+<div class="form-grid three">
+<div class="input-group"><i data-lucide="search"></i><input class="input" type="search" placeholder="Add-on qidirish"></div>
+<div class="flex gap-2 wrap"><button type="button" class="btn btn-secondary" data-action="log">AI</button><button type="button" class="btn btn-secondary" data-action="log">Communication</button><button type="button" class="btn btn-secondary" data-action="log">Integration</button><button type="button" class="btn btn-secondary" data-action="log">Free</button></div>
+<div><button type="button" class="btn btn-secondary" data-action="reset-form">Clear filters</button></div>
+</div>
+</div>
+</section>
+<div class="addon-grid">
+<div class="addon-card">
+<div class="addon-icon"><i data-lucide="sparkles"></i></div>
+<div class="flex justify-between items-start gap-2">
+<div><h3>AI Chatbot</h3><p class="text-muted" style="font-size:13px">Chatlarga AI javob va summary tavsiyalari</p></div>
+<span class="badge badge-primary">AI</span>
+</div>
+<div class="flex justify-between items-center"><strong>$19/mo</strong><a class="btn btn-primary" href="./03-addon-detail.html" >Install</a></div>
+</div>
+<div class="addon-card">
+<div class="addon-icon"><i data-lucide="video"></i></div>
+<div class="flex justify-between items-start gap-2">
+<div><h3>Video Call</h3><p class="text-muted" style="font-size:13px">Chat ichida video-call tugmasi va session log</p></div>
+<span class="badge badge-info">Communication</span>
+</div>
+<div class="flex justify-between items-center"><strong>$29/mo</strong><a class="btn btn-primary" href="./03-addon-detail.html" >Install</a></div>
+</div>
+<div class="addon-card">
+<div class="addon-icon"><i data-lucide="phone"></i></div>
+<div class="flex justify-between items-start gap-2">
+<div><h3>Phone Support</h3><p class="text-muted" style="font-size:13px">VoIP call routing va call notes</p></div>
+<span class="badge badge-info">Communication</span>
+</div>
+<div class="flex justify-between items-center"><strong>$39/mo</strong><a class="btn btn-primary" href="./03-addon-detail.html" >Install</a></div>
+</div>
+<div class="addon-card">
+<div class="addon-icon"><i data-lucide="message-square"></i></div>
+<div class="flex justify-between items-start gap-2">
+<div><h3>SMS</h3><p class="text-muted" style="font-size:13px">SMS notification va callback flowlar</p></div>
+<span class="badge badge-info">Communication</span>
+</div>
+<div class="flex justify-between items-center"><strong>$15/mo</strong><a class="btn btn-primary" href="./03-addon-detail.html" >Install</a></div>
+</div>
+<div class="addon-card">
+<div class="addon-icon"><i data-lucide="message-circle"></i></div>
+<div class="flex justify-between items-start gap-2">
+<div><h3>WhatsApp</h3><p class="text-muted" style="font-size:13px">WhatsApp Business kanal integratsiyasi</p></div>
+<span class="badge badge-warning">Integration</span>
+</div>
+<div class="flex justify-between items-center"><strong>$25/mo</strong><a class="btn btn-primary" href="./03-addon-detail.html" >Install</a></div>
+</div>
+<div class="addon-card">
+<div class="addon-icon"><i data-lucide="facebook"></i></div>
+<div class="flex justify-between items-start gap-2">
+<div><h3>Facebook</h3><p class="text-muted" style="font-size:13px">Facebook Messenger live sync</p></div>
+<span class="badge badge-warning">Integration</span>
+</div>
+<div class="flex justify-between items-center"><strong>$19/mo</strong><a class="btn btn-primary" href="./03-addon-detail.html" >Install</a></div>
+</div>
+<div class="addon-card">
+<div class="addon-icon"><i data-lucide="slack"></i></div>
+<div class="flex justify-between items-start gap-2">
+<div><h3>Slack Integration</h3><p class="text-muted" style="font-size:13px">Urgent alerts va channel relay</p></div>
+<span class="badge badge-success">Free</span>
+</div>
+<div class="flex justify-between items-center"><strong>Free</strong><a class="btn btn-primary" href="./03-addon-detail.html" >Install</a></div>
+</div>
+<div class="addon-card">
+<div class="addon-icon"><i data-lucide="workflow"></i></div>
+<div class="flex justify-between items-start gap-2">
+<div><h3>Zapier</h3><p class="text-muted" style="font-size:13px">No-code automation trigger connector</p></div>
+<span class="badge badge-success">Free</span>
+</div>
+<div class="flex justify-between items-center"><strong>Free</strong><a class="btn btn-primary" href="./03-addon-detail.html" >Install</a></div>
+</div>
+</div>
+</main>
+<script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
+</body>
+</html>

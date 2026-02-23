@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHATFLOW - Article Editor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/chatflow-design-system.css">
+<script src="https://unpkg.com/lucide@latest" defer></script>
+<script src="../assets/chatflow-shell.js" defer></script>
+<script src="../assets/chatflow-runtime.js" defer></script>
+</head>
+<body data-active-nav="knowledge-base" class="dashboard-shell-page">
+<main class="app-content">
+<div class="subnav-scroll">
+<div class="subnav-tabs">
+<a class="subnav-tab " href="./01-kb-dashboard.html">Knowledge Base</a><a class="subnav-tab active" href="./02-article-editor.html">Article Editor</a><a class="subnav-tab " href="./03-categories.html">KB Categories</a><a class="subnav-tab " href="./04-kb-settings.html">KB Settings</a><a class="subnav-tab " href="./05-kb-analytics.html">KB Analytics</a>
+</div>
+</div>
+<div class="page-header">
+<div>
+<h1>Article Editor</h1>
+<p class="text-muted">Knowledge base kontenti va analytics</p>
+</div>
+</div>
+<section class="card">
+<div class="card-header">
+<div>
+<h3>Article editor</h3>
+</div>
+</div>
+<div class="card-body">
+<div class="split-grid">
+<div>
+<div class="editor-shell">
+<div class="editor-toolbar"><button class="btn btn-secondary btn-sm" type="button" data-action="log"><i data-lucide="bold"></i></button><button class="btn btn-secondary btn-sm" type="button" data-action="log"><i data-lucide="italic"></i></button><button class="btn btn-secondary btn-sm" type="button" data-action="log"><i data-lucide="underline"></i></button><button class="btn btn-secondary btn-sm" type="button" data-action="log"><i data-lucide="list"></i></button><button class="btn btn-secondary btn-sm" type="button" data-action="log"><i data-lucide="list-ordered"></i></button><button class="btn btn-secondary btn-sm" type="button" data-action="log"><i data-lucide="link"></i></button><button class="btn btn-secondary btn-sm" type="button" data-action="log"><i data-lucide="image"></i></button><button class="btn btn-secondary btn-sm" type="button" data-action="log"><i data-lucide="quote"></i></button></div>
+<div class="editor-canvas">
+<h2 style="font-size:22px">Widget o'rnatish bo'yicha qo'llanma</h2>
+<p class="text-muted" style="margin-top:8px">CHATFLOW widget snippetni saytingizga qo'shish bosqichlari...</p>
+<div class="placeholder-line" style="width:88%;margin-top:16px"></div>
+<div class="placeholder-line" style="width:94%"></div>
+<div class="placeholder-line" style="width:86%"></div>
+<div class="placeholder-line" style="width:90%;height:140px;border-radius:14px"></div>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="card-header"><div><h3>Publish settings</h3><p class="card-description">Category, tags va status boshqaruvi</p></div></div>
+<div class="card-body">
+<div class="form-grid one">
+<label class="form-field">
+<span class="form-label">Category</span>
+<select class="select"><option selected>Getting Started</option><option >Inbox &amp; Chat</option><option >Automation</option><option >Billing</option></select>
+</label>
+<label class="form-field">
+<span class="form-label">Tags</span>
+<input class="input" value="widget, install, js-snippet">
+</label>
+<label class="form-field">
+<span class="form-label">Status</span>
+<select class="select"><option selected>Draft</option><option >Review</option><option >Published</option></select>
+</label>
+<label class="form-field">
+<span class="form-label">Slug</span>
+<input class="input" value="widget-ornatish-qollanma">
+</label>
+</div>
+<div class="divider"></div>
+<div class="flex gap-2 wrap"><button type="button" class="btn btn-secondary" data-action="save">Save draft</button><button type="button" class="btn btn-primary" data-action="save">Publish</button></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
+</body>
+</html>

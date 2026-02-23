@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHATFLOW - Team Chat</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/chatflow-design-system.css">
+<script src="https://unpkg.com/lucide@latest" defer></script>
+<script src="../assets/chatflow-shell.js" defer></script>
+<script src="../assets/chatflow-runtime.js" defer></script>
+</head>
+<body data-active-nav="team-chat" class="dashboard-shell-page">
+<main class="app-content">
+<div class="subnav-scroll">
+<div class="subnav-tabs">
+<a class="subnav-tab active" href="./01-team-chat.html">Team Chat</a><a class="subnav-tab " href="./02-room-settings.html">Room Settings</a><a class="subnav-tab " href="./03-notifications.html">Team Chat Notifications</a>
+</div>
+</div>
+<div class="page-header">
+<div>
+<h1>Team Chat</h1>
+<p class="text-muted">Slack-uslubdagi jamoa suhbat interfeysi</p>
+</div>
+</div><section class="slack-layout">
+<aside class="channel-list">
+<div class="channel-group">
+<h4>Channels</h4>
+<button class="channel-item active" type="button" data-action="log"><span>#general</span><span class="badge badge-primary">4</span></button><button class="channel-item " type="button" data-action="log"><span>#support</span></button><button class="channel-item " type="button" data-action="log"><span>#sales</span></button><button class="channel-item " type="button" data-action="log"><span>#random</span></button>
+</div>
+<div class="channel-group">
+<h4>DM</h4>
+<button class="channel-item" type="button" data-action="log"><span>Sardor</span></button><button class="channel-item" type="button" data-action="log"><span>Sara</span></button><button class="channel-item" type="button" data-action="log"><span>Ali</span></button><button class="channel-item" type="button" data-action="log"><span>Malika</span></button>
+</div>
+</aside>
+<div class="team-chat-main">
+<div class="head">
+<div><strong>#general</strong><div class="text-muted" style="font-size:12px">8 members</div></div>
+<div class="flex gap-2"><button type="button" class="btn btn-secondary" data-nav="./02-room-settings.html">Room settings</button><button type="button" class="btn btn-secondary" data-nav="./03-notifications.html">Notifications</button></div>
+</div>
+<div class="messages">
+<div class="list-item" style="align-items:flex-start">
+<span class="avatar ">S</span>
+<div class="item-main">
+<div class="item-title">Sardor <span class="text-muted" style="font-size:12px;font-weight:400">09:12</span></div>
+<div class="item-sub" style="white-space:normal;line-height:1.45">Bugun #general da sprint update va inbox SLA statusini ko&#39;rib chiqamiz.</div>
+</div>
+</div><div class="list-item" style="align-items:flex-start">
+<span class="avatar ">S</span>
+<div class="item-main">
+<div class="item-title">Sara <span class="text-muted" style="font-size:12px;font-weight:400">09:13</span></div>
+<div class="item-sub" style="white-space:normal;line-height:1.45">Support queue hozir 12 ta, VIP chatlar uchun routing ishlayapti.</div>
+</div>
+</div><div class="list-item" style="align-items:flex-start">
+<span class="avatar ">A</span>
+<div class="item-main">
+<div class="item-title">Ali <span class="text-muted" style="font-size:12px;font-weight:400">09:15</span></div>
+<div class="item-sub" style="white-space:normal;line-height:1.45">Telegram kanalida kechagi webhook xatosi tuzatildi.</div>
+</div>
+</div><div class="list-item" style="align-items:flex-start">
+<span class="avatar ">M</span>
+<div class="item-main">
+<div class="item-title">Malika <span class="text-muted" style="font-size:12px;font-weight:400">09:17</span></div>
+<div class="item-sub" style="white-space:normal;line-height:1.45">Knowledge base uchun 3 ta yangi maqola draft tayyor.</div>
+</div>
+</div><div class="list-item" style="align-items:flex-start">
+<span class="avatar ">S</span>
+<div class="item-main">
+<div class="item-title">Sardor <span class="text-muted" style="font-size:12px;font-weight:400">09:18</span></div>
+<div class="item-sub" style="white-space:normal;line-height:1.45">Zo&#39;r. Analytics exportni 11:00 gacha yuboring.</div>
+</div>
+</div><div class="list-item" style="align-items:flex-start">
+<span class="avatar ">S</span>
+<div class="item-main">
+<div class="item-title">Sara <span class="text-muted" style="font-size:12px;font-weight:400">09:20</span></div>
+<div class="item-sub" style="white-space:normal;line-height:1.45">Response time median 1m 21s bo&#39;libdi, yaxshilangan.</div>
+</div>
+</div><div class="list-item" style="align-items:flex-start">
+<span class="avatar ">A</span>
+<div class="item-main">
+<div class="item-title">Ali <span class="text-muted" style="font-size:12px;font-weight:400">09:22</span></div>
+<div class="item-sub" style="white-space:normal;line-height:1.45">Billing support uchun alohida canned reply qo&#39;shdim.</div>
+</div>
+</div><div class="list-item" style="align-items:flex-start">
+<span class="avatar ">M</span>
+<div class="item-main">
+<div class="item-title">Malika <span class="text-muted" style="font-size:12px;font-weight:400">09:24</span></div>
+<div class="item-sub" style="white-space:normal;line-height:1.45">CSAT survey copy variantini ham testga qo&#39;ydim.</div>
+</div>
+</div><div class="list-item" style="align-items:flex-start">
+<span class="avatar ">S</span>
+<div class="item-main">
+<div class="item-title">Sardor <span class="text-muted" style="font-size:12px;font-weight:400">09:26</span></div>
+<div class="item-sub" style="white-space:normal;line-height:1.45">14:00 da ops sync call bo&#39;ladi, eslatma yuboraman.</div>
+</div>
+</div><div class="list-item" style="align-items:flex-start">
+<span class="avatar ">S</span>
+<div class="item-main">
+<div class="item-title">Sara <span class="text-muted" style="font-size:12px;font-weight:400">09:28</span></div>
+<div class="item-sub" style="white-space:normal;line-height:1.45">Qabul qilindi, #support da navbatni balanslab turaman.</div>
+</div>
+</div>
+</div>
+<div class="composer">
+<textarea class="textarea" rows="2" placeholder="Xabar yozing..."></textarea>
+<button class="btn btn-primary" type="button" data-action="log"><i data-lucide="send"></i></button>
+</div>
+</div>
+</section>
+</main>
+<script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
+</body>
+</html>

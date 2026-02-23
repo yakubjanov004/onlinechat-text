@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHATFLOW - Boshlang&#39;ich sozlash</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/chatflow-design-system.css">
+<script src="https://unpkg.com/lucide@latest" defer></script>
+<script src="../assets/chatflow-runtime.js" defer></script>
+</head>
+<body class="onboarding-page">
+<main class="onboarding-page">
+<div class="onboarding-shell">
+<div class="onboarding-top">
+<a class="shell-brand" href="../index.html"><span class="shell-brand-mark">CF</span><span>CHATFLOW</span></a>
+<span class="badge badge-primary">Step 2/6</span>
+</div>
+<div class="onboarding-progress">
+<div class="justify-between"><strong>Onboarding progress</strong><span class="text-muted" style="font-size:13px">Step 2 / 6</span></div>
+<div class="progress"><div class="progress-bar" style="width:33%"></div></div>
+<div class="step-dots"><span class="done"></span><span class="active"></span><span class=""></span><span class=""></span><span class=""></span><span class=""></span></div>
+</div>
+<section class="onboarding-card">
+<div><h1>Boshlang&#39;ich sozlash</h1><p class="text-muted" style="margin-top:6px">Workspace yaratish uchun asosiy ma&#39;lumotlarni kiriting.</p></div>
+<div class="form-grid">
+<label class="form-field">
+<span class="form-label">Workspace nomi</span>
+<input class="input" value="CHATFLOW Support" required>
+</label>
+<label class="form-field">
+<span class="form-label">Business type</span>
+<select class="select"><option selected>SaaS</option><option >E-commerce</option><option >Education</option><option >Banking</option><option >Services</option></select>
+</label>
+<label class="form-field">
+<span class="form-label">Country</span>
+<select class="select"><option selected>Uzbekistan</option><option >Kazakhstan</option><option >Turkey</option><option >UAE</option></select>
+</label>
+<label class="form-field">
+<span class="form-label">Timezone</span>
+<select class="select"><option selected>GMT+5 Toshkent</option><option >GMT+6 Almaty</option><option >GMT+3 Istanbul</option></select>
+</label>
+</div>
+<div class="dropzone"><i data-lucide="upload-cloud"></i><div>Kompaniya logotipini yuklang</div><small>PNG, JPG yoki SVG. Drag & drop qo'llab-quvvatlanadi.</small></div>
+<div class="onboarding-actions">
+<div class="flex gap-2 wrap"><a class="btn btn-secondary" href="./01-welcome.html" >Orqaga</a>
+<a class="btn btn-ghost" href="../04-dashboard/01-dashboard.html" >Skip</a></div>
+<a class="btn btn-primary" href="./03-workspace.html" >Keyingi</a>
+</div>
+</section>
+</div>
+</main>
+<script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
+</body>
+</html>

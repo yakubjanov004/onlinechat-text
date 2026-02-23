@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHATFLOW - Auto Reply</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/chatflow-design-system.css">
+<script src="https://unpkg.com/lucide@latest" defer></script>
+<script src="../assets/chatflow-shell.js" defer></script>
+<script src="../assets/chatflow-runtime.js" defer></script>
+</head>
+<body data-active-nav="automation" class="dashboard-shell-page">
+<main class="app-content">
+<div class="subnav-scroll">
+<div class="subnav-tabs">
+<a class="subnav-tab " href="./01-working-hours.html">Working Hours</a><a class="subnav-tab active" href="./02-auto-reply.html">Auto Reply</a><a class="subnav-tab " href="./03-triggers.html">Triggers</a><a class="subnav-tab " href="./04-greetings.html">Greetings</a>
+</div>
+</div>
+<div class="page-header">
+<div>
+<h1>Auto Reply</h1>
+<p class="text-muted">Automation qoidalari va schedule konfiguratsiyasi</p>
+</div>
+<div class="page-header-actions"><button type="button" class="btn btn-primary" data-action="save">Saqlash</button>
+<button type="button" class="btn btn-secondary" data-action="reset-form">Reset</button></div>
+</div>
+<section class="card">
+<div class="card-header">
+<div>
+<h3>Auto reply sozlamalari</h3>
+</div>
+<div class="card-actions"><button type="button" class="btn btn-primary" data-action="save">Saqlash</button></div>
+</div>
+<div class="card-body">
+<div class="form-row">
+<div class="row-copy">
+<div class="form-label">Auto reply yoqish</div>
+<p class="text-muted" style="font-size:13px">Operator offline bo'lsa avtomatik javob yuboriladi</p>
+</div>
+<label class="toggle-switch ">
+<input type="checkbox" checked>
+<span class="toggle-track"><span class="toggle-thumb"></span></span>
+</label>
+</div>
+<div class="form-grid">
+<label class="form-field"><span class="form-label">Delay (soniya)</span><input class="input" type="number" value="5" min="0" max="30"></label>
+<label class="form-field">
+<span class="form-label">Trigger kanal</span>
+<select class="select"><option selected>Barcha kanallar</option><option >Faqat Web</option><option >Faqat Telegram</option><option >Faqat WhatsApp</option></select>
+</label>
+<label class="form-field">
+<span class="form-label">Xabar matni</span>
+<textarea class="textarea" rows="4" placeholder="">Salom! Operatorlarimiz tez orada javob beradi. Savolingizni yozib qoldiring.</textarea>
+</label>
+</div>
+<div class="divider"></div>
+<div class="card" style="border-style:dashed">
+<div class="card-header"><div><h3>Preview</h3><p class="card-description">Auto-reply xabar ko'rinishi</p></div></div>
+<div class="card-body"><div class="widget-msg">Salom! Operatorlarimiz tez orada javob beradi. Savolingizni yozib qoldiring.</div></div>
+</div>
+</div>
+</section>
+</main>
+<script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
+</body>
+</html>

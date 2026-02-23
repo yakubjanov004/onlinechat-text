@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHATFLOW - Webhooks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/chatflow-design-system.css">
+<script src="https://unpkg.com/lucide@latest" defer></script>
+<script src="../assets/chatflow-shell.js" defer></script>
+<script src="../assets/chatflow-runtime.js" defer></script>
+</head>
+<body data-active-nav="developer" class="dashboard-shell-page">
+<main class="app-content">
+<div class="subnav-scroll">
+<div class="subnav-tabs">
+<a class="subnav-tab " href="./01-api-keys.html">API Keys</a><a class="subnav-tab active" href="./02-webhooks.html">Webhooks</a><a class="subnav-tab " href="./03-logs.html">API Logs</a>
+</div>
+</div>
+<div class="page-header">
+<div>
+<h1>Webhooks</h1>
+<p class="text-muted">API keys, webhooks va request loglar</p>
+</div>
+</div>
+<section class="card">
+<div class="card-header">
+<div>
+<h3>Webhooks</h3>
+</div>
+<div class="card-actions"><button type="button" class="btn btn-primary" data-modal-open="add-webhook">Add webhook</button></div>
+</div>
+<div class="card-body">
+<div class="table-wrap">
+<table class="table">
+<thead>
+<tr class="table-header">
+<th>URL</th><th>Events</th><th>Status</th><th>Last triggered</th><th>Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="table-row"><td>https://api.client.uz/chatflow/webhook</td><td>chat.created, chat.closed</td><td><span class="badge badge-success">Active</span></td><td>5m ago</td><td><div class="flex gap-2"><button type="button" class="btn btn-secondary" data-action="log">Edit</button><button type="button" class="btn btn-secondary" data-action="log">Disable</button></div></td></tr><tr class="table-row"><td>https://n8n.client.uz/hooks/chatflow</td><td>contact.updated</td><td><span class="badge badge-warning">Paused</span></td><td>2d ago</td><td><div class="flex gap-2"><button type="button" class="btn btn-secondary" data-action="log">Edit</button><button type="button" class="btn btn-secondary" data-action="log">Enable</button></div></td></tr><tr class="table-row"><td>https://erp.client.uz/webhooks/chatflow</td><td>invoice.paid</td><td><span class="badge badge-success">Active</span></td><td>1h ago</td><td><div class="flex gap-2"><button type="button" class="btn btn-secondary" data-action="log">Edit</button><button type="button" class="btn btn-secondary" data-action="log">Disable</button></div></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<div class="modal-overlay" data-modal="add-webhook" hidden>
+<div class="modal" role="dialog" aria-modal="true" aria-labelledby="add-webhook-title">
+<div class="modal-header">
+<h3 id="add-webhook-title">Add webhook</h3>
+<button class="btn btn-ghost btn-sm" type="button" data-modal-close><i data-lucide="x"></i></button>
+</div>
+<div class="modal-body"><div class="form-grid one">
+<label class="form-field">
+<span class="form-label">URL</span>
+<input class="input" type="url" placeholder="https://example.com/webhook">
+</label>
+<label class="form-field">
+<span class="form-label">Events</span>
+<select class="select"><option selected>chat.created</option><option >chat.closed</option><option >contact.updated</option><option >invoice.paid</option></select>
+</label>
+<label class="form-field">
+<span class="form-label">Secret</span>
+<input class="input" placeholder="whsec_...">
+</label>
+</div></div>
+<div class="modal-footer"><button type="button" class="btn btn-secondary" data-action="log" data-message="Bekor qilish" data-modal-close>Bekor qilish</button>
+<button type="button" class="btn btn-primary" data-modal-close data-action="save">Save</button></div>
+</div>
+</div>
+</main>
+<script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
+</body>
+</html>

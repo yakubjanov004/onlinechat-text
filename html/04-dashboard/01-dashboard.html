@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHATFLOW - Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/chatflow-design-system.css">
+<script src="https://unpkg.com/lucide@latest" defer></script>
+<script src="../assets/chatflow-shell.js" defer></script>
+<script src="../assets/chatflow-runtime.js" defer></script>
+</head>
+<body data-active-nav="dashboard" class="dashboard-shell-page">
+<main class="app-content">
+<div class="subnav-scroll">
+<div class="subnav-tabs">
+<a class="subnav-tab active" href="./01-dashboard.html">Dashboard</a>
+</div>
+</div>
+<div class="page-header">
+<div>
+<h1>Dashboard</h1>
+<p class="text-muted">Bugungi umumiy ko&#39;rinish</p>
+</div>
+<div class="page-header-actions"><button type="button" class="btn btn-primary" data-action="goto" data-href="../05-inbox/02-chat-open.html">Yangi chat</button>
+<a class="btn btn-secondary" href="../05-inbox/02-chat-open.html" >Inbox</a></div>
+</div>
+<section class="card">
+<div class="card-header">
+<div>
+<h3>Xush kelibsiz, Sardor!</h3>
+</div>
+</div>
+<div class="card-body">
+<div class="two-col">
+<div>
+<p class="text-muted">Bugun jamoa faol: 23 ta live chat, 4 ta waiting va 2 ta urgent queue mavjud.</p>
+<div class="flex gap-2 wrap" style="margin-top:12px">
+<a class="btn btn-primary" href="../05-inbox/01-inbox-chat.html" >Inboxga o'tish</a>
+<a class="btn btn-secondary" href="../06-automation/01-working-hours.html" >Automation sozlash</a>
+</div>
+</div>
+<button class="btn btn-secondary justify-between w-full" type="button" data-action="goto" data-href="../03-onboarding/05-widget-install.html" style="height:auto;padding:12px 14px">
+<div style="text-align:left"><strong>Onboarding progress: 4/6</strong><div class="text-muted" style="font-size:12px">Widget install bosqichiga qaytish</div></div>
+<div style="width:140px"><div class="progress"><div class="progress-bar primary" style="width:66%"></div></div><div class="text-muted" style="font-size:11px;margin-top:6px">66% yakunlandi</div></div>
+</button>
+</div>
+</div>
+</section>
+<div class="metrics-grid">
+<div class="metric-card metric-card-hover">
+<div class="flex justify-between items-center">
+<div class="metric-label">Jami chatlar</div>
+<span class="metric-icon"><i data-lucide="message-square"></i></span>
+</div>
+<div class="metric-value">1,247</div>
+<div class="metric-trend ">+12%</div>
+</div>
+<div class="metric-card metric-card-hover">
+<div class="flex justify-between items-center">
+<div class="metric-label">Faol chatlar</div>
+<span class="metric-icon"><i data-lucide="activity"></i></span>
+</div>
+<div class="metric-value">23</div>
+<div class="metric-trend ">+8%</div>
+</div>
+<div class="metric-card metric-card-hover">
+<div class="flex justify-between items-center">
+<div class="metric-label">O&#39;rtacha javob</div>
+<span class="metric-icon"><i data-lucide="timer"></i></span>
+</div>
+<div class="metric-value">2m 34s</div>
+<div class="metric-trend warn">-15%</div>
+</div>
+<div class="metric-card metric-card-hover">
+<div class="flex justify-between items-center">
+<div class="metric-label">CSAT</div>
+<span class="metric-icon"><i data-lucide="smile"></i></span>
+</div>
+<div class="metric-value">4.8/5</div>
+<div class="metric-trend ">+3%</div>
+</div>
+</div>
+<div class="two-col">
+<section class="card">
+<div class="card-header">
+<div>
+<h3>Chat faolligi (7 kun)</h3>
+</div>
+</div>
+<div class="card-body">
+<div class="chart-placeholder line">
+<div class="chart-gridlines"></div>
+<svg viewBox="0 0 600 240" preserveAspectRatio="none" aria-hidden="true">
+<defs>
+<linearGradient id="chartFill" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="rgba(79,70,229,0.24)"></stop>
+<stop offset="100%" stop-color="rgba(79,70,229,0.02)"></stop>
+</linearGradient>
+</defs>
+<path d="M0,180 C60,130 90,160 140,120 C190,80 230,100 280,90 C330,80 360,130 410,110 C460,90 500,30 600,45 L600,240 L0,240 Z" fill="url(#chartFill)"></path>
+<path d="M0,180 C60,130 90,160 140,120 C190,80 230,100 280,90 C330,80 360,130 410,110 C460,90 500,30 600,45" fill="none" stroke="#4F46E5" stroke-width="3" stroke-linecap="round"></path>
+</svg>
+</div><div class="chart-axis-labels"><span>Dush</span><span>Sesh</span><span>Chor</span><span>Pay</span><span>Jum</span><span>Shan</span><span>Yak</span></div>
+</div>
+</section>
+<section class="card">
+<div class="card-header">
+<div>
+<h3>Kanallar ulushi</h3>
+</div>
+</div>
+<div class="card-body">
+<div class="donut-wrap">
+<div class="donut-chart" aria-hidden="true"></div>
+<div class="donut-legend">
+<div class="legend-row"><span><i class="legend-dot" style="background:#4F46E5"></i>Web</span><strong>54%</strong></div><div class="legend-row"><span><i class="legend-dot" style="background:#10B981"></i>Telegram</span><strong>21%</strong></div><div class="legend-row"><span><i class="legend-dot" style="background:#F59E0B"></i>Email</span><strong>15%</strong></div><div class="legend-row"><span><i class="legend-dot" style="background:#EF4444"></i>Instagram</span><strong>10%</strong></div>
+</div>
+</div>
+</div>
+</section>
+</div>
+<section class="card">
+<div class="card-header">
+<div>
+<h3>Recent chats</h3>
+</div>
+</div>
+<div class="card-body">
+<div class="table-wrap">
+<table class="table">
+<thead>
+<tr class="table-header">
+<th>Visitor</th><th>Status</th><th>Agent</th><th>Vaqt</th><th>Kanal</th>
+</tr>
+</thead>
+<tbody>
+<tr class="table-row"><td><a href="../05-inbox/02-chat-open.html" class="flex gap-2 items-center"><span class="avatar avatar-sm">AV</span><span class="status-dot online"></span><span class="cell-strong">Ahmad Valiyev</span></a></td><td><span class="badge badge-success">Active</span></td><td>Sardor</td><td>2m</td><td><span class="channel-pill">Web</span></td></tr><tr class="table-row"><td><a href="../05-inbox/02-chat-open.html" class="flex gap-2 items-center"><span class="avatar avatar-sm">DR</span><span class="status-dot away"></span><span class="cell-strong">Dilnoza Rahimova</span></a></td><td><span class="badge badge-warning">Waiting</span></td><td>Sara</td><td>5m</td><td><span class="channel-pill">Telegram</span></td></tr><tr class="table-row"><td><a href="../05-inbox/02-chat-open.html" class="flex gap-2 items-center"><span class="avatar avatar-sm">RK</span><span class="status-dot offline"></span><span class="cell-strong">Rustam Karimov</span></a></td><td><span class="badge ">Assigned</span></td><td>Ali</td><td>15m</td><td><span class="channel-pill">WhatsApp</span></td></tr><tr class="table-row"><td><a href="../05-inbox/02-chat-open.html" class="flex gap-2 items-center"><span class="avatar avatar-sm">MO</span><span class="status-dot online"></span><span class="cell-strong">Malika Orifova</span></a></td><td><span class="badge badge-info">Resolved</span></td><td>Bobur</td><td>32m</td><td><span class="channel-pill">Email</span></td></tr><tr class="table-row"><td><a href="../05-inbox/02-chat-open.html" class="flex gap-2 items-center"><span class="avatar avatar-sm">NT</span><span class="status-dot busy"></span><span class="cell-strong">Nodira T.</span></a></td><td><span class="badge badge-danger">Urgent</span></td><td>Unassigned</td><td>1m</td><td><span class="channel-pill">Web</span></td></tr><tr class="table-row"><td><a href="../05-inbox/02-chat-open.html" class="flex gap-2 items-center"><span class="avatar avatar-sm">OE</span><span class="status-dot away"></span><span class="cell-strong">Olim Ergashev</span></a></td><td><span class="badge badge-warning">Pending</span></td><td>Ali</td><td>9m</td><td><span class="channel-pill">Instagram</span></td></tr><tr class="table-row"><td><a href="../05-inbox/02-chat-open.html" class="flex gap-2 items-center"><span class="avatar avatar-sm">SA</span><span class="status-dot online"></span><span class="cell-strong">Sabina A.</span></a></td><td><span class="badge badge-success">Active</span></td><td>Sardor</td><td>14m</td><td><span class="channel-pill">Telegram</span></td></tr><tr class="table-row"><td><a href="../05-inbox/02-chat-open.html" class="flex gap-2 items-center"><span class="avatar avatar-sm">FK</span><span class="status-dot offline"></span><span class="cell-strong">Farrux K.</span></a></td><td><span class="badge ">Closed</span></td><td>Sara</td><td>1h</td><td><span class="channel-pill">Email</span></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section class="card">
+<div class="card-header">
+<div>
+<h3>Quick actions</h3>
+</div>
+</div>
+<div class="card-body">
+<div class="three-col">
+<a class="quick-action-card" href="../05-inbox/02-chat-open.html"><i data-lucide="message-circle-plus"></i><strong>Yangi chat boshlash</strong><span class="text-muted" style="font-size:13px">Inbox open state preview</span></a>
+<a class="quick-action-card" href="../07-team/04-invitations.html"><i data-lucide="user-plus"></i><strong>Jamoa qo'shish</strong><span class="text-muted" style="font-size:13px">Operator taklif yuborish</span></a>
+<a class="quick-action-card" href="../09-settings/02-widget-settings.html"><i data-lucide="paintbrush"></i><strong>Widget sozlash</strong><span class="text-muted" style="font-size:13px">Rang va xabarlarni yangilash</span></a>
+</div>
+</div>
+</section>
+<section class="card">
+<div class="card-header">
+<div>
+<h3>Jamoa faolligi</h3>
+</div>
+</div>
+<div class="card-body">
+<div class="four-col">
+<div class="card"><div class="card-body"><div class="flex justify-between items-center"><span class="avatar ">SA</span><span class="status-dot online"></span></div><div style="margin-top:10px"><div class="cell-strong">Sardor A.</div><div class="text-muted" style="font-size:13px">3 ta active chat</div><div class="text-muted" style="font-size:12px;margin-top:4px">1m avg response</div></div></div></div><div class="card"><div class="card-body"><div class="flex justify-between items-center"><span class="avatar ">SM</span><span class="status-dot online"></span></div><div style="margin-top:10px"><div class="cell-strong">Sara M.</div><div class="text-muted" style="font-size:13px">5 ta active chat</div><div class="text-muted" style="font-size:12px;margin-top:4px">CSAT 4.9</div></div></div></div><div class="card"><div class="card-body"><div class="flex justify-between items-center"><span class="avatar ">AK</span><span class="status-dot away"></span></div><div style="margin-top:10px"><div class="cell-strong">Ali K.</div><div class="text-muted" style="font-size:13px">2 ta active chat</div><div class="text-muted" style="font-size:12px;margin-top:4px">1 ta waiting</div></div></div></div><div class="card"><div class="card-body"><div class="flex justify-between items-center"><span class="avatar ">BR</span><span class="status-dot offline"></span></div><div style="margin-top:10px"><div class="cell-strong">Bobur R.</div><div class="text-muted" style="font-size:13px">1 ta active chat</div><div class="text-muted" style="font-size:12px;margin-top:4px">Shift 16:00 da</div></div></div></div>
+</div>
+</div>
+</section>
+</main>
+<script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHATFLOW - Invitations</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/chatflow-design-system.css">
+<script src="https://unpkg.com/lucide@latest" defer></script>
+<script src="../assets/chatflow-shell.js" defer></script>
+<script src="../assets/chatflow-runtime.js" defer></script>
+</head>
+<body data-active-nav="team" class="dashboard-shell-page">
+<main class="app-content">
+<div class="subnav-scroll">
+<div class="subnav-tabs">
+<a class="subnav-tab " href="./01-agents.html">Agents</a><a class="subnav-tab " href="./02-agent-profile.html">Agent Profile</a><a class="subnav-tab " href="./03-roles.html">Roles</a><a class="subnav-tab active" href="./04-invitations.html">Invitations</a>
+</div>
+</div>
+<div class="page-header">
+<div>
+<h1>Invitations</h1>
+<p class="text-muted">Jamoa, rollar va takliflarni boshqarish</p>
+</div>
+<div class="page-header-actions"><button type="button" class="btn btn-secondary" data-action="save">Saqlash</button></div>
+</div>
+<section class="card">
+<div class="card-header">
+<div>
+<h3>Pending Invitations</h3>
+</div>
+<div class="card-actions"><button type="button" class="btn btn-primary" data-modal-open="invite-modal">Taklif yuborish</button></div>
+</div>
+<div class="card-body">
+<div class="table-wrap">
+<table class="table">
+<thead>
+<tr class="table-header">
+<th>Email</th><th>Role</th><th>Status</th><th>Sent</th><th>Actions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="table-row"><td>operator1@client.uz</td><td>Operator</td><td><span class="badge badge-warning">Pending</span></td><td>2h ago</td><td><div class="flex gap-2"><button type="button" class="btn btn-secondary" data-action="log">Resend</button><button type="button" class="btn btn-danger" data-action="log">Cancel</button></div></td></tr><tr class="table-row"><td>manager@client.uz</td><td>Manager</td><td><span class="badge badge-warning">Pending</span></td><td>Yesterday</td><td><div class="flex gap-2"><button type="button" class="btn btn-secondary" data-action="log">Resend</button><button type="button" class="btn btn-danger" data-action="log">Cancel</button></div></td></tr><tr class="table-row"><td>ops@acme.uz</td><td>Operator</td><td><span class="badge badge-success">Accepted</span></td><td>2d ago</td><td><div class="flex gap-2"><button type="button" class="btn btn-secondary" data-action="log">Resend</button><button type="button" class="btn btn-danger" data-action="log">Cancel</button></div></td></tr><tr class="table-row"><td>sales@nexa.uz</td><td>Manager</td><td><span class="badge badge-warning">Pending</span></td><td>3d ago</td><td><div class="flex gap-2"><button type="button" class="btn btn-secondary" data-action="log">Resend</button><button type="button" class="btn btn-danger" data-action="log">Cancel</button></div></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<div class="modal-overlay" data-modal="invite-modal" hidden>
+<div class="modal" role="dialog" aria-modal="true" aria-labelledby="invite-modal-title">
+<div class="modal-header">
+<h3 id="invite-modal-title">Taklif yuborish</h3>
+<button class="btn btn-ghost btn-sm" type="button" data-modal-close><i data-lucide="x"></i></button>
+</div>
+<div class="modal-body"><div class="form-grid one">
+<label class="form-field">
+<span class="form-label">Email</span>
+<input class="input" type="email" placeholder="user@company.uz">
+</label>
+<label class="form-field">
+<span class="form-label">Role</span>
+<select class="select"><option selected>Operator</option><option >Manager</option><option >Admin</option></select>
+</label>
+</div></div>
+<div class="modal-footer"><button type="button" class="btn btn-secondary" data-action="log" data-message="Bekor qilish" data-modal-close>Bekor qilish</button>
+<button type="button" class="btn btn-primary" data-modal-close data-action="save">Yuborish</button></div>
+</div>
+</div>
+</main>
+<script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
+</body>
+</html>

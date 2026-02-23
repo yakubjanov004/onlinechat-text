@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHATFLOW - API Logs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/chatflow-design-system.css">
+<script src="https://unpkg.com/lucide@latest" defer></script>
+<script src="../assets/chatflow-shell.js" defer></script>
+<script src="../assets/chatflow-runtime.js" defer></script>
+</head>
+<body data-active-nav="developer" class="dashboard-shell-page">
+<main class="app-content">
+<div class="subnav-scroll">
+<div class="subnav-tabs">
+<a class="subnav-tab " href="./01-api-keys.html">API Keys</a><a class="subnav-tab " href="./02-webhooks.html">Webhooks</a><a class="subnav-tab active" href="./03-logs.html">API Logs</a>
+</div>
+</div>
+<div class="page-header">
+<div>
+<h1>API Logs</h1>
+<p class="text-muted">API keys, webhooks va request loglar</p>
+</div>
+</div>
+<section class="card">
+<div class="card-header">
+<div>
+<h3>Filters</h3>
+</div>
+</div>
+<div class="card-body">
+<div class="form-grid three">
+<div><label class="form-field">
+<span class="form-label">Method</span>
+<select class="select"><option selected>All</option><option >GET</option><option >POST</option></select>
+</label></div>
+<div><label class="form-field">
+<span class="form-label">Status</span>
+<select class="select"><option selected>All</option><option >200</option><option >404</option><option >500</option></select>
+</label></div>
+<div><label class="form-field">
+<span class="form-label">Date range</span>
+<div class="date-range"><i data-lucide="calendar"></i>Bugun</div>
+</label></div>
+</div><div class="divider"></div><div class="form-row"><div class="row-copy"><div class="form-label">Auto-refresh</div><p class="text-muted" style="font-size:13px">Har 10 soniyada loglar yangilanadi (demo).</p></div><label class="toggle-switch ">
+<input type="checkbox" checked>
+<span class="toggle-track"><span class="toggle-thumb"></span></span>
+</label></div>
+</div>
+</section>
+<section class="card">
+<div class="card-header">
+<div>
+<h3>API logs</h3>
+<p class="text-muted card-description">API request tracing va troubleshooting</p>
+</div>
+</div>
+<div class="card-body">
+<div class="table-wrap"><table class="table mono"><thead><tr><th>Timestamp</th><th>Method</th><th>Endpoint</th><th>Status</th><th>Response time</th></tr></thead><tbody><tr><td>2026-02-22 14:21:11</td><td><span class="badge badge-primary">POST</span></td><td>/v1/chats</td><td><span class="badge badge-success">200</span></td><td>124ms</td></tr><tr><td>2026-02-22 14:20:55</td><td><span class="badge badge-info">GET</span></td><td>/v1/contacts/123</td><td><span class="badge badge-success">200</span></td><td>62ms</td></tr><tr><td>2026-02-22 14:20:03</td><td><span class="badge badge-primary">POST</span></td><td>/v1/webhooks/test</td><td><span class="badge badge-danger">500</span></td><td>488ms</td></tr><tr><td>2026-02-22 14:19:41</td><td><span class="badge badge-info">GET</span></td><td>/v1/analytics/overview</td><td><span class="badge badge-success">200</span></td><td>211ms</td></tr><tr><td>2026-02-22 14:18:09</td><td><span class="badge badge-primary">POST</span></td><td>/v1/messages/send</td><td><span class="badge badge-success">200</span></td><td>173ms</td></tr><tr><td>2026-02-22 14:17:32</td><td><span class="badge badge-info">GET</span></td><td>/v1/invoices</td><td><span class="badge badge-success">200</span></td><td>98ms</td></tr><tr><td>2026-02-22 14:16:27</td><td><span class="badge badge-primary">POST</span></td><td>/v1/webhooks</td><td><span class="badge badge-warning">404</span></td><td>59ms</td></tr><tr><td>2026-02-22 14:15:10</td><td><span class="badge badge-info">GET</span></td><td>/v1/segments</td><td><span class="badge badge-success">200</span></td><td>84ms</td></tr><tr><td>2026-02-22 14:14:44</td><td><span class="badge badge-primary">POST</span></td><td>/v1/chats/assign</td><td><span class="badge badge-success">200</span></td><td>147ms</td></tr><tr><td>2026-02-22 14:14:05</td><td><span class="badge badge-info">GET</span></td><td>/v1/addons/catalog</td><td><span class="badge badge-danger">500</span></td><td>522ms</td></tr></tbody></table></div>
+</div>
+</section>
+</main>
+<script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
+</body>
+</html>
