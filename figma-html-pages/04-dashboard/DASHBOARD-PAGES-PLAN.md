@@ -48,6 +48,8 @@ QO'SHIMCHA:
 04-dashboard/
 │
 ├── 01-dashboard.html              ← ✅ MAVJUD (yangilanishi kerak)
+├── 01-dashboard-admin.html        <- YANGI (Admin dashboard)
+├── 02-dashboard-agent.html        <- YANGI (Agent dashboard)
 │
 ├── 📂 inbox/
 │   ├── 02-inbox.html
@@ -153,7 +155,7 @@ QO'SHIMCHA:
 
 | Papka | Fayllar soni |
 |-------|-------------|
-| Root (dashboard) | 1 |
+| Root (dashboard) | 3 |
 | inbox/ | 3 |
 | contacts/ | 6 |
 | visitors/ | 3 |
@@ -169,7 +171,7 @@ QO'SHIMCHA:
 | help/ | 5 |
 | system/ | 3 |
 | shared/ | 2 |
-| **JAMI** | **66 ta HTML fayl** |
+| **JAMI** | **68 ta HTML fayl** |
 
 ---
 
@@ -212,6 +214,8 @@ QO'SHIMCHA:
 ---
 
 ### 📄 01-dashboard.html — Asosiy Dashboard (Overview)
+> **Update (split):** `01-dashboard.html` endi moslik/role tanlash sahifasi. Asosiy dashboard kontenti `01-dashboard-admin.html` (Admin/Manager) va `02-dashboard-agent.html` (Agent) ga ajratildi.
+
 **Status:** ✅ Mavjud — yangilanishi kerak  
 **Manba:** `10-dashboard-layout.md`  
 **Role:** Admin, Manager, Operator — barchasi ko'radi  
@@ -1696,17 +1700,17 @@ QO'SHIMCHA:
 
 | Parametr | Qiymat |
 |----------|--------|
-| **Jami HTML fayllar** | **66 ta** |
+| **Jami HTML fayllar** | **68 ta** |
 | **Jami papkalar** | **16 ta** (+ root) |
-| **Admin ko'radigan sahifalar** | 66 ta (100%) |
-| **Manager ko'radigan sahifalar** | ~52 ta (~79%) |
-| **Operator ko'radigan sahifalar** | ~18 ta (~27%) |
+| **Admin ko'radigan sahifalar** | 68 ta (100%) |
+| **Manager ko'radigan sahifalar** | ~54 ta (~79%) |
+| **Operator ko'radigan sahifalar** | ~19 ta (~28%) |
 | **Modallar (inline)** | ~45+ ta (sahifalar ichida) |
 | **Tashqi linklar** | Docs (external), API Docs (external) |
 
 ### Ishlash tartibi (tavsiya)
 
-1. **01-dashboard.html** — yangilash (mavjud)
+1. **01-dashboard-admin.html** + **02-dashboard-agent.html** + **01-dashboard.html (wrapper)** - dashboard split (mavjud bazadan)
 2. **inbox/** — 3 fayl (eng muhim, core feature)
 3. **contacts/** — 6 fayl
 4. **visitors/** — 3 fayl

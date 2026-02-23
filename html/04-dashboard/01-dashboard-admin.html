@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QULAY CHAT - Admin Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/qulay-chat-design-system.css">
+<script src="https://unpkg.com/lucide@latest" defer></script>
+<script src="../assets/qulay-chat-shell.js" defer></script>
+<script src="../assets/qulay-chat-runtime.js" defer></script>
+</head>
+<body data-active-nav="dashboard" class="dashboard-shell-page">
+<main class="app-content">
+<div class="subnav-scroll">
+<div class="subnav-tabs">
+<a class="subnav-tab" href="./01-dashboard.html">Dashboard tanlash</a>
+<a class="subnav-tab active" href="./01-dashboard-admin.html">Admin dashboard</a>
+<a class="subnav-tab" href="./02-dashboard-agent.html">Agent dashboard</a>
+</div>
+</div>
+<div class="page-header">
+<div>
+<h1>Admin dashboard</h1>
+<p class="text-muted">Global KPI, jamoa performansi, SLA va kanallar bo'yicha nazorat</p>
+</div>
+<div class="page-header-actions">
+<a class="btn btn-secondary" href="../08-analytics/10-export.html">Hisobot eksport</a>
+<a class="btn btn-secondary" href="../07-team/04-invitations.html">Jamoaga taklif</a>
+<button type="button" class="btn btn-primary" data-action="goto" data-href="../05-inbox/01-inbox-chat.html">Live inbox</button>
+</div>
+</div>
+<section class="card">
+<div class="card-header">
+<div>
+<h3>Xush kelibsiz, Sardor (Admin)</h3>
+</div>
+</div>
+<div class="card-body">
+<div class="two-col">
+<div>
+<p class="text-muted">Bugun platformada 286 ta chat oqimi kuzatildi. 4 ta SLA xavf ostida, 2 ta kanal bo'yicha yuklama normadan yuqori. Jamoa bandligi 78%.</p>
+<div class="flex gap-2 wrap" style="margin-top:12px">
+<a class="btn btn-primary" href="../08-analytics/05-sla.html">SLA hisobotini ko'rish</a>
+<a class="btn btn-secondary" href="../08-analytics/06-channels.html">Kanallar analytics</a>
+<a class="btn btn-secondary" href="../07-team/01-agents.html">Jamoa yuklamasi</a>
+</div>
+</div>
+<button class="btn btn-secondary justify-between w-full" type="button" data-action="goto" data-href="../06-automation/03-triggers.html" style="height:auto;padding:12px 14px">
+<div style="text-align:left"><strong>Eskalatatsiya trigger audit: 8/10</strong><div class="text-muted" style="font-size:12px">2 ta qoida bugun qayta ko'rib chiqilishi kerak</div></div>
+<div style="width:160px"><div class="progress"><div class="progress-bar warning" style="width:80%"></div></div><div class="text-muted" style="font-size:11px;margin-top:6px">80% nazorat bajarilgan</div></div>
+</button>
+</div>
+</div>
+</section>
+<div class="metrics-grid">
+<div class="metric-card metric-card-hover">
+<div class="flex justify-between items-center">
+<div class="metric-label">Bugungi chat hajmi</div>
+<span class="metric-icon"><i data-lucide="messages-square"></i></span>
+</div>
+<div class="metric-value">286</div>
+<div class="metric-trend">+14% kechagiga nisbatan</div>
+</div>
+<div class="metric-card metric-card-hover">
+<div class="flex justify-between items-center">
+<div class="metric-label">SLA bajarilishi</div>
+<span class="metric-icon"><i data-lucide="shield-check"></i></span>
+</div>
+<div class="metric-value">92.4%</div>
+<div class="metric-trend warn">-2.1% haftalik trend</div>
+</div>
+<div class="metric-card metric-card-hover">
+<div class="flex justify-between items-center">
+<div class="metric-label">Faol agentlar</div>
+<span class="metric-icon"><i data-lucide="users"></i></span>
+</div>
+<div class="metric-value">18 / 24</div>
+<div class="metric-trend">3 agent breakda</div>
+</div>
+<div class="metric-card metric-card-hover">
+<div class="flex justify-between items-center">
+<div class="metric-label">Jamoa CSAT</div>
+<span class="metric-icon"><i data-lucide="smile"></i></span>
+</div>
+<div class="metric-value">4.7/5</div>
+<div class="metric-trend">+0.2 so'nggi 7 kun</div>
+</div>
+</div>
+<div class="two-col">
+<section class="card">
+<div class="card-header">
+<div>
+<h3>Jamoa yuklamasi (7 kun)</h3>
+</div>
+</div>
+<div class="card-body">
+<div class="chart-placeholder line">
+<div class="chart-gridlines"></div>
+<svg viewBox="0 0 600 240" preserveAspectRatio="none" aria-hidden="true">
+<defs>
+<linearGradient id="chartFillAdmin" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="rgba(79,70,229,0.24)"></stop>
+<stop offset="100%" stop-color="rgba(79,70,229,0.02)"></stop>
+</linearGradient>
+</defs>
+<path d="M0,170 C70,150 120,120 170,130 C220,140 260,80 310,95 C360,110 400,70 450,85 C500,100 540,40 600,60 L600,240 L0,240 Z" fill="url(#chartFillAdmin)"></path>
+<path d="M0,170 C70,150 120,120 170,130 C220,140 260,80 310,95 C360,110 400,70 450,85 C500,100 540,40 600,60" fill="none" stroke="#4F46E5" stroke-width="3" stroke-linecap="round"></path>
+</svg>
+</div>
+<div class="chart-axis-labels"><span>Dush</span><span>Sesh</span><span>Chor</span><span>Pay</span><span>Jum</span><span>Shan</span><span>Yak</span></div>
+<div class="four-col" style="margin-top:12px">
+<div class="card"><div class="card-body"><div class="metric-label">Peak soat</div><div class="cell-strong">14:00 - 16:00</div></div></div>
+<div class="card"><div class="card-body"><div class="metric-label">Queue max</div><div class="cell-strong">41 chat</div></div></div>
+<div class="card"><div class="card-body"><div class="metric-label">Avg wait</div><div class="cell-strong">1m 58s</div></div></div>
+<div class="card"><div class="card-body"><div class="metric-label">Escalation</div><div class="cell-strong">7 ta</div></div></div>
+</div>
+</div>
+</section>
+<section class="card">
+<div class="card-header">
+<div>
+<h3>Kanallar ulushi va SLA</h3>
+</div>
+</div>
+<div class="card-body">
+<div class="donut-wrap">
+<div class="donut-chart" aria-hidden="true"></div>
+<div class="donut-legend">
+<div class="legend-row"><span><i class="legend-dot" style="background:#4F46E5"></i>Web</span><strong>48% / SLA 94%</strong></div>
+<div class="legend-row"><span><i class="legend-dot" style="background:#10B981"></i>Telegram</span><strong>24% / SLA 96%</strong></div>
+<div class="legend-row"><span><i class="legend-dot" style="background:#F59E0B"></i>WhatsApp</span><strong>17% / SLA 88%</strong></div>
+<div class="legend-row"><span><i class="legend-dot" style="background:#EF4444"></i>Email</span><strong>11% / SLA 84%</strong></div>
+</div>
+</div>
+<div style="margin-top:16px">
+<div class="legend-row"><span>Kritik queue (5+ min)</span><strong>4 ta chat</strong></div>
+<div class="progress" style="margin-top:6px"><div class="progress-bar danger" style="width:28%"></div></div>
+<div class="legend-row" style="margin-top:12px"><span>Birinchi javob SLA buzilishi</span><strong>11 ta</strong></div>
+<div class="progress" style="margin-top:6px"><div class="progress-bar warning" style="width:38%"></div></div>
+<div class="legend-row" style="margin-top:12px"><span>Rezolyutsiya SLA risk</span><strong>6 ta</strong></div>
+<div class="progress" style="margin-top:6px"><div class="progress-bar primary" style="width:21%"></div></div>
+</div>
+</div>
+</section>
+</div>
+<section class="card">
+<div class="card-header">
+<div>
+<h3>Jamoa performansi (bugun)</h3>
+</div>
+</div>
+<div class="card-body">
+<div class="table-wrap">
+<table class="table">
+<thead>
+<tr class="table-header">
+<th>Agent</th><th>Active chat</th><th>Avg 1-javob</th><th>Resolved</th><th>CSAT</th><th>Bandlik</th>
+</tr>
+</thead>
+<tbody>
+<tr class="table-row"><td><a href="../07-team/02-agent-profile.html" class="flex gap-2 items-center"><span class="avatar avatar-sm">SA</span><span class="status-dot online"></span><span class="cell-strong">Sardor A.</span></a></td><td>4</td><td>52s</td><td>19</td><td>4.9</td><td><span class="badge badge-success">76%</span></td></tr>
+<tr class="table-row"><td><a href="../07-team/02-agent-profile.html" class="flex gap-2 items-center"><span class="avatar avatar-sm">SM</span><span class="status-dot online"></span><span class="cell-strong">Sara M.</span></a></td><td>6</td><td>1m 08s</td><td>22</td><td>4.8</td><td><span class="badge badge-warning">89%</span></td></tr>
+<tr class="table-row"><td><a href="../07-team/02-agent-profile.html" class="flex gap-2 items-center"><span class="avatar avatar-sm">AK</span><span class="status-dot away"></span><span class="cell-strong">Ali K.</span></a></td><td>3</td><td>1m 32s</td><td>14</td><td>4.6</td><td><span class="badge">63%</span></td></tr>
+<tr class="table-row"><td><a href="../07-team/02-agent-profile.html" class="flex gap-2 items-center"><span class="avatar avatar-sm">DR</span><span class="status-dot online"></span><span class="cell-strong">Dilnoza R.</span></a></td><td>5</td><td>48s</td><td>17</td><td>4.9</td><td><span class="badge badge-success">81%</span></td></tr>
+<tr class="table-row"><td><a href="../07-team/02-agent-profile.html" class="flex gap-2 items-center"><span class="avatar avatar-sm">BR</span><span class="status-dot busy"></span><span class="cell-strong">Bobur R.</span></a></td><td>2</td><td>2m 11s</td><td>9</td><td>4.4</td><td><span class="badge badge-danger">SLA risk</span></td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<div class="two-col">
+<section class="card">
+<div class="card-header">
+<div>
+<h3>Kuzatuv talab qiladigan queue</h3>
+</div>
+</div>
+<div class="card-body">
+<div class="table-wrap">
+<table class="table">
+<thead><tr class="table-header"><th>Mijoz</th><th>Kanal</th><th>Holat</th><th>SLA taymer</th><th>Mas'ul</th></tr></thead>
+<tbody>
+<tr class="table-row"><td><a href="../05-inbox/02-chat-open.html" class="cell-strong">Nodira Textile</a></td><td><span class="channel-pill">WhatsApp</span></td><td><span class="badge badge-danger">Urgent</span></td><td>00:48</td><td>Unassigned</td></tr>
+<tr class="table-row"><td><a href="../05-inbox/02-chat-open.html" class="cell-strong">Aziza T.</a></td><td><span class="channel-pill">Web</span></td><td><span class="badge badge-warning">Waiting</span></td><td>01:12</td><td>Sara M.</td></tr>
+<tr class="table-row"><td><a href="../05-inbox/02-chat-open.html" class="cell-strong">Fayz Farm</a></td><td><span class="channel-pill">Email</span></td><td><span class="badge badge-warning">Pending</span></td><td>04:31</td><td>Bobur R.</td></tr>
+<tr class="table-row"><td><a href="../05-inbox/02-chat-open.html" class="cell-strong">Bek Logistics</a></td><td><span class="channel-pill">Telegram</span></td><td><span class="badge">Assigned</span></td><td>02:06</td><td>Ali K.</td></tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section class="card">
+<div class="card-header">
+<div>
+<h3>Boshqaruv amallari</h3>
+</div>
+</div>
+<div class="card-body">
+<div class="three-col">
+<a class="quick-action-card" href="../07-team/04-invitations.html"><i data-lucide="user-plus"></i><strong>Agent taklif qilish</strong><span class="text-muted" style="font-size:13px">Yangi operator qo'shish</span></a>
+<a class="quick-action-card" href="../06-automation/01-working-hours.html"><i data-lucide="clock-3"></i><strong>Ish vaqtini sozlash</strong><span class="text-muted" style="font-size:13px">SLA hisobiga ta'sir qiladi</span></a>
+<a class="quick-action-card" href="../09-settings/02-widget-settings.html"><i data-lucide="paintbrush"></i><strong>Widget sozlash</strong><span class="text-muted" style="font-size:13px">Kanal konversiyasini oshirish</span></a>
+<a class="quick-action-card" href="../08-analytics/03-operators.html"><i data-lucide="bar-chart-3"></i><strong>Operator hisobotlari</strong><span class="text-muted" style="font-size:13px">Top performers va bottlenecklar</span></a>
+<a class="quick-action-card" href="../08-analytics/05-sla.html"><i data-lucide="alert-triangle"></i><strong>SLA buzilishlarini ko'rish</strong><span class="text-muted" style="font-size:13px">Kritik navbatni prioritetlash</span></a>
+<a class="quick-action-card" href="../08-analytics/10-export.html"><i data-lucide="download"></i><strong>Haftalik eksport</strong><span class="text-muted" style="font-size:13px">CSV/XLSX hisobot tayyorlash</span></a>
+</div>
+</div>
+</section>
+</div>
+</main>
+<script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
+</body>
+</html>
