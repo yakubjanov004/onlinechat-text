@@ -11,55 +11,109 @@
 <script src="https://unpkg.com/lucide@latest" defer></script>
 <script src="../assets/qulay-chat-shell.js" defer></script>
 <script src="../assets/qulay-chat-runtime.js" defer></script>
+<script src="../assets/automation-auto-reply.js" defer></script>
 </head>
 <body data-active-nav="automation" class="dashboard-shell-page">
-<main class="app-content">
+<main class="app-content" data-automation-auto-reply>
 <div class="subnav-scroll">
 <div class="subnav-tabs">
-<a class="subnav-tab " href="./01-working-hours.html">Working Hours</a><a class="subnav-tab active" href="./02-auto-reply.html">Auto Reply</a><a class="subnav-tab " href="./03-triggers.html">Triggers</a><a class="subnav-tab " href="./04-greetings.html">Greetings</a>
+<a class="subnav-tab" href="./01-working-hours.html">Working Hours</a><a class="subnav-tab active" href="./02-auto-reply.html">Auto Reply</a><a class="subnav-tab" href="./03-triggers.html">Triggers</a><a class="subnav-tab" href="./04-greetings.html">Greetings</a>
 </div>
 </div>
+
 <div class="page-header">
 <div>
 <h1>Auto Reply</h1>
-<p class="text-muted">Automation qoidalari va schedule konfiguratsiyasi</p>
+<p class="text-muted">Multi-condition, fallback, cooldown va test-run bilan real workflow</p>
 </div>
-<div class="page-header-actions"><button type="button" class="btn btn-primary" data-action="save">Saqlash</button>
-<button type="button" class="btn btn-secondary" data-action="reset-form">Reset</button></div>
+<div class="page-header-actions">
+<button type="button" class="btn btn-secondary" data-ar-action="reset">Reset</button>
+<button type="button" class="btn btn-primary" data-ar-action="save-all">Saqlash</button>
 </div>
+</div>
+
 <section class="card">
 <div class="card-header">
 <div>
-<h3>Auto reply sozlamalari</h3>
+<h3>Global policy</h3>
+<p class="card-description">Auto reply ishlash qoidalari</p>
 </div>
-<div class="card-actions"><button type="button" class="btn btn-primary" data-action="save">Saqlash</button></div>
 </div>
 <div class="card-body">
-<div class="form-row">
-<div class="row-copy">
-<div class="form-label">Auto reply yoqish</div>
-<p class="text-muted" style="font-size:13px">Operator offline bo'lsa avtomatik javob yuboriladi</p>
+<div class="form-grid three">
+<label class="form-field"><span class="form-label">Timezone</span><select class="select" data-ar-global="timezone"><option value="Asia/Tashkent" selected>Asia/Tashkent (GMT+5)</option><option value="UTC">UTC</option><option value="Europe/Istanbul">Europe/Istanbul</option></select></label>
+<label class="form-field"><span class="form-label">Global cooldown</span><input class="input" type="number" min="0" max="120" value="5" data-ar-global="cooldown"><small>Bir userga qayta yuborish oralig'i (daq)</small></label>
+<label class="form-field"><span class="form-label">Loop prevention</span><select class="select" data-ar-global="loop"><option value="strict" selected>Strict (tavsiya)</option><option value="balanced">Balanced</option><option value="off">Off (xavfli)</option></select></label>
 </div>
-<label class="toggle-switch ">
-<input type="checkbox" checked>
-<span class="toggle-track"><span class="toggle-thumb"></span></span>
-</label>
 </div>
+</section>
+
+<section class="card">
+<div class="card-header">
+<div>
+<h3>Qoidalar (priority tartibida)</h3>
+<p class="card-description">Yuqoridan pastga tekshiriladi. Birinchi mos qoida ishlaydi.</p>
+</div>
+<div class="card-actions"><button class="btn btn-primary" type="button" data-ar-action="new-rule">Yangi qoida</button></div>
+</div>
+<div class="card-body">
+<div class="list-stack" data-ar-rules>
+<article class="list-item" data-rule-id="r1">
+<div class="item-main" style="width:100%">
+<div class="justify-between"><div class="item-title">[P1] Night fallback</div><span class="badge badge-warning">Active</span></div>
+<div class="form-grid three" style="margin-top:10px">
+<label class="form-field"><span class="form-label">Kanal</span><select class="select" data-field="channel"><option value="all" selected>Barcha</option><option value="Web">Web</option><option value="Telegram">Telegram</option><option value="WhatsApp">WhatsApp</option><option value="Email">Email</option></select></label>
+<label class="form-field"><span class="form-label">Vaqt oynasi</span><input class="input" type="text" value="18:00-09:00" data-field="timeWindow"></label>
+<label class="form-field"><span class="form-label">Til</span><select class="select" data-field="lang"><option value="all" selected>Barcha</option><option value="uz">UZ</option><option value="ru">RU</option><option value="en">EN</option></select></label>
+</div>
+<label class="form-field" style="margin-top:10px"><span class="form-label">Primary template</span><textarea class="textarea" rows="2" data-field="primary">Salom {{name}}! Hozir ish vaqtidan tashqarida. Ish boshlanishi: {{working_hours}}. Savolingizni yozib qoldiring.</textarea></label>
+<label class="form-field"><span class="form-label">Fallback template</span><textarea class="textarea" rows="2" data-field="fallback">Rahmat {{name}}, xabaringiz qabul qilindi. Ertalab birinchi bo'lib ko'rib chiqamiz.</textarea></label>
+<div class="flex gap-2 wrap" style="margin-top:8px"><button class="btn btn-secondary btn-sm" type="button" data-ar-action="duplicate-rule">Duplicate</button><button class="btn btn-danger btn-sm" type="button" data-ar-action="delete-rule">Delete</button></div>
+</div>
+</article>
+
+<article class="list-item" data-rule-id="r2">
+<div class="item-main" style="width:100%">
+<div class="justify-between"><div class="item-title">[P2] Pricing A/B</div><span class="badge badge-primary">A/B</span></div>
+<div class="form-grid three" style="margin-top:10px">
+<label class="form-field"><span class="form-label">Kanal</span><select class="select" data-field="channel"><option value="all">Barcha</option><option value="Web" selected>Web</option><option value="Telegram">Telegram</option></select></label>
+<label class="form-field"><span class="form-label">Shart</span><input class="input" type="text" value="page contains /pricing" data-field="condition"></label>
+<label class="form-field"><span class="form-label">A/B ratio</span><input class="input" type="text" value="70/30" data-field="ab"></label>
+</div>
+<label class="form-field" style="margin-top:10px"><span class="form-label">Variant A</span><textarea class="textarea" rows="2" data-field="variantA">Salom {{name}}! Tarif tanlashda yordam beraymi?</textarea></label>
+<label class="form-field"><span class="form-label">Variant B</span><textarea class="textarea" rows="2" data-field="variantB">Pricing bo'yicha tezkor taqqoslash yuboraymi, {{name}}?</textarea></label>
+<div class="flex gap-2 wrap" style="margin-top:8px"><button class="btn btn-secondary btn-sm" type="button" data-ar-action="duplicate-rule">Duplicate</button><button class="btn btn-danger btn-sm" type="button" data-ar-action="delete-rule">Delete</button></div>
+</div>
+</article>
+</div>
+</div>
+</section>
+
+<section class="two-col">
+<div class="card">
+<div class="card-header"><div><h3>Template preview</h3><p class="card-description">Variables bilan real ko'rinish</p></div></div>
+<div class="card-body">
+<div class="form-grid three">
+<label class="form-field"><span class="form-label">{{name}}</span><input class="input" type="text" value="Ahmad" data-ar-var="name"></label>
+<label class="form-field"><span class="form-label">{{channel}}</span><input class="input" type="text" value="Telegram" data-ar-var="channel"></label>
+<label class="form-field"><span class="form-label">{{working_hours}}</span><input class="input" type="text" value="09:00 - 18:00" data-ar-var="working_hours"></label>
+</div>
+<div class="card" style="margin-top:12px;border-style:dashed"><div class="card-body"><div class="widget-msg" data-ar-preview>Salom Ahmad! Hozir ish vaqtidan tashqarida...</div></div></div>
+</div>
+</div>
+
+<div class="card">
+<div class="card-header"><div><h3>Test-run</h3><p class="card-description">Qaysi qoida ishlaganini tekshirish</p></div></div>
+<div class="card-body">
 <div class="form-grid">
-<label class="form-field"><span class="form-label">Delay (soniya)</span><input class="input" type="number" value="5" min="0" max="30"></label>
-<label class="form-field">
-<span class="form-label">Trigger kanal</span>
-<select class="select"><option selected>Barcha kanallar</option><option >Faqat Web</option><option >Faqat Telegram</option><option >Faqat WhatsApp</option></select>
-</label>
-<label class="form-field">
-<span class="form-label">Xabar matni</span>
-<textarea class="textarea" rows="4" placeholder="">Salom! Operatorlarimiz tez orada javob beradi. Savolingizni yozib qoldiring.</textarea>
-</label>
+<label class="form-field"><span class="form-label">Input kanal</span><select class="select" data-ar-test="channel"><option>Web</option><option selected>Telegram</option><option>WhatsApp</option><option>Email</option></select></label>
+<label class="form-field"><span class="form-label">Input vaqt</span><input class="input" type="time" value="20:10" data-ar-test="time"></label>
 </div>
-<div class="divider"></div>
-<div class="card" style="border-style:dashed">
-<div class="card-header"><div><h3>Preview</h3><p class="card-description">Auto-reply xabar ko'rinishi</p></div></div>
-<div class="card-body"><div class="widget-msg">Salom! Operatorlarimiz tez orada javob beradi. Savolingizni yozib qoldiring.</div></div>
+<label class="form-field" style="margin-top:10px"><span class="form-label">Input xabar</span><textarea class="textarea" rows="2" data-ar-test="message">Salom, narxlar haqida ma'lumot bering</textarea></label>
+<div class="flex gap-2 wrap" style="margin-top:10px"><button class="btn btn-primary" type="button" data-ar-action="test-run">Test run</button><button class="btn btn-secondary" type="button" data-ar-action="clear-logs">Log tozalash</button></div>
+<div class="table-wrap" style="margin-top:12px">
+<table class="table"><thead><tr class="table-header"><th>Vaqt</th><th>Rule</th><th>Natija</th><th>Status</th></tr></thead><tbody data-ar-log-body></tbody></table>
+</div>
 </div>
 </div>
 </section>
