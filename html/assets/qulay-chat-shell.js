@@ -86,12 +86,23 @@
     return aside;
   }
 
+  function currentSectionName() {
+    var p = (window.location && window.location.pathname ? window.location.pathname : "").toLowerCase();
+    if (p.indexOf("/05-inbox/") > -1) return "Inbox";
+    if (p.indexOf("/04-dashboard/") > -1) return "Dashboard";
+    if (p.indexOf("/08-analytics/") > -1) return "Analytics";
+    if (p.indexOf("/09-settings/") > -1) return "Settings";
+    if (p.indexOf("/01-landing/") > -1) return "Landing";
+    return "Workspace";
+  }
+
   function buildHeader() {
+    var section = currentSectionName();
     var header = el("header", "app-header");
     header.innerHTML =
       '<div class="app-header-left">' +
       '  <button class="icon-btn" type="button" data-action="toggle-sidebar" aria-label="Sidebar toggle"><i data-lucide="panel-left-close"></i></button>' +
-      '  <a class="shell-brand" href="../04-dashboard/01-dashboard.html"><span class="shell-brand-mark">QC</span><span>QULAY CHAT</span></a>' +
+      '  <a class="shell-brand" href="../04-dashboard/01-dashboard.html"><span class="shell-brand-mark">QC</span><span>QULAY CHAT • ' + section + '</span></a>' +
       '</div>' +
       '<label class="shell-search" aria-label="Global qidiruv">' +
       '  <i data-lucide="search"></i>' +
