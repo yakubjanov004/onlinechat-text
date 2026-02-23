@@ -1,11 +1,20 @@
 (function () {
   "use strict";
 
-  var STORE_KEY = "qc_inbox_state_v2";
+  var STORE_KEY = "qc_inbox_state_v3";
 
   function qs(sel, root) { return (root || document).querySelector(sel); }
   function qsa(sel, root) { return Array.from((root || document).querySelectorAll(sel)); }
   function nowHM() { var d = new Date(); return String(d.getHours()).padStart(2, '0') + ':' + String(d.getMinutes()).padStart(2, '0'); }
+  function uid() { return "chat-" + Math.floor(100 + Math.random() * 900) + "-" + Date.now().toString().slice(-4); }
+
+  var CHANNEL_SLA_MIN = {
+    Web: 3,
+    Telegram: 2,
+    WhatsApp: 4,
+    Instagram: 3,
+    Email: 10
+  };
 
   var fallbackMessages = {
     "chat-101": [
@@ -18,19 +27,25 @@
     ]
   };
 
-  var state = { chats: {}, activeChatId: null };
+  var state = { chats: {}, activeChatId: null, lastIncomingAt: 0 };
   var slaTimerInterval = null;
+  var incomingInterval = null;
 
   function loadState() {
     try {
       var raw = localStorage.getItem(STORE_KEY);
       if (raw) state = JSON.parse(raw);
     } catch (e) {}
-    if (!state || !state.chats) state = { chats: {}, activeChatId: null };
+    if (!state || !state.chats) state = { chats: {}, activeChatId: null, lastIncomingAt: 0 };
   }
 
   function saveState() {
     try { localStorage.setItem(STORE_KEY, JSON.stringify(state)); } catch (e) {}
+  }
+
+  function slaDueAtByChannel(channel) {
+    var mins = CHANNEL_SLA_MIN[channel] || 3;
+    return Date.now() + mins * 60 * 1000;
   }
 
   function bootstrapFromDOM() {
@@ -38,13 +53,19 @@
       var id = item.getAttribute('data-chat-id');
       if (!id) return;
       if (!state.chats[id]) {
+        var channel = item.getAttribute('data-channel') || 'Web';
         state.chats[id] = {
+          id: id,
           status: (item.getAttribute('data-status') || 'active').toLowerCase(),
           agent: item.getAttribute('data-agent') || 'Unassigned',
-          channel: item.getAttribute('data-channel') || 'Web',
+          channel: channel,
           name: item.getAttribute('data-name') || 'Mijoz',
+          preview: ((qs('.preview', item) || {}).textContent || '').trim(),
+          unread: parseInt((qs('.badge', item) || {}).textContent || '0', 10) || 0,
           messages: fallbackMessages[id] || fallbackMessages['chat-101'],
-          slaDueAt: Date.now() + (2 + Math.floor(Math.random() * 6)) * 60 * 1000
+          slaDueAt: slaDueAtByChannel(channel),
+          notes: 'Demo uchun qiziqmoqda. Ertaga follow-up yuborish tavsiya etiladi.',
+          tags: ['Pricing', 'Lead']
         };
       }
     });
@@ -57,6 +78,58 @@
   }
 
   function getChat(id) { return state.chats[id] || null; }
+
+  function renderSingleChatListItem(item, chat) {
+    if (!item || !chat) return;
+    item.setAttribute('data-status', chat.status);
+    item.setAttribute('data-agent', chat.agent);
+    item.setAttribute('data-channel', chat.channel);
+    item.setAttribute('data-name', chat.name);
+
+    var nameStrong = qs('.name-row strong', item);
+    if (nameStrong) nameStrong.textContent = chat.name;
+    var preview = qs('.preview', item);
+    if (preview) preview.textContent = chat.preview || 'Yangi xabar';
+
+    var muted = qsa('.text-muted', item);
+    if (muted.length) muted[muted.length - 1].textContent = 'Agent: ' + chat.agent;
+
+    var channel = qs('.channel-pill', item);
+    if (channel) channel.textContent = chat.channel;
+
+    var badge = qs('.badge.badge-danger', item);
+    if (chat.unread > 0) {
+      if (!badge) {
+        badge = document.createElement('span');
+        badge.className = 'badge badge-danger';
+        var meta = qs('.inbox-chat-meta', item);
+        if (meta) meta.appendChild(badge);
+      }
+      badge.textContent = String(chat.unread);
+    } else if (badge && badge.parentNode) {
+      badge.parentNode.removeChild(badge);
+    }
+  }
+
+  function appendChatListItem(chat) {
+    var list = qs('[data-inbox-list]');
+    if (!list) return;
+    var div = document.createElement('div');
+    div.className = 'inbox-chat-item';
+    div.setAttribute('role', 'option');
+    div.setAttribute('aria-selected', 'false');
+    div.setAttribute('data-chat-id', chat.id);
+    div.innerHTML = '' +
+      '<span class="status-dot online"></span>' +
+      '<div class="inbox-chat-main">' +
+      '  <div class="name-row"><strong class="truncate"></strong></div>' +
+      '  <div class="preview truncate"></div>' +
+      '  <div class="text-muted" style="font-size:12px"></div>' +
+      '</div>' +
+      '<div class="inbox-chat-meta"><span class="time">hozir</span><span class="channel-pill"></span></div>';
+    list.prepend(div);
+    renderSingleChatListItem(div, chat);
+  }
 
   function applyListFilters() {
     var list = qs('[data-inbox-list]');
@@ -98,6 +171,25 @@
     msgBox.scrollTop = msgBox.scrollHeight;
   }
 
+  function renderTagsAndNotes(chatId) {
+    var chat = getChat(chatId);
+    if (!chat) return;
+
+    var notes = qsa('.inbox-info-card textarea');
+    notes.forEach(function (ta) { ta.value = chat.notes || ''; });
+
+    var tagCloud = qs('.inbox-info-card .tag-cloud');
+    if (tagCloud) {
+      tagCloud.innerHTML = '';
+      (chat.tags || []).forEach(function (tag) {
+        var span = document.createElement('span');
+        span.className = 'badge badge-primary';
+        span.textContent = tag;
+        tagCloud.appendChild(span);
+      });
+    }
+  }
+
   function ensureHeaderControls(panel) {
     var right = qs('.inbox-chat-header .right', panel);
     if (!right) return;
@@ -113,7 +205,7 @@
         var v = select.value;
         state.chats[id].status = v === 'closed' ? 'closed' : 'active ' + v;
         var item = qs('.inbox-chat-item.active');
-        if (item) item.setAttribute('data-status', state.chats[id].status);
+        if (item) renderSingleChatListItem(item, state.chats[id]);
         saveState();
         applyListFilters();
       });
@@ -156,6 +248,7 @@
     qsa('.inbox-info-card strong').forEach(function (s) {
       if (/Valiyev|Ahmad/i.test(s.textContent || '')) s.textContent = chat.name;
     });
+    renderTagsAndNotes(chatId);
   }
 
   function tickSLA() {
@@ -199,7 +292,10 @@
 
     var id = item.getAttribute('data-chat-id');
     state.activeChatId = id;
+    if (state.chats[id]) state.chats[id].unread = 0;
     saveState();
+
+    renderSingleChatListItem(item, state.chats[id]);
     updateHeader(id);
     updateRightInfo(id);
     renderMessages(id);
@@ -210,8 +306,14 @@
     var chat = getChat(chatId);
     if (!chat) return;
     chat.messages.push({ who: who, text: text, time: nowHM() });
+    chat.preview = text;
+    if (who === 'in' && state.activeChatId !== chatId) chat.unread = (chat.unread || 0) + 1;
     saveState();
-    renderMessages(chatId);
+
+    var item = qs('.inbox-chat-item[data-chat-id="' + chatId + '"]');
+    if (item) renderSingleChatListItem(item, chat);
+
+    if (state.activeChatId === chatId) renderMessages(chatId);
   }
 
   function simulateTypingReply(chatId) {
@@ -282,12 +384,44 @@
         var name = (qs('.item-title', btn) || {}).textContent || 'Agent';
         state.chats[id].agent = name;
         var active = qs('.inbox-chat-item.active');
-        if (active) {
-          active.setAttribute('data-agent', name);
-          var labels = qsa('.text-muted', active);
-          if (labels[labels.length - 1]) labels[labels.length - 1].textContent = 'Agent: ' + name;
-        }
+        if (active) renderSingleChatListItem(active, state.chats[id]);
         saveState();
+      });
+    });
+  }
+
+  function initNotesTagsPersistence() {
+    qsa('.inbox-info-card textarea').forEach(function (ta) {
+      ta.addEventListener('input', function () {
+        var id = state.activeChatId;
+        if (!id || !state.chats[id]) return;
+        state.chats[id].notes = ta.value;
+        saveState();
+      });
+    });
+
+    qsa('[data-action="save"]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var id = state.activeChatId;
+        if (!id || !state.chats[id]) return;
+        var notes = qs('.inbox-info-card textarea');
+        if (notes) state.chats[id].notes = notes.value;
+        saveState();
+      });
+    });
+
+    qsa('[data-message="Tag qo\'shish oynasi ochildi"]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var id = state.activeChatId;
+        if (!id || !state.chats[id]) return;
+        var tag = prompt("Yangi tag kiriting:", "Follow-up");
+        if (!tag) return;
+        tag = String(tag).trim();
+        if (!tag) return;
+        if (!state.chats[id].tags) state.chats[id].tags = [];
+        if (state.chats[id].tags.indexOf(tag) === -1) state.chats[id].tags.push(tag);
+        saveState();
+        renderTagsAndNotes(id);
       });
     });
   }
@@ -301,13 +435,70 @@
         var isClosed = state.chats[id].status.indexOf('closed') > -1;
         state.chats[id].status = isClosed ? 'active' : 'closed';
         var active = qs('.inbox-chat-item.active');
-        if (active) active.setAttribute('data-status', state.chats[id].status);
+        if (active) renderSingleChatListItem(active, state.chats[id]);
         closeBtn.innerHTML = isClosed ? '<i data-lucide="check"></i> Close' : '<i data-lucide="rotate-ccw"></i> Reopen';
         saveState();
         applyListFilters();
         if (window.lucide && window.lucide.createIcons) window.lucide.createIcons();
       });
     }
+  }
+
+  function fakeIncomingEvent() {
+    var allIds = Object.keys(state.chats);
+    if (!allIds.length) return;
+
+    var useNewChat = Math.random() < 0.28;
+    var targetId = allIds[Math.floor(Math.random() * allIds.length)];
+
+    if (useNewChat) {
+      var names = ['Jasur T.', 'Munisa A.', 'Asadbek R.', 'Shahnoza M.'];
+      var channels = ['Web', 'Telegram', 'WhatsApp', 'Instagram', 'Email'];
+      var name = names[Math.floor(Math.random() * names.length)];
+      var channel = channels[Math.floor(Math.random() * channels.length)];
+      targetId = uid();
+      state.chats[targetId] = {
+        id: targetId,
+        status: 'active unread',
+        agent: 'Unassigned',
+        channel: channel,
+        name: name,
+        preview: 'Yangi murojaat: yordam kerak',
+        unread: 1,
+        messages: [{ who: 'in', text: 'Salom, yordam kerak edi.', time: nowHM() }],
+        slaDueAt: slaDueAtByChannel(channel),
+        notes: '',
+        tags: ['New']
+      };
+      appendChatListItem(state.chats[targetId]);
+    } else {
+      var phrases = [
+        'Yana bir savolim bor edi.',
+        'Rahmat, tushunarli bo‘ldi.',
+        'Demo vaqtini o‘zgartira olamizmi?',
+        'Invoice hali ham ochilmadi.'
+      ];
+      var txt = phrases[Math.floor(Math.random() * phrases.length)];
+      appendMessage(targetId, 'in', txt);
+      if (state.chats[targetId]) {
+        state.chats[targetId].status = (state.chats[targetId].status + ' unread').replace(/\s+/g, ' ').trim();
+        state.chats[targetId].slaDueAt = slaDueAtByChannel(state.chats[targetId].channel);
+      }
+    }
+
+    saveState();
+    applyListFilters();
+  }
+
+  function initIncomingStream() {
+    if (incomingInterval) clearInterval(incomingInterval);
+    incomingInterval = setInterval(function () {
+      if (document.hidden) return;
+      if (Date.now() - (state.lastIncomingAt || 0) < 25000) return;
+      state.lastIncomingAt = Date.now();
+      fakeIncomingEvent();
+      saveState();
+    }, 9000);
   }
 
   function initEvents() {
@@ -340,9 +531,11 @@
     initEvents();
     initComposer();
     initAssignFlow();
+    initNotesTagsPersistence();
     initActions();
     applyListFilters();
     restoreActive();
+    initIncomingStream();
   }
 
   document.addEventListener('DOMContentLoaded', init);
