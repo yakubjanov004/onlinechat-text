@@ -2342,6 +2342,19 @@ small {
     flex-wrap: wrap
 }
 
+.inbox-status-select {
+    height: 32px;
+    min-width: 120px;
+    border-radius: 8px;
+    padding: 0 8px;
+    font-size: 12px;
+}
+
+.sla-timer {
+    min-width: 86px;
+    justify-content: center;
+}
+
 .inbox-messages {
     height: calc(100% - 64px - 86px);
     min-height: 360px;
