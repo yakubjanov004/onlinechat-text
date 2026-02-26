@@ -243,12 +243,20 @@
     recalc();
   }
 
+  function safeRun(name, fn){
+    try{ fn(); }
+    catch(e){
+      console.error('[billing]', name, e);
+      notify(name+' modulida xatolik bor', 'error');
+    }
+  }
+
   document.addEventListener('DOMContentLoaded',function(){
-    cleanMojibake();
-    initGlobalActions();
-    initPlan();
-    initPayment();
-    initInvoices();
-    initUsage();
+    safeRun('cleanMojibake', cleanMojibake);
+    safeRun('initGlobalActions', initGlobalActions);
+    safeRun('initPlan', initPlan);
+    safeRun('initPayment', initPayment);
+    safeRun('initInvoices', initInvoices);
+    safeRun('initUsage', initUsage);
   });
 })();
