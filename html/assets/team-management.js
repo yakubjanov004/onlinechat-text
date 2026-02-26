@@ -60,13 +60,34 @@
     var root=qs('[data-team-page="agents"]'); if(!root) return;
     var search=qs('[data-team-search]',root);
     var filter=qs('[data-team-status-filter]',root);
+    var body=qs('[data-team-agents-body]',root);
     var rows=qsa('[data-team-agents-body] .table-row',root);
 
     var editModal=qs('[data-modal="agent-edit-modal"]',root);
     var editName=qs('[data-agent-edit-name]',root);
     var editEmail=qs('[data-agent-edit-email]',root);
     var editRole=qs('[data-agent-edit-role]',root);
+
+    var addModal=qs('[data-modal="agent-add-modal"]',root);
+    var addName=qs('[data-agent-add-name]',root);
+    var addEmail=qs('[data-agent-add-email]',root);
+    var addRole=qs('[data-agent-add-role]',root);
+    var addStatus=qs('[data-agent-add-status]',root);
+
+    var selectAll=qs('[data-team-select-all]',root);
     var currentEditingRow=null;
+
+    function statusClass(status){
+      var s=String(status||'offline').toLowerCase();
+      if(s==='online') return 'online';
+      if(s==='away') return 'away';
+      return 'offline';
+    }
+
+    function buildRoleBadge(role){
+      var cls = role==='Admin' ? 'badge-primary' : (role==='Manager' ? 'badge-info' : '');
+      return '<span class="badge '+cls+'">'+escapeHtml(role)+'</span>';
+    }
 
     function apply(){
       var q=(search?.value||'').toLowerCase().trim();
@@ -80,29 +101,32 @@
       });
     }
 
+    function openModal(modal){
+      if(!modal) return;
+      modal.hidden=false;
+      modal.classList.add('is-open');
+      document.body.classList.add('modal-open');
+    }
+
+    function closeModal(modal){
+      if(!modal) return;
+      modal.classList.remove('is-open');
+      modal.hidden=true;
+      document.body.classList.remove('modal-open');
+    }
+
     function openEditModal(tr){
       if(!editModal || !tr) return;
       currentEditingRow=tr;
       var tds=qsa('td',tr);
-      var name=(qs('strong',tds[0])?.textContent||'').trim();
-      var email=(tds[1]?.textContent||'').trim();
-      var role=(tds[2]?.textContent||'Agent').trim();
+      var name=(qs('strong',tds[1])?.textContent||'').trim();
+      var email=(tds[2]?.textContent||'').trim();
+      var role=(tds[3]?.textContent||'Agent').trim();
 
       if(editName) editName.value=name;
       if(editEmail) editEmail.value=email;
       if(editRole) editRole.value=role;
-
-      editModal.hidden=false;
-      editModal.classList.add('is-open');
-      document.body.classList.add('modal-open');
-    }
-
-    function closeEditModal(){
-      if(!editModal) return;
-      editModal.classList.remove('is-open');
-      editModal.hidden=true;
-      document.body.classList.remove('modal-open');
-      currentEditingRow=null;
+      openModal(editModal);
     }
 
     function saveEditModal(){
@@ -112,33 +136,73 @@
       var role=(editRole?.value||'Agent').trim();
       var valid=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 
-      if(!name){
-        notify('Ismni kiriting', 'error');
-        return;
-      }
-      if(!valid){
-        notify('To\'g\'ri email kiriting', 'error');
-        return;
-      }
+      if(!name) return notify('Ismni kiriting', 'error');
+      if(!valid) return notify('To\'g\'ri email kiriting', 'error');
 
       var tds=qsa('td',currentEditingRow);
       var avatar=(name.split(/\s+/).slice(0,2).map(function(x){return x.charAt(0).toUpperCase();}).join('')||'AG').slice(0,2);
-      var badgeClass = role==='Admin' ? 'badge-primary' : (role==='Manager' ? 'badge-info' : '');
-
-      var strong=qs('strong',tds[0]);
+      var strong=qs('strong',tds[1]);
       if(strong) strong.textContent=name;
-      var avatarNode=qs('.avatar',tds[0]);
+      var avatarNode=qs('.avatar',tds[1]);
       if(avatarNode) avatarNode.textContent=avatar;
-      if(tds[1]) tds[1].textContent=email;
-      if(tds[2]) tds[2].innerHTML='<span class="badge '+badgeClass+'">'+escapeHtml(role)+'</span>';
+      if(tds[2]) tds[2].textContent=email;
+      if(tds[3]) tds[3].innerHTML=buildRoleBadge(role);
 
       notify('Agent yangilandi');
-      closeEditModal();
+      closeModal(editModal);
+      currentEditingRow=null;
+      apply();
+    }
+
+    function addAgent(){
+      var name=(addName?.value||'').trim();
+      var email=(addEmail?.value||'').trim();
+      var role=(addRole?.value||'Agent').trim();
+      var status=(addStatus?.value||'Online').trim();
+      var valid=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      if(!name) return notify('Ismni kiriting', 'error');
+      if(!valid) return notify('To\'g\'ri email kiriting', 'error');
+
+      var exists=qsa('.table-row td:nth-child(3)',body).some(function(td){ return td.textContent.trim().toLowerCase()===email.toLowerCase(); });
+      if(exists) return notify('Bu email bilan agent mavjud', 'warn');
+
+      var avatar=(name.split(/\s+/).slice(0,2).map(function(x){return x.charAt(0).toUpperCase();}).join('')||'AG').slice(0,2);
+      var tr=document.createElement('tr');
+      tr.className='table-row';
+      tr.innerHTML='<td><input type="checkbox" data-team-select-row aria-label="Agentni tanlash"></td>'+
+        '<td><div class="flex gap-2 items-center"><span class="avatar">'+escapeHtml(avatar)+'</span><div><a href="./02-agent-profile.html" style="color:var(--primary)"><strong>'+escapeHtml(name)+'</strong></a></div></div></td>'+
+        '<td>'+escapeHtml(email)+'</td>'+
+        '<td>'+buildRoleBadge(role)+'</td>'+
+        '<td><span class="flex gap-2 items-center"><span class="status-dot '+statusClass(status)+'"></span>'+escapeHtml(status)+'</span></td>'+
+        '<td>Just now</td>'+
+        '<td><div class="flex gap-2"><button type="button" class="btn btn-secondary" data-team-action="edit-agent">Edit</button><button type="button" class="btn btn-danger" data-team-action="delete-agent">Delete</button></div></td>';
+      body.prepend(tr);
+
+      if(addName) addName.value='';
+      if(addEmail) addEmail.value='';
+      if(addRole) addRole.value='Agent';
+      if(addStatus) addStatus.value='Online';
+
+      closeModal(addModal);
+      notify('Yangi agent qo\'shildi');
+      apply();
+    }
+
+    function bulkDelete(){
+      var checked=qsa('[data-team-select-row]:checked',root).map(function(ch){return ch.closest('.table-row');}).filter(Boolean);
+      if(!checked.length) return notify('Kamida bitta agent tanlang', 'warn');
+      if(!confirm('Tanlangan agentlarni o\'chirasizmi?')) return;
+      checked.forEach(function(row){row.remove();});
+      if(selectAll) selectAll.checked=false;
+      notify('Tanlangan agentlar o\'chirildi');
       apply();
     }
 
     search?.addEventListener('input',apply);
     filter?.addEventListener('change',apply);
+    selectAll?.addEventListener('change',function(){
+      qsa('[data-team-select-row]',root).forEach(function(ch){ ch.checked=!!selectAll.checked; });
+    });
 
     root.addEventListener('click',function(e){
       var b=e.target.closest('[data-team-action]');
@@ -146,15 +210,17 @@
       var action=b.getAttribute('data-team-action');
       var tr=b.closest('.table-row');
 
-      if(action==='close-agent-modal'){
-        closeEditModal();
-        return;
-      }
+      if(action==='open-add-agent-modal') return openModal(addModal);
+      if(action==='close-add-agent-modal') return closeModal(addModal);
+      if(action==='save-add-agent-modal') return addAgent();
 
-      if(action==='save-agent-modal'){
-        saveEditModal();
+      if(action==='close-agent-modal'){
+        closeModal(editModal);
+        currentEditingRow=null;
         return;
       }
+      if(action==='save-agent-modal') return saveEditModal();
+      if(action==='bulk-delete-agents') return bulkDelete();
 
       if(action==='delete-agent' && tr){
         if(confirm('Agentni o\'chirasizmi?')){
@@ -167,12 +233,11 @@
 
       if(action==='edit-agent' && tr){
         openEditModal(tr);
-        return;
       }
     });
 
-    editModal?.addEventListener('click',function(e){
-      if(e.target===editModal) closeEditModal();
+    [editModal, addModal].forEach(function(modal){
+      modal?.addEventListener('click',function(e){ if(e.target===modal) closeModal(modal); });
     });
 
     apply();
