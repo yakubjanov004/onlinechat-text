@@ -4,9 +4,35 @@
   function qs(s,r){return (r||document).querySelector(s);} 
   function qsa(s,r){return Array.from((r||document).querySelectorAll(s));}
 
+  var STORAGE_KEY='qc_analytics_state_v1';
   var PERIODS=['Bugun','Kecha','Oxirgi 7 kun','Oxirgi 30 kun'];
   var PRESETS=['Conservative','Balanced','Aggressive'];
-  var state={ periodIndex:2, presetIndex:1 };
+
+  function loadState(){
+    try{
+      var s=JSON.parse(localStorage.getItem(STORAGE_KEY)||'{}');
+      return {
+        periodIndex:Number.isInteger(s.periodIndex)?s.periodIndex:2,
+        presetIndex:Number.isInteger(s.presetIndex)?s.presetIndex:1,
+        operatorSort:s.operatorSort||'chats',
+        selectedOperator:s.selectedOperator||'',
+        slaFilter:s.slaFilter||'all',
+        slaThreshold:Number(s.slaThreshold||180),
+        channelFocus:s.channelFocus||'all',
+        segmentMinConv:Number(s.segmentMinConv||0),
+        tagQuery:s.tagQuery||'',
+        exportFormat:s.exportFormat||'CSV'
+      };
+    }catch(e){
+      return { periodIndex:2, presetIndex:1, operatorSort:'chats', selectedOperator:'', slaFilter:'all', slaThreshold:180, channelFocus:'all', segmentMinConv:0, tagQuery:'', exportFormat:'CSV' };
+    }
+  }
+
+  function saveState(){
+    try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }catch(e){}
+  }
+
+  var state=loadState();
 
   function notify(message,type){
     if(!message) return;
@@ -198,10 +224,16 @@
     }
 
     var sortSelect=qs('[data-operator-sort]');
-    sortSelect?.addEventListener('change',function(){
-      sortRows(sortSelect.value);
-      notify('Operatorlar saralandi: '+sortSelect.options[sortSelect.selectedIndex].text);
-    });
+    if(sortSelect){
+      sortSelect.value=state.operatorSort;
+      sortRows(state.operatorSort);
+      sortSelect.addEventListener('change',function(){
+        state.operatorSort=sortSelect.value;
+        saveState();
+        sortRows(sortSelect.value);
+        notify('Operatorlar saralandi: '+sortSelect.options[sortSelect.selectedIndex].text);
+      });
+    }
 
     qsa('tr.table-row',table).forEach(function(row){
       row.style.cursor='pointer';
@@ -215,6 +247,8 @@
         link.addEventListener('click',function(e){
           e.preventDefault();
           var name=(link.textContent||'').trim();
+          state.selectedOperator=name;
+          saveState();
           window.location.href='./04-operator-detail.html?op='+encodeURIComponent(name);
         });
       }
@@ -225,8 +259,10 @@
     var pageTitle=qs('.page-header h1')?.textContent?.trim();
     if(pageTitle!=='Operator Profili') return;
 
-    var op=new URLSearchParams(window.location.search).get('op');
+    var op=new URLSearchParams(window.location.search).get('op') || state.selectedOperator;
     if(!op) return;
+    state.selectedOperator=op;
+    saveState();
 
     var map={
       'Sardor A.':{abbr:'SA',role:'Admin • Day shift',status:'Online',chats:'412',resp:'1m 42s',csat:'4.9',sla:'98%'},
@@ -268,7 +304,7 @@
       if(header && !qs('[data-sla-threshold]',header)){
         var actions=document.createElement('div');
         actions.className='card-actions flex gap-2';
-        actions.innerHTML='\n<select class="select" style="width:170px" data-sla-filter>\n  <option value="all">Barcha breachlar</option>\n  <option value="first">First response</option>\n  <option value="resolution">Resolution</option>\n  <option value="vip">VIP</option>\n</select>\n<div class="input-group" style="width:180px"><input class="input" type="number" min="60" step="30" value="180" data-sla-threshold><span class="text-muted" style="font-size:12px">sec</span></div>';
+        actions.innerHTML='\n<select class="select" style="width:170px" data-sla-filter>\n  <option value="all">Barcha breachlar</option>\n  <option value="first">First response</option>\n  <option value="resolution">Resolution</option>\n  <option value="vip">VIP</option>\n</select>\n<div class="input-group" style="width:180px"><input class="input" type="number" min="60" step="30" value="'+(state.slaThreshold||180)+'" data-sla-threshold><span class="text-muted" style="font-size:12px">sec</span></div>';
         header.appendChild(actions);
       }
     }
@@ -335,13 +371,19 @@
     }
 
     styleRows();
+    var filterEl=qs('[data-sla-filter]');
+    if(filterEl) filterEl.value=state.slaFilter || 'all';
     applyFilter();
 
     qs('[data-sla-filter]')?.addEventListener('change',function(){
+      state.slaFilter=qs('[data-sla-filter]').value;
+      saveState();
       applyFilter();
       notify('SLA filter yangilandi');
     });
     qs('[data-sla-threshold]')?.addEventListener('input',function(){
+      state.slaThreshold=Number(qs('[data-sla-threshold]').value||180);
+      saveState();
       applyFilter();
     });
 
@@ -368,10 +410,88 @@
     });
   }
 
+  function initChannelsPage(){
+    var pageTitle=qs('.page-header h1')?.textContent?.trim();
+    if(pageTitle!=='Kanallar') return;
+
+    var top=qs('.page-header-actions .analytics-topbar');
+    if(top && !qs('[data-channel-focus]')){
+      var sel=document.createElement('select');
+      sel.className='select';
+      sel.style.width='160px';
+      sel.setAttribute('data-channel-focus','1');
+      sel.innerHTML='<option value="all">All channels</option><option value="web">Web</option><option value="telegram">Telegram</option><option value="email">Email</option><option value="instagram">Instagram</option>';
+      sel.value=state.channelFocus||'all';
+      top.prepend(sel);
+      sel.addEventListener('change',function(){ state.channelFocus=sel.value; saveState(); notify('Channel focus: '+sel.value); });
+    }
+
+    qsa('.mini-bar-col').forEach(function(col){
+      col.style.cursor='pointer';
+      col.addEventListener('click',function(){
+        qsa('.mini-bar-col').forEach(function(c){ c.style.opacity='0.45'; });
+        col.style.opacity='1';
+      });
+    });
+  }
+
+  function initSegmentsPage(){
+    var pageTitle=qs('.page-header h1')?.textContent?.trim();
+    if(pageTitle!=='Segmentlar') return;
+    var top=qs('.page-header-actions .analytics-topbar');
+    if(top && !qs('[data-segment-minconv]')){
+      var input=document.createElement('input');
+      input.type='number'; input.min='0'; input.max='100';
+      input.className='input'; input.style.width='120px';
+      input.value=String(state.segmentMinConv||0);
+      input.setAttribute('data-segment-minconv','1');
+      input.title='Min conversion %';
+      top.prepend(input);
+      var apply=function(){
+        var min=Number(input.value||0); state.segmentMinConv=min; saveState();
+        qsa('.table tbody .table-row').forEach(function(row){
+          var conv=parseInt((qsa('td',row)[3]?.textContent||'0').replace('%',''),10)||0;
+          row.style.display=conv>=min?'':'none';
+        });
+      };
+      input.addEventListener('input',apply); apply();
+    }
+  }
+
+  function initTagsPage(){
+    var pageTitle=qs('.page-header h1')?.textContent?.trim();
+    if(pageTitle!=='Tag Analytics') return;
+    var top=qs('.page-header-actions .analytics-topbar');
+    if(top && !qs('[data-tag-search]')){
+      var search=document.createElement('input');
+      search.className='input'; search.placeholder='Tag qidirish'; search.style.width='150px';
+      search.value=state.tagQuery||'';
+      search.setAttribute('data-tag-search','1');
+      top.prepend(search);
+      var apply=function(){
+        var q=(search.value||'').toLowerCase().trim(); state.tagQuery=q; saveState();
+        qsa('.tag-cloud .badge').forEach(function(b){ b.style.display=!q || b.textContent.toLowerCase().indexOf(q)>-1 ? '' : 'none'; });
+        qsa('.table tbody .table-row').forEach(function(r){ r.style.display=!q || r.textContent.toLowerCase().indexOf(q)>-1 ? '' : 'none'; });
+      };
+      search.addEventListener('input',apply); apply();
+    }
+  }
+
+  function initExportPage(){
+    var pageTitle=qs('.page-header h1')?.textContent?.trim();
+    if(pageTitle!=='Analytics Export') return;
+    var formatSel=qs('.form-grid .form-field .select');
+    if(formatSel){
+      formatSel.value=state.exportFormat||formatSel.value;
+      formatSel.addEventListener('change',function(){ state.exportFormat=formatSel.value; saveState(); });
+    }
+  }
+
   function bindInteractions(){
     qsa('.date-range').forEach(function(el){
       var advance=function(){
         state.periodIndex=(state.periodIndex+1)%PERIODS.length;
+        saveState();
         updateDateLabels();
         updateMetricCards();
         highlightTopTableRow();
@@ -409,6 +529,7 @@
       var btn=e.target.closest('[data-analytics-preset]');
       if(!btn) return;
       state.presetIndex=Number(btn.getAttribute('data-analytics-preset'))||0;
+      saveState();
       setActivePresetButton();
       updateMetricCards();
       notify('Preset: '+PRESETS[state.presetIndex]);
@@ -426,5 +547,9 @@
     initOperatorsPage();
     initOperatorDetailPage();
     initSlaPage();
+    initChannelsPage();
+    initSegmentsPage();
+    initTagsPage();
+    initExportPage();
   });
 })();
