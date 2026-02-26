@@ -63,12 +63,26 @@
     save(state);
   }
 
+  function setDirty(flag){
+    var saveBtn=qsa('.sticky-save-bar .btn').find(function(b){ return (b.textContent||'').toLowerCase().indexOf('saqlash')>-1; });
+    if(!saveBtn) return;
+    if(flag){
+      if(saveBtn.textContent.indexOf('*')===-1) saveBtn.textContent=saveBtn.textContent+' *';
+      saveBtn.classList.add('btn-warning');
+    }else{
+      saveBtn.textContent=saveBtn.textContent.replace(' *','');
+      saveBtn.classList.remove('btn-warning');
+    }
+    state.global.isDirty=!!flag;
+    save(state);
+  }
+
   function bindSaveBar(){
     qsa('.sticky-save-bar .btn').forEach(function(btn){
       var txt=(btn.textContent||'').toLowerCase();
       btn.addEventListener('click',function(){
-        if(txt.indexOf('saqlash')>-1){ captureFormState(); notify('Sozlamalar saqlandi'); }
-        if(txt.indexOf('bekor')>-1){ restoreFormState(); notify('Oxirgi saqlangan holat tiklandi','warn'); }
+        if(txt.indexOf('saqlash')>-1){ captureFormState(); setDirty(false); notify('Sozlamalar saqlandi'); }
+        if(txt.indexOf('bekor')>-1){ restoreFormState(); setDirty(false); notify('Oxirgi saqlangan holat tiklandi','warn'); }
       });
     });
   }
@@ -150,7 +164,20 @@
     sync();
   }
 
-  function initNotifications(){
+  function applyGlobalBindings(){
+    var workspaceInput=qsa('input.input').find(function(i){ return (i.previousElementSibling?.textContent||'').toLowerCase().indexOf('workspace nomi')>-1; });
+    if(workspaceInput){
+      if(state.global.workspaceName) workspaceInput.value=state.global.workspaceName;
+      workspaceInput.addEventListener('input',function(){ state.global.workspaceName=workspaceInput.value||''; save(state); });
+    }
+
+    var profileInput=qsa('input.input').find(function(i){ return (i.previousElementSibling?.textContent||'').toLowerCase()==='ism'; });
+    if(profileInput && state.global.profileName){
+      profileInput.value=state.global.profileName;
+    }
+  }
+
+  function initNotifications(){ 
     if(pageKey()!=='04-notifications.html') return;
     var toggles=qsa('.toggle-switch input[type="checkbox"]');
 
@@ -255,6 +282,7 @@
 
   document.addEventListener('DOMContentLoaded',function(){
     restoreFormState();
+    applyGlobalBindings();
     bindSaveBar();
     initWorkspace();
     initWidget();
@@ -265,10 +293,11 @@
     initPrivacyDelete();
     initPrivacySettings();
     cleanTextArtifacts();
+    setDirty(false);
 
     qsa('input, select, textarea').forEach(function(el){
-      el.addEventListener('change',captureFormState);
-      if(el.tagName==='INPUT' || el.tagName==='TEXTAREA') el.addEventListener('input',captureFormState);
+      el.addEventListener('change',function(){ captureFormState(); setDirty(true); });
+      if(el.tagName==='INPUT' || el.tagName==='TEXTAREA') el.addEventListener('input',function(){ captureFormState(); setDirty(true); });
     });
   });
 })();
