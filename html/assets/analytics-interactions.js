@@ -162,6 +162,102 @@
     });
   }
 
+  function initOperatorsPage(){
+    var pageTitle=qs('.page-header h1')?.textContent?.trim();
+    if(pageTitle!=='Operatorlar') return;
+
+    var cardHeader=qs('.card .card-header .card-actions');
+    if(cardHeader && !qs('[data-operator-sort]')){
+      var select=document.createElement('select');
+      select.className='select';
+      select.style.width='170px';
+      select.setAttribute('data-operator-sort','1');
+      select.innerHTML='\n<option value="chats">Chats (desc)</option>\n<option value="response">Response (asc)</option>\n<option value="csat">CSAT (desc)</option>\n<option value="name">Name (A-Z)</option>';
+      cardHeader.prepend(select);
+    }
+
+    var table=qs('.table tbody');
+    if(!table) return;
+
+    function responseToSec(txt){
+      var m=(txt||'').match(/(\d+)m\s*(\d+)s/i);
+      if(!m) return 9999;
+      return Number(m[1])*60+Number(m[2]);
+    }
+
+    function sortRows(mode){
+      var rows=qsa('tr.table-row',table);
+      rows.sort(function(a,b){
+        var aT=qsa('td',a), bT=qsa('td',b);
+        if(mode==='name') return (aT[0]?.textContent||'').localeCompare((bT[0]?.textContent||''));
+        if(mode==='response') return responseToSec(aT[2]?.textContent)-responseToSec(bT[2]?.textContent);
+        if(mode==='csat') return parseFloat(bT[4]?.textContent||0)-parseFloat(aT[4]?.textContent||0);
+        return parseInt(bT[1]?.textContent||0,10)-parseInt(aT[1]?.textContent||0,10);
+      });
+      rows.forEach(function(r){ table.appendChild(r); });
+    }
+
+    var sortSelect=qs('[data-operator-sort]');
+    sortSelect?.addEventListener('change',function(){
+      sortRows(sortSelect.value);
+      notify('Operatorlar saralandi: '+sortSelect.options[sortSelect.selectedIndex].text);
+    });
+
+    qsa('tr.table-row',table).forEach(function(row){
+      row.style.cursor='pointer';
+      row.addEventListener('dblclick',function(){
+        var name=(qs('td a',row)?.textContent||'').trim();
+        if(!name) return;
+        window.location.href='./04-operator-detail.html?op='+encodeURIComponent(name);
+      });
+      var link=qs('td a',row);
+      if(link){
+        link.addEventListener('click',function(e){
+          e.preventDefault();
+          var name=(link.textContent||'').trim();
+          window.location.href='./04-operator-detail.html?op='+encodeURIComponent(name);
+        });
+      }
+    });
+  }
+
+  function initOperatorDetailPage(){
+    var pageTitle=qs('.page-header h1')?.textContent?.trim();
+    if(pageTitle!=='Operator Profili') return;
+
+    var op=new URLSearchParams(window.location.search).get('op');
+    if(!op) return;
+
+    var map={
+      'Sardor A.':{abbr:'SA',role:'Admin • Day shift',status:'Online',chats:'412',resp:'1m 42s',csat:'4.9',sla:'98%'},
+      'Sara M.':{abbr:'SM',role:'Manager • Day shift',status:'Online',chats:'355',resp:'2m 01s',csat:'4.8',sla:'95%'},
+      'Ali K.':{abbr:'AK',role:'Agent • Evening shift',status:'Away',chats:'298',resp:'2m 14s',csat:'4.6',sla:'92%'},
+      'Malika T.':{abbr:'MT',role:'Agent • Day shift',status:'Online',chats:'267',resp:'1m 54s',csat:'4.9',sla:'97%'},
+      'Dilshod N.':{abbr:'DN',role:'Agent • Night shift',status:'Offline',chats:'189',resp:'2m 40s',csat:'4.5',sla:'88%'},
+      'Jasur P.':{abbr:'JP',role:'Agent • Day shift',status:'Online',chats:'321',resp:'1m 37s',csat:'4.8',sla:'96%'},
+      'Bobur R.':{abbr:'BR',role:'Agent • Evening shift',status:'Offline',chats:'144',resp:'3m 05s',csat:'4.4',sla:'84%'}
+    };
+
+    var data=map[op];
+    if(!data) return;
+
+    var card=qs('.split-grid .card .card-body');
+    if(card){
+      var avatar=qs('.avatar',card); if(avatar) avatar.textContent=data.abbr;
+      var name=qs('h3',card); if(name) name.textContent=op;
+      var meta=qs('p.text-muted',card); if(meta) meta.textContent=data.role;
+      var badge=qs('.badge',card); if(badge){ badge.textContent=data.status; badge.className='badge ' + (data.status==='Online'?'badge-success':(data.status==='Away'?'badge-warning':'badge')); }
+      var kv=qsa('.kv-row strong',card);
+      if(kv[0]) kv[0].textContent=data.chats;
+      if(kv[1]) kv[1].textContent=data.resp;
+      if(kv[2]) kv[2].textContent=data.csat;
+      if(kv[3]) kv[3].textContent=data.sla;
+    }
+
+    var title=qs('.page-header h1');
+    if(title) title.textContent='Operator Profili — '+op;
+  }
+
   function bindInteractions(){
     qsa('.date-range').forEach(function(el){
       var advance=function(){
@@ -217,5 +313,7 @@
     highlightTopTableRow();
     initLegendToggle();
     initChartTooltip();
+    initOperatorsPage();
+    initOperatorDetailPage();
   });
 })();
