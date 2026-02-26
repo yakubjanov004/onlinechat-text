@@ -62,6 +62,12 @@
     var filter=qs('[data-team-status-filter]',root);
     var rows=qsa('[data-team-agents-body] .table-row',root);
 
+    var editModal=qs('[data-modal="agent-edit-modal"]',root);
+    var editName=qs('[data-agent-edit-name]',root);
+    var editEmail=qs('[data-agent-edit-email]',root);
+    var editRole=qs('[data-agent-edit-role]',root);
+    var currentEditingRow=null;
+
     function apply(){
       var q=(search?.value||'').toLowerCase().trim();
       var st=(filter?.value||'all');
@@ -74,32 +80,99 @@
       });
     }
 
+    function openEditModal(tr){
+      if(!editModal || !tr) return;
+      currentEditingRow=tr;
+      var tds=qsa('td',tr);
+      var name=(qs('strong',tds[0])?.textContent||'').trim();
+      var email=(tds[1]?.textContent||'').trim();
+      var role=(tds[2]?.textContent||'Agent').trim();
+
+      if(editName) editName.value=name;
+      if(editEmail) editEmail.value=email;
+      if(editRole) editRole.value=role;
+
+      editModal.hidden=false;
+      editModal.classList.add('is-open');
+      document.body.classList.add('modal-open');
+    }
+
+    function closeEditModal(){
+      if(!editModal) return;
+      editModal.classList.remove('is-open');
+      editModal.hidden=true;
+      document.body.classList.remove('modal-open');
+      currentEditingRow=null;
+    }
+
+    function saveEditModal(){
+      if(!currentEditingRow) return;
+      var name=(editName?.value||'').trim();
+      var email=(editEmail?.value||'').trim();
+      var role=(editRole?.value||'Agent').trim();
+      var valid=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+      if(!name){
+        notify('Ismni kiriting', 'error');
+        return;
+      }
+      if(!valid){
+        notify('To\'g\'ri email kiriting', 'error');
+        return;
+      }
+
+      var tds=qsa('td',currentEditingRow);
+      var avatar=(name.split(/\s+/).slice(0,2).map(function(x){return x.charAt(0).toUpperCase();}).join('')||'AG').slice(0,2);
+      var badgeClass = role==='Admin' ? 'badge-primary' : (role==='Manager' ? 'badge-info' : '');
+
+      var strong=qs('strong',tds[0]);
+      if(strong) strong.textContent=name;
+      var avatarNode=qs('.avatar',tds[0]);
+      if(avatarNode) avatarNode.textContent=avatar;
+      if(tds[1]) tds[1].textContent=email;
+      if(tds[2]) tds[2].innerHTML='<span class="badge '+badgeClass+'">'+escapeHtml(role)+'</span>';
+
+      notify('Agent yangilandi');
+      closeEditModal();
+      apply();
+    }
+
     search?.addEventListener('input',apply);
     filter?.addEventListener('change',apply);
 
     root.addEventListener('click',function(e){
       var b=e.target.closest('[data-team-action]');
       if(!b) return;
+      var action=b.getAttribute('data-team-action');
       var tr=b.closest('.table-row');
-      if(!tr) return;
 
-      if(b.getAttribute('data-team-action')==='delete-agent'){
+      if(action==='close-agent-modal'){
+        closeEditModal();
+        return;
+      }
+
+      if(action==='save-agent-modal'){
+        saveEditModal();
+        return;
+      }
+
+      if(action==='delete-agent' && tr){
         if(confirm('Agentni o\'chirasizmi?')){
           tr.remove();
           notify('Agent o\'chirildi');
+          apply();
         }
+        return;
       }
 
-      if(b.getAttribute('data-team-action')==='edit-agent'){
-        var tds=qsa('td',tr);
-        var role=prompt('Yangi role (Admin/Manager/Agent):', (tds[2]?.textContent||'Agent').trim());
-        if(role){
-          tds[2].innerHTML='<span class="badge">'+escapeHtml(role)+'</span>';
-          notify('Role yangilandi');
-        }
+      if(action==='edit-agent' && tr){
+        openEditModal(tr);
+        return;
       }
+    });
 
-      apply();
+    editModal?.addEventListener('click',function(e){
+      if(e.target===editModal) closeEditModal();
     });
 
     apply();
