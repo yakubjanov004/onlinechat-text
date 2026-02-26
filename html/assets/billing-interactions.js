@@ -44,6 +44,15 @@
     });
   }
 
+  function initGlobalActions(){
+    qsa('.page-header-actions .btn').forEach(function(btn){
+      var txt=(btn.textContent||'').toLowerCase();
+      if(txt.indexOf('manage plan')>-1){
+        btn.addEventListener('click',function(){ window.location.href='./01-plan.html'; });
+      }
+    });
+  }
+
   function initPlan(){
     if(page()!=='01-plan.html') return;
 
@@ -86,6 +95,13 @@
       return '•••• '+d.slice(-4);
     }
 
+    function clearDefault(){
+      qsa('tr.table-row',table).forEach(function(row){
+        var d=qsa('td',row)[3];
+        if(d) d.textContent='—';
+      });
+    }
+
     saveBtn?.addEventListener('click',function(){
       var cardNo=(inputs[0]?.value||'').trim();
       var exp=(inputs[1]?.value||'').trim();
@@ -96,11 +112,33 @@
 
       var tr=document.createElement('tr');
       tr.className='table-row';
-      tr.innerHTML='<td>Visa '+mask(cardNo)+'</td><td>QULAY CHAT LLC</td><td>'+exp+'</td><td>—</td><td>Set default • Remove</td>';
+      tr.innerHTML='<td>Visa '+mask(cardNo)+'</td><td>QULAY CHAT LLC</td><td>'+exp+'</td><td>—</td><td><div class="flex gap-2"><button type="button" class="btn btn-secondary btn-sm" data-card-action="set-default">Set default</button><button type="button" class="btn btn-danger btn-sm" data-card-action="remove">Remove</button></div></td>';
       table?.appendChild(tr);
       state.cards.push({last4:mask(cardNo),exp:exp});
       save(state);
       notify('Karta qo\'shildi');
+    });
+
+    table?.addEventListener('click',function(e){
+      var btn=e.target.closest('[data-card-action]');
+      if(!btn) return;
+      var row=btn.closest('.table-row');
+      if(!row) return;
+      var action=btn.getAttribute('data-card-action');
+
+      if(action==='remove'){
+        row.remove();
+        notify('Karta o\'chirildi');
+      }
+      if(action==='set-default'){
+        clearDefault();
+        var d=qsa('td',row)[3];
+        if(d) d.innerHTML='<span class="badge badge-success">Default</span>';
+        notify('Default karta yangilandi');
+      }
+      if(action==='edit'){
+        notify('Karta tahrirlash modalini keyingi bosqichda qo\'shamiz');
+      }
     });
   }
 
@@ -108,9 +146,11 @@
     if(page()!=='03-invoices.html') return;
     var statusSel=qs('.form-grid .select');
     var rows=qsa('.table tbody .table-row');
+    var tbody=qs('.table tbody');
     if(statusSel) statusSel.value=state.invoiceFilter;
 
     function apply(){
+      rows=qsa('.table tbody .table-row');
       var v=(statusSel?.value||'All').toLowerCase();
       state.invoiceFilter=statusSel?.value||'All';
       save(state);
@@ -122,6 +162,30 @@
     }
     statusSel?.addEventListener('change',apply);
     qsa('.form-grid .btn.btn-secondary').forEach(function(b){ b.addEventListener('click',apply); });
+
+    tbody?.addEventListener('click',function(e){
+      var btn=e.target.closest('button.btn');
+      if(!btn) return;
+      var row=btn.closest('.table-row');
+      if(!row) return;
+      var text=(btn.textContent||'').toLowerCase();
+      var badge=qs('.badge',row);
+
+      if(text.indexOf('retry')>-1){
+        btn.disabled=true;
+        btn.textContent='Retrying...';
+        setTimeout(function(){
+          if(badge){ badge.className='badge badge-success'; badge.textContent='Paid'; }
+          btn.textContent='PDF';
+          btn.disabled=false;
+          notify('To\'lov qayta urinish muvaffaqiyatli');
+          apply();
+        },800);
+      } else if(text.indexOf('view')>-1 || text.indexOf('pdf')>-1){
+        notify('Invoice ochildi: '+(qsa('td',row)[1]?.textContent||''));
+      }
+    });
+
     apply();
   }
 
@@ -129,7 +193,15 @@
     if(page()!=='04-usage.html') return;
     var meterRows=qsa('.usage-meter .row');
     var bars=qsa('.usage-meter .progress-bar');
+    var cardHeader=qs('.card .card-header');
     if(meterRows.length<4 || bars.length<4) return;
+
+    if(cardHeader && !qs('[data-usage-simulate]')){
+      var actions=document.createElement('div');
+      actions.className='card-actions flex gap-2';
+      actions.innerHTML='<button type="button" class="btn btn-secondary btn-sm" data-usage-simulate="up">Simulate +10%</button><button type="button" class="btn btn-secondary btn-sm" data-usage-simulate="down">Simulate -10%</button>';
+      cardHeader.appendChild(actions);
+    }
 
     function recalc(){
       var data=[
@@ -150,11 +222,30 @@
       });
     }
 
+    document.addEventListener('click',function(e){
+      var btn=e.target.closest('[data-usage-simulate]');
+      if(!btn) return;
+      var dir=btn.getAttribute('data-usage-simulate');
+      meterRows.forEach(function(row){
+        var s=qs('strong',row); if(!s) return;
+        var txt=s.textContent||'';
+        var m=txt.match(/(\d+(?:\.\d+)?)\D+(\d+(?:\.\d+)?)/);
+        if(!m) return;
+        var used=Number(m[1]), total=Number(m[2]);
+        used = dir==='up' ? used*1.1 : used*0.9;
+        if(txt.indexOf('MB')>-1) s.textContent=Math.max(1,Math.round(used))+'MB/'+Math.round(total)+'MB';
+        else s.textContent=Math.max(1,Math.round(used))+'/'+Math.round(total);
+      });
+      recalc();
+      notify('Usage yangilandi ('+(dir==='up'?'+10%':'-10%')+')');
+    });
+
     recalc();
   }
 
   document.addEventListener('DOMContentLoaded',function(){
     cleanMojibake();
+    initGlobalActions();
     initPlan();
     initPayment();
     initInvoices();
