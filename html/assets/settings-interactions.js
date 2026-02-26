@@ -150,10 +150,98 @@
     sync();
   }
 
+  function initNotifications(){
+    if(pageKey()!=='04-notifications.html') return;
+    var toggles=qsa('.toggle-switch input[type="checkbox"]');
+
+    function countEnabled(){
+      var enabled=toggles.filter(function(t){return !!t.checked;}).length;
+      var total=toggles.length;
+      var header=qs('.settings-section h3');
+      if(header){
+        header.textContent='Notifications ('+enabled+'/'+total+' yoqilgan)';
+      }
+      state.global.notificationsEnabled=enabled;
+      save(state);
+    }
+
+    toggles.forEach(function(t){ t.addEventListener('change',countEnabled); });
+    countEnabled();
+  }
+
+  function initPrivacyExport(){
+    if(pageKey()!=='06-privacy-export.html') return;
+    var format=qs('.form-grid .select');
+    var startBtn=qsa('button.btn.btn-primary').find(function(b){ return (b.textContent||'').toLowerCase().indexOf('exportni boshlash')>-1; });
+    var tableBody=qs('.table tbody');
+
+    if(format && state.global.privacyExportFormat){ format.value=state.global.privacyExportFormat; }
+    format?.addEventListener('change',function(){ state.global.privacyExportFormat=format.value; save(state); });
+
+    startBtn?.addEventListener('click',function(){
+      var dt=new Date();
+      var stamp=dt.getFullYear()+'-'+String(dt.getMonth()+1).padStart(2,'0')+'-'+String(dt.getDate()).padStart(2,'0')+' '+String(dt.getHours()).padStart(2,'0')+':'+String(dt.getMinutes()).padStart(2,'0');
+      var tr=document.createElement('tr');
+      tr.className='table-row';
+      tr.innerHTML='<td>'+stamp+'</td><td>'+((format&&format.value)||'ZIP')+'</td><td>Custom</td><td><span class="badge badge-warning">Processing</span></td><td><button type="button" class="btn btn-secondary" data-action="export">Kutilyapti</button></td>';
+      tableBody?.prepend(tr);
+      notify('Export navbatga qo\'shildi');
+    });
+  }
+
   function initPrivacyDelete(){
     if(pageKey()!=='07-privacy-delete.html') return;
     var inp=qs('.settings-section .input');
     if(inp && state.global.workspaceName) inp.placeholder=state.global.workspaceName;
+
+    var openBtn=qs('[data-modal-open="delete-confirm"]');
+    var confirmBtn=qs('.modal-footer .btn.btn-danger');
+
+    openBtn?.addEventListener('click',function(){
+      var expected=(state.global.workspaceName||'QULAY CHAT Support').trim();
+      var actual=(inp?.value||'').trim();
+      if(actual!==expected){
+        notify('Tasdiqlash uchun workspace nomini to\'g\'ri kiriting','error');
+      }
+    });
+
+    confirmBtn?.addEventListener('click',function(e){
+      var expected=(state.global.workspaceName||'QULAY CHAT Support').trim();
+      var actual=(inp?.value||'').trim();
+      if(actual!==expected){
+        e.preventDefault();
+        notify('Delete tasdiqlanmadi: nom mos emas','error');
+        return;
+      }
+      state.global.deleteRequestedAt=Date.now();
+      save(state);
+      notify('Delete request yuborildi','warn');
+    });
+  }
+
+  function initPrivacySettings(){
+    if(pageKey()!=='08-privacy-settings.html') return;
+    var retentionSel=qsa('.form-grid .select')[0];
+    var logsSel=qsa('.form-grid .select')[1];
+
+    if(retentionSel && state.global.retention) retentionSel.value=state.global.retention;
+    if(logsSel && state.global.logsDownload) logsSel.value=state.global.logsDownload;
+
+    retentionSel?.addEventListener('change',function(){ state.global.retention=retentionSel.value; save(state); notify('Retention yangilandi'); });
+    logsSel?.addEventListener('change',function(){ state.global.logsDownload=logsSel.value; save(state); notify('Log sozlamasi yangilandi'); });
+
+    qsa('.toggle-switch input[type="checkbox"]').forEach(function(t){
+      t.addEventListener('change',function(){
+        state.global.privacyToggles=state.global.privacyToggles||{};
+        var idx=qsa('.toggle-switch input[type="checkbox"]').indexOf(t);
+        state.global.privacyToggles[idx]=!!t.checked;
+        save(state);
+      });
+    });
+
+    if(state.global.privacyToggles){
+      qsa('.toggle-switch input[type="checkbox"]').forEach(function(t,idx){ if(idx in state.global.privacyToggles) t.checked=!!state.global.privacyToggles[idx]; });
+    }
   }
 
   function cleanTextArtifacts(){
@@ -171,8 +259,11 @@
     initWorkspace();
     initWidget();
     initSecurity();
+    initNotifications();
     initProfile();
+    initPrivacyExport();
     initPrivacyDelete();
+    initPrivacySettings();
     cleanTextArtifacts();
 
     qsa('input, select, textarea').forEach(function(el){
