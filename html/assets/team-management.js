@@ -7,6 +7,22 @@
   function load(){try{return JSON.parse(localStorage.getItem(KEY)||'{"roles":{},"invites":[]}');}catch(e){return {roles:{},invites:[]};}}
   function save(s){try{localStorage.setItem(KEY,JSON.stringify(s));}catch(e){}}
 
+  function notify(message){
+    if(!message) return;
+    var toast=document.createElement('button');
+    toast.type='button';
+    toast.className='btn btn-secondary';
+    toast.style.position='fixed';
+    toast.style.right='16px';
+    toast.style.bottom='16px';
+    toast.style.zIndex='9999';
+    toast.style.boxShadow='var(--shadow-lg, 0 10px 24px rgba(0,0,0,.12))';
+    toast.textContent=message;
+    toast.addEventListener('click',function(){toast.remove();});
+    document.body.appendChild(toast);
+    setTimeout(function(){toast.remove();},1800);
+  }
+
   function normalizeStatus(row){
     var txt=(qsa('td',row)[3]?.textContent||'').toLowerCase();
     if(txt.indexOf('online')>-1) return 'online';
@@ -35,14 +51,23 @@
     root.addEventListener('click',function(e){
       var b=e.target.closest('[data-team-action]'); if(!b) return;
       var tr=b.closest('.table-row'); if(!tr) return;
+
       if(b.getAttribute('data-team-action')==='delete-agent'){
-        if(confirm('Agentni o\'chirasizmi?')) tr.remove();
+        if(confirm('Agentni o\'chirasizmi?')){
+          tr.remove();
+          notify('Agent o\'chirildi');
+        }
       }
+
       if(b.getAttribute('data-team-action')==='edit-agent'){
         var tds=qsa('td',tr);
         var role=prompt('Yangi role (Admin/Manager/Agent):', (tds[2]?.textContent||'Agent').trim());
-        if(role){ tds[2].innerHTML='<span class="badge">'+role+'</span>'; }
+        if(role){ 
+          tds[2].innerHTML='<span class="badge">'+role+'</span>';
+          notify('Role yangilandi');
+        }
       }
+
       apply();
     });
     apply();
@@ -71,6 +96,7 @@
         data.roles[role]=qsa('input[type="checkbox"]',card).map(function(ch){return !!ch.checked;});
       });
       save(data);
+      notify('Role ruxsatlari saqlandi');
     });
   }
 
@@ -106,19 +132,31 @@
       if(!btn) return;
       var action=btn.getAttribute('data-team-action');
       var tr=btn.closest('.table-row');
+
       if(action==='send-invite'){
         var email=(qs('[data-team-invite-email]',root)?.value||'').trim();
         var role=(qs('[data-team-invite-role]',root)?.value||'Operator').trim();
-        if(!email) return;
+        if(!email){
+          notify('Email kiriting');
+          return;
+        }
         st.invites.unshift({email:email,role:role,status:'Pending',sent:'Just now'});
         save(st); render();
+        notify('Taklif yuborildi');
       }
+
       if((action==='resend-invite' || action==='cancel-invite') && tr){
         var email=qsa('td',tr)[0]?.textContent.trim();
         var idx=(st.invites||[]).findIndex(function(x){return x.email===email;});
         if(idx<0) return;
-        if(action==='resend-invite'){ st.invites[idx].sent='Just now'; }
-        if(action==='cancel-invite'){ st.invites.splice(idx,1); }
+        if(action==='resend-invite'){
+          st.invites[idx].sent='Just now';
+          notify('Taklif qayta yuborildi');
+        }
+        if(action==='cancel-invite'){
+          st.invites.splice(idx,1);
+          notify('Taklif bekor qilindi');
+        }
         save(st); render();
       }
     });
@@ -128,7 +166,7 @@
     var root=qs('[data-team-page="profile"]'); if(!root) return;
     root.addEventListener('click',function(e){
       if(e.target.closest('[data-team-action="save-profile"]')){
-        // intentionally lightweight
+        notify('Profil saqlandi');
       }
     });
   }
