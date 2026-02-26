@@ -13,7 +13,6 @@
   state.cycle=state.cycle||'monthly';
   state.cards=state.cards||[];
   state.invoiceFilter=state.invoiceFilter||'All';
-  state.usage=state.usage||{agents:'3/5',chats:'847/1000',storage:'120MB/500MB',api:'4200/10000'};
 
   function notify(message,type){
     if(!message) return;
@@ -21,27 +20,28 @@
     if(!root){
       root=document.createElement('div');
       root.id='qc-billing-toast-root';
-      root.style.position='fixed'; root.style.right='16px'; root.style.bottom='16px';
-      root.style.zIndex='9999'; root.style.display='grid'; root.style.gap='8px';
+      root.style.position='fixed';
+      root.style.right='16px';
+      root.style.bottom='16px';
+      root.style.zIndex='9999';
+      root.style.display='grid';
+      root.style.gap='8px';
       document.body.appendChild(root);
     }
     var t=document.createElement('div');
-    t.style.padding='10px 12px'; t.style.borderRadius='10px'; t.style.color='#fff'; t.style.fontSize='13px';
+    t.style.padding='10px 12px';
+    t.style.borderRadius='10px';
+    t.style.color='#fff';
+    t.style.fontSize='13px';
     t.style.background=type==='error'?'#7f1d1d':(type==='warn'?'#7c2d12':'#0f172a');
-    t.style.boxShadow='0 10px 24px rgba(0,0,0,.18)'; t.style.opacity='0'; t.style.transform='translateY(8px)'; t.style.transition='all .18s ease';
-    t.textContent=message; root.appendChild(t);
+    t.style.boxShadow='0 10px 24px rgba(0,0,0,.18)';
+    t.style.opacity='0';
+    t.style.transform='translateY(8px)';
+    t.style.transition='all .18s ease';
+    t.textContent=message;
+    root.appendChild(t);
     requestAnimationFrame(function(){ t.style.opacity='1'; t.style.transform='translateY(0)'; });
     setTimeout(function(){ t.style.opacity='0'; t.style.transform='translateY(8px)'; setTimeout(function(){t.remove();},180); },1700);
-  }
-
-  function cleanMojibake(){
-    qsa('body *').forEach(function(el){
-      if(el.children.length) return;
-      if(!el.textContent) return;
-      el.textContent=el.textContent
-        .replace(/вЂў/g,'•')
-        .replace(/вЂ”/g,'—');
-    });
   }
 
   function initGlobalActions(){
@@ -73,11 +73,17 @@
       var txt=(btn.textContent||'').toLowerCase();
       if(txt.indexOf('upgrade')>-1){
         btn.addEventListener('click',function(){
-          state.plan='Pro'; save(state); notify('Plan yangilandi: Pro');
+          state.plan='Pro';
+          save(state);
+          notify('Plan yangilandi: Pro');
         });
       }
       if(txt.indexOf('contact sales')>-1){
-        btn.addEventListener('click',function(){ state.plan='Enterprise'; save(state); notify('Sales bilan bog\'lanish so\'rovi yuborildi'); });
+        btn.addEventListener('click',function(){
+          state.plan='Enterprise';
+          save(state);
+          notify('Sales so\'rovi yuborildi');
+        });
       }
     });
   }
@@ -91,14 +97,14 @@
 
     function mask(num){
       var d=(num||'').replace(/\D/g,'');
-      if(d.length<4) return '••••';
-      return '•••• '+d.slice(-4);
+      if(d.length<4) return '****';
+      return '**** '+d.slice(-4);
     }
 
     function clearDefault(){
       qsa('tr.table-row',table).forEach(function(row){
         var d=qsa('td',row)[3];
-        if(d) d.textContent='—';
+        if(d) d.textContent='-';
       });
     }
 
@@ -112,7 +118,7 @@
 
       var tr=document.createElement('tr');
       tr.className='table-row';
-      tr.innerHTML='<td>Visa '+mask(cardNo)+'</td><td>QULAY CHAT LLC</td><td>'+exp+'</td><td>—</td><td><div class="flex gap-2"><button type="button" class="btn btn-secondary btn-sm" data-card-action="set-default">Set default</button><button type="button" class="btn btn-danger btn-sm" data-card-action="remove">Remove</button></div></td>';
+      tr.innerHTML='<td>Visa '+mask(cardNo)+'</td><td>QULAY CHAT LLC</td><td>'+exp+'</td><td>-</td><td><div class="flex gap-2"><button type="button" class="btn btn-secondary btn-sm" data-card-action="set-default">Set default</button><button type="button" class="btn btn-danger btn-sm" data-card-action="remove">Remove</button></div></td>';
       table?.appendChild(tr);
       state.cards.push({last4:mask(cardNo),exp:exp});
       save(state);
@@ -137,7 +143,7 @@
         notify('Default karta yangilandi');
       }
       if(action==='edit'){
-        notify('Karta tahrirlash modalini keyingi bosqichda qo\'shamiz');
+        notify('Edit rejimi keyin qo\'shiladi');
       }
     });
   }
@@ -145,12 +151,11 @@
   function initInvoices(){
     if(page()!=='03-invoices.html') return;
     var statusSel=qs('.form-grid .select');
-    var rows=qsa('.table tbody .table-row');
     var tbody=qs('.table tbody');
     if(statusSel) statusSel.value=state.invoiceFilter;
 
     function apply(){
-      rows=qsa('.table tbody .table-row');
+      var rows=qsa('.table tbody .table-row');
       var v=(statusSel?.value||'All').toLowerCase();
       state.invoiceFilter=statusSel?.value||'All';
       save(state);
@@ -160,6 +165,7 @@
         r.style.display=ok?'':'none';
       });
     }
+
     statusSel?.addEventListener('change',apply);
     qsa('.form-grid .btn.btn-secondary').forEach(function(b){ b.addEventListener('click',apply); });
 
@@ -205,16 +211,16 @@
 
     function recalc(){
       var data=[
-        {k:'agents',txt:meterRows[0].querySelector('strong')?.textContent||'3/5'},
-        {k:'chats',txt:meterRows[1].querySelector('strong')?.textContent||'847/1000'},
-        {k:'storage',txt:meterRows[2].querySelector('strong')?.textContent||'120MB/500MB'},
-        {k:'api',txt:meterRows[3].querySelector('strong')?.textContent||'4200/10000'}
+        meterRows[0].querySelector('strong')?.textContent||'3/5',
+        meterRows[1].querySelector('strong')?.textContent||'847/1000',
+        meterRows[2].querySelector('strong')?.textContent||'120MB/500MB',
+        meterRows[3].querySelector('strong')?.textContent||'4200/10000'
       ];
-      data.forEach(function(x,i){
-        var m=(x.txt.match(/(\d+(?:\.\d+)?)\D+(\d+(?:\.\d+)?)/)||[]);
+      data.forEach(function(txt,i){
+        var m=(txt.match(/(\d+(?:\.\d+)?)\D+(\d+(?:\.\d+)?)/)||[]);
         if(m.length<3) return;
         var used=Number(m[1]), total=Number(m[2]);
-        var pct=Math.max(0,Math.min(100, total? (used/total)*100 : 0));
+        var pct=Math.max(0,Math.min(100,total?(used/total)*100:0));
         bars[i].style.width=pct.toFixed(1)+'%';
         if(pct>=90){ bars[i].classList.add('danger'); bars[i].classList.remove('warning'); }
         else if(pct>=75){ bars[i].classList.add('warning'); bars[i].classList.remove('danger'); }
@@ -252,7 +258,6 @@
   }
 
   document.addEventListener('DOMContentLoaded',function(){
-    safeRun('cleanMojibake', cleanMojibake);
     safeRun('initGlobalActions', initGlobalActions);
     safeRun('initPlan', initPlan);
     safeRun('initPayment', initPayment);
