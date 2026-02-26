@@ -258,6 +258,116 @@
     if(title) title.textContent='Operator Profili — '+op;
   }
 
+  function initSlaPage(){
+    var pageTitle=qs('.page-header h1')?.textContent?.trim();
+    if(pageTitle!=='SLA Monitoring') return;
+
+    var complianceCard=qs('.card .card-body .stack')?.closest('.card');
+    if(complianceCard){
+      var header=qs('.card-header',complianceCard);
+      if(header && !qs('[data-sla-threshold]',header)){
+        var actions=document.createElement('div');
+        actions.className='card-actions flex gap-2';
+        actions.innerHTML='\n<select class="select" style="width:170px" data-sla-filter>\n  <option value="all">Barcha breachlar</option>\n  <option value="first">First response</option>\n  <option value="resolution">Resolution</option>\n  <option value="vip">VIP</option>\n</select>\n<div class="input-group" style="width:180px"><input class="input" type="number" min="60" step="30" value="180" data-sla-threshold><span class="text-muted" style="font-size:12px">sec</span></div>';
+        header.appendChild(actions);
+      }
+    }
+
+    var rows=qsa('.table tbody .table-row');
+    function delayToSec(txt){
+      txt=String(txt||'').toLowerCase();
+      var m=txt.match(/(\d+)m(?:\s*(\d+)s)?/);
+      if(m) return Number(m[1])*60 + Number(m[2]||0);
+      var s=txt.match(/(\d+)s/);
+      if(s) return Number(s[1]);
+      return 0;
+    }
+
+    function styleRows(){
+      rows=qsa('.table tbody .table-row');
+      rows.forEach(function(row){
+        var cells=qsa('td',row);
+        var type=(cells[2]?.textContent||'').toLowerCase();
+        var delay=delayToSec(cells[3]?.textContent||'0');
+        var owner=(cells[4]?.textContent||'').trim().toLowerCase();
+
+        row.style.borderLeft='4px solid transparent';
+        if(owner==='unassigned'){
+          row.style.background='rgba(239,68,68,.08)';
+          row.style.borderLeft='4px solid #ef4444';
+        } else if(delay>900){
+          row.style.background='rgba(245,158,11,.10)';
+          row.style.borderLeft='4px solid #f59e0b';
+        } else {
+          row.style.background='';
+        }
+
+        if(!qs('[data-sla-actions]',row)){
+          var td=document.createElement('td');
+          td.setAttribute('data-sla-actions','1');
+          td.innerHTML='<div class="flex gap-2"><button type="button" class="btn btn-secondary btn-sm" data-sla-action="assign">Assign</button><button type="button" class="btn btn-primary btn-sm" data-sla-action="resolve">Resolve</button></div>';
+          row.appendChild(td);
+        }
+
+        row.setAttribute('data-sla-kind', type.indexOf('vip')>-1 ? 'vip' : (type.indexOf('resolution')>-1 ? 'resolution' : 'first'));
+        row.setAttribute('data-sla-delay', String(delay));
+      });
+
+      var headerRow=qs('.table thead tr');
+      if(headerRow && qsa('th',headerRow).length===5){
+        var th=document.createElement('th');
+        th.textContent='Actions';
+        headerRow.appendChild(th);
+      }
+    }
+
+    function applyFilter(){
+      var kind=qs('[data-sla-filter]')?.value||'all';
+      var threshold=Number(qs('[data-sla-threshold]')?.value||180);
+      rows=qsa('.table tbody .table-row');
+      rows.forEach(function(row){
+        var rowKind=row.getAttribute('data-sla-kind')||'first';
+        var delay=Number(row.getAttribute('data-sla-delay')||0);
+        var kindOk=(kind==='all' || kind===rowKind);
+        var thresholdOk=delay>=threshold;
+        row.style.display=(kindOk && thresholdOk)?'':'none';
+      });
+    }
+
+    styleRows();
+    applyFilter();
+
+    qs('[data-sla-filter]')?.addEventListener('change',function(){
+      applyFilter();
+      notify('SLA filter yangilandi');
+    });
+    qs('[data-sla-threshold]')?.addEventListener('input',function(){
+      applyFilter();
+    });
+
+    document.addEventListener('click',function(e){
+      var btn=e.target.closest('[data-sla-action]');
+      if(!btn) return;
+      var action=btn.getAttribute('data-sla-action');
+      var row=btn.closest('.table-row');
+      if(!row) return;
+      var ownerCell=qsa('td',row)[4];
+      if(action==='assign'){
+        var who=prompt('Kimga biriktiramiz?', ownerCell?.textContent?.trim()==='Unassigned'?'Sardor A.':ownerCell?.textContent?.trim());
+        if(who){
+          ownerCell.textContent=who;
+          notify('Chat biriktirildi: '+who);
+          styleRows();
+          applyFilter();
+        }
+      }
+      if(action==='resolve'){
+        row.remove();
+        notify('Breach resolved');
+      }
+    });
+  }
+
   function bindInteractions(){
     qsa('.date-range').forEach(function(el){
       var advance=function(){
@@ -315,5 +425,6 @@
     initChartTooltip();
     initOperatorsPage();
     initOperatorDetailPage();
+    initSlaPage();
   });
 })();
