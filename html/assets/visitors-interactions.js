@@ -343,18 +343,32 @@
     var zoom=2;
     visitors.forEach(function(v){
       bounds.push([v.lat, v.lng]);
-      var marker=L.circleMarker([v.lat,v.lng], {
-        radius:10,
-        color:'#111827',
-        fillColor:'#F59E0B',
-        fillOpacity:0.95,
-        weight:2
+
+      var marker=L.marker([v.lat,v.lng], {
+        keyboard:true,
+        icon:L.divIcon({
+          className:'',
+          html:'<span style="display:block;width:16px;height:16px;border-radius:50%;background:#F59E0B;border:2px solid #111827;box-shadow:0 0 0 6px rgba(245,158,11,.22);"></span>',
+          iconSize:[16,16],
+          iconAnchor:[8,8]
+        })
       }).addTo(lmap);
+
       marker.bindTooltip(v.city+', '+v.country+' • '+v.page, {direction:'top', offset:[0,-10]});
-      marker.on('mouseover', function(){ marker.setStyle({radius:12}); });
-      marker.on('mouseout', function(){ marker.setStyle({radius:10}); });
+      marker.on('mouseover', function(){
+        var el=marker.getElement();
+        if(el) el.style.transform='scale(1.18)';
+      });
+      marker.on('mouseout', function(){
+        var el=marker.getElement();
+        if(el) el.style.transform='';
+      });
       marker.on('click', function(){
-        marker.setStyle({fillColor:'#10B981'});
+        var el=marker.getElement();
+        if(el){
+          var dot=el.querySelector('span');
+          if(dot) dot.style.background='#10B981';
+        }
         activePopupData=v;
         var html='<div style="font-size:13px;font-weight:600">'+v.city+', '+v.country+'</div>'+
           '<div style="font-size:12px;color:#6B7280;margin:2px 0 8px">'+v.page+'</div>'+
