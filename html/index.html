@@ -25,7 +25,11 @@
     .hub-module h4{margin:0 0 5px;font-size:14px}
     .hub-module p{margin:0;color:#6b7280;font-size:12px}
     @media (max-width:1024px){.hub-main{grid-template-columns:1fr}.hub-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.hub-modules{grid-template-columns:repeat(2,minmax(0,1fr))}}
-    @media (max-width:640px){.hub-kpis{grid-template-columns:1fr}.hub-modules{grid-template-columns:1fr}.hub-hero h1{font-size:28px}}
+    .hub-footer{margin-top:14px;background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:16px}
+    .hub-footer-grid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:12px}
+    .hub-footer-grid h4{margin:0 0 6px;font-size:12px;text-transform:uppercase;color:#6b7280}
+    .hub-footer-grid a{display:block;font-size:13px;line-height:1.9;color:#374151}
+    @media (max-width:640px){.hub-kpis{grid-template-columns:1fr}.hub-modules{grid-template-columns:1fr}.hub-hero h1{font-size:28px}.hub-footer-grid{grid-template-columns:1fr}}
   </style>
 </head>
 <body class="dashboard-shell-page">
@@ -95,6 +99,33 @@
         </div>
       </section>
     </section>
+
+    <footer class="hub-footer">
+      <div class="hub-footer-grid">
+        <div>
+          <a class="shell-brand" href="./index.html"><span class="shell-brand-mark">QC</span><span>QULAY CHAT</span></a>
+          <p class="text-muted" style="font-size:13px;margin-top:8px;max-width:34ch">Bu workspace productionga yaqin frontend oqimlar uchun markaziy kirish nuqtasi.</p>
+        </div>
+        <div>
+          <h4>Product</h4>
+          <a href="./04-dashboard/01-dashboard.html">Dashboard</a>
+          <a href="./05-inbox/01-inbox-chat.html">Inbox</a>
+          <a href="./11-chat-widget/01-widget-launcher.html">Widget</a>
+        </div>
+        <div>
+          <h4>Platform</h4>
+          <a href="./15-knowledge-base/01-kb-dashboard.html">Knowledge Base</a>
+          <a href="./16-addons/01-addons-catalog.html">Add-ons</a>
+          <a href="./17-developer/01-api-keys.html">Developer</a>
+        </div>
+        <div>
+          <h4>System</h4>
+          <a href="./18-system/01-error-404.html">Error pages</a>
+          <a href="./18-system/04-maintenance.html">Maintenance</a>
+          <a href="./02-auth/01-login.html">Login</a>
+        </div>
+      </div>
+    </footer>
   </main>
 
   <script>
