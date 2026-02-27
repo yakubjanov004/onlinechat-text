@@ -12,6 +12,11 @@
 <script src="../assets/qulay-chat-shell.js" defer></script>
 <script src="../assets/qulay-chat-runtime.js" defer></script>
 <script src="../assets/team-chat-interactions.js" defer></script>
+<style>
+.tc-glass{background:rgba(255,255,255,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid #e5e7eb;border-radius:16px;box-shadow:0 16px 34px rgba(15,23,42,.08)}
+.tc-glass .card-header{background:rgba(255,255,255,.88);border-bottom:1px solid #e5e7eb}
+.tc-glass .card-body{background:linear-gradient(180deg,#f8faff,#fff)}
+</style>
 </head>
 <body data-active-nav="team-chat" class="dashboard-shell-page">
 <main class="app-content">
@@ -30,7 +35,7 @@
     </div>
   </div>
 
-  <section class="card">
+  <section class="card tc-glass">
     <div class="card-header"><div><h3>Desktop notifications</h3></div></div>
     <div class="card-body form-grid one">
       <label class="form-field"><span class="form-label">Qabul qilish rejimi</span><select class="select"><option>All messages</option><option>Only mentions (@me)</option><option>Only direct messages</option><option>Off</option></select></label>
@@ -39,14 +44,14 @@
   </section>
 
   <section class="two-col">
-    <article class="card">
+    <article class="card tc-glass">
       <div class="card-header"><div><h3>Sound</h3></div></div>
       <div class="card-body form-grid one">
         <label class="toggle-switch"><input type="checkbox" checked><span class="toggle-track"><span class="toggle-thumb"></span></span><span class="toggle-text">Xabar ovozi</span></label>
         <label class="form-field"><span class="form-label">Sound type</span><select class="select"><option>Chime</option><option>Ding</option><option>Pop</option><option>Bell</option></select></label>
       </div>
     </article>
-    <article class="card">
+    <article class="card tc-glass">
       <div class="card-header"><div><h3>Email</h3></div></div>
       <div class="card-body stack">
         <label class="checkbox"><input type="checkbox" checked> Direct messages (offline)</label>
@@ -56,7 +61,7 @@
     </article>
   </section>
 
-  <section class="card">
+  <section class="card tc-glass">
     <div class="card-header"><div><h3>Do Not Disturb</h3></div></div>
     <div class="card-body form-grid three">
       <label class="form-field"><span class="form-label">From</span><input class="input" type="time" value="22:00"></label>

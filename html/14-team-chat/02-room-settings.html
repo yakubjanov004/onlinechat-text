@@ -12,6 +12,12 @@
 <script src="../assets/qulay-chat-shell.js" defer></script>
 <script src="../assets/qulay-chat-runtime.js" defer></script>
 <script src="../assets/team-chat-interactions.js" defer></script>
+<style>
+.tc-glass{background:rgba(255,255,255,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid #e5e7eb;border-radius:16px;box-shadow:0 16px 34px rgba(15,23,42,.08)}
+.tc-glass .card-header{background:rgba(255,255,255,.88);border-bottom:1px solid #e5e7eb}
+.tc-glass .card-body{background:linear-gradient(180deg,#f8faff,#fff)}
+.tc-glass .tab.active{background:#eef2ff;color:#4338ca;border-radius:8px}
+</style>
 </head>
 <body data-active-nav="team-chat" class="dashboard-shell-page">
 <main class="app-content">
@@ -30,7 +36,7 @@
     </div>
   </div>
 
-  <section class="card" data-tc-room-settings>
+  <section class="card tc-glass" data-tc-room-settings>
     <div class="card-header">
       <div class="pill-tabs" data-tc-room-tabs>
         <button class="tab active" type="button" data-room-tab="general">General</button>
