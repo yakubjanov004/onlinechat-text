@@ -332,6 +332,7 @@
 
     var visitors=[
       {city:'Tashkent', country:'Uzbekistan', page:'/pricing', lat:41.2995, lng:69.2401},
+      {city:'Samarqand', country:'Uzbekistan', page:'/demo', lat:39.6542, lng:66.9597},
       {city:'Almaty', country:'Kazakhstan', page:'/features', lat:43.2389, lng:76.8897},
       {city:'Istanbul', country:'Turkey', page:'/contact', lat:41.0082, lng:28.9784},
       {city:'Berlin', country:'Germany', page:'/help', lat:52.52, lng:13.405},
