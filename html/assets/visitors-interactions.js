@@ -295,7 +295,11 @@
 
     var inner=qs('[data-map-inner]',map) || map;
     var tooltip=qs('[data-map-tooltip]',map);
+    var popup=qs('[data-map-popup]',map);
+    var popupTitle=qs('[data-map-popup-title]',map);
+    var popupSub=qs('[data-map-popup-sub]',map);
     var zoom=1;
+    var selectedMarker=null;
 
     var wrap=map.closest('.card').parentElement;
     if(wrap && !qs('[data-map-live-feed]')){
@@ -349,7 +353,8 @@
         var city=m.getAttribute('data-city')||('Visitor #'+(idx+1));
         var country=m.getAttribute('data-country')||'';
         var pageUrl=m.getAttribute('data-page')||'/';
-        tooltip.textContent=city+', '+country+' • '+pageUrl;
+        var cluster=m.getAttribute('data-cluster');
+        tooltip.textContent=(cluster?cluster+' • ':'')+city+', '+country+' • '+pageUrl;
         tooltip.style.left=m.style.left;
         tooltip.style.top=m.style.top;
         tooltip.style.opacity='1';
@@ -357,9 +362,35 @@
       m.addEventListener('mouseleave',function(){ if(tooltip) tooltip.style.opacity='0'; });
       m.addEventListener('click',function(){
         var city=m.getAttribute('data-city')||('Visitor #'+(idx+1));
+        var pageUrl=m.getAttribute('data-page')||'/';
+        selectedMarker=m;
         addFeed(city+' marker bosildi');
         notify('Marker tanlandi: '+city);
+        if(popup){
+          popup.hidden=false;
+          popup.style.left=m.style.left;
+          popup.style.top=m.style.top;
+          if(popupTitle) popupTitle.textContent=city;
+          if(popupSub) popupSub.textContent=pageUrl;
+        }
       });
+    });
+
+    map.addEventListener('click',function(e){
+      if(!e.target.closest('.map-marker') && !e.target.closest('[data-map-popup]') && popup){
+        popup.hidden=true;
+      }
+    });
+
+    var openProfile=qs('[data-map-open-profile]',map);
+    var startChat=qs('[data-map-start-chat]',map);
+    openProfile && openProfile.addEventListener('click',function(){
+      location.href='./02-visitor-profile.html';
+    });
+    startChat && startChat.addEventListener('click',function(){
+      var city=selectedMarker ? (selectedMarker.getAttribute('data-city')||'visitor') : 'visitor';
+      notify(city+' uchun chat boshlandi');
+      if(popup) popup.hidden=true;
     });
 
     var events=['/pricing sahifasiga o\'tdi','/features ochdi','Chat boshladi','Sahifani tark etdi'];
