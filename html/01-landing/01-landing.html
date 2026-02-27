@@ -22,6 +22,12 @@
 .pricing-billing-toggle { display: inline-flex; border: 1px solid #E5E7EB; border-radius: 999px; padding: 4px; gap: 4px; background: #fff; }
 .pricing-billing-toggle button { border: 0; border-radius: 999px; padding: 8px 14px; background: transparent; cursor: pointer; font-weight: 600; }
 .pricing-billing-toggle button.active { background: #4F46E5; color: #fff; }
+.hero-shot{border:1px solid #E5E7EB;border-radius:14px;overflow:hidden;box-shadow:0 14px 30px rgba(15,23,42,.12);background:#fff}
+.hero-shot img{display:block;width:100%;height:100%;object-fit:cover}
+.product-gallery{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:12px}
+.product-gallery .gallery-item{border:1px solid #E5E7EB;border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 8px 20px rgba(15,23,42,.08)}
+.product-gallery .gallery-item img{display:block;width:100%;height:220px;object-fit:cover}
+@media (max-width:980px){.product-gallery{grid-template-columns:1fr}.product-gallery .gallery-item img{height:200px}}
 </style>
 </head>
 <body class="marketing-page">
@@ -68,25 +74,9 @@
 </div>
 
 <div class="hero-visual hero-visual-elevated">
-<div class="mock-window">
-<div class="mock-window-head"><span></span><span></span><span></span></div>
-<div class="mock-window-body">
-<div class="mock-side">
-<div></div><div></div><div></div><div></div><div></div>
-<div style="height:66px"></div>
-</div>
-<div class="mock-content">
-<div class="mock-metric-grid"><div></div><div></div><div></div></div>
-<div class="mock-chart"></div>
-<div class="list-stack">
-<div class="list-item"><div class="item-main"><div class="item-title">Ahmad V.</div><div class="item-sub">Tariflar bo‘yicha savol</div></div><span class="badge badge-danger">Urgent</span></div>
-<div class="list-item"><div class="item-main"><div class="item-title">Dilnoza R.</div><div class="item-sub">Telegram integratsiya</div></div><span class="badge badge-warning">Waiting</span></div>
-<div class="list-item"><div class="item-main"><div class="item-title">Rustam K.</div><div class="item-sub">Invoice so‘rovi</div></div><span class="badge badge-success">Resolved</span></div>
-</div>
-<div class="mini-bars" style="height:120px"><div class="mini-bar-col"><div class="mini-bar" style="height:44px"></div><span>Dush</span></div><div class="mini-bar-col"><div class="mini-bar" style="height:51px"></div><span>Sesh</span></div><div class="mini-bar-col"><div class="mini-bar" style="height:58px"></div><span>Chor</span></div><div class="mini-bar-col"><div class="mini-bar" style="height:65px"></div><span>Pay</span></div><div class="mini-bar-col"><div class="mini-bar" style="height:72px"></div><span>Jum</span></div><div class="mini-bar-col"><div class="mini-bar" style="height:79px"></div><span>Shan</span></div><div class="mini-bar-col"><div class="mini-bar" style="height:50px"></div><span>Yak</span></div></div>
-</div>
-</div>
-</div>
+  <div class="hero-shot" style="height:100%">
+    <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=1400&auto=format&fit=crop" alt="QULAY CHAT dashboard preview">
+  </div>
 </div>
 </section>
 
@@ -102,6 +92,17 @@
 <div class="logo-pill">EDU PRO</div>
 <div class="logo-pill">LOGI HUB</div>
 <div class="logo-pill">BANKX</div>
+</div>
+</section>
+
+<section class="card">
+<div class="card-header"><div><h3>Mahsulot ko‘rinishlari</h3><p class="card-description">Real interfeysdan olingan asosiy ekranlar</p></div></div>
+<div class="card-body">
+  <div class="product-gallery">
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1551281044-8d8d7d8f3d9b?q=80&w=1400&auto=format&fit=crop" alt="Inbox va dashboard preview"></div>
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop" alt="Analytics preview"></div>
+    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=1200&auto=format&fit=crop" alt="Team collaboration preview"></div>
+  </div>
 </div>
 </section>
 
