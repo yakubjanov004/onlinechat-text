@@ -1,1 +1,150 @@
-<!doctype html><html lang="uz"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>QULAY CHAT - Webhook Logs</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../assets/qulay-chat-design-system.css"><script src="https://unpkg.com/lucide@latest" defer></script><script src="../assets/qulay-chat-shell.js" defer></script><script src="../assets/qulay-chat-runtime.js" defer></script><script src="../assets/developer-interactions.js" defer></script></head><body data-active-nav="developer" class="dashboard-shell-page"><main class="app-content"><div class="subnav-scroll"><div class="subnav-tabs"><a class="subnav-tab" href="./01-api-keys.html">API Keys</a><a class="subnav-tab" href="./02-webhooks.html">Webhooks</a><a class="subnav-tab active" href="./03-logs.html">Logs</a></div></div><div class="page-header"><div><h1>Webhook Delivery Logs</h1><p class="text-muted">Barcha webhook so'rovlari va javoblar tarixi</p></div></div><section class="card"><div class="card-body"><div class="form-grid three"><select class="select" data-log-status><option value="all">Barcha statuslar</option><option value="ok">Success</option><option value="fail">Failed</option></select><input class="input" placeholder="Qidiruv..." data-log-search><button class="btn btn-secondary" type="button" data-log-export>Export CSV</button></div></div></section><section class="card" style="margin-top:12px"><div class="card-body"><div class="table-wrap"><table class="table mono"><thead><tr class="table-header"><th>Timestamp</th><th>Webhook</th><th>Event</th><th>Status</th><th>Time</th><th>Action</th></tr></thead><tbody data-log-rows><tr class="table-row" data-st="ok"><td>11 Feb 14:35:42</td><td>Production</td><td><span class="badge">conversation.created</span></td><td><span class="badge badge-success">200 OK</span></td><td>247ms</td><td><button class="btn btn-secondary btn-sm" data-log-view>Ko'rish</button></td></tr><tr class="table-row" data-st="fail"><td>11 Feb 14:32:10</td><td>Staging</td><td><span class="badge">message.sent</span></td><td><span class="badge badge-danger">500</span></td><td>2.1s</td><td><button class="btn btn-secondary btn-sm" data-log-view>Ko'rish</button></td></tr><tr class="table-row" data-st="ok"><td>11 Feb 14:31:02</td><td>Production</td><td><span class="badge">csat.submitted</span></td><td><span class="badge badge-success">200 OK</span></td><td>183ms</td><td><button class="btn btn-secondary btn-sm" data-log-view>Ko'rish</button></td></tr></tbody></table></div><div class="empty-state hidden" data-log-empty><i data-lucide="file-x"></i><div>Log topilmadi</div></div></div></section><div class="modal-overlay" data-dev-modal="log-detail" hidden><div class="modal"><div class="modal-header"><h3>Delivery Details</h3><button class="btn btn-ghost btn-sm" data-dev-close-log><i data-lucide="x"></i></button></div><div class="modal-body"><div class="kv-list"><div class="kv-row"><span>Status</span><strong>200 OK</strong></div><div class="kv-row"><span>Response time</span><strong>247ms</strong></div><div class="kv-row"><span>Request ID</span><strong>req_1a2b3c</strong></div></div><pre class="code-block" style="margin-top:10px;background:#111827;color:#e5e7eb;padding:12px;border-radius:8px">{"event":"conversation.created","data":{"conversation_id":"conv_123"}}</pre></div><div class="modal-footer"><button class="btn btn-secondary" data-dev-close-log>Yopish</button><button class="btn btn-primary" data-dev-retry>Qayta yuborish</button></div></div></div></main><script>window.addEventListener('DOMContentLoaded',()=>window.lucide&&window.lucide.createIcons&&window.lucide.createIcons());</script></body></html>
+﻿<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QULAY CHAT - Webhook Logs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/qulay-chat-design-system.css">
+<script src="https://unpkg.com/lucide@latest" defer>
+</script>
+<script src="../assets/qulay-chat-shell.js" defer>
+</script>
+<script src="../assets/qulay-chat-runtime.js" defer>
+</script>
+<script src="../assets/developer-interactions.js" defer>
+</script>
+</head>
+<body data-active-nav="developer" class="dashboard-shell-page">
+<main class="app-content">
+<div class="subnav-scroll">
+<div class="subnav-tabs">
+<a class="subnav-tab" href="./01-api-keys.html">API Keys</a>
+<a class="subnav-tab" href="./02-webhooks.html">Webhooks</a>
+<a class="subnav-tab active" href="./03-logs.html">Logs</a>
+</div>
+</div>
+<div class="page-header">
+<div>
+<h1>Webhook Delivery Logs</h1>
+<p class="text-muted">Barcha webhook so'rovlari va javoblar tarixi</p>
+</div>
+</div>
+<section class="card">
+<div class="card-body">
+<div class="form-grid three">
+<select class="select" data-log-status>
+<option value="all">Barcha statuslar</option>
+<option value="ok">Success</option>
+<option value="fail">Failed</option>
+</select>
+<input class="input" placeholder="Qidiruv..." data-log-search>
+<button class="btn btn-secondary" type="button" data-log-export>Export CSV</button>
+</div>
+</div>
+</section>
+<section class="card" style="margin-top:12px">
+<div class="card-body">
+<div class="table-wrap">
+<table class="table mono">
+<thead>
+<tr class="table-header">
+<th>Timestamp</th>
+<th>Webhook</th>
+<th>Event</th>
+<th>Status</th>
+<th>Time</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody data-log-rows>
+<tr class="table-row" data-st="ok">
+<td>11 Feb 14:35:42</td>
+<td>Production</td>
+<td>
+<span class="badge">conversation.created</span>
+</td>
+<td>
+<span class="badge badge-success">200 OK</span>
+</td>
+<td>247ms</td>
+<td>
+<button class="btn btn-secondary btn-sm" data-log-view>Ko'rish</button>
+</td>
+</tr>
+<tr class="table-row" data-st="fail">
+<td>11 Feb 14:32:10</td>
+<td>Staging</td>
+<td>
+<span class="badge">message.sent</span>
+</td>
+<td>
+<span class="badge badge-danger">500</span>
+</td>
+<td>2.1s</td>
+<td>
+<button class="btn btn-secondary btn-sm" data-log-view>Ko'rish</button>
+</td>
+</tr>
+<tr class="table-row" data-st="ok">
+<td>11 Feb 14:31:02</td>
+<td>Production</td>
+<td>
+<span class="badge">csat.submitted</span>
+</td>
+<td>
+<span class="badge badge-success">200 OK</span>
+</td>
+<td>183ms</td>
+<td>
+<button class="btn btn-secondary btn-sm" data-log-view>Ko'rish</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="empty-state hidden" data-log-empty>
+<i data-lucide="file-x">
+</i>
+<div>Log topilmadi</div>
+</div>
+</div>
+</section>
+<div class="modal-overlay" data-dev-modal="log-detail" hidden>
+<div class="modal">
+<div class="modal-header">
+<h3>Delivery Details</h3>
+<button class="btn btn-ghost btn-sm" data-dev-close-log>
+<i data-lucide="x">
+</i>
+</button>
+</div>
+<div class="modal-body">
+<div class="kv-list">
+<div class="kv-row">
+<span>Status</span>
+<strong>200 OK</strong>
+</div>
+<div class="kv-row">
+<span>Response time</span>
+<strong>247ms</strong>
+</div>
+<div class="kv-row">
+<span>Request ID</span>
+<strong>req_1a2b3c</strong>
+</div>
+</div>
+<pre class="code-block" style="margin-top:10px;background:#111827;color:#e5e7eb;padding:12px;border-radius:8px">{"event":"conversation.created","data":{"conversation_id":"conv_123"}}</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-secondary" data-dev-close-log>Yopish</button>
+<button class="btn btn-primary" data-dev-retry>Qayta yuborish</button>
+</div>
+</div>
+</div>
+</main>
+<script>window.addEventListener('DOMContentLoaded',()=>window.lucide&&window.lucide.createIcons&&window.lucide.createIcons());</script>
+</body>
+</html>

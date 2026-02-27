@@ -1,1 +1,168 @@
-<!doctype html><html lang="uz"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>QULAY CHAT - Webhooks</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../assets/qulay-chat-design-system.css"><script src="https://unpkg.com/lucide@latest" defer></script><script src="../assets/qulay-chat-shell.js" defer></script><script src="../assets/qulay-chat-runtime.js" defer></script><script src="../assets/developer-interactions.js" defer></script></head><body data-active-nav="developer" class="dashboard-shell-page"><main class="app-content"><div class="subnav-scroll"><div class="subnav-tabs"><a class="subnav-tab" href="./01-api-keys.html">API Keys</a><a class="subnav-tab active" href="./02-webhooks.html">Webhooks</a><a class="subnav-tab" href="./03-logs.html">Logs</a></div></div><div class="page-header"><div><h1>Webhooks</h1><p class="text-muted">Event bo'lganda avtomatik HTTP POST yuboriladi</p></div><div class="page-header-actions"><button class="btn btn-primary" type="button" data-modal-open="add-webhook">Yangi webhook qo'shish</button></div></div><section class="card"><div class="card-body" style="background:#F0FDF4;border-left:4px solid #10B981"><h3>Webhook'lar nima?</h3><p class="text-muted">conversation.created, message.sent va boshqa eventlar serveringizga yuboriladi.</p></div></section><section class="two-col" style="margin-top:12px" data-webhook-cards><article class="card"><div class="card-body"><div class="flex justify-between"><span class="badge badge-success">Active</span><button class="btn btn-secondary btn-sm" data-copy="https://example.com/webhooks/qulaychat">Copy URL</button></div><p style="margin-top:10px"><code>https://example.com/webhooks/qulaychat</code></p><div class="flex gap-2 wrap" style="margin-top:8px"><span class="badge">conversation.created</span><span class="badge">message.sent</span><span class="badge">csat.submitted</span></div><div class="kv-list" style="margin-top:8px"><div class="kv-row"><span>Success rate</span><strong>98.5%</strong></div><div class="kv-row"><span>Last delivery</span><strong>2 min ago</strong></div><div class="kv-row"><span>Total</span><strong>1247</strong></div></div><div class="flex gap-2" style="margin-top:8px"><button class="btn btn-secondary btn-sm" type="button" data-webhook-test>Test</button><button class="btn btn-danger btn-sm" type="button" data-webhook-delete>Delete</button></div></div></article><article class="card"><div class="card-body"><div class="flex justify-between"><span class="badge badge-warning">Error</span><button class="btn btn-secondary btn-sm" data-copy="https://app.client.uz/hook">Copy URL</button></div><p style="margin-top:10px"><code>https://app.client.uz/hook</code></p><div class="flex gap-2 wrap" style="margin-top:8px"><span class="badge">invoice.paid</span><span class="badge">payment.failed</span></div><div class="kv-list" style="margin-top:8px"><div class="kv-row"><span>Success rate</span><strong>45.2%</strong></div><div class="kv-row"><span>Last delivery</span><strong>1 hour ago</strong></div><div class="kv-row"><span>Total</span><strong>523</strong></div></div><div class="flex gap-2" style="margin-top:8px"><button class="btn btn-secondary btn-sm" type="button" data-webhook-test>Test</button><button class="btn btn-danger btn-sm" type="button" data-webhook-delete>Delete</button></div></div></article></section><div class="modal-overlay" data-modal="add-webhook" hidden><div class="modal"><div class="modal-header"><h3>Yangi webhook</h3><button class="btn btn-ghost btn-sm" data-modal-close><i data-lucide="x"></i></button></div><div class="modal-body form-grid one"><label class="form-field"><span class="form-label">Endpoint URL</span><input class="input" type="url" placeholder="https://example.com/webhook" data-webhook-url></label><label class="form-field"><span class="form-label">Events</span><select class="select" multiple><option>conversation.created</option><option>message.sent</option><option>csat.submitted</option></select></label><label class="form-field"><span class="form-label">Secret</span><input class="input" placeholder="whsec_..."></label></div><div class="modal-footer"><button class="btn btn-secondary" data-modal-close>Bekor</button><button class="btn btn-primary" data-webhook-save>Saqlash</button></div></div></div><div class="modal-overlay" data-dev-modal="webhook-test" hidden><div class="modal"><div class="modal-header"><h3>Webhook test</h3><button class="btn btn-ghost btn-sm" data-dev-close-test><i data-lucide="x"></i></button></div><div class="modal-body"><p class="text-muted">Test payload yuborilsinmi?</p><pre class="code-block" style="background:#111827;color:#e5e7eb;padding:12px;border-radius:8px">{"event":"conversation.created","data":{"id":"conv_123"}}</pre></div><div class="modal-footer"><button class="btn btn-secondary" data-dev-close-test>Bekor</button><button class="btn btn-primary" data-dev-send-test>Test yuborish</button></div></div></div></main><script>window.addEventListener('DOMContentLoaded',()=>window.lucide&&window.lucide.createIcons&&window.lucide.createIcons());</script></body></html>
+﻿<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QULAY CHAT - Webhooks</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/qulay-chat-design-system.css">
+<script src="https://unpkg.com/lucide@latest" defer>
+</script>
+<script src="../assets/qulay-chat-shell.js" defer>
+</script>
+<script src="../assets/qulay-chat-runtime.js" defer>
+</script>
+<script src="../assets/developer-interactions.js" defer>
+</script>
+</head>
+<body data-active-nav="developer" class="dashboard-shell-page">
+<main class="app-content">
+<div class="subnav-scroll">
+<div class="subnav-tabs">
+<a class="subnav-tab" href="./01-api-keys.html">API Keys</a>
+<a class="subnav-tab active" href="./02-webhooks.html">Webhooks</a>
+<a class="subnav-tab" href="./03-logs.html">Logs</a>
+</div>
+</div>
+<div class="page-header">
+<div>
+<h1>Webhooks</h1>
+<p class="text-muted">Event bo'lganda avtomatik HTTP POST yuboriladi</p>
+</div>
+<div class="page-header-actions">
+<button class="btn btn-primary" type="button" data-modal-open="add-webhook">Yangi webhook qo'shish</button>
+</div>
+</div>
+<section class="card">
+<div class="card-body" style="background:#F0FDF4;border-left:4px solid #10B981">
+<h3>Webhook'lar nima?</h3>
+<p class="text-muted">conversation.created, message.sent va boshqa eventlar serveringizga yuboriladi.</p>
+</div>
+</section>
+<section class="two-col" style="margin-top:12px" data-webhook-cards>
+<article class="card">
+<div class="card-body">
+<div class="flex justify-between">
+<span class="badge badge-success">Active</span>
+<button class="btn btn-secondary btn-sm" data-copy="https://example.com/webhooks/qulaychat">Copy URL</button>
+</div>
+<p style="margin-top:10px">
+<code>https://example.com/webhooks/qulaychat</code>
+</p>
+<div class="flex gap-2 wrap" style="margin-top:8px">
+<span class="badge">conversation.created</span>
+<span class="badge">message.sent</span>
+<span class="badge">csat.submitted</span>
+</div>
+<div class="kv-list" style="margin-top:8px">
+<div class="kv-row">
+<span>Success rate</span>
+<strong>98.5%</strong>
+</div>
+<div class="kv-row">
+<span>Last delivery</span>
+<strong>2 min ago</strong>
+</div>
+<div class="kv-row">
+<span>Total</span>
+<strong>1247</strong>
+</div>
+</div>
+<div class="flex gap-2" style="margin-top:8px">
+<button class="btn btn-secondary btn-sm" type="button" data-webhook-test>Test</button>
+<button class="btn btn-danger btn-sm" type="button" data-webhook-delete>Delete</button>
+</div>
+</div>
+</article>
+<article class="card">
+<div class="card-body">
+<div class="flex justify-between">
+<span class="badge badge-warning">Error</span>
+<button class="btn btn-secondary btn-sm" data-copy="https://app.client.uz/hook">Copy URL</button>
+</div>
+<p style="margin-top:10px">
+<code>https://app.client.uz/hook</code>
+</p>
+<div class="flex gap-2 wrap" style="margin-top:8px">
+<span class="badge">invoice.paid</span>
+<span class="badge">payment.failed</span>
+</div>
+<div class="kv-list" style="margin-top:8px">
+<div class="kv-row">
+<span>Success rate</span>
+<strong>45.2%</strong>
+</div>
+<div class="kv-row">
+<span>Last delivery</span>
+<strong>1 hour ago</strong>
+</div>
+<div class="kv-row">
+<span>Total</span>
+<strong>523</strong>
+</div>
+</div>
+<div class="flex gap-2" style="margin-top:8px">
+<button class="btn btn-secondary btn-sm" type="button" data-webhook-test>Test</button>
+<button class="btn btn-danger btn-sm" type="button" data-webhook-delete>Delete</button>
+</div>
+</div>
+</article>
+</section>
+<div class="modal-overlay" data-modal="add-webhook" hidden>
+<div class="modal">
+<div class="modal-header">
+<h3>Yangi webhook</h3>
+<button class="btn btn-ghost btn-sm" data-modal-close>
+<i data-lucide="x">
+</i>
+</button>
+</div>
+<div class="modal-body form-grid one">
+<label class="form-field">
+<span class="form-label">Endpoint URL</span>
+<input class="input" type="url" placeholder="https://example.com/webhook" data-webhook-url>
+</label>
+<label class="form-field">
+<span class="form-label">Events</span>
+<select class="select" multiple>
+<option>conversation.created</option>
+<option>message.sent</option>
+<option>csat.submitted</option>
+</select>
+</label>
+<label class="form-field">
+<span class="form-label">Secret</span>
+<input class="input" placeholder="whsec_...">
+</label>
+</div>
+<div class="modal-footer">
+<button class="btn btn-secondary" data-modal-close>Bekor</button>
+<button class="btn btn-primary" data-webhook-save>Saqlash</button>
+</div>
+</div>
+</div>
+<div class="modal-overlay" data-dev-modal="webhook-test" hidden>
+<div class="modal">
+<div class="modal-header">
+<h3>Webhook test</h3>
+<button class="btn btn-ghost btn-sm" data-dev-close-test>
+<i data-lucide="x">
+</i>
+</button>
+</div>
+<div class="modal-body">
+<p class="text-muted">Test payload yuborilsinmi?</p>
+<pre class="code-block" style="background:#111827;color:#e5e7eb;padding:12px;border-radius:8px">{"event":"conversation.created","data":{"id":"conv_123"}}</pre>
+</div>
+<div class="modal-footer">
+<button class="btn btn-secondary" data-dev-close-test>Bekor</button>
+<button class="btn btn-primary" data-dev-send-test>Test yuborish</button>
+</div>
+</div>
+</div>
+</main>
+<script>window.addEventListener('DOMContentLoaded',()=>window.lucide&&window.lucide.createIcons&&window.lucide.createIcons());</script>
+</body>
+</html>

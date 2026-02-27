@@ -1,1 +1,114 @@
-<!doctype html><html lang="uz"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>QULAY CHAT - Active Add-ons</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../assets/qulay-chat-design-system.css"><script src="https://unpkg.com/lucide@latest" defer></script><script src="../assets/qulay-chat-shell.js" defer></script><script src="../assets/qulay-chat-runtime.js" defer></script><script src="../assets/addons-interactions.js" defer></script></head><body data-active-nav="addons" class="dashboard-shell-page"><main class="app-content"><div class="subnav-scroll"><div class="subnav-tabs"><a class="subnav-tab" href="./01-addons-catalog.html">Add-ons Catalog</a><a class="subnav-tab active" href="./02-active-addons.html">Active Add-ons</a><a class="subnav-tab" href="./03-addon-detail.html">Add-on Detail</a><a class="subnav-tab" href="./04-addon-settings.html">Add-on Settings</a></div></div><div class="page-header"><div><h1>Faol add-onlar</h1><p class="text-muted">Siz faollashtirgan qo'shimchalar</p></div><div class="page-header-actions"><a class="btn btn-secondary" href="./01-addons-catalog.html">Katalogga qaytish</a></div></div><section class="card"><div class="card-body"><div class="list-stack" data-active-addon-list><div class="list-item" data-active-addon><div class="item-main"><div class="item-title">AI Assist <span class="badge badge-success">Faol</span></div><div class="item-sub">$49/mo · Next billing: Feb 25 · 127 chats today</div><div class="progress" style="margin-top:6px"><div class="progress-bar" style="width:47%"></div></div><small class="text-muted">Usage: 2345 / 5000 (47%)</small></div><div class="flex gap-2 items-center"><label class="toggle-switch"><input type="checkbox" checked data-addon-active-toggle><span class="toggle-track"><span class="toggle-thumb"></span></span></label><button class="btn btn-secondary" type="button" data-nav="./04-addon-settings.html">Sozlamalar</button><button class="btn btn-danger" type="button" data-addon-remove>O'chirish</button></div></div><div class="list-item" data-active-addon><div class="item-main"><div class="item-title">WhatsApp Business <span class="badge badge-success">Faol</span></div><div class="item-sub">$25/mo · 83 messages today</div><div class="progress" style="margin-top:6px"><div class="progress-bar" style="width:62%"></div></div><small class="text-muted">Usage: 620 / 1000 (62%)</small></div><div class="flex gap-2 items-center"><label class="toggle-switch"><input type="checkbox" checked data-addon-active-toggle><span class="toggle-track"><span class="toggle-thumb"></span></span></label><button class="btn btn-secondary" type="button" data-nav="./04-addon-settings.html">Sozlamalar</button><button class="btn btn-danger" type="button" data-addon-remove>O'chirish</button></div></div></div></div></section><div class="modal-overlay" data-addon-modal="remove" hidden><div class="modal"><div class="modal-header"><h3>Add-on o'chirish</h3><button class="btn btn-ghost btn-sm" type="button" data-addon-close-remove><i data-lucide="x"></i></button></div><div class="modal-body"><p class="text-muted">Rostdan ham ushbu add-onni o'chirmoqchimisiz?</p><label class="checkbox"><input type="checkbox" data-addon-confirm-check> Data o'chirilishini tushundim</label></div><div class="modal-footer"><button class="btn btn-secondary" type="button" data-addon-close-remove>Bekor</button><button class="btn btn-danger" type="button" data-addon-confirm-remove disabled>Tasdiqlash</button></div></div></div></main><script>window.addEventListener("DOMContentLoaded",()=>window.lucide&&window.lucide.createIcons&&window.lucide.createIcons());</script></body></html>
+﻿<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QULAY CHAT - Active Add-ons</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/qulay-chat-design-system.css">
+<script src="https://unpkg.com/lucide@latest" defer>
+</script>
+<script src="../assets/qulay-chat-shell.js" defer>
+</script>
+<script src="../assets/qulay-chat-runtime.js" defer>
+</script>
+<script src="../assets/addons-interactions.js" defer>
+</script>
+</head>
+<body data-active-nav="addons" class="dashboard-shell-page">
+<main class="app-content">
+<div class="subnav-scroll">
+<div class="subnav-tabs">
+<a class="subnav-tab" href="./01-addons-catalog.html">Add-ons Catalog</a>
+<a class="subnav-tab active" href="./02-active-addons.html">Active Add-ons</a>
+<a class="subnav-tab" href="./03-addon-detail.html">Add-on Detail</a>
+<a class="subnav-tab" href="./04-addon-settings.html">Add-on Settings</a>
+</div>
+</div>
+<div class="page-header">
+<div>
+<h1>Faol add-onlar</h1>
+<p class="text-muted">Siz faollashtirgan qo'shimchalar</p>
+</div>
+<div class="page-header-actions">
+<a class="btn btn-secondary" href="./01-addons-catalog.html">Katalogga qaytish</a>
+</div>
+</div>
+<section class="card">
+<div class="card-body">
+<div class="list-stack" data-active-addon-list>
+<div class="list-item" data-active-addon>
+<div class="item-main">
+<div class="item-title">AI Assist <span class="badge badge-success">Faol</span>
+</div>
+<div class="item-sub">$49/mo В· Next billing: Feb 25 В· 127 chats today</div>
+<div class="progress" style="margin-top:6px">
+<div class="progress-bar" style="width:47%">
+</div>
+</div>
+<small class="text-muted">Usage: 2345 / 5000 (47%)</small>
+</div>
+<div class="flex gap-2 items-center">
+<label class="toggle-switch">
+<input type="checkbox" checked data-addon-active-toggle>
+<span class="toggle-track">
+<span class="toggle-thumb">
+</span>
+</span>
+</label>
+<button class="btn btn-secondary" type="button" data-nav="./04-addon-settings.html">Sozlamalar</button>
+<button class="btn btn-danger" type="button" data-addon-remove>O'chirish</button>
+</div>
+</div>
+<div class="list-item" data-active-addon>
+<div class="item-main">
+<div class="item-title">WhatsApp Business <span class="badge badge-success">Faol</span>
+</div>
+<div class="item-sub">$25/mo В· 83 messages today</div>
+<div class="progress" style="margin-top:6px">
+<div class="progress-bar" style="width:62%">
+</div>
+</div>
+<small class="text-muted">Usage: 620 / 1000 (62%)</small>
+</div>
+<div class="flex gap-2 items-center">
+<label class="toggle-switch">
+<input type="checkbox" checked data-addon-active-toggle>
+<span class="toggle-track">
+<span class="toggle-thumb">
+</span>
+</span>
+</label>
+<button class="btn btn-secondary" type="button" data-nav="./04-addon-settings.html">Sozlamalar</button>
+<button class="btn btn-danger" type="button" data-addon-remove>O'chirish</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="modal-overlay" data-addon-modal="remove" hidden>
+<div class="modal">
+<div class="modal-header">
+<h3>Add-on o'chirish</h3>
+<button class="btn btn-ghost btn-sm" type="button" data-addon-close-remove>
+<i data-lucide="x">
+</i>
+</button>
+</div>
+<div class="modal-body">
+<p class="text-muted">Rostdan ham ushbu add-onni o'chirmoqchimisiz?</p>
+<label class="checkbox">
+<input type="checkbox" data-addon-confirm-check> Data o'chirilishini tushundim</label>
+</div>
+<div class="modal-footer">
+<button class="btn btn-secondary" type="button" data-addon-close-remove>Bekor</button>
+<button class="btn btn-danger" type="button" data-addon-confirm-remove disabled>Tasdiqlash</button>
+</div>
+</div>
+</div>
+</main>
+<script>window.addEventListener("DOMContentLoaded",()=>window.lucide&&window.lucide.createIcons&&window.lucide.createIcons());</script>
+</body>
+</html>
