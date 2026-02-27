@@ -11,50 +11,68 @@
 <script src="https://unpkg.com/lucide@latest" defer></script>
 <script src="../assets/qulay-chat-shell.js" defer></script>
 <script src="../assets/qulay-chat-runtime.js" defer></script>
+<script src="../assets/team-chat-interactions.js" defer></script>
 </head>
 <body data-active-nav="team-chat" class="dashboard-shell-page">
 <main class="app-content">
-<div class="subnav-scroll">
-<div class="subnav-tabs">
-<a class="subnav-tab " href="./01-team-chat.html">Team Chat</a><a class="subnav-tab active" href="./02-room-settings.html">Room Settings</a><a class="subnav-tab " href="./03-notifications.html">Team Chat Notifications</a>
-</div>
-</div>
-<div class="page-header">
-<div>
-<h1>Room Settings</h1>
-<p class="text-muted">Slack-uslubdagi jamoa suhbat interfeysi</p>
-</div>
-</div>
-<section class="card">
-<div class="card-header">
-<div>
-<h3>Room settings</h3>
-</div>
-</div>
-<div class="card-body">
-<div class="form-grid"><div><label class="form-field">
-<span class="form-label">Room name</span>
-<input class="input" type="text" value="support" placeholder="">
-</label></div><div><label class="form-field">
-<span class="form-label">Topic</span>
-<input class="input" type="text" value="Live inbox coordination" placeholder="">
-</label></div></div><div class="form-row"><div class="row-copy"><div class="form-label">Mute notifications</div><p class="text-muted" style="font-size:13px">Ushbu room uchun bildirishnomalarni vaqtincha o'chirish</p></div><label class="toggle-switch ">
-<input type="checkbox" >
-<span class="toggle-track"><span class="toggle-thumb"></span></span>
-</label></div><div class="table-wrap">
-<table class="table">
-<thead>
-<tr class="table-header">
-<th>Member</th><th>Role</th><th>Status</th>
-</tr>
-</thead>
-<tbody>
-<tr class="table-row"><td>Sardor</td><td>Admin</td><td>Online</td></tr><tr class="table-row"><td>Sara</td><td>Manager</td><td>Online</td></tr><tr class="table-row"><td>Ali</td><td>Operator</td><td>Away</td></tr>
-</tbody>
-</table>
-</div>
-</div>
-</section>
+  <div class="subnav-scroll">
+    <div class="subnav-tabs">
+      <a class="subnav-tab" href="./01-team-chat.html">Team Chat</a>
+      <a class="subnav-tab active" href="./02-room-settings.html">Room Settings</a>
+      <a class="subnav-tab" href="./03-notifications.html">Team Chat Notifications</a>
+    </div>
+  </div>
+
+  <div class="page-header">
+    <div>
+      <h1>Xona sozlamalari: #general</h1>
+      <p class="text-muted">General, Members va Permissions bo‘limlari</p>
+    </div>
+  </div>
+
+  <section class="card" data-tc-room-settings>
+    <div class="card-header">
+      <div class="pill-tabs" data-tc-room-tabs>
+        <button class="tab active" type="button" data-room-tab="general">General</button>
+        <button class="tab" type="button" data-room-tab="members">Members</button>
+        <button class="tab" type="button" data-room-tab="permissions">Permissions</button>
+      </div>
+    </div>
+    <div class="card-body stack">
+      <div data-room-panel="general">
+        <div class="form-grid">
+          <label class="form-field"><span class="form-label">Room name</span><input class="input" type="text" value="#general"></label>
+          <label class="form-field"><span class="form-label">Description</span><input class="input" type="text" value="Umumiy muhokamalar uchun"></label>
+        </div>
+        <div class="form-row"><div class="row-copy"><div class="form-label">Room type</div><p class="text-muted" style="font-size:13px">Public / Private</p></div><label class="toggle-switch"><input type="checkbox"><span class="toggle-track"><span class="toggle-thumb"></span></span></label></div>
+      </div>
+
+      <div data-room-panel="members" hidden>
+        <div class="table-wrap">
+          <table class="table">
+            <thead><tr class="table-header"><th>Member</th><th>Role</th><th>Status</th><th>Action</th></tr></thead>
+            <tbody>
+              <tr class="table-row"><td>Jahongir</td><td>Manager</td><td>Online</td><td><button class="btn btn-secondary btn-sm" type="button">Remove</button></td></tr>
+              <tr class="table-row"><td>Sara</td><td>Operator</td><td>Online</td><td><button class="btn btn-secondary btn-sm" type="button">Remove</button></td></tr>
+              <tr class="table-row"><td>Ali</td><td>Operator</td><td>Away</td><td><button class="btn btn-secondary btn-sm" type="button">Remove</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div data-room-panel="permissions" hidden>
+        <div class="form-grid one">
+          <label class="form-field"><span class="form-label">Who can post</span><select class="select"><option>Everyone</option><option>Admin + Manager</option><option>Read only</option></select></label>
+          <label class="form-field"><span class="form-label">Who can add members</span><select class="select"><option>Admin only</option><option>Admin + Manager</option><option>Everyone</option></select></label>
+        </div>
+      </div>
+
+      <div class="sticky-save-bar">
+        <button class="btn btn-secondary" type="button" data-action="reset-form">Bekor qilish</button>
+        <button class="btn btn-primary" type="button" data-action="save">Saqlash</button>
+      </div>
+    </div>
+  </section>
 </main>
 <script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
 </body>

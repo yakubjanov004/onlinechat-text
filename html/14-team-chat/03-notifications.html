@@ -11,48 +11,64 @@
 <script src="https://unpkg.com/lucide@latest" defer></script>
 <script src="../assets/qulay-chat-shell.js" defer></script>
 <script src="../assets/qulay-chat-runtime.js" defer></script>
+<script src="../assets/team-chat-interactions.js" defer></script>
 </head>
 <body data-active-nav="team-chat" class="dashboard-shell-page">
 <main class="app-content">
-<div class="subnav-scroll">
-<div class="subnav-tabs">
-<a class="subnav-tab " href="./01-team-chat.html">Team Chat</a><a class="subnav-tab " href="./02-room-settings.html">Room Settings</a><a class="subnav-tab active" href="./03-notifications.html">Team Chat Notifications</a>
-</div>
-</div>
-<div class="page-header">
-<div>
-<h1>Team Chat Notifications</h1>
-<p class="text-muted">Slack-uslubdagi jamoa suhbat interfeysi</p>
-</div>
-</div>
-<section class="card">
-<div class="card-header">
-<div>
-<h3>Team chat notifications</h3>
-</div>
-</div>
-<div class="card-body">
-<div class="form-grid three"><div class="card"><div class="card-body"><div class="flex justify-between items-center"><span>Mentions</span><label class="toggle-switch ">
-<input type="checkbox" checked>
-<span class="toggle-track"><span class="toggle-thumb"></span></span>
-</label></div></div></div><div class="card"><div class="card-body"><div class="flex justify-between items-center"><span>Channel activity</span><label class="toggle-switch ">
-<input type="checkbox" checked>
-<span class="toggle-track"><span class="toggle-thumb"></span></span>
-</label></div></div></div><div class="card"><div class="card-body"><div class="flex justify-between items-center"><span>Direct messages</span><label class="toggle-switch ">
-<input type="checkbox" checked>
-<span class="toggle-track"><span class="toggle-thumb"></span></span>
-</label></div></div></div><div class="card"><div class="card-body"><div class="flex justify-between items-center"><span>Sound</span><label class="toggle-switch ">
-<input type="checkbox" >
-<span class="toggle-track"><span class="toggle-thumb"></span></span>
-</label></div></div></div><div class="card"><div class="card-body"><div class="flex justify-between items-center"><span>Desktop popup</span><label class="toggle-switch ">
-<input type="checkbox" checked>
-<span class="toggle-track"><span class="toggle-thumb"></span></span>
-</label></div></div></div><div class="card"><div class="card-body"><div class="flex justify-between items-center"><span>Email summary</span><label class="toggle-switch ">
-<input type="checkbox" >
-<span class="toggle-track"><span class="toggle-thumb"></span></span>
-</label></div></div></div></div>
-</div>
-</section>
+  <div class="subnav-scroll">
+    <div class="subnav-tabs">
+      <a class="subnav-tab" href="./01-team-chat.html">Team Chat</a>
+      <a class="subnav-tab" href="./02-room-settings.html">Room Settings</a>
+      <a class="subnav-tab active" href="./03-notifications.html">Team Chat Notifications</a>
+    </div>
+  </div>
+
+  <div class="page-header">
+    <div>
+      <h1>Jamoa chat bildirishnomalari</h1>
+      <p class="text-muted">DM, mention, room va DND sozlamalari</p>
+    </div>
+  </div>
+
+  <section class="card">
+    <div class="card-header"><div><h3>Desktop notifications</h3></div></div>
+    <div class="card-body form-grid one">
+      <label class="form-field"><span class="form-label">Qabul qilish rejimi</span><select class="select"><option>All messages</option><option>Only mentions (@me)</option><option>Only direct messages</option><option>Off</option></select></label>
+      <div class="flex gap-2"><button class="btn btn-secondary" type="button" data-action="log" data-message="Browser ruxsati so'raldi">Browser ruxsatini yoqish</button></div>
+    </div>
+  </section>
+
+  <section class="two-col">
+    <article class="card">
+      <div class="card-header"><div><h3>Sound</h3></div></div>
+      <div class="card-body form-grid one">
+        <label class="toggle-switch"><input type="checkbox" checked><span class="toggle-track"><span class="toggle-thumb"></span></span><span class="toggle-text">Xabar ovozi</span></label>
+        <label class="form-field"><span class="form-label">Sound type</span><select class="select"><option>Chime</option><option>Ding</option><option>Pop</option><option>Bell</option></select></label>
+      </div>
+    </article>
+    <article class="card">
+      <div class="card-header"><div><h3>Email</h3></div></div>
+      <div class="card-body stack">
+        <label class="checkbox"><input type="checkbox" checked> Direct messages (offline)</label>
+        <label class="checkbox"><input type="checkbox" checked> Mentions (offline)</label>
+        <label class="checkbox"><input type="checkbox"> Daily digest</label>
+      </div>
+    </article>
+  </section>
+
+  <section class="card">
+    <div class="card-header"><div><h3>Do Not Disturb</h3></div></div>
+    <div class="card-body form-grid three">
+      <label class="form-field"><span class="form-label">From</span><input class="input" type="time" value="22:00"></label>
+      <label class="form-field"><span class="form-label">To</span><input class="input" type="time" value="08:00"></label>
+      <label class="form-field"><span class="form-label">Days</span><input class="input" type="text" value="Mon,Tue,Wed,Thu,Fri,Sat,Sun"></label>
+    </div>
+  </section>
+
+  <div class="sticky-save-bar">
+    <button class="btn btn-secondary" type="button" data-action="reset-form">Standartga qaytarish</button>
+    <button class="btn btn-primary" type="button" data-action="save">Saqlash</button>
+  </div>
 </main>
 <script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
 </body>

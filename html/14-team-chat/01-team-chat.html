@@ -11,104 +11,115 @@
 <script src="https://unpkg.com/lucide@latest" defer></script>
 <script src="../assets/qulay-chat-shell.js" defer></script>
 <script src="../assets/qulay-chat-runtime.js" defer></script>
+<script src="../assets/team-chat-interactions.js" defer></script>
 </head>
 <body data-active-nav="team-chat" class="dashboard-shell-page">
 <main class="app-content">
-<div class="subnav-scroll">
-<div class="subnav-tabs">
-<a class="subnav-tab active" href="./01-team-chat.html">Team Chat</a><a class="subnav-tab " href="./02-room-settings.html">Room Settings</a><a class="subnav-tab " href="./03-notifications.html">Team Chat Notifications</a>
-</div>
-</div>
-<div class="page-header">
-<div>
-<h1>Team Chat</h1>
-<p class="text-muted">Slack-uslubdagi jamoa suhbat interfeysi</p>
-</div>
-</div><section class="slack-layout">
-<aside class="channel-list">
-<div class="channel-group">
-<h4>Channels</h4>
-<button class="channel-item active" type="button" data-action="log"><span>#general</span><span class="badge badge-primary">4</span></button><button class="channel-item " type="button" data-action="log"><span>#support</span></button><button class="channel-item " type="button" data-action="log"><span>#sales</span></button><button class="channel-item " type="button" data-action="log"><span>#random</span></button>
-</div>
-<div class="channel-group">
-<h4>DM</h4>
-<button class="channel-item" type="button" data-action="log"><span>Sardor</span></button><button class="channel-item" type="button" data-action="log"><span>Sara</span></button><button class="channel-item" type="button" data-action="log"><span>Ali</span></button><button class="channel-item" type="button" data-action="log"><span>Malika</span></button>
-</div>
-</aside>
-<div class="team-chat-main">
-<div class="head">
-<div><strong>#general</strong><div class="text-muted" style="font-size:12px">8 members</div></div>
-<div class="flex gap-2"><button type="button" class="btn btn-secondary" data-nav="./02-room-settings.html">Room settings</button><button type="button" class="btn btn-secondary" data-nav="./03-notifications.html">Notifications</button></div>
-</div>
-<div class="messages">
-<div class="list-item" style="align-items:flex-start">
-<span class="avatar ">S</span>
-<div class="item-main">
-<div class="item-title">Sardor <span class="text-muted" style="font-size:12px;font-weight:400">09:12</span></div>
-<div class="item-sub" style="white-space:normal;line-height:1.45">Bugun #general da sprint update va inbox SLA statusini ko&#39;rib chiqamiz.</div>
-</div>
-</div><div class="list-item" style="align-items:flex-start">
-<span class="avatar ">S</span>
-<div class="item-main">
-<div class="item-title">Sara <span class="text-muted" style="font-size:12px;font-weight:400">09:13</span></div>
-<div class="item-sub" style="white-space:normal;line-height:1.45">Support queue hozir 12 ta, VIP chatlar uchun routing ishlayapti.</div>
-</div>
-</div><div class="list-item" style="align-items:flex-start">
-<span class="avatar ">A</span>
-<div class="item-main">
-<div class="item-title">Ali <span class="text-muted" style="font-size:12px;font-weight:400">09:15</span></div>
-<div class="item-sub" style="white-space:normal;line-height:1.45">Telegram kanalida kechagi webhook xatosi tuzatildi.</div>
-</div>
-</div><div class="list-item" style="align-items:flex-start">
-<span class="avatar ">M</span>
-<div class="item-main">
-<div class="item-title">Malika <span class="text-muted" style="font-size:12px;font-weight:400">09:17</span></div>
-<div class="item-sub" style="white-space:normal;line-height:1.45">Knowledge base uchun 3 ta yangi maqola draft tayyor.</div>
-</div>
-</div><div class="list-item" style="align-items:flex-start">
-<span class="avatar ">S</span>
-<div class="item-main">
-<div class="item-title">Sardor <span class="text-muted" style="font-size:12px;font-weight:400">09:18</span></div>
-<div class="item-sub" style="white-space:normal;line-height:1.45">Zo&#39;r. Analytics exportni 11:00 gacha yuboring.</div>
-</div>
-</div><div class="list-item" style="align-items:flex-start">
-<span class="avatar ">S</span>
-<div class="item-main">
-<div class="item-title">Sara <span class="text-muted" style="font-size:12px;font-weight:400">09:20</span></div>
-<div class="item-sub" style="white-space:normal;line-height:1.45">Response time median 1m 21s bo&#39;libdi, yaxshilangan.</div>
-</div>
-</div><div class="list-item" style="align-items:flex-start">
-<span class="avatar ">A</span>
-<div class="item-main">
-<div class="item-title">Ali <span class="text-muted" style="font-size:12px;font-weight:400">09:22</span></div>
-<div class="item-sub" style="white-space:normal;line-height:1.45">Billing support uchun alohida canned reply qo&#39;shdim.</div>
-</div>
-</div><div class="list-item" style="align-items:flex-start">
-<span class="avatar ">M</span>
-<div class="item-main">
-<div class="item-title">Malika <span class="text-muted" style="font-size:12px;font-weight:400">09:24</span></div>
-<div class="item-sub" style="white-space:normal;line-height:1.45">CSAT survey copy variantini ham testga qo&#39;ydim.</div>
-</div>
-</div><div class="list-item" style="align-items:flex-start">
-<span class="avatar ">S</span>
-<div class="item-main">
-<div class="item-title">Sardor <span class="text-muted" style="font-size:12px;font-weight:400">09:26</span></div>
-<div class="item-sub" style="white-space:normal;line-height:1.45">14:00 da ops sync call bo&#39;ladi, eslatma yuboraman.</div>
-</div>
-</div><div class="list-item" style="align-items:flex-start">
-<span class="avatar ">S</span>
-<div class="item-main">
-<div class="item-title">Sara <span class="text-muted" style="font-size:12px;font-weight:400">09:28</span></div>
-<div class="item-sub" style="white-space:normal;line-height:1.45">Qabul qilindi, #support da navbatni balanslab turaman.</div>
-</div>
-</div>
-</div>
-<div class="composer">
-<textarea class="textarea" rows="2" placeholder="Xabar yozing..."></textarea>
-<button class="btn btn-primary" type="button" data-action="log"><i data-lucide="send"></i></button>
-</div>
-</div>
-</section>
+  <div class="subnav-scroll">
+    <div class="subnav-tabs">
+      <a class="subnav-tab active" href="./01-team-chat.html">Team Chat</a>
+      <a class="subnav-tab" href="./02-room-settings.html">Room Settings</a>
+      <a class="subnav-tab" href="./03-notifications.html">Team Chat Notifications</a>
+    </div>
+  </div>
+
+  <div class="page-header">
+    <div>
+      <h1>Jamoa chat</h1>
+      <p class="text-muted">Ichki muloqot, DM va xonalar bo‘yicha real-time hamkorlik</p>
+    </div>
+    <div class="page-header-actions">
+      <button type="button" class="btn btn-primary" data-tc-new-chat><i data-lucide="plus"></i> Yangi chat</button>
+    </div>
+  </div>
+
+  <section class="slack-layout" data-team-chat-root>
+    <aside class="channel-list">
+      <div class="input-group"><i data-lucide="search"></i><input class="input" type="search" placeholder="Agent yoki xonani qidirish..." data-tc-search></div>
+
+      <div class="pill-tabs" style="margin-top:8px" data-tc-type-tabs>
+        <button class="tab active" type="button" data-tc-type="dm">To'g'ridan-to'g'ri</button>
+        <button class="tab" type="button" data-tc-type="room">Xonalar</button>
+      </div>
+
+      <div class="form-row" style="padding:8px 0 0">
+        <div class="row-copy"><span class="form-label">Online faqat</span></div>
+        <label class="toggle-switch"><input type="checkbox" data-tc-online-only><span class="toggle-track"><span class="toggle-thumb"></span></span></label>
+      </div>
+
+      <div class="channel-group" data-tc-list-dm>
+        <h4>DM</h4>
+        <button class="channel-item active" type="button" data-tc-conv="dm_jahongir" data-tc-kind="dm" data-online="1"><span>🟢 Jahongir</span><span class="badge badge-danger">3</span></button>
+        <button class="channel-item" type="button" data-tc-conv="dm_sara" data-tc-kind="dm" data-online="1"><span>🟢 Sara</span></button>
+        <button class="channel-item" type="button" data-tc-conv="dm_ali" data-tc-kind="dm" data-online="0"><span>⚪ Ali</span></button>
+      </div>
+
+      <div class="channel-group hidden" data-tc-list-room>
+        <h4>Xonalar</h4>
+        <button class="channel-item" type="button" data-tc-conv="room_general" data-tc-kind="room" data-online="1"><span>#general</span><span class="badge badge-primary">7</span></button>
+        <button class="channel-item" type="button" data-tc-conv="room_support" data-tc-kind="room" data-online="1"><span>#support-team</span></button>
+        <button class="channel-item" type="button" data-tc-conv="room_ann" data-tc-kind="room" data-online="1"><span>#announcements</span></button>
+      </div>
+    </aside>
+
+    <div class="team-chat-main" data-tc-main>
+      <div class="head">
+        <div>
+          <strong data-tc-title>Jahongir Otajonov</strong>
+          <div class="text-muted" style="font-size:12px" data-tc-subtitle>Manager · Online</div>
+        </div>
+        <div class="flex gap-2">
+          <button type="button" class="btn btn-secondary" data-nav="./02-room-settings.html">Room settings</button>
+          <button type="button" class="btn btn-secondary" data-nav="./03-notifications.html">Notifications</button>
+        </div>
+      </div>
+
+      <div class="messages" data-tc-messages role="log" aria-live="polite">
+        <div class="msg-system">Bugun</div>
+        <div class="list-item" style="align-items:flex-start;max-width:75%">
+          <span class="avatar">J</span>
+          <div class="item-main">
+            <div class="item-title">Jahongir <span class="text-muted" style="font-size:12px;font-weight:400">10:12</span></div>
+            <div class="item-sub" style="white-space:normal;line-height:1.45">Salom, bugun SLA bo‘yicha hisobotni ko‘rdingizmi?</div>
+          </div>
+        </div>
+        <div class="list-item" style="align-items:flex-start;max-width:75%;margin-left:auto;background:#4F46E5;border-color:#4F46E5;color:#fff">
+          <div class="item-main">
+            <div class="item-title" style="color:#fff">Me <span style="font-size:12px;font-weight:400;opacity:.9">10:13</span></div>
+            <div class="item-sub" style="white-space:normal;line-height:1.45;color:#EEF2FF">Ha, ko‘rdim. Mediana 1m 21s chiqdi, yaxshi trend.</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="padding:0 12px 8px; font-size:12px; color:#6B7280; min-height:18px" data-tc-typing></div>
+
+      <div class="composer">
+        <textarea class="textarea" rows="2" placeholder="Xabar yozing..." data-tc-input></textarea>
+        <button class="btn btn-primary" type="button" data-tc-send><i data-lucide="send"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <div class="modal-overlay" data-tc-modal="new-chat" hidden>
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="tc-new-chat-title">
+      <div class="modal-header"><h3 id="tc-new-chat-title">Yangi chat boshlash</h3><button class="btn btn-ghost btn-sm" type="button" data-tc-close-modal><i data-lucide="x"></i></button></div>
+      <div class="modal-body stack">
+        <div class="pill-tabs" data-tc-create-tabs>
+          <button class="tab active" type="button" data-create="dm">To'g'ridan-to'g'ri chat</button>
+          <button class="tab" type="button" data-create="room">Guruh chat</button>
+        </div>
+        <div data-create-panel="dm">
+          <label class="form-field"><span class="form-label">Agent tanlang</span><select class="select" data-tc-create-agent><option value="">Agent...</option><option>Jahongir</option><option>Sara</option><option>Ali</option></select></label>
+          <label class="form-field"><span class="form-label">Birinchi xabar</span><textarea class="textarea" rows="4" data-tc-create-msg placeholder="Salom, masala bo'yicha gaplashamiz..."></textarea></label>
+        </div>
+        <div data-create-panel="room" hidden>
+          <label class="form-field"><span class="form-label">Xona nomi</span><input class="input" type="text" data-tc-room-name placeholder="#new-room"></label>
+          <label class="form-field"><span class="form-label">Ta'rif</span><textarea class="textarea" rows="3" data-tc-room-desc placeholder="Xona maqsadini yozing..."></textarea></label>
+        </div>
+      </div>
+      <div class="modal-footer"><button class="btn btn-secondary" type="button" data-tc-close-modal>Bekor qilish</button><button class="btn btn-primary" type="button" data-tc-create-submit>Yaratish</button></div>
+    </div>
+  </div>
 </main>
 <script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
 </body>
