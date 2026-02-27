@@ -1,7 +1,7 @@
 (function(){
   'use strict';
 
-  var KEY='qc_visitors_state_v1';
+  var KEY='qc_visitors_state_v2';
   function qs(s,r){return (r||document).querySelector(s);} 
   function qsa(s,r){return Array.from((r||document).querySelectorAll(s));}
   function page(){ return (location.pathname.split('/').pop()||'').toLowerCase(); }
@@ -103,59 +103,103 @@
     var rows=qsa('.table-row',table);
     var liveBadge=qs('.badge.badge-success');
 
-    // Filters bar
+    // Filters + tabs (docs'ga yaqinroq)
     var cardBody=qs('section.card .card-body');
     if(cardBody && !qs('[data-vis-filter-wrap]')){
       var f=document.createElement('div');
       f.setAttribute('data-vis-filter-wrap','1');
-      f.className='form-grid three';
+      f.className='stack';
       f.style.marginTop='12px';
       f.innerHTML='\
-        <input class="input" type="search" placeholder="Country yoki page qidiring" data-vis-search>\
-        <select class="select" data-vis-status><option value="all">Barchasi</option><option value="active">Faqat active</option><option value="idle">Faqat idle</option><option value="left">Faqat left</option></select>\
+        <div class="pill-tabs" data-vis-tabs>\
+          <button class="tab active" type="button" data-vis-tab="online">Online</button>\
+          <button class="tab" type="button" data-vis-tab="offline">Offline</button>\
+          <button class="tab" type="button" data-vis-tab="all">Barchasi</button>\
+        </div>\
+        <div class="form-grid three">\
+          <input class="input" type="search" placeholder="Country yoki page qidiring" data-vis-search>\
+          <select class="select" data-vis-country><option value="all">Country: Barchasi</option><option value="uz">Uzbekistan</option><option value="kz">Kazakhstan</option><option value="tr">Turkey</option><option value="us">United States</option><option value="ae">UAE</option><option value="in">India</option><option value="ru">Russia</option><option value="de">Germany</option></select>\
+          <select class="select" data-vis-duration><option value="all">Duration: Barchasi</option><option value="lt1">&lt; 1 min</option><option value="1to5">1-5 min</option><option value="gt5">5+ min</option></select>\
+        </div>\
         <div class="flex gap-2"><button class="btn btn-secondary" type="button" data-vis-clear>Tozalash</button><button class="btn btn-primary" type="button" data-vis-proactive disabled>Proaktiv chat boshlash</button></div>';
       cardBody.appendChild(f);
     }
 
     var search=qs('[data-vis-search]');
-    var statusSel=qs('[data-vis-status]');
+    var countrySel=qs('[data-vis-country]');
+    var durationSel=qs('[data-vis-duration]');
     var clearBtn=qs('[data-vis-clear]');
     var proactiveBtn=qs('[data-vis-proactive]');
+    var activeTab='online';
 
     var selectedRow=null;
     function selectRow(r){
-      rows.forEach(function(x){ x.style.background=''; x.style.outline=''; });
+      rows.forEach(function(x){ x.style.background=''; x.style.outline=''; x.removeAttribute('aria-selected'); });
       selectedRow=r;
-      if(r){ r.style.background='#EEF2FF'; r.style.outline='1px solid #C7D2FE'; }
+      if(r){ r.style.background='#EEF2FF'; r.style.outline='1px solid #C7D2FE'; r.setAttribute('aria-selected','true'); }
       if(proactiveBtn) proactiveBtn.disabled=!r;
     }
 
     rows.forEach(function(r){
       r.style.cursor='pointer';
-      r.addEventListener('click',function(e){
-        if(e.target.closest('button,a,input')) return;
-        selectRow(r);
-      });
+      r.tabIndex=0;
+      r.setAttribute('role','button');
+      r.addEventListener('click',function(e){ if(e.target.closest('button,a,input')) return; selectRow(r); });
+      r.addEventListener('keydown',function(e){ if(e.key==='Enter' || e.key===' '){ e.preventDefault(); selectRow(r); } });
     });
+
+    function byDuration(sec, mode){
+      if(mode==='all') return true;
+      if(mode==='lt1') return sec<60;
+      if(mode==='1to5') return sec>=60 && sec<=300;
+      if(mode==='gt5') return sec>300;
+      return true;
+    }
 
     function applyFilter(){
       var q=(search&&search.value||'').trim().toLowerCase();
-      var st=(statusSel&&statusSel.value||'all');
+      var country=(countrySel&&countrySel.value||'all');
+      var duration=(durationSel&&durationSel.value||'all');
+
       rows.forEach(function(r){
+        var tds=qsa('td',r);
         var txt=(r.textContent||'').toLowerCase();
+        var loc=(tds[1]&&tds[1].textContent||'').toLowerCase();
+        var status=(tds[4]&&tds[4].textContent||'').toLowerCase();
+        var sec=parseMMSS(tds[3]&&tds[3].textContent);
+
         var byQ=!q || txt.indexOf(q)>-1;
-        var bySt=st==='all' || txt.indexOf(st)>-1;
-        r.style.display=(byQ&&bySt)?'':'none';
+        var byCountry=country==='all' || loc.indexOf(country)>-1;
+        var byDuration=byDuration(sec,duration);
+        var byTab = activeTab==='all' || (activeTab==='online' && (status.indexOf('active')>-1 || status.indexOf('idle')>-1)) || (activeTab==='offline' && (status.indexOf('left')>-1 || status.indexOf('offline')>-1));
+
+        r.style.display=(byQ&&byCountry&&byDuration&&byTab)?'':'none';
       });
       if(selectedRow && selectedRow.style.display==='none') selectRow(null);
       updateLiveCounter();
     }
 
-    search&&search.addEventListener('input',applyFilter);
-    statusSel&&statusSel.addEventListener('change',applyFilter);
-    clearBtn&&clearBtn.addEventListener('click',function(){ if(search) search.value=''; if(statusSel) statusSel.value='all'; applyFilter(); });
+    qsa('[data-vis-tab]').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        activeTab=btn.getAttribute('data-vis-tab');
+        qsa('[data-vis-tab]').forEach(function(b){ b.classList.remove('active'); });
+        btn.classList.add('active');
+        applyFilter();
+      });
+    });
 
-    // Proactive modal
+    search&&search.addEventListener('input',applyFilter);
+    countrySel&&countrySel.addEventListener('change',applyFilter);
+    durationSel&&durationSel.addEventListener('change',applyFilter);
+    clearBtn&&clearBtn.addEventListener('click',function(){
+      if(search) search.value='';
+      if(countrySel) countrySel.value='all';
+      if(durationSel) durationSel.value='all';
+      activeTab='online';
+      qsa('[data-vis-tab]').forEach(function(b){ b.classList.toggle('active', b.getAttribute('data-vis-tab')==='online'); });
+      applyFilter();
+    });
+
     var modal=ensureProactiveModal();
     var closeBtns=qsa('[data-proactive-close]',modal);
     closeBtns.forEach(function(b){ b.addEventListener('click',function(){ closeModal(modal); }); });
@@ -168,6 +212,7 @@
     function syncCnt(){ var l=(msg&&msg.value||'').length; if(cnt) cnt.textContent=l+' / 500'; if(sendBtn) sendBtn.disabled=l===0 || l>500; }
     tmpl&&tmpl.addEventListener('change',function(){ if(msg) msg.value=tmpl.value; syncCnt(); });
     msg&&msg.addEventListener('input',syncCnt);
+    msg&&msg.addEventListener('keydown',function(e){ if((e.ctrlKey||e.metaKey) && e.key==='Enter' && sendBtn && !sendBtn.disabled){ sendBtn.click(); }});
     syncCnt();
 
     function openProactiveByRow(r){
@@ -184,7 +229,6 @@
     }
 
     proactiveBtn&&proactiveBtn.addEventListener('click',function(){ openProactiveByRow(selectedRow); });
-
     qsa('.btn.btn-primary[data-action="log"]',table).forEach(function(b){
       b.addEventListener('click',function(e){ e.preventDefault(); var r=b.closest('.table-row'); selectRow(r); openProactiveByRow(r); });
     });
@@ -193,17 +237,18 @@
       if(!selectedRow){ notify('Avval visitor tanlang','error'); return; }
       closeModal(modal);
       var statusCell=qsa('td',selectedRow)[4];
-      if(statusCell && statusCell.textContent.toLowerCase().indexOf('contacted')===-1){
-        statusCell.innerHTML='<span class="badge badge-warning">Contacted</span>';
-      }
+      if(statusCell){ statusCell.innerHTML='<span class="badge badge-warning">Contacted</span>'; }
       notify('Proaktiv xabar yuborildi');
     });
 
-    // Live counter + duration ticking
     function updateLiveCounter(){
-      var shown=rows.filter(function(r){return r.style.display!=='none';});
-      var active=shown.filter(function(r){ return (r.textContent||'').toLowerCase().indexOf('active')>-1; }).length;
-      if(liveBadge) liveBadge.textContent='Live • '+active+' visitors online';
+      var shown=rows.filter(function(r){return r.style.display!== 'none';});
+      var online=shown.filter(function(r){ var s=(qsa('td',r)[4]&&qsa('td',r)[4].textContent||'').toLowerCase(); return s.indexOf('active')>-1 || s.indexOf('idle')>-1; }).length;
+      if(liveBadge){
+        liveBadge.textContent='Live • '+online+' visitors online';
+        liveBadge.style.transform='scale(1.04)';
+        setTimeout(function(){liveBadge.style.transform='';},180);
+      }
     }
 
     setInterval(function(){
@@ -211,8 +256,7 @@
         if(r.style.display==='none') return;
         var td=qsa('td',r)[3];
         if(!td) return;
-        var sec=parseMMSS(td.textContent)+1;
-        td.textContent=fmtMMSS(sec);
+        td.textContent=fmtMMSS(parseMMSS(td.textContent)+1);
       });
       updateLiveCounter();
     },1000);
@@ -243,7 +287,6 @@
     var map=qs('.world-map');
     if(!map) return;
 
-    // stats + feed panel
     var wrap=map.closest('.card').parentElement;
     if(wrap && !qs('[data-map-live-feed]')){
       var panel=document.createElement('section');
@@ -287,5 +330,6 @@
     safeRun('initVisitorsList', initVisitorsList);
     safeRun('initVisitorProfile', initVisitorProfile);
     safeRun('initVisitorsMap', initVisitorsMap);
+    save(state);
   });
 })();
