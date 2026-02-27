@@ -290,8 +290,12 @@
 
   function initVisitorsMap(){
     if(page()!=='03-visitors-map.html') return;
-    var map=qs('.world-map');
+    var map=qs('[data-map-root]') || qs('.world-map');
     if(!map) return;
+
+    var inner=qs('[data-map-inner]',map) || map;
+    var tooltip=qs('[data-map-tooltip]',map);
+    var zoom=1;
 
     var wrap=map.closest('.card').parentElement;
     if(wrap && !qs('[data-map-live-feed]')){
@@ -314,11 +318,47 @@
       qsa('.list-item',feed).slice(8).forEach(function(x){x.remove();});
     }
 
+    function applyZoom(){
+      inner.style.transform='scale('+zoom.toFixed(2)+')';
+    }
+
+    var zoomBtn=qsa('.btn', map.closest('.card')).find(function(b){ return (b.textContent||'').toLowerCase().indexOf('zoom')>-1; });
+    var centerBtn=qsa('.btn', map.closest('.card')).find(function(b){ return (b.textContent||'').toLowerCase().indexOf('center')>-1; });
+
+    if(zoomBtn){
+      zoomBtn.addEventListener('click',function(e){
+        e.preventDefault();
+        zoom = zoom>=1.6 ? 1 : (zoom+0.2);
+        applyZoom();
+        notify('Map zoom: x'+zoom.toFixed(1));
+      });
+    }
+    if(centerBtn){
+      centerBtn.addEventListener('click',function(e){
+        e.preventDefault();
+        zoom=1;
+        applyZoom();
+        notify('Map center reset qilindi');
+      });
+    }
+
     qsa('.map-marker',map).forEach(function(m,idx){
       m.style.cursor='pointer';
+      m.addEventListener('mouseenter',function(){
+        if(!tooltip) return;
+        var city=m.getAttribute('data-city')||('Visitor #'+(idx+1));
+        var country=m.getAttribute('data-country')||'';
+        var pageUrl=m.getAttribute('data-page')||'/';
+        tooltip.textContent=city+', '+country+' • '+pageUrl;
+        tooltip.style.left=m.style.left;
+        tooltip.style.top=m.style.top;
+        tooltip.style.opacity='1';
+      });
+      m.addEventListener('mouseleave',function(){ if(tooltip) tooltip.style.opacity='0'; });
       m.addEventListener('click',function(){
-        addFeed('Visitor #'+(idx+1)+' marker bosildi');
-        notify('Marker tanlandi: visitor #'+(idx+1));
+        var city=m.getAttribute('data-city')||('Visitor #'+(idx+1));
+        addFeed(city+' marker bosildi');
+        notify('Marker tanlandi: '+city);
       });
     });
 
