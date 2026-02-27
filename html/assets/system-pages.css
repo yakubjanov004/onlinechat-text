@@ -1,0 +1,7 @@
+.system-page{background:#f3f4f6;min-height:100vh}
+.system-shell{max-width:680px;margin:0 auto;padding:28px 16px}
+.system-card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;box-shadow:0 12px 28px rgba(15,23,42,.08);padding:28px;display:grid;justify-items:center}
+.system-illustration{width:220px;height:180px;border:none !important;background:radial-gradient(circle at 30% 30%,#eef2ff,#e0e7ff 60%,#f8fafc);border-radius:20px;display:grid;place-items:center}
+.system-illustration i{width:72px;height:72px;color:#4f46e5;background:#fff;border:1px solid #e5e7eb;border-radius:18px;padding:16px;box-shadow:0 8px 20px rgba(79,70,229,.18)}
+.error-code{font-weight:800;letter-spacing:.5px}
+.system-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
