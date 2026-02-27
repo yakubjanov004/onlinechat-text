@@ -1,7 +1,93 @@
-.system-page{background:#f3f4f6;min-height:100vh}
-.system-shell{max-width:680px;margin:0 auto;padding:28px 16px}
-.system-card{background:#fff;border:1px solid #e5e7eb;border-radius:16px;box-shadow:0 12px 28px rgba(15,23,42,.08);padding:28px;display:grid;justify-items:center}
-.system-illustration{width:220px;height:180px;border:none !important;background:radial-gradient(circle at 30% 30%,#eef2ff,#e0e7ff 60%,#f8fafc);border-radius:20px;display:grid;place-items:center}
-.system-illustration i{width:72px;height:72px;color:#4f46e5;background:#fff;border:1px solid #e5e7eb;border-radius:18px;padding:16px;box-shadow:0 8px 20px rgba(79,70,229,.18)}
-.error-code{font-weight:800;letter-spacing:.5px}
-.system-actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.system-page{
+  background: radial-gradient(1200px 500px at 50% -120px, #e9edff 0%, #f3f4f6 45%, #f3f4f6 100%);
+  min-height: 100vh;
+}
+
+.system-shell{
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 40px 16px;
+}
+
+.system-brand{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.system-card{
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.1);
+  padding: 32px;
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 14px;
+}
+
+.system-card h1{
+  margin: 0;
+  font-size: 34px;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.system-card .text-muted{
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.system-illustration{
+  width: 250px;
+  height: 190px;
+  background: linear-gradient(180deg, #f4f6ff 0%, #e8ecff 100%);
+  border: 1px solid #dde3ff;
+  border-radius: 24px;
+  display: grid;
+  place-items: center;
+}
+
+.system-illustration i{
+  width: 78px;
+  height: 78px;
+  color: #4f46e5;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  padding: 17px;
+  box-shadow: 0 10px 24px rgba(79, 70, 229, 0.2);
+}
+
+.error-code{
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  min-width: 120px;
+  text-align: center;
+}
+
+.system-actions{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 6px;
+}
+
+.system-actions .btn{
+  min-height: 44px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+@media (max-width: 640px){
+  .system-shell{ padding: 24px 12px; }
+  .system-card{ padding: 22px; border-radius: 14px; }
+  .system-card h1{ font-size: 27px; }
+  .system-card .text-muted{ font-size: 14px; }
+  .system-illustration{ width: 190px; height: 150px; border-radius: 18px; }
+  .system-illustration i{ width: 62px; height: 62px; padding: 13px; border-radius: 16px; }
+  .system-actions{ display: grid; width: 100%; }
+  .system-actions .btn{ width: 100%; }
+}
