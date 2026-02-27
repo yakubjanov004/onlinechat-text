@@ -339,10 +339,22 @@
     ];
 
     var activePopupData=null;
+    var bounds=[];
+    var zoom=2;
     visitors.forEach(function(v){
-      var marker=L.circleMarker([v.lat,v.lng], { radius:7, color:'#4F46E5', fillColor:'#4F46E5', fillOpacity:0.9, weight:2 }).addTo(lmap);
-      marker.bindTooltip(v.city+', '+v.country+' • '+v.page);
+      bounds.push([v.lat, v.lng]);
+      var marker=L.circleMarker([v.lat,v.lng], {
+        radius:10,
+        color:'#111827',
+        fillColor:'#F59E0B',
+        fillOpacity:0.95,
+        weight:2
+      }).addTo(lmap);
+      marker.bindTooltip(v.city+', '+v.country+' • '+v.page, {direction:'top', offset:[0,-10]});
+      marker.on('mouseover', function(){ marker.setStyle({radius:12}); });
+      marker.on('mouseout', function(){ marker.setStyle({radius:10}); });
       marker.on('click', function(){
+        marker.setStyle({fillColor:'#10B981'});
         activePopupData=v;
         var html='<div style="font-size:13px;font-weight:600">'+v.city+', '+v.country+'</div>'+
           '<div style="font-size:12px;color:#6B7280;margin:2px 0 8px">'+v.page+'</div>'+
@@ -354,6 +366,11 @@
         addFeed(v.city+' marker bosildi');
       });
     });
+
+    if(bounds.length){
+      lmap.fitBounds(bounds, {padding:[40,40], maxZoom:4});
+      zoom=lmap.getZoom();
+    }
 
     lmap.on('popupopen', function(e){
       var node=e.popup.getElement();
@@ -368,7 +385,6 @@
       });
     });
 
-    var zoom=2;
     if(zoomBtn){
       zoomBtn.addEventListener('click', function(e){
         e.preventDefault();
