@@ -9,6 +9,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../assets/qulay-chat-design-system.css">
 <script src="https://unpkg.com/lucide@latest" defer></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
 <script src="../assets/qulay-chat-shell.js" defer></script>
 <script src="../assets/qulay-chat-runtime.js" defer></script>
 <script src="../assets/visitors-interactions.js" defer></script>
@@ -48,40 +50,11 @@
       </div>
       <div class="card-body">
         <div class="world-map" data-map-root>
-          <div class="world-map-inner" data-map-inner style="position:absolute; inset:0; transform-origin:center center; transition:transform 180ms ease;">
-            <svg viewBox="0 0 1000 500" preserveAspectRatio="none" aria-hidden="true">
-              <rect x="0" y="0" width="1000" height="500" fill="url(#ocean)"/>
-              <defs>
-                <linearGradient id="ocean" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stop-color="#f8fbff"/>
-                  <stop offset="100%" stop-color="#eef4ff"/>
-                </linearGradient>
-              </defs>
-              <g fill="#dbe6f7" stroke="#c9d7f0" stroke-width="2" opacity="0.95">
-                <path d="M80 170 C140 120, 230 120, 280 170 C320 208, 300 250, 240 260 C180 270, 120 245, 90 210 Z"/>
-                <path d="M310 125 C360 90, 430 95, 470 130 C500 160, 495 200, 450 215 C390 235, 325 205, 305 165 Z"/>
-                <path d="M520 145 C570 110, 655 115, 700 150 C730 175, 730 215, 690 235 C635 265, 555 255, 525 210 Z"/>
-                <path d="M705 135 C750 110, 810 118, 845 150 C870 175, 865 210, 830 230 C785 255, 730 245, 705 210 Z"/>
-              </g>
-              <g fill="none" stroke="#c4d2eb" stroke-width="1.5" opacity="0.8">
-                <path d="M140 340 C260 300, 370 365, 520 325 C655 289, 770 342, 890 310"/>
-              </g>
-            </svg>
-            <span class="map-marker" data-city="Tashkent" data-country="Uzbekistan" data-page="/pricing" style="left:58%;top:42%"></span>
-            <span class="map-marker" data-city="Almaty" data-country="Kazakhstan" data-page="/features" style="left:62%;top:36%"></span>
-            <span class="map-marker" data-city="Istanbul" data-country="Turkey" data-page="/contact" style="left:53%;top:34%"></span>
-            <span class="map-marker" data-city="Berlin" data-country="Germany" data-page="/help" style="left:48%;top:28%"></span>
-            <span class="map-marker" data-city="Dubai" data-country="UAE" data-page="/enterprise" style="left:60%;top:47%"></span>
-            <span class="map-marker" data-cluster="3 visitors" data-city="Tashkent cluster" data-country="Uzbekistan" data-page="/home" style="left:56.5%;top:39%; width:22px; height:22px; background:#4F46E5; box-shadow:0 0 0 8px rgba(79,70,229,.16);"><span style="position:absolute; inset:0; display:grid; place-items:center; color:#fff; font-size:10px; font-weight:700;">3</span></span>
-          </div>
-          <div data-map-tooltip style="position:absolute; pointer-events:none; z-index:5; background:#111827; color:#fff; font-size:12px; padding:6px 8px; border-radius:8px; opacity:0; transform:translate(-50%,-120%); transition:opacity .15s ease;"></div>
-          <div data-map-popup hidden style="position:absolute; z-index:8; min-width:220px; background:#fff; border:1px solid #E5E7EB; border-radius:12px; box-shadow:0 12px 24px rgba(15,23,42,.18); padding:10px; transform:translate(-50%,-110%);">
-            <div style="font-size:13px; font-weight:600;" data-map-popup-title>Visitor</div>
-            <div style="font-size:12px; color:#6B7280; margin-top:2px;" data-map-popup-sub>/pricing</div>
-            <div class="flex gap-2" style="margin-top:8px;">
-              <button type="button" class="btn btn-secondary btn-sm" data-map-open-profile>Ko'rish</button>
-              <button type="button" class="btn btn-primary btn-sm" data-map-start-chat>Chat boshlash</button>
-            </div>
+          <div id="visitor-real-map" style="position:absolute; inset:0; border-radius:12px;"></div>
+          <div data-map-fallback class="empty-state hidden" style="position:absolute; inset:16px;">
+            <i data-lucide="map"></i>
+            <div>Real map yuklanmadi</div>
+            <p class="text-muted" style="font-size:13px">Internet yoki tile server ulanishini tekshiring.</p>
           </div>
         </div>
       </div>

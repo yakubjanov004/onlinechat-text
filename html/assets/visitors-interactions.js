@@ -290,28 +290,13 @@
 
   function initVisitorsMap(){
     if(page()!=='03-visitors-map.html') return;
-    var map=qs('[data-map-root]') || qs('.world-map');
-    if(!map) return;
+    var mapWrap=qs('[data-map-root]') || qs('.world-map');
+    if(!mapWrap) return;
 
-    var inner=qs('[data-map-inner]',map) || map;
-    var tooltip=qs('[data-map-tooltip]',map);
-    var popup=qs('[data-map-popup]',map);
-    var popupTitle=qs('[data-map-popup-title]',map);
-    var popupSub=qs('[data-map-popup-sub]',map);
-    var zoom=1;
-    var selectedMarker=null;
-
-    var wrap=map.closest('.card').parentElement;
-    if(wrap && !qs('[data-map-live-feed]')){
-      var panel=document.createElement('section');
-      panel.className='card';
-      panel.setAttribute('data-map-live-feed','1');
-      panel.innerHTML='\
-        <div class="card-header"><div><h3>So\'nggi faollik</h3><p class="card-description">Real-time feed</p></div></div>\
-        <div class="card-body"><div class="list-stack" data-map-feed-list></div></div>';
-      wrap.appendChild(panel);
-    }
+    var wrap=mapWrap.closest('.card').parentElement;
     var feed=qs('[data-map-feed-list]');
+    var fallback=qs('[data-map-fallback]');
+    var mapEl=qs('#visitor-real-map');
 
     function addFeed(text){
       if(!feed) return;
@@ -322,82 +307,84 @@
       qsa('.list-item',feed).slice(8).forEach(function(x){x.remove();});
     }
 
-    function applyZoom(){
-      inner.style.transform='scale('+zoom.toFixed(2)+')';
-    }
-
-    var zoomBtn=qsa('.btn', map.closest('.card')).find(function(b){ return (b.textContent||'').toLowerCase().indexOf('zoom')>-1; });
-    var centerBtn=qsa('.btn', map.closest('.card')).find(function(b){ return (b.textContent||'').toLowerCase().indexOf('center')>-1; });
-
-    if(zoomBtn){
-      zoomBtn.addEventListener('click',function(e){
-        e.preventDefault();
-        zoom = zoom>=1.6 ? 1 : (zoom+0.2);
-        applyZoom();
-        notify('Map zoom: x'+zoom.toFixed(1));
-      });
-    }
-    if(centerBtn){
-      centerBtn.addEventListener('click',function(e){
-        e.preventDefault();
-        zoom=1;
-        applyZoom();
-        notify('Map center reset qilindi');
-      });
-    }
-
-    qsa('.map-marker',map).forEach(function(m,idx){
-      m.style.cursor='pointer';
-      m.addEventListener('mouseenter',function(){
-        if(!tooltip) return;
-        var city=m.getAttribute('data-city')||('Visitor #'+(idx+1));
-        var country=m.getAttribute('data-country')||'';
-        var pageUrl=m.getAttribute('data-page')||'/';
-        var cluster=m.getAttribute('data-cluster');
-        tooltip.textContent=(cluster?cluster+' • ':'')+city+', '+country+' • '+pageUrl;
-        tooltip.style.left=m.style.left;
-        tooltip.style.top=m.style.top;
-        tooltip.style.opacity='1';
-      });
-      m.addEventListener('mouseleave',function(){ if(tooltip) tooltip.style.opacity='0'; });
-      m.addEventListener('click',function(){
-        var city=m.getAttribute('data-city')||('Visitor #'+(idx+1));
-        var pageUrl=m.getAttribute('data-page')||'/';
-        selectedMarker=m;
-        addFeed(city+' marker bosildi');
-        notify('Marker tanlandi: '+city);
-        if(popup){
-          popup.hidden=false;
-          popup.style.left=m.style.left;
-          popup.style.top=m.style.top;
-          if(popupTitle) popupTitle.textContent=city;
-          if(popupSub) popupSub.textContent=pageUrl;
-        }
-      });
-    });
-
-    map.addEventListener('click',function(e){
-      if(!e.target.closest('.map-marker') && !e.target.closest('[data-map-popup]') && popup){
-        popup.hidden=true;
-      }
-    });
-
-    var openProfile=qs('[data-map-open-profile]',map);
-    var startChat=qs('[data-map-start-chat]',map);
-    openProfile && openProfile.addEventListener('click',function(){
-      location.href='./02-visitor-profile.html';
-    });
-    startChat && startChat.addEventListener('click',function(){
-      var city=selectedMarker ? (selectedMarker.getAttribute('data-city')||'visitor') : 'visitor';
-      notify(city+' uchun chat boshlandi');
-      if(popup) popup.hidden=true;
-    });
-
     var events=['/pricing sahifasiga o\'tdi','/features ochdi','Chat boshladi','Sahifani tark etdi'];
     setInterval(function(){
       var e=events[Math.floor(Math.random()*events.length)];
       addFeed('Anonymous #'+(1000+Math.floor(Math.random()*9000))+' — '+e);
     },4500);
+
+    var centerBtn=qsa('.btn', mapWrap.closest('.card')).find(function(b){ return (b.textContent||'').toLowerCase().indexOf('center')>-1; });
+    var zoomBtn=qsa('.btn', mapWrap.closest('.card')).find(function(b){ return (b.textContent||'').toLowerCase().indexOf('zoom')>-1; });
+
+    if(!(window.L && mapEl)){
+      if(fallback) fallback.classList.remove('hidden');
+      notify('Leaflet yuklanmadi, fallback ko\'rsatildi','error');
+      return;
+    }
+
+    if(fallback) fallback.classList.add('hidden');
+
+    var lmap = L.map(mapEl, { zoomControl:true, worldCopyJump:true }).setView([41.3, 69.24], 2);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 18,
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(lmap);
+
+    var visitors=[
+      {city:'Tashkent', country:'Uzbekistan', page:'/pricing', lat:41.2995, lng:69.2401},
+      {city:'Almaty', country:'Kazakhstan', page:'/features', lat:43.2389, lng:76.8897},
+      {city:'Istanbul', country:'Turkey', page:'/contact', lat:41.0082, lng:28.9784},
+      {city:'Berlin', country:'Germany', page:'/help', lat:52.52, lng:13.405},
+      {city:'Dubai', country:'UAE', page:'/enterprise', lat:25.2048, lng:55.2708}
+    ];
+
+    var activePopupData=null;
+    visitors.forEach(function(v){
+      var marker=L.circleMarker([v.lat,v.lng], { radius:7, color:'#4F46E5', fillColor:'#4F46E5', fillOpacity:0.9, weight:2 }).addTo(lmap);
+      marker.bindTooltip(v.city+', '+v.country+' • '+v.page);
+      marker.on('click', function(){
+        activePopupData=v;
+        var html='<div style="font-size:13px;font-weight:600">'+v.city+', '+v.country+'</div>'+
+          '<div style="font-size:12px;color:#6B7280;margin:2px 0 8px">'+v.page+'</div>'+
+          '<div style="display:flex;gap:6px">'+
+          '<button type="button" data-lm-open class="btn btn-secondary btn-sm">Ko\'rish</button>'+
+          '<button type="button" data-lm-chat class="btn btn-primary btn-sm">Chat</button>'+
+          '</div>';
+        marker.bindPopup(html,{closeButton:true, minWidth:190}).openPopup();
+        addFeed(v.city+' marker bosildi');
+      });
+    });
+
+    lmap.on('popupopen', function(e){
+      var node=e.popup.getElement();
+      if(!node) return;
+      var b1=node.querySelector('[data-lm-open]');
+      var b2=node.querySelector('[data-lm-chat]');
+      if(b1) b1.addEventListener('click', function(){ location.href='./02-visitor-profile.html'; });
+      if(b2) b2.addEventListener('click', function(){
+        var city=activePopupData?activePopupData.city:'visitor';
+        notify(city+' uchun chat boshlandi');
+        lmap.closePopup();
+      });
+    });
+
+    var zoom=2;
+    if(zoomBtn){
+      zoomBtn.addEventListener('click', function(e){
+        e.preventDefault();
+        zoom=Math.min(zoom+1, 6);
+        lmap.setZoom(zoom);
+      });
+    }
+    if(centerBtn){
+      centerBtn.addEventListener('click', function(e){
+        e.preventDefault();
+        zoom=2;
+        lmap.setView([41.3, 69.24], zoom);
+      });
+    }
+
+    setTimeout(function(){ lmap.invalidateSize(); }, 120);
   }
 
   function safeRun(name,fn){ try{fn();} catch(e){ console.error('[visitors]',name,e); notify(name+' modulida xatolik','error'); } }
