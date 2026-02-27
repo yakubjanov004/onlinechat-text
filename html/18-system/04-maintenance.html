@@ -1,30 +1,33 @@
 <!doctype html>
 <html lang="uz">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QULAY CHAT - Tez orada qaytamiz</title>
-<meta name="robots" content="noindex, nofollow">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/qulay-chat-design-system.css">
-<script src="https://unpkg.com/lucide@latest" defer></script>
-<script src="../assets/qulay-chat-runtime.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maintenance | QULAY CHAT</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/qulay-chat-design-system.css">
+  <script src="https://unpkg.com/lucide@latest" defer></script>
+  <script src="../assets/system-interactions.js" defer></script>
 </head>
 <body class="system-page">
-<main class="system-page">
-<div class="system-shell">
-<div class="system-brand"><a class="shell-brand" href="../index.html"><span class="shell-brand-mark">QC</span><span>QULAY CHAT</span></a></div>
-<section class="system-card">
-<div class="system-illustration"><i data-lucide="wrench"></i></div>
-<div class="error-code info">Maint</div>
-<h1>Tez orada qaytamiz</h1>
-<p class="text-muted" style="max-width:48ch">Rejalashtirilgan texnik ishlar olib borilmoqda. Taxminiy vaqt: 20 daqiqa.</p>
-<div class="system-actions"><button type="button" class="btn btn-primary" data-action="log" data-message="Status qayta tekshirildi">Statusni yangilash</button><a class="btn btn-secondary" href="../index.html" >Status sahifasi</a></div>
-</section>
-</div>
-</main>
-<script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
+  <main class="system-page" role="main">
+    <div class="system-shell" style="max-width:640px;">
+      <div class="system-brand"><a class="shell-brand" href="../index.html"><span class="shell-brand-mark">QC</span><span>QULAY CHAT</span></a></div>
+      <section class="system-card" style="gap:20px;">
+        <div class="system-illustration"><i data-lucide="wrench"></i></div>
+        <div class="error-code info">MAINT</div>
+        <h1>Tez orada qaytamiz</h1>
+        <p class="text-muted" style="max-width:48ch;text-align:center;">Rejalashtirilgan texnik ishlar olib borilmoqda. Taxminiy vaqt: 20 daqiqa.</p>
+        <div class="system-actions">
+          <button type="button" class="btn btn-primary" data-system-reload><i data-lucide="refresh-cw"></i>Statusni yangilash</button>
+          <a class="btn btn-secondary" href="../index.html">Bosh sahifa</a>
+        </div>
+      </section>
+    </div>
+  </main>
+  <script>window.addEventListener('DOMContentLoaded',()=>window.lucide&&window.lucide.createIcons&&window.lucide.createIcons());</script>
 </body>
 </html>

@@ -1,30 +1,41 @@
 <!doctype html>
 <html lang="uz">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QULAY CHAT - Ruxsat yo&#39;q</title>
-<meta name="robots" content="noindex, nofollow">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/qulay-chat-design-system.css">
-<script src="https://unpkg.com/lucide@latest" defer></script>
-<script src="../assets/qulay-chat-runtime.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>403 — Kirish taqiqlangan | QULAY CHAT</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/qulay-chat-design-system.css">
+  <script src="https://unpkg.com/lucide@latest" defer></script>
+  <script src="../assets/system-interactions.js" defer></script>
 </head>
 <body class="system-page">
-<main class="system-page">
-<div class="system-shell">
-<div class="system-brand"><a class="shell-brand" href="../index.html"><span class="shell-brand-mark">QC</span><span>QULAY CHAT</span></a></div>
-<section class="system-card">
-<div class="system-illustration"><i data-lucide="shield-alert"></i></div>
-<div class="error-code warning">403</div>
-<h1>Ruxsat yo&#39;q</h1>
-<p class="text-muted" style="max-width:48ch">Bu sahifani ko&#39;rish uchun sizga kerakli ruxsat berilmagan.</p>
-<div class="system-actions"><a class="btn btn-secondary" href="../04-dashboard/01-dashboard.html" >Orqaga</a><a class="btn btn-ghost" href="../index.html#support" >Admin bilan bog'lanish</a></div>
-</section>
-</div>
-</main>
-<script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
+  <main class="system-page" role="main">
+    <div class="system-shell" style="max-width:640px;">
+      <div class="system-brand"><a class="shell-brand" href="../index.html"><span class="shell-brand-mark">QC</span><span>QULAY CHAT</span></a></div>
+      <section class="system-card" style="gap:20px;">
+        <div class="system-illustration" aria-hidden="true"><i data-lucide="shield-alert"></i></div>
+        <div class="error-code warning" aria-label="Error code 403">403</div>
+        <h1>Kirish taqiqlangan</h1>
+        <p class="text-muted" style="max-width:48ch;text-align:center;">Sizda bu sahifani ko'rish uchun ruxsat yo'q. Agar kirish kerak deb hisoblasangiz, administrator bilan bog'laning.</p>
+
+        <div class="card" style="max-width:520px;width:100%;text-align:left;">
+          <div class="card-body">
+            <div class="kv-row"><span>Sizning rolingiz</span><strong>Operator</strong></div>
+            <div class="kv-row"><span>Kerakli ruxsat</span><strong style="color:#EF4444">Admin yoki Menejer</strong></div>
+          </div>
+        </div>
+
+        <div class="system-actions">
+          <a class="btn btn-primary" href="../index.html"><i data-lucide="home"></i>Bosh sahifaga qaytish</a>
+          <button type="button" class="btn btn-secondary" data-system-back><i data-lucide="arrow-left"></i>Oldingi sahifaga qaytish</button>
+        </div>
+      </section>
+    </div>
+  </main>
+  <script>window.addEventListener('DOMContentLoaded',()=>window.lucide&&window.lucide.createIcons&&window.lucide.createIcons());</script>
 </body>
 </html>

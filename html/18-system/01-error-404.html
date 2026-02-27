@@ -1,42 +1,37 @@
 <!doctype html>
 <html lang="uz">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QULAY CHAT - Sahifa topilmadi</title>
-<meta name="robots" content="noindex, nofollow">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/qulay-chat-design-system.css">
-<script src="https://unpkg.com/lucide@latest" defer></script>
-<script src="../assets/qulay-chat-runtime.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Sahifa topilmadi | QULAY CHAT</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/qulay-chat-design-system.css">
+  <script src="https://unpkg.com/lucide@latest" defer></script>
+  <script src="../assets/system-interactions.js" defer></script>
 </head>
 <body class="system-page">
-<main class="system-page">
-<div class="system-shell">
-<div class="system-brand"><a class="shell-brand" href="../index.html"><span class="shell-brand-mark">QC</span><span>QULAY CHAT</span></a></div>
-<section class="system-card">
-<div class="system-illustration"><i data-lucide="search-x"></i></div>
-<div class="error-code warning">404</div>
-<h1>Sahifa topilmadi</h1>
-<p class="text-muted" style="max-width:48ch">Kechirasiz, siz qidirayotgan sahifa mavjud emas yoki ko&#39;chirilgan.</p>
-<div class="system-actions"><a class="btn btn-primary" href="../index.html" >Bosh sahifaga</a><a class="btn btn-secondary" href="../04-dashboard/01-dashboard.html" >Dashboard</a></div>
-<div style="width:100%;display:grid;gap:12px">
-<div class="input-group" style="width:100%"><i data-lucide="search"></i><input class="input" type="search" placeholder="Qidiruv..." style="width:100%"><button class="btn btn-secondary btn-sm" type="button" data-action="log">Qidirish</button></div>
-<div class="card" style="width:100%;text-align:left">
-<div class="card-header"><div><h3>Ko'p so'raladigan sahifalar</h3></div></div>
-<div class="card-body"><div class="list-stack">
-<a class="list-item" href="../04-dashboard/01-dashboard.html"><div class="item-main"><div class="item-title">Dashboard</div><div class="item-sub">Asosiy ko'rinish</div></div></a>
-<a class="list-item" href="../05-inbox/01-inbox-chat.html"><div class="item-main"><div class="item-title">Inbox</div><div class="item-sub">Live chatlar</div></div></a>
-<a class="list-item" href="../08-analytics/01-overview.html"><div class="item-main"><div class="item-title">Analytics Overview</div><div class="item-sub">Statistika va hisobotlar</div></div></a>
-<a class="list-item" href="../09-settings/01-workspace.html"><div class="item-main"><div class="item-title">Workspace Settings</div><div class="item-sub">Sozlamalar</div></div></a>
-</div></div>
-</div>
-</div>
-</section>
-</div>
-</main>
-<script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
+  <main class="system-page" role="main">
+    <div class="system-shell" style="max-width:640px;">
+      <div class="system-brand">
+        <a class="shell-brand" href="../index.html"><span class="shell-brand-mark">QC</span><span>QULAY CHAT</span></a>
+      </div>
+
+      <section class="system-card" style="gap:20px;">
+        <div class="system-illustration" aria-hidden="true"><i data-lucide="search-x"></i></div>
+        <div class="error-code warning" aria-label="Error code 404">404</div>
+        <h1>Sahifa topilmadi</h1>
+        <p class="text-muted" style="max-width:48ch;text-align:center;">Kechirasiz, siz qidirayotgan sahifa mavjud emas yoki ko'chirilgan. URL manzilni tekshiring yoki bosh sahifaga qayting.</p>
+
+        <div class="system-actions">
+          <a class="btn btn-primary" href="../index.html"><i data-lucide="home"></i>Bosh sahifaga qaytish</a>
+          <button type="button" class="btn btn-secondary" data-system-back><i data-lucide="arrow-left"></i>Oldingi sahifaga qaytish</button>
+        </div>
+      </section>
+    </div>
+  </main>
+  <script>window.addEventListener('DOMContentLoaded',()=>window.lucide&&window.lucide.createIcons&&window.lucide.createIcons());</script>
 </body>
 </html>
