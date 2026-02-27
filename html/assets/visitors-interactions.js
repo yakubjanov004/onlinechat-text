@@ -333,8 +333,12 @@
     var visitors=[
       {city:'Tashkent', country:'Uzbekistan', page:'/pricing', lat:41.2995, lng:69.2401},
       {city:'Samarqand', country:'Uzbekistan', page:'/demo', lat:39.6542, lng:66.9597},
+      {city:'Bukhara', country:'Uzbekistan', page:'/features', lat:39.767, lng:64.423},
+      {city:'Namangan', country:'Uzbekistan', page:'/contact', lat:41.0011, lng:71.6726},
       {city:'Almaty', country:'Kazakhstan', page:'/features', lat:43.2389, lng:76.8897},
+      {city:'Astana', country:'Kazakhstan', page:'/pricing', lat:51.1694, lng:71.4491},
       {city:'Istanbul', country:'Turkey', page:'/contact', lat:41.0082, lng:28.9784},
+      {city:'Ankara', country:'Turkey', page:'/demo', lat:39.9334, lng:32.8597},
       {city:'Berlin', country:'Germany', page:'/help', lat:52.52, lng:13.405},
       {city:'Dubai', country:'UAE', page:'/enterprise', lat:25.2048, lng:55.2708}
     ];
