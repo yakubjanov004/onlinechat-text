@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="uz">
 <head>
 <meta charset="UTF-8">
@@ -15,42 +15,91 @@
 </head>
 <body data-active-nav="visitors" class="dashboard-shell-page">
 <main class="app-content">
-<div class="subnav-scroll">
-<div class="subnav-tabs">
-<a class="subnav-tab " href="./01-visitors-list.html">Online Visitors</a><a class="subnav-tab active" href="./02-visitor-profile.html">Visitor Profile</a><a class="subnav-tab " href="./03-visitors-map.html">Visitors Map</a>
-</div>
-</div>
-<div class="page-header">
-<div>
-<h1>Visitor Profile</h1>
-<p class="text-muted">Online visitor kuzatuvi va profiling</p>
-</div>
-</div><div class="split-grid">
-<section class="card">
-<div class="card-header">
-<div>
-<h3>Visitor profile</h3>
-</div>
-</div>
-<div class="card-body">
-<div class="kv-list">
-<div class="kv-row"><span>IP</span><strong>185.8.212.34</strong></div><div class="kv-row"><span>Location</span><strong>Toshkent, UZ</strong></div><div class="kv-row"><span>Browser</span><strong>Chrome 122 / Windows</strong></div><div class="kv-row"><span>Session</span><strong>07m 12s</strong></div>
-</div><div class="divider"></div><div class="flex gap-2 wrap"><button type="button" class="btn btn-primary" data-action="log" data-message="Chat boshlandi">Start chat</button><button type="button" class="btn btn-secondary" data-action="log">Add to contacts</button></div>
-</div>
-</section>
-<section class="card">
-<div class="card-header">
-<div>
-<h3>Pages visited</h3>
-</div>
-</div>
-<div class="card-body">
-<div class="timeline"><div class="timeline-item"><span class="timeline-dot"></span><div class="timeline-card"><strong>/landing</strong><span class="timeline-time">14:18</span></div></div><div class="timeline-item"><span class="timeline-dot"></span><div class="timeline-card"><strong>/pricing</strong><span class="timeline-time">14:20</span></div></div><div class="timeline-item"><span class="timeline-dot"></span><div class="timeline-card"><strong>Widget opened</strong><span class="timeline-time">14:21</span></div></div><div class="timeline-item"><span class="timeline-dot"></span><div class="timeline-card"><strong>Viewed /enterprise</strong><span class="timeline-time">14:24</span></div></div></div>
-</div>
-</section>
-</div>
+  <div class="subnav-scroll">
+    <div class="subnav-tabs">
+      <a class="subnav-tab" href="./01-visitors-list.html">Online Visitors</a>
+      <a class="subnav-tab active" href="./02-visitor-profile.html">Visitor Profile</a>
+      <a class="subnav-tab" href="./03-visitors-map.html">Visitors Map</a>
+    </div>
+  </div>
+
+  <div class="page-header">
+    <div>
+      <h1>Visitor Profile</h1>
+      <p class="text-muted">Sessiya tafsilotlari, xatti-harakatlar va proaktiv aloqa boshqaruvi</p>
+    </div>
+    <div class="page-header-actions">
+      <a class="btn btn-secondary" href="./01-visitors-list.html">← Visitors list</a>
+      <button type="button" class="btn btn-primary" data-action="log" data-message="Chat boshlandi">Start chat</button>
+    </div>
+  </div>
+
+  <section class="split-grid">
+    <article class="card">
+      <div class="card-header"><div><h3>Visitor summary</h3></div></div>
+      <div class="card-body stack">
+        <div class="flex gap-3">
+          <span class="avatar avatar-xl">A#</span>
+          <div>
+            <h3>Anonymous #12847</h3>
+            <p class="text-muted">Toshkent, Uzbekistan • 185.8.212.34</p>
+            <div class="flex gap-2" style="margin-top:6px"><span class="badge badge-success">Online</span><span class="badge badge-primary">Pricing page</span></div>
+          </div>
+        </div>
+        <div class="stat-grid">
+          <div class="stat-chip"><span class="text-muted">First seen</span><strong>2026-01-10</strong></div>
+          <div class="stat-chip"><span class="text-muted">Total visits</span><strong>12</strong></div>
+          <div class="stat-chip"><span class="text-muted">Pages viewed</span><strong>47</strong></div>
+          <div class="stat-chip"><span class="text-muted">Avg session</span><strong>08:45</strong></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-header"><div><h3>Hozirgi sessiya</h3></div></div>
+      <div class="card-body">
+        <div class="kv-list">
+          <div class="kv-row"><span>Session</span><strong>07:12</strong></div>
+          <div class="kv-row"><span>Current page</span><strong>/pricing</strong></div>
+          <div class="kv-row"><span>Device</span><strong>Desktop • Windows 11</strong></div>
+          <div class="kv-row"><span>Browser</span><strong>Chrome 120</strong></div>
+          <div class="kv-row"><span>Referrer</span><strong>Google Search</strong></div>
+        </div>
+        <div class="divider"></div>
+        <div class="flex gap-2">
+          <button type="button" class="btn btn-primary" data-action="log" data-message="Chat boshlandi">Xabar yuborish</button>
+          <button type="button" class="btn btn-secondary">Add to contacts</button>
+        </div>
+      </div>
+    </article>
+  </section>
+
+  <section class="two-col">
+    <article class="card">
+      <div class="card-header"><div><h3>Sahifalar tarixi</h3></div></div>
+      <div class="card-body">
+        <div class="timeline">
+          <div class="timeline-item"><span class="timeline-dot"></span><div class="timeline-card"><strong>/pricing</strong><span class="timeline-time">2m 15s • 14:32</span></div></div>
+          <div class="timeline-item"><span class="timeline-dot"></span><div class="timeline-card"><strong>/features</strong><span class="timeline-time">1m 45s • 14:30</span></div></div>
+          <div class="timeline-item"><span class="timeline-dot"></span><div class="timeline-card"><strong>/landing</strong><span class="timeline-time">1m 10s • 14:28</span></div></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card">
+      <div class="card-header"><div><h3>Texnik ma'lumotlar</h3></div></div>
+      <div class="card-body">
+        <div class="kv-list">
+          <div class="kv-row"><span>Timezone</span><strong>UTC+5</strong></div>
+          <div class="kv-row"><span>Language</span><strong>uz-UZ, ru-RU</strong></div>
+          <div class="kv-row"><span>Resolution</span><strong>1920×1080</strong></div>
+          <div class="kv-row"><span>OS/Browser</span><strong>Windows 11 / Chrome 120</strong></div>
+          <div class="kv-row"><span>Last activity</span><strong>Hozirgina</strong></div>
+        </div>
+      </div>
+    </article>
+  </section>
 </main>
 <script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
 </body>
 </html>
-
