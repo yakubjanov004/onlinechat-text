@@ -74,26 +74,47 @@
         </div>
       </div>
 
+      <div class="alert alert-warning hidden" data-tc-offline-banner>
+        <i data-lucide="wifi-off"></i>
+        <div>Offline rejim. Qayta ulanmoqda... <button class="btn btn-secondary btn-sm" type="button" data-tc-reconnect>Qayta ulanish</button></div>
+      </div>
+
       <div class="messages" data-tc-messages role="log" aria-live="polite">
         <div class="msg-system">Bugun</div>
-        <div class="list-item" style="align-items:flex-start;max-width:75%">
+        <div class="list-item" style="align-items:flex-start;max-width:75%" data-msg>
           <span class="avatar">J</span>
           <div class="item-main">
             <div class="item-title">Jahongir <span class="text-muted" style="font-size:12px;font-weight:400">10:12</span></div>
             <div class="item-sub" style="white-space:normal;line-height:1.45">Salom, bugun SLA bo‘yicha hisobotni ko‘rdingizmi?</div>
+            <div class="flex gap-2" style="margin-top:6px"><button class="btn btn-secondary btn-sm" type="button" data-react="👍">👍 2</button><button class="btn btn-secondary btn-sm" type="button" data-msg-reply>Javob berish</button></div>
           </div>
         </div>
-        <div class="list-item" style="align-items:flex-start;max-width:75%;margin-left:auto;background:#4F46E5;border-color:#4F46E5;color:#fff">
+        <div class="list-item" style="align-items:flex-start;max-width:75%;margin-left:auto;background:#4F46E5;border-color:#4F46E5;color:#fff" data-msg>
           <div class="item-main">
             <div class="item-title" style="color:#fff">Me <span style="font-size:12px;font-weight:400;opacity:.9">10:13</span></div>
             <div class="item-sub" style="white-space:normal;line-height:1.45;color:#EEF2FF">Ha, ko‘rdim. Mediana 1m 21s chiqdi, yaxshi trend.</div>
+            <div class="flex gap-2" style="margin-top:6px"><button class="btn btn-secondary btn-sm" type="button" data-react="❤️">❤️ 1</button></div>
           </div>
         </div>
       </div>
 
+      <div class="empty-state hidden" data-tc-empty>
+        <i data-lucide="messages-square"></i>
+        <div>Xabarlar yo'q</div>
+        <p class="text-muted" style="font-size:13px">Jamoa bilan muloqotni boshlang</p>
+      </div>
+
       <div style="padding:0 12px 8px; font-size:12px; color:#6B7280; min-height:18px" data-tc-typing></div>
+      <div class="text-muted hidden" style="padding:0 12px 8px;font-size:12px" data-tc-replying></div>
 
       <div class="composer">
+        <div class="inbox-toolbar">
+          <button class="icon-btn" type="button" data-tc-bold><strong>B</strong></button>
+          <button class="icon-btn" type="button" data-tc-italic><em>I</em></button>
+          <button class="icon-btn" type="button" data-tc-emoji>😊</button>
+          <button class="icon-btn" type="button" data-tc-attach><i data-lucide="paperclip"></i></button>
+          <input type="file" hidden data-tc-file>
+        </div>
         <textarea class="textarea" rows="2" placeholder="Xabar yozing..." data-tc-input></textarea>
         <button class="btn btn-primary" type="button" data-tc-send><i data-lucide="send"></i></button>
       </div>

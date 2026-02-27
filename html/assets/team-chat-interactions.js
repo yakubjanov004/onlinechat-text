@@ -23,6 +23,13 @@
     var input=qs('[data-tc-input]');
     var send=qs('[data-tc-send]');
     var messages=qs('[data-tc-messages]');
+    var empty=qs('[data-tc-empty]');
+    var offlineBanner=qs('[data-tc-offline-banner]');
+    var reconnectBtn=qs('[data-tc-reconnect]');
+    var replying=qs('[data-tc-replying]');
+    var fileInput=qs('[data-tc-file]');
+    var attachBtn=qs('[data-tc-attach]');
+    var replyText='';
 
     var activeType='dm';
     var convMeta={
@@ -77,30 +84,82 @@
       typingTimer=setTimeout(function(){ if(typing) typing.textContent=''; }, 1400);
     });
 
+    function refreshEmptyState(){
+      if(!messages || !empty) return;
+      var count=qsa('[data-msg]',messages).length;
+      empty.classList.toggle('hidden', count!==0);
+      messages.classList.toggle('hidden', count===0);
+    }
+
     function sendMessage(){
       if(!input || !messages) return;
       var text=(input.value||'').trim();
       if(!text) return;
       var bubble=document.createElement('div');
       bubble.className='list-item';
+      bubble.setAttribute('data-msg','1');
       bubble.style.alignItems='flex-start';
       bubble.style.maxWidth='75%';
       bubble.style.marginLeft='auto';
       bubble.style.background='#4F46E5';
       bubble.style.borderColor='#4F46E5';
       bubble.style.color='#fff';
-      bubble.innerHTML='<div class="item-main"><div class="item-title" style="color:#fff">Me <span style="font-size:12px;font-weight:400;opacity:.9">hozir</span></div><div class="item-sub" style="white-space:normal;line-height:1.45;color:#EEF2FF"></div></div>';
-      qs('.item-sub',bubble).textContent=text;
+      bubble.innerHTML='<div class="item-main"><div class="item-title" style="color:#fff">Me <span style="font-size:12px;font-weight:400;opacity:.9">hozir</span></div><div class="item-sub" style="white-space:normal;line-height:1.45;color:#EEF2FF"></div><div class="flex gap-2" style="margin-top:6px"><button class="btn btn-secondary btn-sm" type="button" data-react="👍">👍 0</button></div></div>';
+      qs('.item-sub',bubble).textContent=(replyText?('↪ '+replyText+'\n'):'')+text;
       messages.appendChild(bubble);
       input.value='';
+      replyText='';
+      if(replying){ replying.classList.add('hidden'); replying.textContent=''; }
       messages.scrollTop=messages.scrollHeight;
       if(typing) typing.textContent='';
+      refreshEmptyState();
     }
 
     send&&send.addEventListener('click', sendMessage);
     input&&input.addEventListener('keydown', function(e){
       if(e.key==='Enter' && !e.shiftKey){ e.preventDefault(); sendMessage(); }
     });
+
+    qsa('[data-react]').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var m=(btn.textContent||'').match(/(\D+)\s*(\d+)/);
+        if(!m) return;
+        btn.textContent=m[1].trim()+' '+(Number(m[2])+1);
+      });
+    });
+
+    qsa('[data-msg-reply]').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var msg=btn.closest('[data-msg]');
+        var txt=msg?qs('.item-sub',msg):null;
+        replyText=(txt&&txt.textContent||'').trim().slice(0,80);
+        if(replying){ replying.classList.remove('hidden'); replying.textContent='Javob berilyapti: '+replyText; }
+        input&&input.focus();
+      });
+    });
+
+    var boldBtn=qs('[data-tc-bold]');
+    var italicBtn=qs('[data-tc-italic]');
+    var emojiBtn=qs('[data-tc-emoji]');
+    boldBtn&&boldBtn.addEventListener('click', function(){ if(!input) return; input.value+='**bold** '; input.focus(); });
+    italicBtn&&italicBtn.addEventListener('click', function(){ if(!input) return; input.value+='_italic_ '; input.focus(); });
+    emojiBtn&&emojiBtn.addEventListener('click', function(){ if(!input) return; input.value+='😊 '; input.focus(); });
+
+    attachBtn&&attachBtn.addEventListener('click', function(){ fileInput&&fileInput.click(); });
+    fileInput&&fileInput.addEventListener('change', function(){
+      var f=fileInput.files && fileInput.files[0];
+      if(!f) return;
+      if(input) input.value+='[file: '+f.name+'] ';
+      notify('Fayl biriktirildi: '+f.name);
+    });
+
+    reconnectBtn&&reconnectBtn.addEventListener('click', function(){
+      if(offlineBanner) offlineBanner.classList.add('hidden');
+      notify('Qayta ulandi');
+    });
+
+    setTimeout(function(){ if(offlineBanner) offlineBanner.classList.remove('hidden'); }, 6000);
+    refreshEmptyState();
 
     // New chat modal
     var modal=qs('[data-tc-modal="new-chat"]');
