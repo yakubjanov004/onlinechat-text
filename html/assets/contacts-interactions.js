@@ -1,7 +1,7 @@
 (function(){
   'use strict';
 
-  var KEY='qc_contacts_state_v1';
+  var KEY='qc_contacts_state_v2';
   function qs(s,r){return (r||document).querySelector(s);} 
   function qsa(s,r){return Array.from((r||document).querySelectorAll(s));}
   function page(){ return (location.pathname.split('/').pop()||'').toLowerCase(); }
@@ -41,38 +41,116 @@
     if(page()!=='01-contacts-list.html') return;
 
     var search=qs('input[type="search"]');
-    var rows=qsa('tbody .table-row');
+    var tbody=qs('table tbody');
+    if(!tbody) return;
+    var rows=qsa('.table-row',tbody);
     var filterBtns=qsa('.card .btn.btn-secondary[data-action="log"]');
     var exportBtn=qs('[data-action="export"]');
 
-    function rowText(row){ return (row.textContent||'').toLowerCase(); }
-    function applyFilter(tag){
+    var listState={active:'all', sort:'name', page:1, pageSize:5};
+
+    // Select all
+    var thFirst=qs('table thead th');
+    if(thFirst){
+      thFirst.innerHTML='<input type="checkbox" aria-label="Select all" data-select-all>';
+    }
+    function syncSelectAll(){
+      var all=qsa('input[type="checkbox"]:not([data-select-all])',tbody);
+      var checked=all.filter(function(c){return c.checked;}).length;
+      var sa=qs('[data-select-all]');
+      if(sa){ sa.checked=all.length>0 && checked===all.length; sa.indeterminate=checked>0 && checked<all.length; }
+    }
+    var selectAll=qs('[data-select-all]');
+    if(selectAll){
+      selectAll.addEventListener('change',function(){
+        qsa('input[type="checkbox"]:not([data-select-all])',tbody).forEach(function(c){ c.checked=selectAll.checked; });
+      });
+    }
+    qsa('input[type="checkbox"]:not([data-select-all])',tbody).forEach(function(c){ c.addEventListener('change',syncSelectAll); });
+
+    function rowData(r){
+      var tds=qsa('td',r);
+      return {
+        el:r,
+        name:(tds[1]&&tds[1].textContent||'').trim().toLowerCase(),
+        company:(tds[3]&&tds[3].textContent||'').trim().toLowerCase(),
+        last:(tds[4]&&tds[4].textContent||'').trim().toLowerCase(),
+        text:(r.textContent||'').toLowerCase()
+      };
+    }
+
+    function applyFilterSortPaginate(){
       var q=(search&&search.value||'').trim().toLowerCase();
-      rows.forEach(function(r){
-        var text=rowText(r);
-        var bySearch=!q || text.indexOf(q)>-1;
-        var byTag=tag==='all' || text.indexOf(tag)>-1;
-        r.style.display=(bySearch && byTag)?'':'none';
+      var data=rows.map(rowData).filter(function(d){
+        var bySearch=!q || d.text.indexOf(q)>-1;
+        var byTag=listState.active==='all' || d.text.indexOf(listState.active)>-1;
+        return bySearch && byTag;
+      });
+
+      data.sort(function(a,b){
+        var k=listState.sort;
+        if(k==='company') return a.company.localeCompare(b.company);
+        if(k==='last') return a.last.localeCompare(b.last);
+        return a.name.localeCompare(b.name);
+      });
+
+      rows.forEach(function(r){ r.style.display='none'; });
+      var total=Math.max(1,Math.ceil(data.length/listState.pageSize));
+      if(listState.page>total) listState.page=total;
+      var start=(listState.page-1)*listState.pageSize;
+      data.slice(start,start+listState.pageSize).forEach(function(d){ d.el.style.display=''; });
+
+      var info=qs('[data-page-info]');
+      if(info) info.textContent=listState.page+' / '+total+' sahifa';
+      var prev=qs('[data-page-prev]'), next=qs('[data-page-next]');
+      if(prev) prev.disabled=listState.page<=1;
+      if(next) next.disabled=listState.page>=total;
+      syncSelectAll();
+    }
+
+    // Sort controls
+    var cardBody=qs('.card .card-body');
+    if(cardBody && !qs('[data-sort-controls]')){
+      var sortWrap=document.createElement('div');
+      sortWrap.setAttribute('data-sort-controls','1');
+      sortWrap.className='flex gap-2';
+      sortWrap.style.margin='10px 0';
+      sortWrap.innerHTML='<button class="btn btn-secondary btn-sm" type="button" data-sort="name">Sort: Name</button><button class="btn btn-secondary btn-sm" type="button" data-sort="company">Company</button><button class="btn btn-secondary btn-sm" type="button" data-sort="last">Last contact</button>';
+      cardBody.appendChild(sortWrap);
+      qsa('[data-sort]',sortWrap).forEach(function(btn){
+        btn.addEventListener('click',function(){ listState.sort=btn.getAttribute('data-sort'); listState.page=1; applyFilterSortPaginate(); });
       });
     }
 
-    var active='all';
+    // Pagination controls
+    if(tbody.parentElement && !qs('[data-pagination-wrap]')){
+      var pager=document.createElement('div');
+      pager.setAttribute('data-pagination-wrap','1');
+      pager.className='flex gap-2';
+      pager.style.marginTop='10px';
+      pager.innerHTML='<button class="btn btn-secondary btn-sm" data-page-prev type="button">Oldingi</button><span class="badge" data-page-info>1 / 1 sahifa</span><button class="btn btn-secondary btn-sm" data-page-next type="button">Keyingi</button>';
+      tbody.parentElement.parentElement.appendChild(pager);
+      qs('[data-page-prev]',pager).addEventListener('click',function(){ listState.page--; applyFilterSortPaginate(); });
+      qs('[data-page-next]',pager).addEventListener('click',function(){ listState.page++; applyFilterSortPaginate(); });
+    }
+
     filterBtns.forEach(function(btn){
       var txt=(btn.textContent||'').trim().toLowerCase();
       btn.addEventListener('click',function(){
-        active=txt;
+        listState.active=txt;
+        listState.page=1;
         filterBtns.forEach(function(b){b.classList.remove('btn-primary'); b.classList.add('btn-secondary');});
         btn.classList.remove('btn-secondary'); btn.classList.add('btn-primary');
-        applyFilter(active);
+        applyFilterSortPaginate();
       });
     });
 
-    search && search.addEventListener('input',function(){ applyFilter(active); });
+    search && search.addEventListener('input',function(){ listState.page=1; applyFilterSortPaginate(); });
 
     exportBtn && exportBtn.addEventListener('click',function(e){
       e.preventDefault();
       var selected=qsa('tbody input[type="checkbox"]:checked').length;
-      notify('Bulk export navbatga qo\'shildi ('+(selected||rows.length)+' kontakt)');
+      notify('Bulk export navbatga qo\'shildi ('+(selected||rows.filter(function(r){return r.style.display!=='none';}).length)+' kontakt)');
     });
 
     rows.forEach(function(r){
@@ -82,7 +160,7 @@
       });
     });
 
-    applyFilter(active);
+    applyFilterSortPaginate();
   }
 
   function initContactProfile(){
@@ -91,6 +169,16 @@
     if(!note) return;
     var key='contactNote';
     if(state[key]) note.value=state[key];
+
+    var timeline=qs('.timeline');
+    function addEvent(text){
+      if(!timeline) return;
+      var it=document.createElement('div');
+      it.className='timeline-item';
+      it.innerHTML='<span class="timeline-dot"></span><div class="timeline-card"><strong>'+text+'</strong><span class="timeline-time">Hozir</span></div>';
+      timeline.prepend(it);
+    }
+
     note.addEventListener('input',function(){ state[key]=note.value; save(state); });
 
     var wrap=note.parentElement;
@@ -100,7 +188,11 @@
       btn.setAttribute('data-save-note','1');
       btn.style.marginTop='8px';
       wrap.appendChild(btn);
-      btn.addEventListener('click',function(){ state[key]=note.value; save(state); notify('Kontakt note saqlandi'); });
+      btn.addEventListener('click',function(){
+        state[key]=note.value; save(state);
+        addEvent('Note yangilandi');
+        notify('Kontakt note saqlandi');
+      });
     }
   }
 
@@ -125,6 +217,27 @@
     var ruleInput=modal?qs('textarea.textarea',modal):null;
     var saveBtn=modal?qsa('.modal-footer .btn.btn-primary',modal)[0]:null;
 
+    function attachActions(item){
+      if(qs('[data-seg-edit]',item)) return;
+      var actions=document.createElement('div');
+      actions.className='flex gap-2';
+      actions.innerHTML='<button type="button" class="btn btn-secondary btn-sm" data-seg-edit>Edit</button><button type="button" class="btn btn-secondary btn-sm" data-seg-delete>Delete</button>';
+      item.appendChild(actions);
+
+      qs('[data-seg-edit]',item).addEventListener('click',function(){
+        var t=qs('.item-title',item); var cur=t?t.textContent:'';
+        var n=prompt('Yangi nom:',cur);
+        if(!n) return;
+        if(t) t.textContent=n;
+        notify('Segment yangilandi');
+      });
+      qs('[data-seg-delete]',item).addEventListener('click',function(){
+        if(confirm('Segment o\'chirilsinmi?')){ item.remove(); notify('Segment o\'chirildi'); }
+      });
+    }
+
+    qsa('.list-item',list||document).forEach(attachActions);
+
     saveBtn && saveBtn.addEventListener('click',function(){
       var name=(nameInput&&nameInput.value||'').trim();
       var rule=(ruleInput&&ruleInput.value||'').trim();
@@ -132,10 +245,12 @@
       if(!list) return;
       var item=document.createElement('div');
       item.className='list-item';
+      var count=Math.floor(Math.random()*300)+1;
       item.innerHTML='<div class="item-main"><div class="item-title"></div><div class="item-sub"></div></div><span class="badge badge-info">Dynamic</span>';
       qs('.item-title',item).textContent=name;
-      qs('.item-sub',item).textContent='0 contacts • '+rule.slice(0,48)+(rule.length>48?'...':'');
+      qs('.item-sub',item).textContent=count+' contacts • '+rule.slice(0,48)+(rule.length>48?'...':'');
       list.prepend(item);
+      attachActions(item);
       notify('Yangi segment qo\'shildi: '+name);
     });
   }
@@ -149,6 +264,19 @@
     var downloadBtn=qs('.btn.btn-primary[data-action="export"]');
     var historyBody=qs('table tbody');
     var pickedFile='';
+
+    function ensureProgress(){
+      var cardBody=dropzone?dropzone.parentElement:null;
+      if(!cardBody) return null;
+      var wrap=qs('[data-import-progress]',cardBody);
+      if(wrap) return wrap;
+      wrap=document.createElement('div');
+      wrap.setAttribute('data-import-progress','1');
+      wrap.style.marginTop='10px';
+      wrap.innerHTML='<div class="progress"><div class="progress-bar" style="width:0%"></div></div><small data-progress-text>0%</small>';
+      cardBody.appendChild(wrap);
+      return wrap;
+    }
 
     function setDropLabel(text){
       var label=dropzone?qs('div',dropzone):null;
@@ -171,16 +299,29 @@
 
     importBtn && importBtn.addEventListener('click',function(){
       var fileName=pickedFile||'contacts-import.csv';
-      var now=new Date();
-      var stamp=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0')+' '+String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0');
-      var rows=Math.floor(Math.random()*700)+30;
-      if(historyBody){
-        var tr=document.createElement('tr');
-        tr.className='table-row';
-        tr.innerHTML='<td>'+stamp+'</td><td>'+fileName+'</td><td>'+rows+'</td><td><span class="badge badge-success">Completed</span></td><td>You</td>';
-        historyBody.prepend(tr);
-      }
-      notify('Import bajarildi: '+fileName+' ('+rows+' qator)');
+      var pWrap=ensureProgress();
+      var bar=pWrap?qs('.progress-bar',pWrap):null;
+      var txt=pWrap?qs('[data-progress-text]',pWrap):null;
+      var val=0;
+      var timer=setInterval(function(){
+        val+=20;
+        if(bar) bar.style.width=val+'%';
+        if(txt) txt.textContent=val+'%';
+        if(val>=100){
+          clearInterval(timer);
+          var now=new Date();
+          var stamp=now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0')+' '+String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0');
+          var rows=Math.floor(Math.random()*700)+30;
+          if(historyBody){
+            var tr=document.createElement('tr');
+            tr.className='table-row';
+            var warn=Math.random()<0.25;
+            tr.innerHTML='<td>'+stamp+'</td><td>'+fileName+'</td><td>'+rows+'</td><td><span class="badge '+(warn?'badge-warning':'badge-success')+'">'+(warn?'Warning':'Completed')+'</span></td><td>You</td>';
+            historyBody.prepend(tr);
+          }
+          notify('Import bajarildi: '+fileName+' ('+rows+' qator)');
+        }
+      },160);
     });
 
     downloadBtn && downloadBtn.addEventListener('click',function(e){
