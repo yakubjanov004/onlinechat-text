@@ -38,15 +38,42 @@
 
   function initActive(){
     if(page()!=='02-active-addons.html') return;
+    var removeModal=qs('[data-addon-modal="remove"]');
+    var closeBtns=qsa('[data-addon-close-remove]');
+    var confirmBtn=qs('[data-addon-confirm-remove]');
+    var confirmCheck=qs('[data-addon-confirm-check]');
+    var targetRow=null;
+
     qsa('[data-addon-remove]').forEach(function(btn){
-      btn.addEventListener('click',function(){ var row=btn.closest('[data-active-addon]'); if(row) row.remove(); });
+      btn.addEventListener('click',function(){
+        targetRow=btn.closest('[data-active-addon]');
+        if(removeModal){
+          removeModal.hidden=false;
+          requestAnimationFrame(function(){ removeModal.classList.add('is-open'); });
+          if(confirmCheck) confirmCheck.checked=false;
+          if(confirmBtn) confirmBtn.disabled=true;
+        }
+      });
     });
+
+    closeBtns.forEach(function(b){ b.addEventListener('click',function(){ if(removeModal){ removeModal.classList.remove('is-open'); setTimeout(function(){removeModal.hidden=true;},120);} }); });
+    removeModal&&removeModal.addEventListener('click',function(e){ if(e.target===removeModal){ removeModal.classList.remove('is-open'); setTimeout(function(){removeModal.hidden=true;},120);} });
+    confirmCheck&&confirmCheck.addEventListener('change',function(){ if(confirmBtn) confirmBtn.disabled=!confirmCheck.checked; });
+    confirmBtn&&confirmBtn.addEventListener('click',function(){ if(targetRow) targetRow.remove(); if(removeModal){ removeModal.classList.remove('is-open'); setTimeout(function(){removeModal.hidden=true;},120);} });
   }
 
   function initDetail(){
     if(page()!=='03-addon-detail.html') return;
     var tabs=qsa('[data-addon-detail-tabs] [data-addon-dtab]');
     tabs.forEach(function(t){ t.addEventListener('click',function(){ tabs.forEach(function(x){x.classList.remove('active');}); t.classList.add('active'); var v=t.getAttribute('data-addon-dtab'); qsa('[data-addon-dpanel]').forEach(function(p){ p.hidden=p.getAttribute('data-addon-dpanel')!==v; }); }); });
+
+    qsa('[data-addon-helpful]').forEach(function(btn){
+      btn.addEventListener('click',function(){
+        var m=(btn.textContent||'').match(/\((\d+)\)/);
+        var n=m?Number(m[1])+1:1;
+        btn.textContent='Foydali ('+n+')';
+      });
+    });
 
     var modal=qs('[data-addon-modal="activation"]');
     var open=qs('[data-addon-open-activation]');
@@ -73,5 +100,10 @@
     tabs.forEach(function(t){ t.addEventListener('click',function(){ tabs.forEach(function(x){x.classList.remove('active');}); t.classList.add('active'); var v=t.getAttribute('data-addon-stab'); qsa('[data-addon-spanel]').forEach(function(p){ p.hidden=p.getAttribute('data-addon-spanel')!==v; }); }); });
   }
 
-  document.addEventListener('DOMContentLoaded',function(){ initCatalog(); initActive(); initDetail(); initSettings(); });
+  document.addEventListener('DOMContentLoaded',function(){ initCatalog(); initActive(); initDetail(); initSettings();
+    if(page()==='01-addons-catalog.html'){
+      var promo=qs('[data-addon-open-activation]');
+      promo&&promo.addEventListener('click',function(){ location.href='./03-addon-detail.html'; });
+    }
+  });
 })();
