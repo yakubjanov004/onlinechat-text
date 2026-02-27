@@ -1,284 +1,134 @@
 <!doctype html>
 <html lang="uz">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QULAY CHAT — Omnichannel support platformasi</title>
-<meta name="description" content="QULAY CHAT orqali Telegram, WhatsApp, Instagram, Email va web chatni bitta inboxda boshqaring. Tez onboarding, automation, SLA nazorati va analytics.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/qulay-chat-design-system.css">
-<script src="https://unpkg.com/lucide@latest" defer></script>
-<script src="../assets/qulay-chat-runtime.js" defer></script>
-<style>
-@media (max-width: 980px) {
-  .marketing-header { position: relative; }
-  .marketing-nav { display: none; position: absolute; top: 64px; left: 0; right: 0; background: #fff; border: 1px solid #E5E7EB; border-radius: 12px; padding: 10px; z-index: 20; }
-  .marketing-nav.is-open { display: flex; flex-direction: column; gap: 8px; }
-  .mobile-nav-toggle { display: inline-flex !important; }
-}
-.mobile-nav-toggle { display: none; }
-.pricing-billing-toggle { display: inline-flex; border: 1px solid #E5E7EB; border-radius: 999px; padding: 4px; gap: 4px; background: #fff; }
-.pricing-billing-toggle button { border: 0; border-radius: 999px; padding: 8px 14px; background: transparent; cursor: pointer; font-weight: 600; }
-.pricing-billing-toggle button.active { background: #4F46E5; color: #fff; }
-.hero-shot{border:1px solid #E5E7EB;border-radius:14px;overflow:hidden;box-shadow:0 14px 30px rgba(15,23,42,.12);background:#fff}
-.hero-shot img{display:block;width:100%;height:100%;object-fit:cover}
-.product-gallery{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:12px}
-.product-gallery .gallery-item{border:1px solid #E5E7EB;border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 8px 20px rgba(15,23,42,.08)}
-.product-gallery .gallery-item img{display:block;width:100%;height:220px;object-fit:cover}
-@media (max-width:980px){.product-gallery{grid-template-columns:1fr}.product-gallery .gallery-item img{height:200px}}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QULAY CHAT — Omnichannel Live Chat Platform</title>
+  <meta name="description" content="QULAY CHAT bilan live chat, CRM, automation va analyticsni bitta platformada boshqaring." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
+  <script src="https://unpkg.com/lucide@latest" defer></script>
+  <style>
+    .lp-wrap{max-width:1200px;margin:0 auto;padding:20px 16px 36px}
+    .lp-header{position:sticky;top:10px;z-index:30;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border:1px solid #e5e7eb;border-radius:14px;padding:10px 12px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+    .lp-nav{display:flex;gap:14px;flex-wrap:wrap}
+    .lp-nav a{color:#374151;font-weight:600;font-size:14px}
+
+    .lp-hero{margin-top:14px;background:radial-gradient(1100px 420px at 20% -60px,#e7e9ff 0,#f8f9ff 45%,#fff 100%);border:1px solid #e5e7eb;border-radius:20px;padding:26px;display:grid;grid-template-columns:1.1fr 1fr;gap:18px;box-shadow:0 20px 38px rgba(15,23,42,.08)}
+    .lp-hero h1{font-size:44px;line-height:1.05;letter-spacing:-.03em;margin:10px 0}
+    .lp-hero p{color:#4b5563;font-size:16px;line-height:1.65;max-width:58ch}
+    .lp-hero-shot{border:1px solid #e5e7eb;border-radius:14px;overflow:hidden;min-height:420px;box-shadow:0 16px 28px rgba(15,23,42,.12)}
+    .lp-hero-shot img{width:100%;height:100%;object-fit:cover;display:block}
+
+    .lp-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:14px}
+    .lp-kpi{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:10px 12px}
+    .lp-kpi strong{font-size:24px;display:block}
+    .lp-kpi span{font-size:12px;color:#6b7280}
+
+    .lp-logo-strip{margin-top:14px;border:1px solid #e5e7eb;border-radius:12px;padding:12px;background:#fff;display:flex;gap:10px;flex-wrap:wrap}
+    .lp-logo-pill{background:#f8fafc;border:1px solid #e5e7eb;border-radius:999px;padding:8px 12px;font-size:12px;font-weight:700;color:#475569}
+
+    .lp-sect{margin-top:14px;background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:16px}
+    .lp-grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    .lp-card{border:1px solid #e5e7eb;border-radius:12px;padding:14px;background:#fff}
+    .lp-card h3{margin:8px 0 6px}
+    .lp-pricing{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    .lp-price{font-size:34px;font-weight:800;letter-spacing:-.02em}
+
+    @media (max-width:980px){
+      .lp-hero{grid-template-columns:1fr}
+      .lp-hero h1{font-size:34px}
+      .lp-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .lp-grid-3,.lp-pricing{grid-template-columns:1fr}
+      .lp-nav{display:none}
+    }
+  </style>
 </head>
 <body class="marketing-page">
-<div class="marketing-shell">
-<header class="marketing-header">
-<a class="shell-brand" href="../index.html"><span class="shell-brand-mark">QC</span><span>QULAY CHAT</span></a>
-<button type="button" class="btn btn-secondary mobile-nav-toggle" id="mobileNavToggle" aria-label="Menyu">Menyu</button>
-<nav class="marketing-nav" id="marketingNav">
-<a href="#imkoniyatlar">Imkoniyatlar</a>
-<a href="#natijalar">Natijalar</a>
-<a href="#qanday-ishlaydi">Qanday ishlaydi</a>
-<a href="#integrations">Integratsiyalar</a>
-<a href="#tariflar">Tariflar</a>
-<a href="#faq">FAQ</a>
-</nav>
-<div class="flex gap-2">
-<a class="btn btn-ghost" href="../02-auth/01-login.html">Kirish</a>
-<a class="btn btn-primary" href="../02-auth/02-register.html">Bepul boshlash</a>
-</div>
-</header>
+  <main class="lp-wrap">
+    <header class="lp-header">
+      <a class="shell-brand" href="../index.html"><span class="shell-brand-mark">QC</span><span>QULAY CHAT</span></a>
+      <nav class="lp-nav">
+        <a href="#features">Imkoniyatlar</a>
+        <a href="#usecases">Use-cases</a>
+        <a href="#integrations">Integratsiya</a>
+        <a href="#pricing">Tariflar</a>
+      </nav>
+      <div class="flex gap-2">
+        <a class="btn btn-ghost" href="../02-auth/01-login.html">Kirish</a>
+        <a class="btn btn-primary" href="../02-auth/02-register.html">Bepul boshlash</a>
+      </div>
+    </header>
 
-<main class="marketing-main">
-<section class="hero-grid">
-<div class="hero-panel">
-<span class="badge badge-primary">Omnichannel support platformasi</span>
-<h1 style="margin-top:12px">Mijoz xabarlarini bitta inboxda yig‘ing, javob vaqtini qisqartiring</h1>
-<p class="lead">QULAY CHAT web widget, Telegram, WhatsApp, Instagram va Email xabarlarini yagona dashboardda birlashtiradi. Jamoa SLA buzilishlarini kamaytiradi, automation bilan yuklamani pasaytiradi va analytics orqali qarorlarni tezlashtiradi.</p>
-<div class="hero-cta">
-<a class="btn btn-primary" href="../02-auth/02-register.html">14 kun bepul sinash</a>
-<a class="btn btn-secondary" href="../04-dashboard/01-dashboard.html">Demo ko‘rish</a>
-</div>
-<div class="hero-proof">
-<span><span class="badge badge-success">14 kunlik trial</span></span>
-<span><span class="badge badge-info">Karta talab qilinmaydi</span></span>
-<span><span class="badge badge-primary">UZ + EN support</span></span>
-</div>
+    <section class="lp-hero">
+      <div>
+        <span class="badge badge-primary">LiveChat / Jivo / Crisp uslubida, lekin local workflow bilan</span>
+        <h1>Yagona inbox bilan support’ni darhol production darajaga olib chiqing</h1>
+        <p>QULAY CHAT web chat, Telegram, Instagram, WhatsApp va emailni bitta oqimda boshqaradi. Agentlar tezroq javob beradi, SLA nazorati kuchayadi, analytics esa bottlenecklarni ko‘rsatadi.</p>
+        <div class="flex gap-2 wrap" style="margin-top:12px">
+          <a class="btn btn-primary" href="../02-auth/02-register.html">14 kun bepul sinash</a>
+          <a class="btn btn-secondary" href="../04-dashboard/01-dashboard.html">Live demo</a>
+        </div>
+        <div class="lp-kpis">
+          <div class="lp-kpi"><strong>-38%</strong><span>First response time</span></div>
+          <div class="lp-kpi"><strong>92%+</strong><span>SLA bajarilishi</span></div>
+          <div class="lp-kpi"><strong>10 min</strong><span>Onboarding to live</span></div>
+          <div class="lp-kpi"><strong>5+</strong><span>Omnichannel integratsiya</span></div>
+        </div>
+      </div>
+      <div class="lp-hero-shot">
+        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=1400&auto=format&fit=crop" alt="QULAY CHAT dashboard preview" />
+      </div>
+    </section>
 
-<div class="metrics-grid" style="margin-top:16px">
-<div class="metric-card"><div class="metric-label">First response</div><div class="metric-value">-38%</div><div class="metric-trend">o‘rtacha qisqarish</div></div>
-<div class="metric-card"><div class="metric-label">SLA bajarilishi</div><div class="metric-value">92%+</div><div class="metric-trend">jamoalar bo‘yicha median</div></div>
-<div class="metric-card"><div class="metric-label">Onboarding</div><div class="metric-value">10 min</div><div class="metric-trend">widget live holatga</div></div>
-<div class="metric-card"><div class="metric-label">Kanallar</div><div class="metric-value">5+</div><div class="metric-trend">bitta inboxda</div></div>
-</div>
-</div>
+    <section class="lp-logo-strip" aria-label="Trusted teams">
+      <span class="lp-logo-pill">NEXA MARKET</span>
+      <span class="lp-logo-pill">EDUPRO</span>
+      <span class="lp-logo-pill">BANKX</span>
+      <span class="lp-logo-pill">LOGIHUB</span>
+      <span class="lp-logo-pill">MEGASHOP</span>
+      <span class="lp-logo-pill">UZCRM</span>
+    </section>
 
-<div class="hero-visual hero-visual-elevated">
-  <div class="hero-shot" style="height:100%">
-    <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?q=80&w=1400&auto=format&fit=crop" alt="QULAY CHAT dashboard preview">
-  </div>
-</div>
-</section>
+    <section id="features" class="lp-sect">
+      <h2 style="margin:0 0 10px">Asosiy imkoniyatlar</h2>
+      <div class="lp-grid-3">
+        <article class="lp-card"><i data-lucide="inbox"></i><h3>Unified Inbox</h3><p class="text-muted">Barcha kanallar bitta navbatda: operatorlar kontekstni yo‘qotmaydi.</p></article>
+        <article class="lp-card"><i data-lucide="workflow"></i><h3>Automation</h3><p class="text-muted">Routing, greeting, auto-reply va triggerlar bilan qo‘lda ishni kamaytiring.</p></article>
+        <article class="lp-card"><i data-lucide="bar-chart-3"></i><h3>Analytics</h3><p class="text-muted">SLA, response, CSAT va team load bo‘yicha amaliy hisobotlar.</p></article>
+      </div>
+    </section>
 
-<section class="trust-bar" id="natijalar">
-<div>
-<div class="text-muted" style="font-size:13px">Ishonchli support operatsiyalari uchun tanlangan platforma</div>
-<strong style="font-size:18px">1,000+ kompaniya QULAY CHAT orqali mijoz suhbatlarini boshqaradi</strong>
-</div>
-<div class="logo-strip">
-<div class="logo-pill">ACME</div>
-<div class="logo-pill">NEXA</div>
-<div class="logo-pill">MARKET</div>
-<div class="logo-pill">EDU PRO</div>
-<div class="logo-pill">LOGI HUB</div>
-<div class="logo-pill">BANKX</div>
-</div>
-</section>
+    <section id="usecases" class="lp-sect">
+      <h2 style="margin:0 0 10px">Nima uchun aynan shu yechim?</h2>
+      <div class="lp-grid-3">
+        <article class="lp-card"><h3>E-commerce support</h3><p class="text-muted">Order, payment va delivery savollarini tez yopish.</p></article>
+        <article class="lp-card"><h3>SaaS onboarding</h3><p class="text-muted">Trial userlarni real customerga aylantirishda live handoff.</p></article>
+        <article class="lp-card"><h3>B2B account support</h3><p class="text-muted">VIP mijozlar uchun prioritet navbat va SLA monitoring.</p></article>
+      </div>
+    </section>
 
-<section class="card">
-<div class="card-header"><div><h3>Mahsulot ko‘rinishlari</h3><p class="card-description">Real interfeysdan olingan asosiy ekranlar</p></div></div>
-<div class="card-body">
-  <div class="product-gallery">
-    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1551281044-8d8d7d8f3d9b?q=80&w=1400&auto=format&fit=crop" alt="Inbox va dashboard preview"></div>
-    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1200&auto=format&fit=crop" alt="Analytics preview"></div>
-    <div class="gallery-item"><img src="https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=1200&auto=format&fit=crop" alt="Team collaboration preview"></div>
-  </div>
-</div>
-</section>
+    <section id="integrations" class="lp-sect">
+      <h2 style="margin:0 0 10px">Integratsiyalar</h2>
+      <div class="lp-grid-3">
+        <div class="lp-card"><strong>Telegram</strong><p class="text-muted">Bot token orqali tez ulash</p></div>
+        <div class="lp-card"><strong>WhatsApp</strong><p class="text-muted">Business API bilan</p></div>
+        <div class="lp-card"><strong>Instagram</strong><p class="text-muted">DM va komment support</p></div>
+      </div>
+    </section>
 
-<section class="card">
-<div class="card-header"><div><h3>Nima uchun jamoalar QULAY CHAT’ni tanlaydi?</h3><p class="card-description">Yagona ish oynasi, tezkor boshqaruv va o‘lchab bo‘ladigan natija</p></div></div>
-<div class="card-body">
-<div class="three-col marketing-step-grid">
-<div class="feature-card"><div class="feature-icon"><i data-lucide="clock-3"></i></div><h3>Tez javob</h3><p class="text-muted" style="font-size:13px">SLA taymerlari va navbat prioriteti sabab birinchi javob vaqti sezilarli qisqaradi.</p></div>
-<div class="feature-card"><div class="feature-icon"><i data-lucide="workflow"></i></div><h3>Kamroq qo‘lda ish</h3><p class="text-muted" style="font-size:13px">Auto-reply, trigger va routing orqali takroriy savollar avtomatik boshqariladi.</p></div>
-<div class="feature-card"><div class="feature-icon"><i data-lucide="line-chart"></i></div><h3>Aniq nazorat</h3><p class="text-muted" style="font-size:13px">Agent, kanal va vaqt kesimidagi hisobotlar bilan bottlenecklar tez topiladi.</p></div>
-</div>
-</div>
-</section>
+    <section id="pricing" class="lp-sect">
+      <h2 style="margin:0 0 10px">Tariflar</h2>
+      <div class="lp-pricing">
+        <article class="lp-card"><h3>Starter</h3><div class="lp-price">$0</div><p class="text-muted">1 agent, basic chat</p><a class="btn btn-secondary" href="../02-auth/02-register.html">Boshlash</a></article>
+        <article class="lp-card" style="border-color:#c7d2fe;box-shadow:0 10px 24px rgba(79,70,229,.12)"><span class="badge badge-primary">Eng mashhur</span><h3>Pro</h3><div class="lp-price">$29</div><p class="text-muted">Automation + analytics</p><a class="btn btn-primary" href="../02-auth/02-register.html">Boshlash</a></article>
+        <article class="lp-card"><h3>Enterprise</h3><div class="lp-price">Custom</div><p class="text-muted">SSO, security, CSM</p><a class="btn btn-secondary" href="../02-auth/02-register.html">Sales bilan bog'lanish</a></article>
+      </div>
+    </section>
+  </main>
 
-<section id="qanday-ishlaydi" class="card">
-<div class="card-header"><div><h3>Qanday ishlaydi</h3><p class="card-description">3 qadamda support workflow’ni ishga tushiring</p></div></div>
-<div class="card-body">
-<div class="three-col marketing-step-grid">
-<div class="feature-card"><div class="feature-icon"><i data-lucide="plug-zap"></i></div><div class="badge badge-primary">1-qadam</div><h3>Widgetni ulang</h3><p class="text-muted" style="font-size:13px">Snippetni saytga qo‘shing yoki CMS/framework integratsiyasidan foydalaning.</p></div>
-<div class="feature-card"><div class="feature-icon"><i data-lucide="messages-square"></i></div><div class="badge badge-primary">2-qadam</div><h3>Inboxni ishga tushiring</h3><p class="text-muted" style="font-size:13px">Operatorlar barcha kanallarni bitta navbatda ko‘radi va assign qiladi.</p></div>
-<div class="feature-card"><div class="feature-icon"><i data-lucide="chart-column"></i></div><div class="badge badge-primary">3-qadam</div><h3>Natijani o‘lchang</h3><p class="text-muted" style="font-size:13px">SLA, response time, CSAT va agent samaradorligini dashboarddan kuzating.</p></div>
-</div>
-</div>
-</section>
-
-<section id="imkoniyatlar" class="feature-grid">
-<article class="feature-card feature-card-rich"><div class="feature-icon"><i data-lucide="inbox"></i></div><h3>Bitta Inbox</h3><p class="text-muted" style="font-size:13px">Web, Telegram, Instagram va Email’dan kelgan barcha xabarlarni bitta navbatda boshqaring.</p><p class="text-muted" style="font-size:12px">Unified routing, assignment va smart filters.</p></article>
-<article class="feature-card feature-card-rich"><div class="feature-icon"><i data-lucide="zap"></i></div><h3>Automation</h3><p class="text-muted" style="font-size:13px">Working hours, auto-reply, trigger va greeting flowlarini no-code sozlang.</p><p class="text-muted" style="font-size:12px">Lead capture, routing va follow-up ssenariylari.</p></article>
-<article class="feature-card feature-card-rich"><div class="feature-icon"><i data-lucide="bar-chart-3"></i></div><h3>Analytics</h3><p class="text-muted" style="font-size:13px">Javob vaqti, CSAT, SLA breach va jamoa bandligini real vaqt kuzating.</p><p class="text-muted" style="font-size:12px">Eksport va custom reportlar bilan.</p></article>
-<article class="feature-card feature-card-rich"><div class="feature-icon"><i data-lucide="book-open"></i></div><h3>Knowledge Base</h3><p class="text-muted" style="font-size:13px">Yordam markazi maqolalari va qidiruv analytics bilan self-service’ni kuchaytiring.</p><p class="text-muted" style="font-size:12px">Support yuklamasini kamaytiradi.</p></article>
-</section>
-
-<section id="integrations" class="card">
-<div class="card-header"><div><h3>Integratsiyalar</h3><p class="card-description">Mijozlaringiz ishlatadigan kanallar bilan tez ulaning</p></div></div>
-<div class="card-body">
-<div class="four-col integration-pill-grid">
-<div class="list-item"><div class="item-main"><div class="item-title"><i data-lucide="send"></i> Telegram</div><div class="item-sub">2 daqiqada ulash</div></div><span class="badge badge-success">Ready</span></div>
-<div class="list-item"><div class="item-main"><div class="item-title"><i data-lucide="instagram"></i> Instagram</div><div class="item-sub">2 daqiqada ulash</div></div><span class="badge badge-success">Ready</span></div>
-<div class="list-item"><div class="item-main"><div class="item-title"><i data-lucide="message-circle"></i> WhatsApp</div><div class="item-sub">2 daqiqada ulash</div></div><span class="badge badge-success">Ready</span></div>
-<div class="list-item"><div class="item-main"><div class="item-title"><i data-lucide="mail"></i> Email</div><div class="item-sub">2 daqiqada ulash</div></div><span class="badge badge-success">Ready</span></div>
-<div class="list-item"><div class="item-main"><div class="item-title"><i data-lucide="facebook"></i> Facebook</div><div class="item-sub">2 daqiqada ulash</div></div><span class="badge badge-success">Ready</span></div>
-<div class="list-item"><div class="item-main"><div class="item-title"><i data-lucide="slack"></i> Slack</div><div class="item-sub">2 daqiqada ulash</div></div><span class="badge badge-success">Ready</span></div>
-<div class="list-item"><div class="item-main"><div class="item-title"><i data-lucide="workflow"></i> Zapier</div><div class="item-sub">2 daqiqada ulash</div></div><span class="badge badge-success">Ready</span></div>
-<div class="list-item"><div class="item-main"><div class="item-title"><i data-lucide="plug"></i> Webhook</div><div class="item-sub">2 daqiqada ulash</div></div><span class="badge badge-success">Ready</span></div>
-</div>
-</div>
-</section>
-
-<section class="card">
-<div class="card-header"><div><h3>Mijozlar fikri</h3><p class="card-description">Jamoalar QULAY CHAT bilan qanday natija olmoqda</p></div></div>
-<div class="card-body">
-<div class="three-col testimonial-grid">
-<article class="feature-card"><div class="flex gap-3 items-center"><span class="avatar avatar-lg">MY</span><div><strong>Madina Yoqubova</strong><div class="text-muted" style="font-size:12px">Nexa Market</div></div></div><p class="text-muted" style="font-size:13px">“QULAY CHAT bilan first response time 38% ga tushdi. Operatorlar endi Telegram va web chatni alohida tekshirmaydi.”</p></article>
-<article class="feature-card"><div class="flex gap-3 items-center"><span class="avatar avatar-lg">BK</span><div><strong>Bekzod Karimov</strong><div class="text-muted" style="font-size:12px">EduPro</div></div></div><p class="text-muted" style="font-size:13px">“Onboarding juda tez: widgetni 10 daqiqada ishga tushirdik va ertasi kuni analytics hisobot tayyor bo‘ldi.”</p></article>
-<article class="feature-card"><div class="flex gap-3 items-center"><span class="avatar avatar-lg">ST</span><div><strong>Sarvinoz T.</strong><div class="text-muted" style="font-size:12px">LogiHub</div></div></div><p class="text-muted" style="font-size:13px">“Automation triggerlar yordamida VIP leadlar to‘g‘ridan-to‘g‘ri senior agentlarga tushmoqda.”</p></article>
-</div>
-</div>
-</section>
-
-<section class="card" style="margin-bottom:12px">
-<div class="card-body" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
-<div>
-<h3 style="margin:0">Tariflar</h3>
-<p class="text-muted" style="margin:6px 0 0;font-size:13px">Oyma-oy yoki yillik (20% chegirma) narxni tanlang</p>
-</div>
-<div class="pricing-billing-toggle" role="tablist" aria-label="Billing toggle">
-<button type="button" class="active" data-billing="monthly">Oylik</button>
-<button type="button" data-billing="yearly">Yillik (-20%)</button>
-</div>
-</div>
-</section>
-
-<section id="tariflar" class="pricing-grid">
-<article class="pricing-card">
-<div>
-<h3 style="margin-top:0">Starter</h3>
-<div class="text-muted" style="font-size:13px">Kichik jamoalar uchun</div>
-</div>
-<div class="pricing-price" data-monthly="$0" data-yearly="$0">$0</div>
-<div class="text-muted" style="font-size:12px" data-billing-note>/ oy</div>
-<ul class="pricing-list"><li><i data-lucide="check"></i><span>1 agent</span></li><li><i data-lucide="check"></i><span>Web widget</span></li><li><i data-lucide="check"></i><span>Basic inbox</span></li><li><i data-lucide="check"></i><span>7 kun analytics</span></li></ul>
-<a class="btn btn-secondary" href="../02-auth/02-register.html">Boshlash</a>
-</article>
-
-<article class="pricing-card featured pricing-card-featured-strong">
-<div><span class="badge badge-primary" style="font-size:12px;padding:2px 10px">Eng mashhur</span><h3 style="margin-top:8px">Pro</h3><div class="text-muted" style="font-size:13px">Har agent workspace uchun</div></div>
-<div class="pricing-price" data-monthly="$29" data-yearly="$23">$29</div>
-<div class="text-muted" style="font-size:12px" data-billing-note>/ oy</div>
-<ul class="pricing-list"><li><i data-lucide="check"></i><span>10 agent</span></li><li><i data-lucide="check"></i><span>Automation</span></li><li><i data-lucide="check"></i><span>Advanced analytics</span></li><li><i data-lucide="check"></i><span>Team chat</span></li><li><i data-lucide="check"></i><span>Export</span></li></ul>
-<a class="btn btn-primary" href="../02-auth/02-register.html">Boshlash</a>
-</article>
-
-<article class="pricing-card">
-<div><h3 style="margin-top:0">Enterprise</h3><div class="text-muted" style="font-size:13px">Korporativ jamoalar</div></div>
-<div class="pricing-price" data-monthly="Custom" data-yearly="Custom">Custom</div>
-<div class="text-muted" style="font-size:12px" data-billing-note>yillik shartnoma</div>
-<ul class="pricing-list"><li><i data-lucide="check"></i><span>SSO</span></li><li><i data-lucide="check"></i><span>Advanced security</span></li><li><i data-lucide="check"></i><span>Priority SLA</span></li><li><i data-lucide="check"></i><span>Custom onboarding</span></li><li><i data-lucide="check"></i><span>Dedicated CSM</span></li></ul>
-<a class="btn btn-secondary" href="../02-auth/02-register.html">Sales bilan bog‘lanish</a>
-</article>
-</section>
-
-<section id="faq" class="card">
-<div class="card-header"><div><h3>Ko‘p so‘raladigan savollar</h3></div></div>
-<div class="card-body">
-<div class="three-col">
-<div class="feature-card"><h3 style="margin-top:0">Necha daqiqada ishga tushadi?</h3><p class="text-muted" style="font-size:13px">Odatda 10–20 daqiqada: ro‘yxatdan o‘tasiz, widgetni qo‘yasiz va birinchi kanalni ulaysiz.</p></div>
-<div class="feature-card"><h3 style="margin-top:0">Sinov davri bormi?</h3><p class="text-muted" style="font-size:13px">Ha, 14 kunlik trial bor. Karta ma’lumoti talab qilinmaydi.</p></div>
-<div class="feature-card"><h3 style="margin-top:0">Jamoani keyinroq kengaytira olamizmi?</h3><p class="text-muted" style="font-size:13px">Albatta. Tarifni istalgan payt yangilab, agentlar sonini oshirishingiz mumkin.</p></div>
-</div>
-</div>
-</section>
-
-<section class="cta-banner cta-banner-xl">
-<div>
-<h2 style="color:#fff">Bugunoq support workspace’ingizni ishga tushiring</h2>
-<p style="opacity:.92;margin-top:6px;max-width:54ch">Ro‘yxatdan o‘ting, onboarding’ni yakunlang va 10 daqiqa ichida live widget orqali mijozlardan xabar qabul qilishni boshlang.</p>
-</div>
-<div class="flex gap-2 wrap">
-<a class="btn btn-secondary" href="../02-auth/02-register.html">Ro‘yxatdan o‘tish</a>
-<a class="btn btn-ghost" href="../04-dashboard/01-dashboard.html">Demo ko‘rish</a>
-</div>
-</section>
-</main>
-
-<footer class="marketing-footer marketing-footer-grid">
-<div>
-<div class="shell-brand"><span class="shell-brand-mark">QC</span><span>QULAY CHAT</span></div>
-<p class="text-muted" style="font-size:13px;margin-top:8px">Omnichannel support va inbox platformasi.</p>
-</div>
-<div class="footer-col"><strong>Mahsulot</strong><div class="list-stack"><a href="#imkoniyatlar">Imkoniyatlar</a><a href="#integrations">Integratsiyalar</a><a href="#tariflar">Tariflar</a><a href="../04-dashboard/01-dashboard.html">Demo</a></div></div>
-<div class="footer-col"><strong>Kompaniya</strong><div class="list-stack"><a href="../index.html">Docs</a><a href="../index.html#support">Support</a><a href="../02-auth/01-login.html">Kirish</a><a href="../02-auth/02-register.html">Ro‘yxatdan o‘tish</a></div></div>
-<div class="footer-col"><strong>Ijtimoiy</strong><div class="list-stack"><a href="../index.html">Telegram</a><a href="../index.html">LinkedIn</a><a href="../index.html">YouTube</a><a href="../index.html">Status</a></div></div>
-<div class="text-muted" style="font-size:12px;align-self:end">&copy; 2026 QULAY CHAT. Barcha huquqlar himoyalangan.</div>
-</footer>
-</div>
-<script>
-window.addEventListener("DOMContentLoaded", function(){
-  if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); }
-
-  var navToggle = document.getElementById("mobileNavToggle");
-  var nav = document.getElementById("marketingNav");
-  if (navToggle && nav) {
-    navToggle.addEventListener("click", function () {
-      nav.classList.toggle("is-open");
-    });
-    nav.querySelectorAll("a").forEach(function (a) {
-      a.addEventListener("click", function () { nav.classList.remove("is-open"); });
-    });
-  }
-
-  var billingButtons = document.querySelectorAll("[data-billing]");
-  var prices = document.querySelectorAll(".pricing-price[data-monthly][data-yearly]");
-  var notes = document.querySelectorAll("[data-billing-note]");
-
-  function setBilling(mode) {
-    billingButtons.forEach(function (btn) {
-      btn.classList.toggle("active", btn.getAttribute("data-billing") === mode);
-    });
-    prices.forEach(function (p) {
-      p.textContent = p.getAttribute(mode === "yearly" ? "data-yearly" : "data-monthly") || p.textContent;
-    });
-    notes.forEach(function (n) {
-      n.textContent = (mode === "yearly") ? "/ oy (yillik to‘lovda)" : "/ oy";
-      if (n.closest(".pricing-card") && n.closest(".pricing-card").textContent.indexOf("Enterprise") > -1) {
-        n.textContent = "yillik shartnoma";
-      }
-    });
-  }
-
-  billingButtons.forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      setBilling(btn.getAttribute("data-billing"));
-    });
-  });
-  setBilling("monthly");
-});
-</script>
+  <script>window.addEventListener('DOMContentLoaded',()=>window.lucide&&window.lucide.createIcons&&window.lucide.createIcons());</script>
 </body>
 </html>
