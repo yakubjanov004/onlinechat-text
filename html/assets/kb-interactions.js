@@ -162,7 +162,56 @@
     });
   }
 
+  function initPublic(){
+    var p=page();
+
+    if(p==='06-public-home.html'){
+      var input=qs('[data-kb-public-search]');
+      var box=qs('[data-kb-suggest]');
+      var items=['Widget o\'rnatish','Telegram integratsiya','Inbox SLA sozlash','Billing invoice'];
+      input&&input.addEventListener('input',function(){
+        var q=(input.value||'').trim().toLowerCase();
+        if(!box) return;
+        if(!q){ box.classList.add('hidden'); box.innerHTML=''; return; }
+        var found=items.filter(function(x){return x.toLowerCase().indexOf(q)>-1;}).slice(0,5);
+        box.innerHTML=found.map(function(x){return '<a class="dropdown-item" href="./07-public-search.html">'+x+'</a>';}).join('') || '<div class="dropdown-item">No suggestion</div>';
+        box.classList.remove('hidden');
+      });
+      document.addEventListener('click',function(e){ if(box && !e.target.closest('[data-kb-public-search]')) box.classList.add('hidden'); });
+    }
+
+    if(p==='07-public-search.html'){
+      var s=qs('[data-kb-result-search]');
+      var list=qs('[data-kb-results]');
+      var count=qs('[data-kb-result-count]');
+      var empty=qs('[data-kb-no-results]');
+      if(s&&list){
+        var rows=qsa('.list-item',list);
+        var apply=function(){
+          var q=(s.value||'').trim().toLowerCase();
+          var shown=0;
+          rows.forEach(function(r){ var ok=!q || (r.textContent||'').toLowerCase().indexOf(q)>-1; r.classList.toggle('hidden',!ok); if(ok) shown++; });
+          if(count) count.textContent=shown+' maqola topildi';
+          if(empty) empty.classList.toggle('hidden', shown!==0);
+          list.classList.toggle('hidden', shown===0);
+        };
+        s.addEventListener('input',apply); apply();
+      }
+    }
+
+    if(p==='09-public-article.html'){
+      var yes=qs('[data-kb-vote="yes"]');
+      var no=qs('[data-kb-vote="no"]');
+      var thanks=qs('[data-kb-vote-thanks]');
+      var feedback=qs('[data-kb-vote-feedback]');
+      var send=qs('[data-kb-feedback-send]');
+      yes&&yes.addEventListener('click',function(){ if(thanks) thanks.classList.remove('hidden'); if(feedback) feedback.classList.add('hidden'); });
+      no&&no.addEventListener('click',function(){ if(feedback) feedback.classList.remove('hidden'); if(thanks) thanks.classList.add('hidden'); });
+      send&&send.addEventListener('click',function(){ if(thanks) thanks.classList.remove('hidden'); if(feedback) feedback.classList.add('hidden'); });
+    }
+  }
+
   document.addEventListener('DOMContentLoaded',function(){
-    initDashboard(); initEditor(); initCategories(); initSettings();
+    initDashboard(); initEditor(); initCategories(); initSettings(); initPublic();
   });
 })();
