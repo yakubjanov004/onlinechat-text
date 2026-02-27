@@ -29,6 +29,11 @@
       if(sort&&sort.value==='views') sorted.sort(function(a,b){ return Number(b.getAttribute('data-views'))-Number(a.getAttribute('data-views')); });
       if(sort&&sort.value==='recent') sorted.sort(function(a,b){ return b.rowIndex-a.rowIndex; });
       sorted.forEach(function(r){ tbody.appendChild(r); });
+
+      var empty=qs('[data-kb-empty]');
+      var tableWrap=qs('.table-wrap');
+      if(empty) empty.classList.toggle('hidden', sorted.length!==0);
+      if(tableWrap) tableWrap.classList.toggle('hidden', sorted.length===0);
     }
 
     search&&search.addEventListener('input',apply);
@@ -46,6 +51,11 @@
     var modal=qs('[data-kb-modal="preview"]');
     var open=qs('[data-kb-preview]');
     var close=qs('[data-kb-close-preview]');
+    var pubModal=qs('[data-kb-modal="publish"]');
+    var closePub=qsa('[data-kb-close-publish]');
+    var confirmPub=qs('[data-kb-confirm-publish]');
+    var meta=qs('[data-kb-meta]');
+    var metaCount=qs('[data-kb-meta-count]');
 
     function slugify(v){ return (v||'').toLowerCase().replace(/[^a-z0-9\s-]/g,'').trim().replace(/\s+/g,'-'); }
     title&&title.addEventListener('input',function(){ if(slug) slug.value=slugify(title.value); });
@@ -58,6 +68,9 @@
     }
     title&&title.addEventListener('input',autosave);
     editor&&editor.addEventListener('input',autosave);
+    function updateMetaCount(){ if(meta&&metaCount){ metaCount.textContent=(meta.value||'').length+'/160'; } }
+    meta&&meta.addEventListener('input',function(){ autosave(); updateMetaCount(); });
+    updateMetaCount();
 
     qsa('[data-kb-tool]').forEach(function(btn){
       btn.addEventListener('click',function(){
@@ -82,6 +95,17 @@
     });
     close&&close.addEventListener('click',function(){ modal.classList.remove('is-open'); setTimeout(function(){modal.hidden=true;},120); });
     modal&&modal.addEventListener('click',function(e){ if(e.target===modal){ modal.classList.remove('is-open'); setTimeout(function(){modal.hidden=true;},120);} });
+
+    qsa('.btn.btn-primary').forEach(function(btn){
+      if((btn.textContent||'').toLowerCase().indexOf('nashr')>-1){
+        btn.addEventListener('click',function(){ if(pubModal){ pubModal.hidden=false; requestAnimationFrame(function(){pubModal.classList.add('is-open');}); } });
+      }
+    });
+    closePub.forEach(function(b){ b.addEventListener('click',function(){ if(pubModal){ pubModal.classList.remove('is-open'); setTimeout(function(){pubModal.hidden=true;},120); } }); });
+    confirmPub&&confirmPub.addEventListener('click',function(){
+      if(pubModal){ pubModal.classList.remove('is-open'); setTimeout(function(){pubModal.hidden=true;},120); }
+      if(auto) auto.textContent='Maqola nashr qilindi ✅';
+    });
   }
 
   function initCategories(){
