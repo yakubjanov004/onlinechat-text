@@ -1,7 +1,7 @@
 (function(){
   'use strict';
 
-  var KEY='qc_widget_state_v2';
+  var KEY='qc_widget_state_v3';
   function qs(s,r){return (r||document).querySelector(s);} 
   function qsa(s,r){return Array.from((r||document).querySelectorAll(s));}
   function page(){ return (location.pathname.split('/').pop()||'').toLowerCase(); }
@@ -67,6 +67,43 @@
     }
   }
 
+  function bindWindowControls(win, launcher){
+    if(!win) return;
+    var headButtons=qsa('.widget-window-header .icon-btn',win);
+    headButtons.forEach(function(iconBtn,idx){
+      iconBtn.addEventListener('click',function(){
+        // Minus button -> minimize, X button -> close
+        var isClose = idx===headButtons.length-1;
+        if(isClose){
+          if(launcher){
+            state.open=false;
+            state.minimized=false;
+            save(state);
+            applyWindowState(win, launcher);
+          } else {
+            win.style.display='none';
+          }
+          notify('Widget yopildi');
+          return;
+        }
+
+        if(launcher){
+          state.minimized=!state.minimized;
+          save(state);
+          applyWindowState(win, launcher);
+        } else {
+          var body=qs('.widget-window-body',win);
+          var footer=qs('.widget-window-footer',win);
+          var hidden=body && body.style.display==='none';
+          if(body) body.style.display=hidden?'':'none';
+          if(footer) footer.style.display=hidden?'':'none';
+          win.style.height=hidden?'':'72px';
+        }
+        notify('Widget minimizatsiya qilindi');
+      });
+    });
+  }
+
   function initLauncher(){
     var demo=qs('[data-widget-demo]');
     var win=qs('[data-widget-window]',demo||document);
@@ -80,74 +117,66 @@
       applyWindowState(win, btn);
     });
 
-    qsa('.widget-window-header .icon-btn',win).forEach(function(iconBtn,idx){
-      iconBtn.addEventListener('click',function(){
-        if(idx===0){
-          state.minimized=!state.minimized;
-        } else {
-          state.open=false;
-          state.minimized=false;
-        }
-        save(state);
-        applyWindowState(win, btn);
-      });
-    });
-
+    bindWindowControls(win, btn);
     applyWindowState(win, btn);
   }
 
-  function initChat(){
-    if(page()!=='02-widget-chat.html') return;
-    var win=qs('.widget-window');
-    if(!win) return;
+  function ensureQuickReplies(win){
     var body=qs('.widget-window-body',win);
-    var input=qs('.widget-window-footer textarea',win);
-    var send=qs('.widget-window-footer .btn.btn-primary',win);
-    if(!body || !input || !send) return;
+    if(!body || qs('[data-quick-replies]',win)) return;
+    var quick=document.createElement('div');
+    quick.setAttribute('data-quick-replies','1');
+    quick.className='flex gap-2';
+    quick.style.flexWrap='wrap';
+    quick.innerHTML='<button type="button" class="btn btn-secondary btn-sm" data-quick="Narxlar">Narxlar</button><button type="button" class="btn btn-secondary btn-sm" data-quick="Integratsiya">Integratsiya</button><button type="button" class="btn btn-secondary btn-sm" data-quick="Demo">Demo</button>';
+    body.appendChild(quick);
+  }
 
-    if(!qs('[data-quick-replies]',win)){
-      var quick=document.createElement('div');
-      quick.setAttribute('data-quick-replies','1');
-      quick.className='flex gap-2';
-      quick.style.flexWrap='wrap';
-      quick.innerHTML='<button type="button" class="btn btn-secondary btn-sm" data-quick="Narxlar">Narxlar</button><button type="button" class="btn btn-secondary btn-sm" data-quick="Integratsiya">Integratsiya</button><button type="button" class="btn btn-secondary btn-sm" data-quick="Demo">Demo</button>';
-      body.appendChild(quick);
-    }
+  function initChatWindows(){
+    qsa('.widget-window').forEach(function(win){
+      var body=qs('.widget-window-body',win);
+      var input=qs('.widget-window-footer textarea',win);
+      var send=qs('.widget-window-footer .btn.btn-primary',win);
+      if(!body || !input || !send) return;
 
-    function sendMsg(textOverride){
-      var text=(textOverride||input.value||'').trim();
-      if(!text) return;
+      ensureQuickReplies(win);
+      bindWindowControls(win, qs('[data-widget-launcher-toggle]'));
 
-      var msg=document.createElement('div');
-      msg.className='widget-msg';
-      msg.textContent=text;
-      body.appendChild(msg);
-      input.value='';
-      body.scrollTop=body.scrollHeight;
+      function sendMsg(textOverride){
+        var text=(textOverride||input.value||'').trim();
+        if(!text) return;
 
-      var typing=document.createElement('div');
-      typing.className='widget-msg center';
-      typing.innerHTML='<span class="typing-dots"><span></span><span></span><span></span></span> Agent yozmoqda...';
-      body.appendChild(typing);
-      body.scrollTop=body.scrollHeight;
-
-      setTimeout(function(){
-        typing.remove();
-        var reply=document.createElement('div');
-        reply.className='widget-msg agent';
-        reply.textContent='Rahmat, so\'rovingiz qabul qilindi. Operator tez orada javob beradi.';
-        body.appendChild(reply);
+        var msg=document.createElement('div');
+        msg.className='widget-msg';
+        msg.textContent=text;
+        body.appendChild(msg);
+        input.value='';
         body.scrollTop=body.scrollHeight;
-      },700);
-    }
 
-    send.addEventListener('click',function(){ sendMsg(); });
-    input.addEventListener('keydown',function(e){ if(e.key==='Enter'&&!e.shiftKey){ e.preventDefault(); sendMsg(); } });
+        var typing=document.createElement('div');
+        typing.className='widget-msg center';
+        typing.innerHTML='<span class="typing-dots"><span></span><span></span><span></span></span> Agent yozmoqda...';
+        body.appendChild(typing);
+        body.scrollTop=body.scrollHeight;
 
-    body.addEventListener('click',function(e){
-      var b=e.target.closest('[data-quick]');
-      if(!b) return;
-      sendMsg(b.getAttribute('data-quick'));
+        setTimeout(function(){
+          typing.remove();
+          var reply=document.createElement('div');
+          reply.className='widget-msg agent';
+          reply.textContent='Rahmat, so\'rovingiz qabul qilindi. Operator tez orada javob beradi.';
+          body.appendChild(reply);
+          body.scrollTop=body.scrollHeight;
+        },700);
+      }
+
+      send.addEventListener('click',function(){ sendMsg(); });
+      input.addEventListener('keydown',function(e){ if(e.key==='Enter'&&!e.shiftKey){ e.preventDefault(); sendMsg(); } });
+
+      body.addEventListener('click',function(e){
+        var b=e.target.closest('[data-quick]');
+        if(!b) return;
+        sendMsg(b.getAttribute('data-quick'));
+      });
     });
   }
 
@@ -156,9 +185,12 @@
     qsa('form.widget-window-body').forEach(function(form){
       form.addEventListener('submit',function(e){
         e.preventDefault();
-        var name=qs('input[type="text"]',form)?.value?.trim();
-        var email=qs('input[type="email"]',form)?.value?.trim();
-        var msg=qs('textarea',form)?.value?.trim();
+        var nameInput=qs('input[type="text"]',form);
+        var emailInput=qs('input[type="email"]',form);
+        var msgInput=qs('textarea',form);
+        var name=nameInput ? nameInput.value.trim() : '';
+        var email=emailInput ? emailInput.value.trim() : '';
+        var msg=msgInput ? msgInput.value.trim() : '';
         if(!name || !email || !msg){ notify('Barcha maydonlarni to\'ldiring','error'); return; }
         if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ notify('Email noto\'g\'ri','error'); return; }
         state.offlineLeads += 1;
@@ -169,12 +201,11 @@
     });
   }
 
-  function initCsat(){
-    if(page()!=='04-widget-csat.html') return;
-    var starWrap=qs('[data-star-rating]');
+  function bindCsatInScope(scope){
+    var starWrap=qs('[data-star-rating]',scope||document);
     if(!starWrap) return;
     var stars=qsa('[data-star-value]',starWrap);
-    var comment=qs('textarea');
+    var comment=qs('textarea',scope||document);
 
     function paint(){
       stars.forEach(function(btn){
@@ -193,18 +224,38 @@
       });
     });
 
-    var submit=qs('.widget-window-footer .btn.btn-primary');
-    submit?.addEventListener('click',function(){
-      if(!state.rating){ notify('Avval baho tanlang','error'); return; }
-      if(state.rating<=2 && !(comment?.value||'').trim()){
-        notify('Past baho uchun qisqa izoh kiriting','error');
-        return;
-      }
-      notify('Rahmat! Baho: '+state.rating+'/5');
-      if(comment) comment.value='';
-    });
+    var submit=qs('.widget-window-footer .btn.btn-primary',scope||document);
+    if(submit){
+      submit.addEventListener('click',function(){
+        if(!state.rating){ notify('Avval baho tanlang','error'); return; }
+        if(state.rating<=2 && !(comment && comment.value || '').trim()){
+          notify('Past baho uchun qisqa izoh kiriting','error');
+          return;
+        }
+        notify('Rahmat! Baho: '+state.rating+'/5');
+        if(comment) comment.value='';
+      });
+    }
 
     paint();
+  }
+
+  function initCsat(){
+    if(page()!=='04-widget-csat.html' && page()!=='05-widget-states.html') return;
+    if(page()==='05-widget-states.html'){
+      qsa('.widget-state-card').forEach(function(card){ bindCsatInScope(card); });
+      return;
+    }
+    bindCsatInScope(document);
+  }
+
+  function initGenericActions(){
+    qsa('[data-action="log"]').forEach(function(el){
+      el.addEventListener('click',function(){
+        if(el.closest('.widget-window-footer')) return; // send handled in chat flow
+        notify('Demo action bajarildi');
+      });
+    });
   }
 
   function initStatesPage(){
@@ -229,9 +280,10 @@
 
   document.addEventListener('DOMContentLoaded',function(){
     safeRun('initLauncher', initLauncher);
-    safeRun('initChat', initChat);
+    safeRun('initChatWindows', initChatWindows);
     safeRun('initOfflineForm', initOfflineForm);
     safeRun('initCsat', initCsat);
+    safeRun('initGenericActions', initGenericActions);
     safeRun('initStatesPage', initStatesPage);
   });
 })();
