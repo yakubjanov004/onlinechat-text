@@ -177,6 +177,12 @@
       });
       if(selectedRow && selectedRow.style.display==='none') selectRow(null);
       updateLiveCounter();
+
+      var shownCount=rows.filter(function(r){return r.style.display!== 'none';}).length;
+      var empty=qs('[data-vis-empty]');
+      var tableWrap=qs('.table-wrap');
+      if(empty) empty.classList.toggle('hidden', shownCount!==0);
+      if(tableWrap) tableWrap.classList.toggle('hidden', shownCount===0);
     }
 
     qsa('[data-vis-tab]').forEach(function(btn){

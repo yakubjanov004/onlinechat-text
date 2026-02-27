@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="uz">
 <head>
 <meta charset="UTF-8">
@@ -15,50 +15,129 @@
 </head>
 <body data-active-nav="visitors" class="dashboard-shell-page">
 <main class="app-content">
-<div class="subnav-scroll">
-<div class="subnav-tabs">
-<a class="subnav-tab active" href="./01-visitors-list.html">Online Visitors</a><a class="subnav-tab " href="./02-visitor-profile.html">Visitor Profile</a><a class="subnav-tab " href="./03-visitors-map.html">Visitors Map</a>
-</div>
-</div>
-<div class="page-header">
-<div>
-<h1>Online Visitors</h1>
-<p class="text-muted">Online visitor kuzatuvi va profiling</p>
-</div>
-</div>
-<section class="card">
-<div class="card-header">
-<div>
-<h3>Live visitors</h3>
-</div>
-</div>
-<div class="card-body">
-<div class="flex justify-between items-center wrap gap-2"><div class="badge badge-success">Live РІР‚Сћ 5 visitors online</div><div class="text-muted" style="font-size:13px">Real-time session stream</div></div>
-</div>
-</section>
-<section class="card">
-<div class="card-header">
-<div>
-<h3>Real-time visitors</h3>
-</div>
-</div>
-<div class="card-body">
-<div class="table-wrap">
-<table class="table">
-<thead>
-<tr class="table-header">
-<th>IP</th><th>Location</th><th>Current page</th><th>Duration</th><th>Status</th><th>Action</th>
-</tr>
-</thead>
-<tbody>
-<tr class="table-row"><td>185.8.212.34</td><td>UZ РІР‚Сћ Toshkent</td><td>/pricing</td><td>03:14</td><td><span class="flex gap-2 items-center"><span class="status-dot online"></span>Active</span></td><td><div class="flex gap-2"><button type="button" class="btn btn-primary" data-action="log" data-message="Chat boshlandi">Start chat</button></div></td></tr><tr class="table-row"><td>91.204.155.1</td><td>KZ РІР‚Сћ Almaty</td><td>/features</td><td>01:02</td><td><span class="flex gap-2 items-center"><span class="status-dot away"></span>Idle</span></td><td><div class="flex gap-2"><button type="button" class="btn btn-primary" data-action="log" data-message="Chat boshlandi">Start chat</button></div></td></tr><tr class="table-row"><td>37.110.214.8</td><td>TR РІР‚Сћ Istanbul</td><td>/contact</td><td>00:31</td><td><span class="flex gap-2 items-center"><span class="status-dot online"></span>Active</span></td><td><div class="flex gap-2"><button type="button" class="btn btn-primary" data-action="log" data-message="Chat boshlandi">Start chat</button></div></td></tr><tr class="table-row"><td>104.28.12.3</td><td>US РІР‚Сћ New York</td><td>/demo</td><td>04:18</td><td><span class="flex gap-2 items-center"><span class="status-dot online"></span>Active</span></td><td><div class="flex gap-2"><button type="button" class="btn btn-primary" data-action="log" data-message="Chat boshlandi">Start chat</button></div></td></tr><tr class="table-row"><td>62.122.90.12</td><td>UZ РІР‚Сћ Samarqand</td><td>/pricing</td><td>02:11</td><td><span class="flex gap-2 items-center"><span class="status-dot away"></span>Idle</span></td><td><div class="flex gap-2"><button type="button" class="btn btn-primary" data-action="log" data-message="Chat boshlandi">Start chat</button></div></td></tr><tr class="table-row"><td>88.218.11.7</td><td>AE РІР‚Сћ Dubai</td><td>/enterprise</td><td>06:03</td><td><span class="flex gap-2 items-center"><span class="status-dot online"></span>Active</span></td><td><div class="flex gap-2"><button type="button" class="btn btn-primary" data-action="log" data-message="Chat boshlandi">Start chat</button></div></td></tr><tr class="table-row"><td>45.77.19.40</td><td>DE РІР‚Сћ Berlin</td><td>/help</td><td>00:54</td><td><span class="flex gap-2 items-center"><span class="status-dot offline"></span>Left</span></td><td><div class="flex gap-2"><button type="button" class="btn btn-primary" data-action="log" data-message="Chat boshlandi">Start chat</button></div></td></tr><tr class="table-row"><td>103.11.4.26</td><td>IN РІР‚Сћ Delhi</td><td>/api</td><td>01:26</td><td><span class="flex gap-2 items-center"><span class="status-dot online"></span>Active</span></td><td><div class="flex gap-2"><button type="button" class="btn btn-primary" data-action="log" data-message="Chat boshlandi">Start chat</button></div></td></tr><tr class="table-row"><td>79.110.2.91</td><td>RU РІР‚Сћ Moscow</td><td>/contact</td><td>02:48</td><td><span class="flex gap-2 items-center"><span class="status-dot away"></span>Idle</span></td><td><div class="flex gap-2"><button type="button" class="btn btn-primary" data-action="log" data-message="Chat boshlandi">Start chat</button></div></td></tr>
-</tbody>
-</table>
-</div>
-</div>
-</section>
+  <div class="subnav-scroll">
+    <div class="subnav-tabs">
+      <a class="subnav-tab active" href="./01-visitors-list.html">Online Visitors</a>
+      <a class="subnav-tab" href="./02-visitor-profile.html">Visitor Profile</a>
+      <a class="subnav-tab" href="./03-visitors-map.html">Visitors Map</a>
+    </div>
+  </div>
+
+  <div class="page-header">
+    <div>
+      <h1>Onlayn tashrif buyuruvchilar</h1>
+      <p class="text-muted">Hozir saytingizdagi foydalanuvchilarni real-time kuzatish va proaktiv chat boshlash</p>
+    </div>
+    <div class="page-header-actions">
+      <span class="badge badge-success">Live • 6 visitors online</span>
+      <button class="btn btn-secondary" type="button" data-action="log" data-message="Visitors list yangilandi">Yangilash</button>
+    </div>
+  </div>
+
+  <section class="metrics-grid">
+    <article class="metric-card">
+      <span class="metric-label">Online hozir</span>
+      <strong class="metric-value">6</strong>
+      <span class="metric-trend">+2 oxirgi 5 daqiqada</span>
+    </article>
+    <article class="metric-card">
+      <span class="metric-label">Bugungi tashriflar</span>
+      <strong class="metric-value">328</strong>
+      <span class="metric-trend">+12% kechagiga nisbatan</span>
+    </article>
+    <article class="metric-card">
+      <span class="metric-label">O'rtacha sessiya</span>
+      <strong class="metric-value">04:12</strong>
+      <span class="metric-trend">Barqaror</span>
+    </article>
+    <article class="metric-card">
+      <span class="metric-label">Top sahifa</span>
+      <strong class="metric-value">/pricing</strong>
+      <span class="metric-trend">31% traffic</span>
+    </article>
+  </section>
+
+  <section class="card">
+    <div class="card-header">
+      <div>
+        <h3>Real-time visitors list</h3>
+        <p class="card-description">Row tanlang yoki “Start chat” tugmasidan proaktiv xabar yuboring</p>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="table-wrap" role="region" aria-label="Online visitors list">
+        <table class="table">
+          <thead>
+            <tr class="table-header">
+              <th>IP / Visitor</th>
+              <th>Location</th>
+              <th>Current page</th>
+              <th>Duration</th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="table-row">
+              <td>185.8.212.34</td>
+              <td>UZ • Toshkent</td>
+              <td>/pricing</td>
+              <td>03:14</td>
+              <td><span class="flex gap-2"><span class="status-dot online"></span>Active</span></td>
+              <td><button type="button" class="btn btn-primary" data-action="log" data-message="Chat boshlandi">Start chat</button></td>
+            </tr>
+            <tr class="table-row">
+              <td>91.204.155.1</td>
+              <td>KZ • Almaty</td>
+              <td>/features</td>
+              <td>01:02</td>
+              <td><span class="flex gap-2"><span class="status-dot away"></span>Idle</span></td>
+              <td><button type="button" class="btn btn-primary" data-action="log" data-message="Chat boshlandi">Start chat</button></td>
+            </tr>
+            <tr class="table-row">
+              <td>37.110.214.8</td>
+              <td>TR • Istanbul</td>
+              <td>/contact</td>
+              <td>00:31</td>
+              <td><span class="flex gap-2"><span class="status-dot online"></span>Active</span></td>
+              <td><button type="button" class="btn btn-primary" data-action="log" data-message="Chat boshlandi">Start chat</button></td>
+            </tr>
+            <tr class="table-row">
+              <td>104.28.12.3</td>
+              <td>US • New York</td>
+              <td>/demo</td>
+              <td>04:18</td>
+              <td><span class="flex gap-2"><span class="status-dot online"></span>Active</span></td>
+              <td><button type="button" class="btn btn-primary" data-action="log" data-message="Chat boshlandi">Start chat</button></td>
+            </tr>
+            <tr class="table-row">
+              <td>62.122.90.12</td>
+              <td>UZ • Samarqand</td>
+              <td>/pricing</td>
+              <td>02:11</td>
+              <td><span class="flex gap-2"><span class="status-dot away"></span>Idle</span></td>
+              <td><button type="button" class="btn btn-primary" data-action="log" data-message="Chat boshlandi">Start chat</button></td>
+            </tr>
+            <tr class="table-row">
+              <td>45.77.19.40</td>
+              <td>DE • Berlin</td>
+              <td>/help</td>
+              <td>00:54</td>
+              <td><span class="flex gap-2"><span class="status-dot offline"></span>Left</span></td>
+              <td><button type="button" class="btn btn-primary" data-action="log" data-message="Chat boshlandi">Start chat</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="empty-state hidden" data-vis-empty>
+        <i data-lucide="users"></i>
+        <div>Hozir tashrif buyuruvchilar yo'q</div>
+        <p class="text-muted" style="font-size:13px">Filterlarni tozalang yoki widget trackingni tekshiring</p>
+      </div>
+    </div>
+  </section>
 </main>
 <script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
 </body>
 </html>
-
