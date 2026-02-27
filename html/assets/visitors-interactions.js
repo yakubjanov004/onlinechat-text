@@ -1,4 +1,4 @@
-(function(){
+﻿(function(){
   'use strict';
 
   var KEY='qc_visitors_state_v2';
@@ -29,12 +29,7 @@
   }
 
   function cleanArtifacts(){
-    qsa('body *').forEach(function(el){
-      if(el.children.length) return;
-      if(el.textContent && el.textContent.indexOf('вЂў')>-1){
-        el.textContent=el.textContent.replace(/вЂў/g,'•');
-      }
-    });
+    // kept for compatibility
   }
 
   function parseMMSS(s){
@@ -251,7 +246,7 @@
       var shown=rows.filter(function(r){return r.style.display!== 'none';});
       var online=shown.filter(function(r){ var s=(qsa('td',r)[4]&&qsa('td',r)[4].textContent||'').toLowerCase(); return s.indexOf('active')>-1 || s.indexOf('idle')>-1; }).length;
       if(liveBadge){
-        liveBadge.textContent='Live • '+online+' visitors online';
+        liveBadge.textContent='Live вЂў '+online+' visitors online';
         liveBadge.style.transform='scale(1.04)';
         setTimeout(function(){liveBadge.style.transform='';},180);
       }
@@ -310,7 +305,7 @@
     var events=['/pricing sahifasiga o\'tdi','/features ochdi','Chat boshladi','Sahifani tark etdi'];
     setInterval(function(){
       var e=events[Math.floor(Math.random()*events.length)];
-      addFeed('Anonymous #'+(1000+Math.floor(Math.random()*9000))+' — '+e);
+      addFeed('Anonymous #'+(1000+Math.floor(Math.random()*9000))+' вЂ” '+e);
     },4500);
 
     var centerBtn=qsa('.btn', mapWrap.closest('.card')).find(function(b){ return (b.textContent||'').toLowerCase().indexOf('center')>-1; });
@@ -359,7 +354,7 @@
         })
       }).addTo(lmap);
 
-      marker.bindTooltip(v.city+', '+v.country+' • '+v.page, {direction:'top', offset:[0,-10]});
+      marker.bindTooltip(v.city+', '+v.country+' вЂў '+v.page, {direction:'top', offset:[0,-10]});
       marker.on('mouseover', function(){
         var el=marker.getElement();
         if(el) el.style.transform='scale(1.18)';

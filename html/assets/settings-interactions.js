@@ -1,4 +1,4 @@
-(function(){
+﻿(function(){
   'use strict';
 
   var KEY='qc_settings_state_v1';
@@ -272,12 +272,7 @@
   }
 
   function cleanTextArtifacts(){
-    qsa('body *').forEach(function(el){
-      if(el.children.length) return;
-      if(el.textContent && el.textContent.indexOf('вЂў')>-1){
-        el.textContent=el.textContent.replace(/вЂў/g,'•');
-      }
-    });
+    // kept for compatibility
   }
 
   document.addEventListener('DOMContentLoaded',function(){
@@ -301,3 +296,4 @@
     });
   });
 })();
+

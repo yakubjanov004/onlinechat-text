@@ -1,4 +1,4 @@
-(function(){
+﻿(function(){
   'use strict';
 
   var KEY='qc_contacts_state_v2';
@@ -29,12 +29,7 @@
   }
 
   function cleanArtifacts(){
-    qsa('body *').forEach(function(el){
-      if(el.children.length) return;
-      if(el.textContent && el.textContent.indexOf('вЂў')>-1){
-        el.textContent=el.textContent.replace(/вЂў/g,'•');
-      }
-    });
+    // kept for compatibility
   }
 
   function initContactsList(){
@@ -248,7 +243,7 @@
       var count=Math.floor(Math.random()*300)+1;
       item.innerHTML='<div class="item-main"><div class="item-title"></div><div class="item-sub"></div></div><span class="badge badge-info">Dynamic</span>';
       qs('.item-title',item).textContent=name;
-      qs('.item-sub',item).textContent=count+' contacts • '+rule.slice(0,48)+(rule.length>48?'...':'');
+      qs('.item-sub',item).textContent=count+' contacts вЂў '+rule.slice(0,48)+(rule.length>48?'...':'');
       list.prepend(item);
       attachActions(item);
       notify('Yangi segment qo\'shildi: '+name);
