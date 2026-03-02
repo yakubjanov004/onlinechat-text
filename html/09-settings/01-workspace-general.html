@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QULAY CHAT - Workspace General</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/qulay-chat-design-system.css">
+<script src="https://unpkg.com/lucide@latest" defer></script>
+<script src="../assets/qulay-chat-shell.js" defer></script>
+<script src="../assets/qulay-chat-runtime.js" defer></script><script src="../assets/settings-interactions.js" defer></script>
+</head>
+<body data-active-nav="settings" data-shell-role="admin" class="dashboard-shell-page settings-shell">
+<main class="app-content">
+<div class="subnav-scroll"><div class="subnav-tabs"><a class="subnav-tab active" href="./01-workspace-general.html" data-roles="admin">Workspace General</a><a class="subnav-tab" href="./01b-workspace-branding.html" data-roles="admin">Workspace Branding</a><a class="subnav-tab" href="./02-widget-settings.html">Widget Settings</a><a class="subnav-tab" href="./03-security.html">Security</a><a class="subnav-tab" href="./04-notifications.html">Notifications</a><a class="subnav-tab" href="./05-profile.html">Profile</a><a class="subnav-tab" href="./06-privacy-export.html">Privacy Export</a><a class="subnav-tab" href="./07-privacy-delete.html">Privacy Delete</a><a class="subnav-tab" href="./08-privacy-settings.html">Privacy Settings</a></div></div>
+<div class="page-header"><div><h1>Workspace General</h1><p class="text-muted">Workspace nomi, domen va locale sozlamalari</p></div><div class="page-header-actions"><a class="btn btn-secondary" href="./01b-workspace-branding.html">Branding bo'limi</a></div></div>
+<section class="settings-card">
+  <div class="settings-body">
+    <section class="settings-section">
+      <h3>General sozlamalar</h3>
+      <div class="form-grid">
+        <label class="form-field"><span class="form-label">Workspace nomi</span><input class="input" type="text" value="QULAY CHAT Support"></label>
+        <label class="form-field"><span class="form-label">URL</span><input class="input" value="support.qulaychat.uz"></label>
+        <label class="form-field"><span class="form-label">Timezone</span><select class="select"><option selected>GMT+5 Toshkent</option><option>GMT+3 Istanbul</option><option>GMT+6 Almaty</option></select></label>
+        <label class="form-field"><span class="form-label">Til</span><select class="select"><option selected>O'zbek</option><option>English</option><option>Rus tili</option></select></label>
+      </div>
+      <label class="form-field" style="margin-top:10px"><span class="form-label">Workspace description</span><textarea class="textarea" rows="5">Mijoz support va sales chatlari uchun umumiy workspace.</textarea></label>
+    </section>
+  </div>
+  <div class="sticky-save-bar"><button type="button" class="btn btn-secondary" data-action="reset-form">Bekor qilish</button><button type="button" class="btn btn-primary" data-action="save">Saqlash</button></div>
+</section>
+</main>
+<script>window.addEventListener("DOMContentLoaded",()=>window.lucide&&window.lucide.createIcons&&window.lucide.createIcons());</script>
+</body>
+</html>

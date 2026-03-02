@@ -1,4 +1,4 @@
-﻿(function () {
+(function () {
   "use strict";
   var NAV_SECTIONS_BY_ROLE = {
     admin: [
@@ -104,7 +104,7 @@
             key: "settings",
             label: "Settings",
             icon: "settings",
-            href: "../09-settings/01-workspace.html",
+            href: "../09-settings/01-workspace-general.html",
           },
           {
             key: "billing",
@@ -343,7 +343,7 @@
       '    <summary aria-label="User menu"><span class="avatar">SA</span><span class="nav-label">SA</span><i data-lucide="chevron-down"></i></summary>' +
       '    <div class="dropdown-menu">' +
       '      <a class="dropdown-item" href="../09-settings/05-profile.html"><i data-lucide="user"></i>Profil</a>' +
-      '      <a class="dropdown-item" href="../09-settings/01-workspace.html"><i data-lucide="settings"></i>Sozlamalar</a>' +
+      '      <a class="dropdown-item" href="../09-settings/01-workspace-general.html"><i data-lucide="settings"></i>Sozlamalar</a>' +
       '      <a class="dropdown-item" href="../21-help-support/01-help-center.html"><i data-lucide="help-circle"></i>Yordam</a>' +
       '      <div class="divider"></div>' +
       '      <a class="dropdown-item danger" href="../02-auth/01-login.html"><i data-lucide="log-out"></i>Chiqish</a>' +

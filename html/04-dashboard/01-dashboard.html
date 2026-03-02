@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>QULAY CHAT - Dashboard tanlash</title>
+    <title>QULAY CHAT - Dashboard router</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,6 +14,16 @@
     <script src="https://unpkg.com/lucide@latest" defer></script>
     <script src="../assets/qulay-chat-shell.js" defer></script>
     <script src="../assets/qulay-chat-runtime.js" defer></script>
+    <script>
+      (function(){
+        try {
+          var role=(localStorage.getItem("qulaychat_role")||"admin").toLowerCase();
+          var target=role==="agent"?"./02-dashboard-agent.html":"./01-dashboard-admin.html";
+          if(!location.search.includes("stay=1")){ location.replace(target); }
+        } catch(e){}
+      })();
+    </script>
+
   </head>
   <body
     data-active-nav="dashboard"
@@ -34,7 +44,7 @@
         <div>
           <h1>Dashboardlar</h1>
           <p class="text-muted">
-            Rolga mos ko'rinishni tanlang (moslik sahifasi)
+            Bu sahifa canonical router: rolega qarab admin/agent dashboardga yo'naltiradi
           </p>
         </div>
         <div class="page-header-actions">
