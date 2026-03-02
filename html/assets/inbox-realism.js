@@ -138,6 +138,7 @@
     var mode = activeTab ? activeTab.getAttribute('data-tab') : 'all';
     var q = ((qs('[data-inbox-search]') || {}).value || '').toLowerCase().trim();
 
+    var visible = 0;
     qsa('.inbox-chat-item', list).forEach(function (item) {
       var id = item.getAttribute('data-chat-id');
       var chat = getChat(id);
@@ -149,7 +150,12 @@
       var okTab = mode === 'all' || status.indexOf(mode) > -1;
       var okSearch = !q || text.indexOf(q) > -1;
       item.style.display = (okTab && okSearch) ? '' : 'none';
+      if (okTab && okSearch) visible++;
     });
+    var empty = qs('[data-empty-state="inbox-list"]');
+    var wrap = qs('[data-inbox-list-wrap]');
+    if (empty) empty.hidden = visible > 0;
+    if (wrap) wrap.hidden = visible === 0;
   }
 
   function renderMessages(chatId) {

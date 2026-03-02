@@ -6,10 +6,7 @@
     <title>QULAY CHAT - My Tickets</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
     <script src="https://unpkg.com/lucide@latest" defer></script>
     <script src="../assets/qulay-chat-shell.js" defer></script>
@@ -17,62 +14,20 @@
     <script src="../assets/help-support.js" defer></script>
   </head>
   <body data-active-nav="dashboard" class="dashboard-shell-page">
-    <main class="app-content">
-      <div class="subnav-scroll">
-        <div class="subnav-tabs">
-          <a class="subnav-tab" href="./01-help-center.html">Help Center</a
-          ><a class="subnav-tab" href="./02-video-tutorials.html"
-            >Video Tutorials</a
-          ><a class="subnav-tab" href="./03-submit-ticket.html">Submit Ticket</a
-          ><a class="subnav-tab active" href="./04-my-tickets.html"
-            >My Tickets</a
-          ><a class="subnav-tab" href="./05-contextual-help.html"
-            >Contextual Help</a
-          >
-        </div>
-      </div>
-      <div class="page-header">
-        <div>
-          <h1>Mening ticketlarim</h1>
-          <p class="text-muted">Status va SLA bo‘yicha kuzatuv</p>
-        </div>
-      </div>
+    <main class="app-content" data-skeleton-container="tickets" data-skeleton-delay="700">
+      <div class="subnav-scroll"><div class="subnav-tabs"><a class="subnav-tab" href="./01-help-center.html">Help Center</a><a class="subnav-tab" href="./02-video-tutorials.html">Video Tutorials</a><a class="subnav-tab" href="./03-submit-ticket.html">Submit Ticket</a><a class="subnav-tab active" href="./04-my-tickets.html">My Tickets</a><a class="subnav-tab" href="./05-contextual-help.html">Contextual Help</a></div></div>
+      <div data-skeleton-ui><section class="skeleton-list"><div class="skeleton-card"><div class="skeleton-block skeleton-line" style="width:40%"></div><div class="skeleton-block skeleton-line" style="width:100%;height:180px"></div></div></section></div>
+      <div data-skeleton-content>
+      <div class="page-header"><div><h1>Mening ticketlarim</h1><p class="text-muted">Status va SLA bo‘yicha kuzatuv</p></div></div>
       <section class="card" style="padding: 0; overflow: hidden">
-        <table class="table">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Mavzu</th>
-              <th>Status</th>
-              <th>Priority</th>
-              <th>Yangilangan</th>
-            </tr>
-          </thead>
-          <tbody data-ticket-list>
-            <tr>
-              <td>#SUP-391</td>
-              <td>Telegram webhook timeout</td>
-              <td><span class="badge badge-warning">In Progress</span></td>
-              <td>High</td>
-              <td>2m oldin</td>
-            </tr>
-            <tr>
-              <td>#SUP-388</td>
-              <td>Invoice PDF ochilmayapti</td>
-              <td><span class="badge badge-primary">Open</span></td>
-              <td>Medium</td>
-              <td>1h oldin</td>
-            </tr>
-            <tr>
-              <td>#SUP-372</td>
-              <td>Widget rang sozlamasi</td>
-              <td><span class="badge badge-success">Resolved</span></td>
-              <td>Low</td>
-              <td>Kecha</td>
-            </tr>
-          </tbody>
-        </table>
+        <div class="empty-state" data-empty-state="tickets" hidden style="margin:14px"><i data-lucide="inbox"></i><strong>Ticketlar yo'q</strong><p class="text-muted" style="font-size:13px">Yangi muammo bo'lsa "Submit Ticket" orqali yuboring.</p></div>
+        <table class="table" data-ticket-table><thead><tr><th>ID</th><th>Mavzu</th><th>Status</th><th>Priority</th><th>Yangilangan</th></tr></thead><tbody data-ticket-list>
+            <tr><td>#SUP-391</td><td>Telegram webhook timeout</td><td><span class="badge badge-warning">In Progress</span></td><td>High</td><td>2m oldin</td></tr>
+            <tr><td>#SUP-388</td><td>Invoice PDF ochilmayapti</td><td><span class="badge badge-primary">Open</span></td><td>Medium</td><td>1h oldin</td></tr>
+            <tr><td>#SUP-372</td><td>Widget rang sozlamasi</td><td><span class="badge badge-success">Resolved</span></td><td>Low</td><td>Kecha</td></tr>
+          </tbody></table>
       </section>
+      </div>
     </main>
   </body>
 </html>

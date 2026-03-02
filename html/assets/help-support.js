@@ -58,6 +58,16 @@
       }
     }, 900);
   }
+  function syncTicketEmpty() {
+    const rows = document.querySelectorAll("[data-ticket-list] tr");
+    const empty = document.querySelector('[data-empty-state="tickets"]');
+    const table = document.querySelector('[data-ticket-table]');
+    if (!empty || !table) return;
+    const hasRows = rows.length > 0;
+    empty.hidden = hasRows;
+    table.hidden = !hasRows;
+  }
+
   document.addEventListener("input", (e) => {
     if (e.target.matches("[data-help-search]")) filterHelp();
   });
@@ -73,5 +83,9 @@
       e.preventDefault();
       startTour();
     }
+  });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    syncTicketEmpty();
   });
 })();

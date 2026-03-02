@@ -118,6 +118,36 @@
     document.body.classList.add("modal-open");
     refreshIcons();
   }
+
+  function ensureShortcutsModal(){
+    if(document.querySelector('[data-modal="keyboard-shortcuts"]')) return;
+    var overlay=document.createElement('div');
+    overlay.className='modal-overlay';
+    overlay.setAttribute('data-modal','keyboard-shortcuts');
+    overlay.hidden=true;
+    overlay.innerHTML=''+
+      '<div class="modal" role="dialog" aria-modal="true" aria-labelledby="shortcuts-title">'+
+      '  <div class="modal-header">'+
+      '    <h3 id="shortcuts-title">Klaviatura qisqa buyruqlari</h3>'+
+      '    <button class="btn btn-ghost btn-sm" type="button" data-modal-close><i data-lucide="x"></i></button>'+
+      '  </div>'+
+      '  <div class="modal-body shortcuts-list">'+
+      '    <div class="shortcuts-item"><span>Global qidiruv</span><kbd>Ctrl + K</kbd></div>'+
+      '    <div class="shortcuts-item"><span>Qisqa buyruqlar oynasi</span><kbd>?</kbd></div>'+
+      '    <div class="shortcuts-item"><span>Modalni yopish</span><kbd>Esc</kbd></div>'+
+      '    <div class="shortcuts-item"><span>Sidebar ochish/yopish</span><kbd>Alt + S</kbd></div>'+
+      '  </div>'+
+      '</div>';
+    document.body.appendChild(overlay);
+  }
+
+  function initSkeletons(){
+    document.querySelectorAll('[data-skeleton-container].is-loading').forEach(function(node){
+      if(node.hasAttribute('data-skeleton-persist')) return;
+      var delay=parseInt(node.getAttribute('data-skeleton-delay')||'700',10);
+      setTimeout(function(){ node.classList.remove('is-loading'); }, Math.max(200,delay));
+    });
+  }
   function closeModal(from){
     var overlay = from && from.closest ? from.closest(".modal-overlay") : null;
     if(!overlay && from && from.classList && from.classList.contains("modal-overlay")) overlay = from;
@@ -154,13 +184,17 @@
 
   document.addEventListener("keydown", function (event) {
     var key = String(event.key||"").toLowerCase();
+    var t = event.target;
+    var isTyping = t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable);
     if((event.ctrlKey || event.metaKey) && key==="k"){ event.preventDefault(); focusGlobalSearch(); return; }
+    if(event.altKey && key==="s"){ event.preventDefault(); actionToggleSidebar(); return; }
+    if(!isTyping && key==="?"){ event.preventDefault(); openModal("keyboard-shortcuts"); return; }
     if(key==="escape"){
       var open = document.querySelector(".modal-overlay.is-open");
       if(open) closeModal(open);
     }
   });
 
-  document.addEventListener("qulaychat:shell-mounted", function(){ applyRole(); initTabs(); refreshIcons(); });
-  document.addEventListener("DOMContentLoaded", function(){ applyRole(); initTabs(); refreshIcons(); });
+  document.addEventListener("qulaychat:shell-mounted", function(){ applyRole(); initTabs(); ensureShortcutsModal(); initSkeletons(); refreshIcons(); });
+  document.addEventListener("DOMContentLoaded", function(){ applyRole(); initTabs(); ensureShortcutsModal(); initSkeletons(); refreshIcons(); });
 })();

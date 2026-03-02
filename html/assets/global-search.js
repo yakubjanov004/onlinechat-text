@@ -61,12 +61,18 @@
       .toLowerCase()
       .trim();
     const t = document.querySelector("[data-gs-page-type]")?.value || "all";
+    let visible = 0;
     document.querySelectorAll("[data-gs-row]").forEach((r) => {
       const rt = r.getAttribute("data-type");
       const okT = t === "all" || t === rt;
       const okQ = !q || r.textContent.toLowerCase().includes(q);
       r.hidden = !(okT && okQ);
+      if (!r.hidden) visible++;
     });
+    const empty = document.querySelector('[data-empty-state="search"]');
+    const table = document.querySelector('[data-gs-page-table]');
+    if (empty) empty.hidden = visible > 0;
+    if (table) table.hidden = visible === 0;
   }
 
   document.addEventListener("click", (e) => {

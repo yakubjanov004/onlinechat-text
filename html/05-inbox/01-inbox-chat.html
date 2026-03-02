@@ -110,6 +110,7 @@
             role="listbox"
             aria-label="Conversations"
             data-inbox-list
+            data-inbox-list-wrap
           >
             <div
               class="inbox-chat-item"
@@ -385,6 +386,10 @@
                 ><span class="channel-pill">Telegram</span>
               </div>
             </div>
+          </div>
+          <div class="empty-state" data-empty-state="inbox-list" data-size="sm" hidden style="margin: 10px">
+            <i data-lucide="inbox"></i><strong>Suhbat topilmadi</strong>
+            <p class="text-muted" style="font-size: 12px">Qidiruv yoki tab filtrini o'zgartirib ko'ring.</p>
           </div>
         </aside>
         <section class="inbox-panel" data-inbox-chat-panel>

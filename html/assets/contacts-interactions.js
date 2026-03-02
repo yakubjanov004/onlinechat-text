@@ -101,6 +101,12 @@
       if(prev) prev.disabled=listState.page<=1;
       if(next) next.disabled=listState.page>=total;
       syncSelectAll();
+
+      var empty=qs('[data-empty-state="contacts"]');
+      var tableWrap=qs('[data-contacts-table-wrap]');
+      var hasRows=data.length>0;
+      if(empty) empty.hidden=hasRows;
+      if(tableWrap) tableWrap.hidden=!hasRows;
     }
 
     // Sort controls

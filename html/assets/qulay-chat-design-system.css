@@ -1670,6 +1670,121 @@ small {
     color: var(--gray-400)
 }
 
+.empty-state[data-size="sm"] {
+    padding: 16px;
+    border-radius: 10px;
+    gap: 6px
+}
+
+.empty-state[data-size="sm"] i[data-lucide] {
+    width: 22px;
+    height: 22px
+}
+
+.breadcrumbs {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    font-size: 13px;
+    margin-bottom: 10px;
+    color: var(--gray-500)
+}
+
+.breadcrumbs a {
+    color: var(--gray-600)
+}
+
+.breadcrumbs a:hover {
+    color: var(--primary)
+}
+
+.breadcrumbs .current {
+    color: var(--gray-900);
+    font-weight: 600
+}
+
+.skeleton-block {
+    background: linear-gradient(90deg, #eef2ff 15%, #f8fafc 40%, #eef2ff 70%);
+    background-size: 300% 100%;
+    border-radius: 10px;
+    animation: qcSkeleton 1.2s ease-in-out infinite
+}
+
+.skeleton-line {
+    height: 10px;
+    border-radius: 999px
+}
+
+.skeleton-card {
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px;
+    display: grid;
+    gap: 10px;
+    background: #fff
+}
+
+.skeleton-list {
+    display: grid;
+    gap: 10px
+}
+
+[data-skeleton-container] [data-skeleton-content] {
+    display: none
+}
+
+[data-skeleton-container].is-loading [data-skeleton-ui] {
+    display: block
+}
+
+[data-skeleton-container]:not(.is-loading) [data-skeleton-ui] {
+    display: none
+}
+
+[data-skeleton-container].is-loading [data-skeleton-content] {
+    display: none
+}
+
+[data-skeleton-container]:not(.is-loading) [data-skeleton-content] {
+    display: block
+}
+
+.shortcuts-list {
+    display: grid;
+    gap: 10px
+}
+
+.shortcuts-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 12px;
+    background: #fff
+}
+
+.shortcuts-item kbd {
+    border: 1px solid var(--border-strong);
+    background: #f8fafc;
+    border-radius: 6px;
+    padding: 3px 7px;
+    font-size: 12px;
+    font-weight: 600
+}
+
+@keyframes qcSkeleton {
+    0% {
+        background-position: 100% 0
+    }
+
+    100% {
+        background-position: 0 0
+    }
+}
+
 .marketing-page {
     background: radial-gradient(circle at 10% 10%, rgba(79, 70, 229, .12), transparent 30%), radial-gradient(circle at 90% 0, rgba(59, 130, 246, .08), transparent 28%), var(--bg)
 }
