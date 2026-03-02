@@ -33,10 +33,18 @@
             badge: "5",
             badgeClass: "badge-success",
           },
+          {
+            key: "team-chat",
+            label: "Team Chat",
+            icon: "message-square",
+            href: "../14-team-chat/01-team-chat.html",
+            badge: "3",
+            badgeClass: "badge-primary",
+          },
         ],
       },
       {
-        label: "Vositalar",
+        label: "Boshqaruv",
         items: [
           {
             key: "automation",
@@ -51,13 +59,22 @@
             href: "../07-team/01-agents.html",
           },
           {
-            key: "team-chat",
-            label: "Team Chat",
-            icon: "message-square",
-            href: "../14-team-chat/01-team-chat.html",
-            badge: "3",
-            badgeClass: "badge-primary",
+            key: "knowledge-base",
+            label: "Knowledge Base",
+            icon: "book-open",
+            href: "../15-knowledge-base/01-kb-dashboard.html",
           },
+          {
+            key: "email-templates",
+            label: "Email Templates",
+            icon: "mail",
+            href: "../22-email-templates/01-templates-list.html",
+          },
+        ],
+      },
+      {
+        label: "Tahlil va monitoring",
+        items: [
           {
             key: "analytics",
             label: "Analytics",
@@ -65,10 +82,18 @@
             href: "../08-analytics/01-overview.html",
           },
           {
-            key: "knowledge-base",
-            label: "Knowledge Base",
-            icon: "book-open",
-            href: "../15-knowledge-base/01-kb-dashboard.html",
+            key: "global-search",
+            label: "Global Search",
+            icon: "search",
+            href: "../19-global-search/01-search-modal.html",
+          },
+          {
+            key: "notifications",
+            label: "Notifications",
+            icon: "bell",
+            href: "../20-notifications/01-notification-dropdown.html",
+            badge: "6",
+            badgeClass: "badge-danger",
           },
         ],
       },
@@ -99,39 +124,6 @@
             icon: "code",
             href: "../17-developer/01-api-keys.html",
           },
-        ],
-      },
-      {
-        // Eslatma: yangi modul qo‘shilganda umumiy nom emas,
-        // modulning aniq nomi va mos bo‘limga joylashuvi saqlansin.
-        label: "Qo‘shimcha",
-        items: [
-          {
-            key: "global-search",
-            label: "Global Search",
-            icon: "search",
-            href: "../19-global-search/01-search-modal.html",
-          },
-          {
-            key: "notifications",
-            label: "Notifications",
-            icon: "bell",
-            href: "../20-notifications/01-notification-dropdown.html",
-            badge: "6",
-            badgeClass: "badge-danger",
-          },
-          {
-            key: "help-support",
-            label: "Help Center",
-            icon: "life-buoy",
-            href: "../21-help-support/01-help-center.html",
-          },
-          {
-            key: "email-templates",
-            label: "Email Templates",
-            icon: "mail",
-            href: "../22-email-templates/01-templates-list.html",
-          },
           {
             key: "multi-language",
             label: "Multi-language",
@@ -155,6 +147,12 @@
       {
         label: "Yordam",
         items: [
+          {
+            key: "help-support",
+            label: "Help Center",
+            icon: "life-buoy",
+            href: "../21-help-support/01-help-center.html",
+          },
           {
             key: "docs",
             label: "Docs",
