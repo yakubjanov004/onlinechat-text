@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QULAY CHAT - SMTP Settings</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../assets/qulay-chat-shell.js" defer></script>
+    <script src="../assets/qulay-chat-runtime.js" defer></script>
+    <script src="../assets/email-templates.js" defer></script>
+  </head>
+  <body data-active-nav="settings" class="dashboard-shell-page">
+    <main class="app-content">
+      <div class="subnav-scroll">
+        <div class="subnav-tabs">
+          <a class="subnav-tab" href="./01-templates-list.html"
+            >Templates List</a
+          ><a class="subnav-tab" href="./02-template-editor.html"
+            >Template Editor</a
+          ><a class="subnav-tab" href="./03-template-preview.html"
+            >Preview & Test</a
+          ><a class="subnav-tab active" href="./04-template-settings.html"
+            >SMTP Settings</a
+          >
+        </div>
+      </div>
+      <div class="page-header">
+        <div>
+          <h1>SMTP sozlamalari</h1>
+          <p class="text-muted">Mailgun/SendGrid/SES ulash va tekshirish</p>
+        </div>
+        <div class="page-header-actions">
+          <button class="btn btn-secondary" type="button" data-et-test-smtp>
+            Connection test</button
+          ><button class="btn btn-primary" type="button" data-et-save-smtp>
+            Saqlash
+          </button>
+        </div>
+      </div>
+      <section class="card">
+        <div class="grid cols-2">
+          <label class="field"
+            ><span class="label">Provider</span
+            ><select class="select">
+              <option>Mailgun</option>
+              <option>SendGrid</option>
+              <option>AWS SES</option>
+              <option>Custom SMTP</option>
+            </select></label
+          ><label class="field"
+            ><span class="label">SMTP Host</span
+            ><input
+              class="input"
+              type="text"
+              placeholder="smtp.mailgun.org" /></label
+          ><label class="field"
+            ><span class="label">Port</span
+            ><input class="input" type="number" value="587" /></label
+          ><label class="field"
+            ><span class="label">Username</span
+            ><input
+              class="input"
+              type="text"
+              placeholder="postmaster@domain" /></label
+          ><label class="field"
+            ><span class="label">Password / API key</span
+            ><input
+              class="input"
+              type="password"
+              placeholder="••••••••" /></label
+          ><label class="field"
+            ><span class="label">From email</span
+            ><input
+              class="input"
+              type="email"
+              placeholder="no-reply@qulay.chat"
+          /></label>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

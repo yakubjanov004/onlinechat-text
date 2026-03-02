@@ -1,116 +1,230 @@
 <!doctype html>
 <html lang="uz">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QULAY CHAT - Analytics Overview</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/qulay-chat-design-system.css">
-<script src="https://unpkg.com/lucide@latest" defer></script>
-<script src="../assets/qulay-chat-shell.js" defer></script>
-<script src="../assets/qulay-chat-runtime.js" defer></script><script src="../assets/analytics-interactions.js" defer></script>
-</head>
-<body data-active-nav="analytics" class="dashboard-shell-page">
-<main class="app-content">
-<div class="subnav-scroll">
-<div class="subnav-tabs">
-<a class="subnav-tab active" href="./01-overview.html">Analytics Overview</a><a class="subnav-tab " href="./02-response-times.html">Response Times</a><a class="subnav-tab " href="./03-operators.html">Operatorlar</a><a class="subnav-tab " href="./04-operator-detail.html">Operator Profili</a><a class="subnav-tab " href="./05-sla.html">SLA Monitoring</a><a class="subnav-tab " href="./06-channels.html">Kanallar</a><a class="subnav-tab " href="./07-segments.html">Segmentlar</a><a class="subnav-tab " href="./08-tags.html">Tag Analytics</a><a class="subnav-tab " href="./09-custom-reports.html">Custom Reports</a><a class="subnav-tab " href="./10-export.html">Analytics Export</a><a class="subnav-tab " href="./11-my-stats.html">Mening Statistikam</a>
-</div>
-</div>
-<div class="page-header">
-<div>
-<h1>Analytics Overview</h1>
-<p class="text-muted">Analytics dashboard va reportlar</p>
-</div>
-<div class="page-header-actions"><div class="analytics-topbar">
-<div class="date-range"><i data-lucide="calendar"></i>Oxirgi 7 kun</div>
-<button class="btn btn-secondary" type="button" data-action="export"><i data-lucide="download"></i> Export</button>
-</div></div>
-</div>
-<div class="metrics-grid">
-<div class="metric-card">
-<div class="metric-label">Total chats</div>
-<div class="metric-value">12,842</div>
-<div class="metric-trend ">+14%</div>
-</div>
-<div class="metric-card">
-<div class="metric-label">First response</div>
-<div class="metric-value">1m 58s</div>
-<div class="metric-trend warn">-12%</div>
-</div>
-<div class="metric-card">
-<div class="metric-label">Resolution</div>
-<div class="metric-value">84%</div>
-<div class="metric-trend ">+2%</div>
-</div>
-<div class="metric-card">
-<div class="metric-label">CSAT</div>
-<div class="metric-value">4.8</div>
-<div class="metric-trend ">+0.3</div>
-</div>
-</div>
-<div class="two-col">
-<section class="card">
-<div class="card-header">
-<div>
-<h3>Chat volume</h3>
-</div>
-</div>
-<div class="card-body">
-<div class="chart-placeholder line">
-<div class="chart-gridlines"></div>
-<svg viewBox="0 0 600 240" preserveAspectRatio="none" aria-hidden="true">
-<defs>
-<linearGradient id="chartFill" x1="0" x2="0" y1="0" y2="1">
-<stop offset="0%" stop-color="rgba(79,70,229,0.24)"></stop>
-<stop offset="100%" stop-color="rgba(79,70,229,0.02)"></stop>
-</linearGradient>
-</defs>
-<path d="M0,180 C60,130 90,160 140,120 C190,80 230,100 280,90 C330,80 360,130 410,110 C460,90 500,30 600,45 L600,240 L0,240 Z" fill="url(#chartFill)"></path>
-<path d="M0,180 C60,130 90,160 140,120 C190,80 230,100 280,90 C330,80 360,130 410,110 C460,90 500,30 600,45" fill="none" stroke="#4F46E5" stroke-width="3" stroke-linecap="round"></path>
-</svg>
-</div>
-</div>
-</section>
-<section class="card">
-<div class="card-header">
-<div>
-<h3>Channels</h3>
-</div>
-</div>
-<div class="card-body">
-<div class="donut-wrap">
-<div class="donut-chart" aria-hidden="true"></div>
-<div class="donut-legend">
-<div class="legend-row"><span><i class="legend-dot" style="background:#4F46E5"></i>Web</span><strong>54%</strong></div><div class="legend-row"><span><i class="legend-dot" style="background:#10B981"></i>Telegram</span><strong>21%</strong></div><div class="legend-row"><span><i class="legend-dot" style="background:#F59E0B"></i>Email</span><strong>15%</strong></div><div class="legend-row"><span><i class="legend-dot" style="background:#EF4444"></i>Instagram</span><strong>10%</strong></div>
-</div>
-</div>
-</div>
-</section></div>
-<section class="card">
-<div class="card-header">
-<div>
-<h3>Top segments</h3>
-</div>
-</div>
-<div class="card-body">
-<div class="table-wrap">
-<table class="table">
-<thead>
-<tr class="table-header">
-<th>Segment</th><th>Chats</th><th>Avg response</th><th>CSAT</th>
-</tr>
-</thead>
-<tbody>
-<tr class="table-row"><td>New visitors</td><td>4,102</td><td>2m 11s</td><td>4.7</td></tr><tr class="table-row"><td>Returning</td><td>3,881</td><td>1m 43s</td><td>4.9</td></tr><tr class="table-row"><td>VIP</td><td>402</td><td>0m 58s</td><td>4.9</td></tr><tr class="table-row"><td>Pricing leads</td><td>1,244</td><td>1m 29s</td><td>4.8</td></tr><tr class="table-row"><td>Support</td><td>2,091</td><td>2m 22s</td><td>4.6</td></tr><tr class="table-row"><td>Enterprise</td><td>118</td><td>0m 44s</td><td>4.9</td></tr>
-</tbody>
-</table>
-</div>
-</div>
-</section>
-</main>
-<script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QULAY CHAT - Analytics Overview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../assets/qulay-chat-shell.js" defer></script>
+    <script src="../assets/qulay-chat-runtime.js" defer></script>
+    <script src="../assets/analytics-interactions.js" defer></script>
+  </head>
+  <body data-active-nav="analytics" class="dashboard-shell-page">
+    <main class="app-content">
+      <div class="subnav-scroll">
+        <div class="subnav-tabs">
+          <a class="subnav-tab active" href="./01-overview.html"
+            >Analytics Overview</a
+          ><a class="subnav-tab" href="./02-response-times.html"
+            >Response Times</a
+          ><a class="subnav-tab" href="./03-operators.html">Operatorlar</a
+          ><a class="subnav-tab" href="./04-operator-detail.html"
+            >Operator Profili</a
+          ><a class="subnav-tab" href="./05-sla.html">SLA Monitoring</a
+          ><a class="subnav-tab" href="./06-channels.html">Kanallar</a
+          ><a class="subnav-tab" href="./07-segments.html">Segmentlar</a
+          ><a class="subnav-tab" href="./08-tags.html">Tag Analytics</a
+          ><a class="subnav-tab" href="./09-custom-reports.html"
+            >Custom Reports</a
+          ><a class="subnav-tab" href="./10-export.html">Analytics Export</a
+          ><a class="subnav-tab" href="./11-my-stats.html"
+            >Mening Statistikam</a
+          >
+        </div>
+      </div>
+      <div class="page-header">
+        <div>
+          <h1>Analytics Overview</h1>
+          <p class="text-muted">Analytics dashboard va reportlar</p>
+        </div>
+        <div class="page-header-actions">
+          <div class="analytics-topbar">
+            <div class="date-range">
+              <i data-lucide="calendar"></i>Oxirgi 7 kun
+            </div>
+            <button
+              class="btn btn-secondary"
+              type="button"
+              data-action="export"
+            >
+              <i data-lucide="download"></i> Export
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-label">Total chats</div>
+          <div class="metric-value">12,842</div>
+          <div class="metric-trend">+14%</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">First response</div>
+          <div class="metric-value">1m 58s</div>
+          <div class="metric-trend warn">-12%</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">Resolution</div>
+          <div class="metric-value">84%</div>
+          <div class="metric-trend">+2%</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-label">CSAT</div>
+          <div class="metric-value">4.8</div>
+          <div class="metric-trend">+0.3</div>
+        </div>
+      </div>
+      <div class="two-col">
+        <section class="card">
+          <div class="card-header">
+            <div>
+              <h3>Chat volume</h3>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="chart-placeholder line">
+              <div class="chart-gridlines"></div>
+              <svg
+                viewBox="0 0 600 240"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
+                <defs>
+                  <linearGradient id="chartFill" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0%" stop-color="rgba(79,70,229,0.24)"></stop>
+                    <stop
+                      offset="100%"
+                      stop-color="rgba(79,70,229,0.02)"
+                    ></stop>
+                  </linearGradient>
+                </defs>
+                <path
+                  d="M0,180 C60,130 90,160 140,120 C190,80 230,100 280,90 C330,80 360,130 410,110 C460,90 500,30 600,45 L600,240 L0,240 Z"
+                  fill="url(#chartFill)"
+                ></path>
+                <path
+                  d="M0,180 C60,130 90,160 140,120 C190,80 230,100 280,90 C330,80 360,130 410,110 C460,90 500,30 600,45"
+                  fill="none"
+                  stroke="#4F46E5"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                ></path>
+              </svg>
+            </div>
+          </div>
+        </section>
+        <section class="card">
+          <div class="card-header">
+            <div>
+              <h3>Channels</h3>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="donut-wrap">
+              <div class="donut-chart" aria-hidden="true"></div>
+              <div class="donut-legend">
+                <div class="legend-row">
+                  <span
+                    ><i class="legend-dot" style="background: #4f46e5"></i
+                    >Web</span
+                  ><strong>54%</strong>
+                </div>
+                <div class="legend-row">
+                  <span
+                    ><i class="legend-dot" style="background: #10b981"></i
+                    >Telegram</span
+                  ><strong>21%</strong>
+                </div>
+                <div class="legend-row">
+                  <span
+                    ><i class="legend-dot" style="background: #f59e0b"></i
+                    >Email</span
+                  ><strong>15%</strong>
+                </div>
+                <div class="legend-row">
+                  <span
+                    ><i class="legend-dot" style="background: #ef4444"></i
+                    >Instagram</span
+                  ><strong>10%</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <section class="card">
+        <div class="card-header">
+          <div>
+            <h3>Top segments</h3>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="table-wrap">
+            <table class="table">
+              <thead>
+                <tr class="table-header">
+                  <th>Segment</th>
+                  <th>Chats</th>
+                  <th>Avg response</th>
+                  <th>CSAT</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="table-row">
+                  <td>New visitors</td>
+                  <td>4,102</td>
+                  <td>2m 11s</td>
+                  <td>4.7</td>
+                </tr>
+                <tr class="table-row">
+                  <td>Returning</td>
+                  <td>3,881</td>
+                  <td>1m 43s</td>
+                  <td>4.9</td>
+                </tr>
+                <tr class="table-row">
+                  <td>VIP</td>
+                  <td>402</td>
+                  <td>0m 58s</td>
+                  <td>4.9</td>
+                </tr>
+                <tr class="table-row">
+                  <td>Pricing leads</td>
+                  <td>1,244</td>
+                  <td>1m 29s</td>
+                  <td>4.8</td>
+                </tr>
+                <tr class="table-row">
+                  <td>Support</td>
+                  <td>2,091</td>
+                  <td>2m 22s</td>
+                  <td>4.6</td>
+                </tr>
+                <tr class="table-row">
+                  <td>Enterprise</td>
+                  <td>118</td>
+                  <td>0m 44s</td>
+                  <td>4.9</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script>
+      window.addEventListener("DOMContentLoaded", function () {
+        if (window.lucide && window.lucide.createIcons) {
+          window.lucide.createIcons();
+        }
+      });
+    </script>
+  </body>
 </html>

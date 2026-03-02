@@ -1,96 +1,531 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="uz">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>QULAY CHAT — Bepul Live Chat Dasturi</title>
-  <meta name="description" content="QULAY CHAT: live chat, chatbot, omnichannel inbox va CRM integratsiya bilan production support platforma." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
-  <script src="https://unpkg.com/lucide@latest" defer></script>
-  <style>
-    :root{--bg:#f5f2ec;--ink:#111827;--muted:#596173;--orange:#ff5c35;--dark:#0f172a}
-    body{background:var(--bg);color:var(--ink)}
-    .lp{max-width:1200px;margin:0 auto;padding:0 16px 34px}
-    .topbar{font-size:12px;color:#6b7280;display:flex;justify-content:flex-end;gap:14px;padding:8px 0}
-    .nav{position:sticky;top:8px;z-index:40;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);border:1px solid #e5e7eb;border-radius:14px;padding:12px 14px;display:flex;justify-content:space-between;align-items:center;gap:12px;box-shadow:0 8px 24px rgba(15,23,42,.08)}
-    .nav-links{display:flex;gap:14px;flex-wrap:wrap}
-    .nav-links a{font-size:14px;font-weight:600;color:#374151}
-    .hero{margin-top:14px;background:#fff;border:1px solid #e5e7eb;border-radius:18px;padding:24px;display:grid;grid-template-columns:1fr 1fr;gap:20px;box-shadow:0 16px 30px rgba(15,23,42,.08)}
-    .hero h1{font-size:42px;line-height:1.06;letter-spacing:-.03em;margin:6px 0 10px}
-    .hero p{font-size:16px;line-height:1.6;color:var(--muted)}
-    .hero-shot{border:1px solid #e5e7eb;border-radius:14px;overflow:hidden;min-height:390px;box-shadow:0 14px 28px rgba(15,23,42,.12)}
-    .hero-shot img{width:100%;height:100%;display:block;object-fit:cover}
-    .checklist{display:grid;gap:8px;margin-top:12px}
-    .checklist li{display:flex;gap:8px;align-items:flex-start;color:#374151;font-size:14px}
-    .dot{width:18px;height:18px;border-radius:99px;background:#ffedd5;color:#c2410c;display:grid;place-items:center;font-size:12px;flex:0 0 auto}
-    .sect{margin-top:16px;background:#fff;border:1px solid #e5e7eb;border-radius:16px;padding:18px}
-    .feat{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:center}
-    .feat.reverse .feat-copy{order:2}.feat.reverse .feat-visual{order:1}
-    .feat h2{margin:0 0 10px;font-size:30px;line-height:1.15;letter-spacing:-.02em}
-    .feat p{margin:0;color:var(--muted);line-height:1.65}
-    .feat-visual{border:1px solid #e5e7eb;border-radius:14px;overflow:hidden;background:#fff;box-shadow:0 10px 22px rgba(15,23,42,.1)}
-    .feat-visual img{width:100%;height:320px;object-fit:cover;display:block}
-    .grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-    .cardx{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:12px}
-    .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-    .faq-item{background:#fff;border:1px solid #e5e7eb;border-radius:10px;padding:10px 12px;font-size:14px}
-    .cta-dark{margin-top:16px;background:#062b35;color:#fff;border-radius:16px;padding:22px}
-    .cta-dark .grid3 .cardx{background:#fff;color:#111827}
-    .footer{margin-top:16px;background:#111827;border:1px solid #1f2937;border-radius:16px;padding:24px;color:#e5e7eb}
-    .foot-grid{display:grid;grid-template-columns:2fr repeat(4,1fr);gap:16px}
-    .foot-col h4{margin:0 0 8px;font-size:12px;text-transform:uppercase;color:#9ca3af;letter-spacing:.04em}
-    .foot-col a{display:block;color:#d1d5db;font-size:13px;line-height:1.9}
-    .foot-col a:hover{color:#fff}
-    @media (max-width:980px){.hero,.feat,.foot-grid{grid-template-columns:1fr}.grid3{grid-template-columns:1fr}.faq-grid{grid-template-columns:1fr}.hero h1{font-size:32px}.nav-links{display:none}}
-  </style>
-</head>
-<body>
-  <main class="lp">
-    <div class="topbar"><span>UZ</span><a href="../02-auth/01-login.html">Kirish</a><a href="../02-auth/02-register.html">Bepul boshlash</a></div>
-
-    <header class="nav">
-      <a class="shell-brand" href="../index.html"><span class="shell-brand-mark">QC</span><span>QULAY CHAT</span></a>
-      <nav class="nav-links">
-        <a href="#features">Mahsulot</a>
-        <a href="#integrations">Integratsiyalar</a>
-        <a href="#pricing">Tariflar</a>
-        <a href="#resources">Resurslar</a>
-      </nav>
-      <div class="flex gap-2"><a class="btn btn-secondary" href="../04-dashboard/01-dashboard.html">Demo olish</a><a class="btn" style="background:var(--orange);color:#fff" href="../02-auth/02-register.html">Bepul CRM olish</a></div>
-    </header>
-
-    <section class="hero">
-      <div>
-        <div class="text-muted" style="font-size:12px;font-weight:700">MIJOZLARINGIZ BILAN SUHBAT QILING</div>
-        <h1>Bepul Live Chat Dasturi</h1>
-        <p>Qulay Chat orqali web visitor, ijtimoiy kanallar va email supportni bitta joyda boshqaring. Kichik jamoa ham enterprise darajadagi workflow bilan ishlaydi.</p>
-        <div class="flex gap-2 wrap" style="margin-top:12px"><a class="btn" style="background:var(--orange);color:#fff" href="../02-auth/02-register.html">Bepul CRM olish</a><a class="btn btn-secondary" href="../04-dashboard/01-dashboard.html">Demo olish</a></div>
-        <ul class="checklist">
-          <li><span class="dot">✓</span><span>Lead va mijozlarni jamoangizdagi to'g'ri mutaxassisga avtomatik yo'naltiring.</span></li>
-          <li><span class="dot">✓</span><span>Ko'p so'raladigan savollarga avtomatlashtirilgan tez javob bering.</span></li>
-          <li><span class="dot">✓</span><span>CRM tarixi va kontekst bilan real vaqt rejimida yordam ko'rsating.</span></li>
-        </ul>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QULAY CHAT — Bepul Live Chat Dasturi</title>
+    <meta
+      name="description"
+      content="QULAY CHAT: live chat, chatbot, omnichannel inbox va CRM integratsiya bilan production support platforma."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <style>
+      :root {
+        --bg: #f5f2ec;
+        --ink: #111827;
+        --muted: #596173;
+        --orange: #ff5c35;
+        --dark: #0f172a;
+      }
+      body {
+        background: var(--bg);
+        color: var(--ink);
+      }
+      .lp {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 16px 34px;
+      }
+      .topbar {
+        font-size: 12px;
+        color: #6b7280;
+        display: flex;
+        justify-content: flex-end;
+        gap: 14px;
+        padding: 8px 0;
+      }
+      .nav {
+        position: sticky;
+        top: 8px;
+        z-index: 40;
+        background: rgba(255, 255, 255, 0.97);
+        backdrop-filter: blur(8px);
+        border: 1px solid #e5e7eb;
+        border-radius: 14px;
+        padding: 12px 14px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+      }
+      .nav-links {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+      .nav-links a {
+        font-size: 14px;
+        font-weight: 600;
+        color: #374151;
+      }
+      .hero {
+        margin-top: 14px;
+        background: #fff;
+        border: 1px solid #e5e7eb;
+        border-radius: 18px;
+        padding: 24px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        box-shadow: 0 16px 30px rgba(15, 23, 42, 0.08);
+      }
+      .hero h1 {
+        font-size: 42px;
+        line-height: 1.06;
+        letter-spacing: -0.03em;
+        margin: 6px 0 10px;
+      }
+      .hero p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: var(--muted);
+      }
+      .hero-shot {
+        border: 1px solid #e5e7eb;
+        border-radius: 14px;
+        overflow: hidden;
+        min-height: 390px;
+        box-shadow: 0 14px 28px rgba(15, 23, 42, 0.12);
+      }
+      .hero-shot img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+      }
+      .checklist {
+        display: grid;
+        gap: 8px;
+        margin-top: 12px;
+      }
+      .checklist li {
+        display: flex;
+        gap: 8px;
+        align-items: flex-start;
+        color: #374151;
+        font-size: 14px;
+      }
+      .dot {
+        width: 18px;
+        height: 18px;
+        border-radius: 99px;
+        background: #ffedd5;
+        color: #c2410c;
+        display: grid;
+        place-items: center;
+        font-size: 12px;
+        flex: 0 0 auto;
+      }
+      .sect {
+        margin-top: 16px;
+        background: #fff;
+        border: 1px solid #e5e7eb;
+        border-radius: 16px;
+        padding: 18px;
+      }
+      .feat {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+        align-items: center;
+      }
+      .feat.reverse .feat-copy {
+        order: 2;
+      }
+      .feat.reverse .feat-visual {
+        order: 1;
+      }
+      .feat h2 {
+        margin: 0 0 10px;
+        font-size: 30px;
+        line-height: 1.15;
+        letter-spacing: -0.02em;
+      }
+      .feat p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.65;
+      }
+      .feat-visual {
+        border: 1px solid #e5e7eb;
+        border-radius: 14px;
+        overflow: hidden;
+        background: #fff;
+        box-shadow: 0 10px 22px rgba(15, 23, 42, 0.1);
+      }
+      .feat-visual img {
+        width: 100%;
+        height: 320px;
+        object-fit: cover;
+        display: block;
+      }
+      .grid3 {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+      }
+      .cardx {
+        background: #fff;
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
+        padding: 12px;
+      }
+      .faq-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+      .faq-item {
+        background: #fff;
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+        padding: 10px 12px;
+        font-size: 14px;
+      }
+      .cta-dark {
+        margin-top: 16px;
+        background: #062b35;
+        color: #fff;
+        border-radius: 16px;
+        padding: 22px;
+      }
+      .cta-dark .grid3 .cardx {
+        background: #fff;
+        color: #111827;
+      }
+      .footer {
+        margin-top: 16px;
+        background: #111827;
+        border: 1px solid #1f2937;
+        border-radius: 16px;
+        padding: 24px;
+        color: #e5e7eb;
+      }
+      .foot-grid {
+        display: grid;
+        grid-template-columns: 2fr repeat(4, 1fr);
+        gap: 16px;
+      }
+      .foot-col h4 {
+        margin: 0 0 8px;
+        font-size: 12px;
+        text-transform: uppercase;
+        color: #9ca3af;
+        letter-spacing: 0.04em;
+      }
+      .foot-col a {
+        display: block;
+        color: #d1d5db;
+        font-size: 13px;
+        line-height: 1.9;
+      }
+      .foot-col a:hover {
+        color: #fff;
+      }
+      @media (max-width: 980px) {
+        .hero,
+        .feat,
+        .foot-grid {
+          grid-template-columns: 1fr;
+        }
+        .grid3 {
+          grid-template-columns: 1fr;
+        }
+        .faq-grid {
+          grid-template-columns: 1fr;
+        }
+        .hero h1 {
+          font-size: 32px;
+        }
+        .nav-links {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="lp">
+      <div class="topbar">
+        <span>UZ</span><a href="../02-auth/01-login.html">Kirish</a
+        ><a href="../02-auth/02-register.html">Bepul boshlash</a>
       </div>
-      <div class="hero-shot"><img src="https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Live chat dashboard preview" /></div>
-    </section>
 
-    <section id="features" class="sect"><div class="feat"><div class="feat-copy"><h2>Visitorlar bilan qulay usulda live chat orqali ishlang</h2><p>Visitor qaysi sahifada turganini ko'rasiz, operatorlar real vaqt kiradi va konversiya ehtimoli yuqori leadlar navbat bo'yicha birinchi ishlanadi.</p></div><div class="feat-visual"><img src="https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Inbox configuration" /></div></div></section>
-    <section class="sect"><div class="feat reverse"><div class="feat-copy"><h2>Chatbot bilan band ishlarni avtomatlashtiring</h2><p>AI yordamchi va qoidaviy botlar bir xil oqimda ishlaydi: tez-tez so'raladigan savollar avtomatik yopiladi, murakkab holatlar operatorga handoff qilinadi.</p></div><div class="feat-visual"><img src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Chatbot automation" /></div></div></section>
-    <section class="sect"><div class="feat"><div class="feat-copy"><h2>Jamoangizga kerakli kontekstni bering</h2><p>Har bir muloqotda oldingi chatlar, order tarixi, teglar va internal note ko'rinadi. Shu sabab javob tezligi oshadi va sifat bir xil ushlab turiladi.</p></div><div class="feat-visual"><img src="https://images.pexels.com/photos/3862373/pexels-photo-3862373.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Team context table" /></div></div></section>
+      <header class="nav">
+        <a class="shell-brand" href="../index.html"
+          ><span class="shell-brand-mark">QC</span><span>QULAY CHAT</span></a
+        >
+        <nav class="nav-links">
+          <a href="#features">Mahsulot</a>
+          <a href="#integrations">Integratsiyalar</a>
+          <a href="#pricing">Tariflar</a>
+          <a href="#resources">Resurslar</a>
+        </nav>
+        <div class="flex gap-2">
+          <a class="btn btn-secondary" href="../04-dashboard/01-dashboard.html"
+            >Demo olish</a
+          ><a
+            class="btn"
+            style="background: var(--orange); color: #fff"
+            href="../02-auth/02-register.html"
+            >Bepul CRM olish</a
+          >
+        </div>
+      </header>
 
-    <section id="integrations" class="sect"><h2 style="margin:0 0 10px">Tayyor ishlaydigan integratsiyalar</h2><div class="grid3"><div class="cardx"><strong>Telegram</strong><p class="text-muted">Bot token bilan 2 daqiqada</p></div><div class="cardx"><strong>WhatsApp</strong><p class="text-muted">Business API ulanishi</p></div><div class="cardx"><strong>Instagram</strong><p class="text-muted">DM support bir joyda</p></div></div></section>
+      <section class="hero">
+        <div>
+          <div class="text-muted" style="font-size: 12px; font-weight: 700">
+            MIJOZLARINGIZ BILAN SUHBAT QILING
+          </div>
+          <h1>Bepul Live Chat Dasturi</h1>
+          <p>
+            Qulay Chat orqali web visitor, ijtimoiy kanallar va email supportni
+            bitta joyda boshqaring. Kichik jamoa ham enterprise darajadagi
+            workflow bilan ishlaydi.
+          </p>
+          <div class="flex gap-2 wrap" style="margin-top: 12px">
+            <a
+              class="btn"
+              style="background: var(--orange); color: #fff"
+              href="../02-auth/02-register.html"
+              >Bepul CRM olish</a
+            ><a
+              class="btn btn-secondary"
+              href="../04-dashboard/01-dashboard.html"
+              >Demo olish</a
+            >
+          </div>
+          <ul class="checklist">
+            <li>
+              <span class="dot">вњ“</span
+              ><span
+                >Lead va mijozlarni jamoangizdagi to'g'ri mutaxassisga avtomatik
+                yo'naltiring.</span
+              >
+            </li>
+            <li>
+              <span class="dot">вњ“</span
+              ><span
+                >Ko'p so'raladigan savollarga avtomatlashtirilgan tez javob
+                bering.</span
+              >
+            </li>
+            <li>
+              <span class="dot">вњ“</span
+              ><span
+                >CRM tarixi va kontekst bilan real vaqt rejimida yordam
+                ko'rsating.</span
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="hero-shot">
+          <img
+            src="https://images.pexels.com/photos/1181263/pexels-photo-1181263.jpeg?auto=compress&cs=tinysrgb&w=1600"
+            alt="Live chat dashboard preview"
+          />
+        </div>
+      </section>
 
-    <section id="resources" class="sect"><h2 style="margin:0 0 10px">Foydali resurslar</h2><div class="grid3"><article class="cardx"><h3 style="margin:0 0 8px">Live chat nima?</h3><p class="text-muted">Live chat nima va qayerda eng samarali ishlaydi.</p></article><article class="cardx"><h3 style="margin:0 0 8px">Live chatni qanday yaratish mumkin</h3><p class="text-muted">Noldan birinchi live chat oqimini ishga tushirish.</p></article><article class="cardx"><h3 style="margin:0 0 8px">Visitorlar bilan qanday suhbat qurish kerak</h3><p class="text-muted">Visitorlar bilan conversion-friendly muloqot taktikasi.</p></article></div></section>
+      <section id="features" class="sect">
+        <div class="feat">
+          <div class="feat-copy">
+            <h2>Visitorlar bilan qulay usulda live chat orqali ishlang</h2>
+            <p>
+              Visitor qaysi sahifada turganini ko'rasiz, operatorlar real vaqt
+              kiradi va konversiya ehtimoli yuqori leadlar navbat bo'yicha
+              birinchi ishlanadi.
+            </p>
+          </div>
+          <div class="feat-visual">
+            <img
+              src="https://images.pexels.com/photos/669610/pexels-photo-669610.jpeg?auto=compress&cs=tinysrgb&w=1600"
+              alt="Inbox configuration"
+            />
+          </div>
+        </div>
+      </section>
+      <section class="sect">
+        <div class="feat reverse">
+          <div class="feat-copy">
+            <h2>Chatbot bilan band ishlarni avtomatlashtiring</h2>
+            <p>
+              AI yordamchi va qoidaviy botlar bir xil oqimda ishlaydi: tez-tez
+              so'raladigan savollar avtomatik yopiladi, murakkab holatlar
+              operatorga handoff qilinadi.
+            </p>
+          </div>
+          <div class="feat-visual">
+            <img
+              src="https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=1600"
+              alt="Chatbot automation"
+            />
+          </div>
+        </div>
+      </section>
+      <section class="sect">
+        <div class="feat">
+          <div class="feat-copy">
+            <h2>Jamoangizga kerakli kontekstni bering</h2>
+            <p>
+              Har bir muloqotda oldingi chatlar, order tarixi, teglar va
+              internal note ko'rinadi. Shu sabab javob tezligi oshadi va sifat
+              bir xil ushlab turiladi.
+            </p>
+          </div>
+          <div class="feat-visual">
+            <img
+              src="https://images.pexels.com/photos/3862373/pexels-photo-3862373.jpeg?auto=compress&cs=tinysrgb&w=1600"
+              alt="Team context table"
+            />
+          </div>
+        </div>
+      </section>
 
-    <section class="sect"><h2 style="margin:0 0 10px">Ko'p so'raladigan savollar</h2><div class="faq-grid"><div class="faq-item">Live chat nima?</div><div class="faq-item">Saytimga live chatni qanday qo'shaman?</div><div class="faq-item">Widget ko'rinishini moslashtira olamanmi?</div><div class="faq-item">Narxi qancha?</div><div class="faq-item">Kontakt ma'lumotlarini yig'a olamanmi?</div><div class="faq-item">Chatbot avtomatizatsiyasi qanday yordam beradi?</div></div></section>
+      <section id="integrations" class="sect">
+        <h2 style="margin: 0 0 10px">Tayyor ishlaydigan integratsiyalar</h2>
+        <div class="grid3">
+          <div class="cardx">
+            <strong>Telegram</strong>
+            <p class="text-muted">Bot token bilan 2 daqiqada</p>
+          </div>
+          <div class="cardx">
+            <strong>WhatsApp</strong>
+            <p class="text-muted">Business API ulanishi</p>
+          </div>
+          <div class="cardx">
+            <strong>Instagram</strong>
+            <p class="text-muted">DM support bir joyda</p>
+          </div>
+        </div>
+      </section>
 
-    <section id="pricing" class="cta-dark"><h2 style="margin:0 0 10px">QULAY CHAT CRM dagi mashhur imkoniyatlar</h2><div class="grid3"><div class="cardx"><h3 style="margin-top:0">Bepul live chat</h3><p class="text-muted">Website visitorlar bilan real-time suhbat.</p></div><div class="cardx"><h3 style="margin-top:0">Kontaktlar boshqaruvi</h3><p class="text-muted">Mijozlar kontaktlari va tarixini markazlashgan boshqaruv.</p></div><div class="cardx"><h3 style="margin-top:0">Pipeline boshqaruvi</h3><p class="text-muted">Lead status va konversiya bosqichlari nazorati.</p></div></div></section>
+      <section id="resources" class="sect">
+        <h2 style="margin: 0 0 10px">Foydali resurslar</h2>
+        <div class="grid3">
+          <article class="cardx">
+            <h3 style="margin: 0 0 8px">Live chat nima?</h3>
+            <p class="text-muted">
+              Live chat nima va qayerda eng samarali ishlaydi.
+            </p>
+          </article>
+          <article class="cardx">
+            <h3 style="margin: 0 0 8px">Live chatni qanday yaratish mumkin</h3>
+            <p class="text-muted">
+              Noldan birinchi live chat oqimini ishga tushirish.
+            </p>
+          </article>
+          <article class="cardx">
+            <h3 style="margin: 0 0 8px">
+              Visitorlar bilan qanday suhbat qurish kerak
+            </h3>
+            <p class="text-muted">
+              Visitorlar bilan conversion-friendly muloqot taktikasi.
+            </p>
+          </article>
+        </div>
+      </section>
 
-    <footer class="footer"><div class="foot-grid"><div><a class="shell-brand" href="../index.html"><span class="shell-brand-mark">QC</span><span>QULAY CHAT</span></a><p style="font-size:13px;margin-top:8px;max-width:35ch;color:#9ca3af">Omnichannel support uchun ishlab chiqilgan production-ready platforma.</p></div><div class="foot-col"><h4>Mashhur imkoniyatlar</h4><a href="#features">Live chat</a><a href="#integrations">Integratsiyalar</a><a href="#pricing">Tariflar</a></div><div class="foot-col"><h4>Bepul vositalar</h4><a href="../15-knowledge-base/06-public-home.html">Knowledge Base</a><a href="../17-developer/01-api-keys.html">API Hujjatlar</a><a href="../16-addons/01-addons-catalog.html">Add-ons</a></div><div class="foot-col"><h4>Kompaniya</h4><a href="../index.html">Biz haqimizda</a><a href="../index.html#support">Yordam</a><a href="../18-system/04-maintenance.html">Status</a></div><div class="foot-col"><h4>Mijozlar</h4><a href="../02-auth/02-register.html">Bepul boshlash</a><a href="../02-auth/01-login.html">Kirish</a><a href="../04-dashboard/01-dashboard.html">Namoyish</a></div></div></footer>
-  </main>
-  <script>window.addEventListener('DOMContentLoaded',()=>window.lucide&&window.lucide.createIcons&&window.lucide.createIcons());</script>
-</body>
+      <section class="sect">
+        <h2 style="margin: 0 0 10px">Ko'p so'raladigan savollar</h2>
+        <div class="faq-grid">
+          <div class="faq-item">Live chat nima?</div>
+          <div class="faq-item">Saytimga live chatni qanday qo'shaman?</div>
+          <div class="faq-item">Widget ko'rinishini moslashtira olamanmi?</div>
+          <div class="faq-item">Narxi qancha?</div>
+          <div class="faq-item">Kontakt ma'lumotlarini yig'a olamanmi?</div>
+          <div class="faq-item">
+            Chatbot avtomatizatsiyasi qanday yordam beradi?
+          </div>
+        </div>
+      </section>
+
+      <section id="pricing" class="cta-dark">
+        <h2 style="margin: 0 0 10px">
+          QULAY CHAT CRM dagi mashhur imkoniyatlar
+        </h2>
+        <div class="grid3">
+          <div class="cardx">
+            <h3 style="margin-top: 0">Bepul live chat</h3>
+            <p class="text-muted">Website visitorlar bilan real-time suhbat.</p>
+          </div>
+          <div class="cardx">
+            <h3 style="margin-top: 0">Kontaktlar boshqaruvi</h3>
+            <p class="text-muted">
+              Mijozlar kontaktlari va tarixini markazlashgan boshqaruv.
+            </p>
+          </div>
+          <div class="cardx">
+            <h3 style="margin-top: 0">Pipeline boshqaruvi</h3>
+            <p class="text-muted">
+              Lead status va konversiya bosqichlari nazorati.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="foot-grid">
+          <div>
+            <a class="shell-brand" href="../index.html"
+              ><span class="shell-brand-mark">QC</span
+              ><span>QULAY CHAT</span></a
+            >
+            <p
+              style="
+                font-size: 13px;
+                margin-top: 8px;
+                max-width: 35ch;
+                color: #9ca3af;
+              "
+            >
+              Omnichannel support uchun ishlab chiqilgan production-ready
+              platforma.
+            </p>
+          </div>
+          <div class="foot-col">
+            <h4>Mashhur imkoniyatlar</h4>
+            <a href="#features">Live chat</a
+            ><a href="#integrations">Integratsiyalar</a
+            ><a href="#pricing">Tariflar</a>
+          </div>
+          <div class="foot-col">
+            <h4>Bepul vositalar</h4>
+            <a href="../15-knowledge-base/06-public-home.html">Knowledge Base</a
+            ><a href="../17-developer/01-api-keys.html">API Hujjatlar</a
+            ><a href="../16-addons/01-addons-catalog.html">Add-ons</a>
+          </div>
+          <div class="foot-col">
+            <h4>Kompaniya</h4>
+            <a href="../index.html">Biz haqimizda</a
+            ><a href="../index.html#support">Yordam</a
+            ><a href="../18-system/04-maintenance.html">Status</a>
+          </div>
+          <div class="foot-col">
+            <h4>Mijozlar</h4>
+            <a href="../02-auth/02-register.html">Bepul boshlash</a
+            ><a href="../02-auth/01-login.html">Kirish</a
+            ><a href="../04-dashboard/01-dashboard.html">Namoyish</a>
+          </div>
+        </div>
+      </footer>
+    </main>
+    <script>
+      window.addEventListener(
+        "DOMContentLoaded",
+        () =>
+          window.lucide &&
+          window.lucide.createIcons &&
+          window.lucide.createIcons(),
+      );
+    </script>
+  </body>
 </html>

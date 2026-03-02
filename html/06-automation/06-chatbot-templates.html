@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QULAY CHAT - Bot Templates</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../assets/qulay-chat-shell.js" defer></script>
+    <script src="../assets/qulay-chat-runtime.js" defer></script>
+    <script src="../assets/automation-advanced.js" defer></script>
+  </head>
+  <body data-active-nav="automation" class="dashboard-shell-page">
+    <main class="app-content">
+      <div class="subnav-scroll">
+        <div class="subnav-tabs">
+          <a class="subnav-tab" href="./05-chatbot-builder.html"
+            >Chatbot Builder</a
+          ><a class="subnav-tab active" href="./06-chatbot-templates.html"
+            >Bot Templates</a
+          ><a class="subnav-tab" href="./07-routing-rules.html"
+            >Routing Rules</a
+          >
+        </div>
+      </div>
+      <div class="page-header">
+        <div>
+          <h1>Chatbot Templates</h1>
+          <p class="text-muted">
+            Tayyor flowlarni 1 click bilan ishga tushirish
+          </p>
+        </div>
+      </div>
+      <section class="grid cols-3" data-bot-templates>
+        <article class="card">
+          <h3>Lead capture</h3>
+          <p class="text-muted">Ism, email, qiziqish yig‘adi.</p>
+          <button
+            class="btn btn-primary btn-sm"
+            type="button"
+            data-template-apply="lead"
+          >
+            Apply
+          </button>
+        </article>
+        <article class="card">
+          <h3>Support triage</h3>
+          <p class="text-muted">Muammo turini aniqlab queuega yuboradi.</p>
+          <button
+            class="btn btn-primary btn-sm"
+            type="button"
+            data-template-apply="triage"
+          >
+            Apply
+          </button>
+        </article>
+        <article class="card">
+          <h3>Billing helper</h3>
+          <p class="text-muted">To‘lov savollarini FAQ bilan yechadi.</p>
+          <button
+            class="btn btn-primary btn-sm"
+            type="button"
+            data-template-apply="billing"
+          >
+            Apply
+          </button>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

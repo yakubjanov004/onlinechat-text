@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QULAY CHAT - Chatbot Builder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../assets/qulay-chat-shell.js" defer></script>
+    <script src="../assets/qulay-chat-runtime.js" defer></script>
+    <script src="../assets/automation-advanced.js" defer></script>
+  </head>
+  <body data-active-nav="automation" class="dashboard-shell-page">
+    <main class="app-content">
+      <div class="subnav-scroll">
+        <div class="subnav-tabs">
+          <a class="subnav-tab" href="./01-working-hours.html">Working Hours</a
+          ><a class="subnav-tab" href="./02-auto-reply.html">Auto Reply</a
+          ><a class="subnav-tab" href="./03-triggers.html">Triggers</a
+          ><a class="subnav-tab" href="./04-greetings.html">Greetings</a
+          ><a class="subnav-tab active" href="./05-chatbot-builder.html"
+            >Chatbot Builder</a
+          ><a class="subnav-tab" href="./06-chatbot-templates.html"
+            >Bot Templates</a
+          ><a class="subnav-tab" href="./07-routing-rules.html"
+            >Routing Rules</a
+          >
+        </div>
+      </div>
+      <div class="page-header">
+        <div>
+          <h1>Visual Chatbot Builder</h1>
+          <p class="text-muted">
+            Node asosida flow qurish: welcome → question → action
+          </p>
+        </div>
+        <div class="page-header-actions">
+          <button class="btn btn-secondary" type="button" data-bot-add-node>
+            + Node</button
+          ><button class="btn btn-primary" type="button" data-bot-save>
+            Flow saqlash
+          </button>
+        </div>
+      </div>
+      <section class="grid cols-3">
+        <article class="card">
+          <h3 style="margin-top: 0">Node palette</h3>
+          <div class="list-stack">
+            <button class="list-item" type="button" data-node-type="message">
+              <div class="item-main">
+                <div class="item-title">Message</div>
+                <div class="item-sub">Matn yuborish</div>
+              </div></button
+            ><button class="list-item" type="button" data-node-type="question">
+              <div class="item-main">
+                <div class="item-title">Question</div>
+                <div class="item-sub">Variantli savol</div>
+              </div></button
+            ><button class="list-item" type="button" data-node-type="condition">
+              <div class="item-main">
+                <div class="item-title">Condition</div>
+                <div class="item-sub">If/Else tarmoqlash</div>
+              </div></button
+            ><button class="list-item" type="button" data-node-type="handoff">
+              <div class="item-main">
+                <div class="item-title">Agent handoff</div>
+                <div class="item-sub">Operatorga uzatish</div>
+              </div>
+            </button>
+          </div>
+        </article>
+        <article class="card" style="grid-column: span 2">
+          <h3 style="margin-top: 0">Flow canvas</h3>
+          <div class="list-stack" data-bot-canvas>
+            <div class="list-item" data-bot-node>
+              <div class="item-main">
+                <div class="item-title">1) Welcome message</div>
+                <div class="item-sub">"Salom! Savolingizni tanlang"</div>
+              </div>
+              <button
+                class="btn btn-ghost btn-sm"
+                type="button"
+                data-node-remove
+              >
+                Remove
+              </button>
+            </div>
+            <div class="list-item" data-bot-node>
+              <div class="item-main">
+                <div class="item-title">2) Question: Qaysi bo‘lim?</div>
+                <div class="item-sub">Sales / Support / Billing</div>
+              </div>
+              <button
+                class="btn btn-ghost btn-sm"
+                type="button"
+                data-node-remove
+              >
+                Remove
+              </button>
+            </div>
+            <div class="list-item" data-bot-node>
+              <div class="item-main">
+                <div class="item-title">3) Condition: If Billing</div>
+                <div class="item-sub">Billing queue ga yo‘naltirish</div>
+              </div>
+              <button
+                class="btn btn-ghost btn-sm"
+                type="button"
+                data-node-remove
+              >
+                Remove
+              </button>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

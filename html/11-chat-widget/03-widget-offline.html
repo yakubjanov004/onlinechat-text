@@ -1,47 +1,131 @@
 <!doctype html>
 <html lang="uz">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QULAY CHAT - Widget Offline</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/qulay-chat-design-system.css">
-<script src="https://unpkg.com/lucide@latest" defer></script>
-<script src="../assets/qulay-chat-runtime.js" defer></script><script src="../assets/widget-interactions.js" defer></script>
-</head>
-<body class="widget-page">
-<main class="widget-page">
-<div class="widget-shell">
-<div class="widget-topbar">
-<a class="shell-brand" href="../index.html"><span class="shell-brand-mark">QC</span><span>Widget Preview</span></a>
-<div class="subnav-scroll"><div class="subnav-tabs"><a class="subnav-tab " href="./01-widget-launcher.html">Widget Launcher</a><a class="subnav-tab " href="./02-widget-chat.html">Widget Chat</a><a class="subnav-tab active" href="./03-widget-offline.html">Widget Offline</a><a class="subnav-tab " href="./04-widget-csat.html">Widget CSAT</a><a class="subnav-tab " href="./05-widget-states.html">Widget States</a></div></div>
-</div>
-<div class="widget-canvas"><div class="widget-site-content"><div class="card"><div class="card-header"><div><h3>Offline state</h3><p class="card-description">Ish vaqtidan tashqari visitor lead capture form</p></div></div><div class="card-body"><div class="alert alert-info"><i data-lucide="clock-3"></i><div>Ish vaqti: Dush-Jum, 09:00-18:00</div></div><div class="placeholder-line" style="width:92%;height:220px;border-radius:14px"></div></div></div><div style="justify-self:end"><div class="widget-window" >
-<div class="widget-window-header">
-<div><strong>QULAY CHAT</strong><div class="mini">Offline</div></div>
-<button class="icon-btn" type="button" data-action="log"><i data-lucide="x"></i></button>
-</div>
-<form class="widget-window-body" data-submit-message="Offline xabar yuborildi">
-<div class="alert alert-info"><i data-lucide="clock-3"></i><div>Operatorlar hozir offline. Dush-Jum, 09:00-18:00 oralig'ida javob beramiz.</div></div>
-<label class="form-field">
-<span class="form-label">Ism</span>
-<input class="input" type="text" placeholder="Ismingiz">
-</label>
-<label class="form-field">
-<span class="form-label">Email</span>
-<input class="input" type="email" placeholder="you@example.com">
-</label>
-<label class="form-field">
-<span class="form-label">Xabar</span>
-<textarea class="textarea" rows="4" placeholder="Savolingizni yozing..."></textarea>
-</label>
-<div class="widget-window-footer" style="padding:0;border-top:none"><button class="btn btn-primary w-full" type="submit" data-action="log">Yuborish</button></div>
-</form>
-</div></div></div></div>
-</div>
-</main>
-<script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QULAY CHAT - Widget Offline</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../assets/qulay-chat-runtime.js" defer></script>
+    <script src="../assets/widget-interactions.js" defer></script>
+  </head>
+  <body class="widget-page">
+    <main class="widget-page">
+      <div class="widget-shell">
+        <div class="widget-topbar">
+          <a class="shell-brand" href="../index.html"
+            ><span class="shell-brand-mark">QC</span
+            ><span>Widget Preview</span></a
+          >
+          <div class="subnav-scroll">
+            <div class="subnav-tabs">
+              <a class="subnav-tab" href="./01-widget-launcher.html"
+                >Widget Launcher</a
+              ><a class="subnav-tab" href="./02-widget-chat.html">Widget Chat</a
+              ><a class="subnav-tab active" href="./03-widget-offline.html"
+                >Widget Offline</a
+              ><a class="subnav-tab" href="./04-widget-csat.html">Widget CSAT</a
+              ><a class="subnav-tab" href="./05-widget-states.html"
+                >Widget States</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="widget-canvas">
+          <div class="widget-site-content">
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <h3>Offline state</h3>
+                  <p class="card-description">
+                    Ish vaqtidan tashqari visitor lead capture form
+                  </p>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="alert alert-info">
+                  <i data-lucide="clock-3"></i>
+                  <div>Ish vaqti: Dush-Jum, 09:00-18:00</div>
+                </div>
+                <div
+                  class="placeholder-line"
+                  style="width: 92%; height: 220px; border-radius: 14px"
+                ></div>
+              </div>
+            </div>
+            <div style="justify-self: end">
+              <div class="widget-window">
+                <div class="widget-window-header">
+                  <div>
+                    <strong>QULAY CHAT</strong>
+                    <div class="mini">Offline</div>
+                  </div>
+                  <button class="icon-btn" type="button" data-action="log">
+                    <i data-lucide="x"></i>
+                  </button>
+                </div>
+                <form
+                  class="widget-window-body"
+                  data-submit-message="Offline xabar yuborildi"
+                >
+                  <div class="alert alert-info">
+                    <i data-lucide="clock-3"></i>
+                    <div>
+                      Operatorlar hozir offline. Dush-Jum, 09:00-18:00
+                      oralig'ida javob beramiz.
+                    </div>
+                  </div>
+                  <label class="form-field">
+                    <span class="form-label">Ism</span>
+                    <input class="input" type="text" placeholder="Ismingiz" />
+                  </label>
+                  <label class="form-field">
+                    <span class="form-label">Email</span>
+                    <input
+                      class="input"
+                      type="email"
+                      placeholder="you@example.com"
+                    />
+                  </label>
+                  <label class="form-field">
+                    <span class="form-label">Xabar</span>
+                    <textarea
+                      class="textarea"
+                      rows="4"
+                      placeholder="Savolingizni yozing..."
+                    ></textarea>
+                  </label>
+                  <div
+                    class="widget-window-footer"
+                    style="padding: 0; border-top: none"
+                  >
+                    <button
+                      class="btn btn-primary w-full"
+                      type="submit"
+                      data-action="log"
+                    >
+                      Yuborish
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      window.addEventListener("DOMContentLoaded", function () {
+        if (window.lucide && window.lucide.createIcons) {
+          window.lucide.createIcons();
+        }
+      });
+    </script>
+  </body>
 </html>

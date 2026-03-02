@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QULAY CHAT - Chat Merge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../assets/qulay-chat-shell.js" defer></script>
+    <script src="../assets/qulay-chat-runtime.js" defer></script>
+    <script src="../assets/inbox-operations.js" defer></script>
+  </head>
+  <body data-active-nav="inbox" class="dashboard-shell-page">
+    <main class="app-content">
+      <div class="subnav-scroll">
+        <div class="subnav-tabs">
+          <a class="subnav-tab" href="./01-inbox-chat.html">Inbox</a
+          ><a class="subnav-tab" href="./02-chat-open.html">Chat Ochiq Holat</a
+          ><a class="subnav-tab" href="./03-info-sidebar.html"
+            >Inbox Info Panel</a
+          ><a class="subnav-tab" href="./04-canned-responses.html"
+            >Canned Responses</a
+          ><a class="subnav-tab" href="./05-chat-transfer.html">Chat Transfer</a
+          ><a class="subnav-tab active" href="./06-chat-merge.html"
+            >Chat Merge</a
+          ><a class="subnav-tab" href="./07-bulk-actions.html">Bulk Actions</a>
+        </div>
+      </div>
+      <div class="page-header">
+        <div>
+          <h1>Chat Merge</h1>
+          <p class="text-muted">
+            Bir mijozning takror chatlarini bitta threadga birlashtirish
+          </p>
+        </div>
+        <div class="page-header-actions">
+          <button class="btn btn-primary" type="button" data-merge-submit>
+            Merge qilish
+          </button>
+        </div>
+      </div>
+      <section class="grid cols-2">
+        <article class="card">
+          <h3 style="margin-top: 0">Asosiy chat</h3>
+          <div class="list-item">
+            <div class="item-main">
+              <div class="item-title">#CH-1291 • Ahmad Valiyev</div>
+              <div class="item-sub">Web • 09:41 • 12 xabar</div>
+            </div>
+            <span class="badge badge-primary">Primary</span>
+          </div>
+          <label class="field" style="margin-top: 10px"
+            ><span class="label">Merge strategy</span
+            ><select class="select" data-merge-strategy>
+              <option value="timeline">Timeline bo‘yicha</option>
+              <option value="channel">Kanal bo‘yicha</option>
+            </select></label
+          >
+        </article>
+        <article class="card">
+          <h3 style="margin-top: 0">Birlashtiriladigan chatlar</h3>
+          <div class="list-stack" data-merge-list>
+            <label class="list-item"
+              ><span class="item-main"
+                ><span class="item-title">#CH-1260 • Telegram chat</span
+                ><span class="item-sub">Kecha • 8 xabar</span></span
+              ><input type="checkbox" value="CH-1260"
+            /></label>
+            <label class="list-item"
+              ><span class="item-main"
+                ><span class="item-title">#CH-1198 • Email thread</span
+                ><span class="item-sub">3 kun oldin • 5 xabar</span></span
+              ><input type="checkbox" value="CH-1198"
+            /></label>
+            <label class="list-item"
+              ><span class="item-main"
+                ><span class="item-title">#CH-1114 • Widget chat</span
+                ><span class="item-sub">1 hafta oldin • 3 xabar</span></span
+              ><input type="checkbox" value="CH-1114"
+            /></label>
+          </div>
+        </article>
+      </section>
+    </main>
+    <script>
+      window.addEventListener(
+        "DOMContentLoaded",
+        () =>
+          window.lucide &&
+          window.lucide.createIcons &&
+          window.lucide.createIcons(),
+      );
+    </script>
+  </body>
+</html>

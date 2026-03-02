@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QULAY CHAT - Realtime Monitor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../assets/qulay-chat-shell.js" defer></script>
+    <script src="../assets/qulay-chat-runtime.js" defer></script>
+    <script src="../assets/analytics-advanced.js" defer></script>
+  </head>
+  <body data-active-nav="analytics" class="dashboard-shell-page">
+    <main class="app-content">
+      <div class="subnav-scroll">
+        <div class="subnav-tabs">
+          <a class="subnav-tab" href="./01-overview.html">Overview</a
+          ><a class="subnav-tab" href="./11-my-stats.html">My Stats</a
+          ><a class="subnav-tab active" href="./12-realtime-monitor.html"
+            >Realtime Monitor</a
+          ><a class="subnav-tab" href="./13-scheduled-reports.html"
+            >Scheduled Reports</a
+          >
+        </div>
+      </div>
+      <div class="page-header">
+        <div>
+          <h1>Realtime Monitor</h1>
+          <p class="text-muted">
+            Hozirgi yuklama va queue holatini jonli kuzatish
+          </p>
+        </div>
+        <div class="page-header-actions">
+          <button class="btn btn-secondary" type="button" data-rt-pause>
+            Pause</button
+          ><button class="btn btn-primary" type="button" data-rt-refresh>
+            Refresh
+          </button>
+        </div>
+      </div>
+      <section class="grid cols-4" style="margin-bottom: 14px">
+        <article class="card">
+          <div class="text-muted" style="font-size: 12px">Online agents</div>
+          <h3 data-rt-agents style="margin: 6px 0 0">12</h3>
+        </article>
+        <article class="card">
+          <div class="text-muted" style="font-size: 12px">Active chats</div>
+          <h3 data-rt-active style="margin: 6px 0 0">37</h3>
+        </article>
+        <article class="card">
+          <div class="text-muted" style="font-size: 12px">Waiting queue</div>
+          <h3 data-rt-queue style="margin: 6px 0 0">5</h3>
+        </article>
+        <article class="card">
+          <div class="text-muted" style="font-size: 12px">Avg response</div>
+          <h3 data-rt-resp style="margin: 6px 0 0">46s</h3>
+        </article>
+      </section>
+      <section class="card" style="padding: 0; overflow: hidden">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Agent</th>
+              <th>Status</th>
+              <th>Active chats</th>
+              <th>Avg response</th>
+            </tr>
+          </thead>
+          <tbody data-rt-table>
+            <tr>
+              <td>Sardor A.</td>
+              <td><span class="badge badge-success">Online</span></td>
+              <td>6</td>
+              <td>39s</td>
+            </tr>
+            <tr>
+              <td>Sara M.</td>
+              <td><span class="badge badge-success">Online</span></td>
+              <td>5</td>
+              <td>44s</td>
+            </tr>
+            <tr>
+              <td>Ali K.</td>
+              <td><span class="badge badge-warning">Away</span></td>
+              <td>3</td>
+              <td>61s</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </body>
+</html>

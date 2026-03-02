@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QULAY CHAT - Scheduled Reports</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../assets/qulay-chat-shell.js" defer></script>
+    <script src="../assets/qulay-chat-runtime.js" defer></script>
+    <script src="../assets/analytics-advanced.js" defer></script>
+  </head>
+  <body data-active-nav="analytics" class="dashboard-shell-page">
+    <main class="app-content">
+      <div class="subnav-scroll">
+        <div class="subnav-tabs">
+          <a class="subnav-tab" href="./12-realtime-monitor.html"
+            >Realtime Monitor</a
+          ><a class="subnav-tab active" href="./13-scheduled-reports.html"
+            >Scheduled Reports</a
+          >
+        </div>
+      </div>
+      <div class="page-header">
+        <div>
+          <h1>Scheduled Reports</h1>
+          <p class="text-muted">
+            Haftalik/oylik hisobotlarni emailga avtomatik yuborish
+          </p>
+        </div>
+        <div class="page-header-actions">
+          <button class="btn btn-primary" type="button" data-sr-create>
+            + New schedule
+          </button>
+        </div>
+      </div>
+      <section class="card" style="margin-bottom: 14px">
+        <div class="grid cols-4">
+          <label class="field"
+            ><span class="label">Report turi</span
+            ><select class="select" data-sr-type>
+              <option>Performance</option>
+              <option>SLA</option>
+              <option>Channel mix</option>
+            </select></label
+          ><label class="field"
+            ><span class="label">Frequency</span
+            ><select class="select" data-sr-frequency>
+              <option>Weekly</option>
+              <option>Monthly</option>
+            </select></label
+          ><label class="field"
+            ><span class="label">Email</span
+            ><input
+              class="input"
+              type="email"
+              placeholder="team@company.uz"
+              data-sr-email /></label
+          ><button
+            class="btn btn-secondary"
+            type="button"
+            style="align-self: end"
+            data-sr-save
+          >
+            Save schedule
+          </button>
+        </div>
+      </section>
+      <section class="card" style="padding: 0; overflow: hidden">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Report</th>
+              <th>Frequency</th>
+              <th>Recipients</th>
+              <th>Next run</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody data-sr-list>
+            <tr>
+              <td>SLA Weekly</td>
+              <td>Weekly</td>
+              <td>ops@qulay.chat</td>
+              <td>Dushanba 09:00</td>
+              <td><span class="badge badge-success">Active</span></td>
+            </tr>
+            <tr>
+              <td>Executive Monthly</td>
+              <td>Monthly</td>
+              <td>ceo@qulay.chat</td>
+              <td>1-aprel 08:00</td>
+              <td><span class="badge badge-success">Active</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </body>
+</html>

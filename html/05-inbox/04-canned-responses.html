@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QULAY CHAT - Canned Responses</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../assets/qulay-chat-shell.js" defer></script>
+    <script src="../assets/qulay-chat-runtime.js" defer></script>
+    <script src="../assets/canned-responses.js" defer></script>
+  </head>
+  <body data-active-nav="inbox" class="dashboard-shell-page">
+    <main class="app-content">
+      <div class="subnav-scroll">
+        <div class="subnav-tabs">
+          <a class="subnav-tab" href="./01-inbox-chat.html">Inbox</a>
+          <a class="subnav-tab" href="./02-chat-open.html">Chat Ochiq Holat</a>
+          <a class="subnav-tab" href="./03-info-sidebar.html"
+            >Inbox Info Panel</a
+          >
+          <a class="subnav-tab active" href="./04-canned-responses.html"
+            >Canned Responses</a
+          >
+          <a class="subnav-tab" href="./05-chat-transfer.html">Chat Transfer</a>
+          <a class="subnav-tab" href="./06-chat-merge.html">Chat Merge</a>
+          <a class="subnav-tab" href="./07-bulk-actions.html">Bulk Actions</a>
+        </div>
+      </div>
+
+      <div class="page-header">
+        <div>
+          <h1>Canned Responses</h1>
+          <p class="text-muted">
+            Tayyor javoblarni tez topish, tahrirlash va chatga qo‘llash
+          </p>
+        </div>
+        <div class="page-header-actions">
+          <button
+            class="btn btn-secondary"
+            type="button"
+            data-action="log"
+            data-message="Import oynasi ochildi"
+          >
+            Import
+          </button>
+          <button
+            class="btn btn-primary"
+            type="button"
+            data-modal-open="cr-create"
+          >
+            + Yangi javob
+          </button>
+        </div>
+      </div>
+
+      <section class="grid cols-3" style="margin-bottom: 14px">
+        <article class="card">
+          <div class="text-muted" style="font-size: 12px">Jami shablon</div>
+          <h3 style="margin: 6px 0 0" data-cr-total>0</h3>
+        </article>
+        <article class="card">
+          <div class="text-muted" style="font-size: 12px">
+            Eng ko‘p ishlatilgan
+          </div>
+          <h3 style="margin: 6px 0 0" data-cr-top>0</h3>
+        </article>
+        <article class="card">
+          <div class="text-muted" style="font-size: 12px">
+            Bugun ishlatilgan
+          </div>
+          <h3 style="margin: 6px 0 0" data-cr-today>0</h3>
+        </article>
+      </section>
+
+      <section class="card" style="margin-bottom: 14px">
+        <div class="grid cols-4">
+          <div class="input-group">
+            <i data-lucide="search"></i
+            ><input
+              class="input"
+              type="search"
+              placeholder="/shortcut yoki matn bo‘yicha qidirish..."
+              data-cr-search
+            />
+          </div>
+          <select class="select" data-cr-category>
+            <option value="all">Barcha kategoriyalar</option>
+            <option value="greeting">Salomlashuv</option>
+            <option value="pricing">Pricing</option>
+            <option value="support">Support</option>
+            <option value="followup">Follow-up</option>
+          </select>
+          <select class="select" data-cr-language>
+            <option value="all">Barcha tillar</option>
+            <option value="uz">O‘zbekcha</option>
+            <option value="ru">Русский</option>
+            <option value="en">English</option>
+          </select>
+          <button class="btn btn-secondary" type="button" data-cr-reset>
+            Filterni tozalash
+          </button>
+        </div>
+      </section>
+
+      <section class="card" style="padding: 0; overflow: hidden">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Shortcut</th>
+              <th>Matn</th>
+              <th>Kategoriya</th>
+              <th>Til</th>
+              <th>Ishlatilgan</th>
+              <th>Amal</th>
+            </tr>
+          </thead>
+          <tbody data-cr-table>
+            <tr
+              data-cr-item
+              data-category="greeting"
+              data-language="uz"
+              data-used="128"
+            >
+              <td><code>/salom</code></td>
+              <td>Assalomu alaykum! Sizga qanday yordam bera olaman?</td>
+              <td><span class="badge badge-info">Salomlashuv</span></td>
+              <td>UZ</td>
+              <td>128</td>
+              <td>
+                <button class="btn btn-ghost btn-sm" type="button" data-cr-copy>
+                  Copy
+                </button>
+                <button class="btn btn-ghost btn-sm" type="button" data-cr-edit>
+                  Edit
+                </button>
+              </td>
+            </tr>
+            <tr
+              data-cr-item
+              data-category="pricing"
+              data-language="uz"
+              data-used="84"
+            >
+              <td><code>/pro-narx</code></td>
+              <td>
+                Pro tarif oyiga $49, unga 10 ta agent va Telegram integratsiyasi
+                kiradi.
+              </td>
+              <td><span class="badge badge-primary">Pricing</span></td>
+              <td>UZ</td>
+              <td>84</td>
+              <td>
+                <button class="btn btn-ghost btn-sm" type="button" data-cr-copy>
+                  Copy
+                </button>
+                <button class="btn btn-ghost btn-sm" type="button" data-cr-edit>
+                  Edit
+                </button>
+              </td>
+            </tr>
+            <tr
+              data-cr-item
+              data-category="support"
+              data-language="ru"
+              data-used="66"
+            >
+              <td><code>/screenshot</code></td>
+              <td>
+                Пожалуйста, отправьте скриншот ошибки и шаги воспроизведения.
+              </td>
+              <td><span class="badge badge-warning">Support</span></td>
+              <td>RU</td>
+              <td>66</td>
+              <td>
+                <button class="btn btn-ghost btn-sm" type="button" data-cr-copy>
+                  Copy
+                </button>
+                <button class="btn btn-ghost btn-sm" type="button" data-cr-edit>
+                  Edit
+                </button>
+              </td>
+            </tr>
+            <tr
+              data-cr-item
+              data-category="followup"
+              data-language="en"
+              data-used="42"
+            >
+              <td><code>/followup-24h</code></td>
+              <td>
+                Just checking in — were you able to resolve the issue from our
+                last message?
+              </td>
+              <td><span class="badge badge-success">Follow-up</span></td>
+              <td>EN</td>
+              <td>42</td>
+              <td>
+                <button class="btn btn-ghost btn-sm" type="button" data-cr-copy>
+                  Copy
+                </button>
+                <button class="btn btn-ghost btn-sm" type="button" data-cr-edit>
+                  Edit
+                </button>
+              </td>
+            </tr>
+            <tr
+              data-cr-item
+              data-category="support"
+              data-language="uz"
+              data-used="37"
+            >
+              <td><code>/ticket-open</code></td>
+              <td>
+                Muammo bo‘yicha ticket ochildi. ID: #{ticket_id}. Yangiliklarni
+                shu chatga yozib boramiz.
+              </td>
+              <td><span class="badge badge-warning">Support</span></td>
+              <td>UZ</td>
+              <td>37</td>
+              <td>
+                <button class="btn btn-ghost btn-sm" type="button" data-cr-copy>
+                  Copy
+                </button>
+                <button class="btn btn-ghost btn-sm" type="button" data-cr-edit>
+                  Edit
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <div class="modal-overlay" data-modal="cr-create" hidden>
+        <div
+          class="modal"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="cr-create-title"
+        >
+          <div class="modal-header">
+            <h3 id="cr-create-title">Yangi canned response</h3>
+            <button class="btn btn-ghost btn-sm" type="button" data-modal-close>
+              <i data-lucide="x"></i>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="grid cols-2">
+              <label class="field"
+                ><span class="label">Shortcut</span
+                ><input
+                  class="input"
+                  type="text"
+                  placeholder="/yangi-shablon"
+                  data-cr-new-shortcut
+              /></label>
+              <label class="field"
+                ><span class="label">Kategoriya</span>
+                <select class="select" data-cr-new-category>
+                  <option value="greeting">Salomlashuv</option>
+                  <option value="pricing">Pricing</option>
+                  <option value="support">Support</option>
+                  <option value="followup">Follow-up</option>
+                </select>
+              </label>
+            </div>
+            <label class="field" style="margin-top: 10px"
+              ><span class="label">Matn</span
+              ><textarea
+                class="textarea"
+                rows="4"
+                placeholder="Shablon matni..."
+                data-cr-new-text
+              ></textarea>
+            </label>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-modal-close>
+              Bekor qilish
+            </button>
+            <button
+              class="btn btn-primary"
+              type="button"
+              data-cr-create
+              data-modal-close
+            >
+              Saqlash
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      window.addEventListener("DOMContentLoaded", function () {
+        if (window.lucide && window.lucide.createIcons) {
+          window.lucide.createIcons();
+        }
+      });
+    </script>
+  </body>
+</html>

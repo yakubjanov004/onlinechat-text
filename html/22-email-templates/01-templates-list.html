@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QULAY CHAT - Templates List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../assets/qulay-chat-shell.js" defer></script>
+    <script src="../assets/qulay-chat-runtime.js" defer></script>
+    <script src="../assets/email-templates.js" defer></script>
+  </head>
+  <body data-active-nav="settings" class="dashboard-shell-page">
+    <main class="app-content">
+      <div class="subnav-scroll">
+        <div class="subnav-tabs">
+          <a class="subnav-tab active" href="./01-templates-list.html"
+            >Templates List</a
+          ><a class="subnav-tab" href="./02-template-editor.html"
+            >Template Editor</a
+          ><a class="subnav-tab" href="./03-template-preview.html"
+            >Preview & Test</a
+          ><a class="subnav-tab" href="./04-template-settings.html"
+            >SMTP Settings</a
+          >
+        </div>
+      </div>
+      <div class="page-header">
+        <div>
+          <h1>Email shablonlar</h1>
+          <p class="text-muted">
+            Verification, reset, invoice va boshqa tizim xatlari
+          </p>
+        </div>
+        <div class="page-header-actions">
+          <button class="btn btn-primary" type="button" data-et-new>
+            + Yangi template
+          </button>
+        </div>
+      </div>
+      <section class="card" style="margin-bottom: 14px">
+        <div class="grid cols-3">
+          <div class="input-group">
+            <i data-lucide="search"></i
+            ><input
+              class="input"
+              type="search"
+              placeholder="Template qidirish..."
+              data-et-search
+            />
+          </div>
+          <select class="select" data-et-type>
+            <option value="all">Barcha turlar</option>
+            <option value="auth">Auth</option>
+            <option value="billing">Billing</option>
+            <option value="team">Team</option>
+            <option value="system">System</option></select
+          ><button class="btn btn-secondary" type="button" data-et-reset>
+            Tozalash
+          </button>
+        </div>
+      </section>
+      <section class="card" style="padding: 0; overflow: hidden">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Nomi</th>
+              <th>Turi</th>
+              <th>Oxirgi update</th>
+              <th>Status</th>
+              <th>Amal</th>
+            </tr>
+          </thead>
+          <tbody data-et-list>
+            <tr data-et-item data-type="auth">
+              <td>Account verification</td>
+              <td><span class="badge badge-info">Auth</span></td>
+              <td>Bugun 09:10</td>
+              <td><span class="badge badge-success">Active</span></td>
+              <td>
+                <a class="btn btn-ghost btn-sm" href="./02-template-editor.html"
+                  >Edit</a
+                >
+              </td>
+            </tr>
+            <tr data-et-item data-type="auth">
+              <td>Password reset</td>
+              <td><span class="badge badge-info">Auth</span></td>
+              <td>Kecha 17:30</td>
+              <td><span class="badge badge-success">Active</span></td>
+              <td>
+                <a class="btn btn-ghost btn-sm" href="./02-template-editor.html"
+                  >Edit</a
+                >
+              </td>
+            </tr>
+            <tr data-et-item data-type="billing">
+              <td>Invoice generated</td>
+              <td><span class="badge badge-warning">Billing</span></td>
+              <td>2 kun oldin</td>
+              <td><span class="badge badge-success">Active</span></td>
+              <td>
+                <a class="btn btn-ghost btn-sm" href="./02-template-editor.html"
+                  >Edit</a
+                >
+              </td>
+            </tr>
+            <tr data-et-item data-type="team">
+              <td>Team invite</td>
+              <td><span class="badge badge-primary">Team</span></td>
+              <td>3 kun oldin</td>
+              <td><span class="badge">Draft</span></td>
+              <td>
+                <a class="btn btn-ghost btn-sm" href="./02-template-editor.html"
+                  >Edit</a
+                >
+              </td>
+            </tr>
+            <tr data-et-item data-type="system">
+              <td>Maintenance notice</td>
+              <td><span class="badge badge-danger">System</span></td>
+              <td>1 hafta oldin</td>
+              <td><span class="badge">Draft</span></td>
+              <td>
+                <a class="btn btn-ghost btn-sm" href="./02-template-editor.html"
+                  >Edit</a
+                >
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </body>
+</html>

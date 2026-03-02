@@ -1,57 +1,191 @@
 <!doctype html>
 <html lang="uz">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QULAY CHAT - Operatorlar</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/qulay-chat-design-system.css">
-<script src="https://unpkg.com/lucide@latest" defer></script>
-<script src="../assets/qulay-chat-shell.js" defer></script>
-<script src="../assets/qulay-chat-runtime.js" defer></script><script src="../assets/analytics-interactions.js" defer></script>
-</head>
-<body data-active-nav="analytics" class="dashboard-shell-page">
-<main class="app-content">
-<div class="subnav-scroll">
-<div class="subnav-tabs">
-<a class="subnav-tab " href="./01-overview.html">Analytics Overview</a><a class="subnav-tab " href="./02-response-times.html">Response Times</a><a class="subnav-tab active" href="./03-operators.html">Operatorlar</a><a class="subnav-tab " href="./04-operator-detail.html">Operator Profili</a><a class="subnav-tab " href="./05-sla.html">SLA Monitoring</a><a class="subnav-tab " href="./06-channels.html">Kanallar</a><a class="subnav-tab " href="./07-segments.html">Segmentlar</a><a class="subnav-tab " href="./08-tags.html">Tag Analytics</a><a class="subnav-tab " href="./09-custom-reports.html">Custom Reports</a><a class="subnav-tab " href="./10-export.html">Analytics Export</a><a class="subnav-tab " href="./11-my-stats.html">Mening Statistikam</a>
-</div>
-</div>
-<div class="page-header">
-<div>
-<h1>Operatorlar</h1>
-<p class="text-muted">Analytics dashboard va reportlar</p>
-</div>
-<div class="page-header-actions"><div class="analytics-topbar">
-<div class="date-range"><i data-lucide="calendar"></i>Oxirgi 7 kun</div>
-<button class="btn btn-secondary" type="button" data-action="export"><i data-lucide="download"></i> Export</button>
-</div></div>
-</div>
-<section class="card">
-<div class="card-header">
-<div>
-<h3>Operator performance</h3>
-</div>
-<div class="card-actions"><a class="btn btn-secondary" href="./04-operator-detail.html" >Detail</a></div>
-</div>
-<div class="card-body">
-<div class="table-wrap">
-<table class="table">
-<thead>
-<tr class="table-header">
-<th>Agent</th><th>Chats</th><th>Avg response</th><th>Resolution</th><th>CSAT</th>
-</tr>
-</thead>
-<tbody>
-<tr class="table-row"><td><a href="./04-operator-detail.html" style="color:var(--primary)">Sardor A.</a></td><td>412</td><td>1m 42s</td><td>88%</td><td>4.9</td></tr><tr class="table-row"><td><a href="./04-operator-detail.html" style="color:var(--primary)">Sara M.</a></td><td>355</td><td>2m 01s</td><td>83%</td><td>4.8</td></tr><tr class="table-row"><td><a href="./04-operator-detail.html" style="color:var(--primary)">Ali K.</a></td><td>298</td><td>2m 14s</td><td>80%</td><td>4.6</td></tr><tr class="table-row"><td><a href="./04-operator-detail.html" style="color:var(--primary)">Malika T.</a></td><td>267</td><td>1m 54s</td><td>86%</td><td>4.9</td></tr><tr class="table-row"><td><a href="./04-operator-detail.html" style="color:var(--primary)">Dilshod N.</a></td><td>189</td><td>2m 40s</td><td>78%</td><td>4.5</td></tr><tr class="table-row"><td><a href="./04-operator-detail.html" style="color:var(--primary)">Jasur P.</a></td><td>321</td><td>1m 37s</td><td>89%</td><td>4.8</td></tr><tr class="table-row"><td><a href="./04-operator-detail.html" style="color:var(--primary)">Bobur R.</a></td><td>144</td><td>3m 05s</td><td>74%</td><td>4.4</td></tr>
-</tbody>
-</table>
-</div>
-</div>
-</section>
-</main>
-<script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QULAY CHAT - Operatorlar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../assets/qulay-chat-shell.js" defer></script>
+    <script src="../assets/qulay-chat-runtime.js" defer></script>
+    <script src="../assets/analytics-interactions.js" defer></script>
+  </head>
+  <body data-active-nav="analytics" class="dashboard-shell-page">
+    <main class="app-content">
+      <div class="subnav-scroll">
+        <div class="subnav-tabs">
+          <a class="subnav-tab" href="./01-overview.html">Analytics Overview</a
+          ><a class="subnav-tab" href="./02-response-times.html"
+            >Response Times</a
+          ><a class="subnav-tab active" href="./03-operators.html"
+            >Operatorlar</a
+          ><a class="subnav-tab" href="./04-operator-detail.html"
+            >Operator Profili</a
+          ><a class="subnav-tab" href="./05-sla.html">SLA Monitoring</a
+          ><a class="subnav-tab" href="./06-channels.html">Kanallar</a
+          ><a class="subnav-tab" href="./07-segments.html">Segmentlar</a
+          ><a class="subnav-tab" href="./08-tags.html">Tag Analytics</a
+          ><a class="subnav-tab" href="./09-custom-reports.html"
+            >Custom Reports</a
+          ><a class="subnav-tab" href="./10-export.html">Analytics Export</a
+          ><a class="subnav-tab" href="./11-my-stats.html"
+            >Mening Statistikam</a
+          >
+        </div>
+      </div>
+      <div class="page-header">
+        <div>
+          <h1>Operatorlar</h1>
+          <p class="text-muted">Analytics dashboard va reportlar</p>
+        </div>
+        <div class="page-header-actions">
+          <div class="analytics-topbar">
+            <div class="date-range">
+              <i data-lucide="calendar"></i>Oxirgi 7 kun
+            </div>
+            <button
+              class="btn btn-secondary"
+              type="button"
+              data-action="export"
+            >
+              <i data-lucide="download"></i> Export
+            </button>
+          </div>
+        </div>
+      </div>
+      <section class="card">
+        <div class="card-header">
+          <div>
+            <h3>Operator performance</h3>
+          </div>
+          <div class="card-actions">
+            <a class="btn btn-secondary" href="./04-operator-detail.html"
+              >Detail</a
+            >
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="table-wrap">
+            <table class="table">
+              <thead>
+                <tr class="table-header">
+                  <th>Agent</th>
+                  <th>Chats</th>
+                  <th>Avg response</th>
+                  <th>Resolution</th>
+                  <th>CSAT</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="table-row">
+                  <td>
+                    <a
+                      href="./04-operator-detail.html"
+                      style="color: var(--primary)"
+                      >Sardor A.</a
+                    >
+                  </td>
+                  <td>412</td>
+                  <td>1m 42s</td>
+                  <td>88%</td>
+                  <td>4.9</td>
+                </tr>
+                <tr class="table-row">
+                  <td>
+                    <a
+                      href="./04-operator-detail.html"
+                      style="color: var(--primary)"
+                      >Sara M.</a
+                    >
+                  </td>
+                  <td>355</td>
+                  <td>2m 01s</td>
+                  <td>83%</td>
+                  <td>4.8</td>
+                </tr>
+                <tr class="table-row">
+                  <td>
+                    <a
+                      href="./04-operator-detail.html"
+                      style="color: var(--primary)"
+                      >Ali K.</a
+                    >
+                  </td>
+                  <td>298</td>
+                  <td>2m 14s</td>
+                  <td>80%</td>
+                  <td>4.6</td>
+                </tr>
+                <tr class="table-row">
+                  <td>
+                    <a
+                      href="./04-operator-detail.html"
+                      style="color: var(--primary)"
+                      >Malika T.</a
+                    >
+                  </td>
+                  <td>267</td>
+                  <td>1m 54s</td>
+                  <td>86%</td>
+                  <td>4.9</td>
+                </tr>
+                <tr class="table-row">
+                  <td>
+                    <a
+                      href="./04-operator-detail.html"
+                      style="color: var(--primary)"
+                      >Dilshod N.</a
+                    >
+                  </td>
+                  <td>189</td>
+                  <td>2m 40s</td>
+                  <td>78%</td>
+                  <td>4.5</td>
+                </tr>
+                <tr class="table-row">
+                  <td>
+                    <a
+                      href="./04-operator-detail.html"
+                      style="color: var(--primary)"
+                      >Jasur P.</a
+                    >
+                  </td>
+                  <td>321</td>
+                  <td>1m 37s</td>
+                  <td>89%</td>
+                  <td>4.8</td>
+                </tr>
+                <tr class="table-row">
+                  <td>
+                    <a
+                      href="./04-operator-detail.html"
+                      style="color: var(--primary)"
+                      >Bobur R.</a
+                    >
+                  </td>
+                  <td>144</td>
+                  <td>3m 05s</td>
+                  <td>74%</td>
+                  <td>4.4</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script>
+      window.addEventListener("DOMContentLoaded", function () {
+        if (window.lucide && window.lucide.createIcons) {
+          window.lucide.createIcons();
+        }
+      });
+    </script>
+  </body>
 </html>

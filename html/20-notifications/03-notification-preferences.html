@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QULAY CHAT - Notification Preferences</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../assets/qulay-chat-shell.js" defer></script>
+    <script src="../assets/qulay-chat-runtime.js" defer></script>
+  </head>
+  <body data-active-nav="notifications" class="dashboard-shell-page">
+    <main class="app-content">
+      <div class="subnav-scroll">
+        <div class="subnav-tabs">
+          <a class="subnav-tab" href="./01-notification-dropdown.html"
+            >Dropdown</a
+          >
+          <a class="subnav-tab" href="./02-notification-all.html">Barchasi</a>
+          <a class="subnav-tab active" href="./03-notification-preferences.html"
+            >Sozlamalar</a
+          >
+        </div>
+      </div>
+
+      <div class="page-header">
+        <div>
+          <h1>Notification sozlamalari</h1>
+          <p class="text-muted">
+            Kanal, tur va jadval bo‘yicha xabar berishni boshqarish
+          </p>
+        </div>
+        <div class="page-header-actions">
+          <button
+            class="btn btn-secondary"
+            type="button"
+            data-action="reset-form"
+          >
+            Reset
+          </button>
+          <button class="btn btn-primary" type="button" data-action="save">
+            Saqlash
+          </button>
+        </div>
+      </div>
+
+      <form
+        class="grid cols-2"
+        data-auto-submit
+        data-submit-message="Notification sozlamalari saqlandi"
+      >
+        <section class="card">
+          <h3 style="margin-top: 0">
+            Qaysi hodisalarda ogohlantirish berilsin?
+          </h3>
+          <div class="list-stack">
+            <label class="list-item"
+              ><span class="item-main"
+                ><span class="item-title">Yangi chat</span
+                ><span class="item-sub"
+                  >Inboxga yangi suhbat tushganda</span
+                ></span
+              ><input type="checkbox" checked
+            /></label>
+            <label class="list-item"
+              ><span class="item-main"
+                ><span class="item-title">@Mention</span
+                ><span class="item-sub">Siz mention qilinganda</span></span
+              ><input type="checkbox" checked
+            /></label>
+            <label class="list-item"
+              ><span class="item-main"
+                ><span class="item-title">Team update</span
+                ><span class="item-sub"
+                  >Agent status/shift o‘zgarishi</span
+                ></span
+              ><input type="checkbox" checked
+            /></label>
+            <label class="list-item"
+              ><span class="item-main"
+                ><span class="item-title">System alert</span
+                ><span class="item-sub"
+                  >Deploy, downtime, webhook xatolari</span
+                ></span
+              ><input type="checkbox" checked
+            /></label>
+            <label class="list-item"
+              ><span class="item-main"
+                ><span class="item-title">Billing</span
+                ><span class="item-sub"
+                  >Invoice, obuna, limit ogohlantirishlari</span
+                ></span
+              ><input type="checkbox"
+            /></label>
+          </div>
+        </section>
+
+        <section class="card">
+          <h3 style="margin-top: 0">Kanal sozlamalari</h3>
+          <div class="kv-list">
+            <div class="kv-row">
+              <span>In-app</span
+              ><label><input type="checkbox" checked /> Yoqilgan</label>
+            </div>
+            <div class="kv-row">
+              <span>Desktop Push</span
+              ><label><input type="checkbox" checked /> Yoqilgan</label>
+            </div>
+            <div class="kv-row">
+              <span>Email digest</span
+              ><label><input type="checkbox" /> Yoqilgan</label>
+            </div>
+            <div class="kv-row">
+              <span>Telegram alert</span
+              ><label><input type="checkbox" /> Yoqilgan</label>
+            </div>
+            <div class="kv-row">
+              <span>Sound</span
+              ><label><input type="checkbox" checked /> Yoqilgan</label>
+            </div>
+          </div>
+
+          <div class="grid cols-2" style="margin-top: 14px">
+            <label class="field"
+              ><span class="label">Quiet hours (dan)</span
+              ><input class="input" type="time" value="22:00"
+            /></label>
+            <label class="field"
+              ><span class="label">Quiet hours (gacha)</span
+              ><input class="input" type="time" value="08:00"
+            /></label>
+            <label class="field"
+              ><span class="label">Digest tezligi</span>
+              <select class="select">
+                <option>Darhol</option>
+                <option selected>Har 15 daqiqada</option>
+                <option>Har soatda</option>
+                <option>Kunlik</option>
+              </select>
+            </label>
+            <label class="field"
+              ><span class="label">Timezone</span
+              ><input class="input" type="text" value="Asia/Tashkent"
+            /></label>
+          </div>
+        </section>
+      </form>
+    </main>
+    <script>
+      window.addEventListener("DOMContentLoaded", function () {
+        if (window.lucide && window.lucide.createIcons) {
+          window.lucide.createIcons();
+        }
+      });
+    </script>
+  </body>
+</html>

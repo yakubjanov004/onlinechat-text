@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QULAY CHAT - Global Search Modal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../assets/qulay-chat-shell.js" defer></script>
+    <script src="../assets/qulay-chat-runtime.js" defer></script>
+    <script src="../assets/global-search.js" defer></script>
+  </head>
+  <body data-active-nav="dashboard" class="dashboard-shell-page">
+    <main class="app-content">
+      <div class="subnav-scroll">
+        <div class="subnav-tabs">
+          <a class="subnav-tab active" href="./01-search-modal.html"
+            >Search Modal</a
+          ><a class="subnav-tab" href="./02-search-results.html"
+            >Search Results</a
+          >
+        </div>
+      </div>
+      <div class="page-header">
+        <div>
+          <h1>Global Search</h1>
+          <p class="text-muted">
+            Cmd/Ctrl + K orqali platforma bo‘ylab qidiruv
+          </p>
+        </div>
+        <div class="page-header-actions">
+          <button class="btn btn-primary" type="button" data-gs-open>
+            <i data-lucide="search"></i> Search ochish
+          </button>
+        </div>
+      </div>
+      <section class="card">
+        <h3 style="margin-top: 0">Tezkor ko‘rsatma</h3>
+        <div class="kv-list">
+          <div class="kv-row">
+            <span>Shortcut</span><strong>Ctrl + K / Cmd + K</strong>
+          </div>
+          <div class="kv-row">
+            <span>Kategoriyalar</span
+            ><strong>Chats, Contacts, KB, Settings, Agents</strong>
+          </div>
+          <div class="kv-row">
+            <span>Navigatsiya</span><strong>↑ ↓ va Enter</strong>
+          </div>
+        </div>
+      </section>
+
+      <div class="modal-overlay" data-modal="global-search" hidden>
+        <div
+          class="modal"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="gs-title"
+          style="max-width: 760px"
+        >
+          <div class="modal-header">
+            <h3 id="gs-title">Global Search</h3>
+            <button class="btn btn-ghost btn-sm" type="button" data-modal-close>
+              <i data-lucide="x"></i>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="input-group">
+              <i data-lucide="search"></i
+              ><input
+                class="input"
+                type="search"
+                placeholder="Chat, kontakt, maqola yoki sozlama qidiring..."
+                data-gs-input
+                autofocus
+              />
+            </div>
+            <div class="flex gap-2" style="margin-top: 10px">
+              <button
+                class="btn btn-ghost btn-sm active"
+                type="button"
+                data-gs-filter="all"
+              >
+                All</button
+              ><button
+                class="btn btn-ghost btn-sm"
+                type="button"
+                data-gs-filter="chat"
+              >
+                Chats</button
+              ><button
+                class="btn btn-ghost btn-sm"
+                type="button"
+                data-gs-filter="contact"
+              >
+                Contacts</button
+              ><button
+                class="btn btn-ghost btn-sm"
+                type="button"
+                data-gs-filter="kb"
+              >
+                KB</button
+              ><button
+                class="btn btn-ghost btn-sm"
+                type="button"
+                data-gs-filter="settings"
+              >
+                Settings
+              </button>
+            </div>
+            <div
+              class="list-stack"
+              style="margin-top: 12px; max-height: 360px; overflow: auto"
+              data-gs-list
+            >
+              <button
+                class="list-item"
+                type="button"
+                data-gs-item
+                data-type="chat"
+                data-target="../05-inbox/02-chat-open.html"
+              >
+                <div class="item-main">
+                  <div class="item-title">
+                    Chat: Ahmad Valiyev — Pro tarif savoli
+                  </div>
+                  <div class="item-sub">Inbox / Web</div>
+                </div>
+                <span class="badge badge-primary">Chat</span>
+              </button>
+              <button
+                class="list-item"
+                type="button"
+                data-gs-item
+                data-type="contact"
+                data-target="../12-contacts/01-contacts-list.html"
+              >
+                <div class="item-main">
+                  <div class="item-title">Kontakt: Dilnoza Rahimova</div>
+                  <div class="item-sub">Telegram lead</div>
+                </div>
+                <span class="badge badge-info">Contact</span>
+              </button>
+              <button
+                class="list-item"
+                type="button"
+                data-gs-item
+                data-type="kb"
+                data-target="../15-knowledge-base/02-kb-article.html"
+              >
+                <div class="item-main">
+                  <div class="item-title">
+                    KB: Telegram integratsiya qo‘llanmasi
+                  </div>
+                  <div class="item-sub">Knowledge Base</div>
+                </div>
+                <span class="badge badge-success">KB</span>
+              </button>
+              <button
+                class="list-item"
+                type="button"
+                data-gs-item
+                data-type="settings"
+                data-target="../09-settings/01-general.html"
+              >
+                <div class="item-main">
+                  <div class="item-title">Settings: General konfiguratsiya</div>
+                  <div class="item-sub">Workspace settings</div>
+                </div>
+                <span class="badge badge-warning">Settings</span>
+              </button>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <span class="text-muted" style="font-size: 12px"
+              >Enter — ochish • Esc — yopish</span
+            >
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      window.addEventListener(
+        "DOMContentLoaded",
+        () =>
+          window.lucide &&
+          window.lucide.createIcons &&
+          window.lucide.createIcons(),
+      );
+    </script>
+  </body>
+</html>

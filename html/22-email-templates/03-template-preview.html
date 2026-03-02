@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QULAY CHAT - Template Preview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../assets/qulay-chat-shell.js" defer></script>
+    <script src="../assets/qulay-chat-runtime.js" defer></script>
+    <script src="../assets/email-templates.js" defer></script>
+  </head>
+  <body data-active-nav="settings" class="dashboard-shell-page">
+    <main class="app-content">
+      <div class="subnav-scroll">
+        <div class="subnav-tabs">
+          <a class="subnav-tab" href="./01-templates-list.html"
+            >Templates List</a
+          ><a class="subnav-tab" href="./02-template-editor.html"
+            >Template Editor</a
+          ><a class="subnav-tab active" href="./03-template-preview.html"
+            >Preview & Test</a
+          ><a class="subnav-tab" href="./04-template-settings.html"
+            >SMTP Settings</a
+          >
+        </div>
+      </div>
+      <div class="page-header">
+        <div>
+          <h1>Preview & Test send</h1>
+          <p class="text-muted">Template’ni yuborishdan oldin tekshirish</p>
+        </div>
+        <div class="page-header-actions">
+          <button class="btn btn-secondary" type="button" data-et-render>
+            Render</button
+          ><button class="btn btn-primary" type="button" data-et-send-test>
+            Test yuborish
+          </button>
+        </div>
+      </div>
+      <section class="grid cols-2">
+        <article class="card">
+          <label class="field"
+            ><span class="label">Test email</span
+            ><input
+              class="input"
+              type="email"
+              placeholder="you@example.com"
+              data-et-test-email /></label
+          ><label class="field" style="margin-top: 10px"
+            ><span class="label">Variables (JSON)</span
+            ><textarea class="textarea" rows="8" data-et-vars>
+{"user_name":"Ulug‘bek","verification_link":"https://qulay.chat/verify/abc123"}</textarea
+            >
+          </label>
+        </article>
+        <article class="card">
+          <h3 style="margin-top: 0">Live preview</h3>
+          <div class="empty-state" data-et-preview>
+            <i data-lucide="mail"></i><strong>Render qiling</strong>
+            <p class="text-muted" style="font-size: 13px">
+              Variables bilan email ko‘rinishini tekshirish uchun “Render”
+              bosing.
+            </p>
+          </div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

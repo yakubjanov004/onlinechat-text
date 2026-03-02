@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QULAY CHAT - Widget Mobile</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../assets/qulay-chat-runtime.js" defer></script>
+    <script src="../assets/widget-extensions.js" defer></script>
+  </head>
+  <body class="widget-page">
+    <main class="widget-page">
+      <div class="widget-shell">
+        <div class="widget-topbar">
+          <a class="shell-brand" href="../index.html"
+            ><span class="shell-brand-mark">QC</span
+            ><span>Widget Preview</span></a
+          >
+          <div class="subnav-scroll">
+            <div class="subnav-tabs">
+              <a class="subnav-tab" href="./01-widget-launcher.html"
+                >Widget Launcher</a
+              ><a class="subnav-tab" href="./02-widget-chat.html">Widget Chat</a
+              ><a class="subnav-tab" href="./03-widget-offline.html"
+                >Widget Offline</a
+              ><a class="subnav-tab" href="./04-widget-csat.html">Widget CSAT</a
+              ><a class="subnav-tab" href="./05-widget-states.html"
+                >Widget States</a
+              ><a class="subnav-tab" href="./06-widget-prechat.html"
+                >Pre-chat Form</a
+              ><a class="subnav-tab" href="./07-widget-knowledge.html"
+                >Widget KB</a
+              ><a class="subnav-tab active" href="./08-widget-mobile.html"
+                >Widget Mobile</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="widget-canvas">
+          <div class="card">
+            <div class="card-header">
+              <div>
+                <h3>Mobile preview</h3>
+                <p class="card-description">
+                  360px viewportda widget xatti-harakatlari
+                </p>
+              </div>
+            </div>
+          </div>
+          <div style="display: grid; place-items: center; padding: 16px">
+            <div
+              style="
+                width: 360px;
+                height: 740px;
+                border: 10px solid #0f172a;
+                border-radius: 28px;
+                overflow: hidden;
+                background: #fff;
+                box-shadow: 0 20px 45px rgba(2, 6, 23, 0.28);
+              "
+            >
+              <div style="height: 26px; background: #0f172a"></div>
+              <div
+                class="widget-window"
+                style="
+                  height: 704px;
+                  border-radius: 0;
+                  border: 0;
+                  display: grid;
+                  grid-template-rows: auto 1fr auto;
+                "
+              >
+                <div class="widget-window-header">
+                  <div>
+                    <strong>QULAY CHAT</strong>
+                    <div class="mini">Mobile support</div>
+                  </div>
+                  <button class="icon-btn" type="button">
+                    <i data-lucide="x"></i>
+                  </button>
+                </div>
+                <div class="widget-window-body">
+                  <div class="widget-msg">
+                    Salom! Mobil qurilmada ham tez javob beramiz.
+                  </div>
+                  <div class="widget-msg agent">
+                    Iltimos, muammo rasmini yuboring.
+                  </div>
+                  <div class="widget-msg">Biriktirish qanday qilinadi?</div>
+                  <div class="widget-msg agent">
+                    Pastdagi 📎 tugmasi orqali fayl yuborasiz.
+                  </div>
+                </div>
+                <div class="widget-window-footer">
+                  <button class="icon-btn" type="button">
+                    <i data-lucide="paperclip"></i></button
+                  ><textarea
+                    class="textarea"
+                    rows="1"
+                    placeholder="Xabar..."
+                  ></textarea
+                  ><button class="btn btn-primary btn-sm" type="button">
+                    <i data-lucide="send"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      window.addEventListener(
+        "DOMContentLoaded",
+        () =>
+          window.lucide &&
+          window.lucide.createIcons &&
+          window.lucide.createIcons(),
+      );
+    </script>
+  </body>
+</html>

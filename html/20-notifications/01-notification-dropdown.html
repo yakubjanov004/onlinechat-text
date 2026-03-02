@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QULAY CHAT - Notification Dropdown</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../assets/qulay-chat-shell.js" defer></script>
+    <script src="../assets/qulay-chat-runtime.js" defer></script>
+    <script src="../assets/notification-interactions.js" defer></script>
+  </head>
+  <body data-active-nav="notifications" class="dashboard-shell-page">
+    <main class="app-content">
+      <div class="subnav-scroll">
+        <div class="subnav-tabs">
+          <a class="subnav-tab active" href="./01-notification-dropdown.html"
+            >Dropdown</a
+          >
+          <a class="subnav-tab" href="./02-notification-all.html">Barchasi</a>
+          <a class="subnav-tab" href="./03-notification-preferences.html"
+            >Sozlamalar</a
+          >
+        </div>
+      </div>
+
+      <div class="page-header">
+        <div>
+          <h1>Notification Center</h1>
+          <p class="text-muted">
+            Bell dropdown orqali real-time ogohlantirishlar
+          </p>
+        </div>
+        <div class="page-header-actions">
+          <button
+            class="btn btn-secondary"
+            type="button"
+            data-action="log"
+            data-message="Test notification yuborildi"
+          >
+            Test yuborish
+          </button>
+          <button class="btn btn-primary" type="button" data-mark-all-read>
+            Hammasini o‘qilgan qilish
+          </button>
+        </div>
+      </div>
+
+      <section class="grid cols-2" style="align-items: start">
+        <article class="card" style="padding: 0; overflow: hidden">
+          <div
+            style="
+              padding: 14px 16px;
+              border-bottom: 1px solid var(--line);
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              gap: 10px;
+            "
+          >
+            <div class="flex items-center gap-2">
+              <i data-lucide="bell"></i>
+              <strong>Bildirishnomalar</strong>
+              <span class="badge badge-danger" data-unread-badge>6</span>
+            </div>
+            <div class="flex gap-2">
+              <button
+                class="btn btn-ghost btn-sm active"
+                type="button"
+                data-filter="all"
+              >
+                Hammasi
+              </button>
+              <button
+                class="btn btn-ghost btn-sm"
+                type="button"
+                data-filter="unread"
+              >
+                Unread
+              </button>
+            </div>
+          </div>
+
+          <div style="padding: 10px 12px; border-bottom: 1px solid var(--line)">
+            <div class="input-group">
+              <i data-lucide="search"></i
+              ><input
+                class="input"
+                type="search"
+                placeholder="Dropdown ichida qidirish..."
+                data-notification-search-dropdown
+              />
+            </div>
+          </div>
+          <div class="list-stack" style="padding: 12px" data-notification-list>
+            <div
+              class="list-item"
+              data-notification
+              data-type="chat"
+              data-unread="true"
+            >
+              <div class="item-main">
+                <div class="item-title">
+                  Yangi chat: "Tariflar haqida savol"
+                </div>
+                <div class="item-sub">2 daqiqa oldin • Web chat • Ahmad V.</div>
+              </div>
+              <div class="flex gap-2">
+                <span class="badge badge-primary">Chat</span>
+                <button
+                  class="btn btn-ghost btn-sm"
+                  type="button"
+                  data-mark-read
+                >
+                  O‘qildi
+                </button>
+              </div>
+            </div>
+
+            <div
+              class="list-item"
+              data-notification
+              data-type="mention"
+              data-unread="true"
+            >
+              <div class="item-main">
+                <div class="item-title">
+                  Siz mention qilindingiz: #support-team
+                </div>
+                <div class="item-sub">
+                  5 daqiqa oldin • Sardor sizni chaqirdi
+                </div>
+              </div>
+              <div class="flex gap-2">
+                <span class="badge badge-info">Mention</span>
+                <button
+                  class="btn btn-ghost btn-sm"
+                  type="button"
+                  data-mark-read
+                >
+                  O‘qildi
+                </button>
+              </div>
+            </div>
+
+            <div
+              class="list-item"
+              data-notification
+              data-type="team"
+              data-unread="true"
+            >
+              <div class="item-main">
+                <div class="item-title">
+                  Agent navbatchilik jadvali yangilandi
+                </div>
+                <div class="item-sub">11 daqiqa oldin • Team update</div>
+              </div>
+              <div class="flex gap-2">
+                <span class="badge badge-warning">Team</span>
+                <button
+                  class="btn btn-ghost btn-sm"
+                  type="button"
+                  data-mark-read
+                >
+                  O‘qildi
+                </button>
+              </div>
+            </div>
+
+            <div
+              class="list-item"
+              data-notification
+              data-type="system"
+              data-unread="false"
+            >
+              <div class="item-main">
+                <div class="item-title">
+                  Yangi versiya: v2.4.0 deploy qilindi
+                </div>
+                <div class="item-sub">Bugun, 07:20 • System</div>
+              </div>
+              <span class="badge badge-success">System</span>
+            </div>
+
+            <div
+              class="list-item"
+              data-notification
+              data-type="billing"
+              data-unread="true"
+            >
+              <div class="item-main">
+                <div class="item-title">
+                  Invoice #INV-2026-022 to‘lov muddati yaqin
+                </div>
+                <div class="item-sub">Bugun, 06:48 • Billing</div>
+              </div>
+              <div class="flex gap-2">
+                <span class="badge badge-danger">Billing</span>
+                <button
+                  class="btn btn-ghost btn-sm"
+                  type="button"
+                  data-mark-read
+                >
+                  O‘qildi
+                </button>
+              </div>
+            </div>
+
+            <div
+              class="list-item"
+              data-notification
+              data-type="chat"
+              data-unread="false"
+            >
+              <div class="item-main">
+                <div class="item-title">
+                  Chat yopildi: "Widget rangi o‘zgarmadi"
+                </div>
+                <div class="item-sub">Kecha, 23:12 • Ali K.</div>
+              </div>
+              <span class="badge">Chat</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3 style="margin-top: 0">Dropdown UX eslatma</h3>
+          <div class="kv-list">
+            <div class="kv-row">
+              <span>Trigger</span><strong>Header Bell icon</strong>
+            </div>
+            <div class="kv-row">
+              <span>Maks item</span><strong>10 ta preview</strong>
+            </div>
+            <div class="kv-row">
+              <span>Realtime</span><strong>WebSocket event</strong>
+            </div>
+            <div class="kv-row">
+              <span>Primary action</span><strong>Mark as read</strong>
+            </div>
+            <div class="kv-row">
+              <span>Fallback</span
+              ><strong>“Barchasini ko‘rish” sahifasi</strong>
+            </div>
+          </div>
+          <div class="empty-state" style="margin-top: 14px">
+            <i data-lucide="info"></i>
+            <strong>Intercom/Crisp pattern</strong>
+            <p class="text-muted" style="font-size: 13px">
+              Dropdown tez ko‘rish uchun, to‘liq boshqaruv esa alohida sahifada
+              bo‘ladi.
+            </p>
+          </div>
+        </article>
+      </section>
+    </main>
+    <script>
+      window.addEventListener("DOMContentLoaded", function () {
+        if (window.lucide && window.lucide.createIcons) {
+          window.lucide.createIcons();
+        }
+      });
+    </script>
+  </body>
+</html>

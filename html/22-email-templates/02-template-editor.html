@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QULAY CHAT - Template Editor</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../assets/qulay-chat-shell.js" defer></script>
+    <script src="../assets/qulay-chat-runtime.js" defer></script>
+    <script src="../assets/email-templates.js" defer></script>
+  </head>
+  <body data-active-nav="settings" class="dashboard-shell-page">
+    <main class="app-content">
+      <div class="subnav-scroll">
+        <div class="subnav-tabs">
+          <a class="subnav-tab" href="./01-templates-list.html"
+            >Templates List</a
+          ><a class="subnav-tab active" href="./02-template-editor.html"
+            >Template Editor</a
+          ><a class="subnav-tab" href="./03-template-preview.html"
+            >Preview & Test</a
+          ><a class="subnav-tab" href="./04-template-settings.html"
+            >SMTP Settings</a
+          >
+        </div>
+      </div>
+      <div class="page-header">
+        <div>
+          <h1>Template Editor</h1>
+          <p class="text-muted">
+            Subject, body va brand elementlarini tahrirlash
+          </p>
+        </div>
+        <div class="page-header-actions">
+          <button class="btn btn-secondary" type="button" data-et-variables>
+            Variables</button
+          ><button class="btn btn-primary" type="button" data-et-save>
+            Saqlash
+          </button>
+        </div>
+      </div>
+      <section class="grid cols-2">
+        <article class="card">
+          <label class="field"
+            ><span class="label">Template nomi</span
+            ><input
+              class="input"
+              type="text"
+              value="Account verification" /></label
+          ><label class="field" style="margin-top: 10px"
+            ><span class="label">Email subject</span
+            ><input
+              class="input"
+              type="text"
+              value="Email manzilingizni tasdiqlang" /></label
+          ><label class="field" style="margin-top: 10px"
+            ><span class="label">Body (HTML/Text)</span
+            ><textarea class="textarea" rows="14" data-et-body>
+<h1>Salom, {{user_name}}!</h1><p>Hisobingizni aktiv qilish uchun quyidagi tugmani bosing:</p><a href="{{verification_link}}">Tasdiqlash</a></textarea
+            >
+          </label>
+        </article>
+        <article class="card">
+          <h3 style="margin-top: 0">Drag blocks</h3>
+          <div class="list-stack">
+            <button class="list-item" type="button" data-et-insert="heading">
+              <div class="item-main">
+                <div class="item-title">Heading</div>
+                <div class="item-sub">Katta sarlavha</div>
+              </div></button
+            ><button class="list-item" type="button" data-et-insert="paragraph">
+              <div class="item-main">
+                <div class="item-title">Paragraph</div>
+                <div class="item-sub">Oddiy matn bloki</div>
+              </div></button
+            ><button class="list-item" type="button" data-et-insert="button">
+              <div class="item-main">
+                <div class="item-title">CTA Button</div>
+                <div class="item-sub">Call-to-action tugma</div>
+              </div></button
+            ><button class="list-item" type="button" data-et-insert="divider">
+              <div class="item-main">
+                <div class="item-title">Divider</div>
+                <div class="item-sub">Ajratish chizig‘i</div>
+              </div>
+            </button>
+          </div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

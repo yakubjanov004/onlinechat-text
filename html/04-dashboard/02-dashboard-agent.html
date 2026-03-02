@@ -1,220 +1,570 @@
 <!doctype html>
 <html lang="uz">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QULAY CHAT - Agent Dashboard</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/qulay-chat-design-system.css">
-<script src="https://unpkg.com/lucide@latest" defer></script>
-<script src="../assets/qulay-chat-shell.js" defer></script>
-<script src="../assets/qulay-chat-runtime.js" defer></script>
-</head>
-<body data-active-nav="dashboard" data-shell-role="agent" class="dashboard-shell-page">
-<main class="app-content">
-<div class="subnav-scroll">
-<div class="subnav-tabs">
-<a class="subnav-tab" href="./01-dashboard.html">Dashboard tanlash</a>
-<a class="subnav-tab" href="./01-dashboard-admin.html">Admin dashboard</a>
-<a class="subnav-tab active" href="./02-dashboard-agent.html">Agent dashboard</a>
-</div>
-</div>
-<div class="page-header">
-<div>
-<h1>Agent dashboard</h1>
-<p class="text-muted">Mening queue, assigned chatlar va javob tezligi bo'yicha ish paneli</p>
-</div>
-<div class="page-header-actions">
-<a class="btn btn-secondary" href="../05-inbox/01-inbox-chat.html">Inbox</a>
-<button type="button" class="btn btn-secondary" data-action="goto" data-href="../14-team-chat/01-team-chat.html">Team chat</button>
-<button type="button" class="btn btn-primary" data-action="goto" data-href="../05-inbox/02-chat-open.html">Navbatdagi chat</button>
-</div>
-</div>
-<section class="card">
-<div class="card-header">
-<div>
-<h3>Salom, Sardor!</h3>
-</div>
-</div>
-<div class="card-body">
-<div class="two-col">
-<div>
-<p class="text-muted">Shift 09:00-18:00. Hozir 5 ta assigned chat, 2 ta waiting javob va 1 ta SLA-risk chat mavjud. Bugungi maqsad: 18 ta chatni yopish va avg first response 60s ichida ushlash.</p>
-<div class="flex gap-2 wrap" style="margin-top:12px">
-<a class="btn btn-primary" href="../05-inbox/01-inbox-chat.html">Mening inboxim</a>
-<a class="btn btn-secondary" href="../08-analytics/11-my-stats.html">My stats</a>
-<a class="btn btn-secondary" href="../09-settings/04-notifications.html">Bildirishnomalar</a>
-</div>
-</div>
-<div class="card" style="margin:0">
-<div class="card-body">
-<div class="flex justify-between items-center"><strong>Shift progress</strong><span class="badge badge-success">Online</span></div>
-<div class="text-muted" style="font-size:12px;margin-top:8px">Yakunlanishiga 3 soat 40 daqiqa qoldi</div>
-<div class="progress" style="margin-top:10px"><div class="progress-bar primary" style="width:63%"></div></div>
-<div class="four-col" style="margin-top:12px;gap:8px">
-<div><div class="metric-label">Handled</div><div class="cell-strong">11</div></div>
-<div><div class="metric-label">Resolved</div><div class="cell-strong">8</div></div>
-<div><div class="metric-label">CSAT</div><div class="cell-strong">4.9</div></div>
-<div><div class="metric-label">Break</div><div class="cell-strong">1/2</div></div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<div class="metrics-grid">
-<div class="metric-card metric-card-hover">
-<div class="flex justify-between items-center">
-<div class="metric-label">Assigned chatlar</div>
-<span class="metric-icon"><i data-lucide="inbox"></i></span>
-</div>
-<div class="metric-value">5</div>
-<div class="metric-trend">2 tasi faol yozishmoqda</div>
-</div>
-<div class="metric-card metric-card-hover">
-<div class="flex justify-between items-center">
-<div class="metric-label">Waiting javob</div>
-<span class="metric-icon"><i data-lucide="hourglass"></i></span>
-</div>
-<div class="metric-value">2</div>
-<div class="metric-trend warn">1 tasi 90s dan oshgan</div>
-</div>
-<div class="metric-card metric-card-hover">
-<div class="flex justify-between items-center">
-<div class="metric-label">Avg 1-javob</div>
-<span class="metric-icon"><i data-lucide="timer"></i></span>
-</div>
-<div class="metric-value">58s</div>
-<div class="metric-trend">Maqsad ichida</div>
-</div>
-<div class="metric-card metric-card-hover">
-<div class="flex justify-between items-center">
-<div class="metric-label">Bugun yopildi</div>
-<span class="metric-icon"><i data-lucide="check-circle-2"></i></span>
-</div>
-<div class="metric-value">8</div>
-<div class="metric-trend">Maqsad: 18</div>
-</div>
-</div>
-<div class="two-col">
-<section class="card">
-<div class="card-header">
-<div>
-<h3>Javob ritmi (7 kun)</h3>
-</div>
-</div>
-<div class="card-body">
-<div class="chart-placeholder line">
-<div class="chart-gridlines"></div>
-<svg viewBox="0 0 600 240" preserveAspectRatio="none" aria-hidden="true">
-<defs>
-<linearGradient id="chartFillAgent" x1="0" x2="0" y1="0" y2="1">
-<stop offset="0%" stop-color="rgba(16,185,129,0.22)"></stop>
-<stop offset="100%" stop-color="rgba(16,185,129,0.02)"></stop>
-</linearGradient>
-</defs>
-<path d="M0,110 C60,90 90,130 140,105 C190,80 230,115 280,95 C330,70 360,100 410,82 C460,64 520,72 600,54 L600,240 L0,240 Z" fill="url(#chartFillAgent)"></path>
-<path d="M0,110 C60,90 90,130 140,105 C190,80 230,115 280,95 C330,70 360,100 410,82 C460,64 520,72 600,54" fill="none" stroke="#10B981" stroke-width="3" stroke-linecap="round"></path>
-</svg>
-</div>
-<div class="chart-axis-labels"><span>Dush</span><span>Sesh</span><span>Chor</span><span>Pay</span><span>Jum</span><span>Shan</span><span>Yak</span></div>
-<div class="legend-row" style="margin-top:12px"><span>Median javob vaqti</span><strong>51s</strong></div>
-<div class="legend-row"><span>Eng tez blok</span><strong>10:00 - 12:00</strong></div>
-<div class="legend-row"><span>SLA buzilishlar (hafta)</span><strong>3 ta</strong></div>
-</div>
-</section>
-<section class="card">
-<div class="card-header">
-<div>
-<h3>Mening queue taqsimoti</h3>
-</div>
-</div>
-<div class="card-body">
-<div class="donut-wrap">
-<div class="donut-chart" aria-hidden="true"></div>
-<div class="donut-legend">
-<div class="legend-row"><span><i class="legend-dot" style="background:#4F46E5"></i>Web</span><strong>2 ta</strong></div>
-<div class="legend-row"><span><i class="legend-dot" style="background:#10B981"></i>Telegram</span><strong>1 ta</strong></div>
-<div class="legend-row"><span><i class="legend-dot" style="background:#F59E0B"></i>WhatsApp</span><strong>1 ta</strong></div>
-<div class="legend-row"><span><i class="legend-dot" style="background:#EF4444"></i>Email</span><strong>1 ta</strong></div>
-</div>
-</div>
-<div style="margin-top:16px">
-<div class="legend-row"><span>Yozishmoqda</span><strong>2 ta</strong></div>
-<div class="legend-row"><span>Javob kutmoqda</span><strong>2 ta</strong></div>
-<div class="legend-row"><span>Internal note kerak</span><strong>1 ta</strong></div>
-<div class="legend-row"><span>SLA-risk</span><strong><span class="badge badge-danger">1 ta</span></strong></div>
-</div>
-</div>
-</section>
-</div>
-<section class="card">
-<div class="card-header">
-<div>
-<h3>Menga biriktirilgan chatlar</h3>
-</div>
-</div>
-<div class="card-body">
-<div class="table-wrap">
-<table class="table">
-<thead>
-<tr class="table-header">
-<th>Mijoz</th><th>Status</th><th>Oxirgi xabar</th><th>SLA taymer</th><th>Kanal</th><th>Amal</th>
-</tr>
-</thead>
-<tbody>
-<tr class="table-row"><td><a href="../05-inbox/02-chat-open.html" class="flex gap-2 items-center"><span class="avatar avatar-sm">AZ</span><span class="status-dot online"></span><span class="cell-strong">Aziza Q.</span></a></td><td><span class="badge badge-success">Active</span></td><td>"To'lov linkini yuboring"</td><td>00:36</td><td><span class="channel-pill">Web</span></td><td><a class="btn btn-secondary" href="../05-inbox/02-chat-open.html">Ochish</a></td></tr>
-<tr class="table-row"><td><a href="../05-inbox/02-chat-open.html" class="flex gap-2 items-center"><span class="avatar avatar-sm">TM</span><span class="status-dot away"></span><span class="cell-strong">Temur M.</span></a></td><td><span class="badge badge-warning">Waiting</span></td><td>"Rasm yubordim"</td><td>01:22</td><td><span class="channel-pill">Telegram</span></td><td><a class="btn btn-secondary" href="../05-inbox/02-chat-open.html">Javob berish</a></td></tr>
-<tr class="table-row"><td><a href="../05-inbox/02-chat-open.html" class="flex gap-2 items-center"><span class="avatar avatar-sm">NF</span><span class="status-dot busy"></span><span class="cell-strong">Nafisa F.</span></a></td><td><span class="badge badge-danger">Urgent</span></td><td>"Buyurtma bloklandi"</td><td>00:49</td><td><span class="channel-pill">WhatsApp</span></td><td><a class="btn btn-primary" href="../05-inbox/02-chat-open.html">Ko'rish</a></td></tr>
-<tr class="table-row"><td><a href="../05-inbox/02-chat-open.html" class="flex gap-2 items-center"><span class="avatar avatar-sm">OE</span><span class="status-dot offline"></span><span class="cell-strong">Olim E.</span></a></td><td><span class="badge">Assigned</span></td><td>"Emailga javob kutyapman"</td><td>03:18</td><td><span class="channel-pill">Email</span></td><td><a class="btn btn-secondary" href="../05-inbox/02-chat-open.html">Kontekst</a></td></tr>
-<tr class="table-row"><td><a href="../05-inbox/02-chat-open.html" class="flex gap-2 items-center"><span class="avatar avatar-sm">MB</span><span class="status-dot online"></span><span class="cell-strong">Madina B.</span></a></td><td><span class="badge badge-info">Resolved</span></td><td>"Rahmat, hal bo'ldi"</td><td>-</td><td><span class="channel-pill">Web</span></td><td><a class="btn btn-secondary" href="../05-inbox/02-chat-open.html">Qayta ochish</a></td></tr>
-</tbody>
-</table>
-</div>
-</div>
-</section>
-<div class="two-col">
-<section class="card">
-<div class="card-header">
-<div>
-<h3>Tezkor amallar</h3>
-</div>
-</div>
-<div class="card-body">
-<div class="three-col">
-<a class="quick-action-card" href="../05-inbox/02-chat-open.html"><i data-lucide="message-square-share"></i><strong>Javob berishni davom etish</strong><span class="text-muted" style="font-size:13px">Oxirgi ochiq chatga qaytish</span></a>
-<a class="quick-action-card" href="../05-inbox/03-info-sidebar.html"><i data-lucide="sticky-note"></i><strong>Internal note qo'shish</strong><span class="text-muted" style="font-size:13px">Kontekstni jamoa bilan ulashish</span></a>
-<a class="quick-action-card" href="../07-team/01-agents.html"><i data-lucide="arrow-right-left"></i><strong>Chatni transfer qilish</strong><span class="text-muted" style="font-size:13px">Band agentga yo'naltirish</span></a>
-<a class="quick-action-card" href="../12-contacts/02-contact-profile.html"><i data-lucide="user-round"></i><strong>Mijoz profilini ochish</strong><span class="text-muted" style="font-size:13px">Kontakt tarixini ko'rish</span></a>
-<a class="quick-action-card" href="../14-team-chat/01-team-chat.html"><i data-lucide="messages-square"></i><strong>Team chatda so'rash</strong><span class="text-muted" style="font-size:13px">Eskalatsiya yoki maslahat</span></a>
-<a class="quick-action-card" href="../08-analytics/11-my-stats.html"><i data-lucide="target"></i><strong>Maqsadni tekshirish</strong><span class="text-muted" style="font-size:13px">Shaxsiy KPI progress</span></a>
-</div>
-</div>
-</section>
-<section class="card">
-<div class="card-header">
-<div>
-<h3>Bugungi fokuslar</h3>
-</div>
-</div>
-<div class="card-body">
-<div class="four-col">
-<div class="card"><div class="card-body"><div class="flex justify-between items-center"><i data-lucide="zap" style="width:16px;height:16px"></i><span class="badge badge-success">OK</span></div><div style="margin-top:10px"><div class="cell-strong">First response</div><div class="text-muted" style="font-size:13px">58s (maqsad: 60s)</div></div></div></div>
-<div class="card"><div class="card-body"><div class="flex justify-between items-center"><i data-lucide="list-todo" style="width:16px;height:16px"></i><span class="badge badge-warning">Navbat</span></div><div style="margin-top:10px"><div class="cell-strong">Waiting chatlar</div><div class="text-muted" style="font-size:13px">2 ta, biri SLA-risk</div></div></div></div>
-<div class="card"><div class="card-body"><div class="flex justify-between items-center"><i data-lucide="star" style="width:16px;height:16px"></i><span class="badge badge-success">CSAT</span></div><div style="margin-top:10px"><div class="cell-strong">Mijoz bahosi</div><div class="text-muted" style="font-size:13px">4.9 (12 baho)</div></div></div></div>
-<div class="card"><div class="card-body"><div class="flex justify-between items-center"><i data-lucide="book-open" style="width:16px;height:16px"></i><span class="badge">Shablon</span></div><div style="margin-top:10px"><div class="cell-strong">Top canned reply</div><div class="text-muted" style="font-size:13px">"To'lov havolasi" 7x</div></div></div></div>
-</div>
-<div style="margin-top:16px">
-<div class="legend-row"><span>Follow-up kerak chatlar</span><strong>3 ta</strong></div>
-<div class="legend-row"><span>Jamoaga eskalatsiya kutilmoqda</span><strong>1 ta</strong></div>
-<div class="legend-row"><span>Yakunlashga tayyor chatlar</span><strong>2 ta</strong></div>
-</div>
-</div>
-</section>
-</div>
-</main>
-<script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QULAY CHAT - Agent Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../assets/qulay-chat-shell.js" defer></script>
+    <script src="../assets/qulay-chat-runtime.js" defer></script>
+  </head>
+  <body
+    data-active-nav="dashboard"
+    data-shell-role="agent"
+    class="dashboard-shell-page"
+  >
+    <main class="app-content">
+      <div class="subnav-scroll">
+        <div class="subnav-tabs">
+          <a class="subnav-tab" href="./01-dashboard.html">Dashboard tanlash</a>
+          <a class="subnav-tab" href="./01-dashboard-admin.html"
+            >Admin dashboard</a
+          >
+          <a class="subnav-tab active" href="./02-dashboard-agent.html"
+            >Agent dashboard</a
+          >
+        </div>
+      </div>
+      <div class="page-header">
+        <div>
+          <h1>Agent dashboard</h1>
+          <p class="text-muted">
+            Mening queue, assigned chatlar va javob tezligi bo'yicha ish paneli
+          </p>
+        </div>
+        <div class="page-header-actions">
+          <a class="btn btn-secondary" href="../05-inbox/01-inbox-chat.html"
+            >Inbox</a
+          >
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-action="goto"
+            data-href="../14-team-chat/01-team-chat.html"
+          >
+            Team chat
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary"
+            data-action="goto"
+            data-href="../05-inbox/02-chat-open.html"
+          >
+            Navbatdagi chat
+          </button>
+        </div>
+      </div>
+      <section class="card">
+        <div class="card-header">
+          <div>
+            <h3>Salom, Sardor!</h3>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="two-col">
+            <div>
+              <p class="text-muted">
+                Shift 09:00-18:00. Hozir 5 ta assigned chat, 2 ta waiting javob
+                va 1 ta SLA-risk chat mavjud. Bugungi maqsad: 18 ta chatni
+                yopish va avg first response 60s ichida ushlash.
+              </p>
+              <div class="flex gap-2 wrap" style="margin-top: 12px">
+                <a class="btn btn-primary" href="../05-inbox/01-inbox-chat.html"
+                  >Mening inboxim</a
+                >
+                <a
+                  class="btn btn-secondary"
+                  href="../08-analytics/11-my-stats.html"
+                  >My stats</a
+                >
+                <a
+                  class="btn btn-secondary"
+                  href="../09-settings/04-notifications.html"
+                  >Bildirishnomalar</a
+                >
+              </div>
+            </div>
+            <div class="card" style="margin: 0">
+              <div class="card-body">
+                <div class="flex justify-between items-center">
+                  <strong>Shift progress</strong
+                  ><span class="badge badge-success">Online</span>
+                </div>
+                <div
+                  class="text-muted"
+                  style="font-size: 12px; margin-top: 8px"
+                >
+                  Yakunlanishiga 3 soat 40 daqiqa qoldi
+                </div>
+                <div class="progress" style="margin-top: 10px">
+                  <div class="progress-bar primary" style="width: 63%"></div>
+                </div>
+                <div class="four-col" style="margin-top: 12px; gap: 8px">
+                  <div>
+                    <div class="metric-label">Handled</div>
+                    <div class="cell-strong">11</div>
+                  </div>
+                  <div>
+                    <div class="metric-label">Resolved</div>
+                    <div class="cell-strong">8</div>
+                  </div>
+                  <div>
+                    <div class="metric-label">CSAT</div>
+                    <div class="cell-strong">4.9</div>
+                  </div>
+                  <div>
+                    <div class="metric-label">Break</div>
+                    <div class="cell-strong">1/2</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="metrics-grid">
+        <div class="metric-card metric-card-hover">
+          <div class="flex justify-between items-center">
+            <div class="metric-label">Assigned chatlar</div>
+            <span class="metric-icon"><i data-lucide="inbox"></i></span>
+          </div>
+          <div class="metric-value">5</div>
+          <div class="metric-trend">2 tasi faol yozishmoqda</div>
+        </div>
+        <div class="metric-card metric-card-hover">
+          <div class="flex justify-between items-center">
+            <div class="metric-label">Waiting javob</div>
+            <span class="metric-icon"><i data-lucide="hourglass"></i></span>
+          </div>
+          <div class="metric-value">2</div>
+          <div class="metric-trend warn">1 tasi 90s dan oshgan</div>
+        </div>
+        <div class="metric-card metric-card-hover">
+          <div class="flex justify-between items-center">
+            <div class="metric-label">Avg 1-javob</div>
+            <span class="metric-icon"><i data-lucide="timer"></i></span>
+          </div>
+          <div class="metric-value">58s</div>
+          <div class="metric-trend">Maqsad ichida</div>
+        </div>
+        <div class="metric-card metric-card-hover">
+          <div class="flex justify-between items-center">
+            <div class="metric-label">Bugun yopildi</div>
+            <span class="metric-icon"
+              ><i data-lucide="check-circle-2"></i
+            ></span>
+          </div>
+          <div class="metric-value">8</div>
+          <div class="metric-trend">Maqsad: 18</div>
+        </div>
+      </div>
+      <div class="two-col">
+        <section class="card">
+          <div class="card-header">
+            <div>
+              <h3>Javob ritmi (7 kun)</h3>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="chart-placeholder line">
+              <div class="chart-gridlines"></div>
+              <svg
+                viewBox="0 0 600 240"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
+                <defs>
+                  <linearGradient
+                    id="chartFillAgent"
+                    x1="0"
+                    x2="0"
+                    y1="0"
+                    y2="1"
+                  >
+                    <stop offset="0%" stop-color="rgba(16,185,129,0.22)"></stop>
+                    <stop
+                      offset="100%"
+                      stop-color="rgba(16,185,129,0.02)"
+                    ></stop>
+                  </linearGradient>
+                </defs>
+                <path
+                  d="M0,110 C60,90 90,130 140,105 C190,80 230,115 280,95 C330,70 360,100 410,82 C460,64 520,72 600,54 L600,240 L0,240 Z"
+                  fill="url(#chartFillAgent)"
+                ></path>
+                <path
+                  d="M0,110 C60,90 90,130 140,105 C190,80 230,115 280,95 C330,70 360,100 410,82 C460,64 520,72 600,54"
+                  fill="none"
+                  stroke="#10B981"
+                  stroke-width="3"
+                  stroke-linecap="round"
+                ></path>
+              </svg>
+            </div>
+            <div class="chart-axis-labels">
+              <span>Dush</span><span>Sesh</span><span>Chor</span><span>Pay</span
+              ><span>Jum</span><span>Shan</span><span>Yak</span>
+            </div>
+            <div class="legend-row" style="margin-top: 12px">
+              <span>Median javob vaqti</span><strong>51s</strong>
+            </div>
+            <div class="legend-row">
+              <span>Eng tez blok</span><strong>10:00 - 12:00</strong>
+            </div>
+            <div class="legend-row">
+              <span>SLA buzilishlar (hafta)</span><strong>3 ta</strong>
+            </div>
+          </div>
+        </section>
+        <section class="card">
+          <div class="card-header">
+            <div>
+              <h3>Mening queue taqsimoti</h3>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="donut-wrap">
+              <div class="donut-chart" aria-hidden="true"></div>
+              <div class="donut-legend">
+                <div class="legend-row">
+                  <span
+                    ><i class="legend-dot" style="background: #4f46e5"></i
+                    >Web</span
+                  ><strong>2 ta</strong>
+                </div>
+                <div class="legend-row">
+                  <span
+                    ><i class="legend-dot" style="background: #10b981"></i
+                    >Telegram</span
+                  ><strong>1 ta</strong>
+                </div>
+                <div class="legend-row">
+                  <span
+                    ><i class="legend-dot" style="background: #f59e0b"></i
+                    >WhatsApp</span
+                  ><strong>1 ta</strong>
+                </div>
+                <div class="legend-row">
+                  <span
+                    ><i class="legend-dot" style="background: #ef4444"></i
+                    >Email</span
+                  ><strong>1 ta</strong>
+                </div>
+              </div>
+            </div>
+            <div style="margin-top: 16px">
+              <div class="legend-row">
+                <span>Yozishmoqda</span><strong>2 ta</strong>
+              </div>
+              <div class="legend-row">
+                <span>Javob kutmoqda</span><strong>2 ta</strong>
+              </div>
+              <div class="legend-row">
+                <span>Internal note kerak</span><strong>1 ta</strong>
+              </div>
+              <div class="legend-row">
+                <span>SLA-risk</span
+                ><strong><span class="badge badge-danger">1 ta</span></strong>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <section class="card">
+        <div class="card-header">
+          <div>
+            <h3>Menga biriktirilgan chatlar</h3>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="table-wrap">
+            <table class="table">
+              <thead>
+                <tr class="table-header">
+                  <th>Mijoz</th>
+                  <th>Status</th>
+                  <th>Oxirgi xabar</th>
+                  <th>SLA taymer</th>
+                  <th>Kanal</th>
+                  <th>Amal</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="table-row">
+                  <td>
+                    <a
+                      href="../05-inbox/02-chat-open.html"
+                      class="flex gap-2 items-center"
+                      ><span class="avatar avatar-sm">AZ</span
+                      ><span class="status-dot online"></span
+                      ><span class="cell-strong">Aziza Q.</span></a
+                    >
+                  </td>
+                  <td><span class="badge badge-success">Active</span></td>
+                  <td>"To'lov linkini yuboring"</td>
+                  <td>00:36</td>
+                  <td><span class="channel-pill">Web</span></td>
+                  <td>
+                    <a
+                      class="btn btn-secondary"
+                      href="../05-inbox/02-chat-open.html"
+                      >Ochish</a
+                    >
+                  </td>
+                </tr>
+                <tr class="table-row">
+                  <td>
+                    <a
+                      href="../05-inbox/02-chat-open.html"
+                      class="flex gap-2 items-center"
+                      ><span class="avatar avatar-sm">TM</span
+                      ><span class="status-dot away"></span
+                      ><span class="cell-strong">Temur M.</span></a
+                    >
+                  </td>
+                  <td><span class="badge badge-warning">Waiting</span></td>
+                  <td>"Rasm yubordim"</td>
+                  <td>01:22</td>
+                  <td><span class="channel-pill">Telegram</span></td>
+                  <td>
+                    <a
+                      class="btn btn-secondary"
+                      href="../05-inbox/02-chat-open.html"
+                      >Javob berish</a
+                    >
+                  </td>
+                </tr>
+                <tr class="table-row">
+                  <td>
+                    <a
+                      href="../05-inbox/02-chat-open.html"
+                      class="flex gap-2 items-center"
+                      ><span class="avatar avatar-sm">NF</span
+                      ><span class="status-dot busy"></span
+                      ><span class="cell-strong">Nafisa F.</span></a
+                    >
+                  </td>
+                  <td><span class="badge badge-danger">Urgent</span></td>
+                  <td>"Buyurtma bloklandi"</td>
+                  <td>00:49</td>
+                  <td><span class="channel-pill">WhatsApp</span></td>
+                  <td>
+                    <a
+                      class="btn btn-primary"
+                      href="../05-inbox/02-chat-open.html"
+                      >Ko'rish</a
+                    >
+                  </td>
+                </tr>
+                <tr class="table-row">
+                  <td>
+                    <a
+                      href="../05-inbox/02-chat-open.html"
+                      class="flex gap-2 items-center"
+                      ><span class="avatar avatar-sm">OE</span
+                      ><span class="status-dot offline"></span
+                      ><span class="cell-strong">Olim E.</span></a
+                    >
+                  </td>
+                  <td><span class="badge">Assigned</span></td>
+                  <td>"Emailga javob kutyapman"</td>
+                  <td>03:18</td>
+                  <td><span class="channel-pill">Email</span></td>
+                  <td>
+                    <a
+                      class="btn btn-secondary"
+                      href="../05-inbox/02-chat-open.html"
+                      >Kontekst</a
+                    >
+                  </td>
+                </tr>
+                <tr class="table-row">
+                  <td>
+                    <a
+                      href="../05-inbox/02-chat-open.html"
+                      class="flex gap-2 items-center"
+                      ><span class="avatar avatar-sm">MB</span
+                      ><span class="status-dot online"></span
+                      ><span class="cell-strong">Madina B.</span></a
+                    >
+                  </td>
+                  <td><span class="badge badge-info">Resolved</span></td>
+                  <td>"Rahmat, hal bo'ldi"</td>
+                  <td>-</td>
+                  <td><span class="channel-pill">Web</span></td>
+                  <td>
+                    <a
+                      class="btn btn-secondary"
+                      href="../05-inbox/02-chat-open.html"
+                      >Qayta ochish</a
+                    >
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+      <div class="two-col">
+        <section class="card">
+          <div class="card-header">
+            <div>
+              <h3>Tezkor amallar</h3>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="three-col">
+              <a class="quick-action-card" href="../05-inbox/02-chat-open.html"
+                ><i data-lucide="message-square-share"></i
+                ><strong>Javob berishni davom etish</strong
+                ><span class="text-muted" style="font-size: 13px"
+                  >Oxirgi ochiq chatga qaytish</span
+                ></a
+              >
+              <a
+                class="quick-action-card"
+                href="../05-inbox/03-info-sidebar.html"
+                ><i data-lucide="sticky-note"></i
+                ><strong>Internal note qo'shish</strong
+                ><span class="text-muted" style="font-size: 13px"
+                  >Kontekstni jamoa bilan ulashish</span
+                ></a
+              >
+              <a class="quick-action-card" href="../07-team/01-agents.html"
+                ><i data-lucide="arrow-right-left"></i
+                ><strong>Chatni transfer qilish</strong
+                ><span class="text-muted" style="font-size: 13px"
+                  >Band agentga yo'naltirish</span
+                ></a
+              >
+              <a
+                class="quick-action-card"
+                href="../12-contacts/02-contact-profile.html"
+                ><i data-lucide="user-round"></i
+                ><strong>Mijoz profilini ochish</strong
+                ><span class="text-muted" style="font-size: 13px"
+                  >Kontakt tarixini ko'rish</span
+                ></a
+              >
+              <a
+                class="quick-action-card"
+                href="../14-team-chat/01-team-chat.html"
+                ><i data-lucide="messages-square"></i
+                ><strong>Team chatda so'rash</strong
+                ><span class="text-muted" style="font-size: 13px"
+                  >Eskalatsiya yoki maslahat</span
+                ></a
+              >
+              <a
+                class="quick-action-card"
+                href="../08-analytics/11-my-stats.html"
+                ><i data-lucide="target"></i><strong>Maqsadni tekshirish</strong
+                ><span class="text-muted" style="font-size: 13px"
+                  >Shaxsiy KPI progress</span
+                ></a
+              >
+            </div>
+          </div>
+        </section>
+        <section class="card">
+          <div class="card-header">
+            <div>
+              <h3>Bugungi fokuslar</h3>
+            </div>
+          </div>
+          <div class="card-body">
+            <div class="four-col">
+              <div class="card">
+                <div class="card-body">
+                  <div class="flex justify-between items-center">
+                    <i data-lucide="zap" style="width: 16px; height: 16px"></i
+                    ><span class="badge badge-success">OK</span>
+                  </div>
+                  <div style="margin-top: 10px">
+                    <div class="cell-strong">First response</div>
+                    <div class="text-muted" style="font-size: 13px">
+                      58s (maqsad: 60s)
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <div class="flex justify-between items-center">
+                    <i
+                      data-lucide="list-todo"
+                      style="width: 16px; height: 16px"
+                    ></i
+                    ><span class="badge badge-warning">Navbat</span>
+                  </div>
+                  <div style="margin-top: 10px">
+                    <div class="cell-strong">Waiting chatlar</div>
+                    <div class="text-muted" style="font-size: 13px">
+                      2 ta, biri SLA-risk
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <div class="flex justify-between items-center">
+                    <i data-lucide="star" style="width: 16px; height: 16px"></i
+                    ><span class="badge badge-success">CSAT</span>
+                  </div>
+                  <div style="margin-top: 10px">
+                    <div class="cell-strong">Mijoz bahosi</div>
+                    <div class="text-muted" style="font-size: 13px">
+                      4.9 (12 baho)
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="card">
+                <div class="card-body">
+                  <div class="flex justify-between items-center">
+                    <i
+                      data-lucide="book-open"
+                      style="width: 16px; height: 16px"
+                    ></i
+                    ><span class="badge">Shablon</span>
+                  </div>
+                  <div style="margin-top: 10px">
+                    <div class="cell-strong">Top canned reply</div>
+                    <div class="text-muted" style="font-size: 13px">
+                      "To'lov havolasi" 7x
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div style="margin-top: 16px">
+              <div class="legend-row">
+                <span>Follow-up kerak chatlar</span><strong>3 ta</strong>
+              </div>
+              <div class="legend-row">
+                <span>Jamoaga eskalatsiya kutilmoqda</span><strong>1 ta</strong>
+              </div>
+              <div class="legend-row">
+                <span>Yakunlashga tayyor chatlar</span><strong>2 ta</strong>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script>
+      window.addEventListener("DOMContentLoaded", function () {
+        if (window.lucide && window.lucide.createIcons) {
+          window.lucide.createIcons();
+        }
+      });
+    </script>
+  </body>
 </html>

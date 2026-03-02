@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QULAY CHAT - Widget Language</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../assets/qulay-chat-shell.js" defer></script>
+    <script src="../assets/qulay-chat-runtime.js" defer></script>
+    <script src="../assets/multi-language.js" defer></script>
+  </head>
+  <body data-active-nav="settings" class="dashboard-shell-page">
+    <main class="app-content">
+      <div class="subnav-scroll">
+        <div class="subnav-tabs">
+          <a class="subnav-tab" href="./01-language-settings.html"
+            >Language Settings</a
+          ><a class="subnav-tab" href="./02-translation-manager.html"
+            >Translation Manager</a
+          ><a class="subnav-tab active" href="./03-widget-language.html"
+            >Widget Language</a
+          >
+        </div>
+      </div>
+      <div class="page-header">
+        <div>
+          <h1>Widget tili</h1>
+          <p class="text-muted">
+            Visitor uchun widgetda alohida til strategiyasi
+          </p>
+        </div>
+        <div class="page-header-actions">
+          <button class="btn btn-primary" type="button" data-ml-widget-save>
+            Saqlash
+          </button>
+        </div>
+      </div>
+      <section class="grid cols-2">
+        <article class="card">
+          <label class="field"
+            ><span class="label">Default widget language</span
+            ><select class="select" data-ml-widget-default>
+              <option value="uz">UZ</option>
+              <option value="ru">RU</option>
+              <option value="en">EN</option>
+            </select></label
+          >
+          <div class="kv-list" style="margin-top: 12px">
+            <div class="kv-row">
+              <span>Browser auto-detect</span
+              ><label><input type="checkbox" checked /> Yoqilgan</label>
+            </div>
+            <div class="kv-row">
+              <span>Manual switch visitor uchun</span
+              ><label><input type="checkbox" checked /> Yoqilgan</label>
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <h3 style="margin-top: 0">Preview</h3>
+          <div class="widget-window" style="max-width: 380px; margin: 0 auto">
+            <div class="widget-window-header">
+              <div>
+                <strong>QULAY CHAT</strong>
+                <div class="mini" data-ml-preview-sub>Online</div>
+              </div>
+            </div>
+            <div class="widget-window-body">
+              <div class="widget-msg" data-ml-preview-hello>
+                Salom! Qanday yordam bera olamiz?
+              </div>
+            </div>
+            <div class="widget-window-footer">
+              <button
+                class="btn btn-secondary btn-sm"
+                type="button"
+                data-ml-preview-lang="uz"
+              >
+                UZ</button
+              ><button
+                class="btn btn-secondary btn-sm"
+                type="button"
+                data-ml-preview-lang="ru"
+              >
+                RU</button
+              ><button
+                class="btn btn-secondary btn-sm"
+                type="button"
+                data-ml-preview-lang="en"
+              >
+                EN
+              </button>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

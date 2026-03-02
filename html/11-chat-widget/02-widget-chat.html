@@ -1,55 +1,136 @@
 <!doctype html>
 <html lang="uz">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QULAY CHAT - Widget Chat</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/qulay-chat-design-system.css">
-<script src="https://unpkg.com/lucide@latest" defer></script>
-<script src="../assets/qulay-chat-runtime.js" defer></script><script src="../assets/widget-interactions.js" defer></script>
-</head>
-<body class="widget-page">
-<main class="widget-page">
-<div class="widget-shell">
-<div class="widget-topbar">
-<a class="shell-brand" href="../index.html"><span class="shell-brand-mark">QC</span><span>Widget Preview</span></a>
-<div class="subnav-scroll"><div class="subnav-tabs"><a class="subnav-tab " href="./01-widget-launcher.html">Widget Launcher</a><a class="subnav-tab active" href="./02-widget-chat.html">Widget Chat</a><a class="subnav-tab " href="./03-widget-offline.html">Widget Offline</a><a class="subnav-tab " href="./04-widget-csat.html">Widget CSAT</a><a class="subnav-tab " href="./05-widget-states.html">Widget States</a></div></div>
-</div>
-<div class="widget-canvas">
-<div class="widget-site-content">
-<div class="card"><div class="card-header"><div><h3>Visitor page</h3><p class="card-description">Chat holati (online) namuna</p></div></div><div class="card-body"><div class="placeholder-line" style="width:72%"></div><div class="placeholder-line" style="width:94%"></div><div class="placeholder-line" style="width:88%"></div><div class="placeholder-line" style="width:91%;height:220px;border-radius:14px"></div></div></div>
-<div data-widget-demo class="is-open" style="justify-self:end"><div class="widget-window" data-widget-window>
-<div class="widget-window-header">
-<div><strong>QULAY CHAT</strong><div class="mini">Online - Javob 2m ichida</div></div>
-<div class="flex gap-1">
-<button class="icon-btn" type="button" data-action="log"><i data-lucide="minus"></i></button>
-<button class="icon-btn" type="button" data-action="log"><i data-lucide="x"></i></button>
-</div>
-</div>
-<div class="widget-window-body">
-<div class="widget-msg">Salom! QULAY CHAT supportga xush kelibsiz.</div>
-<div class="widget-msg agent">Assalomu alaykum, qanday yordam kerak?</div>
-<div class="widget-msg">Pro plan narxi va agent limiti qancha?</div>
-<div class="widget-msg agent">Pro plan $29, 5 agentgacha. Enterprise ham mavjud.</div>
-<div class="widget-msg">Telegram integratsiya bormi?</div>
-<div class="widget-msg agent">Ha, Telegram, WhatsApp va Email kanallari qo'llab-quvvatlanadi.</div>
-<div class="widget-msg">Demo olsam bo'ladimi?</div>
-<div class="widget-msg center"><span class="typing-dots"><span></span><span></span><span></span></span> Agent yozmoqda...</div>
-</div>
-<div class="widget-window-footer">
-<button class="icon-btn" type="button" data-action="log"><i data-lucide="paperclip"></i></button>
-<button class="icon-btn" type="button" data-action="log"><i data-lucide="smile"></i></button>
-<textarea class="textarea" rows="1" placeholder="Xabar yozing..."></textarea>
-<button class="btn btn-primary btn-sm" type="button" data-action="log"><i data-lucide="send"></i></button>
-</div>
-</div></div>
-</div>
-</div>
-</div>
-</main>
-<script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QULAY CHAT - Widget Chat</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../assets/qulay-chat-runtime.js" defer></script>
+    <script src="../assets/widget-interactions.js" defer></script>
+  </head>
+  <body class="widget-page">
+    <main class="widget-page">
+      <div class="widget-shell">
+        <div class="widget-topbar">
+          <a class="shell-brand" href="../index.html"
+            ><span class="shell-brand-mark">QC</span
+            ><span>Widget Preview</span></a
+          >
+          <div class="subnav-scroll">
+            <div class="subnav-tabs">
+              <a class="subnav-tab" href="./01-widget-launcher.html"
+                >Widget Launcher</a
+              ><a class="subnav-tab active" href="./02-widget-chat.html"
+                >Widget Chat</a
+              ><a class="subnav-tab" href="./03-widget-offline.html"
+                >Widget Offline</a
+              ><a class="subnav-tab" href="./04-widget-csat.html">Widget CSAT</a
+              ><a class="subnav-tab" href="./05-widget-states.html"
+                >Widget States</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="widget-canvas">
+          <div class="widget-site-content">
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <h3>Visitor page</h3>
+                  <p class="card-description">Chat holati (online) namuna</p>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="placeholder-line" style="width: 72%"></div>
+                <div class="placeholder-line" style="width: 94%"></div>
+                <div class="placeholder-line" style="width: 88%"></div>
+                <div
+                  class="placeholder-line"
+                  style="width: 91%; height: 220px; border-radius: 14px"
+                ></div>
+              </div>
+            </div>
+            <div data-widget-demo class="is-open" style="justify-self: end">
+              <div class="widget-window" data-widget-window>
+                <div class="widget-window-header">
+                  <div>
+                    <strong>QULAY CHAT</strong>
+                    <div class="mini">Online - Javob 2m ichida</div>
+                  </div>
+                  <div class="flex gap-1">
+                    <button class="icon-btn" type="button" data-action="log">
+                      <i data-lucide="minus"></i>
+                    </button>
+                    <button class="icon-btn" type="button" data-action="log">
+                      <i data-lucide="x"></i>
+                    </button>
+                  </div>
+                </div>
+                <div class="widget-window-body">
+                  <div class="widget-msg">
+                    Salom! QULAY CHAT supportga xush kelibsiz.
+                  </div>
+                  <div class="widget-msg agent">
+                    Assalomu alaykum, qanday yordam kerak?
+                  </div>
+                  <div class="widget-msg">
+                    Pro plan narxi va agent limiti qancha?
+                  </div>
+                  <div class="widget-msg agent">
+                    Pro plan $29, 5 agentgacha. Enterprise ham mavjud.
+                  </div>
+                  <div class="widget-msg">Telegram integratsiya bormi?</div>
+                  <div class="widget-msg agent">
+                    Ha, Telegram, WhatsApp va Email kanallari
+                    qo'llab-quvvatlanadi.
+                  </div>
+                  <div class="widget-msg">Demo olsam bo'ladimi?</div>
+                  <div class="widget-msg center">
+                    <span class="typing-dots"
+                      ><span></span><span></span><span></span
+                    ></span>
+                    Agent yozmoqda...
+                  </div>
+                </div>
+                <div class="widget-window-footer">
+                  <button class="icon-btn" type="button" data-action="log">
+                    <i data-lucide="paperclip"></i>
+                  </button>
+                  <button class="icon-btn" type="button" data-action="log">
+                    <i data-lucide="smile"></i>
+                  </button>
+                  <textarea
+                    class="textarea"
+                    rows="1"
+                    placeholder="Xabar yozing..."
+                  ></textarea>
+                  <button
+                    class="btn btn-primary btn-sm"
+                    type="button"
+                    data-action="log"
+                  >
+                    <i data-lucide="send"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      window.addEventListener("DOMContentLoaded", function () {
+        if (window.lucide && window.lucide.createIcons) {
+          window.lucide.createIcons();
+        }
+      });
+    </script>
+  </body>
 </html>

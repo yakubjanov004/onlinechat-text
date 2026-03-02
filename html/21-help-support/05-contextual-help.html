@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QULAY CHAT - Contextual Help</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../assets/qulay-chat-shell.js" defer></script>
+    <script src="../assets/qulay-chat-runtime.js" defer></script>
+    <script src="../assets/help-support.js" defer></script>
+  </head>
+  <body data-active-nav="dashboard" class="dashboard-shell-page">
+    <main class="app-content">
+      <div class="subnav-scroll">
+        <div class="subnav-tabs">
+          <a class="subnav-tab" href="./01-help-center.html">Help Center</a
+          ><a class="subnav-tab" href="./02-video-tutorials.html"
+            >Video Tutorials</a
+          ><a class="subnav-tab" href="./03-submit-ticket.html">Submit Ticket</a
+          ><a class="subnav-tab" href="./04-my-tickets.html">My Tickets</a
+          ><a class="subnav-tab active" href="./05-contextual-help.html"
+            >Contextual Help</a
+          >
+        </div>
+      </div>
+      <div class="page-header">
+        <div>
+          <h1>Contextual help</h1>
+          <p class="text-muted">
+            Onboarding tour, tooltip va in-app coach marks
+          </p>
+        </div>
+        <div class="page-header-actions">
+          <button class="btn btn-primary" type="button" data-tour-start>
+            Tour boshlash
+          </button>
+        </div>
+      </div>
+      <section class="grid cols-2">
+        <article class="card">
+          <h3 style="margin-top: 0">Demo panel</h3>
+          <p class="text-muted">
+            Quyidagi elementlarga navbat bilan tooltip chiqadi:
+          </p>
+          <div class="list-stack">
+            <div class="list-item" data-tour-step="1">
+              <div class="item-main">
+                <div class="item-title">1. Inbox panel</div>
+                <div class="item-sub">Yangi chatlar shu yerda</div>
+              </div>
+            </div>
+            <div class="list-item" data-tour-step="2">
+              <div class="item-main">
+                <div class="item-title">2. Assign tugmasi</div>
+                <div class="item-sub">Chatni agentga biriktirish</div>
+              </div>
+            </div>
+            <div class="list-item" data-tour-step="3">
+              <div class="item-main">
+                <div class="item-title">3. Analytics</div>
+                <div class="item-sub">KPI va SLA nazorati</div>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <h3 style="margin-top: 0">Nastroyka</h3>
+          <div class="kv-list">
+            <div class="kv-row">
+              <span>Auto-show tour</span
+              ><label><input type="checkbox" checked /> Yoqilgan</label>
+            </div>
+            <div class="kv-row">
+              <span>Tooltip language</span><strong>UZ</strong>
+            </div>
+            <div class="kv-row">
+              <span>Dismiss policy</span><strong>Per user</strong>
+            </div>
+          </div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

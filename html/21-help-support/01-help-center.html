@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QULAY CHAT - Help Center</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../assets/qulay-chat-shell.js" defer></script>
+    <script src="../assets/qulay-chat-runtime.js" defer></script>
+    <script src="../assets/help-support.js" defer></script>
+  </head>
+  <body data-active-nav="dashboard" class="dashboard-shell-page">
+    <main class="app-content">
+      <div class="subnav-scroll">
+        <div class="subnav-tabs">
+          <a class="subnav-tab active" href="./01-help-center.html"
+            >Help Center</a
+          ><a class="subnav-tab" href="./02-video-tutorials.html"
+            >Video Tutorials</a
+          ><a class="subnav-tab" href="./03-submit-ticket.html">Submit Ticket</a
+          ><a class="subnav-tab" href="./04-my-tickets.html">My Tickets</a
+          ><a class="subnav-tab" href="./05-contextual-help.html"
+            >Contextual Help</a
+          >
+        </div>
+      </div>
+      <div class="page-header">
+        <div>
+          <h1>Yordam markazi</h1>
+          <p class="text-muted">FAQ, qo‘llanmalar va tezkor javoblar</p>
+        </div>
+      </div>
+      <section class="card" style="margin-bottom: 14px">
+        <div class="input-group">
+          <i data-lucide="search"></i
+          ><input
+            class="input"
+            type="search"
+            placeholder="Maqola yoki savol qidiring..."
+            data-help-search
+          />
+        </div>
+      </section>
+      <section class="grid cols-3">
+        <article class="card" data-help-item>
+          <h3 style="margin-top: 0">Boshlang‘ich sozlash</h3>
+          <p class="text-muted">
+            Loyihani ishga tushirish bo‘yicha 5 daqiqalik yo‘riqnoma.
+          </p>
+          <a class="btn btn-ghost btn-sm" href="#">Ochish</a>
+        </article>
+        <article class="card" data-help-item>
+          <h3 style="margin-top: 0">Telegram integratsiya</h3>
+          <p class="text-muted">Bot token, webhook va test ssenariylari.</p>
+          <a class="btn btn-ghost btn-sm" href="#">Ochish</a>
+        </article>
+        <article class="card" data-help-item>
+          <h3 style="margin-top: 0">Agent rollari</h3>
+          <p class="text-muted">
+            Admin/Agent huquqlari va xavfsizlik cheklovlari.
+          </p>
+          <a class="btn btn-ghost btn-sm" href="#">Ochish</a>
+        </article>
+        <article class="card" data-help-item>
+          <h3 style="margin-top: 0">Billing FAQ</h3>
+          <p class="text-muted">Invoice, obuna va to‘lovdagi muammolar.</p>
+          <a class="btn btn-ghost btn-sm" href="#">Ochish</a>
+        </article>
+        <article class="card" data-help-item>
+          <h3 style="margin-top: 0">Widget sozlamalari</h3>
+          <p class="text-muted">Rang, pozitsiya va pre-chat formasi.</p>
+          <a class="btn btn-ghost btn-sm" href="#">Ochish</a>
+        </article>
+        <article class="card" data-help-item>
+          <h3 style="margin-top: 0">API & Webhook</h3>
+          <p class="text-muted">Eventlar va integration endpointlari.</p>
+          <a class="btn btn-ghost btn-sm" href="#">Ochish</a>
+        </article>
+      </section>
+    </main>
+    <script>
+      window.addEventListener(
+        "DOMContentLoaded",
+        () =>
+          window.lucide &&
+          window.lucide.createIcons &&
+          window.lucide.createIcons(),
+      );
+    </script>
+  </body>
+</html>

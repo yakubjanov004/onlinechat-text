@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QULAY CHAT - Bulk Actions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../assets/qulay-chat-shell.js" defer></script>
+    <script src="../assets/qulay-chat-runtime.js" defer></script>
+    <script src="../assets/inbox-operations.js" defer></script>
+  </head>
+  <body data-active-nav="inbox" class="dashboard-shell-page">
+    <main class="app-content">
+      <div class="subnav-scroll">
+        <div class="subnav-tabs">
+          <a class="subnav-tab" href="./01-inbox-chat.html">Inbox</a
+          ><a class="subnav-tab" href="./02-chat-open.html">Chat Ochiq Holat</a
+          ><a class="subnav-tab" href="./03-info-sidebar.html"
+            >Inbox Info Panel</a
+          ><a class="subnav-tab" href="./04-canned-responses.html"
+            >Canned Responses</a
+          ><a class="subnav-tab" href="./05-chat-transfer.html">Chat Transfer</a
+          ><a class="subnav-tab" href="./06-chat-merge.html">Chat Merge</a
+          ><a class="subnav-tab active" href="./07-bulk-actions.html"
+            >Bulk Actions</a
+          >
+        </div>
+      </div>
+      <div class="page-header">
+        <div>
+          <h1>Bulk Actions</h1>
+          <p class="text-muted">
+            Bir nechta chatga bir vaqtda assign/tag/close amallarini qo‘llash
+          </p>
+        </div>
+        <div class="page-header-actions">
+          <button class="btn btn-secondary" type="button" data-bulk-select-all>
+            Hammasini tanlash</button
+          ><button class="btn btn-primary" type="button" data-bulk-apply>
+            Qo‘llash
+          </button>
+        </div>
+      </div>
+      <section class="card" style="margin-bottom: 14px">
+        <div class="grid cols-3">
+          <select class="select" data-bulk-action>
+            <option value="assign">Assign agent</option>
+            <option value="tag">Tag qo‘shish</option>
+            <option value="close">Close chats</option>
+            <option value="priority">Priority update</option></select
+          ><input
+            class="input"
+            type="text"
+            placeholder="Qiymat (agent yoki tag)"
+            data-bulk-value
+          />
+          <div
+            class="text-muted"
+            style="font-size: 13px; display: flex; align-items: center"
+          >
+            Tanlangan chatlar:
+            <strong style="margin-left: 6px" data-bulk-count>0</strong>
+          </div>
+        </div>
+      </section>
+      <section class="card" style="padding: 0; overflow: hidden">
+        <table class="table">
+          <thead>
+            <tr>
+              <th><input type="checkbox" data-bulk-master /></th>
+              <th>Chat ID</th>
+              <th>Mijoz</th>
+              <th>Kanal</th>
+              <th>Status</th>
+              <th>Agent</th>
+            </tr>
+          </thead>
+          <tbody data-bulk-table>
+            <tr>
+              <td><input type="checkbox" data-bulk-item /></td>
+              <td>#CH-1291</td>
+              <td>Ahmad Valiyev</td>
+              <td>Web</td>
+              <td><span class="badge badge-danger">Unread</span></td>
+              <td>Sardor</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" data-bulk-item /></td>
+              <td>#CH-1290</td>
+              <td>Dilnoza R.</td>
+              <td>Telegram</td>
+              <td><span class="badge badge-primary">Active</span></td>
+              <td>Sara</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" data-bulk-item /></td>
+              <td>#CH-1289</td>
+              <td>Rustam K.</td>
+              <td>Email</td>
+              <td><span class="badge">Open</span></td>
+              <td>Ali</td>
+            </tr>
+            <tr>
+              <td><input type="checkbox" data-bulk-item /></td>
+              <td>#CH-1287</td>
+              <td>Madina T.</td>
+              <td>Instagram</td>
+              <td><span class="badge badge-warning">Waiting</span></td>
+              <td>Unassigned</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+    <script>
+      window.addEventListener(
+        "DOMContentLoaded",
+        () =>
+          window.lucide &&
+          window.lucide.createIcons &&
+          window.lucide.createIcons(),
+      );
+    </script>
+  </body>
+</html>

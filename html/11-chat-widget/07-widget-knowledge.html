@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QULAY CHAT - Widget Knowledge</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../assets/qulay-chat-runtime.js" defer></script>
+    <script src="../assets/widget-extensions.js" defer></script>
+  </head>
+  <body class="widget-page">
+    <main class="widget-page">
+      <div class="widget-shell">
+        <div class="widget-topbar">
+          <a class="shell-brand" href="../index.html"
+            ><span class="shell-brand-mark">QC</span
+            ><span>Widget Preview</span></a
+          >
+          <div class="subnav-scroll">
+            <div class="subnav-tabs">
+              <a class="subnav-tab" href="./01-widget-launcher.html"
+                >Widget Launcher</a
+              ><a class="subnav-tab" href="./02-widget-chat.html">Widget Chat</a
+              ><a class="subnav-tab" href="./03-widget-offline.html"
+                >Widget Offline</a
+              ><a class="subnav-tab" href="./04-widget-csat.html">Widget CSAT</a
+              ><a class="subnav-tab" href="./05-widget-states.html"
+                >Widget States</a
+              ><a class="subnav-tab" href="./06-widget-prechat.html"
+                >Pre-chat Form</a
+              ><a class="subnav-tab active" href="./07-widget-knowledge.html"
+                >Widget KB</a
+              ><a class="subnav-tab" href="./08-widget-mobile.html"
+                >Widget Mobile</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="widget-canvas">
+          <div class="widget-site-content">
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <h3>Knowledge search</h3>
+                  <p class="card-description">
+                    Visitor avval KB maqoladan javob topadi, keyin chatga o‘tadi
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div data-widget-demo class="is-open" style="justify-self: end">
+              <div class="widget-window">
+                <div class="widget-window-header">
+                  <div>
+                    <strong>Yordam markazi</strong>
+                    <div class="mini">Savolingizga javob toping</div>
+                  </div>
+                </div>
+                <div class="widget-window-body">
+                  <div class="input-group">
+                    <i data-lucide="search"></i
+                    ><input
+                      class="input"
+                      type="search"
+                      placeholder="Maqola qidirish..."
+                      data-kb-search
+                    />
+                  </div>
+                  <div class="list-stack" style="margin-top: 10px" data-kb-list>
+                    <div class="list-item" data-kb-item>
+                      <div class="item-main">
+                        <div class="item-title">
+                          Telegram botni qanday ulayman?
+                        </div>
+                        <div class="item-sub">Integrations • 4 min read</div>
+                      </div>
+                    </div>
+                    <div class="list-item" data-kb-item>
+                      <div class="item-main">
+                        <div class="item-title">
+                          Widget rangini qanday o‘zgartirish mumkin?
+                        </div>
+                        <div class="item-sub">Widget • 2 min read</div>
+                      </div>
+                    </div>
+                    <div class="list-item" data-kb-item>
+                      <div class="item-main">
+                        <div class="item-title">
+                          Agentlarga rol berish yo‘riqnomasi
+                        </div>
+                        <div class="item-sub">Team • 6 min read</div>
+                      </div>
+                    </div>
+                    <div class="list-item" data-kb-item>
+                      <div class="item-main">
+                        <div class="item-title">
+                          Invoice va billing savollari
+                        </div>
+                        <div class="item-sub">Billing • 3 min read</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="widget-window-footer">
+                  <button
+                    class="btn btn-secondary"
+                    type="button"
+                    data-action="log"
+                    data-message="Live chat ochildi"
+                  >
+                    Javob topmadim — Chat ochish
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      window.addEventListener(
+        "DOMContentLoaded",
+        () =>
+          window.lucide &&
+          window.lucide.createIcons &&
+          window.lucide.createIcons(),
+      );
+    </script>
+  </body>
+</html>

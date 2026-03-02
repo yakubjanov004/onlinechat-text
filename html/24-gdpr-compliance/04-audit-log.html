@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QULAY CHAT - Audit Log</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../assets/qulay-chat-shell.js" defer></script>
+    <script src="../assets/qulay-chat-runtime.js" defer></script>
+    <script src="../assets/gdpr-compliance.js" defer></script>
+  </head>
+  <body data-active-nav="settings" class="dashboard-shell-page">
+    <main class="app-content">
+      <div class="subnav-scroll">
+        <div class="subnav-tabs">
+          <a class="subnav-tab" href="./01-data-overview.html">Data Overview</a
+          ><a class="subnav-tab" href="./02-consent-management.html"
+            >Consent Management</a
+          ><a class="subnav-tab" href="./03-data-retention.html"
+            >Data Retention</a
+          ><a class="subnav-tab active" href="./04-audit-log.html">Audit Log</a>
+        </div>
+      </div>
+      <div class="page-header">
+        <div>
+          <h1>Audit log</h1>
+          <p class="text-muted">Kim, qachon, qaysi GDPR amaliyotni bajargani</p>
+        </div>
+        <div class="page-header-actions">
+          <button class="btn btn-secondary" type="button" data-audit-export>
+            CSV export
+          </button>
+        </div>
+      </div>
+      <section class="card" style="margin-bottom: 14px">
+        <div class="grid cols-3">
+          <input
+            class="input"
+            type="search"
+            placeholder="User yoki action qidirish..."
+            data-audit-search
+          /><select class="select" data-audit-action>
+            <option value="all">Barcha actionlar</option>
+            <option value="consent">Consent update</option>
+            <option value="delete">Data deletion</option>
+            <option value="export">Data export</option></select
+          ><button class="btn btn-primary" type="button" data-audit-filter>
+            Filter
+          </button>
+        </div>
+      </section>
+      <section class="card" style="padding: 0; overflow: hidden">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Vaqt</th>
+              <th>User</th>
+              <th>Action</th>
+              <th>Target</th>
+              <th>IP</th>
+            </tr>
+          </thead>
+          <tbody data-audit-list>
+            <tr data-audit-row data-action="consent">
+              <td>10:32</td>
+              <td>admin@qulay.chat</td>
+              <td>Consent policy updated</td>
+              <td>Workspace #01</td>
+              <td>185.8.212.34</td>
+            </tr>
+            <tr data-audit-row data-action="delete">
+              <td>09:48</td>
+              <td>dpo@qulay.chat</td>
+              <td>Data deletion request approved</td>
+              <td>User #8842</td>
+              <td>91.204.239.12</td>
+            </tr>
+            <tr data-audit-row data-action="export">
+              <td>09:01</td>
+              <td>support@qulay.chat</td>
+              <td>Data export generated</td>
+              <td>User #1291</td>
+              <td>178.218.200.7</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </body>
+</html>

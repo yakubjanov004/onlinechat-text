@@ -1,0 +1,34 @@
+:root[data-theme='dark'], body[data-theme='dark'] {
+  --bg: #0b1220;
+  --surface: #111a2e;
+  --surface-2: #0f172a;
+  --text: #e5e7eb;
+  --text-muted: #9ca3af;
+  --line: #24324d;
+}
+
+body[data-theme='dark'] {
+  background: var(--bg) !important;
+  color: var(--text) !important;
+}
+
+body[data-theme='dark'] .card,
+body[data-theme='dark'] .modal,
+body[data-theme='dark'] .widget-window,
+body[data-theme='dark'] .inbox-panel {
+  background: var(--surface) !important;
+  color: var(--text) !important;
+  border-color: var(--line) !important;
+  box-shadow: none !important;
+}
+
+body[data-theme='dark'] .text-muted { color: var(--text-muted) !important; }
+body[data-theme='dark'] .input,
+body[data-theme='dark'] .select,
+body[data-theme='dark'] .textarea {
+  background: #0b1324 !important;
+  color: var(--text) !important;
+  border-color: var(--line) !important;
+}
+body[data-theme='dark'] .table th,
+body[data-theme='dark'] .table td { border-color: var(--line) !important; }

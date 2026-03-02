@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QULAY CHAT - All Notifications</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../assets/qulay-chat-shell.js" defer></script>
+    <script src="../assets/qulay-chat-runtime.js" defer></script>
+    <script src="../assets/notification-interactions.js" defer></script>
+  </head>
+  <body data-active-nav="notifications" class="dashboard-shell-page">
+    <main class="app-content">
+      <div class="subnav-scroll">
+        <div class="subnav-tabs">
+          <a class="subnav-tab" href="./01-notification-dropdown.html"
+            >Dropdown</a
+          >
+          <a class="subnav-tab active" href="./02-notification-all.html"
+            >Barchasi</a
+          >
+          <a class="subnav-tab" href="./03-notification-preferences.html"
+            >Sozlamalar</a
+          >
+        </div>
+      </div>
+
+      <div class="page-header">
+        <div>
+          <h1>Barcha bildirishnomalar</h1>
+          <p class="text-muted">
+            Filter, qidiruv va bulk action bilan notification boshqaruvi
+          </p>
+        </div>
+        <div class="page-header-actions">
+          <button class="btn btn-secondary" type="button" data-mark-all-read>
+            Hammasini o‘qilgan qilish
+          </button>
+          <button class="btn btn-danger" type="button" data-clear-read>
+            O‘qilganlarni tozalash
+          </button>
+        </div>
+      </div>
+
+      <section class="grid cols-3" style="margin-bottom: 14px">
+        <article class="card">
+          <div class="text-muted" style="font-size: 12px">Jami</div>
+          <h3 style="margin: 6px 0 0" data-total-count>0</h3>
+        </article>
+        <article class="card">
+          <div class="text-muted" style="font-size: 12px">Unread</div>
+          <h3 style="margin: 6px 0 0" data-unread-count>0</h3>
+        </article>
+        <article class="card">
+          <div class="text-muted" style="font-size: 12px">Read</div>
+          <h3 style="margin: 6px 0 0" data-read-count>0</h3>
+        </article>
+      </section>
+
+      <section class="card" style="margin-bottom: 14px">
+        <div class="grid cols-4">
+          <div class="input-group">
+            <i data-lucide="search"></i
+            ><input
+              class="input"
+              type="search"
+              placeholder="Notification qidirish..."
+              data-notification-search
+            />
+          </div>
+          <select class="select" data-type-filter>
+            <option value="all">Barcha turlar</option>
+            <option value="chat">Chat</option>
+            <option value="mention">Mention</option>
+            <option value="team">Team</option>
+            <option value="system">System</option>
+            <option value="billing">Billing</option>
+          </select>
+          <select class="select" data-status-filter>
+            <option value="all">Holat: hammasi</option>
+            <option value="unread">Faqat unread</option>
+            <option value="read">Faqat read</option>
+          </select>
+          <button
+            class="btn btn-primary"
+            type="button"
+            data-action="log"
+            data-message="Filter qo‘llandi"
+          >
+            Filterlash
+          </button>
+        </div>
+      </section>
+
+      <section class="card" style="padding: 0; overflow: hidden">
+        <table class="table">
+          <thead>
+            <tr>
+              <th><input type="checkbox" aria-label="Hammasini tanlash" /></th>
+              <th>Hodisa</th>
+              <th>Turi</th>
+              <th>Vaqt</th>
+              <th>Holat</th>
+              <th>Amal</th>
+            </tr>
+          </thead>
+          <tbody data-notification-table>
+            <tr data-notification-row data-type="chat" data-unread="true">
+              <td><input type="checkbox" /></td>
+              <td>Yangi chat: "Integratsiya ishlamayapti"</td>
+              <td><span class="badge badge-primary">Chat</span></td>
+              <td>09:41</td>
+              <td><span class="badge badge-danger">Unread</span></td>
+              <td>
+                <button
+                  class="btn btn-ghost btn-sm"
+                  type="button"
+                  data-mark-read
+                >
+                  O‘qildi
+                </button>
+              </td>
+            </tr>
+            <tr data-notification-row data-type="mention" data-unread="true">
+              <td><input type="checkbox" /></td>
+              <td>@ulugbek sizni #sales kanalida chaqirdi</td>
+              <td><span class="badge badge-info">Mention</span></td>
+              <td>09:37</td>
+              <td><span class="badge badge-danger">Unread</span></td>
+              <td>
+                <button
+                  class="btn btn-ghost btn-sm"
+                  type="button"
+                  data-mark-read
+                >
+                  O‘qildi
+                </button>
+              </td>
+            </tr>
+            <tr data-notification-row data-type="team" data-unread="false">
+              <td><input type="checkbox" /></td>
+              <td>Yangi agent qo‘shildi: Mohira S.</td>
+              <td><span class="badge badge-warning">Team</span></td>
+              <td>08:55</td>
+              <td><span class="badge badge-success">Read</span></td>
+              <td>
+                <button
+                  class="btn btn-ghost btn-sm"
+                  type="button"
+                  data-delete-notification
+                >
+                  O‘chirish
+                </button>
+              </td>
+            </tr>
+            <tr data-notification-row data-type="billing" data-unread="true">
+              <td><input type="checkbox" /></td>
+              <td>Pro obuna 2 kunda tugaydi</td>
+              <td><span class="badge badge-danger">Billing</span></td>
+              <td>08:12</td>
+              <td><span class="badge badge-danger">Unread</span></td>
+              <td>
+                <button
+                  class="btn btn-ghost btn-sm"
+                  type="button"
+                  data-mark-read
+                >
+                  O‘qildi
+                </button>
+              </td>
+            </tr>
+            <tr data-notification-row data-type="system" data-unread="false">
+              <td><input type="checkbox" /></td>
+              <td>Backup muvaffaqiyatli yakunlandi</td>
+              <td><span class="badge badge-success">System</span></td>
+              <td>07:31</td>
+              <td><span class="badge badge-success">Read</span></td>
+              <td>
+                <button
+                  class="btn btn-ghost btn-sm"
+                  type="button"
+                  data-delete-notification
+                >
+                  O‘chirish
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section
+        class="card"
+        style="
+          margin-top: 14px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 10px;
+        "
+      >
+        <span class="text-muted" style="font-size: 13px" data-pagination-info
+          >1-5 / 0</span
+        >
+        <div class="flex gap-2">
+          <button class="btn btn-secondary btn-sm" type="button" data-page-prev>
+            Oldingi
+          </button>
+          <button class="btn btn-secondary btn-sm" type="button" data-page-next>
+            Keyingi
+          </button>
+        </div>
+      </section>
+
+      <div class="modal-overlay" data-modal="notification-detail" hidden>
+        <div
+          class="modal"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="notification-detail-title"
+        >
+          <div class="modal-header">
+            <h3 id="notification-detail-title">Notification tafsiloti</h3>
+            <button class="btn btn-ghost btn-sm" type="button" data-modal-close>
+              <i data-lucide="x"></i>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="kv-list">
+              <div class="kv-row">
+                <span>Sarlavha</span><strong data-detail-title>-</strong>
+              </div>
+              <div class="kv-row">
+                <span>Turi</span><strong data-detail-type>-</strong>
+              </div>
+              <div class="kv-row">
+                <span>Vaqt</span><strong data-detail-time>-</strong>
+              </div>
+              <div class="kv-row">
+                <span>Holat</span><strong data-detail-status>-</strong>
+              </div>
+            </div>
+            <div class="empty-state" style="margin-top: 12px">
+              <i data-lucide="file-text"></i>
+              <strong>Texnik detal</strong>
+              <p class="text-muted" style="font-size: 13px" data-detail-body>
+                Bu yerda event payload/log ko‘rinadi.
+              </p>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-modal-close>
+              Yopish
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      window.addEventListener("DOMContentLoaded", function () {
+        if (window.lucide && window.lucide.createIcons) {
+          window.lucide.createIcons();
+        }
+      });
+    </script>
+  </body>
+</html>

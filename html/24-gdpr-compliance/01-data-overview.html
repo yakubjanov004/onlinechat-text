@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QULAY CHAT - GDPR Overview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../assets/qulay-chat-shell.js" defer></script>
+    <script src="../assets/qulay-chat-runtime.js" defer></script>
+    <script src="../assets/gdpr-compliance.js" defer></script>
+  </head>
+  <body data-active-nav="settings" class="dashboard-shell-page">
+    <main class="app-content">
+      <div class="subnav-scroll">
+        <div class="subnav-tabs">
+          <a class="subnav-tab active" href="./01-data-overview.html"
+            >Data Overview</a
+          ><a class="subnav-tab" href="./02-consent-management.html"
+            >Consent Management</a
+          ><a class="subnav-tab" href="./03-data-retention.html"
+            >Data Retention</a
+          ><a class="subnav-tab" href="./04-audit-log.html">Audit Log</a>
+        </div>
+      </div>
+      <div class="page-header">
+        <div>
+          <h1>GDPR Compliance Dashboard</h1>
+          <p class="text-muted">
+            Shaxsiy ma’lumotlar holati, requestlar va risk indikatorlari
+          </p>
+        </div>
+        <div class="page-header-actions">
+          <button class="btn btn-secondary" type="button" data-gdpr-export>
+            Data map export</button
+          ><button class="btn btn-primary" type="button" data-gdpr-scan>
+            Compliance scan
+          </button>
+        </div>
+      </div>
+      <section class="grid cols-4" style="margin-bottom: 14px">
+        <article class="card">
+          <div class="text-muted" style="font-size: 12px">Open DSAR</div>
+          <h3 style="margin: 6px 0 0">12</h3>
+        </article>
+        <article class="card">
+          <div class="text-muted" style="font-size: 12px">Consent rate</div>
+          <h3 style="margin: 6px 0 0">87%</h3>
+        </article>
+        <article class="card">
+          <div class="text-muted" style="font-size: 12px">
+            Retention violations
+          </div>
+          <h3 style="margin: 6px 0 0">3</h3>
+        </article>
+        <article class="card">
+          <div class="text-muted" style="font-size: 12px">Last audit</div>
+          <h3 style="margin: 6px 0 0">Bugun 08:40</h3>
+        </article>
+      </section>
+      <section class="card">
+        <h3 style="margin-top: 0">Data processing inventory</h3>
+        <div class="kv-list">
+          <div class="kv-row">
+            <span>Contacts PII</span><strong>Encrypted at rest ✅</strong>
+          </div>
+          <div class="kv-row">
+            <span>Chat transcripts</span
+            ><strong>Retention policy applied ✅</strong>
+          </div>
+          <div class="kv-row">
+            <span>Analytics events</span
+            ><strong>Pseudonymized ⚠️ partial</strong>
+          </div>
+          <div class="kv-row">
+            <span>3rd-party processors</span><strong>8 active vendors</strong>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,49 +1,146 @@
 <!doctype html>
 <html lang="uz">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QULAY CHAT - Widget CSAT</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/qulay-chat-design-system.css">
-<script src="https://unpkg.com/lucide@latest" defer></script>
-<script src="../assets/qulay-chat-runtime.js" defer></script><script src="../assets/widget-interactions.js" defer></script>
-</head>
-<body class="widget-page">
-<main class="widget-page">
-<div class="widget-shell">
-<div class="widget-topbar">
-<a class="shell-brand" href="../index.html"><span class="shell-brand-mark">QC</span><span>Widget Preview</span></a>
-<div class="subnav-scroll"><div class="subnav-tabs"><a class="subnav-tab " href="./01-widget-launcher.html">Widget Launcher</a><a class="subnav-tab " href="./02-widget-chat.html">Widget Chat</a><a class="subnav-tab " href="./03-widget-offline.html">Widget Offline</a><a class="subnav-tab active" href="./04-widget-csat.html">Widget CSAT</a><a class="subnav-tab " href="./05-widget-states.html">Widget States</a></div></div>
-</div>
-<div class="widget-canvas"><div class="widget-site-content"><div class="card"><div class="card-header"><div><h3>CSAT prompt</h3><p class="card-description">Suhbatdan keyin baholash oynasi</p></div></div><div class="card-body"><div class="placeholder-line" style="width:90%"></div><div class="placeholder-line" style="width:80%"></div><div class="placeholder-line" style="width:95%;height:180px;border-radius:14px"></div></div></div><div style="justify-self:end"><div class="widget-window" >
-<div class="widget-window-header">
-<div><strong>QULAY CHAT</strong><div class="mini">CSAT</div></div>
-<button class="icon-btn" type="button" data-action="log"><i data-lucide="x"></i></button>
-</div>
-<div class="widget-window-body">
-<h3>Yordamingiz foydali bo'ldimi?</h3>
-<div class="text-muted" style="font-size:13px">Suhbat sifatini 1 dan 5 gacha baholang.</div>
-<div class="flex gap-2" data-star-rating data-value="0">
-<button class="btn btn-secondary btn-sm" type="button" data-star-value="1"><i data-lucide="star"></i></button>
-<button class="btn btn-secondary btn-sm" type="button" data-star-value="2"><i data-lucide="star"></i></button>
-<button class="btn btn-secondary btn-sm" type="button" data-star-value="3"><i data-lucide="star"></i></button>
-<button class="btn btn-secondary btn-sm" type="button" data-star-value="4"><i data-lucide="star"></i></button>
-<button class="btn btn-secondary btn-sm" type="button" data-star-value="5"><i data-lucide="star"></i></button>
-</div>
-<label class="form-field">
-<span class="form-label">Izoh</span>
-<textarea class="textarea" rows="4" placeholder="Qo'shimcha fikringiz..."></textarea>
-</label>
-</div>
-<div class="widget-window-footer">
-<button class="btn btn-primary w-full" type="button" data-action="log">Yuborish</button>
-</div>
-</div></div></div></div>
-</div>
-</main>
-<script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QULAY CHAT - Widget CSAT</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../assets/qulay-chat-runtime.js" defer></script>
+    <script src="../assets/widget-interactions.js" defer></script>
+  </head>
+  <body class="widget-page">
+    <main class="widget-page">
+      <div class="widget-shell">
+        <div class="widget-topbar">
+          <a class="shell-brand" href="../index.html"
+            ><span class="shell-brand-mark">QC</span
+            ><span>Widget Preview</span></a
+          >
+          <div class="subnav-scroll">
+            <div class="subnav-tabs">
+              <a class="subnav-tab" href="./01-widget-launcher.html"
+                >Widget Launcher</a
+              ><a class="subnav-tab" href="./02-widget-chat.html">Widget Chat</a
+              ><a class="subnav-tab" href="./03-widget-offline.html"
+                >Widget Offline</a
+              ><a class="subnav-tab active" href="./04-widget-csat.html"
+                >Widget CSAT</a
+              ><a class="subnav-tab" href="./05-widget-states.html"
+                >Widget States</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="widget-canvas">
+          <div class="widget-site-content">
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <h3>CSAT prompt</h3>
+                  <p class="card-description">
+                    Suhbatdan keyin baholash oynasi
+                  </p>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="placeholder-line" style="width: 90%"></div>
+                <div class="placeholder-line" style="width: 80%"></div>
+                <div
+                  class="placeholder-line"
+                  style="width: 95%; height: 180px; border-radius: 14px"
+                ></div>
+              </div>
+            </div>
+            <div style="justify-self: end">
+              <div class="widget-window">
+                <div class="widget-window-header">
+                  <div>
+                    <strong>QULAY CHAT</strong>
+                    <div class="mini">CSAT</div>
+                  </div>
+                  <button class="icon-btn" type="button" data-action="log">
+                    <i data-lucide="x"></i>
+                  </button>
+                </div>
+                <div class="widget-window-body">
+                  <h3>Yordamingiz foydali bo'ldimi?</h3>
+                  <div class="text-muted" style="font-size: 13px">
+                    Suhbat sifatini 1 dan 5 gacha baholang.
+                  </div>
+                  <div class="flex gap-2" data-star-rating data-value="0">
+                    <button
+                      class="btn btn-secondary btn-sm"
+                      type="button"
+                      data-star-value="1"
+                    >
+                      <i data-lucide="star"></i>
+                    </button>
+                    <button
+                      class="btn btn-secondary btn-sm"
+                      type="button"
+                      data-star-value="2"
+                    >
+                      <i data-lucide="star"></i>
+                    </button>
+                    <button
+                      class="btn btn-secondary btn-sm"
+                      type="button"
+                      data-star-value="3"
+                    >
+                      <i data-lucide="star"></i>
+                    </button>
+                    <button
+                      class="btn btn-secondary btn-sm"
+                      type="button"
+                      data-star-value="4"
+                    >
+                      <i data-lucide="star"></i>
+                    </button>
+                    <button
+                      class="btn btn-secondary btn-sm"
+                      type="button"
+                      data-star-value="5"
+                    >
+                      <i data-lucide="star"></i>
+                    </button>
+                  </div>
+                  <label class="form-field">
+                    <span class="form-label">Izoh</span>
+                    <textarea
+                      class="textarea"
+                      rows="4"
+                      placeholder="Qo'shimcha fikringiz..."
+                    ></textarea>
+                  </label>
+                </div>
+                <div class="widget-window-footer">
+                  <button
+                    class="btn btn-primary w-full"
+                    type="button"
+                    data-action="log"
+                  >
+                    Yuborish
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      window.addEventListener("DOMContentLoaded", function () {
+        if (window.lucide && window.lucide.createIcons) {
+          window.lucide.createIcons();
+        }
+      });
+    </script>
+  </body>
 </html>

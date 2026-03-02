@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QULAY CHAT - Search Results</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../assets/qulay-chat-shell.js" defer></script>
+    <script src="../assets/qulay-chat-runtime.js" defer></script>
+    <script src="../assets/global-search.js" defer></script>
+  </head>
+  <body data-active-nav="dashboard" class="dashboard-shell-page">
+    <main class="app-content">
+      <div class="subnav-scroll">
+        <div class="subnav-tabs">
+          <a class="subnav-tab" href="./01-search-modal.html">Search Modal</a
+          ><a class="subnav-tab active" href="./02-search-results.html"
+            >Search Results</a
+          >
+        </div>
+      </div>
+      <div class="page-header">
+        <div>
+          <h1>Qidiruv natijalari</h1>
+          <p class="text-muted">
+            To‘liq sahifada kategoriyalar kesimida natijalar
+          </p>
+        </div>
+      </div>
+      <section class="card" style="margin-bottom: 14px">
+        <div class="grid cols-3">
+          <div class="input-group">
+            <i data-lucide="search"></i
+            ><input
+              class="input"
+              type="search"
+              placeholder="Masalan: telegram"
+              data-gs-page-search
+            />
+          </div>
+          <select class="select" data-gs-page-type>
+            <option value="all">Barcha turlar</option>
+            <option value="chat">Chat</option>
+            <option value="contact">Contact</option>
+            <option value="kb">KB</option>
+            <option value="settings">Settings</option></select
+          ><button class="btn btn-secondary" type="button" data-gs-page-reset>
+            Tozalash
+          </button>
+        </div>
+      </section>
+      <section class="card" style="padding: 0; overflow: hidden">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Natija</th>
+              <th>Turi</th>
+              <th>Manzil</th>
+              <th>Amal</th>
+            </tr>
+          </thead>
+          <tbody data-gs-page-list>
+            <tr data-gs-row data-type="chat">
+              <td>Ahmad Valiyev bilan chat</td>
+              <td><span class="badge badge-primary">Chat</span></td>
+              <td>Inbox</td>
+              <td>
+                <a
+                  class="btn btn-ghost btn-sm"
+                  href="../05-inbox/02-chat-open.html"
+                  >Ochish</a
+                >
+              </td>
+            </tr>
+            <tr data-gs-row data-type="contact">
+              <td>Dilnoza Rahimova kontakti</td>
+              <td><span class="badge badge-info">Contact</span></td>
+              <td>Contacts</td>
+              <td>
+                <a
+                  class="btn btn-ghost btn-sm"
+                  href="../12-contacts/01-contacts-list.html"
+                  >Ochish</a
+                >
+              </td>
+            </tr>
+            <tr data-gs-row data-type="kb">
+              <td>Telegram integratsiyasi maqolasi</td>
+              <td><span class="badge badge-success">KB</span></td>
+              <td>Knowledge Base</td>
+              <td>
+                <a
+                  class="btn btn-ghost btn-sm"
+                  href="../15-knowledge-base/02-kb-article.html"
+                  >Ochish</a
+                >
+              </td>
+            </tr>
+            <tr data-gs-row data-type="settings">
+              <td>SMTP sozlamalari</td>
+              <td><span class="badge badge-warning">Settings</span></td>
+              <td>Settings</td>
+              <td>
+                <a
+                  class="btn btn-ghost btn-sm"
+                  href="../09-settings/01-general.html"
+                  >Ochish</a
+                >
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+    <script>
+      window.addEventListener(
+        "DOMContentLoaded",
+        () =>
+          window.lucide &&
+          window.lucide.createIcons &&
+          window.lucide.createIcons(),
+      );
+    </script>
+  </body>
+</html>

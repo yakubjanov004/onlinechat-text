@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QULAY CHAT - Submit Ticket</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../assets/qulay-chat-shell.js" defer></script>
+    <script src="../assets/qulay-chat-runtime.js" defer></script>
+    <script src="../assets/help-support.js" defer></script>
+  </head>
+  <body data-active-nav="dashboard" class="dashboard-shell-page">
+    <main class="app-content">
+      <div class="subnav-scroll">
+        <div class="subnav-tabs">
+          <a class="subnav-tab" href="./01-help-center.html">Help Center</a
+          ><a class="subnav-tab" href="./02-video-tutorials.html"
+            >Video Tutorials</a
+          ><a class="subnav-tab active" href="./03-submit-ticket.html"
+            >Submit Ticket</a
+          ><a class="subnav-tab" href="./04-my-tickets.html">My Tickets</a
+          ><a class="subnav-tab" href="./05-contextual-help.html"
+            >Contextual Help</a
+          >
+        </div>
+      </div>
+      <div class="page-header">
+        <div>
+          <h1>Support ticket yuborish</h1>
+          <p class="text-muted">
+            Muammoni batafsil yozing, jamoa tezda qaytadi
+          </p>
+        </div>
+        <div class="page-header-actions">
+          <button class="btn btn-primary" type="button" data-ticket-submit>
+            Yuborish
+          </button>
+        </div>
+      </div>
+      <section class="card">
+        <div class="grid cols-2">
+          <label class="field"
+            ><span class="label">Mavzu</span
+            ><input class="input" type="text" data-ticket-subject /></label
+          ><label class="field"
+            ><span class="label">Kategoriya</span
+            ><select class="select" data-ticket-category>
+              <option>Bug</option>
+              <option>Billing</option>
+              <option>Integration</option>
+              <option>Feature request</option>
+            </select></label
+          >
+        </div>
+        <label class="field" style="margin-top: 10px"
+          ><span class="label">Tavsif</span
+          ><textarea
+            class="textarea"
+            rows="6"
+            data-ticket-body
+          ></textarea></label
+        ><label class="field" style="margin-top: 10px"
+          ><span class="label">Priority</span
+          ><select class="select" data-ticket-priority>
+            <option>Low</option>
+            <option selected>Medium</option>
+            <option>High</option>
+          </select></label
+        >
+      </section>
+    </main>
+  </body>
+</html>

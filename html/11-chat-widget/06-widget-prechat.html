@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QULAY CHAT - Widget Pre-chat</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../assets/qulay-chat-runtime.js" defer></script>
+    <script src="../assets/widget-extensions.js" defer></script>
+  </head>
+  <body class="widget-page">
+    <main class="widget-page">
+      <div class="widget-shell">
+        <div class="widget-topbar">
+          <a class="shell-brand" href="../index.html"
+            ><span class="shell-brand-mark">QC</span
+            ><span>Widget Preview</span></a
+          >
+          <div class="subnav-scroll">
+            <div class="subnav-tabs">
+              <a class="subnav-tab" href="./01-widget-launcher.html"
+                >Widget Launcher</a
+              ><a class="subnav-tab" href="./02-widget-chat.html">Widget Chat</a
+              ><a class="subnav-tab" href="./03-widget-offline.html"
+                >Widget Offline</a
+              ><a class="subnav-tab" href="./04-widget-csat.html">Widget CSAT</a
+              ><a class="subnav-tab" href="./05-widget-states.html"
+                >Widget States</a
+              ><a class="subnav-tab active" href="./06-widget-prechat.html"
+                >Pre-chat Form</a
+              ><a class="subnav-tab" href="./07-widget-knowledge.html"
+                >Widget KB</a
+              ><a class="subnav-tab" href="./08-widget-mobile.html"
+                >Widget Mobile</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="widget-canvas">
+          <div class="widget-site-content">
+            <div class="card">
+              <div class="card-header">
+                <div>
+                  <h3>Pre-chat form</h3>
+                  <p class="card-description">
+                    Visitordan ism/email/bo‘limni oldindan yig‘ish
+                  </p>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="grid cols-2">
+                  <label class="field"
+                    ><span class="label">Form mode</span
+                    ><select class="select">
+                      <option>Required fields</option>
+                      <option>Optional fields</option>
+                    </select></label
+                  >
+                  <label class="field"
+                    ><span class="label">Routing</span
+                    ><select class="select">
+                      <option>Department</option>
+                      <option>Round robin</option>
+                    </select></label
+                  >
+                </div>
+              </div>
+            </div>
+            <div data-widget-demo class="is-open" style="justify-self: end">
+              <div class="widget-window">
+                <div class="widget-window-header">
+                  <div>
+                    <strong>QULAY CHAT</strong>
+                    <div class="mini">
+                      Suhbatni boshlash uchun formani to‘ldiring
+                    </div>
+                  </div>
+                </div>
+                <div class="widget-window-body">
+                  <label class="field"
+                    ><span class="label">Ismingiz *</span
+                    ><input
+                      class="input"
+                      type="text"
+                      placeholder="Masalan: Aziza"
+                      data-prechat-name
+                  /></label>
+                  <label class="field"
+                    ><span class="label">Email *</span
+                    ><input
+                      class="input"
+                      type="email"
+                      placeholder="you@example.com"
+                      data-prechat-email
+                  /></label>
+                  <label class="field"
+                    ><span class="label">Savol turi</span
+                    ><select class="select" data-prechat-topic>
+                      <option value="sales">Sales</option>
+                      <option value="support">Support</option>
+                      <option value="billing">Billing</option>
+                    </select></label
+                  >
+                  <label class="field"
+                    ><span class="label">Xabar *</span
+                    ><textarea
+                      class="textarea"
+                      rows="3"
+                      placeholder="Qanday yordam kerak?"
+                      data-prechat-message
+                    ></textarea>
+                  </label>
+                  <label style="font-size: 12px; color: var(--text-muted)"
+                    ><input type="checkbox" checked data-prechat-consent />
+                    Shaxsiy ma’lumotlarni qayta ishlashga roziman</label
+                  >
+                </div>
+                <div class="widget-window-footer">
+                  <button
+                    class="btn btn-primary"
+                    type="button"
+                    data-prechat-start
+                  >
+                    Suhbatni boshlash
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      window.addEventListener(
+        "DOMContentLoaded",
+        () =>
+          window.lucide &&
+          window.lucide.createIcons &&
+          window.lucide.createIcons(),
+      );
+    </script>
+  </body>
+</html>

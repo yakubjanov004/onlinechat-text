@@ -1,129 +1,313 @@
 <!doctype html>
 <html lang="uz">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QULAY CHAT - Working Hours</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/qulay-chat-design-system.css">
-<script src="https://unpkg.com/lucide@latest" defer></script>
-<script src="../assets/qulay-chat-shell.js" defer></script>
-<script src="../assets/qulay-chat-runtime.js" defer></script>
-</head>
-<body data-active-nav="automation" class="dashboard-shell-page">
-<main class="app-content">
-<div class="subnav-scroll">
-<div class="subnav-tabs">
-<a class="subnav-tab active" href="./01-working-hours.html">Working Hours</a><a class="subnav-tab " href="./02-auto-reply.html">Auto Reply</a><a class="subnav-tab " href="./03-triggers.html">Triggers</a><a class="subnav-tab " href="./04-greetings.html">Greetings</a>
-</div>
-</div>
-<div class="page-header">
-<div>
-<h1>Working Hours</h1>
-<p class="text-muted">Automation qoidalari va schedule konfiguratsiyasi</p>
-</div>
-<div class="page-header-actions"><button type="button" class="btn btn-primary" data-action="save">Saqlash</button>
-<button type="button" class="btn btn-secondary" data-action="reset-form">Reset</button></div>
-</div>
-<section class="card">
-<div class="card-header">
-<div>
-<h3>Ish vaqti jadvali</h3>
-</div>
-</div>
-<div class="card-body">
-<div class="form-grid one">
-<label class="form-field">
-<span class="form-label">Timezone</span>
-<select class="select"><option selected>GMT+5 Toshkent</option><option >GMT+3 Istanbul</option><option >GMT+6 Almaty</option><option >UTC</option></select>
-</label>
-<div class="table-wrap">
-<table class="table">
-<thead>
-<tr class="table-header">
-<th>Kun</th><th>Holat</th><th>Boshlanish</th><th>Tugash</th>
-</tr>
-</thead>
-<tbody>
-<tr class="table-row"><td><span class="cell-strong">Dushanba</span></td><td><label class="toggle-switch ">
-<input type="checkbox" checked>
-<span class="toggle-track"><span class="toggle-thumb"></span></span>
-</label></td><td><input class="input" type="time" value="09:00" ></td><td><input class="input" type="time" value="18:00" ></td></tr><tr class="table-row"><td><span class="cell-strong">Seshanba</span></td><td><label class="toggle-switch ">
-<input type="checkbox" checked>
-<span class="toggle-track"><span class="toggle-thumb"></span></span>
-</label></td><td><input class="input" type="time" value="09:00" ></td><td><input class="input" type="time" value="18:00" ></td></tr><tr class="table-row"><td><span class="cell-strong">Chorshanba</span></td><td><label class="toggle-switch ">
-<input type="checkbox" checked>
-<span class="toggle-track"><span class="toggle-thumb"></span></span>
-</label></td><td><input class="input" type="time" value="09:00" ></td><td><input class="input" type="time" value="18:00" ></td></tr><tr class="table-row"><td><span class="cell-strong">Payshanba</span></td><td><label class="toggle-switch ">
-<input type="checkbox" checked>
-<span class="toggle-track"><span class="toggle-thumb"></span></span>
-</label></td><td><input class="input" type="time" value="09:00" ></td><td><input class="input" type="time" value="18:00" ></td></tr><tr class="table-row"><td><span class="cell-strong">Juma</span></td><td><label class="toggle-switch ">
-<input type="checkbox" checked>
-<span class="toggle-track"><span class="toggle-thumb"></span></span>
-</label></td><td><input class="input" type="time" value="09:00" ></td><td><input class="input" type="time" value="18:00" ></td></tr><tr class="table-row"><td><span class="cell-strong">Shanba</span></td><td><label class="toggle-switch ">
-<input type="checkbox" >
-<span class="toggle-track"><span class="toggle-thumb"></span></span>
-</label></td><td><input class="input" type="time" value="" disabled></td><td><input class="input" type="time" value="" disabled></td></tr><tr class="table-row"><td><span class="cell-strong">Yakshanba</span></td><td><label class="toggle-switch ">
-<input type="checkbox" >
-<span class="toggle-track"><span class="toggle-thumb"></span></span>
-</label></td><td><input class="input" type="time" value="" disabled></td><td><input class="input" type="time" value="" disabled></td></tr>
-</tbody>
-</table>
-</div>
-</div>
-</div>
-</section>
-<section class="card">
-<div class="card-header">
-<div>
-<h3>Bayram kunlari</h3>
-</div>
-<div class="card-actions"><button type="button" class="btn btn-secondary" data-modal-open="holiday-exception">Exception qo'shish</button></div>
-</div>
-<div class="card-body">
-<div class="table-wrap">
-<table class="table">
-<thead>
-<tr class="table-header">
-<th>Sana</th><th>Izoh</th><th>Holat</th><th>Soat</th>
-</tr>
-</thead>
-<tbody>
-<tr class="table-row"><td>2026-03-08</td><td>Xalqaro xotin-qizlar kuni</td><td><span class="badge badge-danger">Yopiq</span></td><td>Butun kun</td></tr><tr class="table-row"><td>2026-03-21</td><td>Navro'z</td><td><span class="badge badge-warning">Qisqartirilgan</span></td><td>10:00 - 15:00</td></tr><tr class="table-row"><td>2026-05-09</td><td>Xotira va qadrlash kuni</td><td><span class="badge badge-danger">Yopiq</span></td><td>Butun kun</td></tr>
-</tbody>
-</table>
-</div>
-</div>
-</section>
-<div class="sticky-save-bar"><button type="button" class="btn btn-secondary" data-action="reset-form">Reset</button>
-<button type="button" class="btn btn-primary" data-action="save">Saqlash</button></div>
-<div class="modal-overlay" data-modal="holiday-exception" hidden>
-<div class="modal" role="dialog" aria-modal="true" aria-labelledby="holiday-exception-title">
-<div class="modal-header">
-<h3 id="holiday-exception-title">Bayram kuni qo&#39;shish</h3>
-<button class="btn btn-ghost btn-sm" type="button" data-modal-close><i data-lucide="x"></i></button>
-</div>
-<div class="modal-body"><div class="form-grid one">
-<label class="form-field">
-<span class="form-label">Sana</span>
-<input class="input" type="date" value="2026-04-01">
-</label>
-<label class="form-field">
-<span class="form-label">Holat</span>
-<select class="select"><option selected>Yopiq</option><option >Qisqartirilgan vaqt</option></select>
-</label>
-<label class="form-field">
-<span class="form-label">Izoh</span>
-<input class="input" type="text" value="Ramazon hayit" placeholder="">
-</label>
-</div></div>
-<div class="modal-footer"><button type="button" class="btn btn-secondary" data-action="log" data-message="Bekor qilish" data-modal-close>Bekor qilish</button>
-<button type="button" class="btn btn-primary" data-modal-close data-action="save">Saqlash</button></div>
-</div>
-</div>
-</main>
-<script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QULAY CHAT - Working Hours</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../assets/qulay-chat-shell.js" defer></script>
+    <script src="../assets/qulay-chat-runtime.js" defer></script>
+  </head>
+  <body data-active-nav="automation" class="dashboard-shell-page">
+    <main class="app-content">
+      <div class="subnav-scroll">
+        <div class="subnav-tabs">
+          <a class="subnav-tab active" href="./01-working-hours.html"
+            >Working Hours</a
+          ><a class="subnav-tab" href="./02-auto-reply.html">Auto Reply</a
+          ><a class="subnav-tab" href="./03-triggers.html">Triggers</a
+          ><a class="subnav-tab" href="./04-greetings.html">Greetings</a>
+        </div>
+      </div>
+      <div class="page-header">
+        <div>
+          <h1>Working Hours</h1>
+          <p class="text-muted">
+            Automation qoidalari va schedule konfiguratsiyasi
+          </p>
+        </div>
+        <div class="page-header-actions">
+          <button type="button" class="btn btn-primary" data-action="save">
+            Saqlash
+          </button>
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-action="reset-form"
+          >
+            Reset
+          </button>
+        </div>
+      </div>
+      <section class="card">
+        <div class="card-header">
+          <div>
+            <h3>Ish vaqti jadvali</h3>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="form-grid one">
+            <label class="form-field">
+              <span class="form-label">Timezone</span>
+              <select class="select">
+                <option selected>GMT+5 Toshkent</option>
+                <option>GMT+3 Istanbul</option>
+                <option>GMT+6 Almaty</option>
+                <option>UTC</option>
+              </select>
+            </label>
+            <div class="table-wrap">
+              <table class="table">
+                <thead>
+                  <tr class="table-header">
+                    <th>Kun</th>
+                    <th>Holat</th>
+                    <th>Boshlanish</th>
+                    <th>Tugash</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="table-row">
+                    <td><span class="cell-strong">Dushanba</span></td>
+                    <td>
+                      <label class="toggle-switch">
+                        <input type="checkbox" checked />
+                        <span class="toggle-track"
+                          ><span class="toggle-thumb"></span
+                        ></span>
+                      </label>
+                    </td>
+                    <td><input class="input" type="time" value="09:00" /></td>
+                    <td><input class="input" type="time" value="18:00" /></td>
+                  </tr>
+                  <tr class="table-row">
+                    <td><span class="cell-strong">Seshanba</span></td>
+                    <td>
+                      <label class="toggle-switch">
+                        <input type="checkbox" checked />
+                        <span class="toggle-track"
+                          ><span class="toggle-thumb"></span
+                        ></span>
+                      </label>
+                    </td>
+                    <td><input class="input" type="time" value="09:00" /></td>
+                    <td><input class="input" type="time" value="18:00" /></td>
+                  </tr>
+                  <tr class="table-row">
+                    <td><span class="cell-strong">Chorshanba</span></td>
+                    <td>
+                      <label class="toggle-switch">
+                        <input type="checkbox" checked />
+                        <span class="toggle-track"
+                          ><span class="toggle-thumb"></span
+                        ></span>
+                      </label>
+                    </td>
+                    <td><input class="input" type="time" value="09:00" /></td>
+                    <td><input class="input" type="time" value="18:00" /></td>
+                  </tr>
+                  <tr class="table-row">
+                    <td><span class="cell-strong">Payshanba</span></td>
+                    <td>
+                      <label class="toggle-switch">
+                        <input type="checkbox" checked />
+                        <span class="toggle-track"
+                          ><span class="toggle-thumb"></span
+                        ></span>
+                      </label>
+                    </td>
+                    <td><input class="input" type="time" value="09:00" /></td>
+                    <td><input class="input" type="time" value="18:00" /></td>
+                  </tr>
+                  <tr class="table-row">
+                    <td><span class="cell-strong">Juma</span></td>
+                    <td>
+                      <label class="toggle-switch">
+                        <input type="checkbox" checked />
+                        <span class="toggle-track"
+                          ><span class="toggle-thumb"></span
+                        ></span>
+                      </label>
+                    </td>
+                    <td><input class="input" type="time" value="09:00" /></td>
+                    <td><input class="input" type="time" value="18:00" /></td>
+                  </tr>
+                  <tr class="table-row">
+                    <td><span class="cell-strong">Shanba</span></td>
+                    <td>
+                      <label class="toggle-switch">
+                        <input type="checkbox" />
+                        <span class="toggle-track"
+                          ><span class="toggle-thumb"></span
+                        ></span>
+                      </label>
+                    </td>
+                    <td>
+                      <input class="input" type="time" value="" disabled />
+                    </td>
+                    <td>
+                      <input class="input" type="time" value="" disabled />
+                    </td>
+                  </tr>
+                  <tr class="table-row">
+                    <td><span class="cell-strong">Yakshanba</span></td>
+                    <td>
+                      <label class="toggle-switch">
+                        <input type="checkbox" />
+                        <span class="toggle-track"
+                          ><span class="toggle-thumb"></span
+                        ></span>
+                      </label>
+                    </td>
+                    <td>
+                      <input class="input" type="time" value="" disabled />
+                    </td>
+                    <td>
+                      <input class="input" type="time" value="" disabled />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="card">
+        <div class="card-header">
+          <div>
+            <h3>Bayram kunlari</h3>
+          </div>
+          <div class="card-actions">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-modal-open="holiday-exception"
+            >
+              Exception qo'shish
+            </button>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="table-wrap">
+            <table class="table">
+              <thead>
+                <tr class="table-header">
+                  <th>Sana</th>
+                  <th>Izoh</th>
+                  <th>Holat</th>
+                  <th>Soat</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="table-row">
+                  <td>2026-03-08</td>
+                  <td>Xalqaro xotin-qizlar kuni</td>
+                  <td><span class="badge badge-danger">Yopiq</span></td>
+                  <td>Butun kun</td>
+                </tr>
+                <tr class="table-row">
+                  <td>2026-03-21</td>
+                  <td>Navro'z</td>
+                  <td>
+                    <span class="badge badge-warning">Qisqartirilgan</span>
+                  </td>
+                  <td>10:00 - 15:00</td>
+                </tr>
+                <tr class="table-row">
+                  <td>2026-05-09</td>
+                  <td>Xotira va qadrlash kuni</td>
+                  <td><span class="badge badge-danger">Yopiq</span></td>
+                  <td>Butun kun</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+      <div class="sticky-save-bar">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-action="reset-form"
+        >
+          Reset
+        </button>
+        <button type="button" class="btn btn-primary" data-action="save">
+          Saqlash
+        </button>
+      </div>
+      <div class="modal-overlay" data-modal="holiday-exception" hidden>
+        <div
+          class="modal"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="holiday-exception-title"
+        >
+          <div class="modal-header">
+            <h3 id="holiday-exception-title">Bayram kuni qo&#39;shish</h3>
+            <button class="btn btn-ghost btn-sm" type="button" data-modal-close>
+              <i data-lucide="x"></i>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-grid one">
+              <label class="form-field">
+                <span class="form-label">Sana</span>
+                <input class="input" type="date" value="2026-04-01" />
+              </label>
+              <label class="form-field">
+                <span class="form-label">Holat</span>
+                <select class="select">
+                  <option selected>Yopiq</option>
+                  <option>Qisqartirilgan vaqt</option>
+                </select>
+              </label>
+              <label class="form-field">
+                <span class="form-label">Izoh</span>
+                <input
+                  class="input"
+                  type="text"
+                  value="Ramazon hayit"
+                  placeholder=""
+                />
+              </label>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-action="log"
+              data-message="Bekor qilish"
+              data-modal-close
+            >
+              Bekor qilish
+            </button>
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-modal-close
+              data-action="save"
+            >
+              Saqlash
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      window.addEventListener("DOMContentLoaded", function () {
+        if (window.lucide && window.lucide.createIcons) {
+          window.lucide.createIcons();
+        }
+      });
+    </script>
+  </body>
 </html>

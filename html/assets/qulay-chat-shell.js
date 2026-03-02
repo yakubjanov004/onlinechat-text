@@ -327,7 +327,7 @@
     header.innerHTML =
       '<div class="app-header-left">' +
       '  <button class="icon-btn" type="button" data-action="toggle-sidebar" aria-label="Sidebar toggle"><i data-lucide="panel-left-close"></i></button>' +
-      '  <a class="shell-brand" href="../04-dashboard/01-dashboard.html"><span class="shell-brand-mark">QC</span><span>QULAY CHAT вЂў ' +
+      '  <a class="shell-brand" href="../04-dashboard/01-dashboard.html"><span class="shell-brand-mark">QC</span><span>QULAY CHAT • ' +
       section +
       "</span></a>" +
       "</div>" +

@@ -1,101 +1,161 @@
 <!doctype html>
 <html lang="uz">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QULAY CHAT - Dashboard tanlash</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/qulay-chat-design-system.css">
-<script src="https://unpkg.com/lucide@latest" defer></script>
-<script src="../assets/qulay-chat-shell.js" defer></script>
-<script src="../assets/qulay-chat-runtime.js" defer></script>
-</head>
-<body data-active-nav="dashboard" data-shell-role="admin" class="dashboard-shell-page">
-<main class="app-content">
-<div class="subnav-scroll">
-<div class="subnav-tabs">
-<a class="subnav-tab active" href="./01-dashboard.html">Dashboard tanlash</a>
-<a class="subnav-tab" href="./01-dashboard-admin.html">Admin</a>
-<a class="subnav-tab" href="./02-dashboard-agent.html">Agent</a>
-</div>
-</div>
-<div class="page-header">
-<div>
-<h1>Dashboardlar</h1>
-<p class="text-muted">Rolga mos ko'rinishni tanlang (moslik sahifasi)</p>
-</div>
-<div class="page-header-actions">
-<a class="btn btn-secondary" href="./01-dashboard-admin.html">Admin ko'rinishi</a>
-<a class="btn btn-primary" href="./02-dashboard-agent.html">Agent ko'rinishi</a>
-</div>
-</div>
-<section class="card">
-<div class="card-header">
-<div>
-<h3>01-dashboard.html moslik sahifasi</h3>
-</div>
-</div>
-<div class="card-body">
-<div class="two-col">
-<div>
-<p class="text-muted">Dashboard endi ikki alohida sahifaga bo'lindi: Admin uchun boshqaruv ko'rsatkichlari va Agent uchun kundalik ish navbati. Eski havolalar ishlashi uchun ushbu sahifa saqlab qolindi.</p>
-<div class="flex gap-2 wrap" style="margin-top:12px">
-<a class="btn btn-primary" href="./01-dashboard-admin.html">Admin dashboardni ochish</a>
-<a class="btn btn-secondary" href="./02-dashboard-agent.html">Agent dashboardni ochish</a>
-</div>
-</div>
-<div class="card" style="margin:0">
-<div class="card-body">
-<div class="cell-strong">Tezkor yo'nalish</div>
-<div class="text-muted" style="font-size:13px;margin-top:6px">Agar siz operator bo'lsangiz, agent dashboarddan foydalaning. Boshqaruv va SLA nazorati uchun admin dashboardni tanlang.</div>
-<div class="flex gap-2 wrap" style="margin-top:12px">
-<a class="btn btn-secondary" href="../05-inbox/01-inbox-chat.html">Inbox</a>
-<a class="btn btn-secondary" href="../08-analytics/01-overview.html">Analytics</a>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<div class="metrics-grid">
-<div class="metric-card metric-card-hover">
-<div class="metric-label">Admin dashboard</div>
-<div class="metric-value">Global KPI</div>
-<div class="metric-trend">SLA, kanal, jamoa</div>
-</div>
-<div class="metric-card metric-card-hover">
-<div class="metric-label">Agent dashboard</div>
-<div class="metric-value">Mening navbatim</div>
-<div class="metric-trend">Queue, assigned, quick actions</div>
-</div>
-<div class="metric-card metric-card-hover">
-<div class="metric-label">Moslik</div>
-<div class="metric-value">01-dashboard</div>
-<div class="metric-trend">Eski linklar saqlanadi</div>
-</div>
-<div class="metric-card metric-card-hover">
-<div class="metric-label">Asosiy kirish</div>
-<div class="metric-value">Dashboard</div>
-<div class="metric-trend">Role-based ko'rinish</div>
-</div>
-</div>
-<section class="card">
-<div class="card-header">
-<div>
-<h3>Rol bo'yicha tavsiya</h3>
-</div>
-</div>
-<div class="card-body">
-<div class="three-col">
-<a class="quick-action-card" href="./01-dashboard-admin.html"><i data-lucide="layout-dashboard"></i><strong>Admin boshqaruvi</strong><span class="text-muted" style="font-size:13px">Global KPI, SLA, jamoa va kanallar</span></a>
-<a class="quick-action-card" href="./02-dashboard-agent.html"><i data-lucide="headset"></i><strong>Agent ish paneli</strong><span class="text-muted" style="font-size:13px">Mening queue va tezkor chat amallari</span></a>
-<a class="quick-action-card" href="../05-inbox/02-chat-open.html"><i data-lucide="message-circle"></i><strong>Oxirgi chatga o'tish</strong><span class="text-muted" style="font-size:13px">Ishni davom ettirish uchun inbox</span></a>
-</div>
-</div>
-</section>
-</main>
-<script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QULAY CHAT - Dashboard tanlash</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../assets/qulay-chat-shell.js" defer></script>
+    <script src="../assets/qulay-chat-runtime.js" defer></script>
+  </head>
+  <body
+    data-active-nav="dashboard"
+    data-shell-role="admin"
+    class="dashboard-shell-page"
+  >
+    <main class="app-content">
+      <div class="subnav-scroll">
+        <div class="subnav-tabs">
+          <a class="subnav-tab active" href="./01-dashboard.html"
+            >Dashboard tanlash</a
+          >
+          <a class="subnav-tab" href="./01-dashboard-admin.html">Admin</a>
+          <a class="subnav-tab" href="./02-dashboard-agent.html">Agent</a>
+        </div>
+      </div>
+      <div class="page-header">
+        <div>
+          <h1>Dashboardlar</h1>
+          <p class="text-muted">
+            Rolga mos ko'rinishni tanlang (moslik sahifasi)
+          </p>
+        </div>
+        <div class="page-header-actions">
+          <a class="btn btn-secondary" href="./01-dashboard-admin.html"
+            >Admin ko'rinishi</a
+          >
+          <a class="btn btn-primary" href="./02-dashboard-agent.html"
+            >Agent ko'rinishi</a
+          >
+        </div>
+      </div>
+      <section class="card">
+        <div class="card-header">
+          <div>
+            <h3>01-dashboard.html moslik sahifasi</h3>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="two-col">
+            <div>
+              <p class="text-muted">
+                Dashboard endi ikki alohida sahifaga bo'lindi: Admin uchun
+                boshqaruv ko'rsatkichlari va Agent uchun kundalik ish navbati.
+                Eski havolalar ishlashi uchun ushbu sahifa saqlab qolindi.
+              </p>
+              <div class="flex gap-2 wrap" style="margin-top: 12px">
+                <a class="btn btn-primary" href="./01-dashboard-admin.html"
+                  >Admin dashboardni ochish</a
+                >
+                <a class="btn btn-secondary" href="./02-dashboard-agent.html"
+                  >Agent dashboardni ochish</a
+                >
+              </div>
+            </div>
+            <div class="card" style="margin: 0">
+              <div class="card-body">
+                <div class="cell-strong">Tezkor yo'nalish</div>
+                <div
+                  class="text-muted"
+                  style="font-size: 13px; margin-top: 6px"
+                >
+                  Agar siz operator bo'lsangiz, agent dashboarddan foydalaning.
+                  Boshqaruv va SLA nazorati uchun admin dashboardni tanlang.
+                </div>
+                <div class="flex gap-2 wrap" style="margin-top: 12px">
+                  <a
+                    class="btn btn-secondary"
+                    href="../05-inbox/01-inbox-chat.html"
+                    >Inbox</a
+                  >
+                  <a
+                    class="btn btn-secondary"
+                    href="../08-analytics/01-overview.html"
+                    >Analytics</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="metrics-grid">
+        <div class="metric-card metric-card-hover">
+          <div class="metric-label">Admin dashboard</div>
+          <div class="metric-value">Global KPI</div>
+          <div class="metric-trend">SLA, kanal, jamoa</div>
+        </div>
+        <div class="metric-card metric-card-hover">
+          <div class="metric-label">Agent dashboard</div>
+          <div class="metric-value">Mening navbatim</div>
+          <div class="metric-trend">Queue, assigned, quick actions</div>
+        </div>
+        <div class="metric-card metric-card-hover">
+          <div class="metric-label">Moslik</div>
+          <div class="metric-value">01-dashboard</div>
+          <div class="metric-trend">Eski linklar saqlanadi</div>
+        </div>
+        <div class="metric-card metric-card-hover">
+          <div class="metric-label">Asosiy kirish</div>
+          <div class="metric-value">Dashboard</div>
+          <div class="metric-trend">Role-based ko'rinish</div>
+        </div>
+      </div>
+      <section class="card">
+        <div class="card-header">
+          <div>
+            <h3>Rol bo'yicha tavsiya</h3>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="three-col">
+            <a class="quick-action-card" href="./01-dashboard-admin.html"
+              ><i data-lucide="layout-dashboard"></i
+              ><strong>Admin boshqaruvi</strong
+              ><span class="text-muted" style="font-size: 13px"
+                >Global KPI, SLA, jamoa va kanallar</span
+              ></a
+            >
+            <a class="quick-action-card" href="./02-dashboard-agent.html"
+              ><i data-lucide="headset"></i><strong>Agent ish paneli</strong
+              ><span class="text-muted" style="font-size: 13px"
+                >Mening queue va tezkor chat amallari</span
+              ></a
+            >
+            <a class="quick-action-card" href="../05-inbox/02-chat-open.html"
+              ><i data-lucide="message-circle"></i
+              ><strong>Oxirgi chatga o'tish</strong
+              ><span class="text-muted" style="font-size: 13px"
+                >Ishni davom ettirish uchun inbox</span
+              ></a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+    <script>
+      window.addEventListener("DOMContentLoaded", function () {
+        if (window.lucide && window.lucide.createIcons) {
+          window.lucide.createIcons();
+        }
+      });
+    </script>
+  </body>
 </html>

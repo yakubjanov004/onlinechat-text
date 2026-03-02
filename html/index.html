@@ -1,146 +1,502 @@
 <!doctype html>
 <html lang="uz">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>QULAY CHAT — Workspace Entry</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="./assets/qulay-chat-design-system.css" />
-  <script src="https://unpkg.com/lucide@latest" defer></script>
-  <style>
-    .hub-wrap{max-width:1220px;margin:0 auto;padding:20px 16px 30px}
-    .hub-head{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px;border:1px solid #e5e7eb;border-radius:14px;background:#fff}
-    .hub-hero{margin-top:14px;border:1px solid #e5e7eb;border-radius:18px;padding:22px;background:radial-gradient(900px 340px at 20% -70px,#e8ebff 0,#f8f9ff 50%,#fff 100%);box-shadow:0 20px 38px rgba(15,23,42,.08)}
-    .hub-hero h1{margin:8px 0;font-size:36px;line-height:1.08;letter-spacing:-.03em}
-    .hub-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:12px}
-    .hub-kpi{background:#fff;border:1px solid #e5e7eb;border-radius:12px;padding:10px 12px}
-    .hub-kpi strong{display:block;font-size:22px}
-    .hub-main{display:grid;grid-template-columns:320px 1fr;gap:14px;margin-top:14px}
-    .hub-panel{background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:14px}
-    .hub-modules{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
-    .hub-module{border:1px solid #e5e7eb;border-radius:12px;padding:12px;background:#fff;transition:.15s ease}
-    .hub-module:hover{transform:translateY(-2px);border-color:#c7d2fe;box-shadow:0 10px 20px rgba(15,23,42,.08)}
-    .hub-module h4{margin:0 0 5px;font-size:14px}
-    .hub-module p{margin:0;color:#6b7280;font-size:12px}
-    @media (max-width:1024px){.hub-main{grid-template-columns:1fr}.hub-kpis{grid-template-columns:repeat(2,minmax(0,1fr))}.hub-modules{grid-template-columns:repeat(2,minmax(0,1fr))}}
-    .hub-footer{margin-top:14px;background:#fff;border:1px solid #e5e7eb;border-radius:14px;padding:16px}
-    .hub-footer-grid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:12px}
-    .hub-footer-grid h4{margin:0 0 6px;font-size:12px;text-transform:uppercase;color:#6b7280}
-    .hub-footer-grid a{display:block;font-size:13px;line-height:1.9;color:#374151}
-    @media (max-width:640px){.hub-kpis{grid-template-columns:1fr}.hub-modules{grid-template-columns:1fr}.hub-hero h1{font-size:28px}.hub-footer-grid{grid-template-columns:1fr}}
-  </style>
-</head>
-<body class="dashboard-shell-page">
-  <main class="hub-wrap">
-    <header class="hub-head">
-      <a class="shell-brand" href="./index.html"><span class="shell-brand-mark">QC</span><span>QULAY CHAT Workspace</span></a>
-      <div class="flex gap-2 wrap">
-        <a class="btn btn-secondary" href="./01-landing/01-landing.html">Landing</a>
-        <a class="btn btn-secondary" href="./02-auth/01-login.html">Auth</a>
-        <a class="btn btn-primary" href="./04-dashboard/01-dashboard.html">Dashboard</a>
-      </div>
-    </header>
-
-    <section class="hub-hero">
-      <span class="badge badge-primary">Production Navigator</span>
-      <h1>Modullarni real ish oqimida tez ochish markazi</h1>
-      <p class="text-muted" style="max-width:760px">Bu sahifa demo emas. Jamoa, product va QA ishlatadigan amaliy kirish nuqtasi: barcha bo‘limlar, tezkor kirish va modul qidiruvi shu yerda.</p>
-      <div class="hub-kpis">
-        <div class="hub-kpi"><strong>18</strong><span class="text-muted" style="font-size:12px">Asosiy modul</span></div>
-        <div class="hub-kpi"><strong>80+</strong><span class="text-muted" style="font-size:12px">Sahifalar</span></div>
-        <div class="hub-kpi"><strong>10+</strong><span class="text-muted" style="font-size:12px">Interaktiv script</span></div>
-        <div class="hub-kpi"><strong>Ready</strong><span class="text-muted" style="font-size:12px">Production-like UI</span></div>
-      </div>
-    </section>
-
-    <section class="hub-main">
-      <aside class="hub-panel">
-        <h3 style="margin:0 0 10px">Tezkor kirish</h3>
-        <div class="list-stack">
-          <a class="list-item" href="./05-inbox/01-inbox-chat.html"><div class="item-main"><div class="item-title">Inbox</div><div class="item-sub">Mijoz dialoglari</div></div></a>
-          <a class="list-item" href="./11-chat-widget/01-widget-launcher.html"><div class="item-main"><div class="item-title">Chat Widget</div><div class="item-sub">Mijoz tomoni interfeys</div></div></a>
-          <a class="list-item" href="./13-visitors/01-visitors-list.html"><div class="item-main"><div class="item-title">Visitors</div><div class="item-sub">Live trafik monitoring</div></div></a>
-          <a class="list-item" href="./15-knowledge-base/01-kb-dashboard.html"><div class="item-main"><div class="item-title">Knowledge Base</div><div class="item-sub">Maqola va portal</div></div></a>
-          <a class="list-item" href="./16-addons/01-addons-catalog.html"><div class="item-main"><div class="item-title">Add-ons</div><div class="item-sub">Marketplace</div></div></a>
-          <a class="list-item" href="./17-developer/01-api-keys.html"><div class="item-main"><div class="item-title">Developer</div><div class="item-sub">API/Webhooks/Logs</div></div></a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QULAY CHAT — Workspace Entry</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/qulay-chat-design-system.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <style>
+      .hub-wrap {
+        max-width: 1220px;
+        margin: 0 auto;
+        padding: 20px 16px 30px;
+      }
+      .hub-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        padding: 12px;
+        border: 1px solid #e5e7eb;
+        border-radius: 14px;
+        background: #fff;
+      }
+      .hub-hero {
+        margin-top: 14px;
+        border: 1px solid #e5e7eb;
+        border-radius: 18px;
+        padding: 22px;
+        background: radial-gradient(
+          900px 340px at 20% -70px,
+          #e8ebff 0,
+          #f8f9ff 50%,
+          #fff 100%
+        );
+        box-shadow: 0 20px 38px rgba(15, 23, 42, 0.08);
+      }
+      .hub-hero h1 {
+        margin: 8px 0;
+        font-size: 36px;
+        line-height: 1.08;
+        letter-spacing: -0.03em;
+      }
+      .hub-kpis {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+        margin-top: 12px;
+      }
+      .hub-kpi {
+        background: #fff;
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
+        padding: 10px 12px;
+      }
+      .hub-kpi strong {
+        display: block;
+        font-size: 22px;
+      }
+      .hub-main {
+        display: grid;
+        grid-template-columns: 320px 1fr;
+        gap: 14px;
+        margin-top: 14px;
+      }
+      .hub-panel {
+        background: #fff;
+        border: 1px solid #e5e7eb;
+        border-radius: 14px;
+        padding: 14px;
+      }
+      .hub-modules {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+      }
+      .hub-module {
+        border: 1px solid #e5e7eb;
+        border-radius: 12px;
+        padding: 12px;
+        background: #fff;
+        transition: 0.15s ease;
+      }
+      .hub-module:hover {
+        transform: translateY(-2px);
+        border-color: #c7d2fe;
+        box-shadow: 0 10px 20px rgba(15, 23, 42, 0.08);
+      }
+      .hub-module h4 {
+        margin: 0 0 5px;
+        font-size: 14px;
+      }
+      .hub-module p {
+        margin: 0;
+        color: #6b7280;
+        font-size: 12px;
+      }
+      @media (max-width: 1024px) {
+        .hub-main {
+          grid-template-columns: 1fr;
+        }
+        .hub-kpis {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+        .hub-modules {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+      .hub-footer {
+        margin-top: 14px;
+        background: #fff;
+        border: 1px solid #e5e7eb;
+        border-radius: 14px;
+        padding: 16px;
+      }
+      .hub-footer-grid {
+        display: grid;
+        grid-template-columns: 1.8fr 1fr 1fr 1fr;
+        gap: 12px;
+      }
+      .hub-footer-grid h4 {
+        margin: 0 0 6px;
+        font-size: 12px;
+        text-transform: uppercase;
+        color: #6b7280;
+      }
+      .hub-footer-grid a {
+        display: block;
+        font-size: 13px;
+        line-height: 1.9;
+        color: #374151;
+      }
+      @media (max-width: 640px) {
+        .hub-kpis {
+          grid-template-columns: 1fr;
+        }
+        .hub-modules {
+          grid-template-columns: 1fr;
+        }
+        .hub-hero h1 {
+          font-size: 28px;
+        }
+        .hub-footer-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body class="dashboard-shell-page">
+    <main class="hub-wrap">
+      <header class="hub-head">
+        <a class="shell-brand" href="./index.html"
+          ><span class="shell-brand-mark">QC</span
+          ><span>QULAY CHAT Workspace</span></a
+        >
+        <div class="flex gap-2 wrap">
+          <a class="btn btn-secondary" href="./01-landing/01-landing.html"
+            >Landing</a
+          >
+          <a class="btn btn-secondary" href="./02-auth/01-login.html">Auth</a>
+          <a class="btn btn-primary" href="./04-dashboard/01-dashboard.html"
+            >Dashboard</a
+          >
         </div>
-      </aside>
+      </header>
 
-      <section class="hub-panel">
-        <div class="flex justify-between items-center" style="margin-bottom:10px;gap:8px">
-          <h3 style="margin:0">Barcha modullar</h3>
-          <div class="input-group" style="max-width:280px">
-            <i data-lucide="search"></i>
-            <input id="modSearch" class="input" type="search" placeholder="Modul qidirish..." />
+      <section class="hub-hero">
+        <span class="badge badge-primary">Production Navigator</span>
+        <h1>Modullarni real ish oqimida tez ochish markazi</h1>
+        <p class="text-muted" style="max-width: 760px">
+          Bu sahifa demo emas. Jamoa, product va QA ishlatadigan amaliy kirish
+          nuqtasi: barcha bo‘limlar, tezkor kirish va modul qidiruvi shu yerda.
+        </p>
+        <div class="hub-kpis">
+          <div class="hub-kpi">
+            <strong>18</strong
+            ><span class="text-muted" style="font-size: 12px"
+              >Asosiy modul</span
+            >
+          </div>
+          <div class="hub-kpi">
+            <strong>80+</strong
+            ><span class="text-muted" style="font-size: 12px">Sahifalar</span>
+          </div>
+          <div class="hub-kpi">
+            <strong>10+</strong
+            ><span class="text-muted" style="font-size: 12px"
+              >Interaktiv script</span
+            >
+          </div>
+          <div class="hub-kpi">
+            <strong>Ready</strong
+            ><span class="text-muted" style="font-size: 12px"
+              >Production-like UI</span
+            >
           </div>
         </div>
-
-        <div id="mods" class="hub-modules">
-          <a class="hub-module" data-name="landing" href="./01-landing/01-landing.html"><h4>01 Landing</h4><p>Marketing sahifalari</p></a>
-          <a class="hub-module" data-name="auth" href="./02-auth/01-login.html"><h4>02 Auth</h4><p>Login/Register</p></a>
-          <a class="hub-module" data-name="onboarding" href="./03-onboarding/01-welcome.html"><h4>03 Onboarding</h4><p>Workspace setup</p></a>
-          <a class="hub-module" data-name="dashboard" href="./04-dashboard/01-dashboard.html"><h4>04 Dashboard</h4><p>Asosiy panel</p></a>
-          <a class="hub-module" data-name="inbox" href="./05-inbox/01-inbox-chat.html"><h4>05 Inbox</h4><p>Chat workflow</p></a>
-          <a class="hub-module" data-name="automation" href="./06-automation/01-working-hours.html"><h4>06 Automation</h4><p>Trigger/rules</p></a>
-          <a class="hub-module" data-name="team" href="./07-team/01-agents.html"><h4>07 Team</h4><p>Agent boshqaruvi</p></a>
-          <a class="hub-module" data-name="analytics" href="./08-analytics/01-overview.html"><h4>08 Analytics</h4><p>Hisobotlar</p></a>
-          <a class="hub-module" data-name="settings" href="./09-settings/01-workspace.html"><h4>09 Settings</h4><p>Workspace config</p></a>
-          <a class="hub-module" data-name="billing" href="./10-billing/01-plan.html"><h4>10 Billing</h4><p>Tarif va to‘lov</p></a>
-          <a class="hub-module" data-name="widget" href="./11-chat-widget/01-widget-launcher.html"><h4>11 Chat Widget</h4><p>Visitor widget</p></a>
-          <a class="hub-module" data-name="contacts" href="./12-contacts/01-contacts-list.html"><h4>12 Contacts</h4><p>CRM kontaktlar</p></a>
-          <a class="hub-module" data-name="visitors" href="./13-visitors/01-visitors-list.html"><h4>13 Visitors</h4><p>Real-time visitors</p></a>
-          <a class="hub-module" data-name="team chat" href="./14-team-chat/01-team-chat.html"><h4>14 Team Chat</h4><p>Ichki muloqot</p></a>
-          <a class="hub-module" data-name="knowledge base" href="./15-knowledge-base/01-kb-dashboard.html"><h4>15 Knowledge Base</h4><p>Help center</p></a>
-          <a class="hub-module" data-name="addons" href="./16-addons/01-addons-catalog.html"><h4>16 Add-ons</h4><p>Marketplace</p></a>
-          <a class="hub-module" data-name="developer" href="./17-developer/01-api-keys.html"><h4>17 Developer</h4><p>API / Webhooks</p></a>
-          <a class="hub-module" data-name="system" href="./18-system/01-error-404.html"><h4>18 System</h4><p>Error pages</p></a>
-        </div>
       </section>
-    </section>
 
-    <footer class="hub-footer">
-      <div class="hub-footer-grid">
-        <div>
-          <a class="shell-brand" href="./index.html"><span class="shell-brand-mark">QC</span><span>QULAY CHAT</span></a>
-          <p class="text-muted" style="font-size:13px;margin-top:8px;max-width:34ch">Bu workspace productionga yaqin frontend oqimlar uchun markaziy kirish nuqtasi.</p>
-        </div>
-        <div>
-          <h4>Product</h4>
-          <a href="./04-dashboard/01-dashboard.html">Dashboard</a>
-          <a href="./05-inbox/01-inbox-chat.html">Inbox</a>
-          <a href="./11-chat-widget/01-widget-launcher.html">Widget</a>
-        </div>
-        <div>
-          <h4>Platform</h4>
-          <a href="./15-knowledge-base/01-kb-dashboard.html">Knowledge Base</a>
-          <a href="./16-addons/01-addons-catalog.html">Add-ons</a>
-          <a href="./17-developer/01-api-keys.html">Developer</a>
-        </div>
-        <div>
-          <h4>System</h4>
-          <a href="./18-system/01-error-404.html">Error pages</a>
-          <a href="./18-system/04-maintenance.html">Maintenance</a>
-          <a href="./02-auth/01-login.html">Login</a>
-        </div>
-      </div>
-    </footer>
-  </main>
+      <section class="hub-main">
+        <aside class="hub-panel">
+          <h3 style="margin: 0 0 10px">Tezkor kirish</h3>
+          <div class="list-stack">
+            <a class="list-item" href="./05-inbox/01-inbox-chat.html"
+              ><div class="item-main">
+                <div class="item-title">Inbox</div>
+                <div class="item-sub">Mijoz dialoglari</div>
+              </div></a
+            >
+            <a class="list-item" href="./11-chat-widget/01-widget-launcher.html"
+              ><div class="item-main">
+                <div class="item-title">Chat Widget</div>
+                <div class="item-sub">Mijoz tomoni interfeys</div>
+              </div></a
+            >
+            <a class="list-item" href="./13-visitors/01-visitors-list.html"
+              ><div class="item-main">
+                <div class="item-title">Visitors</div>
+                <div class="item-sub">Live trafik monitoring</div>
+              </div></a
+            >
+            <a class="list-item" href="./15-knowledge-base/01-kb-dashboard.html"
+              ><div class="item-main">
+                <div class="item-title">Knowledge Base</div>
+                <div class="item-sub">Maqola va portal</div>
+              </div></a
+            >
+            <a class="list-item" href="./16-addons/01-addons-catalog.html"
+              ><div class="item-main">
+                <div class="item-title">Add-ons</div>
+                <div class="item-sub">Marketplace</div>
+              </div></a
+            >
+            <a class="list-item" href="./17-developer/01-api-keys.html"
+              ><div class="item-main">
+                <div class="item-title">Developer</div>
+                <div class="item-sub">API/Webhooks/Logs</div>
+              </div></a
+            >
+          </div>
+        </aside>
 
-  <script>
-    window.addEventListener('DOMContentLoaded', function(){
-      if (window.lucide && window.lucide.createIcons) window.lucide.createIcons();
-      const q = document.getElementById('modSearch');
-      const mods = Array.from(document.querySelectorAll('#mods .hub-module'));
-      q && q.addEventListener('input', function(){
-        const v = q.value.trim().toLowerCase();
-        mods.forEach(m => {
-          const txt = (m.dataset.name + ' ' + m.textContent).toLowerCase();
-          m.style.display = !v || txt.includes(v) ? '' : 'none';
-        });
+        <section class="hub-panel">
+          <div
+            class="flex justify-between items-center"
+            style="margin-bottom: 10px; gap: 8px"
+          >
+            <h3 style="margin: 0">Barcha modullar</h3>
+            <div class="input-group" style="max-width: 280px">
+              <i data-lucide="search"></i>
+              <input
+                id="modSearch"
+                class="input"
+                type="search"
+                placeholder="Modul qidirish..."
+              />
+            </div>
+          </div>
+
+          <div id="mods" class="hub-modules">
+            <a
+              class="hub-module"
+              data-name="landing"
+              href="./01-landing/01-landing.html"
+              ><h4>01 Landing</h4>
+              <p>Marketing sahifalari</p></a
+            >
+            <a
+              class="hub-module"
+              data-name="auth"
+              href="./02-auth/01-login.html"
+              ><h4>02 Auth</h4>
+              <p>Login/Register</p></a
+            >
+            <a
+              class="hub-module"
+              data-name="onboarding"
+              href="./03-onboarding/01-welcome.html"
+              ><h4>03 Onboarding</h4>
+              <p>Workspace setup</p></a
+            >
+            <a
+              class="hub-module"
+              data-name="dashboard"
+              href="./04-dashboard/01-dashboard.html"
+              ><h4>04 Dashboard</h4>
+              <p>Asosiy panel</p></a
+            >
+            <a
+              class="hub-module"
+              data-name="inbox"
+              href="./05-inbox/01-inbox-chat.html"
+              ><h4>05 Inbox</h4>
+              <p>Chat workflow</p></a
+            >
+            <a
+              class="hub-module"
+              data-name="automation"
+              href="./06-automation/01-working-hours.html"
+              ><h4>06 Automation</h4>
+              <p>Trigger/rules</p></a
+            >
+            <a
+              class="hub-module"
+              data-name="team"
+              href="./07-team/01-agents.html"
+              ><h4>07 Team</h4>
+              <p>Agent boshqaruvi</p></a
+            >
+            <a
+              class="hub-module"
+              data-name="analytics"
+              href="./08-analytics/01-overview.html"
+              ><h4>08 Analytics</h4>
+              <p>Hisobotlar</p></a
+            >
+            <a
+              class="hub-module"
+              data-name="settings"
+              href="./09-settings/01-workspace.html"
+              ><h4>09 Settings</h4>
+              <p>Workspace config</p></a
+            >
+            <a
+              class="hub-module"
+              data-name="billing"
+              href="./10-billing/01-plan.html"
+              ><h4>10 Billing</h4>
+              <p>Tarif va to‘lov</p></a
+            >
+            <a
+              class="hub-module"
+              data-name="widget"
+              href="./11-chat-widget/01-widget-launcher.html"
+              ><h4>11 Chat Widget</h4>
+              <p>Visitor widget</p></a
+            >
+            <a
+              class="hub-module"
+              data-name="contacts"
+              href="./12-contacts/01-contacts-list.html"
+              ><h4>12 Contacts</h4>
+              <p>CRM kontaktlar</p></a
+            >
+            <a
+              class="hub-module"
+              data-name="visitors"
+              href="./13-visitors/01-visitors-list.html"
+              ><h4>13 Visitors</h4>
+              <p>Real-time visitors</p></a
+            >
+            <a
+              class="hub-module"
+              data-name="team chat"
+              href="./14-team-chat/01-team-chat.html"
+              ><h4>14 Team Chat</h4>
+              <p>Ichki muloqot</p></a
+            >
+            <a
+              class="hub-module"
+              data-name="knowledge base"
+              href="./15-knowledge-base/01-kb-dashboard.html"
+              ><h4>15 Knowledge Base</h4>
+              <p>Help center</p></a
+            >
+            <a
+              class="hub-module"
+              data-name="addons"
+              href="./16-addons/01-addons-catalog.html"
+              ><h4>16 Add-ons</h4>
+              <p>Marketplace</p></a
+            >
+            <a
+              class="hub-module"
+              data-name="developer"
+              href="./17-developer/01-api-keys.html"
+              ><h4>17 Developer</h4>
+              <p>API / Webhooks</p></a
+            >
+            <a
+              class="hub-module"
+              data-name="system"
+              href="./18-system/01-error-404.html"
+              ><h4>18 System</h4>
+              <p>Error pages</p></a
+            >
+            <a
+              class="hub-module"
+              data-name="global search"
+              href="./19-global-search/01-search-modal.html"
+              ><h4>19 Global Search</h4>
+              <p>Cmd/Ctrl+K qidiruv</p></a
+            >
+            <a
+              class="hub-module"
+              data-name="notifications"
+              href="./20-notifications/01-notification-dropdown.html"
+              ><h4>20 Notifications</h4>
+              <p>Realtime notification center</p></a
+            >
+            <a
+              class="hub-module"
+              data-name="help support"
+              href="./21-help-support/01-help-center.html"
+              ><h4>21 Help Support</h4>
+              <p>FAQ, video, ticket</p></a
+            >
+            <a
+              class="hub-module"
+              data-name="email templates"
+              href="./22-email-templates/01-templates-list.html"
+              ><h4>22 Email Templates</h4>
+              <p>Template editor va SMTP</p></a
+            >
+            <a
+              class="hub-module"
+              data-name="multi language"
+              href="./23-multi-language/01-language-settings.html"
+              ><h4>23 Multi-language</h4>
+              <p>Lokalizatsiya boshqaruvi</p></a
+            >
+            <a
+              class="hub-module"
+              data-name="gdpr compliance"
+              href="./24-gdpr-compliance/01-data-overview.html"
+              ><h4>24 GDPR</h4>
+              <p>Consent, retention, audit</p></a
+            >
+            <a
+              class="hub-module"
+              data-name="dark mode"
+              href="./25-dark-mode/01-dark-mode-demo.html"
+              ><h4>25 Dark Mode</h4>
+              <p>Light/Dark/Auto demo</p></a
+            >
+          </div>
+        </section>
+      </section>
+
+      <footer class="hub-footer">
+        <div class="hub-footer-grid">
+          <div>
+            <a class="shell-brand" href="./index.html"
+              ><span class="shell-brand-mark">QC</span
+              ><span>QULAY CHAT</span></a
+            >
+            <p
+              class="text-muted"
+              style="font-size: 13px; margin-top: 8px; max-width: 34ch"
+            >
+              Bu workspace productionga yaqin frontend oqimlar uchun markaziy
+              kirish nuqtasi.
+            </p>
+          </div>
+          <div>
+            <h4>Product</h4>
+            <a href="./04-dashboard/01-dashboard.html">Dashboard</a>
+            <a href="./05-inbox/01-inbox-chat.html">Inbox</a>
+            <a href="./11-chat-widget/01-widget-launcher.html">Widget</a>
+          </div>
+          <div>
+            <h4>Platform</h4>
+            <a href="./15-knowledge-base/01-kb-dashboard.html"
+              >Knowledge Base</a
+            >
+            <a href="./16-addons/01-addons-catalog.html">Add-ons</a>
+            <a href="./17-developer/01-api-keys.html">Developer</a>
+          </div>
+          <div>
+            <h4>System</h4>
+            <a href="./18-system/01-error-404.html">Error pages</a>
+            <a href="./18-system/04-maintenance.html">Maintenance</a>
+            <a href="./02-auth/01-login.html">Login</a>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <script>
+      window.addEventListener("DOMContentLoaded", function () {
+        if (window.lucide && window.lucide.createIcons)
+          window.lucide.createIcons();
+        const q = document.getElementById("modSearch");
+        const mods = Array.from(document.querySelectorAll("#mods .hub-module"));
+        q &&
+          q.addEventListener("input", function () {
+            const v = q.value.trim().toLowerCase();
+            mods.forEach((m) => {
+              const txt = (m.dataset.name + " " + m.textContent).toLowerCase();
+              m.style.display = !v || txt.includes(v) ? "" : "none";
+            });
+          });
       });
-    });
-  </script>
-</body>
+    </script>
+  </body>
 </html>

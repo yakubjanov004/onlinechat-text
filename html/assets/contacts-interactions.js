@@ -243,7 +243,7 @@
       var count=Math.floor(Math.random()*300)+1;
       item.innerHTML='<div class="item-main"><div class="item-title"></div><div class="item-sub"></div></div><span class="badge badge-info">Dynamic</span>';
       qs('.item-title',item).textContent=name;
-      qs('.item-sub',item).textContent=count+' contacts вЂў '+rule.slice(0,48)+(rule.length>48?'...':'');
+      qs('.item-sub',item).textContent=count+' contacts • '+rule.slice(0,48)+(rule.length>48?'...':'');
       list.prepend(item);
       attachActions(item);
       notify('Yangi segment qo\'shildi: '+name);

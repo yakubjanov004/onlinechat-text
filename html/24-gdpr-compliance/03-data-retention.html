@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QULAY CHAT - Data Retention</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../assets/qulay-chat-shell.js" defer></script>
+    <script src="../assets/qulay-chat-runtime.js" defer></script>
+    <script src="../assets/gdpr-compliance.js" defer></script>
+  </head>
+  <body data-active-nav="settings" class="dashboard-shell-page">
+    <main class="app-content">
+      <div class="subnav-scroll">
+        <div class="subnav-tabs">
+          <a class="subnav-tab" href="./01-data-overview.html">Data Overview</a
+          ><a class="subnav-tab" href="./02-consent-management.html"
+            >Consent Management</a
+          ><a class="subnav-tab active" href="./03-data-retention.html"
+            >Data Retention</a
+          ><a class="subnav-tab" href="./04-audit-log.html">Audit Log</a>
+        </div>
+      </div>
+      <div class="page-header">
+        <div>
+          <h1>Data retention policies</h1>
+          <p class="text-muted">
+            Ma’lumot saqlash muddatlari va auto-deletion qoidalari
+          </p>
+        </div>
+        <div class="page-header-actions">
+          <button class="btn btn-primary" type="button" data-retention-save>
+            Policies saqlash
+          </button>
+        </div>
+      </div>
+      <section class="card" style="padding: 0; overflow: hidden">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Data type</th>
+              <th>Retention</th>
+              <th>Auto delete</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Chat transcripts</td>
+              <td>
+                <input
+                  class="input"
+                  type="number"
+                  value="365"
+                  style="max-width: 120px"
+                />
+                kun
+              </td>
+              <td><input type="checkbox" checked /></td>
+              <td><span class="badge badge-success">Active</span></td>
+            </tr>
+            <tr>
+              <td>Contact profiles</td>
+              <td>
+                <input
+                  class="input"
+                  type="number"
+                  value="730"
+                  style="max-width: 120px"
+                />
+                kun
+              </td>
+              <td><input type="checkbox" checked /></td>
+              <td><span class="badge badge-success">Active</span></td>
+            </tr>
+            <tr>
+              <td>Analytics raw events</td>
+              <td>
+                <input
+                  class="input"
+                  type="number"
+                  value="90"
+                  style="max-width: 120px"
+                />
+                kun
+              </td>
+              <td><input type="checkbox" checked /></td>
+              <td><span class="badge badge-warning">Review</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </body>
+</html>

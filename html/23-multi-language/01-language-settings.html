@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QULAY CHAT - Language Settings</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../assets/qulay-chat-shell.js" defer></script>
+    <script src="../assets/qulay-chat-runtime.js" defer></script>
+    <script src="../assets/multi-language.js" defer></script>
+  </head>
+  <body data-active-nav="settings" class="dashboard-shell-page">
+    <main class="app-content">
+      <div class="subnav-scroll">
+        <div class="subnav-tabs">
+          <a class="subnav-tab active" href="./01-language-settings.html"
+            >Language Settings</a
+          ><a class="subnav-tab" href="./02-translation-manager.html"
+            >Translation Manager</a
+          ><a class="subnav-tab" href="./03-widget-language.html"
+            >Widget Language</a
+          >
+        </div>
+      </div>
+      <div class="page-header">
+        <div>
+          <h1>Til sozlamalari</h1>
+          <p class="text-muted">
+            Interfeys, sana/vaqt va auto-detect parametrlarini boshqarish
+          </p>
+        </div>
+        <div class="page-header-actions">
+          <button class="btn btn-primary" type="button" data-ml-save>
+            Saqlash
+          </button>
+        </div>
+      </div>
+      <section class="grid cols-2">
+        <article class="card">
+          <label class="field"
+            ><span class="label">Asosiy til</span
+            ><select class="select" data-ml-base>
+              <option value="uz">O‘zbekcha</option>
+              <option value="ru">Русский</option>
+              <option value="en">English</option>
+              <option value="kz">Қазақша</option>
+              <option value="tj">Тоҷикӣ</option>
+            </select></label
+          ><label class="field" style="margin-top: 10px"
+            ><span class="label">Qo‘shimcha tillar</span>
+            <div class="list-stack">
+              <label class="list-item"
+                ><span class="item-main"
+                  ><span class="item-title">Russian</span></span
+                ><input type="checkbox" checked /></label
+              ><label class="list-item"
+                ><span class="item-main"
+                  ><span class="item-title">English</span></span
+                ><input type="checkbox" checked /></label
+              ><label class="list-item"
+                ><span class="item-main"
+                  ><span class="item-title">Kazakh</span></span
+                ><input type="checkbox"
+              /></label></div
+          ></label>
+        </article>
+        <article class="card">
+          <h3 style="margin-top: 0">Localization</h3>
+          <div class="kv-list">
+            <div class="kv-row">
+              <span>Auto-detect browser language</span
+              ><label
+                ><input type="checkbox" checked data-ml-autodetect />
+                Yoqilgan</label
+              >
+            </div>
+            <div class="kv-row">
+              <span>RTL support</span
+              ><label><input type="checkbox" data-ml-rtl /> Yoqilgan</label>
+            </div>
+          </div>
+          <div class="grid cols-2" style="margin-top: 10px">
+            <label class="field"
+              ><span class="label">Date format</span
+              ><select class="select">
+                <option>DD.MM.YYYY</option>
+                <option>YYYY-MM-DD</option>
+              </select></label
+            ><label class="field"
+              ><span class="label">Time format</span
+              ><select class="select">
+                <option>24h</option>
+                <option>12h</option>
+              </select></label
+            >
+          </div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
