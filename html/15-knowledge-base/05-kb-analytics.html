@@ -1,2 +1,74 @@
-﻿<!doctype html><html lang="uz"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>QULAY CHAT - KB Analytics</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"><link rel="stylesheet" href="../assets/qulay-chat-design-system.css"><script src="https://unpkg.com/lucide@latest" defer></script><script src="../assets/qulay-chat-shell.js" defer></script><script src="../assets/qulay-chat-runtime.js" defer></script><script src="../assets/kb-interactions.js" defer></script><style>.kb-subnav{background:linear-gradient(180deg,#f8faff,#eef2ff);padding:6px;border:1px solid #dbe3ff;border-radius:14px;box-shadow:0 6px 16px rgba(79,70,229,.08)} .kb-subnav .subnav-tab{border-radius:10px;font-weight:600} .kb-subnav .subnav-tab.active{background:#4f46e5;color:#fff;box-shadow:0 8px 18px rgba(79,70,229,.3)}</style>
-</head><body data-active-nav="knowledge-base" class="dashboard-shell-page"><main class="app-content"><div class="subnav-scroll"><div class="subnav-tabs kb-subnav"><a class="subnav-tab" href="./01-kb-dashboard.html">Knowledge Base</a><a class="subnav-tab" href="./02-article-editor.html">Article Editor</a><a class="subnav-tab" href="./03-categories.html">KB Categories</a><a class="subnav-tab" href="./04-kb-settings.html">KB Settings</a><a class="subnav-tab active" href="./05-kb-analytics.html">KB Analytics</a></div></div><div class="page-header"><div><h1>Knowledge Base Analytics</h1><p class="text-muted">So'nggi 30 kun ko'rsatkichlari</p></div><div class="page-header-actions"><select class="select" style="width:180px"><option>Last 7 days</option><option selected>Last 30 days</option><option>Last 90 days</option></select></div></div><div class="metrics-grid"><div class="metric-card"><div class="metric-label">Total views</div><div class="metric-value">12,453</div><div class="metric-trend">+18%</div></div><div class="metric-card"><div class="metric-label">Visitors</div><div class="metric-value">3,247</div><div class="metric-trend">+22%</div></div><div class="metric-card"><div class="metric-label">Helpful rate</div><div class="metric-value">87%</div><div class="metric-trend">+3%</div></div><div class="metric-card"><div class="metric-label">Avg time</div><div class="metric-value">3m 25s</div><div class="metric-trend">-5%</div></div></div><section class="two-col"><article class="card"><div class="card-header"><div><h3>Top articles</h3></div></div><div class="card-body"><div class="table-wrap"><table class="table"><thead><tr class="table-header"><th>#</th><th>Maqola</th><th>Views</th><th>Helpful</th></tr></thead><tbody><tr class="table-row"><td>#1</td><td>Widget o'rnatish</td><td>1,245</td><td>89%</td></tr><tr class="table-row"><td>#2</td><td>API key yaratish</td><td>980</td><td>86%</td></tr><tr class="table-row"><td>#3</td><td>Billing invoice</td><td>745</td><td>91%</td></tr></tbody></table></div></div></article><article class="card"><div class="card-header"><div><h3>Search queries</h3></div></div><div class="card-body"><div class="table-wrap"><table class="table"><thead><tr class="table-header"><th>Query</th><th>Count</th><th>Results</th></tr></thead><tbody><tr class="table-row"><td>widget o'rnatish</td><td>47</td><td>3 maqola</td></tr><tr class="table-row"><td>telegram integration</td><td>39</td><td>2 maqola</td></tr><tr class="table-row"><td>invoice yuklash</td><td>24</td><td>1 maqola</td></tr></tbody></table></div></div></article></section><section class="card"><div class="card-header"><div><h3>Views over time</h3></div></div><div class="card-body"><div class="chart-placeholder" style="height:220px;display:grid;place-items:center;color:#6b7280;border:1px dashed #cbd5e1;border-radius:12px">Line chart placeholder (7d / 30d / 90d)</div></div></section></main><script>window.addEventListener('DOMContentLoaded',()=>window.lucide&&window.lucide.createIcons&&window.lucide.createIcons());</script></body></html>
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QULAY CHAT - KB Analytics</title>
+    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../assets/qulay-chat-shell.js" defer></script>
+    <script src="../assets/qulay-chat-runtime.js" defer></script>
+    <style>
+      .kb-subnav { background: linear-gradient(180deg,#f8faff,#eef2ff); padding: 6px; border: 1px solid #dbe3ff; border-radius: 14px; }
+      .kb-subnav .subnav-tab.active { background: #4f46e5; color: #fff; }
+    </style>
+  </head>
+  <body data-active-nav="knowledge-base" class="dashboard-shell-page">
+    <main class="app-content">
+      <div class="subnav-scroll">
+        <div class="subnav-tabs kb-subnav">
+          <a class="subnav-tab" href="./01-kb-dashboard.html">Knowledge Base</a>
+          <a class="subnav-tab" href="./02-article-editor.html">Article Editor</a>
+          <a class="subnav-tab" href="./03-categories.html">KB Categories</a>
+          <a class="subnav-tab" href="./04-kb-settings.html">KB Settings</a>
+          <a class="subnav-tab active" href="./05-kb-analytics.html">KB Analytics</a>
+        </div>
+      </div>
+
+      <div class="page-header">
+        <div>
+          <h1>Knowledge Base analitikasi</h1>
+          <p class="text-muted">Self-service samaradorligi va qidiruv sifati ko'rsatkichlari</p>
+        </div>
+      </div>
+
+      <div class="metrics-grid">
+        <div class="metric-card"><div class="metric-label">Jami ko'rishlar</div><div class="metric-value">18,920</div></div>
+        <div class="metric-card"><div class="metric-label">Unique foydalanuvchi</div><div class="metric-value">5,442</div></div>
+        <div class="metric-card"><div class="metric-label">Helpful rate</div><div class="metric-value">89%</div></div>
+        <div class="metric-card"><div class="metric-label">Deflection</div><div class="metric-value">34%</div></div>
+      </div>
+
+      <section class="two-col">
+        <article class="card">
+          <div class="card-header"><div><h3>Top maqolalar</h3></div></div>
+          <div class="card-body">
+            <div class="table-wrap">
+              <table class="table">
+                <thead>
+                  <tr class="table-header"><th>Maqola</th><th>Ko'rish</th><th>Helpful</th></tr>
+                </thead>
+                <tbody>
+                  <tr class="table-row"><td><a href="./02-article-editor.html">Widget o'rnatish</a></td><td>2,415</td><td>93%</td></tr>
+                  <tr class="table-row"><td><a href="./02-article-editor.html">Telegram webhook</a></td><td>1,880</td><td>88%</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-header"><div><h3>Qidiruv bo'shliqlari</h3></div></div>
+          <div class="card-body list-stack">
+            <div class="list-item"><div class="item-main"><div class="item-title">refund</div><div class="item-sub">39 ta qidiruv, alohida maqola kerak</div></div></div>
+            <div class="list-item"><div class="item-main"><div class="item-title">whatsapp reconnect</div><div class="item-sub">28 ta qidiruv, troubleshooting talab</div></div></div>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <script>
+      window.addEventListener("DOMContentLoaded", () => window.lucide?.createIcons?.());
+    </script>
+  </body>
+</html>

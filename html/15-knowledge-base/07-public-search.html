@@ -1,2 +1,60 @@
-﻿<!doctype html><html lang="uz"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>KB Search</title><link rel="stylesheet" href="../assets/qulay-chat-design-system.css"><script src="https://unpkg.com/lucide@latest" defer></script><script src="../assets/kb-interactions.js" defer></script><style>.kb-subnav{background:linear-gradient(180deg,#f8faff,#eef2ff);padding:6px;border:1px solid #dbe3ff;border-radius:14px;box-shadow:0 6px 16px rgba(79,70,229,.08)} .kb-subnav .subnav-tab{border-radius:10px;font-weight:600} .kb-subnav .subnav-tab.active{background:#4f46e5;color:#fff;box-shadow:0 8px 18px rgba(79,70,229,.3)}</style>
-</head><body><main class="app-content" style="max-width:980px;margin:0 auto;padding:24px"><h1>Qidiruv natijalari</h1><div class="input-group" style="max-width:520px;margin:10px 0 12px"><i data-lucide="search"></i><input class="input" data-kb-result-search value="widget"></div><p class="text-muted" data-kb-result-count>3 maqola topildi</p><section class="list-stack" data-kb-results><a class="list-item" href="./09-public-article.html"><div class="item-main"><div class="item-title">Widget o'rnatish qo'llanmasi</div><div class="item-sub">Snippetni saytingizga joylash bo'yicha yo'riqnoma</div></div></a><a class="list-item" href="./09-public-article.html"><div class="item-main"><div class="item-title">Telegram integratsiya</div><div class="item-sub">Bot token va webhook sozlash</div></div></a><a class="list-item" href="./09-public-article.html"><div class="item-main"><div class="item-title">Inbox SLA sozlash</div><div class="item-sub">Javob vaqtini nazorat qilish</div></div></a></section><section class="empty-state hidden" data-kb-no-results><i data-lucide="search-x"></i><div>Hech narsa topilmadi</div><p class="text-muted" style="font-size:13px">Boshqa kalit so'z yozing</p></section></main><script>window.addEventListener('DOMContentLoaded',()=>window.lucide&&window.lucide.createIcons&&window.lucide.createIcons());</script></body></html>
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KB Search</title>
+    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../assets/kb-interactions.js" defer></script>
+  </head>
+  <body>
+    <main class="app-content" style="max-width: 1000px; margin: 0 auto; padding: 24px">
+      <a class="btn btn-ghost btn-sm" href="./06-public-home.html">← Yordam markazi</a>
+
+      <div class="page-header" style="margin-top: 10px">
+        <div>
+          <h1>Qidiruv natijalari</h1>
+          <p class="text-muted" data-kb-result-count>6 ta maqola topildi</p>
+        </div>
+      </div>
+
+      <section class="card" style="margin-bottom: 14px">
+        <div class="card-body form-grid two">
+          <div class="input-group">
+            <i data-lucide="search"></i>
+            <input class="input" data-kb-result-search value="widget" />
+          </div>
+          <select class="select">
+            <option>Barcha kategoriyalar</option>
+            <option>Setup</option>
+            <option>Troubleshooting</option>
+          </select>
+        </div>
+      </section>
+
+      <section class="list-stack" data-kb-results>
+        <a class="list-item" href="./09-public-article.html">
+          <div class="item-main">
+            <div class="item-title">Widget o'rnatish bo'yicha to'liq qo'llanma</div>
+            <div class="item-sub">Setup · 8 min o'qish</div>
+          </div>
+        </a>
+        <a class="list-item" href="./09-public-article.html">
+          <div class="item-main">
+            <div class="item-title">Widget mobile holatida tugma ko'rinmayapti</div>
+            <div class="item-sub">Troubleshooting · 4 min o'qish</div>
+          </div>
+        </a>
+      </section>
+
+      <section class="empty-state hidden" data-kb-no-results>
+        <i data-lucide="search-x"></i>
+        <div>Hech narsa topilmadi</div>
+      </section>
+    </main>
+    <script>
+      window.addEventListener("DOMContentLoaded", () => window.lucide?.createIcons?.());
+    </script>
+  </body>
+</html>
