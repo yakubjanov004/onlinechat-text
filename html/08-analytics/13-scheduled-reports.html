@@ -20,13 +20,30 @@
     <main class="app-content">
       <div class="subnav-scroll">
         <div class="subnav-tabs">
-          <a class="subnav-tab" href="./12-realtime-monitor.html"
-            >Realtime Monitor</a
-          ><a class="subnav-tab active" href="./13-scheduled-reports.html"
-            >Scheduled Reports</a
-          >
+          <a class="subnav-tab" href="./01-overview.html" data-roles="admin">Overview</a>
+          <a class="subnav-tab" href="./02-response-times.html" data-roles="admin">Response Times</a>
+          <a class="subnav-tab" href="./03-operators.html" data-roles="admin">Operatorlar</a>
+          <a class="subnav-tab" href="./04-operator-detail.html" data-roles="admin">Operator Detail</a>
+          <a class="subnav-tab" href="./05-sla.html" data-roles="admin">SLA Monitoring</a>
+          <a class="subnav-tab" href="./06-channels.html" data-roles="admin">Kanallar</a>
+          <a class="subnav-tab" href="./07-segments.html" data-roles="admin">Segmentlar</a>
+          <a class="subnav-tab" href="./08-tags.html" data-roles="admin">Tag Analytics</a>
+          <a class="subnav-tab" href="./09-custom-reports.html" data-roles="admin">Custom Reports</a>
+          <a class="subnav-tab" href="./10-export.html" data-roles="admin">Analytics Export</a>
+          <a class="subnav-tab" href="./11-my-stats.html">My Stats</a>
+          <a class="subnav-tab" href="./12-realtime-monitor.html" data-roles="admin">Realtime Monitor</a>
+          <a class="subnav-tab active" href="./13-scheduled-reports.html" data-roles="admin">Scheduled Reports</a>
         </div>
       </div>
+<div data-roles="agent" class="card" style="border-color:#FCD34D;background:#FFFBEB;margin-top:12px">
+  <div class="card-body">
+    <h3 style="margin:0 0 6px">Admin only</h3>
+    <p class="text-muted" style="margin:0 0 12px">Bu bo'lim faqat adminlar uchun. Davom etish uchun agent dashboardga qayting.</p>
+    <a class="btn btn-secondary" href="../04-dashboard/02-dashboard-agent.html">Agent dashboardga qaytish</a>
+  </div>
+</div>
+
+<div data-roles="admin">
       <div class="page-header">
         <div>
           <h1>Scheduled Reports</h1>
@@ -101,6 +118,7 @@
           </tbody>
         </table>
       </section>
-    </main>
+    </div>
+</main>
   </body>
 </html>
