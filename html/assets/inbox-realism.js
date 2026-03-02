@@ -345,12 +345,26 @@
     var composer = qs('[data-chat-composer]', panel);
     var sendBtn = qs('.inbox-send-row .btn-primary', panel);
     var msgBox = qs('.inbox-messages', panel);
+    var emojiToggle = qs('[data-chat-emoji-toggle]', panel);
+    var emojiPanel = qs('[data-chat-emoji-panel]', panel);
+    var attachToggle = qs('[data-chat-attach-toggle]', panel);
+    var fileInput = qs('[data-chat-file-input]', panel);
+    var attachList = qs('[data-chat-attachments]', panel);
+    var typingHint = null;
     if (!composer || !sendBtn || !msgBox) return;
 
     function sendMessage() {
       var text = (composer.value || '').trim();
       if (!text || !state.activeChatId) return;
       appendMessage(state.activeChatId, 'out', text);
+      if (typingHint && typingHint.parentNode) typingHint.parentNode.removeChild(typingHint);
+      typingHint = null;
+      if (attachList && !attachList.classList.contains('hidden')) {
+        appendMessage(state.activeChatId, 'out', 'Biriktirma yuborildi: ' + attachList.textContent.replace(/\n/g, ', '));
+        attachList.innerHTML='';
+        attachList.classList.add('hidden');
+        if (fileInput) fileInput.value='';
+      }
       composer.value = '';
       sendBtn.classList.add('is-sent');
       setTimeout(function () { sendBtn.classList.remove('is-sent'); }, 500);
@@ -365,12 +379,47 @@
       }
     });
 
+    composer.addEventListener('input', function(){
+      if(!composer.value.trim()){
+        if(typingHint && typingHint.parentNode) typingHint.parentNode.removeChild(typingHint);
+        typingHint = null;
+        return;
+      }
+      if(!typingHint){
+        typingHint = document.createElement('div');
+        typingHint.className='msg-group out';
+        typingHint.innerHTML='<div class="msg-bubble"><span class="typing-dots"><span></span><span></span><span></span></span> Siz yozmoqdasiz...</div>';
+        msgBox.appendChild(typingHint);
+      }
+      msgBox.scrollTop = msgBox.scrollHeight;
+    });
+
     qsa('[data-quick-reply]').forEach(function (btn) {
       btn.addEventListener('click', function () {
         composer.value = btn.getAttribute('data-quick-reply') || '';
         composer.focus();
       });
     });
+
+    if (emojiToggle && emojiPanel) {
+      emojiToggle.addEventListener('click', function(){ emojiPanel.classList.toggle('hidden'); });
+      qsa('[data-emoji]', emojiPanel).forEach(function(btn){
+        btn.addEventListener('click', function(){
+          composer.value = (composer.value || '') + (btn.getAttribute('data-emoji') || '');
+          composer.focus();
+        });
+      });
+    }
+
+    if (attachToggle && fileInput) attachToggle.addEventListener('click', function(){ fileInput.click(); });
+    if (fileInput && attachList) {
+      fileInput.addEventListener('change', function(){
+        var files = Array.from(fileInput.files || []);
+        if(!files.length){ attachList.classList.add('hidden'); attachList.innerHTML=''; return; }
+        attachList.classList.remove('hidden');
+        attachList.innerHTML = files.map(function(f){ return '?? ' + f.name + ' (' + Math.max(1, Math.round(f.size/1024)) + 'KB)'; }).join('<br>');
+      });
+    }
 
     var toggle = qs('[data-quick-replies-toggle]', panel);
     var menu = qs('[data-quick-replies-menu]', panel);

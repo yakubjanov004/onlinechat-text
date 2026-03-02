@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="uz">
   <head>
     <meta charset="UTF-8" />
@@ -660,22 +660,8 @@
           <div class="inbox-input">
             <div class="justify-between">
               <div class="inbox-toolbar">
-                <button
-                  class="icon-btn"
-                  type="button"
-                  data-action="log"
-                  data-message="Emoji panel ochildi"
-                >
-                  <i data-lucide="smile"></i>
-                </button>
-                <button
-                  class="icon-btn"
-                  type="button"
-                  data-action="log"
-                  data-message="Fayl biriktirish boshlandi"
-                >
-                  <i data-lucide="paperclip"></i>
-                </button>
+                <button class="icon-btn" type="button" data-chat-emoji-toggle><i data-lucide="smile"></i></button>
+                <button class="icon-btn" type="button" data-chat-attach-toggle><i data-lucide="paperclip"></i></button><input type="file" hidden data-chat-file-input multiple>
                 <button
                   class="icon-btn"
                   type="button"
@@ -737,7 +723,14 @@
                 </div>
               </div>
             </div>
-            <div class="inbox-send-row">
+            
+            <div class="card hidden" data-chat-emoji-panel style="padding:8px;max-width:320px">
+              <div class="flex gap-2 wrap">
+                <button type="button" class="btn btn-ghost btn-sm" data-emoji="??">??</button><button type="button" class="btn btn-ghost btn-sm" data-emoji="??">??</button><button type="button" class="btn btn-ghost btn-sm" data-emoji="??">??</button><button type="button" class="btn btn-ghost btn-sm" data-emoji="??">??</button><button type="button" class="btn btn-ghost btn-sm" data-emoji="?">?</button><button type="button" class="btn btn-ghost btn-sm" data-emoji="??">??</button>
+              </div>
+            </div>
+            <div class="hidden" data-chat-attachments style="font-size:12px;color:#6b7280"></div>
+<div class="inbox-send-row">
               <textarea
                 class="textarea"
                 rows="1"
