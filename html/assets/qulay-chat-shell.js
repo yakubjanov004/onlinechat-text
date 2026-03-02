@@ -352,13 +352,31 @@
       '        <div class="role-switch-buttons">' +
       '          <button type="button" data-role-switch="admin">Admin</button>' +
       '          <button type="button" data-role-switch="agent">Agent</button>' +
-      '          <button type="button" data-role-switch="client">Client</button>' +
       "        </div>" +
       "      </div>" +
       "    </div>" +
       "  </details>" +
       "</div>";
     return header;
+  }
+
+  function renderSidebarForRole(role) {
+    var body = document.body;
+    if (!body) return;
+    var layout = body.querySelector(".app-layout");
+    if (!layout) return;
+    var oldSidebar = layout.querySelector(".app-sidebar");
+    var activeNav = (body.getAttribute("data-active-nav") || "").trim();
+    var safeRole = String(role || "admin").toLowerCase().trim();
+    var nextSidebar = buildSidebar(activeNav, safeRole);
+
+    if (oldSidebar) {
+      layout.replaceChild(nextSidebar, oldSidebar);
+    } else {
+      layout.insertBefore(nextSidebar, layout.firstChild);
+    }
+
+    if (window.lucide && window.lucide.createIcons) window.lucide.createIcons();
   }
 
   function mountShell() {
@@ -390,6 +408,9 @@
     if (window.lucide && window.lucide.createIcons) window.lucide.createIcons();
     document.dispatchEvent(new CustomEvent("qulaychat:shell-mounted"));
   }
+
+  window.QulayChatShell = window.QulayChatShell || {};
+  window.QulayChatShell.renderSidebarForRole = renderSidebarForRole;
 
   document.addEventListener("DOMContentLoaded", mountShell);
 })();

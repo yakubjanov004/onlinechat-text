@@ -1,8 +1,8 @@
 (function () {
   "use strict";
   var ROLE_KEY = "qulaychat_role";
-  var ROLES = ["admin","agent","client"];
-  var ROLE_LABELS = {admin:"Admin",agent:"Agent",client:"Client"};
+  var ROLES = ["admin","agent"];
+  var ROLE_LABELS = {admin:"Admin",agent:"Agent"};
 
   function normalizeRole(role){var r=String(role||"admin").toLowerCase().trim();return ROLES.indexOf(r)>-1?r:"admin";}
   function roleList(value){if(!value)return[];return String(value).split(",").map(normalizeRole).filter(function(x,i,a){return a.indexOf(x)===i;});}
@@ -12,7 +12,13 @@
   function applyRole(forced){
     var role = normalizeRole(forced || getRole());
     document.documentElement.setAttribute("data-current-role", role);
-    if (document.body) document.body.setAttribute("data-current-role", role);
+    if (document.body) {
+      document.body.setAttribute("data-current-role", role);
+      document.body.setAttribute("data-shell-role", role);
+    }
+    if (window.QulayChatShell && typeof window.QulayChatShell.renderSidebarForRole === "function") {
+      window.QulayChatShell.renderSidebarForRole(role);
+    }
     document.querySelectorAll("[data-role-switch]").forEach(function(btn){
       var active = normalizeRole(btn.getAttribute("data-role-switch")) === role;
       btn.classList.toggle("is-active", active);
