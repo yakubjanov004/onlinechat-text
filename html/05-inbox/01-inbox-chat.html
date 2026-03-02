@@ -16,14 +16,17 @@
     <script src="../assets/qulay-chat-runtime.js" defer></script>
     <script src="../assets/inbox-realism.js" defer></script>
   </head>
-  <body data-active-nav="inbox" class="dashboard-shell-page">
+  <body data-active-nav="inbox" data-shell-role="admin" class="dashboard-shell-page">
     <main class="app-content">
       <div class="subnav-scroll">
         <div class="subnav-tabs">
           <a class="subnav-tab active" href="./01-inbox-chat.html">Inbox</a
           ><a class="subnav-tab" href="./02-chat-open.html">Chat Ochiq Holat</a
-          ><a class="subnav-tab" href="./03-info-sidebar.html"
-            >Inbox Info Panel</a
+          ><a class="subnav-tab" href="./03-info-sidebar.html">Inbox Info Panel</a
+          ><a class="subnav-tab" href="./04-canned-responses.html">Canned Responses</a
+          ><a class="subnav-tab" href="./05-chat-transfer.html">Chat Transfer</a
+          ><a class="subnav-tab" href="./06-chat-merge.html">Chat Merge</a
+          ><a class="subnav-tab" href="./07-bulk-actions.html">Bulk Actions</a
           >
         </div>
       </div>
@@ -48,6 +51,7 @@
             class="btn btn-secondary"
             data-action="log"
             data-message="Filter panel ochildi"
+            data-roles="admin"
           >
             Filter
           </button>

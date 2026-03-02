@@ -38,10 +38,10 @@
           </p>
         </div>
         <div class="page-header-actions">
-          <a class="btn btn-secondary" href="./01-dashboard-admin.html"
+          <a class="btn btn-secondary" href="./01-dashboard-admin.html" data-roles="admin"
             >Admin ko'rinishi</a
           >
-          <a class="btn btn-primary" href="./02-dashboard-agent.html"
+          <a class="btn btn-primary" href="./02-dashboard-agent.html" data-roles="agent"
             >Agent ko'rinishi</a
           >
         </div>
@@ -97,12 +97,12 @@
         </div>
       </section>
       <div class="metrics-grid">
-        <div class="metric-card metric-card-hover">
+        <div class="metric-card metric-card-hover" data-roles="admin">
           <div class="metric-label">Admin dashboard</div>
           <div class="metric-value">Global KPI</div>
           <div class="metric-trend">SLA, kanal, jamoa</div>
         </div>
-        <div class="metric-card metric-card-hover">
+        <div class="metric-card metric-card-hover" data-roles="agent">
           <div class="metric-label">Agent dashboard</div>
           <div class="metric-value">Mening navbatim</div>
           <div class="metric-trend">Queue, assigned, quick actions</div>

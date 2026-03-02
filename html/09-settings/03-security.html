@@ -12,7 +12,7 @@
 <script src="../assets/qulay-chat-shell.js" defer></script>
 <script src="../assets/qulay-chat-runtime.js" defer></script><script src="../assets/settings-interactions.js" defer></script>
 </head>
-<body data-active-nav="settings" class="dashboard-shell-page settings-shell">
+<body data-active-nav="settings" data-shell-role="admin" class="dashboard-shell-page settings-shell">
 <main class="app-content">
 <div class="subnav-scroll">
 <div class="subnav-tabs">
@@ -37,14 +37,14 @@
 <table class="table">
 <thead>
 <tr class="table-header">
-<th>Device</th><th>Location</th><th>Last active</th><th>Action</th>
+<th>Device</th><th>Location</th><th>Last active</th><th data-roles="admin">Action</th>
 </tr>
 </thead>
 <tbody>
-<tr class="table-row"><td>Chrome - macOS</td><td>Toshkent</td><td>Now</td><td><button type="button" class="btn btn-secondary" data-action="log">Revoke</button></td></tr><tr class="table-row"><td>Safari - iPhone</td><td>Samarqand</td><td>Yesterday</td><td><button type="button" class="btn btn-secondary" data-action="log">Revoke</button></td></tr><tr class="table-row"><td>Edge - Windows</td><td>Buxoro</td><td>2d ago</td><td><button type="button" class="btn btn-secondary" data-action="log">Revoke</button></td></tr>
+<tr class="table-row"><td>Chrome - macOS</td><td>Toshkent</td><td>Now</td><td data-roles="admin"><button type="button" class="btn btn-secondary" data-action="log">Revoke</button></td></tr><tr class="table-row"><td>Safari - iPhone</td><td>Samarqand</td><td>Yesterday</td><td data-roles="admin"><button type="button" class="btn btn-secondary" data-action="log">Revoke</button></td></tr><tr class="table-row"><td>Edge - Windows</td><td>Buxoro</td><td>2d ago</td><td data-roles="admin"><button type="button" class="btn btn-secondary" data-action="log">Revoke</button></td></tr>
 </tbody>
 </table>
-</div><div class="divider"></div><div class="flex justify-between items-center gap-2 wrap"><div><div class="item-title">Barcha sessiyalarni tugatish</div><div class="item-sub">Joriy qurilmadan tashqari barcha sessionlar yopiladi.</div></div><button type="button" class="btn btn-danger" data-action="log">Barcha sessiyalarni tugatish</button></div></section></div><div class="sticky-save-bar"><button type="button" class="btn btn-secondary" data-action="reset-form">Bekor qilish</button>
+</div><div class="divider"></div><div class="flex justify-between items-center gap-2 wrap" data-roles="admin"><div><div class="item-title">Barcha sessiyalarni tugatish</div><div class="item-sub">Joriy qurilmadan tashqari barcha sessionlar yopiladi.</div></div><button type="button" class="btn btn-danger" data-action="log">Barcha sessiyalarni tugatish</button></div></section></div><div class="sticky-save-bar"><button type="button" class="btn btn-secondary" data-action="reset-form">Bekor qilish</button>
 <button type="button" class="btn btn-primary" data-action="save">Saqlash</button></div></section>
 </main>
 <script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>

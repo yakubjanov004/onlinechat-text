@@ -13,7 +13,7 @@
 <script src="../assets/qulay-chat-runtime.js" defer></script>
 <script src="../assets/contacts-interactions.js" defer></script>
 </head>
-<body data-active-nav="contacts" class="dashboard-shell-page">
+<body data-active-nav="contacts" data-shell-role="admin" class="dashboard-shell-page">
 <main class="app-content">
 <div class="subnav-scroll">
 <div class="subnav-tabs">
@@ -41,7 +41,7 @@
 <button type="button" class="btn btn-secondary" data-action="log">Leads</button>
 <button type="button" class="btn btn-secondary" data-action="log">Customers</button>
 </div>
-<div><button type="button" class="btn btn-secondary" data-action="export">Bulk export</button></div>
+<div data-roles="admin"><button type="button" class="btn btn-secondary" data-action="export">Bulk export</button></div>
 </div>
 </div>
 </section>

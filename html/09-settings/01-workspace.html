@@ -12,7 +12,7 @@
 <script src="../assets/qulay-chat-shell.js" defer></script>
 <script src="../assets/qulay-chat-runtime.js" defer></script><script src="../assets/settings-interactions.js" defer></script>
 </head>
-<body data-active-nav="settings" class="dashboard-shell-page settings-shell">
+<body data-active-nav="settings" data-shell-role="admin" class="dashboard-shell-page settings-shell">
 <main class="app-content">
 <div class="subnav-scroll">
 <div class="subnav-tabs">
@@ -40,7 +40,7 @@
 <span class="form-label">Workspace description</span>
 <textarea class="textarea" rows="5" placeholder="">Mijoz support va sales chatlari uchun umumiy workspace.</textarea>
 </label></div></div></section>
-<section class="card" style="border-color:#FCA5A5;background:#FFF7F7">
+<section class="card" style="border-color:#FCA5A5;background:#FFF7F7" data-roles="admin">
 <div class="card-header"><div><h3 style="color:#B91C1C">Danger zone</h3><p class="card-description">Workspace o'chirilsa barcha ma'lumotlar yo'qoladi.</p></div><span class="badge badge-danger">Xavfli</span></div>
 <div class="card-body"><div class="flex justify-between items-center gap-3 wrap"><div><div class="item-title">Workspace o'chirish</div><div class="item-sub">Delete amalidan oldin export oling.</div></div><button type="button" class="btn btn-danger" data-modal-open="workspace-delete">Workspace o'chirish</button></div></div>
 </section>
