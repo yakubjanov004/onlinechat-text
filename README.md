@@ -7,8 +7,6 @@ Bu repo hozir **static HTML/CSS/JS demo** holatida.
 - Asosiy kod: `html/`
 - Assetlar: `html/assets/`
 - Qo‘shimcha materiallar: `resources/`, `figma-docs/`
-- `tools/` papkasi o‘chirilgan
-- Root `package.json` o‘chirilgan
 - Role tizimi: faqat **admin** va **agent**
 
 Shu holatda loyiha ishlaydi (statik preview uchun).
@@ -72,11 +70,3 @@ Brauzerda:
 - `html/assets/qulay-chat-design-system.css` — umumiy dizayn tizimi
 - `html/assets/inbox-realism.js` — chat demo interaksiyalar
 
----
-
-## Eslatma
-
-- Root `package.json` va `tools/` ataylab olib tashlangan.
-- Agar keyin build/scriptlar kerak bo‘lsa, qayta init qilish mumkin:
-  - `npm init -y`
-  - kerakli scriptlarni yangi `tools/`ga qo‘shish.
