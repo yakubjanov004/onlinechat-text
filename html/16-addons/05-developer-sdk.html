@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QULAY CHAT - Developer SDK</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../assets/qulay-chat-shell.js" defer></script>
+    <script src="../assets/qulay-chat-runtime.js" defer></script>
+  </head>
+  <body data-active-nav="addons" class="dashboard-shell-page">
+    <main class="app-content">
+      <div class="subnav-scroll"><div class="subnav-tabs">
+        <a class="subnav-tab" href="./01-addons-catalog.html">Catalog</a>
+        <a class="subnav-tab" href="./02-active-addons.html">Active Addons</a>
+        <a class="subnav-tab" href="./03-addon-detail.html">Addon Detail</a>
+        <a class="subnav-tab" href="./04-addon-settings.html">Addon Settings</a>
+        <a class="subnav-tab active" href="./05-developer-sdk.html">Developer SDK</a>
+        <a class="subnav-tab" href="./06-submit-app.html">Submit App</a>
+        <a class="subnav-tab" href="./07-app-reviews.html">App Reviews</a>
+      </div></div>
+
+      <div data-roles="admin">
+        <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../04-dashboard/01-dashboard.html">Dashboard</a><i data-lucide="chevron-right"></i><a href="./01-addons-catalog.html">Addons</a><i data-lucide="chevron-right"></i><span class="current">Developer SDK</span></nav>
+        <div class="page-header"><div><h1>Developer SDK</h1><p class="text-muted">SDK endpointlari, auth va kod namunalarini ko‘rsatish sahifasi.</p></div><div class="page-header-actions"><a class="btn btn-secondary" href="./04-addon-settings.html"><i data-lucide="arrow-left"></i> Addon Settings</a><a class="btn btn-primary" href="./06-submit-app.html">Submit App <i data-lucide="arrow-right"></i></a></div></div>
+
+        <section class="grid cols-3" style="margin-bottom:14px"><article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">SDK Version</p><h3 style="margin:0">v2.4.1</h3></div></article><article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">API uptime</p><h3 style="margin:0">99.95%</h3></div></article><article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">Rate limit</p><h3 style="margin:0">120 req/min</h3></div></article></section>
+
+        <section class="split-grid" style="margin-bottom:14px"><article class="card"><div class="card-header"><h3>Quick start</h3></div><div class="card-body"><div class="table-wrap"><table class="table"><thead class="table-header"><tr><th>Step</th><th>Action</th></tr></thead><tbody><tr class="table-row"><td>1</td><td>API key yarating</td></tr><tr class="table-row"><td>2</td><td>Webhook endpoint ulang</td></tr><tr class="table-row"><td>3</td><td>SDK init va test run</td></tr></tbody></table></div></div></article><article class="card"><div class="card-header"><h3>Resources</h3></div><div class="card-body"><div class="flex gap-2 wrap"><button class="btn btn-secondary" type="button"><i data-lucide="book-open"></i> Docs</button><button class="btn btn-secondary" type="button"><i data-lucide="terminal"></i> API Explorer</button><button class="btn btn-secondary" type="button"><i data-lucide="download"></i> SDK Download</button></div></div></article></section>
+
+        <div class="sticky-save-bar"><a class="btn btn-secondary" href="./04-addon-settings.html">Oldingi sahifa</a><a class="btn btn-primary" href="./06-submit-app.html">Keyingi sahifa</a></div>
+      </div>
+    </main>
+    <script>window.addEventListener("DOMContentLoaded",function(){if(window.lucide&&window.lucide.createIcons)window.lucide.createIcons();});</script>
+  </body>
+</html>

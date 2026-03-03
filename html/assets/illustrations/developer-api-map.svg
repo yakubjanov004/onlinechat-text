@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="320" viewBox="0 0 960 320" fill="none" role="img" aria-label="Developer API">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="960" y2="320" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#E2E8F0"/>
+      <stop offset="1" stop-color="#CBD5E1"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="960" height="320" rx="24" fill="url(#bg)"/>
+  <text x="56" y="52" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700" fill="#0F172A">Developer API</text>
+
+  <rect x="56" y="96" width="248" height="118" rx="16" fill="white" fill-opacity="0.94"/>
+  <rect x="356" y="96" width="248" height="118" rx="16" fill="white" fill-opacity="0.94"/>
+  <rect x="656" y="96" width="248" height="118" rx="16" fill="white" fill-opacity="0.94"/>
+
+  <text x="80" y="142" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="600" fill="#0F172A">Usage</text>
+  <text x="380" y="142" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="600" fill="#0F172A">Quota</text>
+  <text x="680" y="142" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="600" fill="#0F172A">Sandbox</text>
+
+  <path d="M304 154H348" stroke="#0F172A" stroke-width="3" stroke-linecap="round"/>
+  <path d="M604 154H648" stroke="#0F172A" stroke-width="3" stroke-linecap="round"/>
+  <path d="M340 148L348 154L340 160" stroke="#0F172A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M640 148L648 154L640 160" stroke="#0F172A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <text x="56" y="282" font-family="Inter, Arial, sans-serif" font-size="16" fill="#0F172A">Integratorlar uchun test va monitoring muhiti</text>
+</svg>

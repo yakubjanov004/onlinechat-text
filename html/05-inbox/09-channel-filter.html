@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QULAY CHAT - Channel Filter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../assets/qulay-chat-shell.js" defer></script>
+    <script src="../assets/qulay-chat-runtime.js" defer></script>
+  </head>
+  <body data-active-nav="inbox" class="dashboard-shell-page">
+    <main class="app-content">
+      <div class="subnav-scroll"><div class="subnav-tabs">
+        <a class="subnav-tab" href="./01-inbox-chat.html">Inbox Chat</a>
+        <a class="subnav-tab" href="./02-chat-open.html">Chat Open</a>
+        <a class="subnav-tab" href="./03-info-sidebar.html">Info Sidebar</a>
+        <a class="subnav-tab" href="./04-canned-responses.html">Canned Responses</a>
+        <a class="subnav-tab" href="./05-chat-transfer.html">Chat Transfer</a>
+        <a class="subnav-tab" href="./06-chat-merge.html">Chat Merge</a>
+        <a class="subnav-tab" href="./07-bulk-actions.html">Bulk Actions</a>
+        <a class="subnav-tab" href="./08-omnichannel-view.html">Omnichannel View</a>
+        <a class="subnav-tab active" href="./09-channel-filter.html">Channel Filter</a>
+        <a class="subnav-tab" href="./10-internal-notes.html">Internal Notes</a>
+      </div></div>
+
+      <div class="page-header">
+        <div>
+          <h1>Channel Filter</h1>
+          <p class="text-muted">Inboxni kanal, prioritet va status bo‘yicha filtrlash.</p>
+        </div>
+        <div class="page-header-actions">
+          <a class="btn btn-secondary" href="./08-omnichannel-view.html"><i data-lucide="arrow-left"></i> Omnichannel View</a>
+          <a class="btn btn-primary" href="./10-internal-notes.html">Internal Notes <i data-lucide="arrow-right"></i></a>
+        </div>
+      </div>
+
+      <section class="card" style="margin-bottom:14px">
+        <div class="card-header"><h3>Filter panel</h3></div>
+        <div class="card-body">
+          <div class="grid cols-4" style="gap:10px">
+            <select class="input"><option>Kanal: Barchasi</option><option>Telegram</option><option>WhatsApp</option><option>Email</option><option>Web</option></select>
+            <select class="input"><option>Status: Barchasi</option><option>Open</option><option>Pending</option><option>Resolved</option></select>
+            <select class="input"><option>Priority: Barchasi</option><option>High</option><option>Medium</option><option>Low</option></select>
+            <button class="btn btn-secondary" type="button"><i data-lucide="search"></i> Filtrlash</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="split-grid" style="margin-bottom:14px">
+        <article class="card">
+          <div class="card-header"><h3>Natijalar</h3></div>
+          <div class="card-body">
+            <div class="table-wrap">
+              <table class="table">
+                <thead class="table-header"><tr><th>ID</th><th>Kanal</th><th>Mavzu</th><th>Priority</th></tr></thead>
+                <tbody>
+                  <tr class="table-row"><td>#C-8821</td><td>Telegram</td><td>To‘lov savoli</td><td><span class="badge badge-warning">High</span></td></tr>
+                  <tr class="table-row"><td>#C-8816</td><td>WhatsApp</td><td>Buyurtma holati</td><td><span class="badge badge-primary">Medium</span></td></tr>
+                  <tr class="table-row"><td>#C-8802</td><td>Email</td><td>Invoice so‘rovi</td><td><span class="badge badge-success">Low</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-header"><h3>Saved filters</h3></div>
+          <div class="card-body">
+            <div class="list-stack">
+              <div class="list-item"><div class="item-main"><div class="item-title">VIP + Telegram</div></div><button class="btn btn-ghost">Qo‘llash</button></div>
+              <div class="list-item"><div class="item-main"><div class="item-title">Pending + WhatsApp</div></div><button class="btn btn-ghost">Qo‘llash</button></div>
+              <div class="list-item"><div class="item-main"><div class="item-title">High priority + Email</div></div><button class="btn btn-ghost">Qo‘llash</button></div>
+            </div>
+            <div class="divider" style="margin:12px 0"></div>
+            <button class="btn btn-secondary" type="button"><i data-lucide="bookmark-plus"></i> Filterni saqlash</button>
+          </div>
+        </article>
+      </section>
+
+      <div class="sticky-save-bar">
+        <a class="btn btn-secondary" href="./08-omnichannel-view.html">Oldingi sahifa</a>
+        <a class="btn btn-primary" href="./10-internal-notes.html">Keyingi sahifa</a>
+      </div>
+    </main>
+    <script>window.addEventListener("DOMContentLoaded",function(){if(window.lucide&&window.lucide.createIcons)window.lucide.createIcons();});</script>
+  </body>
+</html>

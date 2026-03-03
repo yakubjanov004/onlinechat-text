@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang='uz'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>QULAY CHAT - Mobile Settings</title>
+<link rel='preconnect' href='https://fonts.googleapis.com'>
+<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+<link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap' rel='stylesheet'>
+<link rel='stylesheet' href='../assets/qulay-chat-design-system.css'>
+<script src='https://unpkg.com/lucide@latest' defer></script>
+<script src='../assets/qulay-chat-shell.js' defer></script>
+<script src='../assets/qulay-chat-runtime.js' defer></script>
+<style>
+:root{--m:#7c3aed;--m2:#6366f1}
+.settings-hero{margin-top:12px;border-radius:16px;padding:16px;border:1px solid #c4b5fd;background:linear-gradient(135deg,#f5f3ff,#eef2ff)}
+.s-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+.group{border:1px solid #e9d5ff;border-radius:14px;padding:12px;background:#fff}
+.row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px dashed #e5e7eb}
+.row:last-child{border-bottom:none}
+.tiny-toggle{width:42px;height:24px;border-radius:999px;background:#a78bfa;position:relative}
+.tiny-toggle::after{content:'';position:absolute;top:2px;right:2px;width:20px;height:20px;border-radius:50%;background:#fff}
+.danger{border:1px solid #fecaca;background:#fef2f2}
+@media (max-width:1000px){.s-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-active-nav='mobile-agent' class='dashboard-shell-page'>
+<main class='app-content'>
+  <div class='subnav-scroll'><div class='subnav-tabs'>
+    <a class='subnav-tab' href='./01-mobile-inbox.html'>Mobile Inbox</a>
+    <a class='subnav-tab' href='./02-mobile-chat.html'>Mobile Chat</a>
+    <a class='subnav-tab' href='./03-mobile-notifications.html'>Mobile Notifications</a>
+    <a class='subnav-tab' href='./04-mobile-status.html'>Mobile Status</a>
+    <a class='subnav-tab active' href='./05-mobile-settings.html'>Mobile Settings</a>
+  </div></div>
+
+  <div data-roles='admin'>
+    <nav class='breadcrumbs'>
+      <a href='../04-dashboard/01-dashboard.html'>Dashboard</a>
+      <i data-lucide='chevron-right'></i>
+      <a href='./01-mobile-inbox.html'>Mobile Agent</a>
+      <i data-lucide='chevron-right'></i>
+      <span class='current'>Mobile Settings</span>
+    </nav>
+
+    <section class='settings-hero'>
+      <div class='flex justify-between items-center wrap gap-2'>
+        <div>
+          <h1 style='margin:0 0 6px'>Mobile Settings</h1>
+          <p class='text-muted' style='margin:0'>Mobil ilova uchun umumiy sozlamalar: theme, til, storage va diagnostika boshqaruvi.</p>
+        </div>
+        <span class='pill' style='background:#ede9fe'><i data-lucide='settings'></i> Device Preferences</span>
+      </div>
+      <div class='flex gap-2 wrap' style='margin-top:10px'>
+        <span class='pill'>Theme: System</span>
+        <span class='pill'>Language: UZ</span>
+        <span class='pill'>Cache: 126 MB</span>
+      </div>
+    </section>
+
+    <section class='s-grid'>
+      <article class='group'>
+        <h3 style='margin:0 0 10px'><i data-lucide='palette'></i> Appearance & Locale</h3>
+        <div class='row'><span>Theme</span><select class='input' style='max-width:150px'><option>System</option><option>Light</option><option>Dark</option></select></div>
+        <div class='row'><span>Language</span><select class='input' style='max-width:150px'><option>O'zbekcha</option><option>Русский</option><option>English</option></select></div>
+        <div class='row'><span>Compact mode</span><span class='tiny-toggle'></span></div>
+      </article>
+
+      <article class='group'>
+        <h3 style='margin:0 0 10px'><i data-lucide='database'></i> Storage & Sync</h3>
+        <div class='row'><span>Local cache</span><strong>126 MB</strong></div>
+        <div class='row'><span>Media cache</span><strong>88 MB</strong></div>
+        <div class='row'><span>Auto-sync</span><span class='tiny-toggle'></span></div>
+        <button class='btn btn-secondary' style='margin-top:10px'><i data-lucide='trash-2'></i> Cache tozalash</button>
+      </article>
+    </section>
+
+    <section class='card' style='margin-top:14px'>
+      <div class='card-header'><h3><i data-lucide='activity'></i> Diagnostics</h3></div>
+      <div class='card-body'>
+        <div class='list-stack'>
+          <div class='list-item'><div class='item-main'><div class='item-title'>Network latency</div></div><span class='badge badge-success'>92 ms</span></div>
+          <div class='list-item'><div class='item-main'><div class='item-title'>Background sync</div></div><span class='badge badge-success'>Healthy</span></div>
+          <div class='list-item'><div class='item-main'><div class='item-title'>Notification token</div></div><span class='badge badge-primary'>Valid</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class='card danger' style='margin-top:14px'>
+      <div class='card-header'><h3><i data-lucide='alert-triangle'></i> Xavfli amallar</h3></div>
+      <div class='card-body'>
+        <div class='flex gap-2 wrap'>
+          <button class='btn btn-secondary'><i data-lucide='rotate-ccw'></i> Defaultga qaytarish</button>
+          <button class='btn btn-secondary'><i data-lucide='log-out'></i> Barcha qurilmalardan chiqish</button>
+        </div>
+      </div>
+    </section>
+
+    <div class='sticky-save-bar'>
+      <a class='btn btn-secondary' href='./04-mobile-status.html'>Oldingi sahifa</a>
+      <a class='btn btn-primary' href='./01-mobile-inbox.html'>Bo'lim boshiga</a>
+    </div>
+  </div>
+</main>
+<script>window.addEventListener('DOMContentLoaded',()=>{if(window.lucide&&window.lucide.createIcons)window.lucide.createIcons();});</script>
+</body>
+</html>

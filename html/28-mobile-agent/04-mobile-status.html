@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang='uz'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>QULAY CHAT - Mobile Status</title>
+<link rel='preconnect' href='https://fonts.googleapis.com'>
+<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+<link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap' rel='stylesheet'>
+<link rel='stylesheet' href='../assets/qulay-chat-design-system.css'>
+<script src='https://unpkg.com/lucide@latest' defer></script>
+<script src='../assets/qulay-chat-shell.js' defer></script>
+<script src='../assets/qulay-chat-runtime.js' defer></script>
+<style>
+:root{--s:#22c55e;--s2:#16a34a}
+.status-hero{margin-top:12px;border-radius:16px;padding:16px;border:1px solid #86efac;background:linear-gradient(145deg,#f0fdf4,#ecfccb)}
+.status-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+.status-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.status-box{border:1px solid #d1fae5;border-radius:12px;padding:12px;background:#fff;cursor:pointer;transition:.2s}
+.status-box:hover{transform:translateY(-2px);box-shadow:0 6px 18px #0000000f}
+.status-box.active{border-color:#22c55e;background:#f0fdf4}
+.dot{width:10px;height:10px;border-radius:999px;display:inline-block;margin-right:8px}
+.dot.on{background:#22c55e}.dot.aw{background:#f59e0b}.dot.bus{background:#ef4444}.dot.off{background:#94a3b8}
+.timeline{border-left:2px dashed #bbf7d0;padding-left:12px}
+.timeline .e{margin-bottom:10px}
+@media (max-width:1000px){.status-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-active-nav='mobile-agent' class='dashboard-shell-page'>
+<main class='app-content'>
+  <div class='subnav-scroll'><div class='subnav-tabs'>
+    <a class='subnav-tab' href='./01-mobile-inbox.html'>Mobile Inbox</a>
+    <a class='subnav-tab' href='./02-mobile-chat.html'>Mobile Chat</a>
+    <a class='subnav-tab' href='./03-mobile-notifications.html'>Mobile Notifications</a>
+    <a class='subnav-tab active' href='./04-mobile-status.html'>Mobile Status</a>
+    <a class='subnav-tab' href='./05-mobile-settings.html'>Mobile Settings</a>
+  </div></div>
+
+  <div data-roles='admin'>
+    <nav class='breadcrumbs'>
+      <a href='../04-dashboard/01-dashboard.html'>Dashboard</a>
+      <i data-lucide='chevron-right'></i>
+      <a href='./01-mobile-inbox.html'>Mobile Agent</a>
+      <i data-lucide='chevron-right'></i>
+      <span class='current'>Mobile Status</span>
+    </nav>
+
+    <section class='status-hero'>
+      <div class='flex justify-between items-center wrap gap-2'>
+        <div>
+          <h1 style='margin:0 0 6px'>Mobile Status</h1>
+          <p class='text-muted' style='margin:0'>Agent holatini real-time almashtirish va bandlik sabablarini aniq boshqarish sahifasi.</p>
+        </div>
+        <span class='pill' style='background:#dcfce7'><i data-lucide='radio'></i> Presence Control</span>
+      </div>
+      <div class='flex gap-2 wrap' style='margin-top:10px'>
+        <span class='pill'><span class='dot on'></span>Current: Online</span>
+        <span class='pill'>Auto-away: 30 min</span>
+        <span class='pill'>Break mode: 13:00-13:30</span>
+      </div>
+    </section>
+
+    <section class='status-grid'>
+      <article class='card'>
+        <div class='card-header'><h3><i data-lucide='toggle-left'></i> Status Presets</h3></div>
+        <div class='card-body'>
+          <div class='status-cards'>
+            <div class='status-box active'><strong><span class='dot on'></span>Online</strong><div class='text-muted'>Yangi chat qabul qiladi</div></div>
+            <div class='status-box'><strong><span class='dot aw'></span>Away</strong><div class='text-muted'>Vaqtincha band</div></div>
+            <div class='status-box'><strong><span class='dot bus'></span>Busy</strong><div class='text-muted'>Faqat eskalatsiya</div></div>
+            <div class='status-box'><strong><span class='dot off'></span>Offline</strong><div class='text-muted'>Chat qabul qilmaydi</div></div>
+          </div>
+
+          <div class='divider' style='margin:12px 0'></div>
+          <label>Status reason
+            <select class='input'>
+              <option>General support</option>
+              <option>Lunch break</option>
+              <option>Meeting</option>
+              <option>Training</option>
+            </select>
+          </label>
+          <button class='btn btn-primary' style='margin-top:10px'><i data-lucide='check-check'></i> Statusni yangilash</button>
+        </div>
+      </article>
+
+      <article class='card'>
+        <div class='card-header'><h3><i data-lucide='history'></i> Presence Timeline</h3></div>
+        <div class='card-body'>
+          <div class='timeline'>
+            <div class='e'><strong>15:22</strong> — Online bo‘ldi</div>
+            <div class='e'><strong>14:51</strong> — Away (Lunch break)</div>
+            <div class='e'><strong>13:59</strong> — Busy (Escalation queue)</div>
+            <div class='e'><strong>12:10</strong> — Online bo‘ldi</div>
+          </div>
+          <div class='divider' style='margin:12px 0'></div>
+          <p class='text-muted' style='margin:0'>SLAga ta’sir: <strong style='color:#16a34a'>Normal</strong></p>
+        </div>
+      </article>
+    </section>
+
+    <div class='sticky-save-bar'>
+      <a class='btn btn-secondary' href='./03-mobile-notifications.html'>Oldingi sahifa</a>
+      <a class='btn btn-primary' href='./05-mobile-settings.html'>Keyingi sahifa</a>
+    </div>
+  </div>
+</main>
+<script>window.addEventListener('DOMContentLoaded',()=>{if(window.lucide&&window.lucide.createIcons)window.lucide.createIcons();});</script>
+</body>
+</html>

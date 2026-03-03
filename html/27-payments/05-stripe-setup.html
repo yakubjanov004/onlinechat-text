@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang='uz'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>QULAY CHAT - Stripe Setup</title>
+<link rel='preconnect' href='https://fonts.googleapis.com'>
+<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+<link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap' rel='stylesheet'>
+<link rel='stylesheet' href='../assets/qulay-chat-design-system.css'>
+<script src='https://unpkg.com/lucide@latest' defer></script>
+<script src='../assets/qulay-chat-shell.js' defer></script>
+<script src='../assets/qulay-chat-runtime.js' defer></script>
+<style>
+:root{--st:#6366f1;--st2:#4f46e5}
+.hero{margin-top:12px;border-radius:16px;padding:16px;border:1px solid #c7d2fe;background:linear-gradient(135deg,#eef2ff,#f5f3ff)}
+.badgex{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#e0e7ff;border:1px solid #a5b4fc;font-weight:700}
+.metric{border-top:4px solid var(--st)}
+.main{display:grid;grid-template-columns:1.08fr .92fr;gap:14px;margin-top:14px}
+.panel{border:1px solid #e0e7ff;border-radius:12px;padding:10px;background:#fff}
+.row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px dashed #e2e8f0}
+.row:last-child{border-bottom:none}
+.event-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.event{border:1px solid #c7d2fe;border-radius:10px;padding:10px;background:#f8faff}
+.latency{height:8px;border-radius:999px;background:#e5e7eb;overflow:hidden}
+.latency span{display:block;height:100%;background:linear-gradient(90deg,var(--st),var(--st2))}
+@media (max-width:1000px){.main{grid-template-columns:1fr}.event-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-active-nav='billing' class='dashboard-shell-page'>
+<main class='app-content'>
+  <div class='subnav-scroll'><div class='subnav-tabs'>
+    <a class='subnav-tab' href='./01-payment-overview.html'>Payment Overview</a>
+    <a class='subnav-tab' href='./02-payme-setup.html'>Payme Setup</a>
+    <a class='subnav-tab' href='./03-click-setup.html'>Click Setup</a>
+    <a class='subnav-tab' href='./04-uzum-setup.html'>Uzum Setup</a>
+    <a class='subnav-tab active' href='./05-stripe-setup.html'>Stripe Setup</a>
+    <a class='subnav-tab' href='./06-bank-transfer.html'>Bank Transfer</a>
+    <a class='subnav-tab' href='./07-payment-test.html'>Payment Test</a>
+    <a class='subnav-tab' href='./08-payment-logs.html'>Payment Logs</a>
+  </div></div>
+
+  <div data-roles='admin'>
+    <nav class='breadcrumbs' aria-label='Breadcrumb'>
+      <a href='../04-dashboard/01-dashboard.html'>Dashboard</a>
+      <i data-lucide='chevron-right'></i>
+      <a href='./01-payment-overview.html'>Payments</a>
+      <i data-lucide='chevron-right'></i>
+      <span class='current'>Stripe Setup</span>
+    </nav>
+
+    <section class='hero'>
+      <div class='flex justify-between items-center wrap gap-2'>
+        <div>
+          <h1 style='margin:0 0 6px'>Stripe Setup</h1>
+          <p class='text-muted' style='margin:0'>Xalqaro to'lovlar uchun Stripe kalitlari, webhook event mapping va valyuta siyosatini boshqarish.</p>
+        </div>
+        <span class='badgex'><i data-lucide='globe'></i> Global Payments</span>
+      </div>
+      <div class='flex gap-2 wrap' style='margin-top:10px'>
+        <span class='pill'>Account: Connected</span>
+        <span class='pill'>Webhook: Healthy</span>
+        <span class='pill'>Primary currency: USD</span>
+        <span class='pill'>Payout: Daily</span>
+      </div>
+    </section>
+
+    <section class='grid cols-4' style='margin-top:14px'>
+      <article class='card metric'><div class='card-body'><p class='text-muted' style='margin:0 0 6px'>Intl tx/24h</p><h3 style='margin:0'>1,940</h3></div></article>
+      <article class='card metric'><div class='card-body'><p class='text-muted' style='margin:0 0 6px'>Success rate</p><h3 style='margin:0'>99.2%</h3></div></article>
+      <article class='card metric'><div class='card-body'><p class='text-muted' style='margin:0 0 6px'>Avg auth</p><h3 style='margin:0'>680 ms</h3></div></article>
+      <article class='card metric'><div class='card-body'><p class='text-muted' style='margin:0 0 6px'>Disputes</p><h3 style='margin:0'>4</h3></div></article>
+    </section>
+
+    <section class='main'>
+      <article class='card'>
+        <div class='card-header'><h3><i data-lucide='key-round'></i> API Credentials</h3></div>
+        <div class='card-body'>
+          <div class='panel'>
+            <label>Publishable Key<input class='input' value='pk_live_••••••••••••' /></label>
+            <label style='margin-top:10px;display:block'>Secret Key<input class='input' value='sk_live_••••••••••••' /></label>
+            <label style='margin-top:10px;display:block'>Webhook Secret<input class='input' value='whsec_••••••••••••' /></label>
+            <label style='margin-top:10px;display:block'>Webhook URL<input class='input' value='https://api.qulaychat.uz/stripe/webhook' /></label>
+            <div class='flex gap-2 wrap' style='margin-top:12px'>
+              <button class='btn btn-secondary'><i data-lucide='flask-conical'></i> Event test</button>
+              <button class='btn btn-primary'><i data-lucide='save'></i> Saqlash</button>
+            </div>
+          </div>
+
+          <div class='divider' style='margin:12px 0'></div>
+          <h4 style='margin:0 0 8px'>Currency Policy</h4>
+          <div class='panel'>
+            <div class='row'><span>Default currency</span><strong>USD</strong></div>
+            <div class='row'><span>Fallback currency</span><strong>EUR</strong></div>
+            <div class='row'><span>FX rate update</span><strong>Har 1 soat</strong></div>
+          </div>
+        </div>
+      </article>
+
+      <article class='card'>
+        <div class='card-header'><h3><i data-lucide='webhook'></i> Event Mapping</h3></div>
+        <div class='card-body'>
+          <div class='event-grid'>
+            <div class='event'><strong>payment_intent.succeeded</strong><div class='text-muted'>Paid</div></div>
+            <div class='event'><strong>payment_intent.payment_failed</strong><div class='text-muted'>Failed</div></div>
+            <div class='event'><strong>charge.refunded</strong><div class='text-muted'>Refunded</div></div>
+            <div class='event'><strong>charge.dispute.created</strong><div class='text-muted'>Risk Queue</div></div>
+          </div>
+
+          <div class='divider' style='margin:12px 0'></div>
+          <div class='panel'>
+            <div class='row'><span>P95 webhook latency</span><div style='width:140px'><div class='latency'><span style='width:72%'></span></div></div></div>
+            <div class='row'><span>Signature verification</span><span class='badge badge-success'>100%</span></div>
+            <div class='row'><span>Replay blocked</span><span class='badge badge-primary'>Enabled</span></div>
+          </div>
+
+          <div class='divider' style='margin:12px 0'></div>
+          <a class='btn btn-secondary' href='./08-payment-logs.html'><i data-lucide='scroll-text'></i> Stripe loglar</a>
+        </div>
+      </article>
+    </section>
+
+    <section class='card' style='margin-top:14px'>
+      <div class='card-header'><h3><i data-lucide='git-fork'></i> Keyingi yo'nalish</h3></div>
+      <div class='card-body flex gap-2 wrap'>
+        <a class='btn btn-secondary' href='./06-bank-transfer.html'><i data-lucide='arrow-right'></i> Bank Transfer</a>
+        <a class='btn btn-secondary' href='./07-payment-test.html'><i data-lucide='arrow-right'></i> Payment Test</a>
+        <a class='btn btn-secondary' href='./08-payment-logs.html'><i data-lucide='arrow-right'></i> Payment Logs</a>
+      </div>
+    </section>
+
+    <div class='sticky-save-bar'>
+      <a class='btn btn-secondary' href='./04-uzum-setup.html'>Oldingi sahifa</a>
+      <a class='btn btn-primary' href='./06-bank-transfer.html'>Keyingi sahifa</a>
+    </div>
+  </div>
+</main>
+<script>window.addEventListener('DOMContentLoaded',()=>{if(window.lucide&&window.lucide.createIcons)window.lucide.createIcons();});</script>
+</body>
+</html>

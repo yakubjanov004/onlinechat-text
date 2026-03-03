@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang='uz'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>QULAY CHAT - Mobile Inbox</title>
+<link rel='preconnect' href='https://fonts.googleapis.com'>
+<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+<link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap' rel='stylesheet'>
+<link rel='stylesheet' href='../assets/qulay-chat-design-system.css'>
+<script src='https://unpkg.com/lucide@latest' defer></script>
+<script src='../assets/qulay-chat-shell.js' defer></script>
+<script src='../assets/qulay-chat-runtime.js' defer></script>
+<style>
+:root{--acc:#1D4ED8;--acc2:#06B6D4;}
+.mobile-inbox-hero{position:relative;overflow:hidden;border-radius:16px;padding:18px;border:1px solid #bfdbfe;background:linear-gradient(135deg,#eff6ff,#ecfeff);margin-top:12px}
+.mobile-inbox-hero::after{content:'';position:absolute;right:-30px;top:-30px;width:140px;height:140px;border-radius:999px;background:radial-gradient(circle,#60a5fa66,transparent 70%)}
+.stat-chip{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#fff;border:1px solid #dbeafe;font-weight:600}
+.phone-shell{border:2px solid #cbd5e1;border-radius:22px;padding:12px;background:#0f172a;color:#e2e8f0;max-width:360px;margin:0 auto}
+.phone-top{display:flex;justify-content:space-between;font-size:12px;opacity:.85;margin-bottom:8px}
+.chat-row{display:flex;gap:10px;align-items:flex-start;padding:10px;border-radius:12px;background:#111827;margin-bottom:8px;border:1px solid #1f2937}
+.chat-row.vip{border-color:#f59e0b;background:#1f2937}
+.badge-dot{width:8px;height:8px;border-radius:999px;background:#22c55e;display:inline-block}
+.filter-pills .pill{margin-right:8px;margin-bottom:8px}
+</style>
+</head>
+<body data-active-nav='mobile-agent' class='dashboard-shell-page'>
+<main class='app-content'>
+  <div class='subnav-scroll'><div class='subnav-tabs'>
+    <a class='subnav-tab active' href='./01-mobile-inbox.html'>Mobile Inbox</a>
+    <a class='subnav-tab' href='./02-mobile-chat.html'>Mobile Chat</a>
+    <a class='subnav-tab' href='./03-mobile-notifications.html'>Mobile Notifications</a>
+    <a class='subnav-tab' href='./04-mobile-status.html'>Mobile Status</a>
+    <a class='subnav-tab' href='./05-mobile-settings.html'>Mobile Settings</a>
+  </div></div>
+
+  <div data-roles='admin'>
+    <nav class='breadcrumbs' aria-label='Breadcrumb'>
+      <a href='../04-dashboard/01-dashboard.html'>Dashboard</a>
+      <i data-lucide='chevron-right'></i>
+      <a href='./01-mobile-inbox.html'>Mobile Agent</a>
+      <i data-lucide='chevron-right'></i>
+      <span class='current'>Mobile Inbox</span>
+    </nav>
+
+    <section class='mobile-inbox-hero'>
+      <div class='flex justify-between items-center wrap gap-2'>
+        <div>
+          <h1 style='margin:0 0 6px'>Mobile Inbox</h1>
+          <p class='text-muted' style='margin:0'>Mobil agentlar uchun navbat markazi: unreadlar, ustuvor chatlar va tezkor filtrlash.</p>
+        </div>
+        <div class='stat-chip'><i data-lucide='smartphone'></i> Live Queue</div>
+      </div>
+      <div class='flex gap-2 wrap' style='margin-top:12px'>
+        <span class='stat-chip'><i data-lucide='mail-open'></i> Unread: 18</span>
+        <span class='stat-chip'><i data-lucide='timer'></i> Avg first reply: 38s</span>
+        <span class='stat-chip'><i data-lucide='users'></i> On duty: 6 agent</span>
+      </div>
+    </section>
+
+    <section class='split-grid' style='margin-top:14px'>
+      <article class='card'>
+        <div class='card-header'><h3><i data-lucide='funnel'></i> Smart Filters</h3></div>
+        <div class='card-body'>
+          <div class='filter-pills'>
+            <span class='pill'>VIP</span>
+            <span class='pill'>Eskalatsiya</span>
+            <span class='pill'>To'lov</span>
+            <span class='pill'>Yangi mijoz</span>
+            <span class='pill'>Kechikkan javob</span>
+          </div>
+          <div class='divider' style='margin:10px 0'></div>
+          <button class='btn btn-secondary'><i data-lucide='sliders-horizontal'></i> Custom filter yaratish</button>
+        </div>
+      </article>
+
+      <article class='card'>
+        <div class='card-header'><h3><i data-lucide='pie-chart'></i> Queue Breakdown</h3></div>
+        <div class='card-body'>
+          <div class='list-stack'>
+            <div class='list-item'><div class='item-main'><div class='item-title'>Telegram</div></div><span class='badge badge-primary'>7</span></div>
+            <div class='list-item'><div class='item-main'><div class='item-title'>WhatsApp</div></div><span class='badge badge-success'>6</span></div>
+            <div class='list-item'><div class='item-main'><div class='item-title'>Web chat</div></div><span class='badge badge-warning'>3</span></div>
+            <div class='list-item'><div class='item-main'><div class='item-title'>Email</div></div><span class='badge badge-danger'>2</span></div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class='card' style='margin-top:14px'>
+      <div class='card-header'><h3><i data-lucide='monitor-smartphone'></i> Mobile Preview</h3></div>
+      <div class='card-body'>
+        <div class='phone-shell'>
+          <div class='phone-top'><span>12:41</span><span><span class='badge-dot'></span> 5G 89%</span></div>
+          <div class='chat-row vip'>
+            <i data-lucide='star' style='color:#f59e0b'></i>
+            <div>
+              <strong>VIP: Aziza K.</strong>
+              <div class='text-muted'>To'lov tasdiqlanmadi, tez yordam kerak</div>
+            </div>
+          </div>
+          <div class='chat-row'>
+            <i data-lucide='message-circle' style='color:#38bdf8'></i>
+            <div>
+              <strong>Telegram: @jamshid</strong>
+              <div class='text-muted'>Buyurtma #A-2293 holati?</div>
+            </div>
+          </div>
+          <div class='chat-row'>
+            <i data-lucide='mail' style='color:#fb7185'></i>
+            <div>
+              <strong>Email: dilnoza@...</strong>
+              <div class='text-muted'>Invoice PDFni yuborib bering</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class='sticky-save-bar'>
+      <a class='btn btn-secondary' href='./05-mobile-settings.html'>Oldingi sahifa</a>
+      <a class='btn btn-primary' href='./02-mobile-chat.html'>Keyingi sahifa</a>
+    </div>
+  </div>
+</main>
+<script>window.addEventListener('DOMContentLoaded',()=>{if(window.lucide&&window.lucide.createIcons)window.lucide.createIcons();});</script>
+</body>
+</html>

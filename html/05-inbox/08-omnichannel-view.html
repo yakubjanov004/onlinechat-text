@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QULAY CHAT - Omnichannel View</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../assets/qulay-chat-shell.js" defer></script>
+    <script src="../assets/qulay-chat-runtime.js" defer></script>
+  </head>
+  <body data-active-nav="inbox" class="dashboard-shell-page">
+    <main class="app-content">
+      <div class="subnav-scroll"><div class="subnav-tabs">
+        <a class="subnav-tab" href="./01-inbox-chat.html">Inbox Chat</a>
+        <a class="subnav-tab" href="./02-chat-open.html">Chat Open</a>
+        <a class="subnav-tab" href="./03-info-sidebar.html">Info Sidebar</a>
+        <a class="subnav-tab" href="./04-canned-responses.html">Canned Responses</a>
+        <a class="subnav-tab" href="./05-chat-transfer.html">Chat Transfer</a>
+        <a class="subnav-tab" href="./06-chat-merge.html">Chat Merge</a>
+        <a class="subnav-tab" href="./07-bulk-actions.html">Bulk Actions</a>
+        <a class="subnav-tab active" href="./08-omnichannel-view.html">Omnichannel View</a>
+        <a class="subnav-tab" href="./09-channel-filter.html">Channel Filter</a>
+        <a class="subnav-tab" href="./10-internal-notes.html">Internal Notes</a>
+      </div></div>
+
+      <div class="page-header">
+        <div>
+          <h1>Omnichannel View</h1>
+          <p class="text-muted">Barcha kanallardan kelgan chatlarni yagona inboxda ko‘rish.</p>
+        </div>
+        <div class="page-header-actions">
+          <a class="btn btn-secondary" href="./07-bulk-actions.html"><i data-lucide="arrow-left"></i> Bulk Actions</a>
+          <a class="btn btn-primary" href="./09-channel-filter.html">Channel Filter <i data-lucide="arrow-right"></i></a>
+        </div>
+      </div>
+
+      <section class="grid cols-4" style="margin-bottom:14px">
+        <article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">Total chats</p><h3 style="margin:0">186</h3></div></article>
+        <article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">Telegram</p><h3 style="margin:0">74</h3></div></article>
+        <article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">WhatsApp</p><h3 style="margin:0">69</h3></div></article>
+        <article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">Email/Web</p><h3 style="margin:0">43</h3></div></article>
+      </section>
+
+      <section class="split-grid" style="margin-bottom:14px">
+        <article class="card">
+          <div class="card-header"><h3>Kanal oqimi</h3></div>
+          <div class="card-body">
+            <div class="table-wrap">
+              <table class="table">
+                <thead class="table-header"><tr><th>Kanal</th><th>Unread</th><th>Avg reply</th><th>Holat</th></tr></thead>
+                <tbody>
+                  <tr class="table-row"><td>Telegram</td><td>18</td><td>42s</td><td><span class="badge badge-success">Active</span></td></tr>
+                  <tr class="table-row"><td>WhatsApp</td><td>15</td><td>55s</td><td><span class="badge badge-success">Active</span></td></tr>
+                  <tr class="table-row"><td>Email</td><td>6</td><td>2m 11s</td><td><span class="badge badge-warning">Slow</span></td></tr>
+                  <tr class="table-row"><td>Web Chat</td><td>4</td><td>37s</td><td><span class="badge badge-primary">Stable</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-header"><h3>Tezkor yo‘naltirish</h3></div>
+          <div class="card-body">
+            <div class="flex gap-2 wrap">
+              <button class="btn btn-secondary" type="button"><i data-lucide="message-circle"></i> Telegram queue</button>
+              <button class="btn btn-secondary" type="button"><i data-lucide="message-square"></i> WhatsApp queue</button>
+              <button class="btn btn-secondary" type="button"><i data-lucide="mail"></i> Email queue</button>
+              <button class="btn btn-secondary" type="button"><i data-lucide="globe"></i> Web queue</button>
+            </div>
+            <div class="divider" style="margin:12px 0"></div>
+            <a class="btn btn-secondary" href="./09-channel-filter.html"><i data-lucide="funnel"></i> Channel filter</a>
+          </div>
+        </article>
+      </section>
+
+      <div class="sticky-save-bar">
+        <a class="btn btn-secondary" href="./07-bulk-actions.html">Oldingi sahifa</a>
+        <a class="btn btn-primary" href="./09-channel-filter.html">Keyingi sahifa</a>
+      </div>
+    </main>
+    <script>window.addEventListener("DOMContentLoaded",function(){if(window.lucide&&window.lucide.createIcons)window.lucide.createIcons();});</script>
+  </body>
+</html>

@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang='uz'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>QULAY CHAT - Payment Overview</title>
+<link rel='preconnect' href='https://fonts.googleapis.com'>
+<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+<link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap' rel='stylesheet'>
+<link rel='stylesheet' href='../assets/qulay-chat-design-system.css'>
+<script src='https://unpkg.com/lucide@latest' defer></script>
+<script src='../assets/qulay-chat-shell.js' defer></script>
+<script src='../assets/qulay-chat-runtime.js' defer></script>
+<style>
+:root{--pay:#0f766e;--pay2:#06b6d4;--risk:#f59e0b}
+.hero{margin-top:12px;border-radius:18px;padding:18px;border:1px solid #99f6e4;background:linear-gradient(130deg,#ecfeff,#f0fdfa);position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;right:-40px;top:-40px;width:160px;height:160px;border-radius:999px;background:radial-gradient(circle,#2dd4bf55,transparent 70%)}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#ccfbf1;border:1px solid #5eead4;font-weight:700}
+.metric{border-top:4px solid var(--pay)}
+.layout{display:grid;grid-template-columns:1.15fr .85fr;gap:14px;margin-top:14px}
+.g-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px dashed #e2e8f0}
+.g-row:last-child{border-bottom:none}
+.bar{height:9px;width:130px;border-radius:999px;background:#e2e8f0;overflow:hidden}
+.bar span{display:block;height:100%;background:linear-gradient(90deg,var(--pay),var(--pay2))}
+.score{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.score .box{border:1px solid #e2e8f0;border-radius:12px;padding:10px;background:#fff}
+.risk{border-left:4px solid var(--risk);background:#fffbeb}
+.timeline .item{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px dashed #e2e8f0}
+.timeline .item:last-child{border-bottom:none}
+.health{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.health .h{border:1px solid #d1fae5;border-radius:12px;padding:10px;background:#f8fffe;text-align:center}
+@media (max-width:1000px){.layout{grid-template-columns:1fr}.health{grid-template-columns:repeat(2,minmax(0,1fr))}}
+</style>
+</head>
+<body data-active-nav='billing' class='dashboard-shell-page'>
+<main class='app-content'>
+  <div class='subnav-scroll'><div class='subnav-tabs'>
+    <a class='subnav-tab active' href='./01-payment-overview.html'>Payment Overview</a>
+    <a class='subnav-tab' href='./02-payme-setup.html'>Payme Setup</a>
+    <a class='subnav-tab' href='./03-click-setup.html'>Click Setup</a>
+    <a class='subnav-tab' href='./04-uzum-setup.html'>Uzum Setup</a>
+    <a class='subnav-tab' href='./05-stripe-setup.html'>Stripe Setup</a>
+    <a class='subnav-tab' href='./06-bank-transfer.html'>Bank Transfer</a>
+    <a class='subnav-tab' href='./07-payment-test.html'>Payment Test</a>
+    <a class='subnav-tab' href='./08-payment-logs.html'>Payment Logs</a>
+  </div></div>
+
+  <div data-roles='admin'>
+    <nav class='breadcrumbs' aria-label='Breadcrumb'>
+      <a href='../04-dashboard/01-dashboard.html'>Dashboard</a>
+      <i data-lucide='chevron-right'></i>
+      <a href='./01-payment-overview.html'>Payments</a>
+      <i data-lucide='chevron-right'></i>
+      <span class='current'>Payment Overview</span>
+    </nav>
+
+    <section class='hero'>
+      <div class='flex justify-between items-center wrap gap-2'>
+        <div>
+          <h1 style='margin:0 0 6px'>Payment Overview</h1>
+          <p class='text-muted' style='margin:0'>Barcha to‘lov oqimlari, gateway ulushi, risk signallari va daromad holatini bir joyda boshqarish paneli.</p>
+        </div>
+        <span class='hero-badge'><i data-lucide='wallet-cards'></i> Finance Command Center</span>
+      </div>
+      <div class='flex gap-2 wrap' style='margin-top:10px'>
+        <span class='pill'>Faol gateway: 6 ta</span>
+        <span class='pill'>Success rate: 98.9%</span>
+        <span class='pill'>24h tranzaksiya: 18,240</span>
+        <span class='pill'>Net volume: 2.4 mlrd UZS</span>
+      </div>
+    </section>
+
+    <section class='grid cols-4' style='margin-top:14px'>
+      <article class='card metric'><div class='card-body'><p class='text-muted' style='margin:0 0 6px'>Gross volume</p><h3 style='margin:0'>2.57 mlrd</h3><small class='text-muted'>+8.2% / kun</small></div></article>
+      <article class='card metric'><div class='card-body'><p class='text-muted' style='margin:0 0 6px'>Net revenue</p><h3 style='margin:0'>2.40 mlrd</h3><small class='text-muted'>Komissiyadan keyin</small></div></article>
+      <article class='card metric'><div class='card-body'><p class='text-muted' style='margin:0 0 6px'>Refund ratio</p><h3 style='margin:0'>1.7%</h3><small class='text-muted'>Normal diapazon</small></div></article>
+      <article class='card metric'><div class='card-body'><p class='text-muted' style='margin:0 0 6px'>Avg checkout</p><h3 style='margin:0'>11.2s</h3><small class='text-muted'>-1.3s yaxshilandi</small></div></article>
+    </section>
+
+    <section class='layout'>
+      <article class='card'>
+        <div class='card-header'><h3><i data-lucide='route'></i> Gateway Distribution</h3></div>
+        <div class='card-body'>
+          <div class='g-row'><div><strong>Payme</strong><div class='text-muted'>Asosiy lokal oqim</div></div><div><div class='bar'><span style='width:41%'></span></div><small>41%</small></div></div>
+          <div class='g-row'><div><strong>Click</strong><div class='text-muted'>Yuqori barqarorlik</div></div><div><div class='bar'><span style='width:28%'></span></div><small>28%</small></div></div>
+          <div class='g-row'><div><strong>Stripe</strong><div class='text-muted'>Xalqaro to‘lovlar</div></div><div><div class='bar'><span style='width:19%'></span></div><small>19%</small></div></div>
+          <div class='g-row'><div><strong>Uzum</strong><div class='text-muted'>Kartaga yo‘naltirish</div></div><div><div class='bar'><span style='width:12%'></span></div><small>12%</small></div></div>
+
+          <div class='divider' style='margin:12px 0'></div>
+          <div class='score'>
+            <div class='box'><p class='text-muted' style='margin:0 0 4px'>P95 latency</p><strong>1.28s</strong></div>
+            <div class='box'><p class='text-muted' style='margin:0 0 4px'>Authorization fail</p><strong>0.8%</strong></div>
+            <div class='box'><p class='text-muted' style='margin:0 0 4px'>Retry success</p><strong>72%</strong></div>
+            <div class='box'><p class='text-muted' style='margin:0 0 4px'>Abandoned checkout</p><strong>4.2%</strong></div>
+          </div>
+        </div>
+      </article>
+
+      <article class='card risk'>
+        <div class='card-header'><h3><i data-lucide='shield-alert'></i> Risk & Compliance</h3></div>
+        <div class='card-body'>
+          <div class='list-stack'>
+            <div class='list-item'><div class='item-main'><div class='item-title'>Fraud signal threshold</div></div><span class='badge badge-warning'>0.78</span></div>
+            <div class='list-item'><div class='item-main'><div class='item-title'>Chargeback trend (7 kun)</div></div><span class='badge badge-success'>-12%</span></div>
+            <div class='list-item'><div class='item-main'><div class='item-title'>High-risk attempts</div></div><span class='badge badge-danger'>23</span></div>
+          </div>
+          <div class='divider' style='margin:12px 0'></div>
+          <div class='timeline'>
+            <div class='item'><span>15:22</span><span class='badge badge-success'>AML check passed</span></div>
+            <div class='item'><span>14:40</span><span class='badge badge-warning'>Suspicious IP flagged</span></div>
+            <div class='item'><span>13:55</span><span class='badge badge-primary'>Rule set synced</span></div>
+          </div>
+          <div class='divider' style='margin:12px 0'></div>
+          <a class='btn btn-secondary' href='./08-payment-logs.html'><i data-lucide='scroll-text'></i> Risk loglarni ochish</a>
+        </div>
+      </article>
+    </section>
+
+    <section class='card' style='margin-top:14px'>
+      <div class='card-header'><h3><i data-lucide='heart-pulse'></i> Gateway Health Snapshot</h3></div>
+      <div class='card-body'>
+        <div class='health'>
+          <div class='h'><strong>Payme</strong><div class='text-muted'>Healthy</div></div>
+          <div class='h'><strong>Click</strong><div class='text-muted'>Healthy</div></div>
+          <div class='h'><strong>Uzum</strong><div class='text-muted'>Degraded</div></div>
+          <div class='h'><strong>Stripe</strong><div class='text-muted'>Healthy</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class='card' style='margin-top:14px'>
+      <div class='card-header'><h3><i data-lucide='git-fork'></i> Keyingi yo'nalish</h3></div>
+      <div class='card-body flex gap-2 wrap'>
+        <a class='btn btn-secondary' href='./02-payme-setup.html'><i data-lucide='arrow-right'></i> Payme Setup</a>
+        <a class='btn btn-secondary' href='./03-click-setup.html'><i data-lucide='arrow-right'></i> Click Setup</a>
+        <a class='btn btn-secondary' href='./07-payment-test.html'><i data-lucide='arrow-right'></i> Payment Test</a>
+        <a class='btn btn-secondary' href='./08-payment-logs.html'><i data-lucide='arrow-right'></i> Payment Logs</a>
+      </div>
+    </section>
+
+    <div class='sticky-save-bar'>
+      <a class='btn btn-secondary' href='./08-payment-logs.html'>Oldingi sahifa</a>
+      <a class='btn btn-primary' href='./02-payme-setup.html'>Keyingi sahifa</a>
+    </div>
+  </div>
+</main>
+<script>window.addEventListener('DOMContentLoaded',()=>{if(window.lucide&&window.lucide.createIcons)window.lucide.createIcons();});</script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang='uz'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>QULAY CHAT - Mobile Chat</title>
+<link rel='preconnect' href='https://fonts.googleapis.com'>
+<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+<link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap' rel='stylesheet'>
+<link rel='stylesheet' href='../assets/qulay-chat-design-system.css'>
+<script src='https://unpkg.com/lucide@latest' defer></script>
+<script src='../assets/qulay-chat-shell.js' defer></script>
+<script src='../assets/qulay-chat-runtime.js' defer></script>
+<style>
+:root{--chat:#0ea5e9;--chat2:#0284c7;}
+.chat-hero{margin-top:12px;border-radius:16px;padding:16px;border:1px solid #bae6fd;background:linear-gradient(140deg,#ecfeff,#eff6ff)}
+.chat-layout{display:grid;grid-template-columns:1.2fr .8fr;gap:14px;margin-top:14px}
+.chat-phone{background:#0b1220;border:1px solid #1e293b;border-radius:18px;padding:12px;color:#e2e8f0;min-height:420px}
+.msg{max-width:78%;padding:10px 12px;border-radius:12px;margin-bottom:8px;font-size:14px;line-height:1.35}
+.msg.in{background:#1f2937;border:1px solid #334155}
+.msg.out{background:linear-gradient(135deg,var(--chat),var(--chat2));margin-left:auto;color:white}
+.typing{display:flex;gap:4px;align-items:center;padding:8px 10px;border-radius:10px;background:#111827;border:1px solid #1f2937;width:max-content}
+.typing span{width:6px;height:6px;border-radius:999px;background:#38bdf8;animation:b 1s infinite alternate}
+.typing span:nth-child(2){animation-delay:.2s}.typing span:nth-child(3){animation-delay:.4s}
+@keyframes b{from{opacity:.3;transform:translateY(0)}to{opacity:1;transform:translateY(-3px)}}
+.tool-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.tool-btn{border:1px solid #e2e8f0;border-radius:12px;padding:10px;background:white;display:flex;gap:8px;align-items:center;font-weight:600}
+@media (max-width: 1000px){.chat-layout{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-active-nav='mobile-agent' class='dashboard-shell-page'>
+<main class='app-content'>
+  <div class='subnav-scroll'><div class='subnav-tabs'>
+    <a class='subnav-tab' href='./01-mobile-inbox.html'>Mobile Inbox</a>
+    <a class='subnav-tab active' href='./02-mobile-chat.html'>Mobile Chat</a>
+    <a class='subnav-tab' href='./03-mobile-notifications.html'>Mobile Notifications</a>
+    <a class='subnav-tab' href='./04-mobile-status.html'>Mobile Status</a>
+    <a class='subnav-tab' href='./05-mobile-settings.html'>Mobile Settings</a>
+  </div></div>
+
+  <div data-roles='admin'>
+    <nav class='breadcrumbs'>
+      <a href='../04-dashboard/01-dashboard.html'>Dashboard</a>
+      <i data-lucide='chevron-right'></i>
+      <a href='./01-mobile-inbox.html'>Mobile Agent</a>
+      <i data-lucide='chevron-right'></i>
+      <span class='current'>Mobile Chat</span>
+    </nav>
+
+    <section class='chat-hero'>
+      <div class='flex justify-between items-center wrap gap-2'>
+        <div>
+          <h1 style='margin:0 0 6px'>Mobile Chat</h1>
+          <p class='text-muted' style='margin:0'>Xabar oqimi, tez javob, attachment va typing jarayonini mobil ko‘rinishda boshqarish.</p>
+        </div>
+        <div class='pill' style='background:#e0f2fe'><i data-lucide='message-circle'></i> Active Conversation</div>
+      </div>
+      <div class='flex gap-2 wrap' style='margin-top:10px'>
+        <span class='pill'>Open chats: 42</span>
+        <span class='pill'>Typing now: 7</span>
+        <span class='pill'>Avg response: 31s</span>
+      </div>
+    </section>
+
+    <section class='chat-layout'>
+      <article class='card'>
+        <div class='card-header'><h3><i data-lucide='smartphone'></i> Live Chat Canvas</h3></div>
+        <div class='card-body'>
+          <div class='chat-phone'>
+            <div class='text-muted' style='font-size:12px;margin-bottom:10px'>Mijoz: @sardor | Ticket: #M-5521</div>
+            <div class='msg in'>Salom, buyurtma #A-5512 qayerga yetdi?</div>
+            <div class='msg out'>Salom! Hozir tekshiraman. 1 daqiqa kuting 🙌</div>
+            <div class='msg in'>Rahmat. Agar bo'lsa tracking linkni ham yuboring.</div>
+            <div class='msg out'>Albatta. Mana tracking: <strong>ship.qulay.uz/TK8821</strong></div>
+            <div class='typing' aria-label='typing'><span></span><span></span><span></span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class='card'>
+        <div class='card-header'><h3><i data-lucide='wand-sparkles'></i> Chat Toolkit</h3></div>
+        <div class='card-body'>
+          <div class='tool-grid'>
+            <button class='tool-btn'><i data-lucide='paperclip'></i> Attachment</button>
+            <button class='tool-btn'><i data-lucide='image-plus'></i> Screenshot</button>
+            <button class='tool-btn'><i data-lucide='mic'></i> Voice note</button>
+            <button class='tool-btn'><i data-lucide='smile'></i> Emoji panel</button>
+          </div>
+          <div class='divider' style='margin:12px 0'></div>
+          <h4 style='margin:0 0 8px'>Quick replies</h4>
+          <div class='list-stack'>
+            <div class='list-item'><div class='item-main'><div class='item-title'>Buyurtma raqamingizni yuboring</div></div><button class='btn btn-ghost'>Qo‘llash</button></div>
+            <div class='list-item'><div class='item-main'><div class='item-title'>Operatorga ulayapman</div></div><button class='btn btn-ghost'>Qo‘llash</button></div>
+            <div class='list-item'><div class='item-main'><div class='item-title'>Muammo yechildimi?</div></div><button class='btn btn-ghost'>Qo‘llash</button></div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <div class='sticky-save-bar'>
+      <a class='btn btn-secondary' href='./01-mobile-inbox.html'>Oldingi sahifa</a>
+      <a class='btn btn-primary' href='./03-mobile-notifications.html'>Keyingi sahifa</a>
+    </div>
+  </div>
+</main>
+<script>window.addEventListener('DOMContentLoaded',()=>{if(window.lucide&&window.lucide.createIcons)window.lucide.createIcons();});</script>
+</body>
+</html>

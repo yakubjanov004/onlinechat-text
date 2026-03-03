@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang='uz'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>QULAY CHAT - Payment Logs</title>
+<link rel='preconnect' href='https://fonts.googleapis.com'>
+<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+<link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap' rel='stylesheet'>
+<link rel='stylesheet' href='../assets/qulay-chat-design-system.css'>
+<script src='https://unpkg.com/lucide@latest' defer></script>
+<script src='../assets/qulay-chat-shell.js' defer></script>
+<script src='../assets/qulay-chat-runtime.js' defer></script>
+<style>
+:root{--lg:#334155;--lg2:#0f172a}
+.hero{margin-top:12px;border-radius:16px;padding:16px;border:1px solid #cbd5e1;background:linear-gradient(135deg,#f8fafc,#f1f5f9)}
+.badgex{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#e2e8f0;border:1px solid #cbd5e1;font-weight:700}
+.metric{border-top:4px solid #475569}
+.main{display:grid;grid-template-columns:1.1fr .9fr;gap:14px;margin-top:14px}
+.panel{border:1px solid #e2e8f0;border-radius:12px;padding:10px;background:#fff}
+.filters{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px dashed #e2e8f0}
+.row:last-child{border-bottom:none}
+.stream{background:#0f172a;color:#e2e8f0;border-radius:12px;padding:12px;font-family:ui-monospace,Consolas,monospace;font-size:12px;line-height:1.5;max-height:260px;overflow:auto}
+@media (max-width:1000px){.main{grid-template-columns:1fr}.filters{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-active-nav='billing' class='dashboard-shell-page'>
+<main class='app-content'>
+  <div class='subnav-scroll'><div class='subnav-tabs'>
+    <a class='subnav-tab' href='./01-payment-overview.html'>Payment Overview</a>
+    <a class='subnav-tab' href='./02-payme-setup.html'>Payme Setup</a>
+    <a class='subnav-tab' href='./03-click-setup.html'>Click Setup</a>
+    <a class='subnav-tab' href='./04-uzum-setup.html'>Uzum Setup</a>
+    <a class='subnav-tab' href='./05-stripe-setup.html'>Stripe Setup</a>
+    <a class='subnav-tab' href='./06-bank-transfer.html'>Bank Transfer</a>
+    <a class='subnav-tab' href='./07-payment-test.html'>Payment Test</a>
+    <a class='subnav-tab active' href='./08-payment-logs.html'>Payment Logs</a>
+  </div></div>
+
+  <div data-roles='admin'>
+    <nav class='breadcrumbs' aria-label='Breadcrumb'>
+      <a href='../04-dashboard/01-dashboard.html'>Dashboard</a>
+      <i data-lucide='chevron-right'></i>
+      <a href='./01-payment-overview.html'>Payments</a>
+      <i data-lucide='chevron-right'></i>
+      <span class='current'>Payment Logs</span>
+    </nav>
+
+    <section class='hero'>
+      <div class='flex justify-between items-center wrap gap-2'>
+        <div>
+          <h1 style='margin:0 0 6px'>Payment Logs</h1>
+          <p class='text-muted' style='margin:0'>Muvaffaqiyatli, pending va xatolik tranzaksiyalarini markaziy jurnalda kuzatish va audit eksporti.</p>
+        </div>
+        <span class='badgex'><i data-lucide='scroll-text'></i> Audit Stream</span>
+      </div>
+      <div class='flex gap-2 wrap' style='margin-top:10px'>
+        <span class='pill'>Events/24h: 18,240</span>
+        <span class='pill'>Fail rate: 1.1%</span>
+        <span class='pill'>Refunds: 23</span>
+        <span class='pill'>Last event: 16:22</span>
+      </div>
+    </section>
+
+    <section class='grid cols-4' style='margin-top:14px'>
+      <article class='card metric'><div class='card-body'><p class='text-muted' style='margin:0 0 6px'>Success</p><h3 style='margin:0'>16,981</h3></div></article>
+      <article class='card metric'><div class='card-body'><p class='text-muted' style='margin:0 0 6px'>Pending</p><h3 style='margin:0'>1,036</h3></div></article>
+      <article class='card metric'><div class='card-body'><p class='text-muted' style='margin:0 0 6px'>Failed</p><h3 style='margin:0'>223</h3></div></article>
+      <article class='card metric'><div class='card-body'><p class='text-muted' style='margin:0 0 6px'>Refunded</p><h3 style='margin:0'>23</h3></div></article>
+    </section>
+
+    <section class='card' style='margin-top:14px'>
+      <div class='card-header'><h3><i data-lucide='funnel'></i> Filter & Export</h3></div>
+      <div class='card-body'>
+        <div class='filters'>
+          <select class='input'><option>Holat: Barchasi</option><option>Success</option><option>Pending</option><option>Failed</option></select>
+          <select class='input'><option>Gateway: Barchasi</option><option>Payme</option><option>Click</option><option>Uzum</option><option>Stripe</option><option>Bank</option></select>
+          <div class='flex gap-2'><button class='btn btn-secondary'><i data-lucide='download'></i> CSV</button><button class='btn btn-secondary'><i data-lucide='file-json'></i> JSONL</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class='main'>
+      <article class='card'>
+        <div class='card-header'><h3><i data-lucide='table2'></i> Transaction Journal</h3></div>
+        <div class='card-body'>
+          <div class='table-wrap'>
+            <table class='table'>
+              <thead class='table-header'><tr><th>Vaqt</th><th>Tx ID</th><th>Gateway</th><th>Summa</th><th>Holat</th></tr></thead>
+              <tbody>
+                <tr class='table-row'><td>16:22</td><td>TX-949201</td><td>Payme</td><td>420,000 UZS</td><td><span class='badge badge-success'>Success</span></td></tr>
+                <tr class='table-row'><td>16:19</td><td>TX-949180</td><td>Click</td><td>1,250,000 UZS</td><td><span class='badge badge-warning'>Pending</span></td></tr>
+                <tr class='table-row'><td>16:14</td><td>TX-949143</td><td>Stripe</td><td>89 USD</td><td><span class='badge badge-danger'>Failed</span></td></tr>
+                <tr class='table-row'><td>16:11</td><td>TX-949130</td><td>Uzum</td><td>310,000 UZS</td><td><span class='badge badge-success'>Success</span></td></tr>
+                <tr class='table-row'><td>16:07</td><td>TX-949101</td><td>Bank</td><td>870,000 UZS</td><td><span class='badge badge-primary'>Review</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </article>
+
+      <article class='card'>
+        <div class='card-header'><h3><i data-lucide='terminal'></i> Live Event Stream</h3></div>
+        <div class='card-body'>
+          <div class='stream'>
+[16:22:01] payme.payment.success tx=TX-949201 amount=420000
+[16:21:47] click.callback.received tx=TX-949180 status=pending
+[16:21:11] stripe.signature.ok event=payment_intent.failed
+[16:20:54] bank.transfer.manual_review invoice=INV-22031
+[16:20:16] uzum.settlement.completed batch=B-1022
+[16:19:52] payme.refund.created tx=TX-948888 amount=120000
+          </div>
+
+          <div class='divider' style='margin:12px 0'></div>
+          <div class='panel'>
+            <div class='row'><span>Retention policy</span><strong>90 kun</strong></div>
+            <div class='row'><span>PII masking</span><span class='badge badge-success'>Enabled</span></div>
+            <div class='row'><span>Immutable audit mode</span><span class='badge badge-primary'>On</span></div>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class='card' style='margin-top:14px'>
+      <div class='card-header'><h3><i data-lucide='git-fork'></i> Keyingi yo'nalish</h3></div>
+      <div class='card-body flex gap-2 wrap'>
+        <a class='btn btn-secondary' href='./01-payment-overview.html'><i data-lucide='arrow-right'></i> Overview</a>
+        <a class='btn btn-secondary' href='./07-payment-test.html'><i data-lucide='arrow-right'></i> Payment Test</a>
+      </div>
+    </section>
+
+    <div class='sticky-save-bar'>
+      <a class='btn btn-secondary' href='./07-payment-test.html'>Oldingi sahifa</a>
+      <a class='btn btn-primary' href='./01-payment-overview.html'>Bo'lim boshiga</a>
+    </div>
+  </div>
+</main>
+<script>window.addEventListener('DOMContentLoaded',()=>{if(window.lucide&&window.lucide.createIcons)window.lucide.createIcons();});</script>
+</body>
+</html>

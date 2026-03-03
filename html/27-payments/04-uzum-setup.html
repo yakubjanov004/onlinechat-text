@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang='uz'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>QULAY CHAT - Uzum Setup</title>
+<link rel='preconnect' href='https://fonts.googleapis.com'>
+<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+<link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap' rel='stylesheet'>
+<link rel='stylesheet' href='../assets/qulay-chat-design-system.css'>
+<script src='https://unpkg.com/lucide@latest' defer></script>
+<script src='../assets/qulay-chat-shell.js' defer></script>
+<script src='../assets/qulay-chat-runtime.js' defer></script>
+<style>
+:root{--uz:#7c3aed;--uz2:#a855f7}
+.hero{margin-top:12px;border:1px solid #ddd6fe;border-radius:16px;padding:16px;background:linear-gradient(135deg,#f5f3ff,#faf5ff)}
+.badgex{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#ede9fe;border:1px solid #c4b5fd;font-weight:700}
+.metric{border-top:4px solid var(--uz)}
+.main{display:grid;grid-template-columns:1.1fr .9fr;gap:14px;margin-top:14px}
+.panel{border:1px solid #e9d5ff;border-radius:12px;padding:10px;background:#fff}
+.row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px dashed #e2e8f0}
+.row:last-child{border-bottom:none}
+.schedule{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.timeline .e{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px dashed #e2e8f0}
+.timeline .e:last-child{border-bottom:none}
+@media (max-width:1000px){.main{grid-template-columns:1fr}.schedule{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-active-nav='billing' class='dashboard-shell-page'>
+<main class='app-content'>
+  <div class='subnav-scroll'><div class='subnav-tabs'>
+    <a class='subnav-tab' href='./01-payment-overview.html'>Payment Overview</a>
+    <a class='subnav-tab' href='./02-payme-setup.html'>Payme Setup</a>
+    <a class='subnav-tab' href='./03-click-setup.html'>Click Setup</a>
+    <a class='subnav-tab active' href='./04-uzum-setup.html'>Uzum Setup</a>
+    <a class='subnav-tab' href='./05-stripe-setup.html'>Stripe Setup</a>
+    <a class='subnav-tab' href='./06-bank-transfer.html'>Bank Transfer</a>
+    <a class='subnav-tab' href='./07-payment-test.html'>Payment Test</a>
+    <a class='subnav-tab' href='./08-payment-logs.html'>Payment Logs</a>
+  </div></div>
+
+  <div data-roles='admin'>
+    <nav class='breadcrumbs' aria-label='Breadcrumb'>
+      <a href='../04-dashboard/01-dashboard.html'>Dashboard</a>
+      <i data-lucide='chevron-right'></i>
+      <a href='./01-payment-overview.html'>Payments</a>
+      <i data-lucide='chevron-right'></i>
+      <span class='current'>Uzum Setup</span>
+    </nav>
+
+    <section class='hero'>
+      <div class='flex justify-between items-center wrap gap-2'>
+        <div>
+          <h1 style='margin:0 0 6px'>Uzum Setup</h1>
+          <p class='text-muted' style='margin:0'>Uzum/Uzcard terminal ulanishi, settlement jadvali va reconcilliation oqimini boshqarish.</p>
+        </div>
+        <span class='badgex'><i data-lucide='building-2'></i> Uzum Terminal Hub</span>
+      </div>
+      <div class='flex gap-2 wrap' style='margin-top:10px'>
+        <span class='pill'>Terminal: UZM-01</span>
+        <span class='pill'>Auth: Verified</span>
+        <span class='pill'>Settlement: Daily</span>
+        <span class='pill'>Mode: Production</span>
+      </div>
+    </section>
+
+    <section class='grid cols-4' style='margin-top:14px'>
+      <article class='card metric'><div class='card-body'><p class='text-muted' style='margin:0 0 6px'>Daily tx</p><h3 style='margin:0'>2,910</h3></div></article>
+      <article class='card metric'><div class='card-body'><p class='text-muted' style='margin:0 0 6px'>Approval rate</p><h3 style='margin:0'>97.8%</h3></div></article>
+      <article class='card metric'><div class='card-body'><p class='text-muted' style='margin:0 0 6px'>Avg settle time</p><h3 style='margin:0'>4.2 soat</h3></div></article>
+      <article class='card metric'><div class='card-body'><p class='text-muted' style='margin:0 0 6px'>Pending settle</p><h3 style='margin:0'>7</h3></div></article>
+    </section>
+
+    <section class='main'>
+      <article class='card'>
+        <div class='card-header'><h3><i data-lucide='cpu'></i> Terminal Configuration</h3></div>
+        <div class='card-body'>
+          <div class='panel'>
+            <label>Terminal ID<input class='input' value='UZM-01-TID-8821' /></label>
+            <label style='margin-top:10px;display:block'>API Client ID<input class='input' value='uzum_client_001' /></label>
+            <label style='margin-top:10px;display:block'>API Secret<input class='input' value='••••••••••••••••' /></label>
+            <label style='margin-top:10px;display:block'>Callback URL<input class='input' value='https://api.qulaychat.uz/uzum/callback' /></label>
+            <div class='flex gap-2 wrap' style='margin-top:12px'>
+              <button class='btn btn-secondary'><i data-lucide='flask-conical'></i> Ulanishni test qilish</button>
+              <button class='btn btn-primary'><i data-lucide='save'></i> Sozlamani saqlash</button>
+            </div>
+          </div>
+
+          <div class='divider' style='margin:12px 0'></div>
+          <h4 style='margin:0 0 8px'>Settlement Schedule</h4>
+          <div class='schedule'>
+            <div class='panel'><strong>Dushanba - Juma</strong><div class='text-muted'>10:00 va 17:00 batch</div></div>
+            <div class='panel'><strong>Shanba</strong><div class='text-muted'>12:00 batch</div></div>
+          </div>
+        </div>
+      </article>
+
+      <article class='card'>
+        <div class='card-header'><h3><i data-lucide='calendar-check-2'></i> Settlement Timeline</h3></div>
+        <div class='card-body'>
+          <div class='panel timeline'>
+            <div class='e'><span>15:10 Batch started</span><span class='badge badge-primary'>Running</span></div>
+            <div class='e'><span>14:45 Reconcile completed</span><span class='badge badge-success'>Done</span></div>
+            <div class='e'><span>13:30 2 mismatch found</span><span class='badge badge-warning'>Review</span></div>
+            <div class='e'><span>12:05 Previous settle done</span><span class='badge badge-success'>Done</span></div>
+          </div>
+
+          <div class='divider' style='margin:12px 0'></div>
+          <div class='list-stack'>
+            <div class='list-item'><div class='item-main'><div class='item-title'>Auto-reconcile</div></div><span class='badge badge-success'>Enabled</span></div>
+            <div class='list-item'><div class='item-main'><div class='item-title'>Mismatch threshold</div></div><span class='badge badge-warning'>0.5%</span></div>
+          </div>
+
+          <div class='divider' style='margin:12px 0'></div>
+          <a class='btn btn-secondary' href='./08-payment-logs.html'><i data-lucide='scroll-text'></i> Settlement loglari</a>
+        </div>
+      </article>
+    </section>
+
+    <section class='card' style='margin-top:14px'>
+      <div class='card-header'><h3><i data-lucide='git-fork'></i> Keyingi yo'nalish</h3></div>
+      <div class='card-body flex gap-2 wrap'>
+        <a class='btn btn-secondary' href='./05-stripe-setup.html'><i data-lucide='arrow-right'></i> Stripe Setup</a>
+        <a class='btn btn-secondary' href='./07-payment-test.html'><i data-lucide='arrow-right'></i> Payment Test</a>
+        <a class='btn btn-secondary' href='./08-payment-logs.html'><i data-lucide='arrow-right'></i> Payment Logs</a>
+      </div>
+    </section>
+
+    <div class='sticky-save-bar'>
+      <a class='btn btn-secondary' href='./03-click-setup.html'>Oldingi sahifa</a>
+      <a class='btn btn-primary' href='./05-stripe-setup.html'>Keyingi sahifa</a>
+    </div>
+  </div>
+</main>
+<script>window.addEventListener('DOMContentLoaded',()=>{if(window.lucide&&window.lucide.createIcons)window.lucide.createIcons();});</script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang='uz'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>QULAY CHAT - Payme Setup</title>
+<link rel='preconnect' href='https://fonts.googleapis.com'>
+<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+<link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap' rel='stylesheet'>
+<link rel='stylesheet' href='../assets/qulay-chat-design-system.css'>
+<script src='https://unpkg.com/lucide@latest' defer></script>
+<script src='../assets/qulay-chat-shell.js' defer></script>
+<script src='../assets/qulay-chat-runtime.js' defer></script>
+<style>
+:root{--pm:#14b8a6;--pm2:#0d9488}
+.hero{margin-top:12px;border-radius:16px;padding:16px;border:1px solid #99f6e4;background:linear-gradient(140deg,#f0fdfa,#ecfeff)}
+.badgex{display:inline-flex;align-items:center;gap:8px;padding:7px 11px;border-radius:999px;background:#ccfbf1;border:1px solid #5eead4;font-weight:700}
+.metric{border-top:4px solid var(--pm)}
+.main-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:14px;margin-top:14px}
+.block{border:1px solid #d1fae5;border-radius:12px;padding:10px;background:#fff}
+.v-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px dashed #e2e8f0}
+.v-row:last-child{border-bottom:none}
+.steps{counter-reset:step}
+.steps .s{position:relative;padding:10px 10px 10px 42px;border:1px solid #e2e8f0;border-radius:12px;margin-bottom:8px;background:#fff}
+.steps .s::before{counter-increment:step;content:counter(step);position:absolute;left:10px;top:10px;width:22px;height:22px;border-radius:999px;background:var(--pm);color:#fff;display:grid;place-items:center;font-size:12px;font-weight:700}
+.flow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.flow .f{border:1px solid #ccfbf1;border-radius:12px;padding:10px;background:#f0fdfa;text-align:center}
+@media (max-width:1000px){.main-grid{grid-template-columns:1fr}.flow{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-active-nav='billing' class='dashboard-shell-page'>
+<main class='app-content'>
+  <div class='subnav-scroll'><div class='subnav-tabs'>
+    <a class='subnav-tab' href='./01-payment-overview.html'>Payment Overview</a>
+    <a class='subnav-tab active' href='./02-payme-setup.html'>Payme Setup</a>
+    <a class='subnav-tab' href='./03-click-setup.html'>Click Setup</a>
+    <a class='subnav-tab' href='./04-uzum-setup.html'>Uzum Setup</a>
+    <a class='subnav-tab' href='./05-stripe-setup.html'>Stripe Setup</a>
+    <a class='subnav-tab' href='./06-bank-transfer.html'>Bank Transfer</a>
+    <a class='subnav-tab' href='./07-payment-test.html'>Payment Test</a>
+    <a class='subnav-tab' href='./08-payment-logs.html'>Payment Logs</a>
+  </div></div>
+
+  <div data-roles='admin'>
+    <nav class='breadcrumbs' aria-label='Breadcrumb'>
+      <a href='../04-dashboard/01-dashboard.html'>Dashboard</a>
+      <i data-lucide='chevron-right'></i>
+      <a href='./01-payment-overview.html'>Payments</a>
+      <i data-lucide='chevron-right'></i>
+      <span class='current'>Payme Setup</span>
+    </nav>
+
+    <section class='hero'>
+      <div class='flex justify-between items-center wrap gap-2'>
+        <div>
+          <h1 style='margin:0 0 6px'>Payme Setup</h1>
+          <p class='text-muted' style='margin:0'>Merchant ulanishini xavfsiz sozlash, callback verifikatsiya va productionga chiqish jarayoni.</p>
+        </div>
+        <span class='badgex'><i data-lucide='credit-card'></i> Payme Connector</span>
+      </div>
+      <div class='flex gap-2 wrap' style='margin-top:10px'>
+        <span class='pill'>Merchant: Active</span>
+        <span class='pill'>Callback RTT: 310 ms</span>
+        <span class='pill'>Last verify: 15:43</span>
+        <span class='pill'>Mode: Production</span>
+      </div>
+    </section>
+
+    <section class='grid cols-4' style='margin-top:14px'>
+      <article class='card metric'><div class='card-body'><p class='text-muted' style='margin:0 0 6px'>Webhook success</p><h3 style='margin:0'>99.1%</h3></div></article>
+      <article class='card metric'><div class='card-body'><p class='text-muted' style='margin:0 0 6px'>Pending verify</p><h3 style='margin:0'>2</h3></div></article>
+      <article class='card metric'><div class='card-body'><p class='text-muted' style='margin:0 0 6px'>Signature match</p><h3 style='margin:0'>100%</h3></div></article>
+      <article class='card metric'><div class='card-body'><p class='text-muted' style='margin:0 0 6px'>Retry resolved</p><h3 style='margin:0'>73%</h3></div></article>
+    </section>
+
+    <section class='main-grid'>
+      <article class='card'>
+        <div class='card-header'><h3><i data-lucide='key-round'></i> Merchant Credentials</h3></div>
+        <div class='card-body'>
+          <div class='block'>
+            <label>Merchant ID<input class='input' value='payme_merchant_001' /></label>
+            <label style='margin-top:10px;display:block'>Secret Key<input class='input' value='••••••••••••••••' /></label>
+            <label style='margin-top:10px;display:block'>Callback URL<input class='input' value='https://api.qulaychat.uz/payme/callback' /></label>
+            <div class='flex gap-2 wrap' style='margin-top:12px'>
+              <button class='btn btn-secondary'><i data-lucide='flask-conical'></i> Test callback</button>
+              <button class='btn btn-primary'><i data-lucide='save'></i> Saqlash</button>
+            </div>
+          </div>
+
+          <div class='divider' style='margin:12px 0'></div>
+          <h4 style='margin:0 0 8px'>Onboarding Steps</h4>
+          <div class='steps'>
+            <div class='s'>Merchant ID va keylarni kiriting</div>
+            <div class='s'>Callback endpointni verify qiling</div>
+            <div class='s'>Sandbox test to'lovni o'tkazing</div>
+            <div class='s'>Production switchni yoqing</div>
+          </div>
+        </div>
+      </article>
+
+      <article class='card'>
+        <div class='card-header'><h3><i data-lucide='shield-check'></i> Security & Validation</h3></div>
+        <div class='card-body'>
+          <div class='block'>
+            <div class='v-row'><span>X-Auth header</span><span class='badge badge-success'>OK</span></div>
+            <div class='v-row'><span>IP whitelist</span><span class='badge badge-success'>OK</span></div>
+            <div class='v-row'><span>Timestamp drift</span><span class='badge badge-warning'>+42s</span></div>
+            <div class='v-row'><span>Replay protection</span><span class='badge badge-primary'>Enabled</span></div>
+          </div>
+
+          <div class='divider' style='margin:12px 0'></div>
+          <h4 style='margin:0 0 8px'>Callback Flow</h4>
+          <div class='flow'>
+            <div class='f'><i data-lucide='send'></i><div>Payme Event</div></div>
+            <div class='f'><i data-lucide='shield'></i><div>Signature Check</div></div>
+            <div class='f'><i data-lucide='database'></i><div>Payment Update</div></div>
+          </div>
+
+          <div class='divider' style='margin:12px 0'></div>
+          <a class='btn btn-secondary' href='./08-payment-logs.html'><i data-lucide='scroll-text'></i> Callback loglar</a>
+        </div>
+      </article>
+    </section>
+
+    <section class='card' style='margin-top:14px'>
+      <div class='card-header'><h3><i data-lucide='git-fork'></i> Keyingi yo'nalish</h3></div>
+      <div class='card-body flex gap-2 wrap'>
+        <a class='btn btn-secondary' href='./03-click-setup.html'><i data-lucide='arrow-right'></i> Click Setup</a>
+        <a class='btn btn-secondary' href='./07-payment-test.html'><i data-lucide='arrow-right'></i> Payment Test</a>
+        <a class='btn btn-secondary' href='./08-payment-logs.html'><i data-lucide='arrow-right'></i> Payment Logs</a>
+      </div>
+    </section>
+
+    <div class='sticky-save-bar'>
+      <a class='btn btn-secondary' href='./01-payment-overview.html'>Oldingi sahifa</a>
+      <a class='btn btn-primary' href='./03-click-setup.html'>Keyingi sahifa</a>
+    </div>
+  </div>
+</main>
+<script>window.addEventListener('DOMContentLoaded',()=>{if(window.lucide&&window.lucide.createIcons)window.lucide.createIcons();});</script>
+</body>
+</html>

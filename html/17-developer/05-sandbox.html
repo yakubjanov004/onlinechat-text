@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QULAY CHAT - Sandbox</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../assets/qulay-chat-shell.js" defer></script>
+    <script src="../assets/qulay-chat-runtime.js" defer></script>
+  </head>
+  <body data-active-nav="developer" class="dashboard-shell-page">
+    <main class="app-content">
+      <div class="subnav-scroll"><div class="subnav-tabs">
+        <a class="subnav-tab" href="./01-api-keys.html">API Keys</a>
+        <a class="subnav-tab" href="./02-webhooks.html">Webhooks</a>
+        <a class="subnav-tab" href="./03-logs.html">Logs</a>
+        <a class="subnav-tab" href="./04-api-usage.html">API Usage</a>
+        <a class="subnav-tab active" href="./05-sandbox.html">Sandbox</a>
+      </div></div>
+
+      <div data-roles="admin">
+        <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../04-dashboard/01-dashboard.html">Dashboard</a><i data-lucide="chevron-right"></i><a href="./01-api-keys.html">Developer</a><i data-lucide="chevron-right"></i><span class="current">Sandbox</span></nav>
+        <div class="page-header"><div><h1>Sandbox</h1><p class="text-muted">API endpointlarni test qilish, request/response ni ko‘rish va debug oqimi.</p></div><div class="page-header-actions"><a class="btn btn-secondary" href="./04-api-usage.html"><i data-lucide="arrow-left"></i> API Usage</a><a class="btn btn-primary" href="./01-api-keys.html">API Keys <i data-lucide="arrow-right"></i></a></div></div>
+
+        <section class="split-grid" style="margin-bottom:14px">
+          <article class="card">
+            <div class="card-header"><h3>Request builder</h3></div>
+            <div class="card-body">
+              <label>Method<select class="input"><option>GET</option><option>POST</option><option>PUT</option></select></label>
+              <label style="margin-top:10px;display:block">Endpoint<input class="input" value="/api/messages" /></label>
+              <label style="margin-top:10px;display:block">Headers<textarea class="input" rows="3">Authorization: Bearer sk_test_xxx</textarea></label>
+              <label style="margin-top:10px;display:block">Body<textarea class="input" rows="5">{"chatId":"C-8821","message":"Salom"}</textarea></label>
+              <div class="flex gap-2 wrap" style="margin-top:12px"><button class="btn btn-secondary" type="button"><i data-lucide="play"></i> Send</button><button class="btn btn-primary" type="button"><i data-lucide="save"></i> Save preset</button></div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-header"><h3>Response preview</h3></div>
+            <div class="card-body">
+              <div class="table-wrap"><table class="table"><thead class="table-header"><tr><th>Field</th><th>Value</th></tr></thead><tbody><tr class="table-row"><td>Status</td><td>200 OK</td></tr><tr class="table-row"><td>Latency</td><td>412 ms</td></tr><tr class="table-row"><td>Request ID</td><td>req_8d21...</td></tr></tbody></table></div>
+              <div class="divider" style="margin:12px 0"></div>
+              <textarea class="input" rows="8">{"ok":true,"id":"msg_9201","createdAt":"2026-03-03T12:07:11Z"}</textarea>
+            </div>
+          </article>
+        </section>
+
+        <div class="sticky-save-bar"><a class="btn btn-secondary" href="./04-api-usage.html">Oldingi sahifa</a><a class="btn btn-primary" href="./01-api-keys.html">Bo‘lim boshiga</a></div>
+      </div>
+    </main>
+    <script>window.addEventListener("DOMContentLoaded",function(){if(window.lucide&&window.lucide.createIcons)window.lucide.createIcons();});</script>
+  </body>
+</html>

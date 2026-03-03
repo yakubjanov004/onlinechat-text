@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QULAY CHAT - Manager Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../assets/qulay-chat-shell.js" defer></script>
+    <script src="../assets/qulay-chat-runtime.js" defer></script>
+  </head>
+  <body data-active-nav="dashboard" class="dashboard-shell-page">
+    <main class="app-content">
+      <div class="subnav-scroll"><div class="subnav-tabs">
+        <a class="subnav-tab" href="./01-dashboard.html">Dashboard</a>
+        <a class="subnav-tab" href="./02-dashboard-agent.html">Agent Dashboard</a>
+        <a class="subnav-tab" href="./03-dashboard-customizable.html">Customizable</a>
+        <a class="subnav-tab" href="./04-agent-quick-actions.html">Agent Quick Actions</a>
+        <a class="subnav-tab active" href="./05-manager-dashboard.html">Manager Dashboard</a>
+      </div></div>
+
+      <div data-roles="admin">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="./01-dashboard.html">Dashboard</a>
+          <i data-lucide="chevron-right"></i>
+          <span class="current">Manager Dashboard</span>
+        </nav>
+
+        <div class="page-header">
+          <div>
+            <h1>Manager Dashboard</h1>
+            <p class="text-muted">Jamoa KPI, SLA holati va eskalatsiya monitoringini umumiy ko‘rinishda boshqarish.</p>
+          </div>
+          <div class="page-header-actions">
+            <a class="btn btn-secondary" href="./04-agent-quick-actions.html"><i data-lucide="arrow-left"></i> Agent Quick Actions</a>
+            <a class="btn btn-primary" href="../08-analytics/01-overview.html">Analytics <i data-lucide="arrow-right"></i></a>
+          </div>
+        </div>
+
+        <section class="grid cols-4" style="margin-bottom:14px">
+          <article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">Active agents</p><h3 style="margin:0">27</h3></div></article>
+          <article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">SLA compliance</p><h3 style="margin:0">94.8%</h3></div></article>
+          <article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">Open escalations</p><h3 style="margin:0">6</h3></div></article>
+          <article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">CSAT today</p><h3 style="margin:0">4.7/5</h3></div></article>
+        </section>
+
+        <section class="split-grid" style="margin-bottom:14px">
+          <article class="card">
+            <div class="card-header"><h3>Team performance</h3></div>
+            <div class="card-body">
+              <div class="table-wrap">
+                <table class="table">
+                  <thead class="table-header"><tr><th>Jamoa</th><th>Resolved</th><th>Avg FRT</th><th>SLA</th></tr></thead>
+                  <tbody>
+                    <tr class="table-row"><td>L1 Support</td><td>182</td><td>49s</td><td><span class="badge badge-success">96%</span></td></tr>
+                    <tr class="table-row"><td>Billing</td><td>74</td><td>1m 12s</td><td><span class="badge badge-warning">91%</span></td></tr>
+                    <tr class="table-row"><td>Tech Support</td><td>68</td><td>1m 28s</td><td><span class="badge badge-primary">93%</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-header"><h3>Eskalatsiya paneli</h3></div>
+            <div class="card-body">
+              <div class="list-stack">
+                <div class="list-item"><div class="item-main"><div class="item-title">Priority-1 payment outage</div><div class="item-sub">12 daqiqa oldin</div></div><span class="badge badge-danger">Urgent</span></div>
+                <div class="list-item"><div class="item-main"><div class="item-title">VIP complaint follow-up</div><div class="item-sub">18 daqiqa oldin</div></div><span class="badge badge-warning">High</span></div>
+                <div class="list-item"><div class="item-main"><div class="item-title">Template rejection review</div><div class="item-sub">26 daqiqa oldin</div></div><span class="badge badge-primary">Medium</span></div>
+              </div>
+              <div class="divider" style="margin:12px 0"></div>
+              <a class="btn btn-secondary" href="../06-automation/16-escalation-rules.html"><i data-lucide="settings"></i> Eskalatsiya qoidalari</a>
+            </div>
+          </article>
+        </section>
+
+        <section class="card" style="margin-bottom:14px">
+          <div class="card-header"><h3>Manager notes</h3></div>
+          <div class="card-body">
+            <textarea class="input" rows="4" placeholder="Bugungi kuzatuvlar, risklar va keyingi choralar..."></textarea>
+            <div class="flex gap-2 wrap" style="margin-top:12px">
+              <button class="btn btn-secondary" type="button"><i data-lucide="clock"></i> Keyingi review rejalash</button>
+              <button class="btn btn-primary" type="button"><i data-lucide="save"></i> Eslatmani saqlash</button>
+            </div>
+          </div>
+        </section>
+
+        <div class="sticky-save-bar">
+          <a class="btn btn-secondary" href="./04-agent-quick-actions.html">Oldingi sahifa</a>
+          <a class="btn btn-primary" href="../08-analytics/01-overview.html">Analyticsga o‘tish</a>
+        </div>
+      </div>
+    </main>
+    <script>window.addEventListener("DOMContentLoaded",function(){if(window.lucide&&window.lucide.createIcons)window.lucide.createIcons();});</script>
+  </body>
+</html>

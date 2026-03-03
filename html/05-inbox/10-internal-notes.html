@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QULAY CHAT - Internal Notes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../assets/qulay-chat-shell.js" defer></script>
+    <script src="../assets/qulay-chat-runtime.js" defer></script>
+  </head>
+  <body data-active-nav="inbox" class="dashboard-shell-page">
+    <main class="app-content">
+      <div class="subnav-scroll"><div class="subnav-tabs">
+        <a class="subnav-tab" href="./01-inbox-chat.html">Inbox Chat</a>
+        <a class="subnav-tab" href="./02-chat-open.html">Chat Open</a>
+        <a class="subnav-tab" href="./03-info-sidebar.html">Info Sidebar</a>
+        <a class="subnav-tab" href="./04-canned-responses.html">Canned Responses</a>
+        <a class="subnav-tab" href="./05-chat-transfer.html">Chat Transfer</a>
+        <a class="subnav-tab" href="./06-chat-merge.html">Chat Merge</a>
+        <a class="subnav-tab" href="./07-bulk-actions.html">Bulk Actions</a>
+        <a class="subnav-tab" href="./08-omnichannel-view.html">Omnichannel View</a>
+        <a class="subnav-tab" href="./09-channel-filter.html">Channel Filter</a>
+        <a class="subnav-tab active" href="./10-internal-notes.html">Internal Notes</a>
+      </div></div>
+
+      <div class="page-header">
+        <div>
+          <h1>Internal Notes</h1>
+          <p class="text-muted">Mijozga ko‘rinmaydigan ichki eslatmalarni yozish va jamoa bilan ulashish.</p>
+        </div>
+        <div class="page-header-actions">
+          <a class="btn btn-secondary" href="./09-channel-filter.html"><i data-lucide="arrow-left"></i> Channel Filter</a>
+          <a class="btn btn-primary" href="./01-inbox-chat.html">Inbox Chat <i data-lucide="arrow-right"></i></a>
+        </div>
+      </div>
+
+      <section class="split-grid" style="margin-bottom:14px">
+        <article class="card">
+          <div class="card-header"><h3>Yangi eslatma</h3></div>
+          <div class="card-body">
+            <label>Chat ID
+              <input class="input" value="#C-8821" />
+            </label>
+            <label style="margin-top:10px;display:block">Eslatma matni
+              <textarea class="input" rows="6" placeholder="Ichki izohni yozing..."></textarea>
+            </label>
+            <div class="flex gap-2 wrap" style="margin-top:12px">
+              <button class="btn btn-secondary" type="button"><i data-lucide="tag"></i> Teg qo‘shish</button>
+              <button class="btn btn-primary" type="button"><i data-lucide="save"></i> Eslatmani saqlash</button>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-header"><h3>So‘nggi eslatmalar</h3></div>
+          <div class="card-body">
+            <div class="list-stack">
+              <div class="list-item"><div class="item-main"><div class="item-title">Mijoz VIP ro‘yxatda</div><div class="item-sub">#C-8821 • Jahongir</div></div><span class="badge badge-warning">High</span></div>
+              <div class="list-item"><div class="item-main"><div class="item-title">Invoice qayta yuborildi</div><div class="item-sub">#C-8802 • Dilnoza</div></div><span class="badge badge-primary">Info</span></div>
+              <div class="list-item"><div class="item-main"><div class="item-title">Escalation managerga o'tkazildi</div><div class="item-sub">#C-8788 • Madina</div></div><span class="badge badge-danger">Urgent</span></div>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="card" style="margin-bottom:14px">
+        <div class="card-header"><h3>Audit log</h3></div>
+        <div class="card-body">
+          <div class="table-wrap">
+            <table class="table">
+              <thead class="table-header"><tr><th>Vaqt</th><th>Amal</th><th>Agent</th><th>Holat</th></tr></thead>
+              <tbody>
+                <tr class="table-row"><td>16:56</td><td>Internal note created</td><td>Jahongir</td><td><span class="badge badge-success">Saved</span></td></tr>
+                <tr class="table-row"><td>16:49</td><td>Note updated</td><td>Dilnoza</td><td><span class="badge badge-primary">Updated</span></td></tr>
+                <tr class="table-row"><td>16:38</td><td>Priority tag changed</td><td>Madina</td><td><span class="badge badge-warning">Review</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <div class="sticky-save-bar">
+        <a class="btn btn-secondary" href="./09-channel-filter.html">Oldingi sahifa</a>
+        <a class="btn btn-primary" href="./01-inbox-chat.html">Bo‘lim boshiga</a>
+      </div>
+    </main>
+
+    <script>window.addEventListener("DOMContentLoaded",function(){if(window.lucide&&window.lucide.createIcons)window.lucide.createIcons();});</script>
+  </body>
+</html>

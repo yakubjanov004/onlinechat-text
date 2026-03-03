@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QULAY CHAT - Agent Quick Actions</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../assets/qulay-chat-shell.js" defer></script>
+    <script src="../assets/qulay-chat-runtime.js" defer></script>
+  </head>
+  <body data-active-nav="dashboard" class="dashboard-shell-page">
+    <main class="app-content">
+      <div class="subnav-scroll"><div class="subnav-tabs">
+        <a class="subnav-tab" href="./01-dashboard.html">Dashboard</a>
+        <a class="subnav-tab" href="./02-dashboard-agent.html">Agent Dashboard</a>
+        <a class="subnav-tab" href="./03-dashboard-customizable.html">Customizable</a>
+        <a class="subnav-tab active" href="./04-agent-quick-actions.html">Agent Quick Actions</a>
+        <a class="subnav-tab" href="./05-manager-dashboard.html">Manager Dashboard</a>
+      </div></div>
+
+      <div data-roles="admin agent">
+        <nav class="breadcrumbs" aria-label="Breadcrumb">
+          <a href="./01-dashboard.html">Dashboard</a>
+          <i data-lucide="chevron-right"></i>
+          <span class="current">Agent Quick Actions</span>
+        </nav>
+
+        <div class="page-header">
+          <div>
+            <h1>Agent Quick Actions</h1>
+            <p class="text-muted">Agentlar uchun eng ko‘p ishlatiladigan tezkor amallar paneli.</p>
+          </div>
+          <div class="page-header-actions">
+            <a class="btn btn-secondary" href="./03-dashboard-customizable.html"><i data-lucide="arrow-left"></i> Customizable</a>
+            <a class="btn btn-primary" href="./05-manager-dashboard.html">Manager Dashboard <i data-lucide="arrow-right"></i></a>
+          </div>
+        </div>
+
+        <section class="grid cols-3" style="margin-bottom:14px">
+          <article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">Open chats</p><h3 style="margin:0">42</h3></div></article>
+          <article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">Pending follow-up</p><h3 style="margin:0">11</h3></div></article>
+          <article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">Today resolved</p><h3 style="margin:0">63</h3></div></article>
+        </section>
+
+        <section class="split-grid" style="margin-bottom:14px">
+          <article class="card">
+            <div class="card-header"><h3>Tezkor amallar</h3></div>
+            <div class="card-body">
+              <div class="flex gap-2 wrap">
+                <button class="btn btn-secondary" type="button"><i data-lucide="plus-circle"></i> Yangi chat</button>
+                <button class="btn btn-secondary" type="button"><i data-lucide="user-plus"></i> Kontakt qo‘shish</button>
+                <button class="btn btn-secondary" type="button"><i data-lucide="send"></i> Broadcast</button>
+                <button class="btn btn-secondary" type="button"><i data-lucide="tag"></i> Bulk tag</button>
+                <button class="btn btn-secondary" type="button"><i data-lucide="refresh-cw"></i> Queue refresh</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-header"><h3>Bugungi ustuvorliklar</h3></div>
+            <div class="card-body">
+              <div class="list-stack">
+                <div class="list-item"><div class="item-main"><div class="item-title">VIP queue javobini tezlashtirish</div></div><span class="badge badge-warning">High</span></div>
+                <div class="list-item"><div class="item-main"><div class="item-title">Escalation backlog tozalash</div></div><span class="badge badge-primary">Medium</span></div>
+                <div class="list-item"><div class="item-main"><div class="item-title">CSAT so‘rovlarini yopish</div></div><span class="badge badge-success">Normal</span></div>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section class="card" style="margin-bottom:14px">
+          <div class="card-header"><h3>So‘nggi tezkor amal loglari</h3></div>
+          <div class="card-body">
+            <div class="table-wrap">
+              <table class="table">
+                <thead class="table-header"><tr><th>Vaqt</th><th>Action</th><th>Agent</th><th>Holat</th></tr></thead>
+                <tbody>
+                  <tr class="table-row"><td>16:55</td><td>Bulk tag applied</td><td>Jahongir</td><td><span class="badge badge-success">Done</span></td></tr>
+                  <tr class="table-row"><td>16:47</td><td>New contact created</td><td>Dilnoza</td><td><span class="badge badge-primary">Saved</span></td></tr>
+                  <tr class="table-row"><td>16:39</td><td>Queue refresh</td><td>Madina</td><td><span class="badge badge-success">Done</span></td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <div class="sticky-save-bar">
+          <a class="btn btn-secondary" href="./03-dashboard-customizable.html">Oldingi sahifa</a>
+          <a class="btn btn-primary" href="./05-manager-dashboard.html">Keyingi sahifa</a>
+        </div>
+      </div>
+    </main>
+    <script>window.addEventListener("DOMContentLoaded",function(){if(window.lucide&&window.lucide.createIcons)window.lucide.createIcons();});</script>
+  </body>
+</html>

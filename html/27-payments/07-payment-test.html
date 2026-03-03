@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang='uz'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>QULAY CHAT - Payment Test</title>
+<link rel='preconnect' href='https://fonts.googleapis.com'>
+<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+<link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap' rel='stylesheet'>
+<link rel='stylesheet' href='../assets/qulay-chat-design-system.css'>
+<script src='https://unpkg.com/lucide@latest' defer></script>
+<script src='../assets/qulay-chat-shell.js' defer></script>
+<script src='../assets/qulay-chat-runtime.js' defer></script>
+<style>
+:root{--ts:#ea580c;--ts2:#f97316}
+.hero{margin-top:12px;border-radius:16px;padding:16px;border:1px solid #fdba74;background:linear-gradient(130deg,#fff7ed,#fffbeb)}
+.badgex{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#ffedd5;border:1px solid #fdba74;font-weight:700}
+.metric{border-top:4px solid var(--ts)}
+.main{display:grid;grid-template-columns:1.1fr .9fr;gap:14px;margin-top:14px}
+.panel{border:1px solid #fed7aa;border-radius:12px;padding:10px;background:#fff}
+.table .ok{color:#16a34a;font-weight:700}.table .warn{color:#d97706;font-weight:700}.table .bad{color:#dc2626;font-weight:700}
+.runbox{border:1px dashed #fdba74;border-radius:12px;padding:12px;background:#fffaf3}
+.progress{height:8px;background:#e5e7eb;border-radius:999px;overflow:hidden}
+.progress span{display:block;height:100%;background:linear-gradient(90deg,var(--ts),var(--ts2));width:84%}
+@media (max-width:1000px){.main{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-active-nav='billing' class='dashboard-shell-page'>
+<main class='app-content'>
+  <div class='subnav-scroll'><div class='subnav-tabs'>
+    <a class='subnav-tab' href='./01-payment-overview.html'>Payment Overview</a>
+    <a class='subnav-tab' href='./02-payme-setup.html'>Payme Setup</a>
+    <a class='subnav-tab' href='./03-click-setup.html'>Click Setup</a>
+    <a class='subnav-tab' href='./04-uzum-setup.html'>Uzum Setup</a>
+    <a class='subnav-tab' href='./05-stripe-setup.html'>Stripe Setup</a>
+    <a class='subnav-tab' href='./06-bank-transfer.html'>Bank Transfer</a>
+    <a class='subnav-tab active' href='./07-payment-test.html'>Payment Test</a>
+    <a class='subnav-tab' href='./08-payment-logs.html'>Payment Logs</a>
+  </div></div>
+
+  <div data-roles='admin'>
+    <nav class='breadcrumbs' aria-label='Breadcrumb'>
+      <a href='../04-dashboard/01-dashboard.html'>Dashboard</a>
+      <i data-lucide='chevron-right'></i>
+      <a href='./01-payment-overview.html'>Payments</a>
+      <i data-lucide='chevron-right'></i>
+      <span class='current'>Payment Test</span>
+    </nav>
+
+    <section class='hero'>
+      <div class='flex justify-between items-center wrap gap-2'>
+        <div>
+          <h1 style='margin:0 0 6px'>Payment Test</h1>
+          <p class='text-muted' style='margin:0'>Sandbox va productionga yaqin sharoitda to'lov oqimini sinovdan o'tkazish, callback va idempotency tekshiruvi.</p>
+        </div>
+        <span class='badgex'><i data-lucide='flask-conical'></i> QA Sandbox</span>
+      </div>
+      <div class='flex gap-2 wrap' style='margin-top:10px'>
+        <span class='pill'>Test case: 12</span>
+        <span class='pill'>Pass rate: 100%</span>
+        <span class='pill'>Avg response: 840 ms</span>
+        <span class='pill'>Last run: 16:14</span>
+      </div>
+    </section>
+
+    <section class='grid cols-4' style='margin-top:14px'>
+      <article class='card metric'><div class='card-body'><p class='text-muted' style='margin:0 0 6px'>Happy path</p><h3 style='margin:0'>Pass</h3></div></article>
+      <article class='card metric'><div class='card-body'><p class='text-muted' style='margin:0 0 6px'>Retry path</p><h3 style='margin:0'>Pass</h3></div></article>
+      <article class='card metric'><div class='card-body'><p class='text-muted' style='margin:0 0 6px'>Duplicate callback</p><h3 style='margin:0'>Pass</h3></div></article>
+      <article class='card metric'><div class='card-body'><p class='text-muted' style='margin:0 0 6px'>Timeout recovery</p><h3 style='margin:0'>Pass</h3></div></article>
+    </section>
+
+    <section class='main'>
+      <article class='card'>
+        <div class='card-header'><h3><i data-lucide='list-checks'></i> Test Matrix</h3></div>
+        <div class='card-body'>
+          <div class='table-wrap'>
+            <table class='table'>
+              <thead class='table-header'><tr><th>Scenario</th><th>Gateway</th><th>Natija</th><th>RTT</th></tr></thead>
+              <tbody>
+                <tr class='table-row'><td>Success + callback</td><td>Payme</td><td class='ok'>PASS</td><td>640 ms</td></tr>
+                <tr class='table-row'><td>Timeout + retry</td><td>Click</td><td class='ok'>PASS</td><td>1.4 s</td></tr>
+                <tr class='table-row'><td>Duplicate callback</td><td>Stripe</td><td class='ok'>PASS</td><td>710 ms</td></tr>
+                <tr class='table-row'><td>Signature mismatch</td><td>Uzum</td><td class='warn'>Handled</td><td>980 ms</td></tr>
+                <tr class='table-row'><td>Manual transfer mismatch</td><td>Bank</td><td class='warn'>Queued</td><td>n/a</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </article>
+
+      <article class='card'>
+        <div class='card-header'><h3><i data-lucide='play-circle'></i> Regression Runner</h3></div>
+        <div class='card-body'>
+          <div class='runbox'>
+            <p style='margin:0 0 8px'><strong>Suite progress</strong></p>
+            <div class='progress'><span></span></div>
+            <p class='text-muted' style='margin:8px 0 0'>10/12 test yakunlandi</p>
+          </div>
+
+          <div class='divider' style='margin:12px 0'></div>
+          <div class='panel'>
+            <div class='row'><span>Idempotency check</span><span class='badge badge-success'>Passed</span></div>
+            <div class='row'><span>Webhook replay guard</span><span class='badge badge-success'>Passed</span></div>
+            <div class='row'><span>Fallback route</span><span class='badge badge-primary'>Verified</span></div>
+          </div>
+
+          <div class='divider' style='margin:12px 0'></div>
+          <div class='flex gap-2 wrap'>
+            <button class='btn btn-secondary'><i data-lucide='rotate-cw'></i> Full regression</button>
+            <button class='btn btn-primary'><i data-lucide='download'></i> Test report</button>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section class='card' style='margin-top:14px'>
+      <div class='card-header'><h3><i data-lucide='git-fork'></i> Keyingi yo'nalish</h3></div>
+      <div class='card-body flex gap-2 wrap'>
+        <a class='btn btn-secondary' href='./08-payment-logs.html'><i data-lucide='arrow-right'></i> Payment Logs</a>
+        <a class='btn btn-secondary' href='./01-payment-overview.html'><i data-lucide='arrow-right'></i> Overview</a>
+      </div>
+    </section>
+
+    <div class='sticky-save-bar'>
+      <a class='btn btn-secondary' href='./06-bank-transfer.html'>Oldingi sahifa</a>
+      <a class='btn btn-primary' href='./08-payment-logs.html'>Keyingi sahifa</a>
+    </div>
+  </div>
+</main>
+<script>window.addEventListener('DOMContentLoaded',()=>{if(window.lucide&&window.lucide.createIcons)window.lucide.createIcons();});</script>
+</body>
+</html>

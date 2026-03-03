@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="uz">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QULAY CHAT - App Reviews</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
+    <script src="../assets/qulay-chat-shell.js" defer></script>
+    <script src="../assets/qulay-chat-runtime.js" defer></script>
+  </head>
+  <body data-active-nav="addons" class="dashboard-shell-page">
+    <main class="app-content">
+      <div class="subnav-scroll"><div class="subnav-tabs">
+        <a class="subnav-tab" href="./01-addons-catalog.html">Catalog</a>
+        <a class="subnav-tab" href="./02-active-addons.html">Active Addons</a>
+        <a class="subnav-tab" href="./03-addon-detail.html">Addon Detail</a>
+        <a class="subnav-tab" href="./04-addon-settings.html">Addon Settings</a>
+        <a class="subnav-tab" href="./05-developer-sdk.html">Developer SDK</a>
+        <a class="subnav-tab" href="./06-submit-app.html">Submit App</a>
+        <a class="subnav-tab active" href="./07-app-reviews.html">App Reviews</a>
+      </div></div>
+      <div data-roles="admin">
+        <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../04-dashboard/01-dashboard.html">Dashboard</a><i data-lucide="chevron-right"></i><a href="./01-addons-catalog.html">Addons</a><i data-lucide="chevron-right"></i><span class="current">App Reviews</span></nav>
+        <div class="page-header"><div><h1>App Reviews</h1><p class="text-muted">App baholari, sharhlar va developer javoblarini moderatsiya qilish.</p></div><div class="page-header-actions"><a class="btn btn-secondary" href="./06-submit-app.html"><i data-lucide="arrow-left"></i> Submit App</a><a class="btn btn-primary" href="./01-addons-catalog.html">Catalog <i data-lucide="arrow-right"></i></a></div></div>
+
+        <section class="grid cols-3" style="margin-bottom:14px"><article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">Average rating</p><h3 style="margin:0">4.6</h3></div></article><article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">Reviews</p><h3 style="margin:0">1,204</h3></div></article><article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">Pending moderation</p><h3 style="margin:0">12</h3></div></article></section>
+
+        <section class="card" style="margin-bottom:14px"><div class="card-header"><h3>Sharhlar jadvali</h3></div><div class="card-body"><div class="table-wrap"><table class="table"><thead class="table-header"><tr><th>Foydalanuvchi</th><th>App</th><th>Bahosi</th><th>Status</th></tr></thead><tbody><tr class="table-row"><td>Akmal</td><td>Auto-Tags</td><td>5⭐</td><td><span class="badge badge-success">Published</span></td></tr><tr class="table-row"><td>Nilufar</td><td>CRM Sync</td><td>4⭐</td><td><span class="badge badge-primary">Published</span></td></tr><tr class="table-row"><td>Javohir</td><td>Quick Export</td><td>2⭐</td><td><span class="badge badge-warning">Needs response</span></td></tr></tbody></table></div></div></section>
+
+        <div class="sticky-save-bar"><a class="btn btn-secondary" href="./06-submit-app.html">Oldingi sahifa</a><a class="btn btn-primary" href="./01-addons-catalog.html">Bo‘lim boshiga</a></div>
+      </div>
+    </main>
+    <script>window.addEventListener("DOMContentLoaded",function(){if(window.lucide&&window.lucide.createIcons)window.lucide.createIcons();});</script>
+  </body>
+</html>

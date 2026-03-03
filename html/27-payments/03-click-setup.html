@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang='uz'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>QULAY CHAT - Click Setup</title>
+<link rel='preconnect' href='https://fonts.googleapis.com'>
+<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+<link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap' rel='stylesheet'>
+<link rel='stylesheet' href='../assets/qulay-chat-design-system.css'>
+<script src='https://unpkg.com/lucide@latest' defer></script>
+<script src='../assets/qulay-chat-shell.js' defer></script>
+<script src='../assets/qulay-chat-runtime.js' defer></script>
+<style>
+:root{--cl:#2563eb;--cl2:#1d4ed8}
+.hero{margin-top:12px;border-radius:16px;padding:16px;border:1px solid #bfdbfe;background:linear-gradient(135deg,#eff6ff,#eef2ff)}
+.badgex{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#dbeafe;border:1px solid #93c5fd;font-weight:700}
+.metric{border-top:4px solid var(--cl)}
+.grid-main{display:grid;grid-template-columns:1.1fr .9fr;gap:14px;margin-top:14px}
+.panel{border:1px solid #dbeafe;border-radius:12px;padding:10px;background:#fff}
+.line{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px dashed #e2e8f0}
+.line:last-child{border-bottom:none}
+.flow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.flow .f{border:1px solid #dbeafe;border-radius:10px;padding:10px;background:#f8fbff;text-align:center}
+.failover{border-left:4px solid #f59e0b;background:#fffbeb}
+@media (max-width:1000px){.grid-main{grid-template-columns:1fr}.flow{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body data-active-nav='billing' class='dashboard-shell-page'>
+<main class='app-content'>
+  <div class='subnav-scroll'><div class='subnav-tabs'>
+    <a class='subnav-tab' href='./01-payment-overview.html'>Payment Overview</a>
+    <a class='subnav-tab' href='./02-payme-setup.html'>Payme Setup</a>
+    <a class='subnav-tab active' href='./03-click-setup.html'>Click Setup</a>
+    <a class='subnav-tab' href='./04-uzum-setup.html'>Uzum Setup</a>
+    <a class='subnav-tab' href='./05-stripe-setup.html'>Stripe Setup</a>
+    <a class='subnav-tab' href='./06-bank-transfer.html'>Bank Transfer</a>
+    <a class='subnav-tab' href='./07-payment-test.html'>Payment Test</a>
+    <a class='subnav-tab' href='./08-payment-logs.html'>Payment Logs</a>
+  </div></div>
+
+  <div data-roles='admin'>
+    <nav class='breadcrumbs' aria-label='Breadcrumb'>
+      <a href='../04-dashboard/01-dashboard.html'>Dashboard</a>
+      <i data-lucide='chevron-right'></i>
+      <a href='./01-payment-overview.html'>Payments</a>
+      <i data-lucide='chevron-right'></i>
+      <span class='current'>Click Setup</span>
+    </nav>
+
+    <section class='hero'>
+      <div class='flex justify-between items-center wrap gap-2'>
+        <div>
+          <h1 style='margin:0 0 6px'>Click Setup</h1>
+          <p class='text-muted' style='margin:0'>Service ID, merchant imzosi va callback oqimini barqaror sozlash paneli.</p>
+        </div>
+        <span class='badgex'><i data-lucide='mouse-pointer-click'></i> Click Gateway</span>
+      </div>
+      <div class='flex gap-2 wrap' style='margin-top:10px'>
+        <span class='pill'>Service: Active</span>
+        <span class='pill'>Signature: Enabled</span>
+        <span class='pill'>Pending callback: 2</span>
+        <span class='pill'>Mode: Production</span>
+      </div>
+    </section>
+
+    <section class='grid cols-4' style='margin-top:14px'>
+      <article class='card metric'><div class='card-body'><p class='text-muted' style='margin:0 0 6px'>Daily success</p><h3 style='margin:0'>98.4%</h3></div></article>
+      <article class='card metric'><div class='card-body'><p class='text-muted' style='margin:0 0 6px'>Avg callback</p><h3 style='margin:0'>420 ms</h3></div></article>
+      <article class='card metric'><div class='card-body'><p class='text-muted' style='margin:0 0 6px'>Retries</p><h3 style='margin:0'>1.2x</h3></div></article>
+      <article class='card metric'><div class='card-body'><p class='text-muted' style='margin:0 0 6px'>Error ratio</p><h3 style='margin:0'>1.6%</h3></div></article>
+    </section>
+
+    <section class='grid-main'>
+      <article class='card'>
+        <div class='card-header'><h3><i data-lucide='settings-2'></i> Core Configuration</h3></div>
+        <div class='card-body'>
+          <div class='panel'>
+            <label>Service ID<input class='input' value='click_service_204' /></label>
+            <label style='margin-top:10px;display:block'>Merchant ID<input class='input' value='click_merchant_332' /></label>
+            <label style='margin-top:10px;display:block'>Secret Key<input class='input' value='••••••••••••••••' /></label>
+            <label style='margin-top:10px;display:block'>Return URL<input class='input' value='https://pay.qulaychat.uz/click/return' /></label>
+            <div class='flex gap-2 wrap' style='margin-top:12px'>
+              <button class='btn btn-secondary'><i data-lucide='flask-conical'></i> Ping callback</button>
+              <button class='btn btn-primary'><i data-lucide='save'></i> Saqlash</button>
+            </div>
+          </div>
+
+          <div class='divider' style='margin:12px 0'></div>
+          <h4 style='margin:0 0 8px'>Payment Flow</h4>
+          <div class='flow'>
+            <div class='f'><i data-lucide='credit-card'></i><div>Init</div></div>
+            <div class='f'><i data-lucide='shield'></i><div>Sign Check</div></div>
+            <div class='f'><i data-lucide='repeat'></i><div>Callback</div></div>
+            <div class='f'><i data-lucide='database'></i><div>Settle</div></div>
+          </div>
+        </div>
+      </article>
+
+      <article class='card failover'>
+        <div class='card-header'><h3><i data-lucide='triangle-alert'></i> Reliability & Failover</h3></div>
+        <div class='card-body'>
+          <div class='panel'>
+            <div class='line'><span>Clock skew tolerance</span><strong>90 sec</strong></div>
+            <div class='line'><span>Duplicate callback guard</span><span class='badge badge-success'>Enabled</span></div>
+            <div class='line'><span>IP whitelist check</span><span class='badge badge-success'>Passed</span></div>
+            <div class='line'><span>Fallback route</span><span class='badge badge-warning'>Bank Transfer</span></div>
+          </div>
+
+          <div class='divider' style='margin:12px 0'></div>
+          <div class='list-stack'>
+            <div class='list-item'><div class='item-main'><div class='item-title'>Timeout hodisasi</div><div class='item-sub'>Oxirgi 24 soat: 5 ta</div></div><span class='badge badge-warning'>Watch</span></div>
+            <div class='list-item'><div class='item-main'><div class='item-title'>Retry bilan tiklangan</div><div class='item-sub'>5/5</div></div><span class='badge badge-success'>Good</span></div>
+          </div>
+
+          <div class='divider' style='margin:12px 0'></div>
+          <a class='btn btn-secondary' href='./06-bank-transfer.html'><i data-lucide='arrow-right'></i> Failover sahifasi</a>
+        </div>
+      </article>
+    </section>
+
+    <section class='card' style='margin-top:14px'>
+      <div class='card-header'><h3><i data-lucide='git-fork'></i> Keyingi yo'nalish</h3></div>
+      <div class='card-body flex gap-2 wrap'>
+        <a class='btn btn-secondary' href='./04-uzum-setup.html'><i data-lucide='arrow-right'></i> Uzum Setup</a>
+        <a class='btn btn-secondary' href='./07-payment-test.html'><i data-lucide='arrow-right'></i> Payment Test</a>
+        <a class='btn btn-secondary' href='./08-payment-logs.html'><i data-lucide='arrow-right'></i> Payment Logs</a>
+      </div>
+    </section>
+
+    <div class='sticky-save-bar'>
+      <a class='btn btn-secondary' href='./02-payme-setup.html'>Oldingi sahifa</a>
+      <a class='btn btn-primary' href='./04-uzum-setup.html'>Keyingi sahifa</a>
+    </div>
+  </div>
+</main>
+<script>window.addEventListener('DOMContentLoaded',()=>{if(window.lucide&&window.lucide.createIcons)window.lucide.createIcons();});</script>
+</body>
+</html>

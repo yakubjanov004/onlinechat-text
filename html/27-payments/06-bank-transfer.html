@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang='uz'>
+<head>
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+<title>QULAY CHAT - Bank Transfer</title>
+<link rel='preconnect' href='https://fonts.googleapis.com'>
+<link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+<link href='https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap' rel='stylesheet'>
+<link rel='stylesheet' href='../assets/qulay-chat-design-system.css'>
+<script src='https://unpkg.com/lucide@latest' defer></script>
+<script src='../assets/qulay-chat-shell.js' defer></script>
+<script src='../assets/qulay-chat-runtime.js' defer></script>
+<style>
+:root{--bk:#0f766e;--bk2:#14532d}
+.hero{margin-top:12px;border-radius:16px;padding:16px;border:1px solid #86efac;background:linear-gradient(135deg,#f0fdf4,#ecfdf5)}
+.badgex{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;border-radius:999px;background:#dcfce7;border:1px solid #86efac;font-weight:700}
+.metric{border-top:4px solid var(--bk)}
+.main{display:grid;grid-template-columns:1.1fr .9fr;gap:14px;margin-top:14px}
+.panel{border:1px solid #bbf7d0;border-radius:12px;padding:10px;background:#fff}
+.row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px dashed #e2e8f0}
+.row:last-child{border-bottom:none}
+.queue .q{display:flex;justify-content:space-between;align-items:center;padding:10px;border:1px solid #e2e8f0;border-radius:10px;margin-bottom:8px;background:#fff}
+.timeline .e{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px dashed #e2e8f0}
+.timeline .e:last-child{border-bottom:none}
+.warn{border-left:4px solid #f59e0b;background:#fffbeb}
+@media (max-width:1000px){.main{grid-template-columns:1fr}}
+</style>
+</head>
+<body data-active-nav='billing' class='dashboard-shell-page'>
+<main class='app-content'>
+  <div class='subnav-scroll'><div class='subnav-tabs'>
+    <a class='subnav-tab' href='./01-payment-overview.html'>Payment Overview</a>
+    <a class='subnav-tab' href='./02-payme-setup.html'>Payme Setup</a>
+    <a class='subnav-tab' href='./03-click-setup.html'>Click Setup</a>
+    <a class='subnav-tab' href='./04-uzum-setup.html'>Uzum Setup</a>
+    <a class='subnav-tab' href='./05-stripe-setup.html'>Stripe Setup</a>
+    <a class='subnav-tab active' href='./06-bank-transfer.html'>Bank Transfer</a>
+    <a class='subnav-tab' href='./07-payment-test.html'>Payment Test</a>
+    <a class='subnav-tab' href='./08-payment-logs.html'>Payment Logs</a>
+  </div></div>
+
+  <div data-roles='admin'>
+    <nav class='breadcrumbs' aria-label='Breadcrumb'>
+      <a href='../04-dashboard/01-dashboard.html'>Dashboard</a>
+      <i data-lucide='chevron-right'></i>
+      <a href='./01-payment-overview.html'>Payments</a>
+      <i data-lucide='chevron-right'></i>
+      <span class='current'>Bank Transfer</span>
+    </nav>
+
+    <section class='hero'>
+      <div class='flex justify-between items-center wrap gap-2'>
+        <div>
+          <h1 style='margin:0 0 6px'>Bank Transfer</h1>
+          <p class='text-muted' style='margin:0'>Bank o'tkazmalarini invoice asosida qabul qilish, qo'lda tasdiqlash va reconciliation jarayonini boshqarish.</p>
+        </div>
+        <span class='badgex'><i data-lucide='landmark'></i> Manual Settlement Desk</span>
+      </div>
+      <div class='flex gap-2 wrap' style='margin-top:10px'>
+        <span class='pill'>Open invoices: 14</span>
+        <span class='pill'>Avg confirm: 18 min</span>
+        <span class='pill'>Auto match: 72%</span>
+        <span class='pill'>Mismatch: 3</span>
+      </div>
+    </section>
+
+    <section class='grid cols-4' style='margin-top:14px'>
+      <article class='card metric'><div class='card-body'><p class='text-muted' style='margin:0 0 6px'>Bugungi o'tkazma</p><h3 style='margin:0'>426 ta</h3></div></article>
+      <article class='card metric'><div class='card-body'><p class='text-muted' style='margin:0 0 6px'>Summa</p><h3 style='margin:0'>1.18 mlrd</h3></div></article>
+      <article class='card metric'><div class='card-body'><p class='text-muted' style='margin:0 0 6px'>Manual review</p><h3 style='margin:0'>29</h3></div></article>
+      <article class='card metric'><div class='card-body'><p class='text-muted' style='margin:0 0 6px'>Settled</p><h3 style='margin:0'>97.3%</h3></div></article>
+    </section>
+
+    <section class='main'>
+      <article class='card'>
+        <div class='card-header'><h3><i data-lucide='file-text'></i> Invoice & Rekvizitlar</h3></div>
+        <div class='card-body'>
+          <div class='panel'>
+            <label>Kompaniya nomi<input class='input' value='QULAY SYSTEMS MCHJ' /></label>
+            <div class='row'><span>INN</span><strong>309 998 112</strong></div>
+            <div class='row'><span>MFO</span><strong>01123</strong></div>
+            <div class='row'><span>Hisob raqam</span><strong>2020 8000 9000 4412</strong></div>
+            <div class='row'><span>Bank nomi</span><strong>TBC Bank Uzbekistan</strong></div>
+            <div class='flex gap-2 wrap' style='margin-top:10px'>
+              <button class='btn btn-secondary'><i data-lucide='receipt-text'></i> Invoice yaratish</button>
+              <button class='btn btn-primary'><i data-lucide='send'></i> Mijozga yuborish</button>
+            </div>
+          </div>
+
+          <div class='divider' style='margin:12px 0'></div>
+          <h4 style='margin:0 0 8px'>Manual reconciliation queue</h4>
+          <div class='queue'>
+            <div class='q'><div><strong>INV-22031</strong><div class='text-muted'>870,000 UZS</div></div><span class='badge badge-warning'>Mismatch</span></div>
+            <div class='q'><div><strong>INV-22018</strong><div class='text-muted'>120,000 UZS</div></div><span class='badge badge-danger'>No receipt</span></div>
+            <div class='q'><div><strong>INV-22042</strong><div class='text-muted'>460,000 UZS</div></div><span class='badge badge-primary'>Need review</span></div>
+          </div>
+        </div>
+      </article>
+
+      <article class='card warn'>
+        <div class='card-header'><h3><i data-lucide='scan-search'></i> Verification Timeline</h3></div>
+        <div class='card-body'>
+          <div class='panel timeline'>
+            <div class='e'><span>15:58 Receipt parsed</span><span class='badge badge-success'>OK</span></div>
+            <div class='e'><span>15:42 Duplicate amount found</span><span class='badge badge-warning'>Check</span></div>
+            <div class='e'><span>15:21 Invoice matched</span><span class='badge badge-success'>Done</span></div>
+            <div class='e'><span>14:55 Missing field in receipt</span><span class='badge badge-danger'>Error</span></div>
+          </div>
+
+          <div class='divider' style='margin:12px 0'></div>
+          <div class='list-stack'>
+            <div class='list-item'><div class='item-main'><div class='item-title'>OCR parse aniqligi</div></div><span class='badge badge-success'>96.1%</span></div>
+            <div class='list-item'><div class='item-main'><div class='item-title'>Qo'lda tasdiqlash ulushi</div></div><span class='badge badge-warning'>28%</span></div>
+          </div>
+
+          <div class='divider' style='margin:12px 0'></div>
+          <a class='btn btn-secondary' href='./08-payment-logs.html'><i data-lucide='scroll-text'></i> Transfer loglari</a>
+        </div>
+      </article>
+    </section>
+
+    <section class='card' style='margin-top:14px'>
+      <div class='card-header'><h3><i data-lucide='git-fork'></i> Keyingi yo'nalish</h3></div>
+      <div class='card-body flex gap-2 wrap'>
+        <a class='btn btn-secondary' href='./07-payment-test.html'><i data-lucide='arrow-right'></i> Payment Test</a>
+        <a class='btn btn-secondary' href='./08-payment-logs.html'><i data-lucide='arrow-right'></i> Payment Logs</a>
+        <a class='btn btn-secondary' href='./01-payment-overview.html'><i data-lucide='arrow-right'></i> Overview</a>
+      </div>
+    </section>
+
+    <div class='sticky-save-bar'>
+      <a class='btn btn-secondary' href='./05-stripe-setup.html'>Oldingi sahifa</a>
+      <a class='btn btn-primary' href='./07-payment-test.html'>Keyingi sahifa</a>
+    </div>
+  </div>
+</main>
+<script>window.addEventListener('DOMContentLoaded',()=>{if(window.lucide&&window.lucide.createIcons)window.lucide.createIcons();});</script>
+</body>
+</html>

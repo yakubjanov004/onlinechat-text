@@ -41,6 +41,12 @@
             badge: "3",
             badgeClass: "badge-primary",
           },
+          {
+            key: "mobile-agent",
+            label: "Mobile Agent",
+            icon: "smartphone",
+            href: "../28-mobile-agent/01-mobile-inbox.html",
+          },
         ],
       },
       {
@@ -113,10 +119,22 @@
             href: "../10-billing/01-plan.html",
           },
           {
+            key: "payments",
+            label: "Payments",
+            icon: "wallet",
+            href: "../27-payments/01-payment-overview.html",
+          },
+          {
             key: "addons",
             label: "Add-ons",
             icon: "puzzle",
             href: "../16-addons/01-addons-catalog.html",
+          },
+          {
+            key: "integrations",
+            label: "Integrations",
+            icon: "plug",
+            href: "../26-integrations/01-channels-overview.html",
           },
           {
             key: "developer",
@@ -217,6 +235,12 @@
             icon: "bar-chart-3",
             href: "../08-analytics/11-my-stats.html",
           },
+          {
+            key: "mobile-agent",
+            label: "Mobile Agent",
+            icon: "smartphone",
+            href: "../28-mobile-agent/01-mobile-inbox.html",
+          },
         ],
       },
       {
@@ -310,6 +334,9 @@
     if (p.indexOf("/04-dashboard/") > -1) return "Dashboard";
     if (p.indexOf("/08-analytics/") > -1) return "Analytics";
     if (p.indexOf("/09-settings/") > -1) return "Settings";
+    if (p.indexOf("/26-integrations/") > -1) return "Integrations";
+    if (p.indexOf("/27-payments/") > -1) return "Payments";
+    if (p.indexOf("/28-mobile-agent/") > -1) return "Mobile Agent";
     if (p.indexOf("/19-global-search/") > -1) return "Global Search";
     if (p.indexOf("/20-notifications/") > -1) return "Notifications";
     if (p.indexOf("/21-help-support/") > -1) return "Help Center";
