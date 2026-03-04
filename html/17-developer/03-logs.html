@@ -17,13 +17,22 @@
 <script src="../assets/developer-interactions.js" defer>
 </script>
 </head>
-<body data-active-nav="developer" class="dashboard-shell-page">
+<body data-active-nav="developer" data-shell-role="admin" class="dashboard-shell-page">
 <main class="app-content">
-<div class="subnav-scroll">
-<div class="subnav-tabs">
-<a class="subnav-tab" href="./01-api-keys.html">Developer API</a><a class="subnav-tab" href="./02-webhooks.html">Webhooks</a><a class="subnav-tab active" href="./03-logs.html">Webhook Logs</a><a class="subnav-tab" href="./04-api-usage.html">API Usage</a><a class="subnav-tab" href="./05-sandbox.html">Sandbox</a>
-</div>
-</div>
+<nav class="breadcrumbs">
+  <a href="../04-dashboard/01-dashboard.html">Dashboard</a>
+  <span class="separator">›</span>
+  <a href="./01-api-keys.html">Developer</a>
+  <span class="separator">›</span>
+  <span class="current">Loglar</span>
+</nav>
+<nav class="subnav-tabs" aria-label="Developer sahifalari">
+  <a class="tab" href="./01-api-keys.html">API kalitlari</a>
+  <a class="tab" href="./02-webhooks.html">Webhooklar</a>
+  <a class="tab active" href="./03-logs.html">Loglar</a>
+  <a class="tab" href="./04-api-usage.html">API foydalanish</a>
+  <a class="tab" href="./05-sandbox.html">Sandbox</a>
+</nav>
 <div data-roles="agent" class="card" style="border-color:#FCD34D;background:#FFFBEB;margin-top:12px">
   <div class="card-body">
     <h3 style="margin:0 0 6px">Admin only</h3>

@@ -26,24 +26,35 @@
 @media (max-width:1000px){.status-grid{grid-template-columns:1fr}}
 </style>
 </head>
-<body data-active-nav='mobile-agent' class='dashboard-shell-page'>
+<body data-active-nav='mobile-agent' data-shell-role='admin' class='dashboard-shell-page'>
 <main class='app-content'>
-  <div class='subnav-scroll'><div class='subnav-tabs'>
-    <a class='subnav-tab' href='./01-mobile-inbox.html'>Mobile Inbox</a>
-    <a class='subnav-tab' href='./02-mobile-chat.html'>Mobile Chat</a>
-    <a class='subnav-tab' href='./03-mobile-notifications.html'>Mobile Notifications</a>
-    <a class='subnav-tab active' href='./04-mobile-status.html'>Mobile Status</a>
-    <a class='subnav-tab' href='./05-mobile-settings.html'>Mobile Settings</a>
-  </div></div>
+  <nav class="subnav-tabs" aria-label="Mobile Agent sahifalari">
+    <a class="tab" href="./01-mobile-inbox.html">Mobile Inbox</a>
+    <a class="tab" href="./02-mobile-chat.html">Mobile Chat</a>
+    <a class="tab" href="./03-mobile-notifications.html">Bildirishnomalar</a>
+    <a class="tab active" href="./04-mobile-status.html">Status</a>
+    <a class="tab" href="./05-mobile-settings.html">Sozlamalar</a>
+  </nav>
 
   <div data-roles='admin'>
-    <nav class='breadcrumbs'>
-      <a href='../04-dashboard/01-dashboard.html'>Dashboard</a>
-      <i data-lucide='chevron-right'></i>
-      <a href='./01-mobile-inbox.html'>Mobile Agent</a>
-      <i data-lucide='chevron-right'></i>
-      <span class='current'>Mobile Status</span>
+    <nav class="breadcrumbs">
+      <a href="../04-dashboard/01-dashboard.html">Dashboard</a>
+      <span class="separator">›</span>
+      <a href="./01-mobile-inbox.html">Mobile Agent</a>
+      <span class="separator">›</span>
+      <span class="current">Status</span>
     </nav>
+
+    <div class="phone-frame" style="max-width:375px;margin:0 auto;border:3px solid var(--gray-800);border-radius:36px;overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,0.15);">
+      <div style="height:44px;background:var(--gray-800);color:white;display:flex;align-items:center;justify-content:space-between;padding:0 16px;font-size:12px;">
+        <span>9:41</span>
+        <span style="display:flex;gap:4px;">
+          <i data-lucide="signal" style="width:14px;height:14px;"></i>
+          <i data-lucide="wifi" style="width:14px;height:14px;"></i>
+          <i data-lucide="battery" style="width:14px;height:14px;"></i>
+        </span>
+      </div>
+      <div style="background:white;min-height:600px;">
 
     <section class='status-hero'>
       <div class='flex justify-between items-center wrap gap-2'>
@@ -97,6 +108,23 @@
           <p class='text-muted' style='margin:0'>SLAga ta’sir: <strong style='color:#16a34a'>Normal</strong></p>
         </div>
       </article>
+    </section>
+
+      </div>
+      <div style="height:34px;background:white;display:grid;place-items:center;">
+        <div style="width:134px;height:5px;background:var(--gray-800);border-radius:99px;"></div>
+      </div>
+    </div>
+
+    <section class="card" style="margin-top:14px">
+      <div class="card-header"><h3><i data-lucide="external-link"></i> Bog'liq sahifalar</h3></div>
+      <div class="card-body">
+        <div class="flex gap-2 wrap">
+          <a class="btn btn-secondary" href="../05-inbox/01-inbox-chat.html"><i data-lucide="monitor"></i> Desktop versiya</a>
+          <a class="btn btn-secondary" href="../09-settings/05-profile.html"><i data-lucide="settings"></i> Sozlamalar</a>
+          <a class="btn btn-secondary" href="../20-notifications/01-notification-dropdown.html"><i data-lucide="bell"></i> Notifications</a>
+        </div>
+      </div>
     </section>
 
     <div class='sticky-save-bar'>

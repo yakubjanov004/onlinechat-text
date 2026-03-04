@@ -16,19 +16,21 @@
     <script src="../assets/qulay-chat-runtime.js" defer></script>
     <script src="../assets/gdpr-compliance.js" defer></script>
   </head>
-  <body data-active-nav="settings" class="dashboard-shell-page">
+  <body data-active-nav="gdpr" data-shell-role="admin" class="dashboard-shell-page">
     <main class="app-content">
-      <div class="subnav-scroll">
-        <div class="subnav-tabs">
-          <a class="subnav-tab active" href="./01-data-overview.html"
-            >Data Overview</a
-          ><a class="subnav-tab" href="./02-consent-management.html"
-            >Consent Management</a
-          ><a class="subnav-tab" href="./03-data-retention.html"
-            >Data Retention</a
-          ><a class="subnav-tab" href="./04-audit-log.html">Audit Log</a>
-        </div>
-      </div>
+      <nav class="subnav-tabs" aria-label="GDPR sahifalari">
+        <a class="tab active" href="./01-data-overview.html">Ma'lumotlar</a>
+        <a class="tab" href="./02-consent-management.html">Rozilik boshqaruvi</a>
+        <a class="tab" href="./03-data-retention.html">Saqlash muddati</a>
+        <a class="tab" href="./04-audit-log.html">Audit log</a>
+      </nav>
+      <nav class="breadcrumbs">
+        <a href="../04-dashboard/01-dashboard.html">Dashboard</a>
+        <span class="separator">›</span>
+        <a href="./01-data-overview.html">GDPR</a>
+        <span class="separator">›</span>
+        <span class="current">Ma'lumotlar</span>
+      </nav>
 <div data-roles="agent" class="card" style="border-color:#FCD34D;background:#FFFBEB;margin-top:12px">
   <div class="card-body">
     <h3 style="margin:0 0 6px">Admin only</h3>
@@ -91,6 +93,14 @@
             <span>3rd-party processors</span><strong>8 active vendors</strong>
           </div>
         </div>
+      </section>
+      <section class="card" style="margin-top:24px">
+        <h3 style="margin-top:0">Foydali havolalar</h3>
+        <ul class="link-list">
+          <li><a href="../09-settings/08-privacy-settings.html">Privacy settings</a></li>
+          <li><a href="../09-settings/06-privacy-export.html">Data export</a></li>
+          <li><a href="../09-settings/07-privacy-delete.html">Data delete</a></li>
+        </ul>
       </section>
     </div>
 </main>

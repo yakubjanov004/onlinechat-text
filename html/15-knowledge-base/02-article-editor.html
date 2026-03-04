@@ -20,13 +20,30 @@
   </head>
   <body data-active-nav="knowledge-base" class="dashboard-shell-page">
     <main class="app-content">
-      <div class="subnav-scroll">
-<div class="subnav-tabs kb-subnav">
-<a class="subnav-tab" href="./01-kb-dashboard.html">Knowledge Base</a><a class="subnav-tab active" href="./02-article-editor.html">Article Editor</a><a class="subnav-tab" href="./03-categories.html">KB Categories</a><a class="subnav-tab" href="./04-kb-settings.html">KB Settings</a><a class="subnav-tab" href="./05-kb-analytics.html">KB Analytics</a><a class="subnav-tab" href="./06-public-home.html">Public Home</a><a class="subnav-tab" href="./07-public-search.html">Public Search</a><a class="subnav-tab" href="./08-public-category.html">Public Category</a><a class="subnav-tab" href="./09-public-article.html">Public Article</a><a class="subnav-tab" href="./10-kb-versioning.html">KB Versioning</a><a class="subnav-tab" href="./11-kb-multilingual.html">KB Multilingual</a><a class="subnav-tab" href="./12-kb-ai-suggest.html">KB AI Suggest</a><a class="subnav-tab" href="./13-kb-feedback-detail.html">KB Feedback Detail</a><a class="subnav-tab" href="./14-kb-internal.html">KB Internal</a><a class="subnav-tab" href="./15-kb-import.html">KB Import</a><a class="subnav-tab" href="./16-kb-custom-domain.html">KB Custom Domain</a><a class="subnav-tab" href="./17-kb-seo.html">KB SEO</a><a class="subnav-tab" href="./18-kb-widget-link.html">KB Widget Link</a>
-</div>
-</div>
-      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../04-dashboard/01-dashboard.html">Dashboard</a><i data-lucide="chevron-right"></i><a href="./01-kb-dashboard.html">Knowledge Base</a><i data-lucide="chevron-right"></i><span class="current">Maqola tahrirlash</span></nav>
-      <div class="page-header"><div><h1>Maqola tahrirlash</h1><p class="text-muted" data-kb-autosave>Autosave: 10 soniya oldin saqlandi</p></div><div class="page-header-actions"><a class="btn btn-secondary" href="./09-public-article.html">Public preview</a><button class="btn btn-secondary" type="button" data-action="save">Draft saqlash</button><button class="btn btn-primary" type="button" data-action="save">Nashr qilish</button></div></div>
+<nav class="subnav-tabs" aria-label="Knowledge Base sahifalari">
+  <a class="tab" href="./01-kb-dashboard.html">Dashboard</a>
+  <a class="tab active" href="./02-article-editor.html">Maqola editor</a>
+  <a class="tab" href="./03-categories.html">Kategoriyalar</a>
+  <a class="tab" href="./04-kb-settings.html">Sozlamalar</a>
+  <a class="tab" href="./05-kb-analytics.html">Analitika</a>
+  <a class="tab" href="./10-kb-versioning.html">Versiyalar</a>
+  <a class="tab" href="./11-kb-multilingual.html">Ko'p tilli</a>
+  <a class="tab" href="./12-kb-ai-suggest.html">AI tavsiyalar</a>
+  <a class="tab" href="./13-kb-feedback-detail.html">Fikr-mulohazalar</a>
+  <a class="tab" href="./14-kb-internal.html">Ichki KB</a>
+  <a class="tab" href="./15-kb-import.html">Import</a>
+  <a class="tab" href="./16-kb-custom-domain.html">Custom domen</a>
+  <a class="tab" href="./17-kb-seo.html">SEO</a>
+  <a class="tab" href="./18-kb-widget-link.html">Widget bog'lanish</a>
+</nav>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+  <a href="../04-dashboard/01-dashboard.html">Dashboard</a>
+  <span class="separator">›</span>
+  <a href="./01-kb-dashboard.html">Knowledge Base</a>
+  <span class="separator">›</span>
+  <span class="current">Maqola tahrirlash</span>
+</nav>
+      <div class="page-header"><div><h1>Maqola tahrirlash</h1><p class="text-muted" data-kb-autosave>Autosave: 10 soniya oldin saqlandi</p></div><div class="page-header-actions"><a class="btn btn-secondary" href="./09-public-article.html">Ko'rish</a><button class="btn btn-secondary" type="button" data-action="save">Draft saqlash</button><button class="btn btn-primary" type="button" data-action="save">Nashr qilish</button></div></div>
       <section class="split-grid"><article class="card"><div class="card-header"><div><h3>Kontent muharriri</h3></div></div><div class="card-body stack"><input class="input" data-kb-title value="Widget o'rnatish bo'yicha to'liq qo'llanma" placeholder="Maqola sarlavhasi..." /><div class="inbox-toolbar"><button class="icon-btn" type="button" data-kb-tool="h2">H2</button><button class="icon-btn" type="button" data-kb-tool="h3">H3</button><button class="icon-btn" type="button" data-kb-tool="bold"><b>B</b></button><button class="icon-btn" type="button" data-kb-tool="italic"><i>I</i></button><button class="icon-btn" type="button" data-kb-tool="list"><i data-lucide="list"></i></button><button class="icon-btn" type="button" data-kb-tool="link"><i data-lucide="link"></i></button><button class="icon-btn" type="button" data-kb-tool="code"><i data-lucide="code"></i></button></div><textarea class="textarea" rows="18" data-kb-editor>Ushbu maqolada widgetni Production muhitga to'g'ri o'rnatish bosqichlari ko'rsatiladi.
 
 1. Dashboard > Widget Settings > Install Code bo'limiga kiring.
@@ -35,6 +52,13 @@
 4. Test sahifada chat launcher ko'rinishini tekshiring.
 5. Operatorlar online holatga o'tib, test chat yuboring.</textarea></div></article><article class="card"><div class="card-header"><div><h3>Maqola sozlamalari</h3></div></div><div class="card-body form-grid one"><label class="form-field"><span class="form-label">Kategoriya</span><select class="select"><option>Setup</option><option>Inbox</option><option>Billing</option><option>Integrations</option></select></label><label class="form-field"><span class="form-label">Status</span><select class="select"><option>Draft</option><option>Published</option></select></label><label class="checkbox"><input type="checkbox" checked /> Featured maqola sifatida chiqarilsin</label><label class="form-field"><span class="form-label">Slug</span><input class="input" data-kb-slug value="widget-ornatish-boyicha-toliq-qollanma" /></label><label class="form-field"><span class="form-label">Meta description</span><textarea class="textarea" rows="4" data-kb-meta>Widgetni xavfsiz va barqaror tarzda o'rnatish, test qilish va troubleshooting qilish bo'yicha amaliy yo'riqnoma.</textarea></label></div></article></section>
       <section class="card" style="margin-top: 14px"><div class="card-header"><div><h3>Nashrdan oldingi checklist</h3></div></div><div class="card-body grid cols-2"><label class="checkbox"><input type="checkbox" checked /> Sarlavha va meta description to'ldirilgan</label><label class="checkbox"><input type="checkbox" checked /> Ichki havolalar ishlaydi</label><label class="checkbox"><input type="checkbox" checked /> Skrinshotlar alt matni kiritilgan</label><label class="checkbox"><input type="checkbox" /> O'zbek imlo tekshirildi</label></div></section>
+
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;padding-top:16px;border-top:1px solid var(--border, #e5e7eb);">
+  <a class="btn btn-ghost btn-sm" href="./06-public-home.html"><i data-lucide="globe"></i> Public KB</a>
+  <a class="btn btn-ghost btn-sm" href="../05-inbox/01-inbox-chat.html"><i data-lucide="message-square"></i> Inbox</a>
+  <a class="btn btn-ghost btn-sm" href="../08-analytics/01-overview.html"><i data-lucide="bar-chart-3"></i> Analytics</a>
+  <a class="btn btn-ghost btn-sm" href="../04-dashboard/01-dashboard.html"><i data-lucide="layout-dashboard"></i> Dashboard</a>
+</div>
     </main>
     <script>window.addEventListener("DOMContentLoaded", () => window.lucide?.createIcons?.());</script>
   </body>

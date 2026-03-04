@@ -14,15 +14,45 @@
   </head>
   <body data-active-nav="analytics" class="dashboard-shell-page">
     <main class="app-content">
-      <div class="subnav-scroll"><div class="subnav-tabs"><a class="subnav-tab" href="./01-overview.html">Overview</a><a class="subnav-tab" href="./02-response-times.html">Response Times</a><a class="subnav-tab" href="./03-operators.html">Operators</a><a class="subnav-tab" href="./04-operator-detail.html">Operator Detail</a><a class="subnav-tab" href="./05-sla.html">SLA</a><a class="subnav-tab" href="./06-channels.html">Channels</a><a class="subnav-tab" href="./07-segments.html">Segments</a><a class="subnav-tab" href="./08-tags.html">Tags</a><a class="subnav-tab" href="./09-custom-reports.html">Custom Reports</a><a class="subnav-tab" href="./10-export.html">Export</a><a class="subnav-tab" href="./11-my-stats.html">My Stats</a><a class="subnav-tab" href="./12-realtime-monitor.html">Realtime Monitor</a><a class="subnav-tab" href="./13-scheduled-reports.html">Scheduled Reports</a><a class="subnav-tab active" href="./14-agent-goals.html">Agent Goals</a><a class="subnav-tab" href="./15-csat-trends.html">CSAT Trends</a><a class="subnav-tab" href="./16-nps-survey.html">NPS Survey</a><a class="subnav-tab" href="./17-feedback-wall.html">Feedback Wall</a></div></div>
+<nav class="subnav-tabs" aria-label="Analytics sahifalari">
+  <a class="tab" href="./01-overview.html">Umumiy</a>
+  <a class="tab" href="./02-response-times.html">Javob vaqtlari</a>
+  <a class="tab" href="./03-operators.html">Operatorlar</a>
+  <a class="tab" href="./04-operator-detail.html">Operator batafsil</a>
+  <a class="tab" href="./05-sla.html">SLA</a>
+  <a class="tab" href="./06-channels.html">Kanallar</a>
+  <a class="tab" href="./07-segments.html">Segmentlar</a>
+  <a class="tab" href="./08-tags.html">Taglar</a>
+  <a class="tab" href="./09-custom-reports.html">Custom hisobotlar</a>
+  <a class="tab" href="./10-export.html">Export</a>
+  <a class="tab" href="./11-my-stats.html">Mening statistikam</a>
+  <a class="tab" href="./12-realtime-monitor.html">Real-time</a>
+  <a class="tab" href="./13-scheduled-reports.html">Rejali hisobotlar</a>
+  <a class="tab active" href="./14-agent-goals.html">Maqsadlar</a>
+  <a class="tab" href="./15-csat-trends.html">CSAT trendlari</a>
+  <a class="tab" href="./16-nps-survey.html">NPS so'rovnoma</a>
+  <a class="tab" href="./17-feedback-wall.html">Fikrlar devori</a>
+</nav>
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <a href="../04-dashboard/01-dashboard.html">Dashboard</a>
+  <span class="separator">›</span>
+  <a href="./01-overview.html">Analytics</a>
+  <span class="separator">›</span>
+  <span class="current">Maqsadlar</span>
+</nav>
       <div data-roles="admin">
-        <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../04-dashboard/01-dashboard.html">Dashboard</a><i data-lucide="chevron-right"></i><a href="./01-overview.html">Analytics</a><i data-lucide="chevron-right"></i><span class="current">Agent Goals</span></nav>
         <div class="page-header"><div><h1>Agent Goals</h1><p class="text-muted">Agent KPI maqsadlari va targetga nisbatan progress kuzatuvi.</p></div><div class="page-header-actions"><a class="btn btn-secondary" href="./13-scheduled-reports.html"><i data-lucide="arrow-left"></i> Scheduled Reports</a><a class="btn btn-primary" href="./15-csat-trends.html">CSAT Trends <i data-lucide="arrow-right"></i></a></div></div>
         <section class="grid cols-4" style="margin-bottom:14px"><article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">Metric A</p><h3 style="margin:0">94.8%</h3></div></article><article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">Metric B</p><h3 style="margin:0">4.7</h3></div></article><article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">Metric C</p><h3 style="margin:0">+8%</h3></div></article><article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">Metric D</p><h3 style="margin:0">127</h3></div></article></section>
-        <section class="split-grid" style="margin-bottom:14px"><article class="card"><div class="card-header"><h3>Asosiy tahlil</h3></div><div class="card-body"><div class="table-wrap"><table class="table"><thead class="table-header"><tr><th>Ko‘rsatkich</th><th>Bugun</th><th>Kecha</th><th>Trend</th></tr></thead><tbody><tr class="table-row"><td>Response quality</td><td>92%</td><td>89%</td><td><span class="badge badge-success">Up</span></td></tr><tr class="table-row"><td>Resolution speed</td><td>84%</td><td>81%</td><td><span class="badge badge-primary">Up</span></td></tr><tr class="table-row"><td>Escalation share</td><td>7%</td><td>9%</td><td><span class="badge badge-success">Down</span></td></tr></tbody></table></div></div></article><article class="card"><div class="card-header"><h3>Filtrlar</h3></div><div class="card-body"><label>Period<select class="input"><option>Today</option><option>7 days</option><option>30 days</option></select></label><label style="margin-top:10px;display:block">Segment<select class="input"><option>All</option><option>VIP</option><option>New users</option></select></label><div class="flex gap-2 wrap" style="margin-top:12px"><button class="btn btn-secondary" type="button"><i data-lucide="funnel"></i> Qo‘llash</button><button class="btn btn-primary" type="button"><i data-lucide="download"></i> Export</button></div></div></article></section>
+        <section class="split-grid" style="margin-bottom:14px"><article class="card"><div class="card-header"><h3>Asosiy tahlil</h3></div><div class="card-body"><div class="table-wrap"><table class="table"><thead class="table-header"><tr><th>Ko‘rsatkich</th><th>Bugun</th><th>Kecha</th><th>Trend</th></tr></thead><tbody><tr class="table-row"><td>Response quality</td><td>92%</td><td>89%</td><td><span class="badge badge-success">Up</span></td></tr><tr class="table-row"><td>Resolution speed</td><td>84%</td><td>81%</td><td><span class="badge badge-primary">Up</span></td></tr><tr class="table-row"><td>Escalation share</td><td>7%</td><td>9%</td><td><span class="badge badge-success">Down</span></td></tr></tbody></table></div></div></article><article class="card"><div class="card-header"><h3>Filtrlar</h3></div><div class="card-body"><label>Period<select class="input"><option>Today</option><option>7 days</option><option>30 days</option></select></label><label style="margin-top:10px;display:block">Segment<select class="input"><option>All</option><option>VIP</option><option>New users</option></select></label><div class="flex gap-2 wrap" style="margin-top:12px"><button class="btn btn-secondary" type="button"><i data-lucide="funnel"></i> Qo‘llash</button><a class="btn btn-primary" href="./10-export.html"><i data-lucide="download"></i> Export</a></div></div></article></section>
         <div class="sticky-save-bar"><a class="btn btn-secondary" href="./13-scheduled-reports.html">Oldingi sahifa</a><a class="btn btn-primary" href="./15-csat-trends.html">Keyingi sahifa</a></div>
       </div>
-    </main>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;padding-top:16px;border-top:1px solid var(--border, #e5e7eb);">
+  <a class="btn btn-ghost btn-sm" href="../05-inbox/01-inbox-chat.html"><i data-lucide="message-square"></i> Inbox</a>
+  <a class="btn btn-ghost btn-sm" href="../07-team/01-agents.html"><i data-lucide="users"></i> Team</a>
+  <a class="btn btn-ghost btn-sm" href="../09-settings/01-workspace-general.html"><i data-lucide="settings"></i> Sozlamalar</a>
+  <a class="btn btn-ghost btn-sm" href="../04-dashboard/01-dashboard.html"><i data-lucide="layout-dashboard"></i> Dashboard</a>
+</div>
+</main>
     <script>window.addEventListener("DOMContentLoaded",function(){if(window.lucide&&window.lucide.createIcons)window.lucide.createIcons();});</script>
   </body>
 </html>

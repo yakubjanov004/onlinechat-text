@@ -15,16 +15,32 @@
 </head>
 <body data-active-nav="contacts" data-shell-role="admin" class="dashboard-shell-page">
 <main class="app-content">
-<div class="subnav-scroll"><div class="subnav-tabs"><a class="subnav-tab " href="./01-contacts-list.html">Kontaktlar</a><a class="subnav-tab active" href="./02-contact-profile.html">Kontakt Profili</a><a class="subnav-tab " href="./03-organizations.html">Tashkilotlar</a><a class="subnav-tab " href="./04-org-detail.html">Tashkilot Profili</a><a class="subnav-tab " href="./05-segments.html">CRM Segmentlar</a><a class="subnav-tab " href="./06-import-export.html">Import &amp; Export</a></div></div>
+<nav class="subnav-tabs" aria-label="Contacts sahifalari">
+  <a class="tab" href="./01-contacts-list.html">Kontaktlar</a>
+  <a class="tab active" href="./02-contact-profile.html">Kontakt profil</a>
+  <a class="tab" href="./03-organizations.html">Tashkilotlar</a>
+  <a class="tab" href="./04-org-detail.html">Tashkilot batafsil</a>
+  <a class="tab" href="./05-segments.html">Segmentlar</a>
+  <a class="tab" href="./06-import-export.html">Import/Export</a>
+</nav>
 <nav class="breadcrumbs" aria-label="Breadcrumb">
-  <a href="../04-dashboard/01-dashboard.html">Dashboard</a><i data-lucide="chevron-right"></i>
-  <a href="./01-contacts-list.html">Kontaktlar</a><i data-lucide="chevron-right"></i><span class="current">Kontakt profili</span>
+  <a href="../04-dashboard/01-dashboard.html">Dashboard</a>
+  <span class="separator">›</span>
+  <a href="./01-contacts-list.html">Kontaktlar</a>
+  <span class="separator">›</span>
+  <span class="current">Kontakt profil</span>
 </nav>
 <div class="page-header"><div><h1>Kontakt Profili</h1><p class="text-muted">CRM kontaktlar, tashkilotlar va segmentlar</p></div></div><div class="split-grid">
-<section class="card"><div class="card-header"><div><h3>Kontakt ma'lumotlari</h3></div></div><div class="card-body"><div class="flex gap-3 items-center"><span class="avatar avatar-xl">AV</span><div><h3>Ahmad Valiyev</h3><p class="text-muted">ACME • ahmad@example.com</p></div></div><div class="kv-list"><div class="kv-row"><span>Phone</span><strong>+998 90 222 33 44</strong></div><div class="kv-row"><span>Status</span><strong>Lead</strong></div><div class="kv-row" data-roles="admin"><span>Owner</span><strong>Sardor A.</strong></div><div class="kv-row" data-roles="agent"><span>Queue</span><strong>Mening kontaktlarim</strong></div><div class="kv-row"><span>Last seen</span><strong>2h ago</strong></div></div></div></section>
-<section class="card"><div class="card-header"><div><h3>Chat tarixi</h3></div></div><div class="card-body"><div class="timeline"><div class="timeline-item"><span class="timeline-dot"></span><div class="timeline-card"><strong>Pricing chat</strong><span class="timeline-time">Today</span></div></div><div class="timeline-item"><span class="timeline-dot"></span><div class="timeline-card"><strong>Demo follow-up</strong><span class="timeline-time">Yesterday</span></div></div></div></div></section>
+<section class="card"><div class="card-header"><div><h3>Kontakt ma'lumotlari</h3></div></div><div class="card-body"><div class="flex gap-3 items-center"><span class="avatar avatar-xl">AV</span><div><h3>Ahmad Valiyev</h3><p class="text-muted"><a href="./04-org-detail.html" style="color:var(--primary)">ACME</a> • ahmad@example.com</p></div></div><div class="kv-list"><div class="kv-row"><span>Phone</span><strong>+998 90 222 33 44</strong></div><div class="kv-row"><span>Status</span><strong>Lead</strong></div><div class="kv-row" data-roles="admin"><span>Owner</span><strong>Sardor A.</strong></div><div class="kv-row" data-roles="agent"><span>Queue</span><strong>Mening kontaktlarim</strong></div><div class="kv-row"><span>Last seen</span><strong>2h ago</strong></div></div></div></section>
+<section class="card"><div class="card-header"><div><h3>Chat tarixi</h3></div></div><div class="card-body"><div class="timeline"><div class="timeline-item"><span class="timeline-dot"></span><div class="timeline-card"><strong>Pricing chat</strong><span class="timeline-time">Today</span></div></div><div class="timeline-item"><span class="timeline-dot"></span><div class="timeline-card"><strong>Demo follow-up</strong><span class="timeline-time">Yesterday</span></div></div></div><div style="margin-top:12px"><a class="btn btn-secondary btn-sm" href="../05-inbox/01-inbox-chat.html"><i data-lucide="message-square"></i> Chatlar</a></div></div></section>
 </div>
 <section class="card"><div class="card-header"><div><h3>Notes &amp; Tags</h3></div></div><div class="card-body"><div class="tag-cloud"><span class="badge badge-info">Lead</span><span class="badge badge-primary">Pricing</span><span class="badge badge-warning">Demo</span></div><div class="mt-3"><textarea class="textarea" rows="4" placeholder="">Qiziqish yuqori. Pro plan demo talab qilishi mumkin.</textarea></div></div></section>
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;padding-top:16px;border-top:1px solid var(--border, #e5e7eb);">
+  <a class="btn btn-ghost btn-sm" href="../05-inbox/01-inbox-chat.html"><i data-lucide="message-square"></i> Inbox</a>
+  <a class="btn btn-ghost btn-sm" href="../13-visitors/01-visitors-list.html"><i data-lucide="eye"></i> Visitors</a>
+  <a class="btn btn-ghost btn-sm" href="../08-analytics/07-segments.html"><i data-lucide="bar-chart-3"></i> Segment analytics</a>
+  <a class="btn btn-ghost btn-sm" href="../04-dashboard/01-dashboard.html"><i data-lucide="layout-dashboard"></i> Dashboard</a>
+</div>
 </main>
 <script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
 </body>

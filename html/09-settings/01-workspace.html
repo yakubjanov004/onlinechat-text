@@ -1,24 +1,4 @@
-<!doctype html>
-<html lang="uz">
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>QULAY CHAT - Workspace Redirect</title>
-<link rel="stylesheet" href="../assets/qulay-chat-design-system.css">
-<script>
-(function(){
-  try {
-    var role=(localStorage.getItem('qulaychat_role')||'admin').toLowerCase();
-    var target = role==='agent' ? './05-profile.html' : './01-workspace-general.html';
-    location.replace(target);
-  } catch(e) { location.replace('./01-workspace-general.html'); }
-})();
-</script>
-</head>
-<body data-no-shell>
-<main style="max-width:720px;margin:48px auto;padding:16px">
-  <h1>Workspace bo'limi yangilandi</h1>
-  <p>Yangi tuzilma: <a href="./01-workspace-general.html">Workspace General</a> va <a href="./01b-workspace-branding.html">Workspace Branding</a>.</p>
-  <p>Agent uchun asosiy sozlama sahifasi: <a href="./05-profile.html">Profile</a>.</p>
-</main>
-</body>
-</html>
+<!DOCTYPE html>
+<html lang="uz"><head><meta charset="UTF-8"><title>Sozlamalar — Qulay Chat</title>
+<meta http-equiv="refresh" content="0;url=./01-workspace-general.html">
+</head><body><p>Yo'naltirilmoqda... <a href="./01-workspace-general.html">Umumiy sozlamalar</a></p></body></html>

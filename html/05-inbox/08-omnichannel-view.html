@@ -14,20 +14,26 @@
   </head>
   <body data-active-nav="inbox" class="dashboard-shell-page">
     <main class="app-content">
-      <div class="subnav-scroll"><div class="subnav-tabs">
-        <a class="subnav-tab" href="./01-inbox-chat.html">Inbox Chat</a>
-        <a class="subnav-tab" href="./02-chat-open.html">Chat Open</a>
-        <a class="subnav-tab" href="./03-info-sidebar.html">Info Sidebar</a>
-        <a class="subnav-tab" href="./04-canned-responses.html">Canned Responses</a>
-        <a class="subnav-tab" href="./05-chat-transfer.html">Chat Transfer</a>
-        <a class="subnav-tab" href="./06-chat-merge.html">Chat Merge</a>
-        <a class="subnav-tab" href="./07-bulk-actions.html">Bulk Actions</a>
-        <a class="subnav-tab active" href="./08-omnichannel-view.html">Omnichannel View</a>
-        <a class="subnav-tab" href="./09-channel-filter.html">Channel Filter</a>
-        <a class="subnav-tab" href="./10-internal-notes.html">Internal Notes</a>
-      </div></div>
-
-      <div class="page-header">
+          <nav class="subnav-tabs" aria-label="Inbox sahifalari">
+      <a class="tab" href="./01-inbox-chat.html">Chat ro'yxati</a>
+      <a class="tab" href="./02-chat-open.html">Ochiq chat</a>
+      <a class="tab" href="./03-info-sidebar.html">Ma'lumot panel</a>
+      <a class="tab" href="./04-canned-responses.html">Tayyor javoblar</a>
+      <a class="tab" href="./05-chat-transfer.html">Transfer</a>
+      <a class="tab" href="./06-chat-merge.html">Birlashtirish</a>
+      <a class="tab" href="./07-bulk-actions.html">Ko'plik amallar</a>
+      <a class="tab active" href="./08-omnichannel-view.html">Omnichannel</a>
+      <a class="tab" href="./09-channel-filter.html">Kanal filtr</a>
+      <a class="tab" href="./10-internal-notes.html">Ichki eslatmalar</a>
+    </nav>
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="../04-dashboard/01-dashboard.html">Dashboard</a>
+      <span class="separator"></span>
+      <a href="./01-inbox-chat.html">Inbox</a>
+      <span class="separator"></span>
+      <span class="current">Omnichannel</span>
+    </nav>
+<div class="page-header">
         <div>
           <h1>Omnichannel View</h1>
           <p class="text-muted">Barcha kanallardan kelgan chatlarni yagona inboxda ko‘rish.</p>
@@ -77,10 +83,16 @@
           </div>
         </article>
       </section>
-
-      <div class="sticky-save-bar">
+      <div class="page-nav" style="margin-top:20px;padding-top:16px;border-top:1px solid var(--border, #e5e7eb);">
         <a class="btn btn-secondary" href="./07-bulk-actions.html">Oldingi sahifa</a>
         <a class="btn btn-primary" href="./09-channel-filter.html">Keyingi sahifa</a>
+      </div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;padding-top:16px;border-top:1px solid var(--border, #e5e7eb);">
+        <a class="btn btn-ghost btn-sm" href="../12-contacts/02-contact-profile.html"><i data-lucide="user"></i> Kontaktlar</a>
+        <a class="btn btn-ghost btn-sm" href="../07-team/02-agent-profile.html"><i data-lucide="users"></i> Agent profili</a>
+        <a class="btn btn-ghost btn-sm" href="./05-chat-transfer.html"><i data-lucide="shuffle"></i> Transfer</a>
+        <a class="btn btn-ghost btn-sm" href="../15-knowledge-base/06-public-home.html"><i data-lucide="book-open"></i> KB'dan javob qidirish</a>
+        <a class="btn btn-ghost btn-sm" href="../04-dashboard/01-dashboard.html"><i data-lucide="layout-dashboard"></i> Dashboard</a>
       </div>
     </main>
     <script>window.addEventListener("DOMContentLoaded",function(){if(window.lucide&&window.lucide.createIcons)window.lucide.createIcons();});</script>

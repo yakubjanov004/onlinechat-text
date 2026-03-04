@@ -15,13 +15,19 @@
 </head>
 <body data-active-nav="visitors" class="dashboard-shell-page">
 <main class="app-content">
-  <div class="subnav-scroll">
-    <div class="subnav-tabs">
-      <a class="subnav-tab active" href="./01-visitors-list.html">Online Visitors</a>
-      <a class="subnav-tab" href="./02-visitor-profile.html">Visitor Profile</a>
-      <a class="subnav-tab" href="./03-visitors-map.html">Visitors Map</a>
-    </div>
-  </div>
+  <nav class="subnav-tabs" aria-label="Visitors sahifalari">
+    <a class="tab active" href="./01-visitors-list.html">Visitors ro'yxati</a>
+    <a class="tab" href="./02-visitor-profile.html">Visitor profil</a>
+    <a class="tab" href="./03-visitors-map.html">Xarita</a>
+  </nav>
+
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <a href="../04-dashboard/01-dashboard.html">Dashboard</a>
+    <span class="separator">›</span>
+    <a href="./01-visitors-list.html">Visitors</a>
+    <span class="separator">›</span>
+    <span class="current">Visitors ro'yxati</span>
+  </nav>
 
   <div class="page-header">
     <div class="alert alert-info" data-roles="agent" style="margin-bottom:10px"><i data-lucide="shield"></i><div>Agent rejimi: faqat o'zingizga biriktirilgan visitor sessiyalarini ko'rasiz.</div></div>
@@ -81,7 +87,7 @@
           </thead>
           <tbody>
             <tr class="table-row">
-              <td>185.8.212.34</td>
+              <td><a href="./02-visitor-profile.html">185.8.212.34</a></td>
               <td>UZ • Toshkent</td>
               <td>/pricing</td>
               <td>03:14</td>
@@ -89,7 +95,7 @@
               <td><button type="button" class="btn btn-primary" data-action="log" data-message="Chat boshlandi">Start chat</button></td>
             </tr>
             <tr class="table-row">
-              <td>91.204.155.1</td>
+              <td><a href="./02-visitor-profile.html">91.204.155.1</a></td>
               <td>KZ • Almaty</td>
               <td>/features</td>
               <td>01:02</td>
@@ -97,7 +103,7 @@
               <td><button type="button" class="btn btn-primary" data-action="log" data-message="Chat boshlandi">Start chat</button></td>
             </tr>
             <tr class="table-row">
-              <td>37.110.214.8</td>
+              <td><a href="./02-visitor-profile.html">37.110.214.8</a></td>
               <td>TR • Istanbul</td>
               <td>/contact</td>
               <td>00:31</td>
@@ -105,7 +111,7 @@
               <td><button type="button" class="btn btn-primary" data-action="log" data-message="Chat boshlandi">Start chat</button></td>
             </tr>
             <tr class="table-row">
-              <td>104.28.12.3</td>
+              <td><a href="./02-visitor-profile.html">104.28.12.3</a></td>
               <td>US • New York</td>
               <td>/demo</td>
               <td>04:18</td>
@@ -113,7 +119,7 @@
               <td><button type="button" class="btn btn-primary" data-action="log" data-message="Chat boshlandi">Start chat</button></td>
             </tr>
             <tr class="table-row">
-              <td>62.122.90.12</td>
+              <td><a href="./02-visitor-profile.html">62.122.90.12</a></td>
               <td>UZ • Samarqand</td>
               <td>/pricing</td>
               <td>02:11</td>
@@ -121,7 +127,7 @@
               <td><button type="button" class="btn btn-primary" data-action="log" data-message="Chat boshlandi">Start chat</button></td>
             </tr>
             <tr class="table-row">
-              <td>45.77.19.40</td>
+              <td><a href="./02-visitor-profile.html">45.77.19.40</a></td>
               <td>DE • Berlin</td>
               <td>/help</td>
               <td>00:54</td>
@@ -139,6 +145,13 @@
       </div>
     </div>
   </section>
+
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;padding-top:16px;border-top:1px solid var(--border, #e5e7eb);">
+    <a class="btn btn-ghost btn-sm" href="../12-contacts/01-contacts-list.html"><i data-lucide="users"></i> Kontaktlar</a>
+    <a class="btn btn-ghost btn-sm" href="../05-inbox/01-inbox-chat.html"><i data-lucide="message-square"></i> Inbox</a>
+    <a class="btn btn-ghost btn-sm" href="../08-analytics/01-overview.html"><i data-lucide="bar-chart-3"></i> Analytics</a>
+    <a class="btn btn-ghost btn-sm" href="../04-dashboard/01-dashboard.html"><i data-lucide="layout-dashboard"></i> Dashboard</a>
+  </div>
 </main>
 <script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
 </body>

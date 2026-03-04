@@ -17,13 +17,19 @@
 </head>
 <body data-active-nav="visitors" class="dashboard-shell-page">
 <main class="app-content">
-  <div class="subnav-scroll">
-    <div class="subnav-tabs">
-      <a class="subnav-tab" href="./01-visitors-list.html">Online Visitors</a>
-      <a class="subnav-tab" href="./02-visitor-profile.html">Visitor Profile</a>
-      <a class="subnav-tab active" href="./03-visitors-map.html">Visitors Map</a>
-    </div>
-  </div>
+  <nav class="subnav-tabs" aria-label="Visitors sahifalari">
+    <a class="tab" href="./01-visitors-list.html">Visitors ro'yxati</a>
+    <a class="tab" href="./02-visitor-profile.html">Visitor profil</a>
+    <a class="tab active" href="./03-visitors-map.html">Xarita</a>
+  </nav>
+
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <a href="../04-dashboard/01-dashboard.html">Dashboard</a>
+    <span class="separator">›</span>
+    <a href="./01-visitors-list.html">Visitors</a>
+    <span class="separator">›</span>
+    <span class="current">Xarita</span>
+  </nav>
 
   <div class="page-header">
     <div>
@@ -109,6 +115,13 @@
       </div>
     </div>
   </section>
+
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;padding-top:16px;border-top:1px solid var(--border, #e5e7eb);">
+    <a class="btn btn-ghost btn-sm" href="../12-contacts/01-contacts-list.html"><i data-lucide="users"></i> Kontaktlar</a>
+    <a class="btn btn-ghost btn-sm" href="../05-inbox/01-inbox-chat.html"><i data-lucide="message-square"></i> Inbox</a>
+    <a class="btn btn-ghost btn-sm" href="../08-analytics/01-overview.html"><i data-lucide="bar-chart-3"></i> Analytics</a>
+    <a class="btn btn-ghost btn-sm" href="../04-dashboard/01-dashboard.html"><i data-lucide="layout-dashboard"></i> Dashboard</a>
+  </div>
 </main>
 <script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
 </body>

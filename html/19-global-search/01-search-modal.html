@@ -16,17 +16,19 @@
     <script src="../assets/qulay-chat-runtime.js" defer></script>
     <script src="../assets/global-search.js" defer></script>
   </head>
-  <body data-active-nav="dashboard" class="dashboard-shell-page">
+  <body data-active-nav="global-search" data-shell-role="admin" class="dashboard-shell-page">
     <main class="app-content">
-      <div class="subnav-scroll">
-        <div class="subnav-tabs">
-          <a class="subnav-tab active" href="./01-search-modal.html"
-            >Search Modal</a
-          ><a class="subnav-tab" href="./02-search-results.html"
-            >Search Results</a
-          >
-        </div>
-      </div>
+      <nav class="subnav-tabs" aria-label="Search sahifalari">
+        <a class="tab active" href="./01-search-modal.html">Qidiruv modal</a>
+        <a class="tab" href="./02-search-results.html">Natijalar</a>
+      </nav>
+      <nav class="breadcrumbs">
+        <a href="../04-dashboard/01-dashboard.html">Dashboard</a>
+        <span class="separator">›</span>
+        <a href="./01-search-modal.html">Qidiruv</a>
+        <span class="separator">›</span>
+        <span class="current">Qidiruv modal</span>
+      </nav>
       <div class="page-header">
         <div>
           <h1>Global Search</h1>

@@ -3,43 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Offline | QULAY CHAT</title>
+  <title>Internet aloqasi yo'q  QULAY CHAT</title>
   <meta name="robots" content="noindex, nofollow">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/qulay-chat-design-system.css">  <link rel="stylesheet" href="../assets/system-pages.css">
-  <script src="https://unpkg.com/lucide@latest" defer></script>
-  <script src="../assets/system-interactions.js" defer></script>
+  <link rel="stylesheet" href="../assets/css/qulay-chat-design-system.css">
+  <link rel="stylesheet" href="../assets/system-pages.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="system-page">
   <main class="system-page" role="main">
     <div class="system-shell" style="max-width:640px;">
-      <div class="system-brand"><a class="shell-brand" href="../index.html"><span class="shell-brand-mark">QC</span><span>QULAY CHAT</span></a></div>
+      <div class="system-brand">
+        <a class="shell-brand" href="../index.html"><span class="shell-brand-mark">QC</span><span>QULAY CHAT</span></a>
+      </div>
+
       <section class="system-card" style="gap:20px;">
-        <div class="system-illustration"><i data-lucide="wifi-off"></i></div>
+        <div class="system-illustration" aria-hidden="true"><i data-lucide="wifi-off"></i></div>
         <div class="error-code info">OFFLINE</div>
         <h1>Internet aloqasi yo'q</h1>
-        <p class="text-muted" style="max-width:48ch;text-align:center;">Ulanish qayta tiklangach sahifa avtomatik yangilanadi. Hozircha qayta urinish tugmasini bosing.</p>
-
-        <div class="card" style="width:100%;max-width:520px;text-align:left;">
-          <div class="card-header"><div><h3>Offline holatda mavjud</h3></div></div>
-          <div class="card-body">
-            <ul class="pricing-list">
-              <li><i data-lucide="check"></i>So'nggi ochilgan sahifalarni ko'rish</li>
-              <li><i data-lucide="check"></i>Draft matnlarni tahrirlash</li>
-              <li><i data-lucide="check"></i>Ulanish qaytgach retry qilish</li>
-            </ul>
-          </div>
-        </div>
+        <p class="text-muted" style="max-width:48ch;text-align:center;">Internet ulanishingizni tekshiring</p>
 
         <div class="system-actions">
-          <button type="button" class="btn btn-primary" data-system-reload><i data-lucide="refresh-cw"></i>Qayta urinish</button>
-          <a class="btn btn-secondary" href="../index.html">Bosh sahifa</a>
+          <a class="btn btn-primary" href="../index.html">
+            <i data-lucide="home"></i> Bosh sahifa
+          </a>
+          <a class="btn btn-secondary" href="../04-dashboard/01-dashboard.html">
+            <i data-lucide="layout-dashboard"></i> Dashboard
+          </a>
+          <button class="btn btn-ghost" type="button" data-system-back>
+            <i data-lucide="arrow-left"></i> Orqaga
+          </button>
+          <a class="btn btn-ghost" href="../21-help-support/03-submit-ticket.html">
+            <i data-lucide="help-circle"></i> Muammo haqida xabar berish
+          </a>
         </div>
       </section>
     </div>
   </main>
-  <script>window.addEventListener('DOMContentLoaded',()=>window.lucide&&window.lucide.createIcons&&window.lucide.createIcons());</script>
+  <script>lucide.createIcons();</script>
 </body>
 </html>

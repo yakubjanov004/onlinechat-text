@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="uz">
 <head>
 <meta charset="UTF-8">
@@ -12,11 +12,11 @@
 <script src="../assets/qulay-chat-runtime.js" defer></script>
 </head>
 <body class="auth-page">
-<main class="auth-page">
+<main>
 <section class="auth-card auth-card-lg">
 <div class="auth-logo"><span class="shell-brand-mark">QC</span><span>QULAY CHAT</span></div>
 <div class="auth-title"><h1>Kirish</h1><p>Akkauntingizga kiring va mijoz chatlarini boshqaring.</p></div>
-<form class="auth-form" data-submit-message="Kirish bajarildi" data-submit-href="../03-onboarding/01-welcome.html">
+<form class="auth-form" data-auto-submit data-submit-message="Muvaffaqiyatli kirdingiz!" data-submit-href="../04-dashboard/01-dashboard.html">
 <label class="form-field">
 <span class="form-label">Email</span>
 <input class="input" name="email" type="email" placeholder="name@company.uz" required>
@@ -34,6 +34,7 @@
 <div class="auth-divider">yoki</div>
 <button type="button" class="btn btn-secondary w-full" data-action="log" data-message="Google auth boshlandi"><i data-lucide="chrome"></i> Google bilan davom etish</button>
 <div class="auth-footer">Akkauntingiz yo'qmi? <a href="./02-register.html" style="color:var(--primary);font-weight:600">Ro'yxatdan o'tish</a></div>
+<div class="auth-footer" style="margin-top:8px;"><a href="../01-landing/01-landing.html" style="color:var(--gray-500, #6b7280);font-size:13px;"> Bosh sahifaga qaytish</a></div>
 </section>
 </main>
 <script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>

@@ -27,27 +27,33 @@
 @media (max-width:1000px){.main{grid-template-columns:1fr}.event-grid{grid-template-columns:1fr}}
 </style>
 </head>
-<body data-active-nav='billing' class='dashboard-shell-page'>
+<body data-active-nav='payments' data-shell-role='admin' class='dashboard-shell-page'>
 <main class='app-content'>
-  <div class='subnav-scroll'><div class='subnav-tabs'>
-    <a class='subnav-tab' href='./01-payment-overview.html'>Payment Overview</a>
-    <a class='subnav-tab' href='./02-payme-setup.html'>Payme Setup</a>
-    <a class='subnav-tab' href='./03-click-setup.html'>Click Setup</a>
-    <a class='subnav-tab' href='./04-uzum-setup.html'>Uzum Setup</a>
-    <a class='subnav-tab active' href='./05-stripe-setup.html'>Stripe Setup</a>
-    <a class='subnav-tab' href='./06-bank-transfer.html'>Bank Transfer</a>
-    <a class='subnav-tab' href='./07-payment-test.html'>Payment Test</a>
-    <a class='subnav-tab' href='./08-payment-logs.html'>Payment Logs</a>
-  </div></div>
+    <nav class='subnav-tabs' aria-label='Payments sahifalari'>
+    <a class='tab' href='./01-payment-overview.html'>Umumiy</a>
+    <a class='tab' href='./02-payme-setup.html'>Payme</a>
+    <a class='tab' href='./03-click-setup.html'>Click</a>
+    <a class='tab' href='./04-uzum-setup.html'>Uzum Bank</a>
+    <a class='tab active' href='./05-stripe-setup.html'>Stripe</a>
+    <a class='tab' href='./06-bank-transfer.html'>Bank o'tkazma</a>
+    <a class='tab' href='./07-payment-test.html'>Test to'lov</a>
+    <a class='tab' href='./08-payment-logs.html'>To'lov loglari</a>
+  </nav>
 
   <div data-roles='admin'>
-    <nav class='breadcrumbs' aria-label='Breadcrumb'>
+        <nav class='breadcrumbs'>
       <a href='../04-dashboard/01-dashboard.html'>Dashboard</a>
-      <i data-lucide='chevron-right'></i>
-      <a href='./01-payment-overview.html'>Payments</a>
-      <i data-lucide='chevron-right'></i>
-      <span class='current'>Stripe Setup</span>
+      <span class='separator'>&rsaquo;</span>
+      <a href='./01-payment-overview.html'>To'lovlar</a>
+      <span class='separator'>&rsaquo;</span>
+      <span class='current'>Stripe</span>
     </nav>
+
+    <div class='payment-brand' style='display:flex;align-items:center;gap:12px;margin-bottom:16px;margin-top:12px;'>
+      <img src='https://upload.wikimedia.org/wikipedia/commons/b/ba/Stripe_Logo%2C_revised_2016.svg' alt='Stripe' style='height:36px;'>
+      <div><h2 style='margin:0;'>Stripe integratsiya</h2><p class='text-muted' style='margin:0;'>Xalqaro kartalar uchun</p></div>
+    </div>
+
 
     <section class='hero'>
       <div class='flex justify-between items-center wrap gap-2'>
@@ -123,6 +129,7 @@
     <section class='card' style='margin-top:14px'>
       <div class='card-header'><h3><i data-lucide='git-fork'></i> Keyingi yo'nalish</h3></div>
       <div class='card-body flex gap-2 wrap'>
+        <a class='btn btn-secondary' href='../10-billing/01-plan.html'><i data-lucide='arrow-right'></i> Billing sahifasi</a>
         <a class='btn btn-secondary' href='./06-bank-transfer.html'><i data-lucide='arrow-right'></i> Bank Transfer</a>
         <a class='btn btn-secondary' href='./07-payment-test.html'><i data-lucide='arrow-right'></i> Payment Test</a>
         <a class='btn btn-secondary' href='./08-payment-logs.html'><i data-lucide='arrow-right'></i> Payment Logs</a>

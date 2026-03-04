@@ -17,13 +17,22 @@
 <script src="../assets/developer-interactions.js" defer>
 </script>
 </head>
-<body data-active-nav="developer" class="dashboard-shell-page">
+<body data-active-nav="developer" data-shell-role="admin" class="dashboard-shell-page">
 <main class="app-content">
-<div class="subnav-scroll">
-<div class="subnav-tabs">
-<a class="subnav-tab active" href="./01-api-keys.html">Developer API</a><a class="subnav-tab" href="./02-webhooks.html">Webhooks</a><a class="subnav-tab" href="./03-logs.html">Webhook Logs</a><a class="subnav-tab" href="./04-api-usage.html">API Usage</a><a class="subnav-tab" href="./05-sandbox.html">Sandbox</a>
-</div>
-</div>
+<nav class="breadcrumbs">
+  <a href="../04-dashboard/01-dashboard.html">Dashboard</a>
+  <span class="separator">›</span>
+  <a href="./01-api-keys.html">Developer</a>
+  <span class="separator">›</span>
+  <span class="current">API kalitlari</span>
+</nav>
+<nav class="subnav-tabs" aria-label="Developer sahifalari">
+  <a class="tab active" href="./01-api-keys.html">API kalitlari</a>
+  <a class="tab" href="./02-webhooks.html">Webhooklar</a>
+  <a class="tab" href="./03-logs.html">Loglar</a>
+  <a class="tab" href="./04-api-usage.html">API foydalanish</a>
+  <a class="tab" href="./05-sandbox.html">Sandbox</a>
+</nav>
 <div data-roles="agent" class="card" style="border-color:#FCD34D;background:#FFFBEB;margin-top:12px">
   <div class="card-body">
     <h3 style="margin:0 0 6px">Admin only</h3>
@@ -50,6 +59,7 @@
 </div>
 <div style="margin-top:10px">
 <a class="btn btn-primary" href="https://docs.qulaychat.uz/api" target="_blank">API Hujjatini ko'rish</a>
+<a class="btn btn-secondary" href="../16-addons/05-developer-sdk.html">Add-ons SDK</a>
 </div>
 </div>
 </section>
@@ -103,7 +113,7 @@
 <tr class="table-row">
 <td>Production API Key</td>
 <td>
-<code>qulaychat_live_pk_abc123••••••••••xyz789</code> <button class="btn btn-secondary btn-sm" type="button" data-copy="qulaychat_live_pk_abc123_full_key_xyz789">Copy</button>
+<code>qulaychat_live_pk_abc123••••••••••xyz789</code> <button class="btn btn-secondary btn-sm" type="button" data-action="copy" data-copy="qulaychat_live_pk_abc123_full_key_xyz789">Copy</button>
 </td>
 <td>
 <span class="badge badge-success">Production</span>
@@ -119,7 +129,7 @@
 <tr class="table-row">
 <td>Development API Key</td>
 <td>
-<code>qulaychat_test_pk_def456••••••••••xyz123</code> <button class="btn btn-secondary btn-sm" type="button" data-copy="qulaychat_test_pk_def456_full_key_xyz123">Copy</button>
+<code>qulaychat_test_pk_def456••••••••••xyz123</code> <button class="btn btn-secondary btn-sm" type="button" data-action="copy" data-copy="qulaychat_test_pk_def456_full_key_xyz123">Copy</button>
 </td>
 <td>
 <span class="badge badge-warning">Development</span>

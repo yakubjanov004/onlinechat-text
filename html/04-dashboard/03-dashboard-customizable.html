@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="uz">
   <head>
     <meta charset="UTF-8" />
@@ -18,11 +18,19 @@
   </head>
   <body data-active-nav="dashboard" class="dashboard-shell-page">
     <main class="app-content">
-      <div class="subnav-scroll">
-<div class="subnav-tabs">
-<a class="subnav-tab" href="./01-dashboard.html">Dashboard router</a><a class="subnav-tab" href="./01-dashboard-admin.html">Admin Dashboard</a><a class="subnav-tab" href="./02-dashboard-agent.html">Agent Dashboard</a><a class="subnav-tab active" href="./03-dashboard-customizable.html">Customizable Dashboard</a><a class="subnav-tab" href="./04-agent-quick-actions.html">Agent Quick Actions</a><a class="subnav-tab" href="./05-manager-dashboard.html">Manager Dashboard</a>
-</div>
-</div>
+      <nav class="subnav-tabs" aria-label="Dashboard sahifalari">
+        <a class="tab" href="./01-dashboard.html">Router</a>
+        <a class="tab" href="./01-dashboard-admin.html">Admin Dashboard</a>
+        <a class="tab" href="./02-dashboard-agent.html">Agent Dashboard</a>
+        <a class="tab active" href="./03-dashboard-customizable.html">Customizable</a>
+        <a class="tab" href="./04-agent-quick-actions.html">Quick Actions</a>
+        <a class="tab" href="./05-manager-dashboard.html">Manager</a>
+      </nav>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="./01-dashboard.html">Dashboard</a>
+        <span class="separator"></span>
+        <span class="current">Customizable</span>
+      </nav>
       <div class="page-header">
         <div>
           <h1>Customizable Dashboard</h1>
@@ -80,7 +88,12 @@
           <p class="text-muted">Peak: 10:00–12:00 va 16:00–18:00</p>
         </article>
       </section>
+      <div class="page-header-actions" style="margin-top:20px;padding-top:16px;border-top:1px solid var(--border, #e5e7eb);">
+        <a class="btn btn-ghost btn-sm" href="../05-inbox/01-inbox-chat.html">Barcha chatlarni ko'rish</a>
+        <a class="btn btn-ghost btn-sm" href="../08-analytics/01-overview.html">Analytics</a>
+        <a class="btn btn-ghost btn-sm" href="../09-settings/01-workspace-general.html">Sozlamalar</a>
+        <a class="btn btn-ghost btn-sm" href="../07-team/01-agents.html">Agent boshqaruvi</a>
+      </div>
     </main>
   </body>
 </html>
-

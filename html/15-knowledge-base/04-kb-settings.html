@@ -15,11 +15,30 @@
   </head>
   <body data-active-nav="knowledge-base" class="dashboard-shell-page">
     <main class="app-content">
-      <div class="subnav-scroll">
-<div class="subnav-tabs kb-subnav">
-<a class="subnav-tab" href="./01-kb-dashboard.html">Knowledge Base</a><a class="subnav-tab" href="./02-article-editor.html">Article Editor</a><a class="subnav-tab" href="./03-categories.html">KB Categories</a><a class="subnav-tab active" href="./04-kb-settings.html">KB Settings</a><a class="subnav-tab" href="./05-kb-analytics.html">KB Analytics</a><a class="subnav-tab" href="./06-public-home.html">Public Home</a><a class="subnav-tab" href="./07-public-search.html">Public Search</a><a class="subnav-tab" href="./08-public-category.html">Public Category</a><a class="subnav-tab" href="./09-public-article.html">Public Article</a><a class="subnav-tab" href="./10-kb-versioning.html">KB Versioning</a><a class="subnav-tab" href="./11-kb-multilingual.html">KB Multilingual</a><a class="subnav-tab" href="./12-kb-ai-suggest.html">KB AI Suggest</a><a class="subnav-tab" href="./13-kb-feedback-detail.html">KB Feedback Detail</a><a class="subnav-tab" href="./14-kb-internal.html">KB Internal</a><a class="subnav-tab" href="./15-kb-import.html">KB Import</a><a class="subnav-tab" href="./16-kb-custom-domain.html">KB Custom Domain</a><a class="subnav-tab" href="./17-kb-seo.html">KB SEO</a><a class="subnav-tab" href="./18-kb-widget-link.html">KB Widget Link</a>
-</div>
-</div>
+<nav class="subnav-tabs" aria-label="Knowledge Base sahifalari">
+  <a class="tab" href="./01-kb-dashboard.html">Dashboard</a>
+  <a class="tab" href="./02-article-editor.html">Maqola editor</a>
+  <a class="tab" href="./03-categories.html">Kategoriyalar</a>
+  <a class="tab active" href="./04-kb-settings.html">Sozlamalar</a>
+  <a class="tab" href="./05-kb-analytics.html">Analitika</a>
+  <a class="tab" href="./10-kb-versioning.html">Versiyalar</a>
+  <a class="tab" href="./11-kb-multilingual.html">Ko'p tilli</a>
+  <a class="tab" href="./12-kb-ai-suggest.html">AI tavsiyalar</a>
+  <a class="tab" href="./13-kb-feedback-detail.html">Fikr-mulohazalar</a>
+  <a class="tab" href="./14-kb-internal.html">Ichki KB</a>
+  <a class="tab" href="./15-kb-import.html">Import</a>
+  <a class="tab" href="./16-kb-custom-domain.html">Custom domen</a>
+  <a class="tab" href="./17-kb-seo.html">SEO</a>
+  <a class="tab" href="./18-kb-widget-link.html">Widget bog'lanish</a>
+</nav>
+
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <a href="../04-dashboard/01-dashboard.html">Dashboard</a>
+  <span class="separator">›</span>
+  <a href="./01-kb-dashboard.html">Knowledge Base</a>
+  <span class="separator">›</span>
+  <span class="current">KB sozlamalari</span>
+</nav>
 
       <div class="page-header">
         <div>
@@ -55,6 +74,13 @@
         <button class="btn btn-secondary" type="button">Standartga qaytarish</button>
         <button class="btn btn-primary" type="button">Saqlash</button>
       </div>
+
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;padding-top:16px;border-top:1px solid var(--border, #e5e7eb);">
+  <a class="btn btn-ghost btn-sm" href="./06-public-home.html"><i data-lucide="globe"></i> Public KB</a>
+  <a class="btn btn-ghost btn-sm" href="../05-inbox/01-inbox-chat.html"><i data-lucide="message-square"></i> Inbox</a>
+  <a class="btn btn-ghost btn-sm" href="../08-analytics/01-overview.html"><i data-lucide="bar-chart-3"></i> Analytics</a>
+  <a class="btn btn-ghost btn-sm" href="../04-dashboard/01-dashboard.html"><i data-lucide="layout-dashboard"></i> Dashboard</a>
+</div>
     </main>
     <script>
       window.addEventListener("DOMContentLoaded", () => window.lucide?.createIcons?.());

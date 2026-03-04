@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="uz">
   <head>
     <meta charset="UTF-8" />
@@ -21,11 +21,19 @@
     class="dashboard-shell-page"
   >
     <main class="app-content">
-      <div class="subnav-scroll">
-<div class="subnav-tabs">
-<a class="subnav-tab" href="./01-dashboard.html">Dashboard router</a><a class="subnav-tab active" href="./01-dashboard-admin.html">Admin Dashboard</a><a class="subnav-tab" href="./02-dashboard-agent.html">Agent Dashboard</a><a class="subnav-tab" href="./03-dashboard-customizable.html">Customizable Dashboard</a><a class="subnav-tab" href="./04-agent-quick-actions.html">Agent Quick Actions</a><a class="subnav-tab" href="./05-manager-dashboard.html">Manager Dashboard</a>
-</div>
-</div>
+      <nav class="subnav-tabs" aria-label="Dashboard sahifalari">
+        <a class="tab" href="./01-dashboard.html">Router</a>
+        <a class="tab active" href="./01-dashboard-admin.html">Admin Dashboard</a>
+        <a class="tab" href="./02-dashboard-agent.html">Agent Dashboard</a>
+        <a class="tab" href="./03-dashboard-customizable.html">Customizable</a>
+        <a class="tab" href="./04-agent-quick-actions.html">Quick Actions</a>
+        <a class="tab" href="./05-manager-dashboard.html">Manager</a>
+      </nav>
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="./01-dashboard.html">Dashboard</a>
+        <span class="separator"></span>
+        <span class="current">Admin Dashboard</span>
+      </nav>
       <div class="page-header">
         <div>
           <h1>Admin dashboard</h1>
@@ -106,175 +114,86 @@
           </div>
         </div>
       </section>
-      <div class="metrics-grid">
-        <div class="metric-card metric-card-hover">
-          <div class="flex justify-between items-center">
-            <div class="metric-label">Bugungi chat hajmi</div>
-            <span class="metric-icon"
-              ><i data-lucide="messages-square"></i
-            ></span>
-          </div>
-          <div class="metric-value">286</div>
-          <div class="metric-trend">+14% kechagiga nisbatan</div>
+      <div class="metrics-grid" style="grid-template-columns:repeat(4,1fr);">
+        <div class="metric-card-v2">
+          <small class="text-muted">Bugungi chatlar</small>
+          <div class="metric-value">247</div>
+          <span class="metric-change up">12% kechagiga nisbatan</span>
+          <svg class="sparkline" viewBox="0 0 80 24"><polyline points="0,20 12,16 24,18 36,10 48,14 60,6 72,8 80,4"></polyline></svg>
         </div>
-        <div class="metric-card metric-card-hover">
-          <div class="flex justify-between items-center">
-            <div class="metric-label">SLA bajarilishi</div>
-            <span class="metric-icon"><i data-lucide="shield-check"></i></span>
-          </div>
-          <div class="metric-value">92.4%</div>
-          <div class="metric-trend warn">-2.1% haftalik trend</div>
+        <div class="metric-card-v2">
+          <small class="text-muted">O'rtacha javob vaqti</small>
+          <div class="metric-value">1m 24s</div>
+          <span class="metric-change down">8% yaxshilandi</span>
         </div>
-        <div class="metric-card metric-card-hover">
-          <div class="flex justify-between items-center">
-            <div class="metric-label">Faol agentlar</div>
-            <span class="metric-icon"><i data-lucide="users"></i></span>
-          </div>
-          <div class="metric-value">18 / 24</div>
-          <div class="metric-trend">3 agent breakda</div>
-        </div>
-        <div class="metric-card metric-card-hover">
-          <div class="flex justify-between items-center">
-            <div class="metric-label">Jamoa CSAT</div>
-            <span class="metric-icon"><i data-lucide="smile"></i></span>
-          </div>
+        <div class="metric-card-v2">
+          <small class="text-muted">CSAT ball</small>
           <div class="metric-value">4.7/5</div>
-          <div class="metric-trend">+0.2 so'nggi 7 kun</div>
+          <span class="metric-change up">0.2 kechagiga nisbatan</span>
+        </div>
+        <div class="metric-card-v2">
+          <small class="text-muted">Online agentlar</small>
+          <div class="metric-value">8/12</div>
+          <span class="status-badge online"><span class="status-dot online"></span>Online</span>
         </div>
       </div>
       <div class="two-col">
-        <section class="card">
-          <div class="card-header">
-            <div>
-              <h3>Jamoa yuklamasi (7 kun)</h3>
+        <div class="chart-container">
+          <div class="chart-header">
+            <h3>Haftalik chat statistikasi</h3>
+            <select class="input" style="width:auto;">
+              <option>Shu hafta</option>
+              <option>O'tgan hafta</option>
+            </select>
+          </div>
+          <div class="chart-bars" style="height:180px;display:flex;align-items:flex-end;gap:8px;">
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;">
+              <div style="width:100%;height:65%;background:linear-gradient(180deg,var(--primary),var(--primary-light));border-radius:6px 6px 0 0;"></div>
+              <span style="font-size:11px;color:var(--gray-500);margin-top:4px;">Dush</span>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;">
+              <div style="width:100%;height:78%;background:linear-gradient(180deg,var(--primary),var(--primary-light));border-radius:6px 6px 0 0;"></div>
+              <span style="font-size:11px;color:var(--gray-500);margin-top:4px;">Sesh</span>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;">
+              <div style="width:100%;height:90%;background:linear-gradient(180deg,var(--primary),var(--primary-light));border-radius:6px 6px 0 0;"></div>
+              <span style="font-size:11px;color:var(--gray-500);margin-top:4px;">Chor</span>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;">
+              <div style="width:100%;height:72%;background:linear-gradient(180deg,var(--primary),var(--primary-light));border-radius:6px 6px 0 0;"></div>
+              <span style="font-size:11px;color:var(--gray-500);margin-top:4px;">Pay</span>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;">
+              <div style="width:100%;height:85%;background:linear-gradient(180deg,var(--primary),var(--primary-light));border-radius:6px 6px 0 0;"></div>
+              <span style="font-size:11px;color:var(--gray-500);margin-top:4px;">Jum</span>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;">
+              <div style="width:100%;height:45%;background:linear-gradient(180deg,var(--primary),var(--primary-light));border-radius:6px 6px 0 0;"></div>
+              <span style="font-size:11px;color:var(--gray-500);margin-top:4px;">Shan</span>
+            </div>
+            <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;">
+              <div style="width:100%;height:30%;background:linear-gradient(180deg,var(--primary),var(--primary-light));border-radius:6px 6px 0 0;"></div>
+              <span style="font-size:11px;color:var(--gray-500);margin-top:4px;">Yak</span>
             </div>
           </div>
-          <div class="card-body">
-            <div class="chart-placeholder line">
-              <div class="chart-gridlines"></div>
-              <svg
-                viewBox="0 0 600 240"
-                preserveAspectRatio="none"
-                aria-hidden="true"
-              >
-                <defs>
-                  <linearGradient
-                    id="chartFillAdmin"
-                    x1="0"
-                    x2="0"
-                    y1="0"
-                    y2="1"
-                  >
-                    <stop offset="0%" stop-color="rgba(79,70,229,0.24)"></stop>
-                    <stop
-                      offset="100%"
-                      stop-color="rgba(79,70,229,0.02)"
-                    ></stop>
-                  </linearGradient>
-                </defs>
-                <path
-                  d="M0,170 C70,150 120,120 170,130 C220,140 260,80 310,95 C360,110 400,70 450,85 C500,100 540,40 600,60 L600,240 L0,240 Z"
-                  fill="url(#chartFillAdmin)"
-                ></path>
-                <path
-                  d="M0,170 C70,150 120,120 170,130 C220,140 260,80 310,95 C360,110 400,70 450,85 C500,100 540,40 600,60"
-                  fill="none"
-                  stroke="#4F46E5"
-                  stroke-width="3"
-                  stroke-linecap="round"
-                ></path>
-              </svg>
+        </div>
+        <div class="chart-container">
+          <div class="chart-header"><h3>Kanallar bo'yicha</h3></div>
+          <div style="display:flex;align-items:center;gap:20px;">
+            <div class="donut-chart" style="width:120px;height:120px;border-radius:50%;background:conic-gradient(var(--primary) 0% 35%, #10B981 35% 55%, #F59E0B 55% 70%, #3B82F6 70% 85%, var(--gray-200) 85% 100%);position:relative;">
+              <div style="position:absolute;inset:30%;border-radius:50%;background:white;display:grid;place-items:center;">
+                <span style="font-weight:700;font-size:16px;">247</span>
+              </div>
             </div>
-            <div class="chart-axis-labels">
-              <span>Dush</span><span>Sesh</span><span>Chor</span><span>Pay</span
-              ><span>Jum</span><span>Shan</span><span>Yak</span>
-            </div>
-            <div class="four-col" style="margin-top: 12px">
-              <div class="card">
-                <div class="card-body">
-                  <div class="metric-label">Peak soat</div>
-                  <div class="cell-strong">14:00 - 16:00</div>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-body">
-                  <div class="metric-label">Queue max</div>
-                  <div class="cell-strong">41 chat</div>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-body">
-                  <div class="metric-label">Avg wait</div>
-                  <div class="cell-strong">1m 58s</div>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card-body">
-                  <div class="metric-label">Escalation</div>
-                  <div class="cell-strong">7 ta</div>
-                </div>
-              </div>
+            <div style="display:grid;gap:6px;font-size:13px;">
+              <div><span style="display:inline-block;width:10px;height:10px;border-radius:3px;background:var(--primary);margin-right:6px;"></span>Website - 35%</div>
+              <div><span style="display:inline-block;width:10px;height:10px;border-radius:3px;background:#10B981;margin-right:6px;"></span>Telegram - 20%</div>
+              <div><span style="display:inline-block;width:10px;height:10px;border-radius:3px;background:#F59E0B;margin-right:6px;"></span>WhatsApp - 15%</div>
+              <div><span style="display:inline-block;width:10px;height:10px;border-radius:3px;background:#3B82F6;margin-right:6px;"></span>Instagram - 15%</div>
+              <div><span style="display:inline-block;width:10px;height:10px;border-radius:3px;background:var(--gray-200);margin-right:6px;"></span>Boshqa - 15%</div>
             </div>
           </div>
-        </section>
-        <section class="card">
-          <div class="card-header">
-            <div>
-              <h3>Kanallar ulushi va SLA</h3>
-            </div>
-          </div>
-          <div class="card-body">
-            <div class="donut-wrap">
-              <div class="donut-chart" aria-hidden="true"></div>
-              <div class="donut-legend">
-                <div class="legend-row">
-                  <span
-                    ><i class="legend-dot" style="background: #4f46e5"></i
-                    >Web</span
-                  ><strong>48% / SLA 94%</strong>
-                </div>
-                <div class="legend-row">
-                  <span
-                    ><i class="legend-dot" style="background: #10b981"></i
-                    >Telegram</span
-                  ><strong>24% / SLA 96%</strong>
-                </div>
-                <div class="legend-row">
-                  <span
-                    ><i class="legend-dot" style="background: #f59e0b"></i
-                    >WhatsApp</span
-                  ><strong>17% / SLA 88%</strong>
-                </div>
-                <div class="legend-row">
-                  <span
-                    ><i class="legend-dot" style="background: #ef4444"></i
-                    >Email</span
-                  ><strong>11% / SLA 84%</strong>
-                </div>
-              </div>
-            </div>
-            <div style="margin-top: 16px">
-              <div class="legend-row">
-                <span>Kritik queue (5+ min)</span><strong>4 ta chat</strong>
-              </div>
-              <div class="progress" style="margin-top: 6px">
-                <div class="progress-bar danger" style="width: 28%"></div>
-              </div>
-              <div class="legend-row" style="margin-top: 12px">
-                <span>Birinchi javob SLA buzilishi</span><strong>11 ta</strong>
-              </div>
-              <div class="progress" style="margin-top: 6px">
-                <div class="progress-bar warning" style="width: 38%"></div>
-              </div>
-              <div class="legend-row" style="margin-top: 12px">
-                <span>Rezolyutsiya SLA risk</span><strong>6 ta</strong>
-              </div>
-              <div class="progress" style="margin-top: 6px">
-                <div class="progress-bar primary" style="width: 21%"></div>
-              </div>
-            </div>
-          </div>
-        </section>
+        </div>
       </div>
       <section class="card">
         <div class="card-header">
@@ -516,6 +435,12 @@
           </div>
         </section>
       </div>
+      <div class="page-header-actions" style="margin-top:20px;padding-top:16px;border-top:1px solid var(--border, #e5e7eb);">
+        <a class="btn btn-ghost btn-sm" href="../05-inbox/01-inbox-chat.html">Barcha chatlarni ko'rish</a>
+        <a class="btn btn-ghost btn-sm" href="../08-analytics/01-overview.html">Analytics</a>
+        <a class="btn btn-ghost btn-sm" href="../09-settings/01-workspace-general.html">Sozlamalar</a>
+        <a class="btn btn-ghost btn-sm" href="../07-team/01-agents.html">Agent boshqaruvi</a>
+      </div>
     </main>
     <script>
       window.addEventListener("DOMContentLoaded", function () {
@@ -526,4 +451,3 @@
     </script>
   </body>
 </html>
-

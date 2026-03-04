@@ -17,13 +17,24 @@
 <script src="../assets/addons-interactions.js" defer>
 </script>
 </head>
-<body data-active-nav="addons" class="dashboard-shell-page">
+<body data-active-nav="addons" data-shell-role="admin" class="dashboard-shell-page">
 <main class="app-content">
-<div class="subnav-scroll">
-<div class="subnav-tabs">
-<a class="subnav-tab" href="./01-addons-catalog.html">Add-ons Catalog</a><a class="subnav-tab" href="./02-active-addons.html">Active Add-ons</a><a class="subnav-tab" href="./03-addon-detail.html">Add-on Detail</a><a class="subnav-tab active" href="./04-addon-settings.html">Add-on Settings</a><a class="subnav-tab" href="./05-developer-sdk.html">Developer SDK</a><a class="subnav-tab" href="./06-submit-app.html">Submit App</a><a class="subnav-tab" href="./07-app-reviews.html">App Reviews</a>
-</div>
-</div>
+<nav class="breadcrumbs">
+  <a href="../04-dashboard/01-dashboard.html">Dashboard</a>
+  <span class="separator">›</span>
+  <a href="./01-addons-catalog.html">Add-ons</a>
+  <span class="separator">›</span>
+  <span class="current">Sozlamalar</span>
+</nav>
+<nav class="subnav-tabs" aria-label="Add-ons sahifalari">
+  <a class="tab" href="./01-addons-catalog.html">Katalog</a>
+  <a class="tab" href="./02-active-addons.html">Faol qo'shimchalar</a>
+  <a class="tab" href="./03-addon-detail.html">Batafsil</a>
+  <a class="tab active" href="./04-addon-settings.html">Sozlamalar</a>
+  <a class="tab" href="./05-developer-sdk.html">Developer SDK</a>
+  <a class="tab" href="./06-submit-app.html">Ilova yuborish</a>
+  <a class="tab" href="./07-app-reviews.html">Sharhlar</a>
+</nav>
 <div data-roles="agent" class="card" style="border-color:#FCD34D;background:#FFFBEB;margin-top:12px">
   <div class="card-body">
     <h3 style="margin:0 0 6px">Admin only</h3>

@@ -15,11 +15,21 @@
 </head>
 <body data-active-nav="contacts" class="dashboard-shell-page">
 <main class="app-content">
-<div class="subnav-scroll">
-<div class="subnav-tabs">
-<a class="subnav-tab " href="./01-contacts-list.html">Kontaktlar</a><a class="subnav-tab " href="./02-contact-profile.html">Kontakt Profili</a><a class="subnav-tab active" href="./03-organizations.html">Tashkilotlar</a><a class="subnav-tab " href="./04-org-detail.html">Tashkilot Profili</a><a class="subnav-tab " href="./05-segments.html">CRM Segmentlar</a><a class="subnav-tab " href="./06-import-export.html">Import &amp; Export</a>
-</div>
-</div>
+<nav class="subnav-tabs" aria-label="Contacts sahifalari">
+  <a class="tab" href="./01-contacts-list.html">Kontaktlar</a>
+  <a class="tab" href="./02-contact-profile.html">Kontakt profil</a>
+  <a class="tab active" href="./03-organizations.html">Tashkilotlar</a>
+  <a class="tab" href="./04-org-detail.html">Tashkilot batafsil</a>
+  <a class="tab" href="./05-segments.html">Segmentlar</a>
+  <a class="tab" href="./06-import-export.html">Import/Export</a>
+</nav>
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <a href="../04-dashboard/01-dashboard.html">Dashboard</a>
+  <span class="separator">›</span>
+  <a href="./01-contacts-list.html">Kontaktlar</a>
+  <span class="separator">›</span>
+  <span class="current">Tashkilotlar</span>
+</nav>
 <div class="page-header">
 <div>
 <h1>Tashkilotlar</h1>
@@ -41,12 +51,18 @@
 </tr>
 </thead>
 <tbody>
-<tr class="table-row"><td>ACME</td><td>acme.uz</td><td>Retail</td><td>42</td><td>10m ago</td><td><a class="btn btn-secondary" href="./04-org-detail.html" >Open</a></td></tr><tr class="table-row"><td>Nexa Market</td><td>nexa.uz</td><td>Marketplace</td><td>19</td><td>2h ago</td><td><a class="btn btn-secondary" href="./04-org-detail.html" >Open</a></td></tr><tr class="table-row"><td>Logi Group</td><td>logi.uz</td><td>Logistics</td><td>7</td><td>Yesterday</td><td><a class="btn btn-secondary" href="./04-org-detail.html" >Open</a></td></tr><tr class="table-row"><td>EduPro</td><td>edu.uz</td><td>Education</td><td>24</td><td>3h ago</td><td><a class="btn btn-secondary" href="./04-org-detail.html" >Open</a></td></tr><tr class="table-row"><td>FinCore</td><td>fincore.uz</td><td>Finance</td><td>13</td><td>2d ago</td><td><a class="btn btn-secondary" href="./04-org-detail.html" >Open</a></td></tr><tr class="table-row"><td>RetailX</td><td>retailx.uz</td><td>Retail</td><td>31</td><td>5h ago</td><td><a class="btn btn-secondary" href="./04-org-detail.html" >Open</a></td></tr><tr class="table-row"><td>Shoply</td><td>shoply.uz</td><td>E-commerce</td><td>11</td><td>1d ago</td><td><a class="btn btn-secondary" href="./04-org-detail.html" >Open</a></td></tr>
+<tr class="table-row"><td><a href="./04-org-detail.html" style="color:var(--primary)">ACME</a></td><td>acme.uz</td><td>Retail</td><td>42</td><td>10m ago</td><td><a class="btn btn-secondary" href="./04-org-detail.html" >Open</a></td></tr><tr class="table-row"><td><a href="./04-org-detail.html" style="color:var(--primary)">Nexa Market</a></td><td>nexa.uz</td><td>Marketplace</td><td>19</td><td>2h ago</td><td><a class="btn btn-secondary" href="./04-org-detail.html" >Open</a></td></tr><tr class="table-row"><td><a href="./04-org-detail.html" style="color:var(--primary)">Logi Group</a></td><td>logi.uz</td><td>Logistics</td><td>7</td><td>Yesterday</td><td><a class="btn btn-secondary" href="./04-org-detail.html" >Open</a></td></tr><tr class="table-row"><td><a href="./04-org-detail.html" style="color:var(--primary)">EduPro</a></td><td>edu.uz</td><td>Education</td><td>24</td><td>3h ago</td><td><a class="btn btn-secondary" href="./04-org-detail.html" >Open</a></td></tr><tr class="table-row"><td><a href="./04-org-detail.html" style="color:var(--primary)">FinCore</a></td><td>fincore.uz</td><td>Finance</td><td>13</td><td>2d ago</td><td><a class="btn btn-secondary" href="./04-org-detail.html" >Open</a></td></tr><tr class="table-row"><td><a href="./04-org-detail.html" style="color:var(--primary)">RetailX</a></td><td>retailx.uz</td><td>Retail</td><td>31</td><td>5h ago</td><td><a class="btn btn-secondary" href="./04-org-detail.html" >Open</a></td></tr><tr class="table-row"><td><a href="./04-org-detail.html" style="color:var(--primary)">Shoply</a></td><td>shoply.uz</td><td>E-commerce</td><td>11</td><td>1d ago</td><td><a class="btn btn-secondary" href="./04-org-detail.html" >Open</a></td></tr>
 </tbody>
 </table>
 </div>
 </div>
 </section>
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;padding-top:16px;border-top:1px solid var(--border, #e5e7eb);">
+  <a class="btn btn-ghost btn-sm" href="../05-inbox/01-inbox-chat.html"><i data-lucide="message-square"></i> Inbox</a>
+  <a class="btn btn-ghost btn-sm" href="../13-visitors/01-visitors-list.html"><i data-lucide="eye"></i> Visitors</a>
+  <a class="btn btn-ghost btn-sm" href="../08-analytics/07-segments.html"><i data-lucide="bar-chart-3"></i> Segment analytics</a>
+  <a class="btn btn-ghost btn-sm" href="../04-dashboard/01-dashboard.html"><i data-lucide="layout-dashboard"></i> Dashboard</a>
+</div>
 </main>
 <script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
 </body>

@@ -16,21 +16,22 @@
     <script src="../assets/qulay-chat-runtime.js" defer></script>
     <script src="../assets/help-support.js" defer></script>
   </head>
-  <body data-active-nav="help-support" class="dashboard-shell-page">
+  <body data-active-nav="help-support" data-shell-role="admin" class="dashboard-shell-page">
     <main class="app-content">
-      <div class="subnav-scroll">
-        <div class="subnav-tabs">
-          <a class="subnav-tab active" href="./01-help-center.html"
-            >Help Center</a
-          ><a class="subnav-tab" href="./02-video-tutorials.html"
-            >Video Tutorials</a
-          ><a class="subnav-tab" href="./03-submit-ticket.html">Submit Ticket</a
-          ><a class="subnav-tab" href="./04-my-tickets.html">My Tickets</a
-          ><a class="subnav-tab" href="./05-contextual-help.html"
-            >Contextual Help</a
-          >
-        </div>
-      </div>
+      <nav class="subnav-tabs" aria-label="Help sahifalari">
+        <a class="tab active" href="./01-help-center.html">Yordam markazi</a>
+        <a class="tab" href="./02-video-tutorials.html">Video darsliklar</a>
+        <a class="tab" href="./03-submit-ticket.html">Ticket yuborish</a>
+        <a class="tab" href="./04-my-tickets.html">Mening ticketlarim</a>
+        <a class="tab" href="./05-contextual-help.html">Kontekst yordam</a>
+      </nav>
+      <nav class="breadcrumbs">
+        <a href="../04-dashboard/01-dashboard.html">Dashboard</a>
+        <span class="separator">›</span>
+        <a href="./01-help-center.html">Yordam</a>
+        <span class="separator">›</span>
+        <span class="current">Yordam markazi</span>
+      </nav>
       <div class="page-header">
         <div class="alert alert-info" data-roles="agent" style="margin-bottom:10px"><i data-lucide="life-buoy"></i><div>Agent: tezkor javoblar, ticket yuritish va video yo'riqnomalar birinchi o'rinda.</div></div>
         <div class="alert alert-warning" data-roles="admin" style="margin-bottom:10px"><i data-lucide="shield-check"></i><div>Admin: siyosat, billing, xavfsizlik va konfiguratsiya qo'llanmalari ham qo'shimcha ko'rinadi.</div></div>
@@ -85,6 +86,20 @@
           <p class="text-muted">Eventlar va integration endpointlari.</p>
           <a class="btn btn-ghost btn-sm" href="#">Ochish</a>
         </article>
+      </section>
+      <section class="card" style="margin-top:14px;">
+        <h3 style="margin-top:0">Foydali havolalar</h3>
+        <div class="list-stack">
+          <a class="list-item" href="../15-knowledge-base/06-public-home.html">
+            <div class="item-main"><div class="item-title">KB qidirish</div><div class="item-sub">Knowledge Base dan javob toping</div></div>
+          </a>
+          <a class="list-item" href="./03-submit-ticket.html">
+            <div class="item-main"><div class="item-title">Ticket yuborish</div><div class="item-sub">Muammoni support jamoasiga yuboring</div></div>
+          </a>
+          <a class="list-item" href="./04-my-tickets.html">
+            <div class="item-main"><div class="item-title">Ticket holati</div><div class="item-sub">Yuborilgan ticketlar statusini kuzating</div></div>
+          </a>
+        </div>
       </section>
     </main>
     <script>

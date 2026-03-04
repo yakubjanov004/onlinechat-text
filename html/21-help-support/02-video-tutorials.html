@@ -4,22 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>QULAY CHAT - Video Tutorials</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
+    <script src="https://unpkg.com/lucide@latest" defer></script>
     <script src="../assets/qulay-chat-shell.js" defer></script>
     <script src="../assets/qulay-chat-runtime.js" defer></script>
+    <script src="../assets/help-support.js" defer></script>
   </head>
-  <body data-active-nav="dashboard" class="dashboard-shell-page">
+  <body data-active-nav="help-support" data-shell-role="admin" class="dashboard-shell-page">
     <main class="app-content">
-      <div class="subnav-scroll">
-        <div class="subnav-tabs">
-          <a class="subnav-tab" href="./01-help-center.html">Help Center</a>
-          <a class="subnav-tab active" href="./02-video-tutorials.html">Video Tutorials</a>
-          <a class="subnav-tab" href="./03-submit-ticket.html">Submit Ticket</a>
-          <a class="subnav-tab" href="./04-my-tickets.html">My Tickets</a>
-          <a class="subnav-tab" href="./05-contextual-help.html">Contextual Help</a>
-        </div>
-      </div>
-
+      <nav class="subnav-tabs" aria-label="Help sahifalari">
+        <a class="tab" href="./01-help-center.html">Yordam markazi</a>
+        <a class="tab active" href="./02-video-tutorials.html">Video darsliklar</a>
+        <a class="tab" href="./03-submit-ticket.html">Ticket yuborish</a>
+        <a class="tab" href="./04-my-tickets.html">Mening ticketlarim</a>
+        <a class="tab" href="./05-contextual-help.html">Kontekst yordam</a>
+      </nav>
+      <nav class="breadcrumbs">
+        <a href="../04-dashboard/01-dashboard.html">Dashboard</a>
+        <span class="separator">›</span>
+        <a href="./01-help-center.html">Yordam</a>
+        <span class="separator">›</span>
+        <span class="current">Video darsliklar</span>
+      </nav>
       <div class="page-header">
         <div>
           <h1>Video darsliklar</h1>
@@ -27,12 +36,67 @@
         </div>
       </div>
 
-      <section class="grid cols-2">
-        <article class="card"><h3>01. Onboarding</h3><p class="text-muted">10 daqiqada ishga tushirish.</p><button class="btn btn-primary btn-sm">Ko'rish</button></article>
-        <article class="card"><h3>02. Inbox masterclass</h3><p class="text-muted">Transfer, merge, note amaliyoti.</p><button class="btn btn-primary btn-sm">Ko'rish</button></article>
-        <article class="card"><h3>03. Automation</h3><p class="text-muted">Trigger va auto-reply kombinatsiyasi.</p><button class="btn btn-primary btn-sm">Ko'rish</button></article>
-        <article class="card"><h3>04. Analytics</h3><p class="text-muted">KPI va SLA monitoring.</p><button class="btn btn-primary btn-sm">Ko'rish</button></article>
+      <div class="video-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:14px;">
+        <div class="card">
+          <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:10px;">
+            <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                    title="Qulay Chat - Boshlash"
+                    allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"
+                    allowfullscreen></iframe>
+          </div>
+          <h4 style="margin-top:8px;">Qulay Chat bilan ishlashni boshlash</h4>
+          <p class="text-muted" style="font-size:13px;">5:32 • Boshlash uchun asosiy qadamlar</p>
+        </div>
+        <div class="card">
+          <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:10px;">
+            <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                    title="Inbox bilan ishlash"
+                    allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"
+                    allowfullscreen></iframe>
+          </div>
+          <h4 style="margin-top:8px;">Inbox bilan ishlash</h4>
+          <p class="text-muted" style="font-size:13px;">8:15 • Chatlarni boshqarish</p>
+        </div>
+        <div class="card">
+          <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:10px;">
+            <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                    title="Chatbot yaratish"
+                    allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"
+                    allowfullscreen></iframe>
+          </div>
+          <h4 style="margin-top:8px;">Chatbot yaratish</h4>
+          <p class="text-muted" style="font-size:13px;">12:40 • Visual builder bilan</p>
+        </div>
+        <div class="card">
+          <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;border-radius:10px;">
+            <iframe style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                    title="Analytics"
+                    allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"
+                    allowfullscreen></iframe>
+          </div>
+          <h4 style="margin-top:8px;">Analytics va hisobotlar</h4>
+          <p class="text-muted" style="font-size:13px;">7:20 • KPI monitoring</p>
+        </div>
+      </div>
+      <section class="card" style="margin-top:14px;">
+        <h3 style="margin-top:0">Foydali havolalar</h3>
+        <div class="list-stack">
+          <a class="list-item" href="../15-knowledge-base/06-public-home.html">
+            <div class="item-main"><div class="item-title">KB qidirish</div><div class="item-sub">Knowledge Base dan javob toping</div></div>
+          </a>
+          <a class="list-item" href="./03-submit-ticket.html">
+            <div class="item-main"><div class="item-title">Ticket yuborish</div><div class="item-sub">Muammoni support jamoasiga yuboring</div></div>
+          </a>
+          <a class="list-item" href="./04-my-tickets.html">
+            <div class="item-main"><div class="item-title">Ticket holati</div><div class="item-sub">Yuborilgan ticketlar statusini kuzating</div></div>
+          </a>
+        </div>
       </section>
     </main>
+    <script>window.addEventListener("DOMContentLoaded",()=>window.lucide&&window.lucide.createIcons&&window.lucide.createIcons());</script>
   </body>
 </html>

@@ -1,40 +1,69 @@
 <!doctype html>
 <html lang="uz">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>QULAY CHAT - Agent Canned Personal</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
-    <script src="https://unpkg.com/lucide@latest" defer></script>
-    <script src="../assets/qulay-chat-shell.js" defer></script>
-    <script src="../assets/qulay-chat-runtime.js" defer></script>
-  </head>
-  <body data-active-nav="settings" class="dashboard-shell-page">
-    <main class="app-content">
-      <div class="subnav-scroll"><div class="subnav-tabs"><a class="subnav-tab" href="./01-workspace-general.html">Workspace General</a><a class="subnav-tab" href="./01b-workspace-branding.html">Workspace Branding</a><a class="subnav-tab" href="./02-widget-settings.html">Widget Settings</a><a class="subnav-tab" href="./03-security.html">Security</a><a class="subnav-tab" href="./04-notifications.html">Notifications</a><a class="subnav-tab" href="./05-profile.html">Profile</a><a class="subnav-tab" href="./06-privacy-export.html">Privacy Export</a><a class="subnav-tab" href="./07-privacy-delete.html">Privacy Delete</a><a class="subnav-tab" href="./08-privacy-settings.html">Privacy Settings</a><a class="subnav-tab" href="./09-custom-fields.html">Custom Fields</a><a class="subnav-tab" href="./10-tags-manager.html">Tags Manager</a><a class="subnav-tab" href="./11-canned-manager.html">Canned Manager</a><a class="subnav-tab" href="./12-ip-restriction.html">IP Restriction</a><a class="subnav-tab" href="./13-activity-log.html">Activity Log</a><a class="subnav-tab" href="./14-file-storage.html">File Storage</a><a class="subnav-tab" href="./15-account-management.html">Account Management</a><a class="subnav-tab" href="./16-workspace-switcher.html">Workspace Switcher</a><a class="subnav-tab" href="./17-agent-availability.html">Agent Availability</a><a class="subnav-tab active" href="./18-agent-canned-personal.html">Agent Canned Personal</a></div></div>
-      <div data-roles="admin agent">
-        <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../04-dashboard/01-dashboard.html">Dashboard</a><i data-lucide="chevron-right"></i><a href="./01-workspace-general.html">Settings</a><i data-lucide="chevron-right"></i><span class="current">Agent Canned Personal</span></nav>
-        <div class="page-header"><div><h1>Agent Canned Personal</h1><p class="text-muted">Agentning shaxsiy canned javoblarini boshqarish.</p></div><div class="page-header-actions"><a class="btn btn-secondary" href="./17-agent-availability.html"><i data-lucide="arrow-left"></i> Agent Availability</a><a class="btn btn-primary" href="./01-workspace-general.html">Workspace General <i data-lucide="arrow-right"></i></a></div></div>
-
-        <section class="grid cols-3" style="margin-bottom:14px">
-          <article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">Status</p><h3 style="margin:0">Active</h3></div></article>
-          <article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">Updated</p><h3 style="margin:0">Bugun 17:02</h3></div></article>
-          <article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">Owner</p><h3 style="margin:0">Ulug‘bek</h3></div></article>
-        </section>
-
-        <section class="split-grid" style="margin-bottom:14px">
-          <article class="card"><div class="card-header"><h3>Asosiy sozlamalar</h3></div><div class="card-body"><label>Primary option<input class="input" value="Enabled" /></label><label style="margin-top:10px;display:block">Secondary option<input class="input" value="Configured" /></label><div class="flex gap-2 wrap" style="margin-top:12px"><button class="btn btn-secondary" type="button"><i data-lucide="rotate-cw"></i> Tekshirish</button><button class="btn btn-primary" type="button"><i data-lucide="save"></i> Saqlash</button></div></div></article>
-          <article class="card"><div class="card-header"><h3>Checklist</h3></div><div class="card-body"><div class="list-stack"><div class="list-item"><div class="item-main"><div class="item-title">Policy tekshirildi</div></div><span class="badge badge-success">OK</span></div><div class="list-item"><div class="item-main"><div class="item-title">Role permission mos</div></div><span class="badge badge-primary">Active</span></div><div class="list-item"><div class="item-main"><div class="item-title">Review kerak</div></div><span class="badge badge-warning">Watch</span></div></div></div></article>
-        </section>
-
-        <section class="card" style="margin-bottom:14px"><div class="card-header"><h3>So‘nggi faoliyat</h3></div><div class="card-body"><div class="table-wrap"><table class="table"><thead class="table-header"><tr><th>Vaqt</th><th>Event</th><th>Holat</th><th>Mas’ul</th></tr></thead><tbody><tr class="table-row"><td>17:02</td><td>Settings updated</td><td><span class="badge badge-success">Done</span></td><td>Ulug‘bek</td></tr><tr class="table-row"><td>16:56</td><td>Validation run</td><td><span class="badge badge-primary">Pass</span></td><td>Jahongir</td></tr><tr class="table-row"><td>16:48</td><td>Rule edited</td><td><span class="badge badge-warning">Review</span></td><td>Dilnoza</td></tr></tbody></table></div></div></section>
-
-        <div class="sticky-save-bar"><a class="btn btn-secondary" href="./17-agent-availability.html">Oldingi sahifa</a><a class="btn btn-primary" href="./01-workspace-general.html">Keyingi sahifa</a></div>
-      </div>
-    </main>
-    <script>window.addEventListener("DOMContentLoaded",function(){if(window.lucide&&window.lucide.createIcons)window.lucide.createIcons();});</script>
-  </body>
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QULAY CHAT - Shaxsiy Javoblar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/qulay-chat-design-system.css">
+<script src="https://unpkg.com/lucide@latest" defer></script>
+<script src="../assets/qulay-chat-shell.js" defer></script>
+<script src="../assets/qulay-chat-runtime.js" defer></script>
+</head>
+<body data-active-nav="settings" class="dashboard-shell-page settings-shell">
+<main class="app-content">
+<nav class="subnav-tabs" aria-label="Settings sahifalari">
+  <a class="tab" href="./01-workspace-general.html">Umumiy</a>
+  <a class="tab" href="./01b-workspace-branding.html">Branding</a>
+  <a class="tab" href="./02-widget-settings.html">Widget</a>
+  <a class="tab" href="./03-security.html">Xavfsizlik</a>
+  <a class="tab" href="./04-notifications.html">Bildirishnomalar</a>
+  <a class="tab" href="./05-profile.html">Profil</a>
+  <a class="tab" href="./06-privacy-export.html">Ma'lumot export</a>
+  <a class="tab" href="./07-privacy-delete.html">Ma'lumot o'chirish</a>
+  <a class="tab" href="./08-privacy-settings.html">Maxfiylik</a>
+  <a class="tab" href="./09-custom-fields.html">Maxsus maydonlar</a>
+  <a class="tab" href="./10-tags-manager.html">Taglar</a>
+  <a class="tab" href="./11-canned-manager.html">Tayyor javoblar</a>
+  <a class="tab" href="./12-ip-restriction.html">IP cheklash</a>
+  <a class="tab" href="./13-activity-log.html">Faoliyat jurnali</a>
+  <a class="tab" href="./14-file-storage.html">Fayl saqlash</a>
+  <a class="tab" href="./15-account-management.html">Hisob boshqaruvi</a>
+  <a class="tab" href="./16-workspace-switcher.html">Workspace almashtirish</a>
+  <a class="tab" href="./17-agent-availability.html">Agent holati</a>
+  <a class="tab active" href="./18-agent-canned-personal.html">Shaxsiy javoblar</a>
+</nav>
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <a href="../04-dashboard/01-dashboard.html">Dashboard</a>
+  <span class="separator">›</span>
+  <a href="./01-workspace-general.html">Sozlamalar</a>
+  <span class="separator">›</span>
+  <span class="current">Shaxsiy javoblar</span>
+</nav>
+<div class="page-header"><h1>Shaxsiy Tayyor Javoblar</h1><p>Faqat sizga ko'rinadigan tayyor javoblar</p></div>
+<div style="display:flex;justify-content:space-between;margin-bottom:16px;">
+  <input class="input" placeholder="Javob qidirish..." style="width:300px;" />
+  <div style="display:flex;gap:8px;">
+    <button class="btn btn-outline btn-sm">📥 Team javoblaridan import</button>
+    <button class="btn btn-primary btn-sm">+ Yangi javob</button>
+  </div>
+</div>
+<table class="table"><thead><tr><th>Shortcut</th><th>Matn</th><th>Oxirgi ishlatilgan</th><th>Amallar</th></tr></thead>
+<tbody>
+  <tr><td><code>#menga</code></td><td>Menga o'tkazildi, hozir ko'rib chiqaman.</td><td>Bugun 14:30</td><td><button class="btn btn-ghost btn-sm">✏️</button><button class="btn btn-ghost btn-sm">🗑</button></td></tr>
+  <tr><td><code>#tekshir2</code></td><td>Texnik jamoaga yubordim, 10 daqiqada javob beraman.</td><td>Kecha</td><td><button class="btn btn-ghost btn-sm">✏️</button><button class="btn btn-ghost btn-sm">🗑</button></td></tr>
+  <tr><td><code>#omad</code></td><td>Xizmatimizdan foydalanganingiz uchun rahmat! Omad tilayman! 🙏</td><td>2 kun oldin</td><td><button class="btn btn-ghost btn-sm">✏️</button><button class="btn btn-ghost btn-sm">🗑</button></td></tr>
+</tbody></table>
+<div class="card" style="padding:12px;margin-top:16px;background:var(--primary-light);">
+  <strong>💡 Maslahat:</strong> Team javoblarini <a href="./11-canned-manager.html">Tayyor javoblar boshqaruvi</a> sahifasida ko'ring.
+</div>
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;padding-top:16px;border-top:1px solid var(--border, #e5e7eb);">
+  <a class="btn btn-ghost btn-sm" href="../07-team/01-agents.html"><i data-lucide="users"></i> Team</a>
+  <a class="btn btn-ghost btn-sm" href="../10-billing/01-current-plan.html"><i data-lucide="credit-card"></i> Billing</a>
+  <a class="btn btn-ghost btn-sm" href="../24-gdpr-compliance/01-gdpr-dashboard.html"><i data-lucide="shield"></i> GDPR</a>
+  <a class="btn btn-ghost btn-sm" href="../04-dashboard/01-dashboard.html"><i data-lucide="layout-dashboard"></i> Dashboard</a>
+</div>
+</main>
+<script>window.addEventListener("DOMContentLoaded",()=>window.lucide&&window.lucide.createIcons&&window.lucide.createIcons());</script>
+</body>
 </html>

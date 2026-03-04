@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="uz">
 <head>
 <meta charset="UTF-8">
@@ -17,13 +17,24 @@
 <script src="../assets/addons-interactions.js" defer>
 </script>
 </head>
-<body data-active-nav="addons" class="dashboard-shell-page">
+<body data-active-nav="addons" data-shell-role="admin" class="dashboard-shell-page">
 <main class="app-content">
-<div class="subnav-scroll">
-<div class="subnav-tabs">
-<a class="subnav-tab active" href="./01-addons-catalog.html">Add-ons Catalog</a><a class="subnav-tab" href="./02-active-addons.html">Active Add-ons</a><a class="subnav-tab" href="./03-addon-detail.html">Add-on Detail</a><a class="subnav-tab" href="./04-addon-settings.html">Add-on Settings</a><a class="subnav-tab" href="./05-developer-sdk.html">Developer SDK</a><a class="subnav-tab" href="./06-submit-app.html">Submit App</a><a class="subnav-tab" href="./07-app-reviews.html">App Reviews</a>
-</div>
-</div>
+<nav class="breadcrumbs">
+  <a href="../04-dashboard/01-dashboard.html">Dashboard</a>
+  <span class="separator">›</span>
+  <a href="./01-addons-catalog.html">Add-ons</a>
+  <span class="separator">›</span>
+  <span class="current">Katalog</span>
+</nav>
+<nav class="subnav-tabs" aria-label="Add-ons sahifalari">
+  <a class="tab active" href="./01-addons-catalog.html">Katalog</a>
+  <a class="tab" href="./02-active-addons.html">Faol qo'shimchalar</a>
+  <a class="tab" href="./03-addon-detail.html">Batafsil</a>
+  <a class="tab" href="./04-addon-settings.html">Sozlamalar</a>
+  <a class="tab" href="./05-developer-sdk.html">Developer SDK</a>
+  <a class="tab" href="./06-submit-app.html">Ilova yuborish</a>
+  <a class="tab" href="./07-app-reviews.html">Sharhlar</a>
+</nav>
 <div data-roles="agent" class="card" style="border-color:#FCD34D;background:#FFFBEB;margin-top:12px">
   <div class="card-body">
     <h3 style="margin:0 0 6px">Admin only</h3>
@@ -80,8 +91,8 @@
 <div class="addon-grid" data-addon-grid>
 <div class="addon-card" data-cat="ai" data-price="49" data-pop="95">
 <div class="badge badge-primary" style="position:absolute;right:12px;top:12px">Popular</div>
-<div class="addon-icon">
-<i data-lucide="sparkles">
+<div class="addon-icon" style="width:48px;height:48px;border-radius:12px;background:var(--primary-light);display:grid;place-items:center;">
+<i data-lucide="sparkles" style="color:var(--primary);">
 </i>
 </div>
 <div class="flex justify-between items-start gap-2">
@@ -98,8 +109,8 @@
 </div>
 </div>
 <div class="addon-card" data-cat="communication" data-price="29" data-pop="88">
-<div class="addon-icon">
-<i data-lucide="video">
+<div class="addon-icon" style="width:48px;height:48px;border-radius:12px;background:var(--primary-light);display:grid;place-items:center;">
+<i data-lucide="video" style="color:var(--primary);">
 </i>
 </div>
 <div class="flex justify-between items-start gap-2">
@@ -117,8 +128,8 @@
 </div>
 <div class="addon-card" data-cat="analytics" data-price="29" data-pop="82">
 <div class="badge badge-success" style="position:absolute;right:12px;top:12px">New</div>
-<div class="addon-icon">
-<i data-lucide="bar-chart-3">
+<div class="addon-icon" style="width:48px;height:48px;border-radius:12px;background:var(--primary-light);display:grid;place-items:center;">
+<i data-lucide="bar-chart-3" style="color:var(--primary);">
 </i>
 </div>
 <div class="flex justify-between items-start gap-2">
@@ -135,8 +146,8 @@
 </div>
 </div>
 <div class="addon-card" data-cat="communication" data-price="15" data-pop="80">
-<div class="addon-icon">
-<i data-lucide="message-square">
+<div class="addon-icon" style="width:48px;height:48px;border-radius:12px;background:var(--primary-light);display:grid;place-items:center;">
+<i data-lucide="message-square" style="color:var(--primary);">
 </i>
 </div>
 <div class="flex justify-between items-start gap-2">
@@ -153,8 +164,8 @@
 </div>
 </div>
 <div class="addon-card" data-cat="ai" data-price="35" data-pop="84">
-<div class="addon-icon">
-<i data-lucide="bot">
+<div class="addon-icon" style="width:48px;height:48px;border-radius:12px;background:var(--primary-light);display:grid;place-items:center;">
+<i data-lucide="bot" style="color:var(--primary);">
 </i>
 </div>
 <div class="flex justify-between items-start gap-2">
@@ -171,8 +182,8 @@
 </div>
 </div>
 <div class="addon-card" data-cat="analytics" data-price="19" data-pop="76">
-<div class="addon-icon">
-<i data-lucide="file-text">
+<div class="addon-icon" style="width:48px;height:48px;border-radius:12px;background:var(--primary-light);display:grid;place-items:center;">
+<i data-lucide="file-text" style="color:var(--primary);">
 </i>
 </div>
 <div class="flex justify-between items-start gap-2">
@@ -189,8 +200,8 @@
 </div>
 </div>
 <div class="addon-card" data-cat="communication" data-price="25" data-pop="89">
-<div class="addon-icon">
-<i data-lucide="message-circle">
+<div class="addon-icon" style="width:48px;height:48px;border-radius:12px;background:var(--primary-light);display:grid;place-items:center;">
+<i data-lucide="message-circle" style="color:var(--primary);">
 </i>
 </div>
 <div class="flex justify-between items-start gap-2">
@@ -208,8 +219,8 @@
 </div>
 <div class="addon-card" data-cat="ai" data-price="0" data-pop="70">
 <div class="badge badge-success" style="position:absolute;right:12px;top:12px">Free</div>
-<div class="addon-icon">
-<i data-lucide="sparkles">
+<div class="addon-icon" style="width:48px;height:48px;border-radius:12px;background:var(--primary-light);display:grid;place-items:center;">
+<i data-lucide="sparkles" style="color:var(--primary);">
 </i>
 </div>
 <div class="flex justify-between items-start gap-2">
@@ -226,8 +237,8 @@
 </div>
 </div>
 <div class="addon-card" data-cat="analytics" data-price="0" data-pop="72">
-<div class="addon-icon">
-<i data-lucide="pie-chart">
+<div class="addon-icon" style="width:48px;height:48px;border-radius:12px;background:var(--primary-light);display:grid;place-items:center;">
+<i data-lucide="pie-chart" style="color:var(--primary);">
 </i>
 </div>
 <div class="flex justify-between items-start gap-2">
@@ -244,8 +255,8 @@
 </div>
 </div>
 <div class="addon-card" data-cat="communication" data-price="39" data-pop="85">
-<div class="addon-icon">
-<i data-lucide="phone-call">
+<div class="addon-icon" style="width:48px;height:48px;border-radius:12px;background:var(--primary-light);display:grid;place-items:center;">
+<i data-lucide="phone-call" style="color:var(--primary);">
 </i>
 </div>
 <div class="flex justify-between items-start gap-2">

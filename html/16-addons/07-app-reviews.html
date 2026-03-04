@@ -12,19 +12,25 @@
     <script src="../assets/qulay-chat-shell.js" defer></script>
     <script src="../assets/qulay-chat-runtime.js" defer></script>
   </head>
-  <body data-active-nav="addons" class="dashboard-shell-page">
+  <body data-active-nav="addons" data-shell-role="admin" class="dashboard-shell-page">
     <main class="app-content">
-      <div class="subnav-scroll"><div class="subnav-tabs">
-        <a class="subnav-tab" href="./01-addons-catalog.html">Catalog</a>
-        <a class="subnav-tab" href="./02-active-addons.html">Active Addons</a>
-        <a class="subnav-tab" href="./03-addon-detail.html">Addon Detail</a>
-        <a class="subnav-tab" href="./04-addon-settings.html">Addon Settings</a>
-        <a class="subnav-tab" href="./05-developer-sdk.html">Developer SDK</a>
-        <a class="subnav-tab" href="./06-submit-app.html">Submit App</a>
-        <a class="subnav-tab active" href="./07-app-reviews.html">App Reviews</a>
-      </div></div>
+<nav class="breadcrumbs">
+  <a href="../04-dashboard/01-dashboard.html">Dashboard</a>
+  <span class="separator">›</span>
+  <a href="./01-addons-catalog.html">Add-ons</a>
+  <span class="separator">›</span>
+  <span class="current">Sharhlar</span>
+</nav>
+<nav class="subnav-tabs" aria-label="Add-ons sahifalari">
+  <a class="tab" href="./01-addons-catalog.html">Katalog</a>
+  <a class="tab" href="./02-active-addons.html">Faol qo'shimchalar</a>
+  <a class="tab" href="./03-addon-detail.html">Batafsil</a>
+  <a class="tab" href="./04-addon-settings.html">Sozlamalar</a>
+  <a class="tab" href="./05-developer-sdk.html">Developer SDK</a>
+  <a class="tab" href="./06-submit-app.html">Ilova yuborish</a>
+  <a class="tab active" href="./07-app-reviews.html">Sharhlar</a>
+</nav>
       <div data-roles="admin">
-        <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../04-dashboard/01-dashboard.html">Dashboard</a><i data-lucide="chevron-right"></i><a href="./01-addons-catalog.html">Addons</a><i data-lucide="chevron-right"></i><span class="current">App Reviews</span></nav>
         <div class="page-header"><div><h1>App Reviews</h1><p class="text-muted">App baholari, sharhlar va developer javoblarini moderatsiya qilish.</p></div><div class="page-header-actions"><a class="btn btn-secondary" href="./06-submit-app.html"><i data-lucide="arrow-left"></i> Submit App</a><a class="btn btn-primary" href="./01-addons-catalog.html">Catalog <i data-lucide="arrow-right"></i></a></div></div>
 
         <section class="grid cols-3" style="margin-bottom:14px"><article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">Average rating</p><h3 style="margin:0">4.6</h3></div></article><article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">Reviews</p><h3 style="margin:0">1,204</h3></div></article><article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">Pending moderation</p><h3 style="margin:0">12</h3></div></article></section>

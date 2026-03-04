@@ -17,8 +17,13 @@
     <script src="../assets/qulay-chat-runtime.js" defer></script>
     <script src="../assets/dark-mode.js" defer></script>
   </head>
-  <body data-active-nav="dashboard" class="dashboard-shell-page">
+  <body data-active-nav="dark-mode" data-shell-role="admin" class="dashboard-shell-page">
     <main class="app-content">
+      <nav class="breadcrumbs">
+        <a href="../04-dashboard/01-dashboard.html">Dashboard</a>
+        <span class="separator">›</span>
+        <span class="current">Dark Mode</span>
+      </nav>
       <div class="page-header">
         <div>
           <h1>Dark Mode Demo</h1>
@@ -83,6 +88,14 @@
           </tbody>
         </table>
       </section>
+      <div class="card" style="margin-top:14px;padding:16px;">
+        <h3 style="margin-top:0;">Foydali havolalar</h3>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <a class="btn btn-ghost btn-sm" href="../09-settings/01-workspace-general.html">
+            <i data-lucide="settings"></i> Sozlamalarga o'tish
+          </a>
+        </div>
+      </div>
     </main>
   </body>
 </html>

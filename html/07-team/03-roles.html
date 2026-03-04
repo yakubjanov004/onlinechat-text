@@ -15,11 +15,19 @@
 </head>
 <body data-active-nav="team" class="dashboard-shell-page">
 <main class="app-content" data-team-page="roles">
-<div class="subnav-scroll">
-<div class="subnav-tabs">
-<a class="subnav-tab " href="./01-agents.html">Agents</a><a class="subnav-tab " href="./02-agent-profile.html">Agent Profile</a><a class="subnav-tab active" href="./03-roles.html">Roles</a><a class="subnav-tab " href="./04-invitations.html">Invitations</a>
-</div>
-</div>
+<nav class="subnav-tabs" aria-label="Team sahifalari">
+  <a class="tab" href="./01-agents.html">Agentlar</a>
+  <a class="tab" href="./02-agent-profile.html">Agent profil</a>
+  <a class="tab active" href="./03-roles.html">Rollar</a>
+  <a class="tab" href="./04-invitations.html">Taklifnomalar</a>
+</nav>
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <a href="../04-dashboard/01-dashboard.html">Dashboard</a>
+  <span class="separator">›</span>
+  <a href="./01-agents.html">Team</a>
+  <span class="separator">›</span>
+  <span class="current">Rollar</span>
+</nav>
 <div data-roles="agent" class="card" style="border-color:#FCD34D;background:#FFFBEB;margin-top:12px">
   <div class="card-body">
     <h3 style="margin:0 0 6px">Admin only</h3>
@@ -64,6 +72,15 @@
 </div>
 </div>
 </div>
+<div style="margin-top:16px;">
+  <a class="btn btn-secondary btn-sm" href="../09-settings/03-security.html"><i data-lucide="shield"></i> Xavfsizlik sozlamalari</a>
+</div>
+</div>
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;padding-top:16px;border-top:1px solid var(--border, #e5e7eb);">
+  <a class="btn btn-ghost btn-sm" href="../05-inbox/01-inbox-chat.html"><i data-lucide="message-square"></i> Inbox</a>
+  <a class="btn btn-ghost btn-sm" href="../08-analytics/04-operator-detail.html"><i data-lucide="bar-chart-3"></i> Agent statistika</a>
+  <a class="btn btn-ghost btn-sm" href="../09-settings/03-security.html"><i data-lucide="shield"></i> Xavfsizlik</a>
+  <a class="btn btn-ghost btn-sm" href="../04-dashboard/01-dashboard.html"><i data-lucide="layout-dashboard"></i> Dashboard</a>
 </div>
 </main>
 <script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>

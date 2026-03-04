@@ -16,21 +16,21 @@
     <script src="../assets/qulay-chat-runtime.js" defer></script>
     <script src="../assets/notification-interactions.js" defer></script>
   </head>
-  <body data-active-nav="notifications" class="dashboard-shell-page">
+  <body data-active-nav="notifications" data-shell-role="admin" class="dashboard-shell-page">
     <main class="app-content">
-      <div class="subnav-scroll">
-        <div class="subnav-tabs">
-          <a class="subnav-tab" href="./01-notification-dropdown.html"
-            >Dropdown</a
-          >
-          <a class="subnav-tab active" href="./02-notification-all.html"
-            >Barchasi</a
-          >
-          <a class="subnav-tab" href="./03-notification-preferences.html"
-            >Sozlamalar</a
-          >
-        </div>
-      </div>
+      <nav class="subnav-tabs" aria-label="Notification sahifalari">
+        <a class="tab" href="./01-notification-dropdown.html">Tezkor ko'rinish</a>
+        <a class="tab active" href="./02-notification-all.html">Barcha bildirishnomalar</a>
+        <a class="tab" href="./03-notification-preferences.html">Sozlamalar</a>
+      </nav>
+
+      <nav class="breadcrumbs">
+        <a href="../04-dashboard/01-dashboard.html">Dashboard</a>
+        <span class="separator">›</span>
+        <a href="./01-notification-dropdown.html">Bildirishnomalar</a>
+        <span class="separator">›</span>
+        <span class="current">Barcha bildirishnomalar</span>
+      </nav>
 
       <div class="page-header">
         <div>
@@ -114,7 +114,7 @@
           <tbody data-notification-table>
             <tr data-notification-row data-type="chat" data-unread="true">
               <td><input type="checkbox" /></td>
-              <td>Yangi chat: "Integratsiya ishlamayapti"</td>
+              <td><a href="../05-inbox/02-chat-open.html">Yangi chat: "Integratsiya ishlamayapti"</a></td>
               <td><span class="badge badge-primary">Chat</span></td>
               <td>09:41</td>
               <td><span class="badge badge-danger">Unread</span></td>
@@ -130,7 +130,7 @@
             </tr>
             <tr data-notification-row data-type="mention" data-unread="true">
               <td><input type="checkbox" /></td>
-              <td>@ulugbek sizni #sales kanalida chaqirdi</td>
+              <td><a href="../14-team-chat/01-team-channels.html">@ulugbek sizni #sales kanalida chaqirdi</a></td>
               <td><span class="badge badge-info">Mention</span></td>
               <td>09:37</td>
               <td><span class="badge badge-danger">Unread</span></td>
@@ -146,7 +146,7 @@
             </tr>
             <tr data-notification-row data-type="team" data-unread="false">
               <td><input type="checkbox" /></td>
-              <td>Yangi agent qo‘shildi: Mohira S.</td>
+              <td><a href="../07-team/02-agent-profile.html">Yangi agent qo'shildi: Mohira S.</a></td>
               <td><span class="badge badge-warning">Team</span></td>
               <td>08:55</td>
               <td><span class="badge badge-success">Read</span></td>
@@ -162,7 +162,7 @@
             </tr>
             <tr data-notification-row data-type="billing" data-unread="true">
               <td><input type="checkbox" /></td>
-              <td>Pro obuna 2 kunda tugaydi</td>
+              <td><a href="../10-billing/01-plan.html">Pro obuna 2 kunda tugaydi</a></td>
               <td><span class="badge badge-danger">Billing</span></td>
               <td>08:12</td>
               <td><span class="badge badge-danger">Unread</span></td>
@@ -178,7 +178,7 @@
             </tr>
             <tr data-notification-row data-type="system" data-unread="false">
               <td><input type="checkbox" /></td>
-              <td>Backup muvaffaqiyatli yakunlandi</td>
+              <td><a href="../08-analytics/01-overview.html">Backup muvaffaqiyatli yakunlandi</a></td>
               <td><span class="badge badge-success">System</span></td>
               <td>07:31</td>
               <td><span class="badge badge-success">Read</span></td>

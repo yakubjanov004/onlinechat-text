@@ -16,21 +16,22 @@
     <script src="../assets/qulay-chat-runtime.js" defer></script>
     <script src="../assets/email-templates.js" defer></script>
   </head>
-  <body data-active-nav="settings" class="dashboard-shell-page">
+  <body data-active-nav="email-templates" data-shell-role="admin" class="dashboard-shell-page">
     <main class="app-content">
-      <div class="subnav-scroll">
-        <div class="subnav-tabs">
-          <a class="subnav-tab" href="./01-templates-list.html"
-            >Templates List</a
-          ><a class="subnav-tab active" href="./02-template-editor.html"
-            >Template Editor</a
-          ><a class="subnav-tab" href="./03-template-preview.html"
-            >Preview & Test</a
-          ><a class="subnav-tab" href="./04-template-settings.html"
-            >SMTP Settings</a
-          >
-        </div>
-      </div>
+      <nav class="subnav-tabs" aria-label="Email Templates sahifalari">
+        <a class="tab" href="./01-templates-list.html">Shablonlar</a>
+        <a class="tab active" href="./02-template-editor.html">Editor</a>
+        <a class="tab" href="./03-template-preview.html">Ko'rish</a>
+        <a class="tab" href="./04-template-settings.html">SMTP sozlamalari</a>
+      </nav>
+
+      <nav class="breadcrumbs">
+        <a href="../04-dashboard/01-dashboard.html">Dashboard</a>
+        <span class="separator">›</span>
+        <a href="./01-templates-list.html">Email shablonlar</a>
+        <span class="separator">›</span>
+        <span class="current">Editor</span>
+      </nav>
 <div data-roles="agent" class="card" style="border-color:#FCD34D;background:#FFFBEB;margin-top:12px">
   <div class="card-body">
     <h3 style="margin:0 0 6px">Admin only</h3>
@@ -102,6 +103,30 @@
             </button>
           </div>
         </article>
+      </section>
+
+      <section class="card" style="margin-top:24px">
+        <h3 style="margin-top:0">Foydali havolalar</h3>
+        <div class="list-stack">
+          <a class="list-item" href="./01-templates-list.html">
+            <div class="item-main">
+              <div class="item-title">Shablonlar ro'yxati</div>
+              <div class="item-sub">Barcha email shablonlarni ko'rish</div>
+            </div>
+          </a>
+          <a class="list-item" href="./03-template-preview.html">
+            <div class="item-main">
+              <div class="item-title">Ko'rib chiqish</div>
+              <div class="item-sub">Email shablonni ko'rish va test qilish</div>
+            </div>
+          </a>
+          <a class="list-item" href="./04-template-settings.html">
+            <div class="item-main">
+              <div class="item-title">SMTP sozlamalari</div>
+              <div class="item-sub">Email jo'natish sozlamalarini boshqarish</div>
+            </div>
+          </a>
+        </div>
       </section>
     </div>
 </main>

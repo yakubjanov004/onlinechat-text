@@ -1,4 +1,4 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="uz">
   <head>
     <meta charset="UTF-8" />
@@ -14,300 +14,827 @@
     <script src="https://unpkg.com/lucide@latest" defer></script>
     <script src="../assets/qulay-chat-shell.js" defer></script>
     <script src="../assets/qulay-chat-runtime.js" defer></script>
+    <style>
+      .wh-modern {
+        display: grid;
+        gap: 16px;
+      }
+
+      .wh-hero {
+        border-color: #1e3a8a;
+        background:
+          radial-gradient(circle at 88% -6%, rgba(255, 255, 255, 0.2), transparent 52%),
+          linear-gradient(125deg, #0f172a 0%, #1d4ed8 58%, #1e40af 100%);
+        color: #fff;
+      }
+
+      .wh-hero .card-body {
+        padding: 22px;
+      }
+
+      .wh-hero-grid {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 14px;
+        align-items: center;
+      }
+
+      .wh-kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 3px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.34);
+        background: rgba(255, 255, 255, 0.11);
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .wh-hero h1 {
+        margin-top: 8px;
+        font-size: 31px;
+        line-height: 1.08;
+      }
+
+      .wh-hero p {
+        margin-top: 8px;
+        max-width: 750px;
+        color: rgba(255, 255, 255, 0.86);
+      }
+
+      .wh-chips {
+        margin-top: 12px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .wh-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.34);
+        background: rgba(255, 255, 255, 0.12);
+        font-size: 12px;
+        font-weight: 600;
+      }
+
+      .wh-actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        gap: 8px;
+      }
+
+      .wh-actions .btn {
+        box-shadow: 0 8px 18px rgba(15, 23, 42, 0.24);
+      }
+
+      .wh-actions .btn-secondary {
+        border-color: rgba(255, 255, 255, 0.5);
+        background: rgba(255, 255, 255, 0.12);
+        color: #fff;
+      }
+
+      .wh-actions .btn-secondary:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      .wh-actions .btn-primary {
+        background: #fff;
+        color: #0f172a;
+      }
+
+      .wh-actions .btn-primary:hover {
+        background: #eff6ff;
+      }
+
+      .wh-metrics {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .wh-metrics .metric-card-v2 {
+        border: 1px solid #dbeafe;
+        box-shadow: 0 10px 24px rgba(37, 99, 235, 0.1);
+      }
+
+      .wh-metric-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .wh-metric-head i[data-lucide] {
+        width: 16px;
+        height: 16px;
+        color: #2563eb;
+      }
+
+      .wh-grid-top {
+        display: grid;
+        grid-template-columns: 1.35fr 0.65fr;
+        gap: 16px;
+      }
+
+      .wh-templates {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+
+      .wh-template-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 4px 10px;
+        border-radius: 999px;
+        border: 1px solid #c7d2fe;
+        background: #eef2ff;
+        color: #3730a3;
+        font-size: 12px;
+        font-weight: 600;
+      }
+
+      .wh-schedule .table td {
+        vertical-align: middle;
+      }
+
+      .wh-schedule .input[type="time"] {
+        min-width: 120px;
+      }
+
+      .wh-overview {
+        display: grid;
+        gap: 12px;
+      }
+
+      .wh-overview-card {
+        border: 1px solid var(--border);
+        border-radius: 11px;
+        padding: 11px 12px;
+        background: var(--gray-50);
+        display: grid;
+        gap: 8px;
+      }
+
+      .wh-overview-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .wh-overview-top strong {
+        font-size: 13px;
+      }
+
+      .wh-progress {
+        height: 7px;
+        border-radius: 999px;
+        background: #dbeafe;
+        overflow: hidden;
+      }
+
+      .wh-progress > span {
+        display: block;
+        height: 100%;
+        border-radius: inherit;
+        background: linear-gradient(90deg, #2563eb, #3b82f6);
+      }
+
+      .wh-exceptions-grid {
+        display: grid;
+        grid-template-columns: 1fr 0.9fr;
+        gap: 16px;
+      }
+
+      .wh-calendar {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 12px;
+        background: #fff;
+      }
+
+      .wh-calendar-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+      }
+
+      .wh-calendar-grid {
+        display: grid;
+        grid-template-columns: repeat(7, minmax(0, 1fr));
+        gap: 6px;
+      }
+
+      .wh-calendar-day {
+        display: grid;
+        place-items: center;
+        height: 32px;
+        border-radius: 8px;
+        border: 1px solid #f1f5f9;
+        font-size: 12px;
+        color: var(--gray-600);
+        background: #fff;
+      }
+
+      .wh-calendar-day.muted {
+        color: #cbd5e1;
+        background: #f8fafc;
+      }
+
+      .wh-calendar-day.closed {
+        border-color: #fecaca;
+        background: #fef2f2;
+        color: #991b1b;
+        font-weight: 600;
+      }
+
+      .wh-calendar-day.short {
+        border-color: #fde68a;
+        background: #fffbeb;
+        color: #92400e;
+        font-weight: 600;
+      }
+
+      .wh-legend {
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        font-size: 12px;
+      }
+
+      .wh-legend-item {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .wh-dot {
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+      }
+
+      .wh-insights {
+        margin-top: 12px;
+        display: grid;
+        gap: 8px;
+      }
+
+      .wh-insight {
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        background: var(--gray-50);
+        padding: 10px 11px;
+        font-size: 13px;
+        color: var(--gray-700);
+      }
+
+      .wh-quick-links {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 4px;
+        padding-top: 16px;
+        border-top: 1px solid var(--border, #e5e7eb);
+      }
+
+      @media (max-width: 1240px) {
+        .wh-metrics {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .wh-grid-top,
+        .wh-exceptions-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 960px) {
+        .wh-hero-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .wh-actions {
+          justify-content: flex-start;
+        }
+      }
+
+      @media (max-width: 680px) {
+        .wh-hero h1 {
+          font-size: 26px;
+        }
+
+        .wh-metrics {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
   </head>
   <body data-active-nav="automation" class="dashboard-shell-page">
     <main class="app-content">
-      <div class="subnav-scroll">
-<div class="subnav-tabs">
-<a class="subnav-tab active" href="./01-working-hours.html">Working Hours</a><a class="subnav-tab" href="./02-auto-reply.html">Auto Reply</a><a class="subnav-tab" href="./03-triggers.html">Triggers</a><a class="subnav-tab" href="./04-greetings.html">Greetings</a><a class="subnav-tab" href="./05-chatbot-builder.html">Chatbot Builder</a><a class="subnav-tab" href="./06-chatbot-templates.html">Bot Templates</a><a class="subnav-tab" href="./07-routing-rules.html">Routing Rules</a><a class="subnav-tab" href="./08-chatbot-flow-editor.html">Chatbot Flow Editor</a><a class="subnav-tab" href="./09-chatbot-testing.html">Chatbot Testing</a><a class="subnav-tab" href="./10-chatbot-analytics.html">Chatbot Analytics</a><a class="subnav-tab" href="./11-chatbot-variables.html">Chatbot Variables</a><a class="subnav-tab" href="./12-workflow-builder.html">Workflow Builder</a><a class="subnav-tab" href="./13-auto-tagging.html">Auto Tagging</a><a class="subnav-tab" href="./14-auto-assignment.html">Auto Assignment</a><a class="subnav-tab" href="./15-sla-rules.html">SLA Rules</a><a class="subnav-tab" href="./16-escalation-rules.html">Escalation Rules</a><a class="subnav-tab" href="./17-business-rules.html">Business Rules</a><a class="subnav-tab" href="./18-scheduled-messages.html">Scheduled Messages</a>
-</div>
-</div>
-<div data-roles="agent" class="card" style="border-color:#FCD34D;background:#FFFBEB;margin-top:12px">
-  <div class="card-body">
-    <h3 style="margin:0 0 6px">Admin only</h3>
-    <p class="text-muted" style="margin:0 0 12px">Bu bo'lim faqat adminlar uchun. Davom etish uchun agent dashboardga qayting.</p>
-    <a class="btn btn-secondary" href="../04-dashboard/02-dashboard-agent.html">Agent dashboardga qaytish</a>
-  </div>
-</div>
+      <nav class="subnav-tabs" aria-label="Automation sahifalari">
+        <a class="tab active" href="./01-working-hours.html">Ish vaqtlari</a>
+        <a class="tab" href="./02-auto-reply.html">Auto javob</a>
+        <a class="tab" href="./03-triggers.html">Triggerlar</a>
+        <a class="tab" href="./04-greetings.html">Salomlashuvlar</a>
+        <a class="tab" href="./05-chatbot-builder.html">Chatbot Builder</a>
+        <a class="tab" href="./06-chatbot-templates.html">Chatbot shablonlari</a>
+        <a class="tab" href="./07-routing-rules.html">Routing qoidalari</a>
+        <a class="tab" href="./08-chatbot-flow-editor.html">Flow Editor</a>
+        <a class="tab" href="./09-chatbot-testing.html">Chatbot test</a>
+        <a class="tab" href="./10-chatbot-analytics.html">Chatbot analitika</a>
+        <a class="tab" href="./11-chatbot-variables.html">O'zgaruvchilar</a>
+        <a class="tab" href="./12-workflow-builder.html">Workflow Builder</a>
+        <a class="tab" href="./13-auto-tagging.html">Auto tagging</a>
+        <a class="tab" href="./14-auto-assignment.html">Auto tayinlash</a>
+        <a class="tab" href="./15-sla-rules.html">SLA qoidalari</a>
+        <a class="tab" href="./16-escalation-rules.html">Eskalatsiya</a>
+        <a class="tab" href="./17-business-rules.html">Biznes qoidalar</a>
+        <a class="tab" href="./18-scheduled-messages.html">Rejalashtirilgan xabarlar</a>
+      </nav>
 
-<div data-roles="admin">
-      <div class="page-header">
-        <div>
-          <h1>Working Hours</h1>
-          <p class="text-muted">
-            Automation qoidalari va schedule konfiguratsiyasi
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="../04-dashboard/01-dashboard.html">Dashboard</a>
+        <span class="separator"></span>
+        <a href="./01-working-hours.html">Automation</a>
+        <span class="separator"></span>
+        <span class="current">Ish vaqtlari</span>
+      </nav>
+
+      <div
+        data-roles="agent"
+        class="card"
+        style="border-color:#fcd34d;background:#fffbeb;margin-top:12px"
+      >
+        <div class="card-body">
+          <h3 style="margin:0 0 6px">Admin only</h3>
+          <p class="text-muted" style="margin:0 0 12px">
+            Bu bolim faqat adminlar uchun. Davom etish uchun agent dashboardga qayting.
           </p>
-        </div>
-        <div class="page-header-actions">
-          <button type="button" class="btn btn-primary" data-action="save">
-            Saqlash
-          </button>
-          <button
-            type="button"
-            class="btn btn-secondary"
-            data-action="reset-form"
+          <a class="btn btn-secondary" href="../04-dashboard/02-dashboard-agent.html"
+            >Agent dashboardga qaytish</a
           >
-            Reset
-          </button>
         </div>
       </div>
-      <section class="card">
-        <div class="card-header">
-          <div>
-            <h3>Ish vaqti jadvali</h3>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="form-grid one">
-            <label class="form-field">
-              <span class="form-label">Timezone</span>
-              <select class="select">
-                <option selected>GMT+5 Toshkent</option>
-                <option>GMT+3 Istanbul</option>
-                <option>GMT+6 Almaty</option>
-                <option>UTC</option>
-              </select>
-            </label>
-            <div class="table-wrap">
-              <table class="table">
-                <thead>
-                  <tr class="table-header">
-                    <th>Kun</th>
-                    <th>Holat</th>
-                    <th>Boshlanish</th>
-                    <th>Tugash</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr class="table-row">
-                    <td><span class="cell-strong">Dushanba</span></td>
-                    <td>
-                      <label class="toggle-switch">
-                        <input type="checkbox" checked />
-                        <span class="toggle-track"
-                          ><span class="toggle-thumb"></span
-                        ></span>
-                      </label>
-                    </td>
-                    <td><input class="input" type="time" value="09:00" /></td>
-                    <td><input class="input" type="time" value="18:00" /></td>
-                  </tr>
-                  <tr class="table-row">
-                    <td><span class="cell-strong">Seshanba</span></td>
-                    <td>
-                      <label class="toggle-switch">
-                        <input type="checkbox" checked />
-                        <span class="toggle-track"
-                          ><span class="toggle-thumb"></span
-                        ></span>
-                      </label>
-                    </td>
-                    <td><input class="input" type="time" value="09:00" /></td>
-                    <td><input class="input" type="time" value="18:00" /></td>
-                  </tr>
-                  <tr class="table-row">
-                    <td><span class="cell-strong">Chorshanba</span></td>
-                    <td>
-                      <label class="toggle-switch">
-                        <input type="checkbox" checked />
-                        <span class="toggle-track"
-                          ><span class="toggle-thumb"></span
-                        ></span>
-                      </label>
-                    </td>
-                    <td><input class="input" type="time" value="09:00" /></td>
-                    <td><input class="input" type="time" value="18:00" /></td>
-                  </tr>
-                  <tr class="table-row">
-                    <td><span class="cell-strong">Payshanba</span></td>
-                    <td>
-                      <label class="toggle-switch">
-                        <input type="checkbox" checked />
-                        <span class="toggle-track"
-                          ><span class="toggle-thumb"></span
-                        ></span>
-                      </label>
-                    </td>
-                    <td><input class="input" type="time" value="09:00" /></td>
-                    <td><input class="input" type="time" value="18:00" /></td>
-                  </tr>
-                  <tr class="table-row">
-                    <td><span class="cell-strong">Juma</span></td>
-                    <td>
-                      <label class="toggle-switch">
-                        <input type="checkbox" checked />
-                        <span class="toggle-track"
-                          ><span class="toggle-thumb"></span
-                        ></span>
-                      </label>
-                    </td>
-                    <td><input class="input" type="time" value="09:00" /></td>
-                    <td><input class="input" type="time" value="18:00" /></td>
-                  </tr>
-                  <tr class="table-row">
-                    <td><span class="cell-strong">Shanba</span></td>
-                    <td>
-                      <label class="toggle-switch">
-                        <input type="checkbox" />
-                        <span class="toggle-track"
-                          ><span class="toggle-thumb"></span
-                        ></span>
-                      </label>
-                    </td>
-                    <td>
-                      <input class="input" type="time" value="" disabled />
-                    </td>
-                    <td>
-                      <input class="input" type="time" value="" disabled />
-                    </td>
-                  </tr>
-                  <tr class="table-row">
-                    <td><span class="cell-strong">Yakshanba</span></td>
-                    <td>
-                      <label class="toggle-switch">
-                        <input type="checkbox" />
-                        <span class="toggle-track"
-                          ><span class="toggle-thumb"></span
-                        ></span>
-                      </label>
-                    </td>
-                    <td>
-                      <input class="input" type="time" value="" disabled />
-                    </td>
-                    <td>
-                      <input class="input" type="time" value="" disabled />
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+
+      <form data-roles="admin" class="wh-modern">
+        <section class="card wh-hero">
+          <div class="card-body">
+            <div class="wh-hero-grid">
+              <div>
+                <span class="wh-kicker"
+                  ><i data-lucide="clock-3"></i>Automation / Working hours</span
+                >
+                <h1>Working Hours Control Center</h1>
+                <p>
+                  Ish vaqti jadvali, bayram exceptionlari va qamrov holatini bitta paneldan boshqaring.
+                  Sozlamalar saqlangandan keyin routing va auto-reply qoidalariga darhol tasir qiladi.
+                </p>
+                <div class="wh-chips">
+                  <span class="wh-chip"
+                    ><i data-lucide="calendar-check-2"></i>Weekly scheduling</span
+                  >
+                  <span class="wh-chip"
+                    ><i data-lucide="timer-reset"></i>Holiday overrides</span
+                  >
+                  <span class="wh-chip"
+                    ><i data-lucide="shield-check"></i>SLA-safe coverage</span
+                  >
+                </div>
+              </div>
+              <div class="wh-actions">
+                <button type="button" class="btn btn-secondary" data-action="reset-form">
+                  Reset
+                </button>
+                <button type="button" class="btn btn-primary" data-action="save">Saqlash</button>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-      <section class="card">
-        <div class="card-header">
-          <div>
-            <h3>Bayram kunlari</h3>
-          </div>
-          <div class="card-actions">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-modal-open="holiday-exception"
-            >
-              Exception qo'shish
-            </button>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="table-wrap">
-            <table class="table">
-              <thead>
-                <tr class="table-header">
-                  <th>Sana</th>
-                  <th>Izoh</th>
-                  <th>Holat</th>
-                  <th>Soat</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="table-row">
-                  <td>2026-03-08</td>
-                  <td>Xalqaro xotin-qizlar kuni</td>
-                  <td><span class="badge badge-danger">Yopiq</span></td>
-                  <td>Butun kun</td>
-                </tr>
-                <tr class="table-row">
-                  <td>2026-03-21</td>
-                  <td>Navro'z</td>
-                  <td>
-                    <span class="badge badge-warning">Qisqartirilgan</span>
-                  </td>
-                  <td>10:00 - 15:00</td>
-                </tr>
-                <tr class="table-row">
-                  <td>2026-05-09</td>
-                  <td>Xotira va qadrlash kuni</td>
-                  <td><span class="badge badge-danger">Yopiq</span></td>
-                  <td>Butun kun</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-      <div class="sticky-save-bar">
-        <button
-          type="button"
-          class="btn btn-secondary"
-          data-action="reset-form"
-        >
-          Reset
-        </button>
-        <button type="button" class="btn btn-primary" data-action="save">
-          Saqlash
-        </button>
-      </div>
-      <div class="modal-overlay" data-modal="holiday-exception" hidden>
-        <div
-          class="modal"
-          role="dialog"
-          aria-modal="true"
-          aria-labelledby="holiday-exception-title"
-        >
-          <div class="modal-header">
-            <h3 id="holiday-exception-title">Bayram kuni qo&#39;shish</h3>
-            <button class="btn btn-ghost btn-sm" type="button" data-modal-close>
-              <i data-lucide="x"></i>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="form-grid one">
+        </section>
+
+        <section class="metrics-grid wh-metrics" aria-label="Working hours metrikalari">
+          <article class="metric-card-v2">
+            <div class="wh-metric-head">
+              <small class="text-muted">Haftalik ochiq soat</small>
+              <i data-lucide="hourglass"></i>
+            </div>
+            <div class="metric-value">45h</div>
+            <span class="metric-change up">Standart: 40h dan yuqori</span>
+          </article>
+          <article class="metric-card-v2">
+            <div class="wh-metric-head">
+              <small class="text-muted">Bugungi shift</small>
+              <i data-lucide="sun"></i>
+            </div>
+            <div class="metric-value">09:00-18:00</div>
+            <span class="metric-change">9 soat</span>
+          </article>
+          <article class="metric-card-v2">
+            <div class="wh-metric-head">
+              <small class="text-muted">Yaqin exception</small>
+              <i data-lucide="calendar-days"></i>
+            </div>
+            <div class="metric-value">8-Mart</div>
+            <span class="metric-change down">Yopiq kun</span>
+          </article>
+          <article class="metric-card-v2">
+            <div class="wh-metric-head">
+              <small class="text-muted">After-hours ulushi</small>
+              <i data-lucide="moon-star"></i>
+            </div>
+            <div class="metric-value">17%</div>
+            <span class="metric-change">Auto-replyga ketadi</span>
+          </article>
+        </section>
+
+        <section class="wh-grid-top">
+          <article class="card wh-schedule">
+            <div class="card-header">
+              <div>
+                <h3>Ish vaqti jadvali</h3>
+                <p class="card-description">
+                  Har bir kun bo'yicha ochiq/yopiq holat va ish vaqtini kiriting.
+                </p>
+              </div>
+            </div>
+            <div class="card-body">
               <label class="form-field">
-                <span class="form-label">Sana</span>
-                <input class="input" type="date" value="2026-04-01" />
-              </label>
-              <label class="form-field">
-                <span class="form-label">Holat</span>
+                <span class="form-label">Timezone</span>
                 <select class="select">
-                  <option selected>Yopiq</option>
-                  <option>Qisqartirilgan vaqt</option>
+                  <option selected>GMT+5 Toshkent</option>
+                  <option>GMT+3 Istanbul</option>
+                  <option>GMT+6 Almaty</option>
+                  <option>UTC</option>
                 </select>
               </label>
-              <label class="form-field">
-                <span class="form-label">Izoh</span>
-                <input
-                  class="input"
-                  type="text"
-                  value="Ramazon hayit"
-                  placeholder=""
-                />
-              </label>
+              <div class="wh-templates">
+                <span class="wh-template-chip"
+                  ><i data-lucide="briefcase"></i>Biznes: 09:00-18:00</span
+                >
+                <span class="wh-template-chip"
+                  ><i data-lucide="building-2"></i>Call-center: 08:00-22:00</span
+                >
+                <span class="wh-template-chip"
+                  ><i data-lucide="moon"></i>Night ops: 22:00-06:00</span
+                >
+              </div>
+              <div class="table-wrap">
+                <table class="table">
+                  <thead>
+                    <tr class="table-header">
+                      <th>Kun</th>
+                      <th>Holat</th>
+                      <th>Boshlanish</th>
+                      <th>Tugash</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="table-row">
+                      <td><span class="cell-strong">Dushanba</span></td>
+                      <td>
+                        <label class="toggle-switch">
+                          <input type="checkbox" checked />
+                          <span class="toggle-track"><span class="toggle-thumb"></span></span>
+                        </label>
+                      </td>
+                      <td><input class="input" type="time" value="09:00" /></td>
+                      <td><input class="input" type="time" value="18:00" /></td>
+                    </tr>
+                    <tr class="table-row">
+                      <td><span class="cell-strong">Seshanba</span></td>
+                      <td>
+                        <label class="toggle-switch">
+                          <input type="checkbox" checked />
+                          <span class="toggle-track"><span class="toggle-thumb"></span></span>
+                        </label>
+                      </td>
+                      <td><input class="input" type="time" value="09:00" /></td>
+                      <td><input class="input" type="time" value="18:00" /></td>
+                    </tr>
+                    <tr class="table-row">
+                      <td><span class="cell-strong">Chorshanba</span></td>
+                      <td>
+                        <label class="toggle-switch">
+                          <input type="checkbox" checked />
+                          <span class="toggle-track"><span class="toggle-thumb"></span></span>
+                        </label>
+                      </td>
+                      <td><input class="input" type="time" value="09:00" /></td>
+                      <td><input class="input" type="time" value="18:00" /></td>
+                    </tr>
+                    <tr class="table-row">
+                      <td><span class="cell-strong">Payshanba</span></td>
+                      <td>
+                        <label class="toggle-switch">
+                          <input type="checkbox" checked />
+                          <span class="toggle-track"><span class="toggle-thumb"></span></span>
+                        </label>
+                      </td>
+                      <td><input class="input" type="time" value="09:00" /></td>
+                      <td><input class="input" type="time" value="18:00" /></td>
+                    </tr>
+                    <tr class="table-row">
+                      <td><span class="cell-strong">Juma</span></td>
+                      <td>
+                        <label class="toggle-switch">
+                          <input type="checkbox" checked />
+                          <span class="toggle-track"><span class="toggle-thumb"></span></span>
+                        </label>
+                      </td>
+                      <td><input class="input" type="time" value="09:00" /></td>
+                      <td><input class="input" type="time" value="18:00" /></td>
+                    </tr>
+                    <tr class="table-row">
+                      <td><span class="cell-strong">Shanba</span></td>
+                      <td>
+                        <label class="toggle-switch">
+                          <input type="checkbox" />
+                          <span class="toggle-track"><span class="toggle-thumb"></span></span>
+                        </label>
+                      </td>
+                      <td><input class="input" type="time" value="" disabled /></td>
+                      <td><input class="input" type="time" value="" disabled /></td>
+                    </tr>
+                    <tr class="table-row">
+                      <td><span class="cell-strong">Yakshanba</span></td>
+                      <td>
+                        <label class="toggle-switch">
+                          <input type="checkbox" />
+                          <span class="toggle-track"><span class="toggle-thumb"></span></span>
+                        </label>
+                      </td>
+                      <td><input class="input" type="time" value="" disabled /></td>
+                      <td><input class="input" type="time" value="" disabled /></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-header">
+              <div>
+                <h3>Coverage overview</h3>
+                <p class="card-description">SLA va navbatchilik holati</p>
+              </div>
+            </div>
+            <div class="card-body wh-overview">
+              <div class="wh-overview-card">
+                <div class="wh-overview-top">
+                  <strong>Kunlik qamrov</strong>
+                  <span class="badge badge-success">90%</span>
+                </div>
+                <div class="wh-progress"><span style="width:90%"></span></div>
+              </div>
+              <div class="wh-overview-card">
+                <div class="wh-overview-top">
+                  <strong>Tungi auto-reply readiness</strong>
+                  <span class="badge badge-primary">Tayyor</span>
+                </div>
+                <div class="wh-progress"><span style="width:97%"></span></div>
+              </div>
+              <div class="wh-overview-card">
+                <div class="wh-overview-top">
+                  <strong>Peak soatlarda agent bandligi</strong>
+                  <span class="badge badge-warning">73%</span>
+                </div>
+                <div class="wh-progress"><span style="width:73%"></span></div>
+              </div>
+              <div class="wh-overview-card">
+                <div class="wh-overview-top">
+                  <strong>Risk signal</strong>
+                  <span class="badge badge-danger">2 ta</span>
+                </div>
+                <small
+                  >Juma 17:00-18:00 oralig'ida yuklama yuqori. Qo'shimcha agent tavsiya etiladi.</small
+                >
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section class="card">
+          <div class="card-header">
+            <div>
+              <h3>Bayram kunlari va exceptionlar</h3>
+              <p class="card-description">
+                Muayyan kunlar uchun jadvalni vaqtincha o'zgartirish.
+              </p>
+            </div>
+            <div class="card-actions">
+              <button type="button" class="btn btn-secondary" data-modal-open="holiday-exception">
+                Exception qo'shish
+              </button>
             </div>
           </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-action="log"
-              data-message="Bekor qilish"
-              data-modal-close
-            >
-              Bekor qilish
-            </button>
-            <button
-              type="button"
-              class="btn btn-primary"
-              data-modal-close
-              data-action="save"
-            >
-              Saqlash
-            </button>
+          <div class="card-body">
+            <div class="wh-exceptions-grid">
+              <div class="table-wrap">
+                <table class="table">
+                  <thead>
+                    <tr class="table-header">
+                      <th>Sana</th>
+                      <th>Izoh</th>
+                      <th>Holat</th>
+                      <th>Soat</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="table-row">
+                      <td>2026-03-08</td>
+                      <td>Xalqaro xotin-qizlar kuni</td>
+                      <td><span class="badge badge-danger">Yopiq</span></td>
+                      <td>Butun kun</td>
+                    </tr>
+                    <tr class="table-row">
+                      <td>2026-03-21</td>
+                      <td>Navro'z</td>
+                      <td><span class="badge badge-warning">Qisqartirilgan</span></td>
+                      <td>10:00 - 15:00</td>
+                    </tr>
+                    <tr class="table-row">
+                      <td>2026-05-09</td>
+                      <td>Xotira va qadrlash kuni</td>
+                      <td><span class="badge badge-danger">Yopiq</span></td>
+                      <td>Butun kun</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div>
+                <div class="wh-calendar">
+                  <div class="wh-calendar-head">
+                    <h3 style="font-size:14px">Mart 2026</h3>
+                    <span class="badge badge-primary">3 ta exception</span>
+                  </div>
+                  <div class="wh-calendar-grid">
+                    <div class="wh-calendar-day muted">23</div>
+                    <div class="wh-calendar-day muted">24</div>
+                    <div class="wh-calendar-day muted">25</div>
+                    <div class="wh-calendar-day muted">26</div>
+                    <div class="wh-calendar-day muted">27</div>
+                    <div class="wh-calendar-day muted">28</div>
+                    <div class="wh-calendar-day">1</div>
+
+                    <div class="wh-calendar-day">2</div>
+                    <div class="wh-calendar-day">3</div>
+                    <div class="wh-calendar-day">4</div>
+                    <div class="wh-calendar-day">5</div>
+                    <div class="wh-calendar-day">6</div>
+                    <div class="wh-calendar-day">7</div>
+                    <div class="wh-calendar-day closed">8</div>
+
+                    <div class="wh-calendar-day">9</div>
+                    <div class="wh-calendar-day">10</div>
+                    <div class="wh-calendar-day">11</div>
+                    <div class="wh-calendar-day">12</div>
+                    <div class="wh-calendar-day">13</div>
+                    <div class="wh-calendar-day">14</div>
+                    <div class="wh-calendar-day">15</div>
+
+                    <div class="wh-calendar-day">16</div>
+                    <div class="wh-calendar-day">17</div>
+                    <div class="wh-calendar-day">18</div>
+                    <div class="wh-calendar-day">19</div>
+                    <div class="wh-calendar-day">20</div>
+                    <div class="wh-calendar-day short">21</div>
+                    <div class="wh-calendar-day">22</div>
+
+                    <div class="wh-calendar-day">23</div>
+                    <div class="wh-calendar-day">24</div>
+                    <div class="wh-calendar-day">25</div>
+                    <div class="wh-calendar-day">26</div>
+                    <div class="wh-calendar-day">27</div>
+                    <div class="wh-calendar-day">28</div>
+                    <div class="wh-calendar-day">29</div>
+
+                    <div class="wh-calendar-day">30</div>
+                    <div class="wh-calendar-day">31</div>
+                    <div class="wh-calendar-day muted">1</div>
+                    <div class="wh-calendar-day muted">2</div>
+                    <div class="wh-calendar-day muted">3</div>
+                    <div class="wh-calendar-day muted">4</div>
+                    <div class="wh-calendar-day muted">5</div>
+                  </div>
+                  <div class="wh-legend">
+                    <span class="wh-legend-item"
+                      ><span class="wh-dot" style="background:#fecaca"></span>Yopiq kun</span
+                    >
+                    <span class="wh-legend-item"
+                      ><span class="wh-dot" style="background:#fde68a"></span>Qisqartirilgan</span
+                    >
+                    <span class="wh-legend-item"
+                      ><span class="wh-dot" style="background:#e2e8f0"></span>Oddiy kun</span
+                    >
+                  </div>
+                </div>
+                <div class="wh-insights">
+                  <div class="wh-insight">
+                    2026-yil 21-mart kuni ish vaqti 10:00 - 15:00 ga qisqaradi.
+                  </div>
+                  <div class="wh-insight">
+                    Yopiq kunlarda kelgan chatlar avtomatik ravishda Auto Reply fallback qoidasiga o'tadi.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="sticky-save-bar">
+          <button type="button" class="btn btn-secondary" data-action="reset-form">Reset</button>
+          <button type="button" class="btn btn-primary" data-action="save">Saqlash</button>
+        </div>
+
+        <div class="modal-overlay" data-modal="holiday-exception" hidden>
+          <div class="modal" role="dialog" aria-modal="true" aria-labelledby="holiday-exception-title">
+            <div class="modal-header">
+              <h3 id="holiday-exception-title">Bayram kuni qo'shish</h3>
+              <button class="btn btn-ghost btn-sm" type="button" data-modal-close>
+                <i data-lucide="x"></i>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-grid one">
+                <label class="form-field">
+                  <span class="form-label">Sana</span>
+                  <input class="input" type="date" value="2026-04-01" />
+                </label>
+                <label class="form-field">
+                  <span class="form-label">Holat</span>
+                  <select class="select">
+                    <option selected>Yopiq</option>
+                    <option>Qisqartirilgan vaqt</option>
+                  </select>
+                </label>
+                <label class="form-field">
+                  <span class="form-label">Izoh</span>
+                  <input class="input" type="text" value="Ramazon hayit" />
+                </label>
+                <div class="form-grid two">
+                  <label class="form-field">
+                    <span class="form-label">Boshlanish</span>
+                    <input class="input" type="time" value="10:00" />
+                  </label>
+                  <label class="form-field">
+                    <span class="form-label">Tugash</span>
+                    <input class="input" type="time" value="15:00" />
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-action="log"
+                data-message="Bekor qilindi"
+                data-modal-close
+              >
+                Bekor qilish
+              </button>
+              <button
+                type="button"
+                class="btn btn-primary"
+                data-modal-close
+                data-action="save"
+              >
+                Saqlash
+              </button>
+            </div>
           </div>
         </div>
+      </form>
+
+      <div class="wh-quick-links">
+        <a class="btn btn-ghost btn-sm" href="../05-inbox/01-inbox-chat.html"
+          ><i data-lucide="message-square"></i> Inbox</a
+        >
+        <a class="btn btn-ghost btn-sm" href="../08-analytics/01-overview.html"
+          ><i data-lucide="bar-chart-3"></i> Analytics</a
+        >
+        <a class="btn btn-ghost btn-sm" href="../09-settings/01-workspace-general.html"
+          ><i data-lucide="settings"></i> Sozlamalar</a
+        >
+        <a class="btn btn-ghost btn-sm" href="../04-dashboard/01-dashboard.html"
+          ><i data-lucide="layout-dashboard"></i> Dashboard</a
+        >
       </div>
-    </div>
-</main>
+    </main>
+
     <script>
       window.addEventListener("DOMContentLoaded", function () {
         if (window.lucide && window.lucide.createIcons) {
@@ -317,4 +844,3 @@
     </script>
   </body>
 </html>
-

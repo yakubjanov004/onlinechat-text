@@ -11,63 +11,124 @@
     <script src="https://unpkg.com/lucide@latest" defer></script>
     <script src="../assets/qulay-chat-shell.js" defer></script>
     <script src="../assets/qulay-chat-runtime.js" defer></script>
+    <script src="../assets/automation-advanced.js" defer></script>
   </head>
   <body data-active-nav="automation" class="dashboard-shell-page">
     <main class="app-content">
-      <div class="subnav-scroll"><div class="subnav-tabs"><a class="subnav-tab" href="./01-working-hours.html">Working Hours</a><a class="subnav-tab" href="./02-auto-reply.html">Auto Reply</a><a class="subnav-tab" href="./03-triggers.html">Triggers</a><a class="subnav-tab" href="./04-greetings.html">Greetings</a><a class="subnav-tab" href="./05-chatbot-builder.html">Chatbot Builder</a><a class="subnav-tab" href="./06-chatbot-templates.html">Chatbot Templates</a><a class="subnav-tab" href="./07-routing-rules.html">Routing Rules</a><a class="subnav-tab active" href="./08-chatbot-flow-editor.html">Chatbot Flow Editor</a><a class="subnav-tab" href="./09-chatbot-testing.html">Chatbot Testing</a><a class="subnav-tab" href="./10-chatbot-analytics.html">Chatbot Analytics</a><a class="subnav-tab" href="./11-chatbot-variables.html">Chatbot Variables</a><a class="subnav-tab" href="./12-workflow-builder.html">Workflow Builder</a><a class="subnav-tab" href="./13-auto-tagging.html">Auto Tagging</a><a class="subnav-tab" href="./14-auto-assignment.html">Auto Assignment</a><a class="subnav-tab" href="./15-sla-rules.html">SLA Rules</a><a class="subnav-tab" href="./16-escalation-rules.html">Escalation Rules</a><a class="subnav-tab" href="./17-business-rules.html">Business Rules</a><a class="subnav-tab" href="./18-scheduled-messages.html">Scheduled Messages</a></div></div>
+                  <nav class="subnav-tabs" aria-label="Automation sahifalari">
+        <a class="tab" href="./01-working-hours.html">Ish vaqtlari</a>
+        <a class="tab" href="./02-auto-reply.html">Auto javob</a>
+        <a class="tab" href="./03-triggers.html">Triggerlar</a>
+        <a class="tab" href="./04-greetings.html">Salomlashuvlar</a>
+        <a class="tab" href="./05-chatbot-builder.html">Chatbot Builder</a>
+        <a class="tab" href="./06-chatbot-templates.html">Chatbot shablonlari</a>
+        <a class="tab" href="./07-routing-rules.html">Routing qoidalari</a>
+        <a class="tab active" href="./08-chatbot-flow-editor.html">Flow Editor</a>
+        <a class="tab" href="./09-chatbot-testing.html">Chatbot test</a>
+        <a class="tab" href="./10-chatbot-analytics.html">Chatbot analitika</a>
+        <a class="tab" href="./11-chatbot-variables.html">O'zgaruvchilar</a>
+        <a class="tab" href="./12-workflow-builder.html">Workflow Builder</a>
+        <a class="tab" href="./13-auto-tagging.html">Auto tagging</a>
+        <a class="tab" href="./14-auto-assignment.html">Auto tayinlash</a>
+        <a class="tab" href="./15-sla-rules.html">SLA qoidalari</a>
+        <a class="tab" href="./16-escalation-rules.html">Eskalatsiya</a>
+        <a class="tab" href="./17-business-rules.html">Biznes qoidalar</a>
+        <a class="tab" href="./18-scheduled-messages.html">Rejalashtirilgan xabarlar</a>
+      </nav>
+                  <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="../04-dashboard/01-dashboard.html">Dashboard</a>
+        <span class="separator"></span>
+        <a href="./01-working-hours.html">Automation</a>
+        <span class="separator"></span>
+        <span class="current">Flow Editor</span>
+      </nav>
+      <div data-roles="agent" class="card" style="border-color:#FCD34D;background:#FFFBEB;margin-top:12px;">
+        <div class="card-body">
+          <h3 style="margin:0 0 6px;">Admin only</h3>
+          <p class="text-muted" style="margin:0 0 12px;">Bu bo'lim faqat adminlar uchun. Davom etish uchun agent dashboardga qayting.</p>
+          <a class="btn btn-secondary" href="../04-dashboard/02-dashboard-agent.html">Agent dashboardga qaytish</a>
+        </div>
+      </div>
       <div data-roles="admin">
-        <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../04-dashboard/01-dashboard.html">Dashboard</a><i data-lucide="chevron-right"></i><a href="./01-working-hours.html">Automation</a><i data-lucide="chevron-right"></i><span class="current">Chatbot Flow Editor</span></nav>
-        <div class="page-header"><div><h1>Chatbot Flow Editor</h1><p class="text-muted">Drag-drop flow orqali bot ssenariylarini vizual boshqarish.</p></div><div class="page-header-actions"><a class="btn btn-secondary" href="./07-routing-rules.html"><i data-lucide="arrow-left"></i> Routing Rules</a><a class="btn btn-primary" href="./09-chatbot-testing.html">Chatbot Testing <i data-lucide="arrow-right"></i></a></div></div>
+        <div class="page-header">
+          <div>
+            <h1>Chatbot Flow Editor</h1>
+            <p class="text-muted">Vizual flow canvas orqali chatbot yo'lini tahrirlash.</p>
+          </div>
+          <div class="page-header-actions">
+            <button type="button" class="btn btn-secondary"><i data-lucide="save"></i> Save</button>
+            <button type="button" class="btn btn-secondary"><i data-lucide="flask-conical"></i> Test</button>
+            <button type="button" class="btn btn-primary"><i data-lucide="rocket"></i> Publish</button>
+          </div>
+        </div>
 
-        <section class="grid cols-3" style="margin-bottom:14px">
-          <article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">Active rules</p><h3 style="margin:0">18</h3></div></article>
-          <article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">Success rate</p><h3 style="margin:0">96.4%</h3></div></article>
-          <article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">Last update</p><h3 style="margin:0">Bugun 16:58</h3></div></article>
-        </section>
-
-        <section class="split-grid" style="margin-bottom:14px">
+        <section style="display:grid;grid-template-columns:260px 1fr 320px;gap:14px;align-items:start;">
           <article class="card">
-            <div class="card-header"><h3>Asosiy boshqaruv</h3></div>
-            <div class="card-body">
-              <label>Primary setting<input class="input" value="Enabled" /></label>
-              <label style="margin-top:10px;display:block">Secondary setting<input class="input" value="Configured" /></label>
-              <div class="flex gap-2 wrap" style="margin-top:12px">
-                <button class="btn btn-secondary" type="button"><i data-lucide="flask-conical"></i> Test run</button>
-                <button class="btn btn-primary" type="button"><i data-lucide="save"></i> Saqlash</button>
-              </div>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card-header"><h3>Checklist</h3></div>
+            <div class="card-header"><h3>Node turlari</h3></div>
             <div class="card-body">
               <div class="list-stack">
-                <div class="list-item"><div class="item-main"><div class="item-title">Rule validation</div></div><span class="badge badge-success">OK</span></div>
-                <div class="list-item"><div class="item-main"><div class="item-title">Fallback policy</div></div><span class="badge badge-primary">Active</span></div>
-                <div class="list-item"><div class="item-main"><div class="item-title">Rate-limit check</div></div><span class="badge badge-warning">Review</span></div>
+                <button class="list-item" type="button"><span class="item-main"><span class="item-title">Message</span><span class="item-sub">Bot xabari</span></span><i data-lucide="message-circle"></i></button>
+                <button class="list-item" type="button"><span class="item-main"><span class="item-title">Condition</span><span class="item-sub">Shart blok</span></span><i data-lucide="git-compare"></i></button>
+                <button class="list-item" type="button"><span class="item-main"><span class="item-title">Action</span><span class="item-sub">Amal bajarish</span></span><i data-lucide="zap"></i></button>
+                <button class="list-item" type="button"><span class="item-main"><span class="item-title">Delay</span><span class="item-sub">Kutish vaqti</span></span><i data-lucide="timer"></i></button>
+                <button class="list-item" type="button"><span class="item-main"><span class="item-title">API Call</span><span class="item-sub">Webhook/API</span></span><i data-lucide="plug"></i></button>
               </div>
             </div>
           </article>
-        </section>
 
-        <section class="card" style="margin-bottom:14px">
-          <div class="card-header"><h3>So‘nggi faoliyat</h3></div>
-          <div class="card-body">
-            <div class="table-wrap">
-              <table class="table">
-                <thead class="table-header"><tr><th>Vaqt</th><th>Event</th><th>Holat</th><th>Mas’ul</th></tr></thead>
-                <tbody>
-                  <tr class="table-row"><td>16:58</td><td>Rule saved</td><td><span class="badge badge-success">Done</span></td><td>Jahongir</td></tr>
-                  <tr class="table-row"><td>16:52</td><td>Test executed</td><td><span class="badge badge-primary">Pass</span></td><td>Dilnoza</td></tr>
-                  <tr class="table-row"><td>16:44</td><td>Condition updated</td><td><span class="badge badge-warning">Review</span></td><td>Madina</td></tr>
-                </tbody>
-              </table>
+          <article class="card" style="position:relative;min-height:540px;overflow:hidden;">
+            <div class="card-header"><h3>Flow canvas</h3></div>
+            <div class="card-body" style="padding:20px;position:relative;background:linear-gradient(180deg,#f8fafc,#eef2ff);">
+              <div style="display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:70px;gap:10px;position:relative;">
+                <div class="card" style="grid-column:2 / span 3;grid-row:1;padding:10px;border:2px solid var(--primary);">
+                  <strong>Start</strong>
+                  <p class="text-muted" style="font-size:12px;margin:4px 0 0;">Visitor yangi chat ochdi</p>
+                </div>
+                <div class="card" style="grid-column:5 / span 4;grid-row:2;padding:10px;">
+                  <strong>Message</strong>
+                  <p class="text-muted" style="font-size:12px;margin:4px 0 0;">Salom! Qanday yordam bera olaman?</p>
+                </div>
+                <div class="card" style="grid-column:6 / span 4;grid-row:4;padding:10px;">
+                  <strong>Condition</strong>
+                  <p class="text-muted" style="font-size:12px;margin:4px 0 0;">Mavzu = To'lov yoki Texnik</p>
+                </div>
+                <div class="card" style="grid-column:3 / span 4;grid-row:6;padding:10px;">
+                  <strong>Action</strong>
+                  <p class="text-muted" style="font-size:12px;margin:4px 0 0;">Billing guruhiga o'tkazish</p>
+                </div>
+                <div class="card" style="grid-column:8 / span 4;grid-row:6;padding:10px;">
+                  <strong>API Call</strong>
+                  <p class="text-muted" style="font-size:12px;margin:4px 0 0;">CRM ticket ochish</p>
+                </div>
+
+                <div style="position:absolute;left:23%;top:11%;width:22%;height:2px;background:var(--primary);"></div>
+                <div style="position:absolute;left:45%;top:23%;width:2px;height:20%;background:var(--primary);"></div>
+                <div style="position:absolute;left:50%;top:48%;width:2px;height:18%;background:var(--primary);"></div>
+                <div style="position:absolute;left:50%;top:66%;width:24%;height:2px;background:var(--primary);"></div>
+                <div style="position:absolute;left:34%;top:66%;width:16%;height:2px;background:var(--primary);"></div>
+              </div>
             </div>
-          </div>
-        </section>
+          </article>
 
-        <div class="sticky-save-bar"><a class="btn btn-secondary" href="./07-routing-rules.html">Oldingi sahifa</a><a class="btn btn-primary" href="./09-chatbot-testing.html">Keyingi sahifa</a></div>
+          <article class="card">
+            <div class="card-header"><h3>Tanlangan node</h3></div>
+            <div class="card-body">
+              <label class="field"><span class="label">Node nomi</span><input class="input" value="Message" /></label>
+              <label class="field"><span class="label">Xabar matni</span><textarea class="textarea" rows="4">Salom! Qanday yordam bera olaman?</textarea></label>
+              <label class="field"><span class="label">Delay (sekund)</span><input class="input" type="number" value="0" /></label>
+              <label class="field"><span class="label">Keyingi node</span><select class="select"><option>Condition</option><option>Action</option><option>API Call</option></select></label>
+              <div class="divider"></div>
+              <button type="button" class="btn btn-secondary w-full"><i data-lucide="copy"></i> Dublikat node</button>
+              <button type="button" class="btn btn-danger w-full" style="margin-top:8px;"><i data-lucide="trash-2"></i> Node o'chirish</button>
+            </div>
+          </article>
+        </section>
       </div>
     </main>
-    <script>window.addEventListener("DOMContentLoaded",function(){if(window.lucide&&window.lucide.createIcons)window.lucide.createIcons();});</script>
+    <script>
+      window.addEventListener("DOMContentLoaded", function () {
+        if (window.lucide && window.lucide.createIcons) window.lucide.createIcons();
+      });
+    </script>
   </body>
 </html>

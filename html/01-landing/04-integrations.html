@@ -1,7 +1,135 @@
-<!doctype html>
-<html lang="uz"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>QULAY CHAT — Integratsiyalar</title><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/><link rel="stylesheet" href="landing-v2.css"/></head>
-<body><main class="container"><div class="topbar"><span>UZ</span><a href="../02-auth/01-login.html">Kirish</a><a href="../02-auth/02-register.html">Bepul boshlash</a></div><header class="nav"><a class="brand" href="01-landing.html"><span class="brand-mark">QC</span><span>QULAY CHAT</span></a><nav class="nav-links"><a href="03-features.html">Imkoniyatlar</a><a href="04-integrations.html">Integratsiya</a><a href="02-pricing.html">Tariflar</a></nav></header>
-<section class="hero"><h1>Integratsiyalar 2 daqiqada</h1><p class="lead">No-code ulanishlar orqali kommunikatsiya kanallarini birlashtiring va real vaqtda monitoring qiling.</p></section>
-<section class="section"><div class="grid-3"><article class="card"><strong>Telegram Bot</strong><p>Token ulaysiz, xabarlar inboxga tushadi.</p></article><article class="card"><strong>WhatsApp API</strong><p>Template, webhook va statuslar bilan.</p></article><article class="card"><strong>Instagram DM</strong><p>Komment va DM’larni yagona panelda boshqarish.</p></article><article class="card"><strong>Email</strong><p>Support@ manzilini ticket oqimiga ulash.</p></article><article class="card"><strong>CRM</strong><p>Kontakt va order tarixini chat ichida ko‘rsatish.</p></article><article class="card"><strong>API / Webhook</strong><p>Custom event va ichki tizimlar bilan sinxron.</p></article></div></section>
-<section class="section"><h2>Ulash tartibi</h2><div class="grid-2" style="margin-top:10px"><div class="card">1. Kanalni tanlang</div><div class="card">2. Credentials kiriting</div><div class="card">3. Test xabar yuboring</div><div class="card">4. Productionga yoqing</div></div></section>
-</main></body></html>
+﻿<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QULAY CHAT - Integratsiyalar</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="landing-v2.css" />
+</head>
+<body>
+  <main class="container">
+    <div class="topbar">
+      <a href="tel:+998901234567">+998 90 123 45 67</a>
+      <a href="mailto:info@qulaychat.uz">info@qulaychat.uz</a>
+    </div>
+
+    <header class="nav">
+      <a class="brand" href="./01-landing.html">
+        <span class="brand-mark">QC</span>
+        <span>QULAY CHAT</span>
+      </a>
+      <nav class="nav-links">
+        <a href="./03-features.html">Imkoniyatlar</a>
+        <a class="active" href="./04-integrations.html">Integratsiyalar</a>
+        <a href="./02-pricing.html">Narxlar</a>
+        <a href="./06-blog-list.html">Blog</a>
+        <a href="./05-about.html">Biz haqimizda</a>
+        <a href="./08-comparison.html">Taqqoslash</a>
+      </nav>
+      <div class="actions">
+        <a class="btn btn-secondary" href="../02-auth/01-login.html">Kirish</a>
+        <a class="btn btn-primary" href="../02-auth/02-register.html">14 kun bepul sinash</a>
+      </div>
+    </header>
+
+    <section class="hero">
+      <h1>Barcha asosiy kanallar bilan tez integratsiya</h1>
+      <p class="lead">Savdo va support oqimlarini Telegram, WhatsApp, Instagram va boshqa tizimlar bilan bir markazga ulang.</p>
+    </section>
+
+    <section class="section">
+      <div class="integration-grid">
+        <div class="card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" loading="lazy" />
+          <h3>Telegram</h3>
+          <p class="text-muted">Bot API orqali to'liq integratsiya</p>
+        </div>
+        <div class="card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" loading="lazy" />
+          <h3>WhatsApp Business</h3>
+          <p class="text-muted">Cloud API va template xabarlar</p>
+        </div>
+        <div class="card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" loading="lazy" />
+          <h3>Instagram DM</h3>
+          <p class="text-muted">Direct Message API</p>
+        </div>
+        <div class="card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Facebook_Logo_%282019%29.png" alt="Facebook" loading="lazy" />
+          <h3>Facebook Messenger</h3>
+          <p class="text-muted">Page messaging integratsiya</p>
+        </div>
+        <div class="card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/8/8d/Viber_logo.svg" alt="Viber" loading="lazy" />
+          <h3>Viber</h3>
+          <p class="text-muted">Bot API orqali integratsiya</p>
+        </div>
+        <div class="card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="Email" loading="lazy" />
+          <h3>Email (SMTP/IMAP)</h3>
+          <p class="text-muted">Emailni ticket sifatida qabul qilish</p>
+        </div>
+        <div class="card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Twilio-logo-red.svg" alt="SMS gateway" loading="lazy" />
+          <h3>SMS (Eskiz/PlayMobile)</h3>
+          <p class="text-muted">SMS gateway integratsiya</p>
+        </div>
+        <div class="card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/HubSpot_Logo.svg" alt="CRM" loading="lazy" />
+          <h3>CRM (Bitrix24/amoCRM)</h3>
+          <p class="text-muted">Kontaktlarni sinxronlash</p>
+        </div>
+      </div>
+      <div class="actions" style="margin-top: 14px; justify-content: center;">
+        <a class="btn btn-primary" href="../26-integrations/01-channels-overview.html">Batafsil sozlash</a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-grid">
+        <div>
+          <a class="brand" href="./01-landing.html"><span class="brand-mark">QC</span><span>QULAY CHAT</span></a>
+          <p class="muted-sm">Mijozlar bilan muloqotni osonlashtiruvchi zamonaviy chat platformasi.</p>
+        </div>
+        <div>
+          <h4>Product</h4>
+          <a href="./03-features.html">Imkoniyatlar</a>
+          <a href="./02-pricing.html">Narxlar</a>
+          <a href="./04-integrations.html">Integratsiyalar</a>
+          <a href="./08-comparison.html">Taqqoslash</a>
+        </div>
+        <div>
+          <h4>Resurslar</h4>
+          <a href="./06-blog-list.html">Blog</a>
+          <a href="./05-about.html">Biz haqimizda</a>
+          <a href="../15-knowledge-base/06-public-home.html">Bilim bazasi</a>
+          <a href="../21-help-support/01-help-center.html">Yordam markazi</a>
+        </div>
+        <div>
+          <h4>Hisob</h4>
+          <a href="../02-auth/01-login.html">Kirish</a>
+          <a href="../02-auth/02-register.html">Ro'yxatdan o'tish</a>
+          <a href="../04-dashboard/01-dashboard.html">Dashboard</a>
+        </div>
+        <div>
+          <h4>Ijtimoiy tarmoqlar</h4>
+          <div class="social-links">
+            <a href="https://t.me" target="_blank" rel="noopener noreferrer">Telegram</a>
+            <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer">YouTube</a>
+            <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 QULAY CHAT. Barcha huquqlar himoyalangan.</span>
+        <span>Privacy | Terms | Security</span>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
+

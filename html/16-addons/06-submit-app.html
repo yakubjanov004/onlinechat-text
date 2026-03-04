@@ -12,19 +12,25 @@
     <script src="../assets/qulay-chat-shell.js" defer></script>
     <script src="../assets/qulay-chat-runtime.js" defer></script>
   </head>
-  <body data-active-nav="addons" class="dashboard-shell-page">
+  <body data-active-nav="addons" data-shell-role="admin" class="dashboard-shell-page">
     <main class="app-content">
-      <div class="subnav-scroll"><div class="subnav-tabs">
-        <a class="subnav-tab" href="./01-addons-catalog.html">Catalog</a>
-        <a class="subnav-tab" href="./02-active-addons.html">Active Addons</a>
-        <a class="subnav-tab" href="./03-addon-detail.html">Addon Detail</a>
-        <a class="subnav-tab" href="./04-addon-settings.html">Addon Settings</a>
-        <a class="subnav-tab" href="./05-developer-sdk.html">Developer SDK</a>
-        <a class="subnav-tab active" href="./06-submit-app.html">Submit App</a>
-        <a class="subnav-tab" href="./07-app-reviews.html">App Reviews</a>
-      </div></div>
+<nav class="breadcrumbs">
+  <a href="../04-dashboard/01-dashboard.html">Dashboard</a>
+  <span class="separator">›</span>
+  <a href="./01-addons-catalog.html">Add-ons</a>
+  <span class="separator">›</span>
+  <span class="current">Ilova yuborish</span>
+</nav>
+<nav class="subnav-tabs" aria-label="Add-ons sahifalari">
+  <a class="tab" href="./01-addons-catalog.html">Katalog</a>
+  <a class="tab" href="./02-active-addons.html">Faol qo'shimchalar</a>
+  <a class="tab" href="./03-addon-detail.html">Batafsil</a>
+  <a class="tab" href="./04-addon-settings.html">Sozlamalar</a>
+  <a class="tab" href="./05-developer-sdk.html">Developer SDK</a>
+  <a class="tab active" href="./06-submit-app.html">Ilova yuborish</a>
+  <a class="tab" href="./07-app-reviews.html">Sharhlar</a>
+</nav>
       <div data-roles="admin">
-        <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../04-dashboard/01-dashboard.html">Dashboard</a><i data-lucide="chevron-right"></i><a href="./01-addons-catalog.html">Addons</a><i data-lucide="chevron-right"></i><span class="current">Submit App</span></nav>
         <div class="page-header"><div><h1>Submit App</h1><p class="text-muted">Marketplace uchun yangi app yuborish formasi va review oqimi.</p></div><div class="page-header-actions"><a class="btn btn-secondary" href="./05-developer-sdk.html"><i data-lucide="arrow-left"></i> Developer SDK</a><a class="btn btn-primary" href="./07-app-reviews.html">App Reviews <i data-lucide="arrow-right"></i></a></div></div>
 
         <section class="split-grid" style="margin-bottom:14px"><article class="card"><div class="card-header"><h3>Submission form</h3></div><div class="card-body"><label>App nomi<input class="input" /></label><label style="margin-top:10px;display:block">Qisqacha tavsif<textarea class="input" rows="4"></textarea></label><label style="margin-top:10px;display:block">Kategoriya<select class="input"><option>Automation</option><option>Analytics</option><option>Support Tools</option></select></label><div class="flex gap-2 wrap" style="margin-top:12px"><button class="btn btn-secondary" type="button"><i data-lucide="upload"></i> Screenshot yuklash</button><button class="btn btn-primary" type="button"><i data-lucide="send"></i> Yuborish</button></div></div></article><article class="card"><div class="card-header"><h3>Review checklist</h3></div><div class="card-body"><div class="list-stack"><div class="list-item"><div class="item-main"><div class="item-title">Security questionnaire</div></div><span class="badge badge-warning">Pending</span></div><div class="list-item"><div class="item-main"><div class="item-title">Privacy policy URL</div></div><span class="badge badge-success">Provided</span></div><div class="list-item"><div class="item-main"><div class="item-title">Support contact</div></div><span class="badge badge-success">Provided</span></div></div></div></article></section>

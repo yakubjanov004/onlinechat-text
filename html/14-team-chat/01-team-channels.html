@@ -30,13 +30,19 @@
 </head>
 <body data-active-nav="team-chat" class="dashboard-shell-page">
 <main class="app-content">
-  <div class="subnav-scroll">
-    <div class="subnav-tabs">
-      <a class="subnav-tab active" href="./01-team-chat.html">Team Chat</a>
-      <a class="subnav-tab" href="./02-room-settings.html">Room Settings</a>
-      <a class="subnav-tab" href="./03-notifications.html">Team Chat Notifications</a>
-    </div>
-  </div>
+  <nav class="subnav-tabs" aria-label="Team Chat sahifalari">
+    <a class="tab active" href="./01-team-channels.html">Kanallar</a>
+    <a class="tab" href="./02-direct-messages.html">Shaxsiy xabarlar</a>
+    <a class="tab" href="./03-team-threads.html">Threadlar</a>
+  </nav>
+
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <a href="../04-dashboard/01-dashboard.html">Dashboard</a>
+    <span class="separator">›</span>
+    <a href="./01-team-channels.html">Team Chat</a>
+    <span class="separator">›</span>
+    <span class="current">Kanallar</span>
+  </nav>
 
   <div class="page-header">
     <div class="alert alert-info" data-roles="agent" style="margin-bottom:10px"><i data-lucide="users"></i><div>Agent rejimi: mavjud DM/xonalarda qatnashish mumkin, yangi room yaratish yopiq.</div></div>
@@ -47,7 +53,7 @@
     </div>
     <div class="page-header-actions">
       <button type="button" class="btn btn-primary" data-tc-new-chat><i data-lucide="plus"></i> Yangi chat</button>
-      <button type="button" class="btn btn-secondary" data-roles="admin" data-nav="./02-room-settings.html"><i data-lucide="settings"></i> Room boshqaruvi</button>
+      <button type="button" class="btn btn-secondary" data-roles="admin" data-nav="./02-direct-messages.html"><i data-lucide="settings"></i> Room boshqaruvi</button>
     </div>
   </div>
 
@@ -87,8 +93,8 @@
           <div class="text-muted" style="font-size:12px" data-tc-subtitle>Manager · Online</div>
         </div>
         <div class="flex gap-2">
-          <button type="button" class="btn btn-secondary" data-nav="./02-room-settings.html">Room settings</button>
-          <button type="button" class="btn btn-secondary" data-nav="./03-notifications.html">Notifications</button>
+          <button type="button" class="btn btn-secondary" data-nav="./02-direct-messages.html">Room settings</button>
+          <button type="button" class="btn btn-secondary" data-nav="./03-team-threads.html">Notifications</button>
         </div>
       </div>
 
@@ -162,6 +168,13 @@
       </div>
       <div class="modal-footer"><button class="btn btn-secondary" type="button" data-tc-close-modal>Bekor qilish</button><button class="btn btn-primary" type="button" data-tc-create-submit>Yaratish</button></div>
     </div>
+  </div>
+
+  <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;padding-top:16px;border-top:1px solid var(--border, #e5e7eb);">
+    <a class="btn btn-ghost btn-sm" href="../05-inbox/01-inbox-chat.html"><i data-lucide="message-square"></i> Inbox</a>
+    <a class="btn btn-ghost btn-sm" href="../07-team/01-agents.html"><i data-lucide="users"></i> Team</a>
+    <a class="btn btn-ghost btn-sm" href="../09-settings/04-notifications.html"><i data-lucide="bell"></i> Bildirishnomalar</a>
+    <a class="btn btn-ghost btn-sm" href="../04-dashboard/01-dashboard.html"><i data-lucide="layout-dashboard"></i> Dashboard</a>
   </div>
 </main>
 <script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>

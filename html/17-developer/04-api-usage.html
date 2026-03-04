@@ -12,21 +12,58 @@
     <script src="../assets/qulay-chat-shell.js" defer></script>
     <script src="../assets/qulay-chat-runtime.js" defer></script>
   </head>
-  <body data-active-nav="developer" class="dashboard-shell-page">
+  <body data-active-nav="developer" data-shell-role="admin" class="dashboard-shell-page">
     <main class="app-content">
-      <div class="subnav-scroll"><div class="subnav-tabs">
-        <a class="subnav-tab" href="./01-api-keys.html">API Keys</a>
-        <a class="subnav-tab" href="./02-webhooks.html">Webhooks</a>
-        <a class="subnav-tab" href="./03-logs.html">Logs</a>
-        <a class="subnav-tab active" href="./04-api-usage.html">API Usage</a>
-        <a class="subnav-tab" href="./05-sandbox.html">Sandbox</a>
-      </div></div>
+      <nav class="breadcrumbs">
+        <a href="../04-dashboard/01-dashboard.html">Dashboard</a>
+        <span class="separator">›</span>
+        <a href="./01-api-keys.html">Developer</a>
+        <span class="separator">›</span>
+        <span class="current">API foydalanish</span>
+      </nav>
+      <nav class="subnav-tabs" aria-label="Developer sahifalari">
+        <a class="tab" href="./01-api-keys.html">API kalitlari</a>
+        <a class="tab" href="./02-webhooks.html">Webhooklar</a>
+        <a class="tab" href="./03-logs.html">Loglar</a>
+        <a class="tab active" href="./04-api-usage.html">API foydalanish</a>
+        <a class="tab" href="./05-sandbox.html">Sandbox</a>
+      </nav>
 
       <div data-roles="admin">
-        <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../04-dashboard/01-dashboard.html">Dashboard</a><i data-lucide="chevron-right"></i><a href="./01-api-keys.html">Developer</a><i data-lucide="chevron-right"></i><span class="current">API Usage</span></nav>
         <div class="page-header"><div><h1>API Usage</h1><p class="text-muted">So‘rovlar soni, rate-limit va quota sarfini real vaqtga yaqin kuzatish.</p></div><div class="page-header-actions"><a class="btn btn-secondary" href="./03-logs.html"><i data-lucide="arrow-left"></i> Logs</a><a class="btn btn-primary" href="./05-sandbox.html">Sandbox <i data-lucide="arrow-right"></i></a></div></div>
 
         <section class="grid cols-4" style="margin-bottom:14px"><article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">Requests / 24h</p><h3 style="margin:0">128,440</h3></div></article><article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">Error rate</p><h3 style="margin:0">0.7%</h3></div></article><article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">P95 latency</p><h3 style="margin:0">420ms</h3></div></article><article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">Quota used</p><h3 style="margin:0">72%</h3></div></article></section>
+
+        <!-- Chart placeholders -->
+        <section class="split-grid" style="margin-bottom:14px">
+          <article class="card">
+            <div class="card-header"><h3>API calls (30 kun)</h3></div>
+            <div class="card-body">
+              <div class="chart-placeholder" data-chart="api-calls-bar" style="height:220px;background:#F9FAFB;border:2px dashed #E5E7EB;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9CA3AF">
+                <span>📊 API calls bar chart</span>
+              </div>
+            </div>
+          </article>
+          <article class="card">
+            <div class="card-header"><h3>Error rate trend</h3></div>
+            <div class="card-body">
+              <div class="chart-placeholder" data-chart="error-rate-line" style="height:220px;background:#F9FAFB;border:2px dashed #E5E7EB;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#9CA3AF">
+                <span>📈 Error rate trend line</span>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section class="card" style="margin-bottom:14px">
+          <div class="card-header"><h3>Rate limit foydalanish</h3></div>
+          <div class="card-body">
+            <div style="margin-bottom:8px"><span>Joriy foydalanish: </span><strong>72 / 100 req/min</strong></div>
+            <div class="progress" style="height:12px">
+              <div class="progress-bar" style="width:72%;background:linear-gradient(90deg,#10B981,#F59E0B)"></div>
+            </div>
+            <p class="text-muted" style="margin-top:6px">Rate limit oshirish uchun <a href="../10-billing/01-billing.html">tarifni yangilang</a>.</p>
+          </div>
+        </section>
 
         <section class="split-grid" style="margin-bottom:14px"><article class="card"><div class="card-header"><h3>Endpoint breakdown</h3></div><div class="card-body"><div class="table-wrap"><table class="table"><thead class="table-header"><tr><th>Endpoint</th><th>Calls</th><th>Avg ms</th><th>Status</th></tr></thead><tbody><tr class="table-row"><td>/api/messages</td><td>44,120</td><td>380</td><td><span class="badge badge-success">Healthy</span></td></tr><tr class="table-row"><td>/api/chats</td><td>32,911</td><td>440</td><td><span class="badge badge-primary">Stable</span></td></tr><tr class="table-row"><td>/api/users</td><td>18,405</td><td>510</td><td><span class="badge badge-warning">Watch</span></td></tr></tbody></table></div></div></article><article class="card"><div class="card-header"><h3>Rate limit controls</h3></div><div class="card-body"><label>Per-minute limit<input class="input" value="120" /></label><label style="margin-top:10px;display:block">Burst limit<input class="input" value="180" /></label><div class="flex gap-2 wrap" style="margin-top:12px"><button class="btn btn-secondary" type="button"><i data-lucide="shield"></i> Validate</button><button class="btn btn-primary" type="button"><i data-lucide="save"></i> Save</button></div></div></article></section>
 

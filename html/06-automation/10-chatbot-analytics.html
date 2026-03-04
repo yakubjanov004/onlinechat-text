@@ -11,63 +11,108 @@
     <script src="https://unpkg.com/lucide@latest" defer></script>
     <script src="../assets/qulay-chat-shell.js" defer></script>
     <script src="../assets/qulay-chat-runtime.js" defer></script>
+    <script src="../assets/automation-advanced.js" defer></script>
   </head>
   <body data-active-nav="automation" class="dashboard-shell-page">
     <main class="app-content">
-      <div class="subnav-scroll"><div class="subnav-tabs"><a class="subnav-tab" href="./01-working-hours.html">Working Hours</a><a class="subnav-tab" href="./02-auto-reply.html">Auto Reply</a><a class="subnav-tab" href="./03-triggers.html">Triggers</a><a class="subnav-tab" href="./04-greetings.html">Greetings</a><a class="subnav-tab" href="./05-chatbot-builder.html">Chatbot Builder</a><a class="subnav-tab" href="./06-chatbot-templates.html">Chatbot Templates</a><a class="subnav-tab" href="./07-routing-rules.html">Routing Rules</a><a class="subnav-tab" href="./08-chatbot-flow-editor.html">Chatbot Flow Editor</a><a class="subnav-tab" href="./09-chatbot-testing.html">Chatbot Testing</a><a class="subnav-tab active" href="./10-chatbot-analytics.html">Chatbot Analytics</a><a class="subnav-tab" href="./11-chatbot-variables.html">Chatbot Variables</a><a class="subnav-tab" href="./12-workflow-builder.html">Workflow Builder</a><a class="subnav-tab" href="./13-auto-tagging.html">Auto Tagging</a><a class="subnav-tab" href="./14-auto-assignment.html">Auto Assignment</a><a class="subnav-tab" href="./15-sla-rules.html">SLA Rules</a><a class="subnav-tab" href="./16-escalation-rules.html">Escalation Rules</a><a class="subnav-tab" href="./17-business-rules.html">Business Rules</a><a class="subnav-tab" href="./18-scheduled-messages.html">Scheduled Messages</a></div></div>
+                  <nav class="subnav-tabs" aria-label="Automation sahifalari">
+        <a class="tab" href="./01-working-hours.html">Ish vaqtlari</a>
+        <a class="tab" href="./02-auto-reply.html">Auto javob</a>
+        <a class="tab" href="./03-triggers.html">Triggerlar</a>
+        <a class="tab" href="./04-greetings.html">Salomlashuvlar</a>
+        <a class="tab" href="./05-chatbot-builder.html">Chatbot Builder</a>
+        <a class="tab" href="./06-chatbot-templates.html">Chatbot shablonlari</a>
+        <a class="tab" href="./07-routing-rules.html">Routing qoidalari</a>
+        <a class="tab" href="./08-chatbot-flow-editor.html">Flow Editor</a>
+        <a class="tab" href="./09-chatbot-testing.html">Chatbot test</a>
+        <a class="tab active" href="./10-chatbot-analytics.html">Chatbot analitika</a>
+        <a class="tab" href="./11-chatbot-variables.html">O'zgaruvchilar</a>
+        <a class="tab" href="./12-workflow-builder.html">Workflow Builder</a>
+        <a class="tab" href="./13-auto-tagging.html">Auto tagging</a>
+        <a class="tab" href="./14-auto-assignment.html">Auto tayinlash</a>
+        <a class="tab" href="./15-sla-rules.html">SLA qoidalari</a>
+        <a class="tab" href="./16-escalation-rules.html">Eskalatsiya</a>
+        <a class="tab" href="./17-business-rules.html">Biznes qoidalar</a>
+        <a class="tab" href="./18-scheduled-messages.html">Rejalashtirilgan xabarlar</a>
+      </nav>
+                  <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="../04-dashboard/01-dashboard.html">Dashboard</a>
+        <span class="separator"></span>
+        <a href="./01-working-hours.html">Automation</a>
+        <span class="separator"></span>
+        <span class="current">Chatbot analitika</span>
+      </nav>
+      <div data-roles="agent" class="card" style="border-color:#FCD34D;background:#FFFBEB;margin-top:12px;">
+        <div class="card-body">
+          <h3 style="margin:0 0 6px;">Admin only</h3>
+          <p class="text-muted" style="margin:0 0 12px;">Bu bo'lim faqat adminlar uchun. Davom etish uchun agent dashboardga qayting.</p>
+          <a class="btn btn-secondary" href="../04-dashboard/02-dashboard-agent.html">Agent dashboardga qaytish</a>
+        </div>
+      </div>
       <div data-roles="admin">
-        <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../04-dashboard/01-dashboard.html">Dashboard</a><i data-lucide="chevron-right"></i><a href="./01-working-hours.html">Automation</a><i data-lucide="chevron-right"></i><span class="current">Chatbot Analytics</span></nav>
-        <div class="page-header"><div><h1>Chatbot Analytics</h1><p class="text-muted">Bot samaradorligi, completion va drop-off metrikalarini ko‘rish.</p></div><div class="page-header-actions"><a class="btn btn-secondary" href="./09-chatbot-testing.html"><i data-lucide="arrow-left"></i> Chatbot Testing</a><a class="btn btn-primary" href="./11-chatbot-variables.html">Chatbot Variables <i data-lucide="arrow-right"></i></a></div></div>
+        <div class="page-header">
+          <div>
+            <h1>Chatbot Analytics</h1>
+            <p class="text-muted">Flow samaradorligi, drop-off va mashhur yo'llar statistikasi.</p>
+          </div>
+          <div class="page-header-actions">
+            <select class="select" style="width:auto;"><option>Oxirgi 7 kun</option><option>Oxirgi 30 kun</option><option>Oxirgi 90 kun</option></select>
+            <button class="btn btn-secondary" type="button"><i data-lucide="download"></i> Export</button>
+          </div>
+        </div>
 
-        <section class="grid cols-3" style="margin-bottom:14px">
-          <article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">Active rules</p><h3 style="margin:0">18</h3></div></article>
-          <article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">Success rate</p><h3 style="margin:0">96.4%</h3></div></article>
-          <article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">Last update</p><h3 style="margin:0">Bugun 16:58</h3></div></article>
+        <section class="grid cols-4" style="margin-bottom:14px;">
+          <article class="card"><div class="card-body"><p class="text-muted" style="margin:0;">Total conversations</p><h3 style="margin:6px 0 0;">12,480</h3></div></article>
+          <article class="card"><div class="card-body"><p class="text-muted" style="margin:0;">Completion rate</p><h3 style="margin:6px 0 0;">71%</h3></div></article>
+          <article class="card"><div class="card-body"><p class="text-muted" style="margin:0;">Handoff rate</p><h3 style="margin:6px 0 0;">19%</h3></div></article>
+          <article class="card"><div class="card-body"><p class="text-muted" style="margin:0;">Avg duration</p><h3 style="margin:6px 0 0;">2m 14s</h3></div></article>
         </section>
 
-        <section class="split-grid" style="margin-bottom:14px">
+        <section class="split-grid" style="margin-bottom:14px;">
           <article class="card">
-            <div class="card-header"><h3>Asosiy boshqaruv</h3></div>
+            <div class="card-header"><h3>Flow performance (node hits)</h3></div>
             <div class="card-body">
-              <label>Primary setting<input class="input" value="Enabled" /></label>
-              <label style="margin-top:10px;display:block">Secondary setting<input class="input" value="Configured" /></label>
-              <div class="flex gap-2 wrap" style="margin-top:12px">
-                <button class="btn btn-secondary" type="button"><i data-lucide="flask-conical"></i> Test run</button>
-                <button class="btn btn-primary" type="button"><i data-lucide="save"></i> Saqlash</button>
+              <div style="height:220px;display:flex;align-items:flex-end;gap:10px;">
+                <div style="flex:1;text-align:center;"><div style="height:88%;background:linear-gradient(180deg,var(--primary),#818cf8);border-radius:8px 8px 0 0;"></div><small class="text-muted">Welcome</small></div>
+                <div style="flex:1;text-align:center;"><div style="height:74%;background:linear-gradient(180deg,var(--primary),#818cf8);border-radius:8px 8px 0 0;"></div><small class="text-muted">Intent</small></div>
+                <div style="flex:1;text-align:center;"><div style="height:66%;background:linear-gradient(180deg,var(--primary),#818cf8);border-radius:8px 8px 0 0;"></div><small class="text-muted">Pricing</small></div>
+                <div style="flex:1;text-align:center;"><div style="height:48%;background:linear-gradient(180deg,var(--primary),#818cf8);border-radius:8px 8px 0 0;"></div><small class="text-muted">Demo</small></div>
+                <div style="flex:1;text-align:center;"><div style="height:34%;background:linear-gradient(180deg,var(--primary),#818cf8);border-radius:8px 8px 0 0;"></div><small class="text-muted">Capture</small></div>
               </div>
             </div>
           </article>
+
           <article class="card">
-            <div class="card-header"><h3>Checklist</h3></div>
+            <div class="card-header"><h3>Drop-off funnel</h3></div>
             <div class="card-body">
               <div class="list-stack">
-                <div class="list-item"><div class="item-main"><div class="item-title">Rule validation</div></div><span class="badge badge-success">OK</span></div>
-                <div class="list-item"><div class="item-main"><div class="item-title">Fallback policy</div></div><span class="badge badge-primary">Active</span></div>
-                <div class="list-item"><div class="item-main"><div class="item-title">Rate-limit check</div></div><span class="badge badge-warning">Review</span></div>
+                <div class="list-item"><span class="item-main"><span class="item-title">Start</span></span><span class="badge badge-primary">12,480</span></div>
+                <div class="list-item"><span class="item-main"><span class="item-title">Intent aniqlash</span></span><span class="badge badge-primary">10,902</span></div>
+                <div class="list-item"><span class="item-main"><span class="item-title">Pricing tuguni</span></span><span class="badge badge-warning">8,216</span></div>
+                <div class="list-item"><span class="item-main"><span class="item-title">Lead capture</span></span><span class="badge badge-warning">6,403</span></div>
+                <div class="list-item"><span class="item-main"><span class="item-title">Completed</span></span><span class="badge badge-success">5,487</span></div>
               </div>
             </div>
           </article>
         </section>
 
-        <section class="card" style="margin-bottom:14px">
-          <div class="card-header"><h3>So‘nggi faoliyat</h3></div>
+        <section class="card">
+          <div class="card-header"><h3>Popular paths</h3></div>
           <div class="card-body">
-            <div class="table-wrap">
-              <table class="table">
-                <thead class="table-header"><tr><th>Vaqt</th><th>Event</th><th>Holat</th><th>Mas’ul</th></tr></thead>
-                <tbody>
-                  <tr class="table-row"><td>16:58</td><td>Rule saved</td><td><span class="badge badge-success">Done</span></td><td>Jahongir</td></tr>
-                  <tr class="table-row"><td>16:52</td><td>Test executed</td><td><span class="badge badge-primary">Pass</span></td><td>Dilnoza</td></tr>
-                  <tr class="table-row"><td>16:44</td><td>Condition updated</td><td><span class="badge badge-warning">Review</span></td><td>Madina</td></tr>
-                </tbody>
-              </table>
+            <div class="list-stack">
+              <div class="list-item"><span class="item-main"><span class="item-title">Welcome -> Pricing -> Demo -> Lead capture</span></span><span class="badge badge-success">34%</span></div>
+              <div class="list-item"><span class="item-main"><span class="item-title">Welcome -> Tech support -> Handoff</span></span><span class="badge badge-primary">27%</span></div>
+              <div class="list-item"><span class="item-main"><span class="item-title">Welcome -> FAQ -> End</span></span><span class="badge badge-info">21%</span></div>
+              <div class="list-item"><span class="item-main"><span class="item-title">Welcome -> Unknown intent -> Handoff</span></span><span class="badge badge-warning">18%</span></div>
             </div>
           </div>
         </section>
-
-        <div class="sticky-save-bar"><a class="btn btn-secondary" href="./09-chatbot-testing.html">Oldingi sahifa</a><a class="btn btn-primary" href="./11-chatbot-variables.html">Keyingi sahifa</a></div>
       </div>
     </main>
-    <script>window.addEventListener("DOMContentLoaded",function(){if(window.lucide&&window.lucide.createIcons)window.lucide.createIcons();});</script>
+    <script>
+      window.addEventListener("DOMContentLoaded", function () {
+        if (window.lucide && window.lucide.createIcons) window.lucide.createIcons();
+      });
+    </script>
   </body>
 </html>

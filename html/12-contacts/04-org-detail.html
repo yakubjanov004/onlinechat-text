@@ -15,11 +15,21 @@
 </head>
 <body data-active-nav="contacts" class="dashboard-shell-page">
 <main class="app-content">
-<div class="subnav-scroll">
-<div class="subnav-tabs">
-<a class="subnav-tab " href="./01-contacts-list.html">Kontaktlar</a><a class="subnav-tab " href="./02-contact-profile.html">Kontakt Profili</a><a class="subnav-tab " href="./03-organizations.html">Tashkilotlar</a><a class="subnav-tab active" href="./04-org-detail.html">Tashkilot Profili</a><a class="subnav-tab " href="./05-segments.html">CRM Segmentlar</a><a class="subnav-tab " href="./06-import-export.html">Import &amp; Export</a>
-</div>
-</div>
+<nav class="subnav-tabs" aria-label="Contacts sahifalari">
+  <a class="tab" href="./01-contacts-list.html">Kontaktlar</a>
+  <a class="tab" href="./02-contact-profile.html">Kontakt profil</a>
+  <a class="tab" href="./03-organizations.html">Tashkilotlar</a>
+  <a class="tab active" href="./04-org-detail.html">Tashkilot batafsil</a>
+  <a class="tab" href="./05-segments.html">Segmentlar</a>
+  <a class="tab" href="./06-import-export.html">Import/Export</a>
+</nav>
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <a href="../04-dashboard/01-dashboard.html">Dashboard</a>
+  <span class="separator">›</span>
+  <a href="./01-contacts-list.html">Kontaktlar</a>
+  <span class="separator">›</span>
+  <span class="current">Tashkilot batafsil</span>
+</nav>
 <div class="page-header">
 <div>
 <h1>Tashkilot Profili</h1>
@@ -59,6 +69,12 @@
 </div>
 </div>
 </section></div>
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;padding-top:16px;border-top:1px solid var(--border, #e5e7eb);">
+  <a class="btn btn-ghost btn-sm" href="../05-inbox/01-inbox-chat.html"><i data-lucide="message-square"></i> Inbox</a>
+  <a class="btn btn-ghost btn-sm" href="../13-visitors/01-visitors-list.html"><i data-lucide="eye"></i> Visitors</a>
+  <a class="btn btn-ghost btn-sm" href="../08-analytics/07-segments.html"><i data-lucide="bar-chart-3"></i> Segment analytics</a>
+  <a class="btn btn-ghost btn-sm" href="../04-dashboard/01-dashboard.html"><i data-lucide="layout-dashboard"></i> Dashboard</a>
+</div>
 </main>
 <script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
 </body>

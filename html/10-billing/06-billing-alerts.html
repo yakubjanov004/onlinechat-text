@@ -1,40 +1,74 @@
 <!doctype html>
 <html lang="uz">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>QULAY CHAT - Billing Alerts</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
-    <script src="https://unpkg.com/lucide@latest" defer></script>
-    <script src="../assets/qulay-chat-shell.js" defer></script>
-    <script src="../assets/qulay-chat-runtime.js" defer></script>
-  </head>
-  <body data-active-nav="billing" class="dashboard-shell-page">
-    <main class="app-content">
-      <div class="subnav-scroll"><div class="subnav-tabs"><a class="subnav-tab" href="./01-plan.html">Plan</a><a class="subnav-tab" href="./02-payment.html">Payment</a><a class="subnav-tab" href="./03-invoices.html">Invoices</a><a class="subnav-tab" href="./04-usage.html">Usage</a><a class="subnav-tab" href="./05-upgrade-downgrade.html">Upgrade & Downgrade</a><a class="subnav-tab active" href="./06-billing-alerts.html">Billing Alerts</a><a class="subnav-tab" href="./07-coupon-promo.html">Coupon & Promo</a><a class="subnav-tab" href="./08-trial-management.html">Trial Management</a><a class="subnav-tab" href="./09-payment-history.html">Payment History</a><a class="subnav-tab" href="./10-billing-contacts.html">Billing Contacts</a><a class="subnav-tab" href="./11-tax-settings.html">Tax Settings</a><a class="subnav-tab" href="./12-seat-management.html">Seat Management</a></div></div>
-      <div data-roles="admin">
-        <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../04-dashboard/01-dashboard.html">Dashboard</a><i data-lucide="chevron-right"></i><a href="./01-plan.html">Billing</a><i data-lucide="chevron-right"></i><span class="current">Billing Alerts</span></nav>
-        <div class="page-header"><div><h1>Billing Alerts</h1><p class="text-muted">Limit va to‘lov muddati bo‘yicha ogohlantirishlarni boshqarish.</p></div><div class="page-header-actions"><a class="btn btn-secondary" href="./05-upgrade-downgrade.html"><i data-lucide="arrow-left"></i> Upgrade & Downgrade</a><a class="btn btn-primary" href="./07-coupon-promo.html">Coupon & Promo <i data-lucide="arrow-right"></i></a></div></div>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QULAY CHAT - To'lov Ogohlantirishlari</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/qulay-chat-design-system.css">
+<script src="https://unpkg.com/lucide@latest" defer></script>
+<script src="../assets/qulay-chat-shell.js" defer></script>
+<script src="../assets/qulay-chat-runtime.js" defer></script>
+<script src="../assets/billing-interactions.js" defer></script>
+</head>
+<body data-active-nav="billing" class="dashboard-shell-page">
+<main class="app-content">
+<nav class="subnav-tabs" aria-label="Billing sahifalari">
+  <a class="tab" href="./01-plan.html">Joriy reja</a>
+  <a class="tab" href="./02-payment.html">To'lov usullari</a>
+  <a class="tab" href="./03-invoices.html">Hisob-fakturalar</a>
+  <a class="tab" href="./04-usage.html">Foydalanish</a>
+  <a class="tab" href="./05-upgrade-downgrade.html">Reja o'zgartirish</a>
+  <a class="tab active" href="./06-billing-alerts.html">To'lov ogohlantirishlari</a>
+  <a class="tab" href="./07-coupon-promo.html">Kupon va aksiyalar</a>
+  <a class="tab" href="./08-trial-management.html">Sinov muddati</a>
+  <a class="tab" href="./09-payment-history.html">To'lov tarixi</a>
+  <a class="tab" href="./10-billing-contacts.html">Billing kontaktlar</a>
+  <a class="tab" href="./11-tax-settings.html">Soliq sozlamalari</a>
+  <a class="tab" href="./12-seat-management.html">O'rindiqlar</a>
+</nav>
+<div data-roles="agent" class="card" style="border-color:#FCD34D;background:#FFFBEB;margin-top:12px">
+  <div class="card-body">
+    <h3 style="margin:0 0 6px">Admin only</h3>
+    <p class="text-muted" style="margin:0 0 12px">Bu bo'lim faqat adminlar uchun. Davom etish uchun agent dashboardga qayting.</p>
+    <a class="btn btn-secondary" href="../04-dashboard/02-dashboard-agent.html">Agent dashboardga qaytish</a>
+  </div>
+</div>
 
-        <section class="grid cols-3" style="margin-bottom:14px">
-          <article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">Current status</p><h3 style="margin:0">Active</h3></div></article>
-          <article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">Next billing</p><h3 style="margin:0">01-apr</h3></div></article>
-          <article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">Usage</p><h3 style="margin:0">72%</h3></div></article>
-        </section>
-
-        <section class="split-grid" style="margin-bottom:14px">
-          <article class="card"><div class="card-header"><h3>Asosiy boshqaruv</h3></div><div class="card-body"><label>Primary option<input class="input" value="Enabled" /></label><label style="margin-top:10px;display:block">Secondary option<input class="input" value="Configured" /></label><div class="flex gap-2 wrap" style="margin-top:12px"><button class="btn btn-secondary" type="button"><i data-lucide="refresh-cw"></i> Tekshirish</button><button class="btn btn-primary" type="button"><i data-lucide="save"></i> Saqlash</button></div></div></article>
-          <article class="card"><div class="card-header"><h3>Checklist</h3></div><div class="card-body"><div class="list-stack"><div class="list-item"><div class="item-main"><div class="item-title">Plan/price sync</div></div><span class="badge badge-success">OK</span></div><div class="list-item"><div class="item-main"><div class="item-title">Tax rule applied</div></div><span class="badge badge-primary">Active</span></div><div class="list-item"><div class="item-main"><div class="item-title">Payment retry monitor</div></div><span class="badge badge-warning">Watch</span></div></div></div></article>
-        </section>
-
-        <section class="card" style="margin-bottom:14px"><div class="card-header"><h3>So‘nggi billing activity</h3></div><div class="card-body"><div class="table-wrap"><table class="table"><thead class="table-header"><tr><th>Vaqt</th><th>Event</th><th>Holat</th><th>Mas’ul</th></tr></thead><tbody><tr class="table-row"><td>17:03</td><td>Billing settings updated</td><td><span class="badge badge-success">Done</span></td><td>Ulug‘bek</td></tr><tr class="table-row"><td>16:57</td><td>Invoice sync</td><td><span class="badge badge-primary">Updated</span></td><td>Jahongir</td></tr><tr class="table-row"><td>16:49</td><td>Retry policy check</td><td><span class="badge badge-warning">Review</span></td><td>Dilnoza</td></tr></tbody></table></div></div></section>
-
-        <div class="sticky-save-bar"><a class="btn btn-secondary" href="./05-upgrade-downgrade.html">Oldingi sahifa</a><a class="btn btn-primary" href="./07-coupon-promo.html">Keyingi sahifa</a></div>
-      </div>
-    </main>
-    <script>window.addEventListener("DOMContentLoaded",function(){if(window.lucide&&window.lucide.createIcons)window.lucide.createIcons();});</script>
-  </body>
+<div data-roles="admin">
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <a href="../04-dashboard/01-dashboard.html">Dashboard</a>
+  <span class="separator">›</span>
+  <a href="./01-plan.html">Billing</a>
+  <span class="separator">›</span>
+  <span class="current">To'lov ogohlantirishlari</span>
+</nav>
+<div class="page-header"><h1>To'lov Ogohlantirishlari</h1><p>To'lov bilan bog'liq xabarnomalar</p></div>
+<table class="table"><thead><tr><th>Tur</th><th>Xabar</th><th>Sana</th><th>Status</th></tr></thead>
+<tbody>
+  <tr><td><span class="badge badge-danger">❌ To'lov muvaffaqiyatsiz</span></td><td>Visa *4242 dan to'lov o'tmadi</td><td>2024-02-10</td><td><span class="badge badge-warning">Kutilmoqda</span></td></tr>
+  <tr><td><span class="badge badge-warning">⏰ Muddat tugashi</span></td><td>Pro reja 5 kundan so'ng tugaydi</td><td>2024-02-08</td><td><span class="badge badge-info">Ma'lum qilindi</span></td></tr>
+  <tr><td><span class="badge badge-info">📊 Limit yaqin</span></td><td>90% chat limitidan foydalanildi</td><td>2024-02-05</td><td><span class="badge badge-success">Hal qilindi</span></td></tr>
+</tbody></table>
+<div class="card" style="padding:16px;margin-top:16px;">
+  <h3>Xabarnoma sozlamalari</h3>
+  <div class="form-group"><label><input type="checkbox" checked /> 📧 Email orqali xabar berish</label></div>
+  <div class="form-group"><label><input type="checkbox" checked /> 🔔 In-app bildirishnoma</label></div>
+  <div class="form-group"><label>Xabar yuborish email:</label><input class="input" value="billing@qulaychat.uz" style="width:300px;" /></div>
+  <div class="form-group"><label><input type="checkbox" /> Avtomatik qayta urinish (to'lov muvaffaqiyatsiz bo'lganda)</label></div>
+  <div class="form-group"><label>Qayta urinish soni:</label><input class="input" type="number" value="3" style="width:80px;" /></div>
+  <button class="btn btn-primary btn-sm">Saqlash</button>
+</div>
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;padding-top:16px;border-top:1px solid var(--border, #e5e7eb);">
+  <a class="btn btn-ghost btn-sm" href="../27-payments/01-payment-overview.html"><i data-lucide="credit-card"></i> To'lov qilish</a>
+  <a class="btn btn-ghost btn-sm" href="../09-settings/01-workspace-general.html"><i data-lucide="settings"></i> Sozlamalar</a>
+  <a class="btn btn-ghost btn-sm" href="../01-landing/02-pricing.html"><i data-lucide="tag"></i> Narxlar</a>
+  <a class="btn btn-ghost btn-sm" href="../04-dashboard/01-dashboard.html"><i data-lucide="layout-dashboard"></i> Dashboard</a>
+</div>
+</div>
+</main>
+<script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>
+</body>
 </html>

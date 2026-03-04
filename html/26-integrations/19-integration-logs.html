@@ -1,30 +1,175 @@
 <!doctype html>
 <html lang="uz">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>QULAY CHAT - Integration Logs</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
-    <script src="https://unpkg.com/lucide@latest" defer></script>
-    <script src="../assets/qulay-chat-shell.js" defer></script>
-    <script src="../assets/qulay-chat-runtime.js" defer></script>
-  </head>
-  <body data-active-nav="integrations" class="dashboard-shell-page">
-    <main class="app-content">
-      <div class="subnav-scroll"><div class="subnav-tabs"><a class="subnav-tab" href="./01-channels-overview.html">Channels Overview</a><a class="subnav-tab" href="./02-telegram-setup.html">Telegram Setup</a><a class="subnav-tab" href="./03-telegram-settings.html">Telegram Settings</a><a class="subnav-tab" href="./04-telegram-test.html">Telegram Test</a><a class="subnav-tab" href="./05-whatsapp-setup.html">WhatsApp Setup</a><a class="subnav-tab" href="./06-whatsapp-templates.html">WhatsApp Templates</a><a class="subnav-tab" href="./07-whatsapp-settings.html">WhatsApp Settings</a><a class="subnav-tab" href="./08-instagram-setup.html">Instagram Setup</a><a class="subnav-tab" href="./09-facebook-setup.html">Facebook Setup</a><a class="subnav-tab" href="./10-viber-setup.html">Viber Setup</a><a class="subnav-tab" href="./11-email-setup.html">Email Setup</a><a class="subnav-tab" href="./12-email-settings.html">Email Settings</a><a class="subnav-tab" href="./13-sms-setup.html">SMS Setup</a><a class="subnav-tab" href="./14-sms-settings.html">SMS Settings</a><a class="subnav-tab" href="./15-bitrix24-setup.html">Bitrix24 Setup</a><a class="subnav-tab" href="./16-amocrm-setup.html">AmoCRM Setup</a><a class="subnav-tab" href="./17-zapier-setup.html">Zapier Setup</a><a class="subnav-tab" href="./18-custom-webhook.html">Custom Webhook</a><a class="subnav-tab active" href="./19-integration-logs.html">Integration Logs</a><a class="subnav-tab" href="./20-integration-status.html">Integration Status</a></div></div>
-      <div data-roles="agent" class="card" style="border-color:#FCD34D;background:#FFFBEB;margin-top:12px"><div class="card-body"><h3 style="margin:0 0 6px">Admin only</h3><p class="text-muted" style="margin:0 0 12px">Bu bo‘lim faqat adminlar uchun.</p><a class="btn btn-secondary" href="../04-dashboard/02-dashboard-agent.html">Agent dashboardga qaytish</a></div></div>
-      <div data-roles="admin">
-        <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../04-dashboard/01-dashboard.html">Dashboard</a><i data-lucide="chevron-right"></i><a href="./01-channels-overview.html">Integrations</a><i data-lucide="chevron-right"></i><span class="current">Integration Logs</span></nav>
-        <div class="page-header"><div><h1>Integration Logs</h1><p class="text-muted">Event loglar, xatolar, retrylar va eksport filtrlari paneli.</p></div><div class="page-header-actions"><a class="btn btn-secondary" href="./18-custom-webhook.html"><i data-lucide="arrow-left"></i> Custom Webhook</a><a class="btn btn-primary" href="./20-integration-status.html">Integration Status <i data-lucide="arrow-right"></i></a></div></div>
-        <section class="grid cols-3" style="margin-bottom:14px"><article class='card'><div class='card-body'><p class='text-muted' style='margin:0 0 6px'>Events/24h</p><h3 style='margin:0'>42,380</h3></div></article><article class='card'><div class='card-body'><p class='text-muted' style='margin:0 0 6px'>Error rate</p><h3 style='margin:0'>0.9%</h3></div></article><article class='card'><div class='card-body'><p class='text-muted' style='margin:0 0 6px'>Avg retry</p><h3 style='margin:0'>1.3x</h3></div></article></section>
-        <section class="split-grid" style="margin-bottom:14px"><article class="card"><div class="card-header"><h3>Asosiy sozlamalar</h3></div><div class="card-body"><label>Primary setting<input class="input" value="Configured" /></label><label style="margin-top:10px;display:block">Secondary setting<input class="input" value="Enabled" /></label><div class="flex gap-2 wrap" style="margin-top:12px"><button class="btn btn-secondary" type="button"><i data-lucide="flask-conical"></i> Tekshirish</button><button class="btn btn-primary" type="button"><i data-lucide="save"></i> Saqlash</button></div></div></article><article class="card"><div class="card-header"><h3>Checklist</h3></div><div class="card-body"><div class="list-stack"><div class="list-item"><div class="item-main"><div class="item-title">Credentiallar tekshirildi</div></div><span class="badge badge-success">OK</span></div><div class="list-item"><div class="item-main"><div class="item-title">Routing qoidasi yangilandi</div></div><span class="badge badge-primary">Active</span></div><div class="list-item"><div class="item-main"><div class="item-title">Fallback nazoratda</div></div><span class="badge badge-warning">Watch</span></div></div></div></article></section>
-        <section class="card" style="margin-bottom:14px"><div class="card-header"><h3>So‘nggi faoliyat</h3></div><div class="card-body"><div class="table-wrap"><table class="table"><thead class="table-header"><tr><th>Vaqt</th><th>Event</th><th>Holat</th><th>Mas’ul</th></tr></thead><tbody><tr class="table-row"><td>16:50</td><td>Config sync</td><td><span class="badge badge-success">Yakunlandi</span></td><td>Behruz</td></tr><tr class="table-row"><td>16:43</td><td>Validation run</td><td><span class="badge badge-warning">Review</span></td><td>Madina</td></tr><tr class="table-row"><td>16:31</td><td>Rule update</td><td><span class="badge badge-primary">Updated</span></td><td>Dilnoza</td></tr></tbody></table></div></div></section>
-        <div class="sticky-save-bar"><a class="btn btn-secondary" href="./18-custom-webhook.html">Oldingi sahifa</a><a class="btn btn-primary" href="./20-integration-status.html">Keyingi sahifa</a></div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Integration loglar  QULAY CHAT</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/qulay-chat-design-system.css">
+  <script src="https://unpkg.com/lucide@latest" defer></script>
+  <script src="../assets/qulay-chat-shell.js" defer></script>
+  <script src="../assets/qulay-chat-runtime.js" defer></script>
+</head>
+<body data-active-nav="integrations" data-shell-role="admin" class="dashboard-shell-page">
+  <main class="app-content">
+    <nav class="subnav-tabs" aria-label="Integrations sahifalari">
+      <a class="tab" href="./01-channels-overview.html">Kanallar</a>
+      <a class="tab" href="./02-telegram-setup.html">Telegram</a>
+      <a class="tab" href="./03-telegram-settings.html">Telegram soz.</a>
+      <a class="tab" href="./04-telegram-test.html">Telegram test</a>
+      <a class="tab" href="./05-whatsapp-setup.html">WhatsApp</a>
+      <a class="tab" href="./06-whatsapp-templates.html">WA shablonlar</a>
+      <a class="tab" href="./07-whatsapp-settings.html">WA sozlamalar</a>
+      <a class="tab" href="./08-instagram-setup.html">Instagram</a>
+      <a class="tab" href="./09-facebook-setup.html">Facebook</a>
+      <a class="tab" href="./10-viber-setup.html">Viber</a>
+      <a class="tab" href="./11-email-setup.html">Email</a>
+      <a class="tab" href="./12-email-settings.html">Email soz.</a>
+      <a class="tab" href="./13-sms-setup.html">SMS</a>
+      <a class="tab" href="./14-sms-settings.html">SMS soz.</a>
+      <a class="tab" href="./15-bitrix24-setup.html">Bitrix24</a>
+      <a class="tab" href="./16-amocrm-setup.html">amoCRM</a>
+      <a class="tab" href="./17-zapier-setup.html">Zapier</a>
+      <a class="tab" href="./18-custom-webhook.html">Custom webhook</a>
+      <a class="tab active" href="./19-integration-logs.html">Loglar</a>
+      <a class="tab" href="./20-integration-status.html">Status</a>
+    </nav>
+
+    <div data-roles="agent" class="card" style="border-color:#fcd34d;background:#fffbeb;margin-top:12px">
+      <div class="card-body">
+        <h3 style="margin:0 0 6px">Admin only</h3>
+        <p class="text-muted" style="margin:0 0 12px">Bu bo'lim faqat adminlar uchun.</p>
+        <a class="btn btn-secondary" href="../04-dashboard/02-dashboard-agent.html">Agent dashboardga qaytish</a>
       </div>
-    </main>
-    <script>window.addEventListener("DOMContentLoaded", function () { if (window.lucide && window.lucide.createIcons) window.lucide.createIcons(); });</script>
-  </body>
+    </div>
+
+    <div data-roles="admin">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="../04-dashboard/01-dashboard.html">Dashboard</a>
+        <span class="separator"></span>
+        <a href="./01-channels-overview.html">Integratsiyalar</a>
+        <span class="separator"></span>
+        <span class="current">Integration loglar</span>
+      </nav>
+
+      <div class="page-header">
+        <div>
+          <h1>Integration loglar</h1>
+          <p class="text-muted">Event loglar, xatolar, retrylar va eksport filtrlari paneli.</p>
+        </div>
+        <div class="page-header-actions">
+          <a class="btn btn-secondary" href="./18-custom-webhook.html"><i data-lucide="arrow-left"></i> Custom webhook</a>
+          <a class="btn btn-primary" href="./20-integration-status.html">Status <i data-lucide="arrow-right"></i></a>
+        </div>
+      </div>
+
+      <section class="grid cols-3" style="margin-bottom:14px">
+        <article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">Events / 24h</p><h3 style="margin:0">42,380</h3></div></article>
+        <article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">Error rate</p><h3 style="margin:0">0.9%</h3></div></article>
+        <article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">O'rtacha retry</p><h3 style="margin:0">1.3x</h3></div></article>
+      </section>
+
+      <section class="card" style="margin-bottom:14px">
+        <div class="card-header">
+          <h3>Filtr</h3>
+        </div>
+        <div class="card-body">
+          <div class="flex gap-2 wrap">
+            <label style="flex:1;min-width:160px">Kanal
+              <select class="input">
+                <option selected>Barcha kanallar</option>
+                <option>Telegram</option>
+                <option>WhatsApp</option>
+                <option>Instagram</option>
+                <option>Facebook</option>
+                <option>Viber</option>
+                <option>Email</option>
+                <option>SMS</option>
+                <option>Webhook</option>
+              </select>
+            </label>
+            <label style="flex:1;min-width:160px">Status
+              <select class="input">
+                <option selected>Barchasi</option>
+                <option>Success</option>
+                <option>Error</option>
+                <option>Retry</option>
+              </select>
+            </label>
+            <label style="flex:1;min-width:160px">Sana (dan)
+              <input class="input" type="date" value="2026-03-03">
+            </label>
+            <label style="flex:1;min-width:160px">Sana (gacha)
+              <input class="input" type="date" value="2026-03-04">
+            </label>
+            <div style="display:flex;align-items:flex-end">
+              <button class="btn btn-secondary" type="button"><i data-lucide="search"></i> Filtr</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" style="margin-bottom:14px">
+        <div class="card-header">
+          <h3>Log jadvali</h3>
+          <button class="btn btn-secondary btn-sm" type="button"><i data-lucide="download"></i> Eksport</button>
+        </div>
+        <div class="card-body">
+          <div class="table-wrap">
+            <table class="table">
+              <thead class="table-header"><tr><th>Vaqt</th><th>Kanal</th><th>Event</th><th>Status</th><th>Response</th><th>Amal</th></tr></thead>
+              <tbody>
+                <tr class="table-row"><td>16:55:12</td><td>Telegram</td><td>message.inbound</td><td><span class="badge badge-success">200</span></td><td>OK</td><td></td></tr>
+                <tr class="table-row"><td>16:54:48</td><td>WhatsApp</td><td>message.outbound</td><td><span class="badge badge-success">200</span></td><td>OK</td><td></td></tr>
+                <tr class="table-row"><td>16:53:21</td><td>Email</td><td>email.received</td><td><span class="badge badge-success">200</span></td><td>OK</td><td></td></tr>
+                <tr class="table-row">
+                  <td>16:52:05</td><td>Webhook</td><td>webhook.deliver</td>
+                  <td><span class="badge badge-danger">500</span></td><td>Internal Server Error</td>
+                  <td><button class="btn btn-ghost btn-sm" type="button"><i data-lucide="rotate-cw"></i> Retry</button></td>
+                </tr>
+                <tr class="table-row"><td>16:51:33</td><td>Instagram</td><td>dm.received</td><td><span class="badge badge-success">200</span></td><td>OK</td><td></td></tr>
+                <tr class="table-row">
+                  <td>16:49:17</td><td>SMS</td><td>sms.send</td>
+                  <td><span class="badge badge-danger">408</span></td><td>Timeout</td>
+                  <td><button class="btn btn-ghost btn-sm" type="button"><i data-lucide="rotate-cw"></i> Retry</button></td>
+                </tr>
+                <tr class="table-row"><td>16:48:02</td><td>Telegram</td><td>message.outbound</td><td><span class="badge badge-success">200</span></td><td>OK</td><td></td></tr>
+                <tr class="table-row"><td>16:47:11</td><td>Facebook</td><td>message.inbound</td><td><span class="badge badge-success">200</span></td><td>OK</td><td></td></tr>
+                <tr class="table-row"><td>16:45:39</td><td>Viber</td><td>message.inbound</td><td><span class="badge badge-success">200</span></td><td>OK</td><td></td></tr>
+                <tr class="table-row"><td>16:44:08</td><td>WhatsApp</td><td>template.send</td><td><span class="badge badge-success">200</span></td><td>OK</td><td></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="flex gap-2" style="margin-top:14px;justify-content:center">
+            <button class="btn btn-ghost btn-sm" disabled> Oldingi</button>
+            <span class="badge badge-primary" style="padding:6px 12px">1</span>
+            <button class="btn btn-ghost btn-sm">2</button>
+            <button class="btn btn-ghost btn-sm">3</button>
+            <button class="btn btn-ghost btn-sm">Keyingi </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" style="margin-bottom:14px">
+        <div class="card-header"><h3>Xato tafsilotlari  Webhook #52-05</h3></div>
+        <div class="card-body">
+          <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:12px;font-family:monospace;font-size:13px;white-space:pre-wrap">HTTP 500 Internal Server Error
+Endpoint: https://your-server.com/webhook/qulaychat
+Latency: 2.1s
+Request ID: req_7f3a2b9c
+Retry count: 1/3
+Body: {"event":"chat.created","chat_id":"ch_1234"}</div>
+        </div>
+      </section>
+
+      <div class="sticky-save-bar">
+        <a class="btn btn-secondary" href="./18-custom-webhook.html">Oldingi sahifa</a>
+        <a class="btn btn-primary" href="./20-integration-status.html">Keyingi sahifa</a>
+      </div>
+    </div>
+  </main>
+  <script>window.addEventListener("DOMContentLoaded",function(){if(window.lucide&&window.lucide.createIcons)window.lucide.createIcons();});</script>
+</body>
 </html>

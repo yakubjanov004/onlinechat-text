@@ -14,11 +14,20 @@
 </head>
 <body data-active-nav="billing" class="dashboard-shell-page">
 <main class="app-content">
-<div class="subnav-scroll">
-<div class="subnav-tabs">
-<a class="subnav-tab" href="./01-plan.html">Billing Plan</a><a class="subnav-tab" href="./02-payment.html">Payment Methods</a><a class="subnav-tab active" href="./03-invoices.html">Invoices</a><a class="subnav-tab" href="./04-usage.html">Usage</a><a class="subnav-tab" href="./05-upgrade-downgrade.html">Upgrade Downgrade</a><a class="subnav-tab" href="./06-billing-alerts.html">Billing Alerts</a><a class="subnav-tab" href="./07-coupon-promo.html">Coupon Promo</a><a class="subnav-tab" href="./08-trial-management.html">Trial Management</a><a class="subnav-tab" href="./09-payment-history.html">Payment History</a><a class="subnav-tab" href="./10-billing-contacts.html">Billing Contacts</a><a class="subnav-tab" href="./11-tax-settings.html">Tax Settings</a><a class="subnav-tab" href="./12-seat-management.html">Seat Management</a>
-</div>
-</div>
+<nav class="subnav-tabs" aria-label="Billing sahifalari">
+  <a class="tab" href="./01-plan.html">Joriy reja</a>
+  <a class="tab" href="./02-payment.html">To'lov usullari</a>
+  <a class="tab active" href="./03-invoices.html">Hisob-fakturalar</a>
+  <a class="tab" href="./04-usage.html">Foydalanish</a>
+  <a class="tab" href="./05-upgrade-downgrade.html">Reja o'zgartirish</a>
+  <a class="tab" href="./06-billing-alerts.html">To'lov ogohlantirishlari</a>
+  <a class="tab" href="./07-coupon-promo.html">Kupon va aksiyalar</a>
+  <a class="tab" href="./08-trial-management.html">Sinov muddati</a>
+  <a class="tab" href="./09-payment-history.html">To'lov tarixi</a>
+  <a class="tab" href="./10-billing-contacts.html">Billing kontaktlar</a>
+  <a class="tab" href="./11-tax-settings.html">Soliq sozlamalari</a>
+  <a class="tab" href="./12-seat-management.html">O'rindiqlar</a>
+</nav>
 <div data-roles="agent" class="card" style="border-color:#FCD34D;background:#FFFBEB;margin-top:12px">
   <div class="card-body">
     <h3 style="margin:0 0 6px">Admin only</h3>
@@ -28,6 +37,13 @@
 </div>
 
 <div data-roles="admin">
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <a href="../04-dashboard/01-dashboard.html">Dashboard</a>
+  <span class="separator">›</span>
+  <a href="./01-plan.html">Billing</a>
+  <span class="separator">›</span>
+  <span class="current">Hisob-fakturalar</span>
+</nav>
 <div class="page-header">
 <div>
 <h1>Invoices</h1>
@@ -76,6 +92,12 @@
 </div>
 </div>
 </section>
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;padding-top:16px;border-top:1px solid var(--border, #e5e7eb);">
+  <a class="btn btn-ghost btn-sm" href="../27-payments/01-payment-overview.html"><i data-lucide="credit-card"></i> To'lov qilish</a>
+  <a class="btn btn-ghost btn-sm" href="../09-settings/01-workspace-general.html"><i data-lucide="settings"></i> Sozlamalar</a>
+  <a class="btn btn-ghost btn-sm" href="../01-landing/02-pricing.html"><i data-lucide="tag"></i> Narxlar</a>
+  <a class="btn btn-ghost btn-sm" href="../04-dashboard/01-dashboard.html"><i data-lucide="layout-dashboard"></i> Dashboard</a>
+</div>
 </div>
 </main>
 <script>window.addEventListener("DOMContentLoaded", function(){ if (window.lucide && window.lucide.createIcons) { window.lucide.createIcons(); } });</script>

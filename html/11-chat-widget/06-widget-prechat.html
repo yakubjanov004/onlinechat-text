@@ -18,30 +18,20 @@
   <body class="widget-page">
     <main class="widget-page">
       <div class="widget-shell">
-        <div class="widget-topbar">
-          <a class="shell-brand" href="../index.html"
-            ><span class="shell-brand-mark">QC</span
-            ><span>Widget Preview</span></a
-          >
-          <div class="subnav-scroll">
-            <div class="subnav-tabs">
-              <a class="subnav-tab" href="./01-widget-launcher.html"
-                >Widget Launcher</a
-              ><a class="subnav-tab" href="./02-widget-chat.html">Widget Chat</a
-              ><a class="subnav-tab" href="./03-widget-offline.html"
-                >Widget Offline</a
-              ><a class="subnav-tab" href="./04-widget-csat.html">Widget CSAT</a
-              ><a class="subnav-tab" href="./05-widget-states.html"
-                >Widget States</a
-              ><a class="subnav-tab active" href="./06-widget-prechat.html"
-                >Pre-chat Form</a
-              ><a class="subnav-tab" href="./07-widget-knowledge.html"
-                >Widget KB</a
-              ><a class="subnav-tab" href="./08-widget-mobile.html"
-                >Widget Mobile</a
-              >
-            </div>
-          </div>
+        <div class="widget-topbar" style="display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--surface,#fff);border-bottom:1px solid var(--border,#e5e7eb);">
+          <a href="../04-dashboard/01-dashboard.html" class="btn btn-ghost btn-sm">
+            <i data-lucide="arrow-left"></i> Dashboard
+          </a>
+          <nav class="subnav-tabs" style="border:0;margin:0;padding:0;">
+            <a class="tab" href="./01-widget-launcher.html">Launcher</a>
+            <a class="tab" href="./02-widget-chat.html">Chat</a>
+            <a class="tab" href="./03-widget-offline.html">Offline</a>
+            <a class="tab" href="./04-widget-csat.html">CSAT</a>
+            <a class="tab" href="./05-widget-states.html">Holatlar</a>
+            <a class="tab active" href="./06-widget-prechat.html">Pre-chat</a>
+            <a class="tab" href="./07-widget-knowledge.html">KB</a>
+            <a class="tab" href="./08-widget-mobile.html">Mobile</a>
+          </nav>
         </div>
         <div class="widget-canvas">
           <div class="widget-site-content">
@@ -136,6 +126,12 @@
           </div>
         </div>
       </div>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;padding:16px;border-top:1px solid var(--border, #e5e7eb);">
+          <a class="btn btn-ghost btn-sm" href="../09-settings/02-widget-settings.html"><i data-lucide="settings"></i> Widget sozlamalari</a>
+          <a class="btn btn-ghost btn-sm" href="../03-onboarding/05-widget-install.html"><i data-lucide="code"></i> Install kodi</a>
+          <a class="btn btn-ghost btn-sm" href="../03-onboarding/04-widget-customize.html"><i data-lucide="palette"></i> Customization</a>
+          <a class="btn btn-ghost btn-sm" href="../04-dashboard/01-dashboard.html"><i data-lucide="layout-dashboard"></i> Dashboard</a>
+        </div>
     </main>
     <script>
       window.addEventListener(

@@ -1,40 +1,64 @@
 <!doctype html>
 <html lang="uz">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>QULAY CHAT - KB Internal</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="../assets/qulay-chat-design-system.css" />
-    <script src="https://unpkg.com/lucide@latest" defer></script>
-    <script src="../assets/qulay-chat-shell.js" defer></script>
-    <script src="../assets/qulay-chat-runtime.js" defer></script>
-  </head>
-  <body data-active-nav="knowledge-base" class="dashboard-shell-page">
-    <main class="app-content">
-      <div class="subnav-scroll"><div class="subnav-tabs"><a class="subnav-tab" href="./01-kb-dashboard.html">KB Dashboard</a><a class="subnav-tab" href="./02-article-editor.html">Article Editor</a><a class="subnav-tab" href="./03-categories.html">Categories</a><a class="subnav-tab" href="./04-kb-settings.html">KB Settings</a><a class="subnav-tab" href="./05-kb-analytics.html">KB Analytics</a><a class="subnav-tab" href="./10-kb-versioning.html">KB Versioning</a><a class="subnav-tab" href="./11-kb-multilingual.html">KB Multilingual</a><a class="subnav-tab" href="./12-kb-ai-suggest.html">KB AI Suggest</a><a class="subnav-tab" href="./13-kb-feedback-detail.html">KB Feedback Detail</a><a class="subnav-tab active" href="./14-kb-internal.html">KB Internal</a><a class="subnav-tab" href="./15-kb-import.html">KB Import</a><a class="subnav-tab" href="./16-kb-custom-domain.html">KB Custom Domain</a><a class="subnav-tab" href="./17-kb-seo.html">KB SEO</a><a class="subnav-tab" href="./18-kb-widget-link.html">KB Widget Link</a></div></div>
-      <div data-roles="admin agent">
-        <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../04-dashboard/01-dashboard.html">Dashboard</a><i data-lucide="chevron-right"></i><a href="./01-kb-dashboard.html">Knowledge Base</a><i data-lucide="chevron-right"></i><span class="current">KB Internal</span></nav>
-        <div class="page-header"><div><h1>KB Internal</h1><p class="text-muted">Faqat ichki jamoa uchun SOP va troubleshooting bazasi.</p></div><div class="page-header-actions"><a class="btn btn-secondary" href="./13-kb-feedback-detail.html"><i data-lucide="arrow-left"></i> KB Feedback Detail</a><a class="btn btn-primary" href="./15-kb-import.html">KB Import <i data-lucide="arrow-right"></i></a></div></div>
-
-        <section class="grid cols-3" style="margin-bottom:14px">
-          <article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">Articles</p><h3 style="margin:0">248</h3></div></article>
-          <article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">Views today</p><h3 style="margin:0">3,412</h3></div></article>
-          <article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">Helpfulness</p><h3 style="margin:0">91%</h3></div></article>
-        </section>
-
-        <section class="split-grid" style="margin-bottom:14px">
-          <article class="card"><div class="card-header"><h3>Asosiy boshqaruv</h3></div><div class="card-body"><label>Primary option<input class="input" value="Enabled" /></label><label style="margin-top:10px;display:block">Secondary option<input class="input" value="Configured" /></label><div class="flex gap-2 wrap" style="margin-top:12px"><button class="btn btn-secondary" type="button"><i data-lucide="rotate-cw"></i> Tekshirish</button><button class="btn btn-primary" type="button"><i data-lucide="save"></i> Saqlash</button></div></div></article>
-          <article class="card"><div class="card-header"><h3>Checklist</h3></div><div class="card-body"><div class="list-stack"><div class="list-item"><div class="item-main"><div class="item-title">Structure validation</div></div><span class="badge badge-success">OK</span></div><div class="list-item"><div class="item-main"><div class="item-title">Access policy</div></div><span class="badge badge-primary">Active</span></div><div class="list-item"><div class="item-main"><div class="item-title">Translation review</div></div><span class="badge badge-warning">Watch</span></div></div></div></article>
-        </section>
-
-        <section class="card" style="margin-bottom:14px"><div class="card-header"><h3>So‘nggi faoliyat</h3></div><div class="card-body"><div class="table-wrap"><table class="table"><thead class="table-header"><tr><th>Vaqt</th><th>Event</th><th>Holat</th><th>Mas’ul</th></tr></thead><tbody><tr class="table-row"><td>17:05</td><td>Article update</td><td><span class="badge badge-success">Done</span></td><td>Ulug‘bek</td></tr><tr class="table-row"><td>16:58</td><td>Content sync</td><td><span class="badge badge-primary">Updated</span></td><td>Jahongir</td></tr><tr class="table-row"><td>16:50</td><td>SEO check</td><td><span class="badge badge-warning">Review</span></td><td>Dilnoza</td></tr></tbody></table></div></div></section>
-
-        <div class="sticky-save-bar"><a class="btn btn-secondary" href="./13-kb-feedback-detail.html">Oldingi sahifa</a><a class="btn btn-primary" href="./15-kb-import.html">Keyingi sahifa</a></div>
-      </div>
-    </main>
-    <script>window.addEventListener("DOMContentLoaded",function(){if(window.lucide&&window.lucide.createIcons)window.lucide.createIcons();});</script>
-  </body>
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QULAY CHAT - KB Internal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/qulay-chat-design-system.css">
+<script src="https://unpkg.com/lucide@latest" defer></script>
+<script src="../assets/qulay-chat-shell.js" defer></script>
+<script src="../assets/qulay-chat-runtime.js" defer></script>
+</head>
+<body data-active-nav="knowledge-base" class="dashboard-shell-page">
+<main class="app-content">
+<nav class="subnav-tabs" aria-label="Knowledge Base sahifalari">
+  <a class="tab" href="./01-kb-dashboard.html">Dashboard</a>
+  <a class="tab" href="./02-article-editor.html">Maqola editor</a>
+  <a class="tab" href="./03-categories.html">Kategoriyalar</a>
+  <a class="tab" href="./04-kb-settings.html">Sozlamalar</a>
+  <a class="tab" href="./05-kb-analytics.html">Analitika</a>
+  <a class="tab" href="./10-kb-versioning.html">Versiyalar</a>
+  <a class="tab" href="./11-kb-multilingual.html">Ko'p tilli</a>
+  <a class="tab" href="./12-kb-ai-suggest.html">AI tavsiyalar</a>
+  <a class="tab" href="./13-kb-feedback-detail.html">Fikr-mulohazalar</a>
+  <a class="tab active" href="./14-kb-internal.html">Ichki KB</a>
+  <a class="tab" href="./15-kb-import.html">Import</a>
+  <a class="tab" href="./16-kb-custom-domain.html">Custom domen</a>
+  <a class="tab" href="./17-kb-seo.html">SEO</a>
+  <a class="tab" href="./18-kb-widget-link.html">Widget bog'lanish</a>
+</nav>
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <a href="../04-dashboard/01-dashboard.html">Dashboard</a>
+  <span class="separator"></span>
+  <a href="./01-kb-dashboard.html">Knowledge Base</a>
+  <span class="separator"></span>
+  <span class="current">Ichki Bilim Bazasi</span>
+</nav>
+<div class="page-header"><h1>Ichki Bilim Bazasi</h1><p>Faqat agentlar uchun ko'rinadigan maqolalar</p></div>
+<div style="display:flex;justify-content:space-between;margin-bottom:16px;">
+  <div style="display:flex;gap:8px;">
+    <select class="input" style="width:180px;"><option>Barcha kategoriyalar</option><option>Texnik</option><option>Sales</option><option>HR</option></select>
+    <input class="input" placeholder="Ichki maqola qidirish..." style="width:250px;" />
+  </div>
+  <button class="btn btn-primary btn-sm">+ Yangi ichki maqola</button>
+</div>
+<div class="card" style="padding:12px;margin-bottom:12px;background:var(--warning-light,#fffbeb);">
+  <strong> Diqqat:</strong> Bu maqolalar faqat agent panelida ko'rinadi. Mijozlar ko'ra olmaydi.
+</div>
+<table class="table"><thead><tr><th>Maqola</th><th>Kategoriya</th><th>Muallif</th><th>Yangilangan</th><th>Amallar</th></tr></thead>
+<tbody>
+  <tr><td><strong>Refund jarayoni</strong></td><td><span class="badge">Sales</span></td><td>Admin</td><td>2024-02-10</td><td><button class="btn btn-ghost btn-sm"></button><button class="btn btn-ghost btn-sm"></button></td></tr>
+  <tr><td><strong>Eskalatsiya tartibi</strong></td><td><span class="badge badge-danger">Texnik</span></td><td>Sardor A.</td><td>2024-02-05</td><td><button class="btn btn-ghost btn-sm"></button><button class="btn btn-ghost btn-sm"></button></td></tr>
+  <tr><td><strong>Yangi agent onboarding</strong></td><td><span class="badge badge-info">HR</span></td><td>Admin</td><td>2024-01-20</td><td><button class="btn btn-ghost btn-sm"></button><button class="btn btn-ghost btn-sm"></button></td></tr>
+</tbody></table>
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:20px;padding-top:16px;border-top:1px solid var(--border, #e5e7eb);">
+  <a class="btn btn-ghost btn-sm" href="./06-public-home.html"><i data-lucide="globe"></i> Public KB</a>
+  <a class="btn btn-ghost btn-sm" href="../05-inbox/01-inbox-chat.html"><i data-lucide="message-square"></i> Inbox</a>
+  <a class="btn btn-ghost btn-sm" href="../08-analytics/01-overview.html"><i data-lucide="bar-chart-3"></i> Analytics</a>
+  <a class="btn btn-ghost btn-sm" href="../04-dashboard/01-dashboard.html"><i data-lucide="layout-dashboard"></i> Dashboard</a>
+</div>
+</main>
+<script>window.addEventListener('DOMContentLoaded',()=>window.lucide&&window.lucide.createIcons&&window.lucide.createIcons());</script>
+</body>
 </html>

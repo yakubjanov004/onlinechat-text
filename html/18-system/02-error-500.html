@@ -3,39 +3,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>500 - Server xatosi | QULAY CHAT</title>
+  <title>Tizim xatosi  QULAY CHAT</title>
   <meta name="robots" content="noindex, nofollow">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../assets/qulay-chat-design-system.css">  <link rel="stylesheet" href="../assets/system-pages.css">
-  <script src="https://unpkg.com/lucide@latest" defer></script>
-  <script src="../assets/system-interactions.js" defer></script>
+  <link rel="stylesheet" href="../assets/css/qulay-chat-design-system.css">
+  <link rel="stylesheet" href="../assets/system-pages.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body class="system-page">
   <main class="system-page" role="main">
     <div class="system-shell" style="max-width:640px;">
-      <div class="system-brand"><a class="shell-brand" href="../index.html"><span class="shell-brand-mark">QC</span><span>QULAY CHAT</span></a></div>
-      <section class="system-card" style="gap:20px;">
-        <div class="system-illustration" aria-hidden="true"><i data-lucide="server-crash"></i></div>
-        <div class="error-code danger" aria-label="Error code 500">500</div>
-        <h1>Nimadir xato ketdi</h1>
-        <p class="text-muted" style="max-width:48ch;text-align:center;">Ichki server muammosi yuz berdi. Muammo ustida ishlayapmiz. Iltimos, biroz kuting va qaytadan urinib ko'ring.</p>
+      <div class="system-brand">
+        <a class="shell-brand" href="../index.html"><span class="shell-brand-mark">QC</span><span>QULAY CHAT</span></a>
+      </div>
 
-        <div class="card" style="max-width:520px;width:100%;background:#FFFBEB;border-color:#FDE68A;">
-          <div class="card-body flex gap-2 items-start">
-            <i data-lucide="alert-circle" style="color:#F59E0B"></i>
-            <div class="text-muted" style="font-size:14px;">Tizim holati: barcha xizmatlar ishlamoqda. Muammo tez orada hal qilinadi.</div>
-          </div>
-        </div>
+      <section class="system-card" style="gap:20px;">
+        <div class="system-illustration" aria-hidden="true"><i data-lucide="server"></i></div>
+        <div class="error-code danger" aria-label="Error code 500">500</div>
+        <h1>Tizim xatosi</h1>
+        <p class="text-muted" style="max-width:48ch;text-align:center;">Serverda xatolik yuz berdi. Iltimos, keyinroq qaytib keling</p>
 
         <div class="system-actions">
-          <button type="button" class="btn btn-primary" data-system-reload><i data-lucide="refresh-cw"></i>Sahifani yangilash</button>
-          <a class="btn btn-secondary" href="../index.html"><i data-lucide="home"></i>Bosh sahifaga qaytish</a>
+          <a class="btn btn-primary" href="../index.html">
+            <i data-lucide="home"></i> Bosh sahifa
+          </a>
+          <a class="btn btn-secondary" href="../04-dashboard/01-dashboard.html">
+            <i data-lucide="layout-dashboard"></i> Dashboard
+          </a>
+          <button class="btn btn-ghost" type="button" data-system-back>
+            <i data-lucide="arrow-left"></i> Orqaga
+          </button>
+          <a class="btn btn-ghost" href="../21-help-support/03-submit-ticket.html">
+            <i data-lucide="help-circle"></i> Muammo haqida xabar berish
+          </a>
         </div>
       </section>
     </div>
   </main>
-  <script>window.addEventListener('DOMContentLoaded',()=>window.lucide&&window.lucide.createIcons&&window.lucide.createIcons());</script>
+  <script>lucide.createIcons();</script>
 </body>
 </html>

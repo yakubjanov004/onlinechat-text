@@ -17,13 +17,22 @@
 <script src="../assets/developer-interactions.js" defer>
 </script>
 </head>
-<body data-active-nav="developer" class="dashboard-shell-page">
+<body data-active-nav="developer" data-shell-role="admin" class="dashboard-shell-page">
 <main class="app-content">
-<div class="subnav-scroll">
-<div class="subnav-tabs">
-<a class="subnav-tab" href="./01-api-keys.html">Developer API</a><a class="subnav-tab active" href="./02-webhooks.html">Webhooks</a><a class="subnav-tab" href="./03-logs.html">Webhook Logs</a><a class="subnav-tab" href="./04-api-usage.html">API Usage</a><a class="subnav-tab" href="./05-sandbox.html">Sandbox</a>
-</div>
-</div>
+<nav class="breadcrumbs">
+  <a href="../04-dashboard/01-dashboard.html">Dashboard</a>
+  <span class="separator">›</span>
+  <a href="./01-api-keys.html">Developer</a>
+  <span class="separator">›</span>
+  <span class="current">Webhooklar</span>
+</nav>
+<nav class="subnav-tabs" aria-label="Developer sahifalari">
+  <a class="tab" href="./01-api-keys.html">API kalitlari</a>
+  <a class="tab active" href="./02-webhooks.html">Webhooklar</a>
+  <a class="tab" href="./03-logs.html">Loglar</a>
+  <a class="tab" href="./04-api-usage.html">API foydalanish</a>
+  <a class="tab" href="./05-sandbox.html">Sandbox</a>
+</nav>
 <div data-roles="agent" class="card" style="border-color:#FCD34D;background:#FFFBEB;margin-top:12px">
   <div class="card-body">
     <h3 style="margin:0 0 6px">Admin only</h3>
@@ -146,7 +155,7 @@
 </div>
 <div class="modal-footer">
 <button class="btn btn-secondary" data-modal-close>Bekor</button>
-<button class="btn btn-primary" data-webhook-save>Saqlash</button>
+<button class="btn btn-primary" data-action="save" data-webhook-save>Saqlash</button>
 </div>
 </div>
 </div>
@@ -169,6 +178,11 @@
 </div>
 </div>
 </div>
+<div class="toast" data-toast="webhook-test" hidden>
+  <span class="toast-message">Webhook test muvaffaqiyatli yuborildi!</span>
+  <button class="btn btn-ghost btn-sm" data-toast-close><i data-lucide="x"></i></button>
+</div>
+<p style="margin-top:16px"><a href="../16-addons/05-developer-sdk.html">Add-ons SDK hujjatlari →</a></p>
 </div>
 </main>
 <script>window.addEventListener('DOMContentLoaded',()=>window.lucide&&window.lucide.createIcons&&window.lucide.createIcons());</script>

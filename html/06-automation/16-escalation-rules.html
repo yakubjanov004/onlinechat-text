@@ -11,63 +11,108 @@
     <script src="https://unpkg.com/lucide@latest" defer></script>
     <script src="../assets/qulay-chat-shell.js" defer></script>
     <script src="../assets/qulay-chat-runtime.js" defer></script>
+    <script src="../assets/automation-advanced.js" defer></script>
   </head>
   <body data-active-nav="automation" class="dashboard-shell-page">
     <main class="app-content">
-      <div class="subnav-scroll"><div class="subnav-tabs"><a class="subnav-tab" href="./01-working-hours.html">Working Hours</a><a class="subnav-tab" href="./02-auto-reply.html">Auto Reply</a><a class="subnav-tab" href="./03-triggers.html">Triggers</a><a class="subnav-tab" href="./04-greetings.html">Greetings</a><a class="subnav-tab" href="./05-chatbot-builder.html">Chatbot Builder</a><a class="subnav-tab" href="./06-chatbot-templates.html">Chatbot Templates</a><a class="subnav-tab" href="./07-routing-rules.html">Routing Rules</a><a class="subnav-tab" href="./08-chatbot-flow-editor.html">Chatbot Flow Editor</a><a class="subnav-tab" href="./09-chatbot-testing.html">Chatbot Testing</a><a class="subnav-tab" href="./10-chatbot-analytics.html">Chatbot Analytics</a><a class="subnav-tab" href="./11-chatbot-variables.html">Chatbot Variables</a><a class="subnav-tab" href="./12-workflow-builder.html">Workflow Builder</a><a class="subnav-tab" href="./13-auto-tagging.html">Auto Tagging</a><a class="subnav-tab" href="./14-auto-assignment.html">Auto Assignment</a><a class="subnav-tab" href="./15-sla-rules.html">SLA Rules</a><a class="subnav-tab active" href="./16-escalation-rules.html">Escalation Rules</a><a class="subnav-tab" href="./17-business-rules.html">Business Rules</a><a class="subnav-tab" href="./18-scheduled-messages.html">Scheduled Messages</a></div></div>
+                  <nav class="subnav-tabs" aria-label="Automation sahifalari">
+        <a class="tab" href="./01-working-hours.html">Ish vaqtlari</a>
+        <a class="tab" href="./02-auto-reply.html">Auto javob</a>
+        <a class="tab" href="./03-triggers.html">Triggerlar</a>
+        <a class="tab" href="./04-greetings.html">Salomlashuvlar</a>
+        <a class="tab" href="./05-chatbot-builder.html">Chatbot Builder</a>
+        <a class="tab" href="./06-chatbot-templates.html">Chatbot shablonlari</a>
+        <a class="tab" href="./07-routing-rules.html">Routing qoidalari</a>
+        <a class="tab" href="./08-chatbot-flow-editor.html">Flow Editor</a>
+        <a class="tab" href="./09-chatbot-testing.html">Chatbot test</a>
+        <a class="tab" href="./10-chatbot-analytics.html">Chatbot analitika</a>
+        <a class="tab" href="./11-chatbot-variables.html">O'zgaruvchilar</a>
+        <a class="tab" href="./12-workflow-builder.html">Workflow Builder</a>
+        <a class="tab" href="./13-auto-tagging.html">Auto tagging</a>
+        <a class="tab" href="./14-auto-assignment.html">Auto tayinlash</a>
+        <a class="tab" href="./15-sla-rules.html">SLA qoidalari</a>
+        <a class="tab active" href="./16-escalation-rules.html">Eskalatsiya</a>
+        <a class="tab" href="./17-business-rules.html">Biznes qoidalar</a>
+        <a class="tab" href="./18-scheduled-messages.html">Rejalashtirilgan xabarlar</a>
+      </nav>
+                  <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <a href="../04-dashboard/01-dashboard.html">Dashboard</a>
+        <span class="separator"></span>
+        <a href="./01-working-hours.html">Automation</a>
+        <span class="separator"></span>
+        <span class="current">Eskalatsiya</span>
+      </nav>
+      <div data-roles="agent" class="card" style="border-color:#FCD34D;background:#FFFBEB;margin-top:12px;">
+        <div class="card-body">
+          <h3 style="margin:0 0 6px;">Admin only</h3>
+          <p class="text-muted" style="margin:0 0 12px;">Bu bo'lim faqat adminlar uchun. Davom etish uchun agent dashboardga qayting.</p>
+          <a class="btn btn-secondary" href="../04-dashboard/02-dashboard-agent.html">Agent dashboardga qaytish</a>
+        </div>
+      </div>
       <div data-roles="admin">
-        <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../04-dashboard/01-dashboard.html">Dashboard</a><i data-lucide="chevron-right"></i><a href="./01-working-hours.html">Automation</a><i data-lucide="chevron-right"></i><span class="current">Escalation Rules</span></nav>
-        <div class="page-header"><div><h1>Escalation Rules</h1><p class="text-muted">Muddati o‘tgan chatlarni avtomatik eskalatsiya qilish.</p></div><div class="page-header-actions"><a class="btn btn-secondary" href="./15-sla-rules.html"><i data-lucide="arrow-left"></i> SLA Rules</a><a class="btn btn-primary" href="./17-business-rules.html">Business Rules <i data-lucide="arrow-right"></i></a></div></div>
+        <div class="page-header">
+          <div>
+            <h1>Escalation Rules</h1>
+            <p class="text-muted">Eskalatsiya triggerlari, vaqt chegarasi va actionlar boshqaruvi.</p>
+          </div>
+          <div class="page-header-actions">
+            <button class="btn btn-primary" type="button" data-modal-open="escalation-modal"><i data-lucide="plus"></i> Yangi eskalatsiya</button>
+          </div>
+        </div>
 
-        <section class="grid cols-3" style="margin-bottom:14px">
-          <article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">Active rules</p><h3 style="margin:0">18</h3></div></article>
-          <article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">Success rate</p><h3 style="margin:0">96.4%</h3></div></article>
-          <article class="card"><div class="card-body"><p class="text-muted" style="margin:0 0 6px">Last update</p><h3 style="margin:0">Bugun 16:58</h3></div></article>
-        </section>
-
-        <section class="split-grid" style="margin-bottom:14px">
-          <article class="card">
-            <div class="card-header"><h3>Asosiy boshqaruv</h3></div>
-            <div class="card-body">
-              <label>Primary setting<input class="input" value="Enabled" /></label>
-              <label style="margin-top:10px;display:block">Secondary setting<input class="input" value="Configured" /></label>
-              <div class="flex gap-2 wrap" style="margin-top:12px">
-                <button class="btn btn-secondary" type="button"><i data-lucide="flask-conical"></i> Test run</button>
-                <button class="btn btn-primary" type="button"><i data-lucide="save"></i> Saqlash</button>
-              </div>
-            </div>
-          </article>
-          <article class="card">
-            <div class="card-header"><h3>Checklist</h3></div>
-            <div class="card-body">
-              <div class="list-stack">
-                <div class="list-item"><div class="item-main"><div class="item-title">Rule validation</div></div><span class="badge badge-success">OK</span></div>
-                <div class="list-item"><div class="item-main"><div class="item-title">Fallback policy</div></div><span class="badge badge-primary">Active</span></div>
-                <div class="list-item"><div class="item-main"><div class="item-title">Rate-limit check</div></div><span class="badge badge-warning">Review</span></div>
-              </div>
-            </div>
-          </article>
-        </section>
-
-        <section class="card" style="margin-bottom:14px">
-          <div class="card-header"><h3>So‘nggi faoliyat</h3></div>
+        <section class="card" style="margin-bottom:14px;">
+          <div class="card-header"><h3>Eskalatsiya jadvali</h3></div>
           <div class="card-body">
-            <div class="table-wrap">
-              <table class="table">
-                <thead class="table-header"><tr><th>Vaqt</th><th>Event</th><th>Holat</th><th>Mas’ul</th></tr></thead>
-                <tbody>
-                  <tr class="table-row"><td>16:58</td><td>Rule saved</td><td><span class="badge badge-success">Done</span></td><td>Jahongir</td></tr>
-                  <tr class="table-row"><td>16:52</td><td>Test executed</td><td><span class="badge badge-primary">Pass</span></td><td>Dilnoza</td></tr>
-                  <tr class="table-row"><td>16:44</td><td>Condition updated</td><td><span class="badge badge-warning">Review</span></td><td>Madina</td></tr>
-                </tbody>
-              </table>
-            </div>
+            <table class="table">
+              <thead><tr><th>Trigger</th><th>Vaqt chegarasi</th><th>Action</th><th>Kimga</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td>First response buzildi</td><td>5 min</td><td>Slack alert</td><td>Team Lead</td><td><span class="badge badge-success">Active</span></td></tr>
+                <tr><td>Resolve time buzildi</td><td>30 min</td><td>Reassign</td><td>Senior Agent</td><td><span class="badge badge-success">Active</span></td></tr>
+                <tr><td>3 marta transfer</td><td>Immediate</td><td>Manager alert</td><td>Manager</td><td><span class="badge badge-warning">Paused</span></td></tr>
+              </tbody>
+            </table>
           </div>
         </section>
 
-        <div class="sticky-save-bar"><a class="btn btn-secondary" href="./15-sla-rules.html">Oldingi sahifa</a><a class="btn btn-primary" href="./17-business-rules.html">Keyingi sahifa</a></div>
+        <section class="split-grid" style="margin-bottom:14px;">
+          <article class="card">
+            <div class="card-header"><h3>Eskalatsiya chain</h3></div>
+            <div class="card-body" style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
+              <div class="badge badge-info" style="padding:10px 12px;">Level 1: Agent</div>
+              <i data-lucide="arrow-right"></i>
+              <div class="badge badge-warning" style="padding:10px 12px;">Level 2: Senior</div>
+              <i data-lucide="arrow-right"></i>
+              <div class="badge badge-danger" style="padding:10px 12px;">Manager</div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-header"><h3>Notification template</h3></div>
+            <div class="card-body">
+              <label class="field"><span class="label">Template</span><select class="select"><option>SLA breach - short</option><option>SLA breach - detailed</option><option>VIP urgent escalation</option></select></label>
+              <label class="field"><span class="label">Kanal</span><select class="select"><option>Email + Slack</option><option>Slack only</option><option>Email only</option></select></label>
+            </div>
+          </article>
+        </section>
+
+        <div class="modal-overlay" data-modal="escalation-modal" hidden>
+          <div class="modal" role="dialog" aria-modal="true" aria-labelledby="esc-title">
+            <div class="modal-header"><h3 id="esc-title">Yangi eskalatsiya qoida</h3><button class="btn btn-ghost btn-sm" type="button" data-modal-close><i data-lucide="x"></i></button></div>
+            <div class="modal-body">
+              <label class="field"><span class="label">Trigger</span><select class="select"><option>First response timeout</option><option>Resolve timeout</option><option>Transfer count</option></select></label>
+              <label class="field"><span class="label">Vaqt chegarasi</span><input class="input" placeholder="10 min" /></label>
+              <label class="field"><span class="label">Action</span><select class="select"><option>Alert</option><option>Reassign</option><option>Email</option></select></label>
+              <label class="field"><span class="label">Kimga</span><input class="input" placeholder="Team Lead" /></label>
+            </div>
+            <div class="modal-footer"><button class="btn btn-secondary" type="button" data-modal-close>Bekor qilish</button><button class="btn btn-primary" type="button" data-modal-close>Saqlash</button></div>
+          </div>
+        </div>
       </div>
     </main>
-    <script>window.addEventListener("DOMContentLoaded",function(){if(window.lucide&&window.lucide.createIcons)window.lucide.createIcons();});</script>
+    <script>
+      window.addEventListener("DOMContentLoaded", function () {
+        if (window.lucide && window.lucide.createIcons) window.lucide.createIcons();
+      });
+    </script>
   </body>
 </html>
